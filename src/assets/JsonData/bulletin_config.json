@@ -1,0 +1,15 @@
+{
+    "version": "2023010401",
+    "need_show": false,
+    "bulletin": "bulletin.content",
+    "hot_events":[
+        {
+            "name":"bulletin.hot-events.no1",
+            "url":"https://metaforo.io/g/digitdao?filter=proposals"
+        },
+        {
+            "name":"bulletin.hot-events.no2",
+            "url":""
+        }
+    ]
+}

@@ -18,6 +18,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <span className='text-lg text-[#00aa00]'>11111</span>
     </div>
   );
 }

@@ -1,0 +1,22 @@
+.layout {
+    color: var(--txt-color);
+}
+
+.layout__content {
+    /*padding-left: var(--sidebar-width);*/
+    background-color: var(--main-bg);
+    min-height: 100vh;
+
+    /*当尺寸变化时淡入淡出效果*/
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -ms-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+    visibility: 1;
+    opacity: 1;
+}
+
+.layout__content-main {
+    padding: 12px;
+}

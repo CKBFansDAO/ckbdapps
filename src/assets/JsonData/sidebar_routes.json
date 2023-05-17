@@ -1,0 +1,22 @@
+[
+    {
+        "display_name": "nav.home",
+        "route": "/",
+        "icon": "fa-solid fa-house fa-sm sidebar_mr_10px"
+    },
+    {
+        "display_name": "nav.halving",
+        "route": "/halving",
+        "icon": "fa-solid fa-hourglass-start fa-sm sidebar_mr_10px"
+    },
+    {
+        "display_name": "nav.dapps",
+        "route": "/dapps",
+        "icon": "fa-solid fa-magnifying-glass fa-sm sidebar_mr_10px"
+    },
+    {
+        "display_name": "nav.ecosystem",
+        "route": "/ecosystem",
+        "icon": "fa-solid fa-magnifying-glass fa-sm sidebar_mr_10px"
+    }
+]

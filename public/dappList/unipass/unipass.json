@@ -1,0 +1,22 @@
+{
+    "project_name": "UniPass",
+    "path_name":"unipass",
+    "categories": ["DID", "Wallet"],
+    "logo_file": "unipass.ico",
+    "links":{
+        "official":"https://did.id",
+        "twitter":"https://twitter.com/dotbitHQ",
+        "discord":"https://discord.gg/did",
+        "github":"https://github.com/dotbitHQ" 
+    },
+    "en": {   
+        "project_summary":"",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh": {   
+        "project_summary":"",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

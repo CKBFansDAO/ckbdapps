@@ -1,0 +1,22 @@
+{
+    "project_name": "Nervape",
+    "path_name":"nervape",
+    "categories": ["NFT", "L1"],
+    "logo_file": "nervape.jpeg",
+    "links":{
+        "official":"https://nervape.com",
+        "twitter":"https://twitter.com/dotbitHQ",
+        "discord":"https://discord.gg/did",
+        "github":"https://github.com/dotbitHQ" 
+    },
+    "en": {   
+        "project_summary":"A Metaverse with an ongoing Story and 3D NFTs Shaped by the Community.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh": {   
+        "project_summary":"A Metaverse with an ongoing Story and 3D NFTs Shaped by the Community.",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

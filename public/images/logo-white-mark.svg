@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="210px" height="32px" viewBox="0 0 210 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo_Ckbdapps@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ckbdapps_home" transform="translate(-45.000000, -40.000000)">
+            <g id="logo_Ckbdapps" transform="translate(45.000000, 40.000000)">
+                <text id="CKBDAPPS" font-family="ZenDots-Regular, Zen Dots" font-size="20" font-weight="normal" line-spacing="20" letter-spacing="1">
+                    <tspan x="55" y="27" fill="#FFFFFF">CKB</tspan>
+                    <tspan x="112.32" y="27" fill="#733DFF">DAPPS</tspan>
+                </text>
+                <g id="logo1">
+                    <polygon id="矩形" fill="#FFFFFF" points="0 0 32 0 32 8 8 8 8 24 32 24 32 32 0 32"></polygon>
+                    <rect id="矩形" fill="#733DFF" x="32" y="8" width="8" height="16"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

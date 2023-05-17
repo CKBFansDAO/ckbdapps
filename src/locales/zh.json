@@ -1,0 +1,60 @@
+{
+  "translation": {
+    "common": {
+      "slogan":"One-Stop Exploring of Nervos Ecosystem"
+    },
+    "theme":{
+      "dark":"Dark",
+      "light":"Light"
+    },
+    "toast": {
+      
+    },
+    "alert": {
+      "yes":"YES",
+      "cancel":"Cancel",
+      "ok":"OK"
+    },
+    "bulletin":{
+      "content":"",
+      "hot-events":{
+        "title":"🔥TOP EVENT:",
+        "no1":"",
+        "no2":""
+      }
+    },
+    "nav": {
+      "home": "概览",
+      "dapps": "Dapps",
+      "ecosystem":"生态系统",
+      "halving": "CKB减半",
+      "about-us": "关于我们"
+    },
+    "page-title": {
+      "home":"CKBdapps, One-Stop Exploring of Nervos Ecosystem",
+      "dapps":"CKB dapps",
+      "ecosystem":"CKB ecosystem",
+      "halving":"CKB halving",
+      "about-us":"About us"
+    },
+    "home": {
+      
+    },
+    "halving": { 
+      "seconds":"秒",
+      "minutes":"分钟",  
+      "hours":"小时",
+      "days":"天",
+      "years":"年",
+      "title":"CKB减半倒计时",
+      "top-tips":"预计即将到来的减半事件发生在"
+    },
+    "about-us": {
+      
+    },
+    "footer": {
+      "feedback":"反馈",
+      "followus":"关注我们"
+    }
+  }
+}

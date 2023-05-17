@@ -1,0 +1,24 @@
+{
+    "dappList": [
+        {
+            "project_name": ".bit",
+            "path_name":"dotbit",
+            "config_file": "dotbit.json"
+        },
+        {
+            "project_name": "UniPass",
+            "path_name":"unipass",
+            "config_file": "unipass.json"
+        },
+        {
+            "project_name": "YokaiSwap",
+            "path_name":"yokaiswap",
+            "config_file": "yokaiswap.json"
+        },
+        {
+            "project_name": "Nervape",
+            "path_name":"nervape",
+            "config_file": "nervape.json"
+        }
+    ]
+}
