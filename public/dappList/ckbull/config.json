@@ -1,0 +1,25 @@
+{
+    "project_name": "CKBull",
+    "path_name":"ckbull",
+    "categories": ["Wallet", "L1"],
+    "logo_file": "ckbull-logo.png",
+    "hero_image":"ckbull-hero.png",
+    "links":{
+        "official":"https://ckbull.app",
+        "twitter":"https://twitter.com/CKBull_Wallet",
+        "discord":"",
+        "telegram":"https://t.co/Bp9BEjF7N4",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"A wallet EASIEST WAY TO ACCESS YOUR $CKB AND ASSETS ON THE NERVOS NETWORK",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"A wallet EASIEST WAY TO ACCESS YOUR $CKB AND ASSETS ON THE NERVOS NETWORK。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

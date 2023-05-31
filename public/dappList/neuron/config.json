@@ -1,0 +1,24 @@
+{
+    "project_name": "Neuron",
+    "path_name":"neuron",
+    "categories": ["Wallet", "L1"],
+    "logo_file": "neuron-logo.png",
+    "hero_image":"neuron-hero.png",
+    "links":{
+        "official":"https://github.com/nervosnetwork/neuron/releases",
+        "twitter":"https://twitter.com/NervosNetwork",
+        "discord":"https://discord.com/invite/pxZJpJPJBH",
+        "github":"https://github.com/nervosnetwork/neuron",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"A CKB wallet produced by the Nervos Foundation",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.nervos.org/docs/basics/guides/crypto wallets/neuron/"
+    },
+    "zh_CN": {   
+        "project_summary":"A CKB wallet produced by the Nervos Foundation",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.nervos.org/docs/basics/guides/crypto wallets/neuron/ "  
+    } 
+}

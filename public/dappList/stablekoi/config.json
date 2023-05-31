@@ -1,0 +1,24 @@
+{
+    "project_name": "StableKoi",
+    "path_name":"stablekoi",
+    "categories": ["DeFi", "L2"],
+    "logo_file": "stablekoi-logo.png",
+    "hero_image":"stablekoi-hero.jpeg",
+    "links":{
+        "official":"https://stablekoi.com",
+        "twitter":"https://twitter.com/stablekoi",
+        "discord":"https://discord.gg/NYNf9ATw8c",
+        "github":"",
+        "medium":"https://medium.com/@stablekoi" 
+    },
+    "en_US": {   
+        "project_summary":"Cross-chain stable swap on Nervos Network, providing the liquid foundation for stablecoins.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Cross-chain stable swap on Nervos Network, providing the liquid foundation for stablecoins.",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

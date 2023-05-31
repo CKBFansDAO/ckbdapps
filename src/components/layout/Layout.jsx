@@ -5,9 +5,9 @@ import { changeLanguage, currentLanguage, i18n } from '../../utils/i18n'
 
 import './layout.css'
 
-import Sidebar from '../sidebar/Sidebar'
-import Bulletin from '../bulletin/Bulletin'
-import PageRoutes from '../PageRoutes'
+//import Sidebar from '../sidebar/Sidebar'
+//import Bulletin from '../bulletin/Bulletin'
+//import PageRoutes from '../PageRoutes'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 

@@ -11,7 +11,7 @@ const MainPage = (props) => {
     console.log(props)
     return (<div className=''>
         {console.log(222)}
-        <div className='sidebar w-0 md:w-[260px] bg-black'>
+        <div className='sidebar hidden md:block w-0 md:w-[260px] bg-[#1C1C23]'>
             <Sidebar {...props}/>
         </div>
         <div className="layout__content pl-0 md:pl-[260px] flex flex-col">

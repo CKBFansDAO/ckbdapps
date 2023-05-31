@@ -8,6 +8,7 @@ import Halving from '../pages/Halving'
 import NotFound from '../pages/NotFound'
 import Ecosystem from '../pages/Ecosystem'
 
+
 const PageRoutes = () => {
     return (
         <Routes>

@@ -61,10 +61,11 @@ const HalvingFireworks = () => {
   }, [intervalId]);
 
   useEffect(() => {
+    startAnimation();
     return () => {
-      clearInterval(intervalId);
+      //clearInterval(intervalId);
     };
-  }, [intervalId]);
+  }, [/*intervalId*/]);
 
   return (
     <>

@@ -2,23 +2,86 @@
     "dappList": [
         {
             "project_name": ".bit",
-            "path_name":"dotbit",
-            "config_file": "dotbit.json"
+            "path_name": "dotbit",
+            "categories": [
+                "DID",
+                "L1"
+            ]
+        },
+        {
+            "project_name": "JoyID",
+            "path_name": "joyid",
+            "categories": [
+                "L1",
+                "Wallet",
+                "DID"
+            ]
         },
         {
             "project_name": "UniPass",
-            "path_name":"unipass",
-            "config_file": "unipass.json"
+            "path_name": "unipass",
+            "categories": [
+                "DID",
+                "L1"
+            ]
         },
         {
             "project_name": "YokaiSwap",
-            "path_name":"yokaiswap",
-            "config_file": "yokaiswap.json"
+            "path_name": "yokaiswap",
+            "categories": [
+                "DeFi",
+                "L2"
+            ]
         },
         {
             "project_name": "Nervape",
-            "path_name":"nervape",
-            "config_file": "nervape.json"
+            "path_name": "nervape",
+            "categories": [
+                "NFT",
+                "L1",
+                "L2"
+            ]
+        },
+        {
+            "project_name": "CKBull",
+            "path_name": "ckbull",
+            "categories": [
+                "Wallet",
+                "L1"
+            ]
+        },
+        {
+            "project_name": "Hadouken",
+            "path_name": "hadouken",
+            "categories": [
+                "DeFi",
+                "L2",
+                "Bridges"
+            ]
+        },
+        {
+            "project_name": "Neuron",
+            "path_name": "neuron",
+            "categories": [
+                "Wallet",
+                "L1"
+            ]
+        },
+        {
+            "project_name": "Stablekoi",
+            "path_name": "stablekoi",
+            "categories": [
+                "DeFi",
+                "L2"
+            ]
+        },
+        {
+            "project_name": "ForceBridge",
+            "path_name": "forcebridge",
+            "categories": [
+                "Bridges",
+                "L1"
+            ]
         }
     ]
 }

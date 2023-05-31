@@ -22,7 +22,7 @@ let gBaseEpochBlockInfo = new Map();
 let gPrevHalvingBlockInfo = new Map();
 
 // 
-const useCKBHalving = () =>{
+const useCKBHalving = () => {
     const [tipHeader, setTipHeader] = useState({
         dao: 0,
         epoch: {
@@ -30,23 +30,23 @@ const useCKBHalving = () =>{
             length: 0,
             number: 0
         },
-        number:0,
+        number: 0,
         timestamp: 0
     });
     const [prevHalvingTime, setPrevHalvingTime] = useState();
 
-    const getTipHeader = async ()  => {
+    const getTipHeader = async () => {
         const tipHeader = await rpc.getTipHeader();
-        console.log(tipHeader);    
+        console.log(tipHeader);
         const curEpoch = parseEpoch(tipHeader.epoch);
         console.log(curEpoch);
-    /*    const res = {    
-            epoch: curEpoch,
-            number:BI.from(tipHeader.number).toNumber(),
-            timestamp: BI.from(tipHeader.timestamp).toNumber()
-        };
-        setTipHeader(res);
-*/
+        /*    const res = {    
+                epoch: curEpoch,
+                number:BI.from(tipHeader.number).toNumber(),
+                timestamp: BI.from(tipHeader.timestamp).toNumber()
+            };
+            setTipHeader(res);
+    */
         return curEpoch;
     }
 
@@ -104,55 +104,66 @@ const useCKBHalving = () =>{
         return undefined;
     }
 
+    const parseDAO = (data) => {
+        //data = 0x7234aae1a5119e4947929146a2af2700f9078b2209b927050050af6b94753307
+        let dataString = data;
+        let res = dataString.slice(2)
+            .match(/\w{16}/g)
+            .map(value => '0x' + value.match(/\w{2}/g).reverse().join(''))
+            .map(value => BI.from(value).toBigInt())
+
+        return res;
+    }
+
     const { data: result, isLoading, isError } = useQuery(
         ["ckbhalving"], async () => {
             //const tipHeader = await getTipHeader();
             const tipHeader = await rpc.getTipHeader();
-        
+
             const curEpoch = parseEpoch(tipHeader.epoch);
-            console.log(curEpoch);
+            //console.log(curEpoch);
+
+            const dao = parseDAO(tipHeader.dao);
+            //console.log(dao);
 
             const prevHalvingBlockInfo = await getPrevHalvingBlockInfo(curEpoch.number);
-            console.log(prevHalvingBlockInfo);
+            //console.log(prevHalvingBlockInfo);
             if (prevHalvingBlockInfo) {
                 setPrevHalvingTime(BI.from(prevHalvingBlockInfo.timestamp).toNumber());
             }
-            console.log(prevHalvingTime);
-            
+            //console.log(prevHalvingTime);
+
             // Calculate the time spent on the latest 1000 epochs.
             const t0Epoch = await getEpochStartBlock(curEpoch.number - EVERY_EPOCH_TIME_INTERVAL);
-            console.log(t0Epoch);
+            //console.log(t0Epoch);
 
             let subTime = (BI.from(tipHeader.timestamp).toNumber() - BI.from(t0Epoch.timestamp).toNumber())
-            console.log(subTime);
+            //console.log(subTime);
             let curEpochProgress = curEpoch.index / curEpoch.length;
-            
+
             let avgEpochTime = subTime / (EVERY_EPOCH_TIME_INTERVAL + curEpochProgress);
-            console.log(avgEpochTime);
+            //console.log(avgEpochTime);
 
             // Calculate the target epoch.
             const targetEpoch = getNextHalvingEpoch(curEpoch.number);
 
             // Calculate the duration and time of the target epoch.
             const targetDuration = Math.floor((targetEpoch - (curEpoch.number + curEpochProgress)) * avgEpochTime); // Time until epoch in milliseconds.
-            console.log(targetDuration);
-            console.log(BI.from(tipHeader.timestamp).toNumber());
-            console.log(Date.now());
+            
             //const targetTime = Date.now() + targetDuration; // Date in the future when the epoch will occur.
             const targetTime = BI.from(tipHeader.timestamp).toNumber() + targetDuration; // Date in the future when the epoch will occur.
-            console.log(targetTime);
-            
+
             return {
                 curEpoch,
                 estimatedHalvingTime: targetTime
             }
-        },{
-            staleTime: 6 * 1000, // 1 minute
-            refetchInterval: 6 * 1000, // 1 minute
-        });
-    
+        }, {
+        staleTime: 6 * 1000, // 1 minute
+        refetchInterval: 6 * 1000, // 1 minute
+    });
+
     return { data: result, isLoading, isError };
-    
+
 }
 
 export default useCKBHalving;

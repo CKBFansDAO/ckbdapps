@@ -1,0 +1,24 @@
+{
+    "project_name": "Hadouken",
+    "path_name":"hadouken",
+    "categories": ["DeFi", "L2", "Bridges"],
+    "logo_file": "Hadouken-logo.png",
+    "hero_image":"hadouken-hero.jpeg",
+    "links":{
+        "official":"https://hadouken.finance/",
+        "twitter":"https://twitter.com/HadoukenFinance",
+        "discord":"https://discord.com/invite/pxZJpJPJBH",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"Enjoy the Best of DeFi with Unparalleled Capital Efficiency",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Enjoy the Best of DeFi with Unparalleled Capital Efficiency",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

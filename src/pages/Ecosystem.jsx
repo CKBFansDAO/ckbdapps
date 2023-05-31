@@ -1,145 +1,91 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next'
 import { currentLanguage } from '../utils/i18n';
-
-const link_icon_config = {
-    "official":{
-        "icon_class":"fa-solid fa-globe",
-    },
-    "twitter":{
-        "icon_class":"fa-brands fa-twitter",
-    },
-    "discord":{
-        "icon_class":"fa-brands fa-discord",
-    },
-    "telegram":{
-        "icon_class":"fa-brands fa-telegram",
-    },
-    "github":{
-        "icon_class":"fa-brands fa-github",
-    },
-    "medium":{
-        "icon_class":"fa-brands fa-medium",
-    }
-}
-
-function AppList() {
-    const [appList, setAppList] = useState([]);
-
-    useEffect(() => {
-        fetch('../dappList/dapps_list.json')
-        .then(response => response.json())
-        .then(data => setAppList(data.dappList));
-    }, []);
-
-    return (
-        <div className='flex flex-row flex-wrap gap-6 justify-center'>
-        {appList.map((app, index) => (
-            <App key={`${app.project_name}-${index}`} config={app} />
-        ))}
-        </div>
-    );
-}
-
-function App({ config }) {
-    const [appConfig, setAppConfig] = useState({});
-    
-    console.log(config);
-    useEffect(() => {
-        fetch(`../dappList/${config.path_name}/${config.config_file}`)
-        .then(response => response.json())
-        .then(data => setAppConfig(data));
-    }, [config]);
-
-    const renderAppCategories = (categories) => {
-        return <div className='flex gap-2'>
-            {   
-                categories?.map((category, index) =>{
-                    return <span key={`${category}-${index}`} className='px-4 text-sm h-[25px] flex items-center rounded-full bg-[#EBEBEB]'>{category}</span>
-                })
-            }
-        </div>
-    }
-
-    const getAppLocaleConfig = (config_key) => {
-        const locale = currentLanguage();
-        if (appConfig[locale]) {
-            return appConfig[locale][config_key];
-        }
-
-        return '';
-    }
-
-    const renderAppLinks = () => {
-        console.log(appConfig);
-        if (!appConfig.links) {
-            return <></>
-        }
-        //
-        
-        let linkArr = [];
-        Object.entries(appConfig.links)?.forEach(([key, value])=> {
-            let linkObj = {
-                name: key,
-                url: value
-            };
-
-            if (linkObj.url) {
-                linkArr.push(linkObj);
-            }
-        })
-
-        return <div className='flex gap-2'>
-        {   
-            linkArr?.map((linkObj, index) => {
-               console.log(linkObj);
-               console.log(link_icon_config);
-               console.log(link_icon_config[linkObj.name]);
-               let icon_class = link_icon_config[linkObj.name].icon_class;
-                return <a key={`${linkObj.name}-${index}`} href={`${linkObj.url}`} target='_blank' className='h-6 w-6 bg-[#EBEBEB] pt-[11.5px] rounded-full flex justify-center'>
-                    <i className={`${icon_class} fa-sm`}></i>
-                </a>
-            })
-        }
-    </div>
-    }
-
-    return (
-        <div className='w-full md:w-[364px] hover:scale-105 transform-gpu p-5 gap-5 rounded-xl flex flex-col border-[#EFEFEF] shadow-[0_2px_10px_0_rgba(0,0,0,0.2)]'>
-            <div className='flex  items-center'>
-                <img className='w-12 h-12 rounded-full' src={`../dappList/${appConfig.path_name}/${appConfig.logo_file}`}></img>
-                <div className='flex flex-col ml-2 grow'>
-                    <span className="text-base font-bold text-[25px]" >{appConfig.project_name}</span>
-                    <span className="text-base text-[#888888] font-thin" >{appConfig.project_name}</span>
-                </div>
-                <i className="fa-regular fa-heart"></i> 
-            </div>
-            <div className='flex'>
-                {renderAppCategories(appConfig.categories)}
-            </div>
-            <span className='text-sm h-10'>{getAppLocaleConfig('project_summary')}</span>
-            {renderAppLinks()}
-        </div>
-    );
-}
+import { ReactComponent as WarningIcon } from '../assets/images/icon-Warn@1x.svg';
+import { AppList } from '../components/ecosystem/AppList';
 
 const Ecosystem = () => {
 
     const [t] = useTranslation()
 
     const [appList, setAppList] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [categorySel, setCategorySel] = useState('all');
 
     useEffect(() => {
         fetch('../dappList/dapps_list.json')
-        .then(response => response.json())
-        .then(data => setAppList(data.dappList));
+            .then(response => response.json())
+            .then((data) => {
+                setAppList(data.dappList);
+                // collect categories   
+                //const allCategories = [...new Set(data.dappList.flatMap(item => item.categories))];
+                //setCategories(allCategories);
+
+                // 创建一个空对象用于统计每个 category 的应用数量
+                const categoryCounts = { 'all': 0 };
+                // 遍历 dappList 数组
+                data.dappList.forEach(item => {
+                    // 遍历当前应用的 categories 数组
+                    item.categories.forEach(category => {
+                        // 检查当前 category 是否已经存在于 categoryCounts 对象中
+                        if (category in categoryCounts) {
+                            // 如果已存在，则将对应 category 的计数加一
+                            categoryCounts[category]++;
+                        } else {
+                            // 如果不存在，则初始化对应 category 的计数为一
+                            categoryCounts[category] = 1;
+                        }
+                    });
+                    categoryCounts['all']++
+                });
+
+                setCategories(categoryCounts);
+            });
     }, []);
 
+    const renderRiskWarningBar = () => {
+        return (
+            <div className='flex flex-row w-full'>
+                <div className='flex flex-row items-center w-full p-1 justify-center bg-[#28C1B0] rounded-[5px] md:rounded-full'>
+                    <div>
+                        <WarningIcon className='h-7 ml-2 md:ml-5 w-5'></WarningIcon>
+                    </div>
+                    <div className='text-[14px] text-[#FFF] flex items-center px-3 font-semibold break-keep'>{t('ecosystem.risk-warning')}</div>
+                </div>
+            </div>
+        )
+    }
+
+    const renderCategories = () => {
+        return <div className='flex flex-wrap gap-2 text-sm'>
+            {Object.entries(categories).map(([category, count]) => (
+                <div key={category} className={`flex items-center ${categorySel === category ? 'bg-[#733DFF] text-white font-bold' : 'bg-[#C4C4C4] hover:bg-[#5727AE] text-black hover:text-white'} text-white rounded-[5px] px-2 md:px-5 py-1 md:py-2 cursor-pointer`}
+                    onClick={() => setCategorySel(category)}>
+                    <span className="mr-1">{category === 'all' ? t('ecosystem.all-projects') : category}</span>
+                    <span className="text-[10px]">({count})</span>
+                </div>
+            ))}
+        </div>
+    }
+
+    const filterProject = (category) => {
+        if (category === 'all' || !category) {
+            return appList;
+        }
+
+        // 使用 filter 方法筛选出属于指定类别的 Dapp
+        const filteredDapps = appList.filter((dapp) =>
+            dapp.categories.includes(category)
+        );
+
+        return filteredDapps;
+    }
 
     return (
-        <div className='p-4'>
-            <AppList></AppList>
-            
+        <div className='p-4 gap-6 flex flex-col'>
+            {renderRiskWarningBar()}
+            {renderCategories()}
+            <AppList appList={filterProject(categorySel)}></AppList>
         </div>
     )
 }

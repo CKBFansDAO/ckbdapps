@@ -11,8 +11,6 @@ import CountdownTimer from '../countdown/CountdownTimer';
 import CKBTipSummary from '../CKBTipSummary/CKBTipSummary';
 import useCKBTipHeader from '../../hooks/useCKBTipHeader';
 import { getNextHalvingEpoch } from '../../utils/helper';
-import Popup from '../popup/Popup';
-import Sidebar from '../sidebar/Sidebar';
 
 const HalvingContainer = (props) => {
 
@@ -71,23 +69,13 @@ const HalvingContainer = (props) => {
                 </div>
                 {renderTwitterShareLink()}
                 {renderClipboardShareLink()}
-                {  <div>  
-                    <button onClick={() => setShowPopup(true)}>分享</button>
-                    {showPopup && (
-                        <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}
-                            title={'标题'}>
-                            <h1>这是一个Popup</h1>
-                            <p>欢迎使用我们的Popup控件</p>
-                            <Sidebar></Sidebar>
-                        </Popup>
-                    )}      
-                </div>}
+                
             </div>
             <div className='grow'></div>
         </div>
     }
 
-    return (<div className='flex flex-col -m-3 md:-m-7'>
+    return (<div className='flex flex-col -mx-3 -mt-7 md:-mx-7'>
         <div className='bg-[url("../../assets/images/bg_head_halving.png")] bg-cover flex flex-col gap-10'>
             <span className='mt-14 w-full text-center text-[24px] md:text-[48px] text-white font-["Zen_Dots"]'>{t('halving.title')}</span>
             {renderHalvingTip()}
@@ -118,7 +106,7 @@ const HalvingContainer = (props) => {
                     <div className='flex flex-col w-[100px] text-center gap-2'>
                         <span className='text-sm whitespace-nowrap'>Genesis Epoch</span>
                         <span className='text-center bg-white rounded-full text-[#733DFF] font-bold'># 0</span>
-                        <span className='text-[#999999] text-sm text-center'>2019-11-16</span>
+                        <span className='text-[#999999] text-sm text-center'>2019/11/16</span>
                     </div>
                     <div className='flex grow items-center'>
                         <div className="w-[1px] h-12 border-dashed border-r border-black ml-2" />

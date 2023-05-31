@@ -49,6 +49,10 @@
       "title":"CKB Halving Countdown",
       "top-tips":"The next halving is estimated at"
     },
+    "ecosystem": {
+      "risk-warning":"BE ADVISED: We have not officially vetted or contacted these projects for proof. Do your own research before using any service in this open network.",
+      "all-projects":"All Projects"
+    },
     "about-us": {
       
     },

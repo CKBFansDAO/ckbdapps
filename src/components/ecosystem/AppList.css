@@ -1,0 +1,27 @@
+.category-dapp-img {
+    border-radius: 10px 10px 0px 0px;
+    transition: all 0.3s ease-in-out 0s;
+    overflow: hidden;
+    height: 212px;
+    width: 100;
+}
+.category-dapp-img::after {
+    content: "";
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    background: rgba(0,0,0,0.30);
+    /*background: linear-gradient(360deg, rgb(20, 21, 26) 0%, rgba(20, 21, 26, 0.75) 40.63%, rgba(20, 21, 26, 0) 100%);*/
+}
+
+.category-dapp-title {
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    padding: 0px 20px;
+}

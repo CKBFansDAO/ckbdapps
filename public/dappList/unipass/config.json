@@ -1,0 +1,24 @@
+{
+    "project_name": "UniPass",
+    "path_name":"unipass",
+    "categories": ["DID", "Wallet"],
+    "logo_file": "unipass-logo.ico",
+    "hero_image":"unipass-hero.png",
+    "links":{
+        "official":"https://did.id",
+        "twitter":"https://twitter.com/UniPassID",
+        "discord":"https://discord.gg/XaRMFW85Pg",
+        "github":"https://github.com/UniPassID",
+        "medium":"https://medium.com/@unipass"
+    },
+    "en_US": {   
+        "project_summary":"A Seedless and Gasless User Experience for Your Web3 Apps",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"A Seedless and Gasless User Experience for Your Web3 Apps",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

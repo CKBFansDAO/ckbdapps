@@ -49,6 +49,10 @@
       "title":"CKB减半倒计时",
       "top-tips":"预计即将到来的减半事件发生在"
     },
+    "ecosystem": {
+      "risk-warning":"BE ADVISED: We have not officially vetted or contacted these projects for proof. Do your own research before using any service in this open network.",
+      "all-projects":"所有项目"
+    },
     "about-us": {
       
     },

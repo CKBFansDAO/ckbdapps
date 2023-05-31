@@ -10,7 +10,7 @@ const Footer = (props) => {
     const footer_res_config = [
         {
             display_name:"footer.feedback",
-            link:"https://talk.nervos.org"
+            link:"https://talk.nervos.org/t/dis-ckbfans-ckbdapps-com-ckbfans-community-grant-proposal-ckbdapps-com/7004/29"
         },
         {
             display_name:"footer.followus",

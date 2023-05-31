@@ -1,0 +1,25 @@
+{
+    "project_name": "JoyID",
+    "path_name":"joyid",
+    "categories": ["L1","Wallet","DID"],
+    "logo_file": "joyid-logo.png",
+    "hero_image":"joyid-hero.jpeg",
+    "links":{
+        "official":"https://joy.id/",
+        "twitter":"https://twitter.com/joy_protocol",
+        "discord":"https://discord.gg/77MyakRKVB",
+        "telegram":"",
+        "github":"https://github.com/nervina-labs",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"Universal account protocol for Web3 mass-adoption",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Universal account protocol for Web3 mass-adoption",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

@@ -1,0 +1,24 @@
+{
+    "project_name": "ForceBridge",
+    "path_name":"forcebridge",
+    "categories": ["Bridges", "L1"],
+    "logo_file": "forcebridge-logo.png",
+    "hero_image":"forcebridge-hero.png",
+    "links":{
+        "official":"https://forcebridge.com/",
+        "twitter":"https://twitter.com/NervosNetwork",
+        "discord":"https://discord.com/invite/pxZJpJPJBH",
+        "github":"https://github.com/nervosnetwork/force-bridge",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"A cross-chain interoperability bridge between Nervos and other blockchain ecosystems.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://github.com/nervosnetwork/force-bridge/blob/main/docs/dapp-user-guide.md"
+    },
+    "zh_CN": {   
+        "project_summary":"A cross-chain interoperability bridge between Nervos and other blockchain ecosystems.",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

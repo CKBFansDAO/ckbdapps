@@ -2,7 +2,8 @@
     "project_name": ".bit",
     "path_name":"dotbit",
     "categories": ["DID", "L1"],
-    "logo_file": "dotbit.svg",
+    "logo_file": "dotbit-logo.svg",
+    "hero_image":"dotbit-hero.jpeg",
     "links":{
         "official":"https://did.id",
         "twitter":"https://twitter.com/dotbitHQ",
@@ -10,12 +11,12 @@
         "github":"https://github.com/dotbitHQ",
         "medium":"https://dotbit.medium.com/" 
     },
-    "en": {   
+    "en_US": {   
         "project_summary":"Cross-chain Web3 identities for you and your community.",
         "full_description_file":"full_description_en.md",
         "tutorial_link":""
     },
-    "zh": {   
+    "zh_CN": {   
         "project_summary":"Cross-chain Web3 identities for you and your community.",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
