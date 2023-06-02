@@ -1,0 +1,25 @@
+{
+    "project_name": "Via Wallet",
+    "path_name":"viawallet",
+    "categories": ["Wallet", "L1"],
+    "logo_file": "viawallet-logo.png",
+    "hero_image":"viawallet-hero.jpg",
+    "links":{
+        "official":"https://viawallet.com/",
+        "twitter":"https://twitter.com/viawallet",
+        "discord":"",
+        "telegram":"https://t.me/ViaWallet",
+        "github":"",
+        "medium":"https://medium.com/@ViaWallet" 
+    },
+    "en_US": {   
+        "project_summary":"A multi-crypto wallet supporting 46+ coins & 1 million+ tokens, and multi-wallet / assets / NFT management, DApp browser, swap, staking, etc.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"一个支持46种以上加密货币和100万个以上代币的多加密货币钱包，同时具备多钱包/资产/非同质化代币（NFT）管理、DApp浏览器、兑换、质押等功能。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

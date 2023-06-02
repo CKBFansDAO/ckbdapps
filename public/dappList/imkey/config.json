@@ -1,0 +1,25 @@
+{
+    "project_name": "imKey",
+    "path_name":"imkey",
+    "categories": ["Hardware Wallet", "L1"],
+    "logo_file": "imkey-logo.png",
+    "hero_image":"imkey-hero.webp",
+    "links":{
+        "official":"https://imkey.store/",
+        "twitter":"https://twitter.com/imKeyOfficial",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"imKey is a hardware wallet with a CC EAL6+ military-grade security chip, secret key offline storage, and Bluetooth connection. It is fully compatible with all imToken 2.0-supported digital assets, including Nervos CKB.  ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://vcrypto.substack.com/p/how-do-i-setup-and-configure-my-imkey"
+    },
+    "zh_CN": {   
+        "project_summary":"imKey 是一款硬件钱包，配备了CC EAL6+军用级安全芯片、秘钥离线存储和蓝牙连接。它与所有 imToken 2.0 支持的数字资产完全兼容，包括 Nervos CKB。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://vcrypto.substack.com/p/how-do-i-setup-and-configure-my-imkey"  
+    } 
+}

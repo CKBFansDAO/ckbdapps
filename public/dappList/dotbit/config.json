@@ -14,11 +14,11 @@
     "en_US": {   
         "project_summary":"Cross-chain Web3 identities for you and your community.",
         "full_description_file":"full_description_en.md",
-        "tutorial_link":""
+        "tutorial_link":"https://www.notion.so/bit-Previously-DAS-5cea5b425b204679b8ef2855ed94b04d"
     },
     "zh_CN": {   
-        "project_summary":"Cross-chain Web3 identities for you and your community.",
+        "project_summary":"为您和您的社区提供跨链的Web3身份。",
         "full_description_file":"full_description_zh.md",
-        "tutorial_link":""  
+        "tutorial_link":"https://www.notion.so/bit-DAS-c8ba27a2f46e46d69a4d3c93f90ec595"  
     } 
 }

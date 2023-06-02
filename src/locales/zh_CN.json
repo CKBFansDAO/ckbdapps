@@ -1,7 +1,16 @@
 {
   "translation": {
     "common": {
-      "slogan":"One-Stop Exploring of Nervos Ecosystem"
+      "slogan":"One-Stop Exploring of Nervos Ecosystem",
+      "official":"访问官网站",
+      "twitter":"推特，查看项目最新动态",
+      "discord":"Discord，加入国际化社区",
+      "medium":"Medium，查看项目博客",
+      "youtube":"Youtube，观看项目视频教程",
+      "github":"Github，浏览项目代码",
+      "telegram":"电报，加入电报群",
+      "reddit":"Reddit，加入主题论坛",
+      "tutorial":"教程"
     },
     "theme":{
       "dark":"Dark",

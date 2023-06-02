@@ -1,0 +1,25 @@
+{
+    "project_name": "Jioswap",
+    "path_name":"jioswap",
+    "categories": ["L2","DeFi"],
+    "logo_file": "jioswap-logo.png",
+    "hero_image":"jioswap-hero.jpeg",
+    "links":{
+        "official":"https://www.jioswap.finance/",
+        "twitter":"https://twitter.com/jioswap",
+        "discord":"https://discord.gg/FcUQnEyyYc",
+        "telegram":"https://t.me/jioswapfinance",
+        "github":"https://github.com/jioswap",
+        "medium":"" 
+    },
+    "en_US": {
+        "project_summary":"A cross-chain protocol,enabling interoperability between numerous chains.Trade and bridge assets seamlessly",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.jioswap.finance/"
+    },
+    "zh_CN": {   
+        "project_summary":"一个可实现多个链之间的互操作性、无缝交易和桥接资产的跨链协议。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.jioswap.finance/"  
+    } 
+}

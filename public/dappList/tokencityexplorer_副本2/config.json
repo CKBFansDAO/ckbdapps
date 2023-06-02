@@ -1,0 +1,30 @@
+{
+    "project_name": "Token City Explorer",
+    "path_name": "tokencityexplorer",
+    "categories": [
+        "Explorer",
+        "L1",
+        "NFT"
+    ],
+    "logo_file": "tokencityexplorer-logo.png",
+    "hero_image":"tokencityexplorer-hero.png",
+    "links":{
+        "official":"https://explorer.token.city/",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Search NFT and related activities taking place on Nervos.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Nervos CKB 上的一款 NFT 浏览器。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

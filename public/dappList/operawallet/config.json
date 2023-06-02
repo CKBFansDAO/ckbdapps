@@ -1,0 +1,25 @@
+{
+    "project_name": "Opera Wallet",
+    "path_name":"operawallet",
+    "categories": ["Wallet", "L1"],
+    "logo_file": "operawallet-logo.png",
+    "hero_image":"operawallet-hero.jpeg",
+    "links":{
+        "official":"https://www.opera.com/download",
+        "twitter":"https://twitter.com/opera",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"Opera’s millions of users can send and receive Nervos CKB within the crypto wallet built into the Opera browser on Android.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://jackylhh.notion.site/How-to-send-receive-Nervos-CKB-with-your-Opera-built-in-wallet-on-Android-eb75113cc4e04e50b99f5e75abab2599"
+    },
+    "zh_CN": {   
+        "project_summary":"Opera的数百万用户可以在安卓版Opera浏览器内置的加密钱包中发送和接收 Nervos CKB。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://jackylhh.notion.site/Opera-Nervos-CKB-c32817ddc5544e9bb6ee921bade7cc7b"  
+    } 
+}

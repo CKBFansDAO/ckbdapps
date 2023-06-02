@@ -1,0 +1,27 @@
+{
+    "project_name": "Ledger",
+    "path_name":"ledger",
+    "categories": ["Hardware Wallet", "L1"],
+    "logo_file": "ledger-logo.png",
+    "hero_image":"ledger-hero.webp",
+    "links":{
+        "official":"https://www.ledger.com/",
+        "twitter":"https://twitter.com/Ledger",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/ledgerwallet/",
+        "youtube":"https://www.youtube.com/Ledger" 
+    },
+    "en_US": {   
+        "project_summary":"Ledger is the most popular hardware wallet and has support for Nervos CKB. You can store, send and receive CKB using your Ledger Nano X and Ledger Nano S hardware wallets.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://medium.com/nervosnetwork/nervos-x-ledger-nano-s-tutorial-bd3e0b6a1e29"
+    },
+    "zh_CN": {   
+        "project_summary":"Ledger 是最受欢迎的硬件钱包之一，并支持 Nervos CKB。您可以使用 Ledger Nano X 和 Ledger Nano S 硬件钱包存储、发送和接收 CKB。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://medium.com/nervosnetwork/nervos-x-ledger-nano-s-tutorial-bd3e0b6a1e29"  
+    } 
+}

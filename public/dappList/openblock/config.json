@@ -1,0 +1,25 @@
+{
+    "project_name": "OpenBlock",
+    "path_name":"openblock",
+    "categories": ["Wallet", "L1"],
+    "logo_file": "openblock-logo.png",
+    "hero_image":"openblock-hero.jpeg",
+    "links":{
+        "official":"https://openblock.com/",
+        "twitter":"https://twitter.com/OpenBlockWallet",
+        "discord":"https://discord.com/invite/EhsKYbvtJx",
+        "telegram":"",
+        "github":"",
+        "medium":"https://medium.com/@OpenBlockWallet"
+    },
+    "en_US": {   
+        "project_summary":"OpenBlock wallet is secured by MPC protocol, 2-3 TSS security scheme, server-side identity validation, and other security features.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.openblock.com/OpenBlock/SecurityModel/overview/"
+    },
+    "zh_CN": {   
+        "project_summary":"OpenBlock钱包采用MPC协议、2-3 TSS安全方案、服务器端身份验证以及其他安全功能进行保护。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.openblock.com/zh-Hans/OpenBlock/SecurityModel/overview/"  
+    } 
+}

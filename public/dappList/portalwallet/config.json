@@ -1,0 +1,25 @@
+{
+    "project_name": "Portal Wallet",
+    "path_name":"portalwallet",
+    "categories": ["L1","Wallet"],
+    "logo_file": "portalwallet-logo.png",
+    "hero_image":"portalwallet-hero.png",
+    "links":{
+        "official":"https://ckb.pw/",
+        "twitter":"",
+        "discord":"https://discord.gg/XaRMFW85Pg",
+        "telegram":"",
+        "github":"https://github.com/lay2dev",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"The first web-based CKB wallet that supports Nervos DAO. Users can also use their existing Ethereum addresses and wallets to receive and send CKB directly.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://lay2.notion.site/User-Manual-5dcdf86af6e140fab9ee68f73bed8935"
+    },
+    "zh_CN": {   
+        "project_summary":"第一个网页版的CKB钱包，支持Nervos DAO锁仓，还可以使用现有以太坊地址和钱包来接收和发送CKB。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://lay2.notion.site/User-Manual-5dcdf86af6e140fab9ee68f73bed8935"  
+    } 
+}

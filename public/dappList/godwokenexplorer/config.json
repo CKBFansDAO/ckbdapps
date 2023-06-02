@@ -1,0 +1,29 @@
+{
+    "project_name": "Godwoken Explorer",
+    "path_name": "godwokenexplorer",
+    "categories": [
+        "Explorer",
+        "L2"
+    ],
+    "logo_file": "godwokenexplorer-logo.png",
+    "hero_image":"godwokenexplorer-hero.jpg",
+    "links":{
+        "official":"https://gwscan.com/",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Search NFT and related activities taking place on Nervos.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Nervos CKB 上的一款 NFT 浏览器。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

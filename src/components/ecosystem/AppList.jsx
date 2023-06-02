@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next'
 import { currentLanguage } from '../../utils/i18n';
 import './AppList.css'
-import  PlaceholderImage  from '../../assets/images/logo_white_mark.svg';
+import PlaceholderImage from '../../assets/images/logo_white_mark.svg';
+import BitTooltip from '../tooltip/bitTooltip';
 
 
 
@@ -24,13 +25,19 @@ const link_icon_config = {
     },
     "medium": {
         "icon_class": "fa-brands fa-medium",
+    },
+    "reddit": {
+        "icon_class": "fa-brands fa-reddit",
+    },
+    "youtube": {
+        "icon_class": "fa-brands fa-youtube",
     }
 }
 
 const AppList = ({ appList }) => {
     //const [appList, setAppList] = useState([]);
 
-    console.log(appList);
+    //console.log(appList);
 
     useEffect(() => {
         //fetch('../dappList/dapps_list.json')
@@ -50,6 +57,7 @@ const AppList = ({ appList }) => {
 
 const App = ({ config }) => {
     const [appConfig, setAppConfig] = useState({});
+    const [t] = useTranslation();
 
     useEffect(() => {
         if (config.path_name === undefined) {
@@ -80,6 +88,26 @@ const App = ({ config }) => {
         return '';
     }
 
+    const getAppDescToolTipContent = (config_key) => {
+        let tooltip = getAppLocaleConfig(config_key);
+        return <div className='w-[346px]'>
+            <span className='whitespace-normal break-words leading-relaxed'>{tooltip}</span>
+        </div>
+    }
+
+    const renderTutorialLink = () => {
+        let link = getAppLocaleConfig('tutorial_link');
+        if (link) {
+            return <BitTooltip content={t(`common.tutorial`)} direction="top">
+                <a href={`${link}`} target='_blank' className='h-6 w-6 bg-[#EBEBEB] pt-[11.5px] rounded-full flex justify-center'>
+                    <i className={`fa-solid fa-book fa-sm`}></i>
+                </a>
+            </BitTooltip>
+        }
+
+        return <></>
+    }
+
     const renderAppLinks = () => {
         if (!appConfig.links) {
             return <></>
@@ -102,31 +130,34 @@ const App = ({ config }) => {
             {
                 linkArr?.map((linkObj, index) => {
                     let icon_class = link_icon_config[linkObj.name].icon_class;
-                    return <a key={`${linkObj.name}-${index}`} href={`${linkObj.url}`} target='_blank' className='h-6 w-6 bg-[#EBEBEB] pt-[11.5px] rounded-full flex justify-center'>
-                        <i className={`${icon_class} fa-sm`}></i>
-                    </a>
+                    return <BitTooltip content={t(`common.${linkObj.name}`)} direction="top">
+                        <a key={`${linkObj.name}-${index}`} href={`${linkObj.url}`} target='_blank' className='h-6 w-6 bg-[#EBEBEB] pt-[11.5px] rounded-full flex justify-center'>
+                            <i className={`${icon_class} fa-sm`}></i>
+                        </a>
+                    </BitTooltip>
                 })
             }
+            {renderTutorialLink()}
         </div>
     }
 
     return (
-        <div className='rounded-[10px] flex flex-col w-[372px] shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
+        <div className='rounded-[10px] flex flex-col w-[370px] shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
             <div className='relative'>
                 <div className='flex category-dapp-img place-content-center rounded-t-[10px] bg-[#1C1C23] overflow-hidden'>
                     {
-                        appConfig.hero_image ? (<img className=" h-[210px] w-full object-cover duration-300 ease-in-out hover:scale-125" src={appConfig.hero_image ? `../dappList/${appConfig.path_name}/${appConfig.hero_image}` : ''}/>) 
-                        : (<div></div>)
+                        appConfig.hero_image ? (<img className=" h-[210px] w-full object-cover duration-300 ease-in-out hover:scale-125" src={appConfig.hero_image ? `../dappList/${appConfig.path_name}/${appConfig.hero_image}` : ''} />)
+                            : (<div></div>)
                     }
-                    
+
                 </div>
                 <div className='category-dapp-title p-5 text-white'>
                     <div className='flex items-center w-full'>
                         {
                             appConfig.logo_file ? (<img className='w-14 h-14 rounded-full' src={`../dappList/${appConfig.path_name}/${appConfig.logo_file}`}></img>)
-                            : (<div className='w-14 h-14 rounded-full'></div>)
+                                : (<div className='w-14 h-14 rounded-full'></div>)
                         }
-                        
+
                         <div className='flex flex-col ml-2 gap-2 grow'>
                             <span className="text-base font-bold text-[25px]" >{appConfig.project_name}</span>
                             <div className='flex'>
@@ -138,13 +169,15 @@ const App = ({ config }) => {
             </div>
 
             <div className='flex flex-col rounded-b-xl bg-white p-5 gap-5'>
-                <span className='text-sm h-10'>{getAppLocaleConfig('project_summary')}</span>
+                <BitTooltip content={getAppDescToolTipContent('project_summary')} direction="top">
+                    <span className='text-sm h-10 line-clamp-[2]'>{getAppLocaleConfig('project_summary')}</span>
+                </BitTooltip>
                 <div className='flex w-full'>
                     {renderAppLinks()}
                     <div className='grow'></div>
-                    <i className="fa-regular fa-heart"></i> 
+                    <i className="fa-regular fa-heart"></i>
                 </div>
-                
+
             </div>
         </div>
     );

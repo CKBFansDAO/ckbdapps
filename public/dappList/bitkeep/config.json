@@ -1,0 +1,26 @@
+{
+    "project_name": "BitKeep",
+    "path_name":"bitkeep",
+    "categories": ["Wallet", "L1"],
+    "logo_file": "bitkeep-logo.jpg",
+    "hero_image":"bitkeep-hero.jpg",
+    "links":{
+        "official":"https://bitkeep.com/",
+        "twitter":"https://twitter.com/BitKeepOS",
+        "discord":"https://discord.gg/au3GJCe5Wc",
+        "telegram":"https://t.me/BitKeep_Official",
+        "github":"https://github.com/bitkeepwallet/download",
+        "medium":"https://medium.com/@bitkeepblog",
+        "youtube":"https://www.youtube.com/c/BitKeepWallet" 
+    },
+    "en_US": {   
+        "project_summary":"A mobile wallet that allows you to access and manage your CKB.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"一款移动钱包，支持收发 CKB。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

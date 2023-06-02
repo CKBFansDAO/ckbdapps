@@ -1,0 +1,26 @@
+{
+    "project_name": "Token City",
+    "path_name":"tokencity",
+    "categories": ["Wallet", "L1", "NFT"],
+    "logo_file": "tokencity-logo.png",
+    "hero_image":"tokencity-hero.png",
+    "links":{
+        "official":"https://token.city/",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Token City is an NFT wallet built on Nervos CKB, where you can log in and send/receive NFTs using an Ethereum address or UniPass account.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Token City 是一款 CKB 链上的 NFT 钱包，您可以使用以太坊地址、UniPass账号登录并收发NFT。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

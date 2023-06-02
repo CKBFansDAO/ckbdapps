@@ -5,6 +5,20 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    // ...
+    lineClamp: {
+      2: '2', // 设置最大显示的行数
+      // 可根据需要添加更多的行数配置
+    },
+
   },
-  plugins: [],
+  variants: {
+    extend: {
+      lineClamp: ['responsive'], // 扩展 lineClamp 变体
+    },
+  },
+  plugins: [
+    require('@tailwindcss/line-clamp'), // 引入 line-clamp 插件
+    // ...
+  ],
 }

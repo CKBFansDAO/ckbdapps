@@ -1,100 +1,49 @@
-export class dappListCache {
-    state = {
-        key:'',
-        comparison: null,
-        removeFilter: null,
-        dappList:[],
-    }
+class DappListCache {
+    static instance = null;
+    dappList = [];
+    dappLogos = [];
 
-    constructor(cmpFn, removeFn){
-        console.log("--- dappListCache constructor ---")
-        this.comparison = cmpFn;
-        this.removeFilter = removeFn;
-
-        this.loadDappList();
-    }
-
-    loadDappList = () => {
-        let list = localStorage.getItem(key);
-        if (!list) {
-            list = '[]';
-        }
-           
-        this.dappList = JSON.parse(list);
-    }
-
-    addItem = (newItem) => {
-
-        let index = this.listData.findIndex(item => this.comparison(item, newItem));
-        if (index >= 0) {
-            this.listData[index] = newItem;
-        }
-        else {
-            this.listData.push(newItem);  
+    constructor() {
+        if (DappListCache.instance) {
+            return DappListCache.instance;
         }
 
-        /*
-        if (!this.listData.includes(newItem)) {
-            
-            this.listData.push(newItem);
+        DappListCache.instance = this;
 
-            this.saveListData(this.listData);
-        }*/
-        this.saveListData(this.listData);
+        return this;
     }
 
-    removeFromArray = (arr, value) => { 
-        return arr.filter(ele => this.removeFilter(ele, value));
-        /*return arr.filter(function(ele){ 
-            return this.removeFilter(ele, value);
-        });*/
-    }
+    loadData = async () => {
+        const response = await fetch('../dappList/dapps_list.json');
+        const data = await response.json();
+        const fetchPromises = data?.dappList?.map(appItem =>
+            fetch(`../dappList/${appItem.path_name}/config.json`).then(res => res.json())
+        );
 
-    removeItem = (item) => {
-        this.listData = this.removeFromArray(this.listData, item);
-        this.saveListData(this.listData);
-    }
+        const dappList = await Promise.all(fetchPromises);
+        this.dappList = dappList;
+        this.dappLogos = this.dappList.map(item => ({
+            url: item.links.official,
+            name: item.project_name,
+            icon: `../dappList/${item.path_name}/${item.logo_file}`,
+        }));
 
-    clear = () => {
-        this.listData = [];
-        this.saveListData([]);
-    }
+    };
 
-    saveListData = (list) => {
-        if (list) {
-            localStorage.setItem(this.key, JSON.stringify(list));
+    async getDappLogos() {
+        if (this.dappLogos.length === 0) {
+            await this.loadData();
         }
-
-        this.listData = list;
+        return this.dappLogos;
     }
 
-    hasItem = (value) => {
-    /*    let index = this.listData.findIndex(this.comparison);
-        if (index >= 0) {
-            this.cartRegisterList[index] = newItem;
+    async getDataList() {
+        if (this.dappList.length === 0) {
+            await this.loadData();
         }
-        else {
-            this.cartRegisterList.push(newItem);  
-        }
-*/
-        //console.log(value);
-        let index = this.listData.findIndex(item => this.comparison(item, value));
-        if (index >= 0) {
-            return true;
-        }
-
-        return false;
-
-        /*
-        if (this.listData.includes(item)) {
-            return true;
-        }
-
-        return false;*/
+        return this.dappList;
     }
-
-    getDataList = () => {
-        return this.listData;
-    }
-
 }
+
+const dappListCache = new DappListCache();
+export default dappListCache;

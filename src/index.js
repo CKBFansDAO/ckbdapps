@@ -15,6 +15,8 @@ import './assets/css/index.css';
 import './assets/fontawesome/css/all.min.css';
 
 import Layout from './components/layout/Layout'
+//import localCache from './utils/cache/localCache';
+
 
 const store = configureStore({
     reducer: rootReducer

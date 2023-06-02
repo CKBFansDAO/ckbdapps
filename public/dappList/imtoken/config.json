@@ -1,0 +1,25 @@
+{
+    "project_name": "imToken",
+    "path_name":"imtoken",
+    "categories": ["Wallet", "L1"],
+    "logo_file": "imtoken-logo.png",
+    "hero_image":"imtoken-hero.png",
+    "links":{
+        "official":"https://token.im/",
+        "twitter":"https://twitter.com/imTokenOfficial",
+        "discord":"https://discord.com/invite/imToken",
+        "telegram":"",
+        "github":"https://github.com/consenlabs",
+        "medium":"https://medium.com/@imtoken" 
+    },
+    "en_US": {   
+        "project_summary":"As a strategic partner of Nervos, imToken provides a built-in CKB wallet that enables users to safely send, receive and store CKB. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://medium.com/imtoken/imtoken-2-5-0-now-with-nervos-tron-bch-ltc-support-14d7171ccf4"
+    },
+    "zh_CN": {   
+        "project_summary":"作为 Nervos 的战略合作伙伴，imToken 提供了内置的 CKB 钱包，使用户能够安全地发送、接收和存储 CKB。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://medium.com/imtoken/imtoken-2-5-0-now-with-nervos-tron-bch-ltc-support-14d7171ccf4"  
+    } 
+}

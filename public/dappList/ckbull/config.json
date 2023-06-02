@@ -13,13 +13,13 @@
         "medium":"" 
     },
     "en_US": {   
-        "project_summary":"A wallet EASIEST WAY TO ACCESS YOUR $CKB AND ASSETS ON THE NERVOS NETWORK",
+        "project_summary":"A mobile wallet that allows you to access and manage your CKB, tokens bridged from Force Bridge, NFTs, as well as deposits into the Nervos DAO, all in one place. ",
         "full_description_file":"full_description_en.md",
-        "tutorial_link":""
+        "tutorial_link":"https://www.notion.so/How-to-use-CKBull-wallet-89153cac673447b0bf827d1f6f7d151c?pvs=4"
     },
     "zh_CN": {   
-        "project_summary":"A wallet EASIEST WAY TO ACCESS YOUR $CKB AND ASSETS ON THE NERVOS NETWORK。",
+        "project_summary":"一款移动钱包，它集成了多种功能，让您可以方便地访问和管理CKB、通过Force Bridge跨链的代币、NFT等，并进行Nervos DAO的存款",
         "full_description_file":"full_description_zh.md",
-        "tutorial_link":""  
+        "tutorial_link":"https://jackylhh.notion.site/5e23b77dfecf4ab5943da1c2f0c3e951"  
     } 
 }

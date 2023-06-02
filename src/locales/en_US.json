@@ -1,7 +1,16 @@
 {
   "translation": {
     "common": {
-      "slogan":"One-Stop Exploring of Nervos Ecosystem"
+      "slogan":"One-Stop Exploring of Nervos Ecosystem",
+      "official": "Official Website",
+      "twitter": "Twitter, View the latest updates",
+      "discord": "Discord, Join the international community",
+      "medium": "Medium, Read project blog",
+      "youtube": "YouTube, Watch project video tutorials",
+      "github": "GitHub, Browse code repository",
+      "telegram": "Telegram, Join the Telegram group",
+      "reddit": "Reddit, Join the topic forum",
+      "tutorial": "Tutorial"
     },
     "theme":{
       "dark":"Dark",

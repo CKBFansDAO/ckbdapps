@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { currentLanguage } from '../utils/i18n';
 import { ReactComponent as WarningIcon } from '../assets/images/icon-Warn@1x.svg';
 import { AppList } from '../components/ecosystem/AppList';
+import dappListCache from '../utils/cache/dappListCache';
 
 const Ecosystem = () => {
 
@@ -13,6 +14,35 @@ const Ecosystem = () => {
     const [categorySel, setCategorySel] = useState('all');
 
     useEffect(() => {
+        const fetchDappList = async () => {
+            const dapps = await dappListCache.getDataList();
+            setAppList(dapps);
+
+            // 创建一个空对象用于统计每个 category 的应用数量
+            const categoryCounts = { 'all': 0 };
+            // 遍历 dappList 数组
+            dapps.forEach(item => {
+                // 遍历当前应用的 categories 数组
+                item.categories.forEach(category => {
+                    // 检查当前 category 是否已经存在于 categoryCounts 对象中
+                    if (category in categoryCounts) {
+                        // 如果已存在，则将对应 category 的计数加一
+                        categoryCounts[category]++;
+                    } else {
+                        // 如果不存在，则初始化对应 category 的计数为一
+                        categoryCounts[category] = 1;
+                    }
+                });
+                categoryCounts['all']++
+            });
+
+            setCategories(categoryCounts);
+        };
+          
+        fetchDappList();
+        /*
+        return;
+
         fetch('../dappList/dapps_list.json')
             .then(response => response.json())
             .then((data) => {
@@ -40,7 +70,7 @@ const Ecosystem = () => {
                 });
 
                 setCategories(categoryCounts);
-            });
+            });*/
     }, []);
 
     const renderRiskWarningBar = () => {

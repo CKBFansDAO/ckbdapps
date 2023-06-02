@@ -1,0 +1,25 @@
+{
+    "project_name": "Brainiac Finance",
+    "path_name":"brainiac",
+    "categories": ["L2","DeFi","Lending"],
+    "logo_file": "brainiac-logo.png",
+    "hero_image":"brainiac-hero.png",
+    "links":{
+        "official":"https://brainiac.fi/",
+        "twitter":"https://twitter.com/BrainiacFinance",
+        "discord":"https://discord.gg/FcUQnEyyYc",
+        "telegram":"",
+        "github":"https://github.com/brainiacfi/",
+        "medium":"https://medium.com/@brainiacfi" 
+    },
+    "en_US": {
+        "project_summary":"A decentralized lending platform that lives on Nervos Godwoken.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.brainiac.fi/protocol-info/getting-started"
+    },
+    "zh_CN": {   
+        "project_summary":"A decentralized lending platform that lives on Nervos Godwoken.",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.brainiac.fi/protocol-info/getting-started"  
+    } 
+}

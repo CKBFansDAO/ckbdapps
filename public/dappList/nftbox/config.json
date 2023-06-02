@@ -1,0 +1,25 @@
+{
+    "project_name": "NFTBox",
+    "path_name":"nftbox",
+    "categories": ["L1","NFT"],
+    "logo_file": "nftbox-logo.png",
+    "hero_image":"nftbox-hero.jpg",
+    "links":{
+        "official":"https://nftbox.me/",
+        "twitter":"https://twitter.com/jioswap",
+        "discord":"https://discord.gg/FcUQnEyyYc",
+        "telegram":"https://t.me/jioswapfinance",
+        "github":"https://github.com/jioswap",
+        "medium":"" 
+    },
+    "en_US": {
+        "project_summary":"A one-stop SaaS product designed specifically for NFT creators, allowing them to design and distribute a wide range of NFTs with ease. Creators can simply register with their email address to access the platform and begin designing and issuing their unique NFTs.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://developer.nftbox.me/docs/about/overview/"
+    },
+    "zh_CN": {   
+        "project_summary":"专为 NFT 创作者打造的 NFT 创作和发行一站式 SaaS 产品，创作者只需要通过邮箱注册即可设计和发行灵活多样的 NFT。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://developer.nftbox.me/docs/about/overview/"  
+    } 
+}

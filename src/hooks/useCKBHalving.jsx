@@ -106,6 +106,7 @@ const useCKBHalving = () => {
 
     const parseDAO = (data) => {
         //data = 0x7234aae1a5119e4947929146a2af2700f9078b2209b927050050af6b94753307
+        //data = "0xf58d415622164d4670846fe4bc3e2700245b3a328b3376040071df7757eb2e07";
         let dataString = data;
         let res = dataString.slice(2)
             .match(/\w{16}/g)
@@ -124,7 +125,7 @@ const useCKBHalving = () => {
             //console.log(curEpoch);
 
             const dao = parseDAO(tipHeader.dao);
-            //console.log(dao);
+            console.log(dao);
 
             const prevHalvingBlockInfo = await getPrevHalvingBlockInfo(curEpoch.number);
             //console.log(prevHalvingBlockInfo);

@@ -1,0 +1,25 @@
+{
+    "project_name": "Cobo Wallet",
+    "path_name":"cobowallet",
+    "categories": ["Wallet", "L1"],
+    "logo_file": "cobowallet-logo.png",
+    "hero_image":"cobowallet-hero.png",
+    "links":{
+        "official":"https://www.cobo.com/wallet",
+        "twitter":"https://twitter.com/Cobo_Global",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"https://medium.com/@Cobo_Global" 
+    },
+    "en_US": {   
+        "project_summary":"Cobo provides crypto wallet infrastructure, with access to various main chains, and multiple token withdrawal and deposit services, via a simple API, at a fixed low cost a month. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Cobo提供加密钱包基础设施，通过简单的API，以固定的低成本每月费用，提供对各种主链和多种代币提取和存入服务的访问。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

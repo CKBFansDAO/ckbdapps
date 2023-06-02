@@ -10,6 +10,8 @@ let nervosLogo = './images/nervos-logo-white.svg'
 const ProjectIconsSVG = ({ icons }) => {
   const svgRef = useRef(null);
 
+  console.log(icons)
+
   const canvasWidth = 1620;
   const canvasHeight = 880;
 
@@ -19,8 +21,8 @@ const ProjectIconsSVG = ({ icons }) => {
     const radius1 = 230; // 轨道1的半径
     const radius2 = 320; // 轨道2的半径
     const radius3 = 420; // 轨道3的半径
-    const radius1Count = 5; // 轨道图标的数量
-    const radius2Count = 8; // 圆上图标的数量
+    const radius1Count = icons.length > 5 ? 5 : icons.length; // 轨道图标的数量
+    const radius2Count = (icons.length - radius1Count) > 10 ? 10 : (icons.length - radius1Count); // 圆上图标的数量
 
     // 添加星空背景图
     svgElement.style('background-image', `url(${starryBackground})`)
@@ -99,7 +101,10 @@ const ProjectIconsSVG = ({ icons }) => {
       .append('g')
       .attr('class', 'node')
       .attr('transform', (d) => `translate(${d.x}, ${d.y})`)
-      .on('click', (event, d) => window.open(d.icon.url))
+      .on('click', (event, d) => {
+        if (d.icon.url?.length > 0) {
+          window.open(d.icon.url)
+        }})
       .call(tip); // 在创建节点时调用tip
 
     nodes

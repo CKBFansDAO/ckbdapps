@@ -13,12 +13,12 @@
         "medium":"" 
     },
     "en_US": {   
-        "project_summary":"Universal account protocol for Web3 mass-adoption",
+        "project_summary":"Passwordless and mnemonic-free wallet solution based on FIDO Webauthn protocol and Nervos CKB.",
         "full_description_file":"full_description_en.md",
         "tutorial_link":""
     },
     "zh_CN": {   
-        "project_summary":"Universal account protocol for Web3 mass-adoption",
+        "project_summary":"基于 FIDO Webauthn 协议和 Nervos CKB 的无密码和无助记词钱包解决方案。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
     } 

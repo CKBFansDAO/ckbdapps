@@ -17,7 +17,7 @@
         "tutorial_link":"https://github.com/nervosnetwork/force-bridge/blob/main/docs/dapp-user-guide.md"
     },
     "zh_CN": {   
-        "project_summary":"A cross-chain interoperability bridge between Nervos and other blockchain ecosystems.",
+        "project_summary":"Nervos 与其他区块链生态系统之间互操作的跨链桥，已支持 ETH、BSC 与 Nervos 的资产互跨。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
     } 

@@ -1,0 +1,26 @@
+{
+    "project_name": "SafePal",
+    "path_name":"safepal",
+    "categories": ["Hardware Wallet", "L1", "L2"],
+    "logo_file": "safepal-logo.png",
+    "hero_image":"safepal-hero.png",
+    "links":{
+        "official":"https://www.safepal.com/",
+        "twitter":"https://twitter.com/iSafePal",
+        "discord":"https://discord.com/invite/BuKynZqRNj",
+        "telegram":"https://t.me/SafePal_official",
+        "github":"",
+        "medium":"",
+        "youtube":"https://www.youtube.com/channel/UCfqztNiZWV62Eu9kiqKf6WQ" 
+    },
+    "en_US": {   
+        "project_summary":"SafePal provides hardware wallet, software wallet, and browser extension wallet product lines, supports both Nervos L1 CKB and L2 Godwoken.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://www.notion.so/How-to-add-send-Nervos-Chain-CKB-coin-with-SafePal-Hardware-Wallet-40da32d8f7074563859e9d08b585768e"
+    },
+    "zh_CN": {   
+        "project_summary":"SafePal提供硬件钱包、软件钱包和浏览器扩展钱包等产品线，支持Nervos L1 CKB和L2 Godwoken",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://www.notion.so/SafePal-Nervos-CKB-98cd5a834612452da825b2316b988cd6"  
+    } 
+}

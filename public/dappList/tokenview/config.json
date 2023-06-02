@@ -1,0 +1,26 @@
+{
+    "project_name": "TokenView",
+    "path_name":"tokenview",
+    "categories": ["Explorer", "L1"],
+    "logo_file": "tokenview-logo.png",
+    "hero_image":"tokenview-hero.png",
+    "links":{
+        "official":"https://ckb.tokenview.io/",
+        "twitter":"https://twitter.com/tokenview2018",
+        "discord":"https://discord.gg/9WCeZqdVqu",
+        "telegram":"https://t.me/tokenview_en",
+        "github":"https://github.com/Tokenview",
+        "medium":"https://medium.com/@tokenview",
+        "youtube":"https://www.youtube.com/channel/UC_IVCHl0K9d1YUUt8HvvcNQ" 
+    },
+    "en_US": {   
+        "project_summary":"A general multi-crypto blockchain explorer.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Token View 是一款通用的多链区块浏览器。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
