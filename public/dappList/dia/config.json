@@ -1,0 +1,27 @@
+{
+    "project_name": "DIA",
+    "path_name":"dia",
+    "categories": ["Tools & Infrastructure"],
+    "logo_file": "dia-logo.png",
+    "hero_image":"dia-hero.png",
+    "links":{
+        "official":"https://www.diadata.org/",
+        "twitter":"https://twitter.com/DIAdata_org",
+        "discord":"https://discord.com/invite/zFmXtPFgQj",
+        "telegram":"https://t.me/diadata_org",
+        "github":"https://github.com/diadata-org/",
+        "medium":"https://medium.com/dia-insights",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"DIA is an open-source, cross-chain oracle platform for Web3, providing fully customizable and transparent data feeds for smart contracts.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://archive.nervos.org/blog/dia-deploys-oracles-onto-layer-2-bolstering-dev-resources"
+    },
+    "zh_CN": {
+        "project_summary":"DIA是一个开源的、跨链的Web3预言机平台，为智能合约提供完全可定制和透明的数据源。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://archive.nervos.org/blog/dia-deploys-oracles-onto-layer-2-bolstering-dev-resources"
+    }
+}

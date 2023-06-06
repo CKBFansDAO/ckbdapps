@@ -1,0 +1,27 @@
+{
+    "project_name": "Kele Pool",
+    "path_name":"kelepool",
+    "categories": ["Mining Pools"],
+    "logo_file": "kelepool-logo.png",
+    "hero_image":"kelepool-hero.jpeg",
+    "links":{
+        "official":"https://www.kelepool.com/",
+        "twitter":"https://twitter.com/PoolCola",
+        "discord":"",
+        "telegram":"https://t.me/kelepoolcom",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"KelePool provide blockchain infrastructure services for both PoS staking and PoW mining.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.kelepool.com/zh/guides/pow/Mining/CKB.html"
+    },
+    "zh_CN": {
+        "project_summary":"可乐矿池是集PoW矿池挖矿、PoS质押挖矿于一体的区块链基础设施平台，支持BTC，ETH，LEC，ETC，CKB，KDA，STC，HNS多种挖矿服务，支持ETH质押服务。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.kelepool.com/zh/guides/pow/Mining/CKB.html"
+    }
+}

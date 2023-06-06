@@ -1,0 +1,27 @@
+{
+    "project_name": "ViaBTC",
+    "path_name":"viabtc",
+    "categories": ["Mining Pools"],
+    "logo_file": "viabtc-logo.png",
+    "hero_image":"viabtc-hero.jpeg",
+    "links":{
+        "official":"https://www.viabtc.net/",
+        "twitter":"https://twitter.com/ViaBTC",
+        "discord":"",
+        "telegram":"https://t.me/viabtcCN",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"ViaBtc is the world leading cryptocurrency mining pool.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://support.viabtc.com/hc/en-us/articles/900002017666-CKB-Mining-"
+    },
+    "zh_CN": {
+        "project_summary":"ViaBTC是全球顶尖的综合性数字货币矿池。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://support.viabtc.com/hc/en-us/articles/900002017666-CKB-Mining-"
+    }
+}

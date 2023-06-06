@@ -1,0 +1,27 @@
+{
+    "project_name": "Unifra",
+    "path_name":"unifra",
+    "categories": ["Tools & Infrastructure"],
+    "logo_file": "unifra-logo.png",
+    "hero_image":"unifra-hero.jpeg",
+    "links":{
+        "official":"https://unifra.io/",
+        "twitter":"https://twitter.com/UnifraPlatform",
+        "discord":"https://discord.com/invite/6fxayYKa3w",
+        "telegram":"",
+        "github":"",
+        "medium":"https://link.medium.com/GqTZHfaEZsb",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Unifra Network is a leading layer 2 Infra Platform.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"领先的第二层基础设施平台Unifra Network。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

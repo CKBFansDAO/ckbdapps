@@ -1,0 +1,27 @@
+{
+    "project_name": "IOHK",
+    "path_name":"iohk",
+    "categories": ["Business Partner"],
+    "logo_file": "iohk-logo.png",
+    "hero_image":"iohk-hero.jpeg",
+    "links":{
+        "official":"https://iohk.io/",
+        "twitter":"https://twitter.com/inputoutputHK",
+        "discord":"",
+        "telegram":"",
+        "github":"https://github.com/input-output-hk",
+        "medium":"",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/c/IohkIo" 
+    },
+    "en_US": {   
+        "project_summary":"Founded in 2015 by Charles Hoskinson and Jeremy Wood, IOHK is one of the world's pre-eminent blockchain infrastructure research and engineering companies.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"IOHK由Charles Hoskinson和Jeremy Wood于2015年创立，是世界上杰出的区块链基础设施研究和工程公司之一。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

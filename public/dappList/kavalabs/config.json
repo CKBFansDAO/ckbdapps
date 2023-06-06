@@ -1,0 +1,27 @@
+{
+    "project_name": "Kava Labs",
+    "path_name":"kavalabs",
+    "categories": ["Business Partner"],
+    "logo_file": "kavalabs-logo.png",
+    "hero_image":"kavalabs-hero.jpeg",
+    "links":{
+        "official":"https://www.kava.io/",
+        "twitter":"https://twitter.com/KAVA_CHAIN",
+        "discord":"https://discord.com/invite/q6QuanE4bx",
+        "telegram":"https://t.me/kavalabs",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/kava_platform/",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Kava is a decentralized blockchain that combines the speed and interoperability of Cosmos with the developer power of Ethereum.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Kava是一个去中心化的区块链，结合了Cosmos的速度和互操作性以及Ethereum的开发者力量。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

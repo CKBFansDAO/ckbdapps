@@ -1,0 +1,27 @@
+{
+    "project_name": "UTXO Alliance",
+    "path_name":"utxoalliance",
+    "categories": ["Business Partner"],
+    "logo_file": "utxoalliance-logo.png",
+    "hero_image":"utxoalliance-hero.jpeg",
+    "links":{
+        "official":"https://utxo-alliance.org/",
+        "twitter":"https://twitter.com/utxoalliance",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/channel/UCkqFd045TkSzORq3FIVKvjg" 
+    },
+    "en_US": {   
+        "project_summary":"The UTXO Alliance is an initiative created to kickstart collaboration with individuals and organizations working to make the UTXO model more scalable, secure, and interoperable.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"UTXO联盟是一项旨在启动与个人和组织合作的倡议，致力于使UTXO模型更具可扩展性、安全性和可互操作性。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

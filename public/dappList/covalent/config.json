@@ -1,0 +1,27 @@
+{
+    "project_name": "Covalent",
+    "path_name":"covalent",
+    "categories": ["Tools & Infrastructure"],
+    "logo_file": "covalent-logo.png",
+    "hero_image":"covalent-hero.jpeg",
+    "links":{
+        "official":"https://www.covalenthq.com/",
+        "twitter":"https://twitter.com/covalent_hq",
+        "discord":"https://discord.com/invite/VHgmzB9973",
+        "telegram":"https://t.me/CovalentHQ",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/CovalentHQ/",
+        "youtube":"https://www.youtube.com/channel/UCGn-T9qPiXAx490Wr6WPbOw"
+    },
+    "en_US": {
+        "project_summary":"Covalent provides a unified API bringing visibility to billions of Web3 data points.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://archive.nervos.org/blog/nervos-and-covalent-integration"
+    },
+    "zh_CN": {
+        "project_summary":"Covalent 提供了一个统一的 API，将数十亿个 Web3 数据点可视化。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://archive.nervos.org/blog/nervos-and-covalent-integration"
+    }
+}

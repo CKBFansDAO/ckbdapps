@@ -1,0 +1,27 @@
+{
+    "project_name": "F2Pool",
+    "path_name":"f2pool",
+    "categories": ["Mining Pools"],
+    "logo_file": "f2pool-logo.png",
+    "hero_image":"f2pool-hero.jpeg",
+    "links":{
+        "official":"https://www.f2pool.com/",
+        "twitter":"https://twitter.com/F2Pool_Official",
+        "discord":"https://discord.com/invite/fhjeWrmdK9",
+        "telegram":"https://t.me/f2poolreal",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/f2pool/",
+        "youtube":"https://www.youtube.com/channel/UCpOxf600N5n8HpyVejvEJMg"
+    },
+    "en_US": {
+        "project_summary":"F2Pool is a geographically distributed mining pool, helping miners all over the globe secure Bitcoin and 40+ Proof–of–Work networks since 2013.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://f2pool.io/mining/guides/how-to-mine-nervos/?_ga=2.266583048.761125646.1677490211-2105232385.1677490211"
+    },
+    "zh_CN": {
+        "project_summary":"F2Pool是一个分布式的挖矿池，自2013年以来帮助全球的矿工保护比特币和40多个工作量证明网络安全。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://f2pool.io/mining/guides/how-to-mine-nervos/?_ga=2.266583048.761125646.1677490211-2105232385.1677490211"
+    }
+}

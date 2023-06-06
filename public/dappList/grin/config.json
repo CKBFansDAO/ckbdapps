@@ -1,0 +1,27 @@
+{
+    "project_name": "Grin",
+    "path_name":"grin",
+    "categories": ["Business Partner"],
+    "logo_file": "grin-logo.png",
+    "hero_image":"grin-hero.png",
+    "links":{
+        "official":"https://grin.mw/",
+        "twitter":"https://twitter.com/grinMW",
+        "discord":"",
+        "telegram":"",
+        "github":"https://github.com/mimblewimble/grin",
+        "medium":"",
+        "reddit":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Grin is a privacy-preserving digital currency built openly by developers distributed all over the world.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Grin是一种保护隐私的数字货币，由分布在世界各地的开发者公开建立。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

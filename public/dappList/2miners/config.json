@@ -1,0 +1,27 @@
+{
+    "project_name": "2miners",
+    "path_name":"2miners",
+    "categories": ["Mining Pools"],
+    "logo_file": "2miners-logo.png",
+    "hero_image":"2miners-hero.jpeg",
+    "links":{
+        "official":"http://2miners.com/",
+        "twitter":"https://twitter.com/pool2miners",
+        "discord":"",
+        "telegram":"https://t.me/chat2miners",
+        "github":"https://github.com/2miners",
+        "medium":"",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Cryptocurrency mining pool for beginners and professionals. Regular payments, tutorials, reliable servers, rig monitoring. Solo mining is also available for all coins.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://ckb.2miners.com/help"
+    },
+    "zh_CN": {
+        "project_summary":"加密货币挖矿池，适合初学者和专业人士。定期支付、教程、可靠的服务器、矿机监控。所有币种都可以进行独立挖矿。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://ckb.2miners.com/help"
+    }
+}

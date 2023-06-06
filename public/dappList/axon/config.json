@@ -1,0 +1,27 @@
+{
+    "project_name": "Axon",
+    "path_name":"axon",
+    "categories": ["Tools & Infrastructure"],
+    "logo_file": "axon-logo.png",
+    "hero_image":"axon-hero.jpeg",
+    "links":{
+        "official":"https://axonweb3.io/",
+        "twitter":"https://twitter.com/AxonWeb3",
+        "discord":"",
+        "telegram":"",
+        "github":"https://github.com/axonweb3/axon",
+        "medium":"https://medium.com/@axon_web3",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Axon is a Layer 2 framework that unleashes the power of appchain future.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.axonweb3.io/"
+    },
+    "zh_CN": {
+        "project_summary":"Axon是一个释放了应用链未来的潜力的Layer 2框架。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.axonweb3.io/"
+    }
+}

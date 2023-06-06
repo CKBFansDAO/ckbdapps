@@ -1,0 +1,27 @@
+{
+    "project_name": "Ankr",
+    "path_name":"ankr",
+    "categories": ["Tools & Infrastructure"],
+    "logo_file": "ankr-logo.png",
+    "hero_image":"ankr-hero.jpeg",
+    "links":{
+        "official":"https://www.ankr.com/",
+        "twitter":"https://twitter.com/ankr",
+        "discord":"https://discord.com/invite/ankr",
+        "telegram":"https://t.me/ankrnetwork",
+        "github":"",
+        "medium":"https://medium.com/ankr-network",
+        "reddit":"https://www.reddit.com/r/Ankrofficial/",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"The fastest, most reliable Web3 infrastructure.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://archive.nervos.org/blog/ankr-integrates-support-for-nervos-nodes"
+    },
+    "zh_CN": {
+        "project_summary":"最快、最可靠的Web3基础设施。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://archive.nervos.org/blog/ankr-integrates-support-for-nervos-nodes"
+    }
+}

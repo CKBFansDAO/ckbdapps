@@ -1,0 +1,27 @@
+{
+    "project_name": "Hash Pools",
+    "path_name":"hashpool",
+    "categories": ["Mining Pools"],
+    "logo_file": "hashpool-logo.png",
+    "hero_image":"hashpool-hero.jpeg",
+    "links":{
+        "official":"https://hashpool.com/",
+        "twitter":"https://twitter.com/hashpool_com",
+        "discord":"https://discord.com/invite/Nk8qVuf5yb",
+        "telegram":"https://t.me/+QH97THonf684YzEx",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Hash Pool, Chains every hash power together.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"Hash Pool 将每个哈希算力链接在一起。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

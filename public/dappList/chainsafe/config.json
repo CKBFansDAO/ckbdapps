@@ -1,0 +1,27 @@
+{
+    "project_name": "ChainSafe",
+    "path_name":"chainsafe",
+    "categories": ["Business Partner"],
+    "logo_file": "chainsafe-logo.png",
+    "hero_image":"chainsafe-hero.png",
+    "links":{
+        "official":"https://chainsafe.io/",
+        "twitter":"https://twitter.com/ChainSafeth",
+        "discord":"https://discord.com/invite/xSAwrnCWcg",
+        "telegram":"",
+        "github":"https://github.com/chainsafe",
+        "medium":"https://blog.chainsafe.io/",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/c/chainsafesystems" 
+    },
+    "en_US": {   
+        "project_summary":"ChainSafe is a leading blockchain R&D firm, specializing in protocol engineering, cross-chain interoperability & web3 gaming.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"ChainSafe是一家领先的区块链研发公司，专门从事协议工程、跨链互操作性和网络3游戏。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

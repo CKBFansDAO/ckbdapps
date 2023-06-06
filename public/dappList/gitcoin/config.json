@@ -1,0 +1,27 @@
+{
+    "project_name": "Gitcoin",
+    "path_name":"gitcoin",
+    "categories": ["Business Partner"],
+    "logo_file": "gitcoin-logo.png",
+    "hero_image":"gitcoin-hero.jpeg",
+    "links":{
+        "official":"https://bounties.gitcoin.co/",
+        "twitter":"https://twitter.com/gitcoin",
+        "discord":"https://discord.com/invite/gitcoin",
+        "telegram":"",
+        "github":"https://github.com/gitcoinco/",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/gitcoincommunity/",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Since 2017, Gitcoin has been building tools that enable communities to build, fund and protect what matters to them.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"自2017年以来，Gitcoin一直在建立工具，使社区能够建立、资助和保护对他们来说重要的东西。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

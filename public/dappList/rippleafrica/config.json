@@ -1,0 +1,27 @@
+{
+    "project_name": "Ripple Africa",
+    "path_name":"rippleafrica",
+    "categories": ["Business Partner"],
+    "logo_file": "rippleafrica-logo.png",
+    "hero_image":"rippleafrica-hero.jpeg",
+    "links":{
+        "official":"https://rippleafrica.org/",
+        "twitter":"https://twitter.com/utxoalliance",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/channel/UC40HoLgRZz0CQ1Yxo7h781A" 
+    },
+    "en_US": {   
+        "project_summary":"Nervos Layer 2 Godwoken is officially carbon neutral, as it has chosen to support Ripple Africa, a U.K.-based charity behind a fuel-efficient cookstove that is transforming kitchens in Malawi, via its carbon offset program.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Nervos Layer 2 Godwoken正式实现了碳中和，因为它选择通过其碳抵消计划支持Ripple Africa，这是一家总部设在英国的慈善机构，其背后的高能效炉灶正在改变马拉维的厨房。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

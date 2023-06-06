@@ -1,0 +1,27 @@
+{
+    "project_name": "Lumos Labs",
+    "path_name":"lumoslabs",
+    "categories": ["Business Partner"],
+    "logo_file": "lumoslabs-logo.png",
+    "hero_image":"lumoslabs-hero.jpeg",
+    "links":{
+        "official":"https://www.lumoslabs.co/",
+        "twitter":"https://twitter.com/lumoslabsHQ",
+        "discord":"https://discord.com/invite/WyfmzJpzZd",
+        "telegram":"",
+        "github":"",
+        "medium":"https://medium.com/lumos-labs",
+        "reddit":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Where the code is always fresh, the community is Vibrant, and the web3 opportunities are limitless!",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"在这里，代码永远是新鲜的，社区是充满活力的，而且web3的机会是无限的!",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

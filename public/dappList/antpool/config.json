@@ -1,0 +1,27 @@
+{
+    "project_name": "Antpool",
+    "path_name":"antpool",
+    "categories": ["Mining Pools"],
+    "logo_file": "antpool-logo.jpeg",
+    "hero_image":"antpool-hero.jpeg",
+    "links":{
+        "official":"https://antpool.com/",
+        "twitter":"https://twitter.com/AntPoolofficial",
+        "discord":"",
+        "telegram":"https://t.me/+5LhfxUSNyH5kM2Jl",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Established in 2014, we are one of the largest PoW mining pools committed to serving global customers.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://support.antpool.com/hc/en-us/articles/5985104597913-CKB-Mining"
+    },
+    "zh_CN": {
+        "project_summary":"成立于2014年，是致力于服务全球客户的最大PoW矿池之一。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://support.antpool.com/hc/en-us/articles/5985104597913-CKB-Mining"
+    }
+}

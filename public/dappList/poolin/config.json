@@ -1,0 +1,27 @@
+{
+    "project_name": "Poolin",
+    "path_name":"poolin",
+    "categories": ["Mining Pools"],
+    "logo_file": "poolin-logo.png",
+    "hero_image":"poolin-hero.jpeg",
+    "links":{
+        "official":"https://www.poolin.me/",
+        "twitter":"https://twitter.com/officialpoolin",
+        "discord":"",
+        "telegram":"https://t.me/poolinpoolCN",
+        "github":"",
+        "medium":"https://medium.com/poolin",
+        "reddit":"https://www.reddit.com/r/poolin/",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Poolin - a Great Bitcoin and Multi-cryptocurrency Mining Pool.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://help.poolin.me/hc/en-us/articles/360040689912-CKB-Mining-Settings"
+    },
+    "zh_CN": {
+        "project_summary":"Poolin - 一个伟大的比特币和多加密货币挖矿池。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://help.poolin.me/hc/en-us/articles/360040689912-CKB-Mining-Settings"
+    }
+}

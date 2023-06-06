@@ -1,0 +1,27 @@
+{
+    "project_name": "Godwoken",
+    "path_name":"godwoken",
+    "categories": ["Tools & Infrastructure"],
+    "logo_file": "godwoken-logo.png",
+    "hero_image":"godwoken-hero.png",
+    "links":{
+        "official":"https://www.godwoken.com/",
+        "twitter":"https://twitter.com/GodwokenRises",
+        "discord":"https://discord.com/invite/u62hPYUpub",
+        "telegram":"",
+        "github":"https://github.com/godwokenrises",
+        "medium":"",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Godwoken is an EVM-compatible, layer 2 optimistic rollup solution built on Nervos layer 1. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.godwoken.io/"
+    },
+    "zh_CN": {
+        "project_summary":"Godwoken是一个建立在Nervos Layer 1之上的EVM兼容的Layer 2 op Rollup解决方案。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.godwoken.io/"
+    }
+}

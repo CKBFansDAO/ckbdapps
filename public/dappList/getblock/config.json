@@ -1,0 +1,27 @@
+{
+    "project_name": "GetBlock",
+    "path_name":"getblock",
+    "categories": ["Tools & Infrastructure"],
+    "logo_file": "getblock-logo.png",
+    "hero_image":"getblock-hero.jpeg",
+    "links":{
+        "official":"https://getblock.io/",
+        "twitter":"https://twitter.com/getblockio",
+        "discord":"https://discord.com/invite/T2hbgqfEnv",
+        "telegram":"https://t.me/getblockio_eng",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/getblockio/",
+        "youtube":"https://www.youtube.com/c/GetBlock"
+    },
+    "en_US": {
+        "project_summary":"GetBlock developer tools and valuable insights guarantee a simple and reliable API access to multiple blockchains: Bitcoin, Ethereum, BNB Smart Chain (Binance Smart Chain), etc.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://www.youtube.com/watch?v=yUzwq177a98&feature=youtu.be"
+    },
+    "zh_CN": {
+        "project_summary":"GetBlock 开发者工具和有价值的见解保证了对多个区块链的简单可靠的 API 访问：比特币、以太坊、BNB 智能链（Binance 智能链）等。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://www.youtube.com/watch?v=yUzwq177a98&feature=youtu.be"
+    }
+}

@@ -1,7 +1,7 @@
 {
     "project_name": "YokaiSwap",
     "path_name":"yokaiswap",
-    "categories": ["DEX", "L2", "Godwoken"],
+    "categories": ["DeFi", "L2"],
     "logo_file": "yokaiswap-logo.webp",
     "hero_image":"yokaiswap-hero.png",
     "links":{

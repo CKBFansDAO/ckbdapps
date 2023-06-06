@@ -59,6 +59,15 @@
             ]
         },
         {
+            "project_name": "Token City",
+            "path_name": "tokencity",
+            "categories": [
+                "Wallet",
+                "L1",
+                "NFT"
+            ]
+        },
+        {
             "project_name": "CKBull",
             "path_name": "ckbull",
             "categories": [
@@ -198,15 +207,6 @@
             ]
         },
         {
-            "project_name": "Token City",
-            "path_name": "tokencity",
-            "categories": [
-                "Wallet",
-                "L1",
-                "NFT"
-            ]
-        },
-        {
             "project_name": "Token City Explorer",
             "path_name": "tokencityexplorer",
             "categories": [
@@ -222,6 +222,251 @@
                 "Explorer",
                 "L2"
             ]
+        },
+        {
+           "project_name": "UTXO Alliance",
+           "path_name":"utxoalliance",
+           "categories": [
+                "Business Partner"
+            ]
+        },
+        {
+           "project_name": "Ripple Africa",
+           "path_name":"rippleafrica",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "MEXC Global",
+           "path_name":"mexcglobal",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "Messari",
+           "path_name":"messari",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "Arweave",
+           "path_name":"arweave",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "Gitcoin",
+           "path_name":"gitcoin",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "Grin",
+           "path_name":"grin",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "IOHK",
+           "path_name":"iohk",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "ChainLink",
+           "path_name":"chainlink",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "Kava Labs",
+           "path_name":"kavalabs",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "Lumos Labs",
+           "path_name":"lumoslabs",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "Linear Finance",
+           "path_name":"linearfinance",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "MixPay",
+           "path_name":"mixpay",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "StartFi",
+           "path_name":"startfi",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "ChainSafe",
+           "path_name":"chainsafe",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+           "project_name": "ImmuneFi",
+           "path_name":"immunefi",
+           "categories": [
+               "Business Partner"
+            ]
+        },
+        {
+            "project_name": "2miners",
+            "path_name": "2miners",
+            "categories": [
+                "Mining Pools"
+            ]
+        },
+        {
+          "project_name": "Antpool",
+          "path_name": "antpool",
+          "categories": [
+              "Mining Pools"
+          ]
+        },
+        {
+          "project_name": "BTC.com POOL",
+          "path_name": "btc.compool",
+          "categories": [
+              "Mining Pools"
+          ]
+        },
+        {
+          "project_name": "DxPool",
+          "path_name": "dxpool",
+          "categories": [
+              "Mining Pools"
+          ]
+        },
+        {
+          "project_name": "F2Pool",
+          "path_name": "f2pool",
+          "categories": [
+              "Mining Pools"
+          ]
+        },
+        {
+          "project_name": "Hash Pools",
+          "path_name": "hashpool",
+          "categories": [
+              "Mining Pools"
+          ]
+        },
+        {
+          "project_name": "Kele Pool",
+          "path_name": "kelepool",
+          "categories": [
+              "Mining Pools"
+          ]
+        },
+        {
+          "project_name": "Poolin",
+          "path_name": "poolin",
+          "categories": [
+              "Mining Pools"
+          ]
+        },
+        {
+          "project_name": "ViaBTC",
+          "path_name": "viabtc",
+          "categories": [
+              "Mining Pools"
+          ]
+        },
+        {
+          "project_name": "Ankr",
+          "path_name": "ankr",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
+        },
+        {
+          "project_name": "Axon",
+          "path_name": "axon",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
+        },
+        {
+          "project_name": "BandProtocol",
+          "path_name": "bandprotocol",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
+        },
+        {
+          "project_name": "Covalent",
+          "path_name": "covalent",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
+        },
+        {
+          "project_name": "DIA",
+          "path_name": "dia",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
+        },
+        {
+          "project_name": "GetBlock",
+          "path_name": "getblock",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
+        },
+        {
+          "project_name": "Godwoken",
+          "path_name": "godwoken",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
+        },
+        {
+          "project_name": "PW SDK",
+          "path_name": "pwsdk",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
+        },
+        {
+          "project_name": "Tools",
+          "path_name": "tools",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
+        },
+        {
+          "project_name": "Unifra",
+          "path_name": "unifra",
+          "categories": [
+              "Tools & Infrastructure"
+          ]
         }
     ]
 }

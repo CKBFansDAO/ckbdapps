@@ -1,0 +1,27 @@
+{
+    "project_name": "ChainLink",
+    "path_name":"chainlink",
+    "categories": ["Business Partner"],
+    "logo_file": "chainlink-logo.png",
+    "hero_image":"chainlink-hero.jpeg",
+    "links":{
+        "official":"https://chain.link/",
+        "twitter":"https://twitter.com/chainlink",
+        "discord":"https://discord.com/invite/chainlink",
+        "telegram":"https://t.me/chainlinkofficial",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/Chainlink/",
+        "youtube":"https://www.youtube.com/channel/UCnjkrlqaWEBSnKZQ71gdyFA" 
+    },
+    "en_US": {   
+        "project_summary":"Chainlink is the industry-standard Web3 services platform connecting the people, businesses, and data of today with the Web3 world of tomorrow.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Chainlink是行业标准的Web3服务平台，将今天的人、企业和数据与明天的Web3世界联系起来。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

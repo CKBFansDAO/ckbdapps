@@ -1,0 +1,27 @@
+{
+    "project_name": "BTC.com POOL",
+    "path_name":"btc.compool",
+    "categories": ["Mining Pools"],
+    "logo_file": "btc.compool-logo.png",
+    "hero_image":"btc.compool-hero.jpeg",
+    "links":{
+        "official":"https://pool.btc.com/",
+        "twitter":"https://twitter.com/btccom_official",
+        "discord":"https://discord.com/invite/R8HzUvg2eR",
+        "telegram":"https://t.me/btccom_pool",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"BTC.com pool is a whole new choice for bitcoin miners. BTC.com pool is with much more stable architecture, much better user experience, much lower fees and much stronger service.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://help.pool.btc.com/hc/en-us/articles/360038783551-Nervos-CKB-Mining-Tutorial"
+    },
+    "zh_CN": {
+        "project_summary":"BTC.com矿池是比特币矿工的全新选择。BTC.com矿池具有更加稳定的架构、更好的用户体验、更低的费用和更强的服务。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://help.pool.btc.com/hc/en-us/articles/360038783551-Nervos-CKB-Mining-Tutorial"
+    }
+}

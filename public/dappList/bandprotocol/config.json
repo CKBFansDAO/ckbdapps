@@ -1,0 +1,27 @@
+{
+    "project_name": "BandProtocol",
+    "path_name":"bandprotocol",
+    "categories": ["Tools & Infrastructure"],
+    "logo_file": "bandprotocol-logo.png",
+    "hero_image":"bandprotocol-hero.jpeg",
+    "links":{
+        "official":"https://www.bandprotocol.com/",
+        "twitter":"https://twitter.com/BandProtocol",
+        "discord":"https://discord.com/invite/3t4bsY7",
+        "telegram":"https://t.me/bandprotocol",
+        "github":"https://github.com/bandprotocol",
+        "medium":"",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Band Protocol is a cross-chain data oracle platform that aggregates and connects real-world data and APIs to smart contracts.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://medium.com/bandprotocol/band-protocol-integrates-with-nervos-godwoken-361546e1091d"
+    },
+    "zh_CN": {
+        "project_summary":"Band Protocol 是一个跨链数据预言机平台，它将现实世界的数据和 API 聚合并连接到智能合约中。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://medium.com/bandprotocol/band-protocol-integrates-with-nervos-godwoken-361546e1091d"
+    }
+}

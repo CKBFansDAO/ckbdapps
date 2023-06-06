@@ -1,0 +1,27 @@
+{
+    "project_name": "Linear Finance",
+    "path_name":"linearfinance",
+    "categories": ["Business Partner"],
+    "logo_file": "linearfinance-logo.png",
+    "hero_image":"linearfinance-hero.jpeg",
+    "links":{
+        "official":"https://linear.finance/",
+        "twitter":"https://twitter.com/LinearFinance",
+        "discord":"https://discord.com/invite/nvCk356bky",
+        "telegram":"https://t.me/linearfinanceannoucements",
+        "github":"https://github.com/Linear-finance",
+        "medium":"https://medium.com/linear-finance",
+        "reddit":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"A Cross-Chain Compatible, Decentralized Delta-One Asset Protocol. Create, manage, and trade exposures seamlessly and instantly.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"一个跨链兼容、去中心化的Delta-One资产协议，无缝、即时地创建、管理和交易风险敞口。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

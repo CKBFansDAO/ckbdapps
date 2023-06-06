@@ -1,0 +1,27 @@
+{
+    "project_name": "Arweave",
+    "path_name":"arweave",
+    "categories": ["Business Partner"],
+    "logo_file": "arweave-logo.png",
+    "hero_image":"arweave-hero.jpeg",
+    "links":{
+        "official":"https://www.arweave.org/",
+        "twitter":"https://twitter.com/ArweaveEco",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"The Arweave network is like Bitcoin, but for data: A permanent and decentralized web inside an open ledger.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Arweave网络就像比特币，但针对的是数据：一个永久的、去中心化的网络在一个开放的账本内。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

@@ -1,0 +1,27 @@
+{
+    "project_name": "MEXC Global",
+    "path_name":"mexcglobal",
+    "categories": ["Business Partner"],
+    "logo_file": "mexcglobal-logo.png",
+    "hero_image":"mexcglobal-hero.jpeg",
+    "links":{
+        "official":"https://www.mexc.com/",
+        "twitter":"https://twitter.com/MEXC_Global",
+        "discord":"https://discord.com/invite/Hs2e93Xav5",
+        "telegram":"https://t.me/MEXCEnglish",
+        "github":"",
+        "medium":"https://medium.com/mexcglobal",
+        "reddit":"https://www.reddit.com/user/mexc-global?utm_source=share&utm_medium=ios_app&utm_name=iossmf",
+        "youtube":"https://www.youtube.com/c/MEXCGlobal" 
+    },
+    "en_US": {   
+        "project_summary":"Founded in 2018, MEXC Global is known as the exchange of high performance and mega transaction matching technology. The team at MEXC Global are some of the first movers and pioneers of financial and blockchain technology.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"MEXC Global成立于2018年，被誉为高性能和大额交易撮合技术的交易所。MEXC Global 的团队是金融和区块链技术的先行者和先驱。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
