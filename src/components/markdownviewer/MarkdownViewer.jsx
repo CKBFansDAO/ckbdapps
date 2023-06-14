@@ -21,8 +21,8 @@ const MarkdownViewer = ({ filePath }) => {
         fetchMarkdown();
     }, [filePath]);
 
-    return (<div>
-        <div className="markdown-body md:px-10" style={{ backgroundImage: `url('/images/halving_desc_bg.png')` }}>
+    return (<div className=''>
+        <div className="markdown-body md:px-10 ">
             <MarkdownPreview source={markdownContent} />
         </div>
 

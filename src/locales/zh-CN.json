@@ -40,7 +40,7 @@
       "home": "首页",
       "dapps": "Dapps",
       "ecosystem":"生态系统",
-      "halving": "CKB减半",
+      "halving": "CKB 减半",
       "about-us": "关于我们"
     },
     "page-title": {
@@ -67,7 +67,7 @@
       "hours":"小时",
       "days":"天",
       "years":"年",
-      "title":"CKB减半倒计时",
+      "title":"CKB 减半倒计时",
       "top-tips":"预计即将到来的减半事件发生在",
       "latest-block":"区块高度",
       "current-epoch":"当前Epoch",
