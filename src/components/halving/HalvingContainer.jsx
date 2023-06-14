@@ -10,7 +10,7 @@ import BlockchainProgressBar from '../progressbar/BlockchainProgressBar';
 import CountdownTimer from '../countdown/CountdownTimer';
 import CKBTipSummary from '../CKBTipSummary/CKBTipSummary';
 import useCKBTipHeader from '../../hooks/useCKBTipHeader';
-import { FormatLocaleDate, getNextHalvingEpoch } from '../../utils/helper';
+import { FormatLocaleDate, FormatLocaleDateTime, getNextHalvingEpoch, getTimeZoneOffset } from '../../utils/helper';
 
 const HalvingContainer = (props) => {
 
@@ -27,10 +27,64 @@ const HalvingContainer = (props) => {
 
 
     const renderTwitterShareLink = () => {
-        let url =
-            `https://twitter.com/intent/tweet?url=ckbdapps.com&text=`
+        if (!data || !data.estimatedHalvingTime) {
+            return <></>
+        }
 
-        /*`📢Nervos CKB*/
+        let duration = data.estimatedHalvingTime - new Date().getTime();
+        let days = Math.floor(duration / (1000 * 60 * 60 * 24));
+        let countdown = days;
+        let countdownUnit = t('halving.days');
+
+        if (days < 1) {
+            const hours = Math.floor(
+                (duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            if (hours > 0) {
+                countdown = hours;
+                countdownUnit = t('halving.hours');
+            }
+            else {
+                const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+                if (minutes > 0) {
+                    countdown = minutes;
+                    countdownUnit = t('halving.minutes');
+                }
+                else {
+                    const seconds = Math.floor((duration % (1000 * 60)) / 1000);
+                    if (seconds >0) {
+                        countdown = seconds;
+                        countdownUnit = t('halving.seconds');
+                    }
+                    else {
+                        return;
+                    }
+                    
+                }
+            }
+        }
+
+        // before halving
+        let shareText = t('halving.twitter-share-content-before-halving', {
+            date: FormatLocaleDateTime(data.estimatedHalvingTime),
+            timeZone: getTimeZoneOffset(),
+            countdown,
+            countdownUnit
+        });
+
+        // after halving
+        if (data.prevHalvingTime) {
+            if (data.curEpoch.number - data.prevHalvingTime.epoch < 30 * 6) {
+                shareText = t('halving.twitter-share-content-after-halving', {
+                    datetime: FormatLocaleDateTime(data.prevHalvingTime.timestamp),
+                    timeZone: getTimeZoneOffset()
+                });
+            }
+        }
+
+        let encodedShareText = encodeURIComponent(shareText);
+        let url =
+            `https://twitter.com/intent/tweet?text=${encodedShareText}`
 
         return <a className='w-6 h-6 flex justify-center items-center rounded-full bg-white mr-2 icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
             href={url} rel="noopener noreferrer" target="_blank">
@@ -40,6 +94,7 @@ const HalvingContainer = (props) => {
     }
 
     const renderClipboardShareLink = () => {
+        return
         let url =
             `https://twitter.com/intent/tweet?url=ckbdapps.com&text=`
 
@@ -69,7 +124,7 @@ const HalvingContainer = (props) => {
                 </div>
                 {renderTwitterShareLink()}
                 {renderClipboardShareLink()}
-                
+
             </div>
             <div className='grow'></div>
         </div>

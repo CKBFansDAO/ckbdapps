@@ -174,7 +174,9 @@ const App = ({ config }) => {
                 <div className='flex w-full'>
                     {renderAppLinks()}
                     <div className='grow'></div>
+                    <BitTooltip content={t('common.coming-soon')} direction="top">
                     <i className="fa-regular fa-heart"></i>
+                    </BitTooltip>
                 </div>
 
             </div>

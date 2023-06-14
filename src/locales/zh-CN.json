@@ -11,7 +11,8 @@
       "telegram":"电报，加入电报群",
       "reddit":"Reddit，加入主题论坛",
       "tutorial":"教程",
-      "learn-more":"了解更多"
+      "learn-more":"了解更多",
+      "coming-soon":"即将推出"
     },
     "theme":{
       "dark":"Dark",
@@ -75,7 +76,9 @@
       "halving-date":"预计减半日期",
       "genesis-epoch":"创世Epoch",
       "block-chain-progress":"区块链运行进度",
-      "whats-epoch":"什么是Epoch？"
+      "whats-epoch":"什么是Epoch？",
+      "twitter-share-content-before-halving":"📢 @NervosNetwork CKB 预计于 {{date}} {{timeZone}} 迎来第一次减半🚀，\n\n📅距离减半倒计时还有 {{countdown}} {{countdownUnit}}。\n\n🔗 访问👉 https://ckbdapps.com/halving 了解更多 #CKB 减半信息",
+      "twitter-share-content-after-halving":"🎉 祝贺 @NervosNetwork CKB 已于 {{datetime}} {{timeZone}} 成功完成第一次减半🚀🧨🎆，\n\n🔗 访问👉 https://ckbdapps.com 了解 #CKB 生态信息"
     },
     "ecosystem": {
       "risk-warning":"请注意：我们尚未正式审核或联系这些项目以验证其真实性。在使用该开放网络中的任何服务之前，请进行自己的调查研究。",

@@ -11,7 +11,8 @@
       "telegram": "Telegram, Join the Telegram group",
       "reddit": "Reddit, Join the topic forum",
       "tutorial": "Tutorial",
-      "learn-more":"Learn more"
+      "learn-more":"Learn more",
+      "coming-soon":"Coming soon"
     },
     "theme":{
       "dark":"Dark",
@@ -76,7 +77,9 @@
       "halving-date":"Estimated Halving Date",
       "genesis-epoch":"Genesis Epoch",
       "block-chain-progress":"Block Chain Progress",
-      "whats-epoch":"What's epoch?"
+      "whats-epoch":"What's epoch?",
+      "twitter-share-content-before-halving":"📢 @NervosNetwork CKB is estimated to halve on {{date}} {{timeZone}} 🚀,\n\n📅 There are {{countdown}} {{countdownUnit}} left until the halving countdown.\n\n🔗 Visit 👉 https://ckbdapps.com/halving to learn more about #CKB halving information.",
+      "twitter-share-content-after-halving":"🎉 Congratulations to @NervosNetwork CKB for successfully completing its first halving on {{datetime}} {{timeZone}} 🚀🧨🎆,\n\n🔗 Visit 👉 https://ckbdapps.com to explore #CKB ecosystem information."
     },
     "ecosystem": {
       "risk-warning":"BE ADVISED: We have not officially vetted or contacted these projects for proof. Do your own research before using any service in this open network.",

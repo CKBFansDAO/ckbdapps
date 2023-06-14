@@ -151,3 +151,14 @@ export function numberFormatter(num, digits) {
     
     return res + si[i].symbol;
 }
+
+export function getTimeZoneOffset() {
+    const date = new Date();
+    const offsetMinutes = date.getTimezoneOffset();
+    const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
+    const offsetSign = offsetMinutes < 0 ? "+" : "-";
+    const offsetMinutesFormatted = (Math.abs(offsetMinutes) % 60).toString().padStart(2, "0");
+    const timeZoneOffset = `GMT${offsetSign}${offsetHours.toString().padStart(2, "0")}:${offsetMinutesFormatted}`;
+    
+    return timeZoneOffset;
+  }
