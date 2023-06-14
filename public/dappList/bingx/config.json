@@ -1,0 +1,27 @@
+{
+    "project_name": "BingX",
+    "path_name":"bingx",
+    "categories": ["Markets"],
+    "logo_file": "bingx-logo.png",
+    "hero_image":"bingx-hero.jpeg",
+    "links":{
+        "official":"https://bingx.com/",
+        "twitter":"https://twitter.com/BingXOfficial",
+        "discord":"https://discord.com/invite/bingx",
+        "telegram":"https://t.me/BingXOfficial",
+        "github":"",
+        "medium":"https://bingxofficial.medium.com/",
+        "reddit":"https://www.reddit.com/r/BingX/",
+        "youtube":"https://www.youtube.com/c/bingx"
+    },
+    "en_US": {
+        "project_summary":"Crypto Trading Made Easy. Buy and sell with BingX, a secure platform that makes it easy to trade and store cryptocurrency.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"让数字交易变得更简单, 在BingX，您可以安全又轻松地交易和储存数字资产。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "project_name": "CoinTiger",
+    "path_name":"cointiger",
+    "categories": ["Markets"],
+    "logo_file": "cointiger-logo.png",
+    "hero_image":"cointiger-hero.jpeg",
+    "links":{
+        "official":"https://www.cointiger.com/",
+        "twitter":"https://twitter.com/CoinTigerEX",
+        "discord":"",
+        "telegram":"https://t.me/Cointiger_en",
+        "github":"",
+        "medium":"https://medium.com/cointiger",
+        "reddit":"https://www.reddit.com/r/CoinTigerExchange/",
+        "youtube":"https://www.youtube.com/channel/UCAFjQA3EUKfFGqbvIZrFXnQ"
+    },
+    "en_US": {
+        "project_summary":"CoinTiger offers reliable and convenient trading services, including Spot, Fiat, Futures, and Leveraged Tokens, supported on both the website and the application.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"币虎是领先数字资产交易平台,提供比特币,以太坊,莱特币,USDT等数字币交易,包括币币,法币,合约,ETF多种交易服务,支持网页,APP多端交易,安全可靠,方便快捷。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "project_name": "AscendEX",
+    "path_name":"ascendex",
+    "categories": ["Markets"],
+    "logo_file": "ascendex-logo.png",
+    "hero_image":"ascendex-hero.jpeg",
+    "links":{
+        "official":"https://ascendex.com/",
+        "twitter":"https://twitter.com/_AscendEX",
+        "discord":"",
+        "telegram":"https://t.me/AscendEXEnglish",
+        "github":"",
+        "medium":"https://medium.com/ascendex",
+        "reddit":"https://www.reddit.com/r/AscendEX_Official/",
+        "youtube":"https://www.youtube.com/c/AscendExOfficial" 
+    },
+    "en_US": {   
+        "project_summary":"AscendEX is a platform for investors of all experience levels who want to make their crypto ascent better.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"AscendEX是一个为所有经验水平的投资者提供的平台，他们想让自己的加密货币上升得更好。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

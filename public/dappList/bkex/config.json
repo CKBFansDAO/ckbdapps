@@ -1,0 +1,27 @@
+{
+    "project_name": "BKEX",
+    "path_name":"bkex",
+    "categories": ["Markets"],
+    "logo_file": "bkex-logo.png",
+    "hero_image":"bkex-hero.png",
+    "links":{
+        "official":"https://www.bkex.com/en/portal/",
+        "twitter":"https://twitter.com/BKEXGlobal",
+        "discord":"",
+        "telegram":"https://t.me/BKEXEnglish",
+        "github":"",
+        "medium":"https://medium.com/@BKEX_Global",
+        "reddit":"https://www.reddit.com/user/bkex-exchange",
+        "youtube":"https://www.youtube.com/channel/UCkLdGDrNjxkE9XU03kLp3hA" 
+    },
+    "en_US": {   
+        "project_summary":"Global leading Bitcoin&cryptocurrency trading platform.  ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"全球领先的比特币和加密货币交易平台。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

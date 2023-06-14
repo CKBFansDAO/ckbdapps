@@ -18,7 +18,7 @@
         "tutorial_link":""
     },
     "zh_CN": {   
-        "project_summary":"基于 FIDO Webauthn 协议和 Nervos CKB 的无密码和无助记词钱包解决方案。",
+        "project_summary":"基于 FIDO Webauthn 协议和 Nervos CKB 的无密码和无助记词的钱包解决方案。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
     } 

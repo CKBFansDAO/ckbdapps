@@ -1,0 +1,27 @@
+{
+    "project_name": "FMFW.io",
+    "path_name":"fmfwio",
+    "categories": ["Markets"],
+    "logo_file": "fmfm.io-logo.png",
+    "hero_image":"fmfm.io-hero.jpeg",
+    "links":{
+        "official":"https://fmfw.io/",
+        "twitter":"https://twitter.com/FMFW_io",
+        "discord":"",
+        "telegram":"https://t.me/fmfw_io",
+        "github":"",
+        "medium":"https://fmfw-io.medium.com/",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/channel/UCMDFlV1MmEort0rQ5I6ZYiQ"
+    },
+    "en_US": {
+        "project_summary":"Get started with our easy to use secure, and tested cryptocurrency exchange. Buy, sell and trade more than 300 digital assets with deep liquidity.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"通过我们易于使用、安全可靠、经过测试的加密货币交易所开始交易。使用深度流动性买卖和交易超过300种数字资产。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

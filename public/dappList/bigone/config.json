@@ -1,0 +1,27 @@
+{
+    "project_name": "BigOne",
+    "path_name":"bigone",
+    "categories": ["Markets"],
+    "logo_file": "bigone-logo.png",
+    "hero_image":"bigone-hero.png",
+    "links":{
+        "official":"https://big.one/",
+        "twitter":"https://twitter.com/BigONEexchange",
+        "discord":"https://discord.com/invite/k7FqhqKhj2",
+        "telegram":"https://t.me/BigONEChinese",
+        "github":"",
+        "medium":"https://bigoneexchange.medium.com/",
+        "reddit":"https://www.reddit.com/user/BigONEofficial",
+        "youtube":"https://www.youtube.com/channel/UCqbdwhapiXLmDY3X128aaQQ"
+    },
+    "en_US": {
+        "project_summary":"BigOne is a leading global digital asset trading and custody platform that helps users find high-quality blockchain assets worldwide. It provides digital currency trading and market inquiry services for Bitcoin (BTC), Ethereum (ETH), Polkadot (DOT), USDT, and other cryptocurrencies. With top-notch technology and security control processes, Beex ensures the safety of users' digital assets and helps them manage their assets.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"币格是全球领先的数字资产交易及托管平台,帮助用户寻找全球优质区块链资产,提供比特币(BTC)、以太坊(ETH)、波卡(DOT)、USDT等数字货币交易与行情查询服务,以顶尖的技术和安全控制流程保障用户数字资产安全,帮助用户进行资产管理。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

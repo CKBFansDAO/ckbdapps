@@ -1,0 +1,27 @@
+{
+    "project_name": "BitGlobal",
+    "path_name":"bitglobal",
+    "categories": ["Markets"],
+    "logo_file": "bitglobal-logo.png",
+    "hero_image":"bitglobal-hero.jpeg",
+    "links":{
+        "official":"https://www.bitglobal.com/",
+        "twitter":"https://twitter.com/BithumbGlobal",
+        "discord":"",
+        "telegram":"https://t.me/bithumbglobal_EN",
+        "github":"",
+        "medium":"https://medium.com/bithumb-global",
+        "reddit":"https://www.reddit.com/r/BithumbGlobal/",
+        "youtube":"https://www.youtube.com/channel/UCDsF4Wz_XOv0wPOtbhlCBXA?view_as=subscriber"
+    },
+    "en_US": {
+        "project_summary":"Bit Global,Bithumb Global is an innovative trading platform. Taking in consideration of the diverse needs of our Global users, Bithumb Global will rely on Bithumb's rich resources and technology to provide digital currency transactions, digital asset issuance, blockchain project incubation, decentralized finance as well as other related services. Bithumb Global has financial business entities in more than ten countries and regions including the United Kingdom, Canada, Australia, Japan, Hong Kong, and plans to gradually open regional distributed exchanges.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"Bit Global，Bithumb Global是一家创新的交易平台。考虑到全球用户的多样化需求，Bithumb Global将依托Bithumb丰富的资源和技术，提供数字货币交易、数字资产发行、区块链项目孵化、去中心化金融以及其他相关服务。Bithumb Global在包括英国、加拿大、澳大利亚、日本、香港等十多个国家和地区拥有金融业务实体，并计划逐步开设区域分布式交易所。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

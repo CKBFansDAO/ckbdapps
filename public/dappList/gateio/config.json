@@ -1,0 +1,27 @@
+{
+    "project_name": "Gate.io",
+    "path_name":"gateio",
+    "categories": ["Markets"],
+    "logo_file": "gateio-logo.png",
+    "hero_image":"gateio-hero.jpeg",
+    "links":{
+        "official":"https://www.gate.io/",
+        "twitter":"https://twitter.com/gate_io",
+        "discord":"https://discord.com/invite/QZWFkuQvzP",
+        "telegram":"https://t.me/gateio_en",
+        "github":"",
+        "medium":"https://gateio.medium.com/",
+        "reddit":"https://www.reddit.com/r/GateioExchange/",
+        "youtube":"https://www.youtube.com/c/GateioCrypto" 
+    },
+    "en_US": {   
+        "project_summary":"BGate.io's mission is to serve the blockchain industry by providing secure and reliable products & services to consumers and companies around the world.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Gate.io的使命是为区块链行业服务，为世界各地的消费者和公司提供安全可靠的产品和服务。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

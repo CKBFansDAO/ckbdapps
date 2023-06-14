@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next'
 import { currentLanguage } from '../../utils/i18n';
 import './AppList.css'
-import PlaceholderImage from '../../assets/images/logo_white_mark.svg';
 import BitTooltip from '../tooltip/bitTooltip';
 
 
@@ -37,7 +36,7 @@ const link_icon_config = {
 const AppList = ({ appList }) => {
     //const [appList, setAppList] = useState([]);
 
-    //console.log(appList);
+    console.log(appList);
 
     useEffect(() => {
         //fetch('../dappList/dapps_list.json')
@@ -56,10 +55,10 @@ const AppList = ({ appList }) => {
 }
 
 const App = ({ config }) => {
-    const [appConfig, setAppConfig] = useState({});
+    const [appConfig, setAppConfig] = useState(config);
     const [t] = useTranslation();
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (config.path_name === undefined) {
             return;
         }
@@ -67,7 +66,7 @@ const App = ({ config }) => {
         fetch(`../dappList/${config.path_name}/config.json`)
             .then(response => response.json())
             .then(data => setAppConfig(data));
-    }, [config]);
+    }, [config]);*/
 
     const renderAppCategories = (categories) => {
         return <div className='flex gap-2'>

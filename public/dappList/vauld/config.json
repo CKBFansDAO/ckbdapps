@@ -1,0 +1,27 @@
+{
+    "project_name": "Vauld",
+    "path_name":"vauld",
+    "categories": ["Markets"],
+    "logo_file": "vauld-logo.png",
+    "hero_image":"vauld-hero.jpeg",
+    "links":{
+        "official":"https://www.vauld.com/markets",
+        "twitter":"https://twitter.com/VauldOfficial",
+        "discord":"",
+        "telegram":"https://telegram.me/VauldOfficial",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/BankofHodlers/",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Lend, borrow & trade with Bitcoin (BTC), Ethereum (ETH), Tether (USDT) and other major cryptocurrencies. Buy & sell crypto and earn interest of up to 11.57% APY. Trade while continuing to earn high interest rates.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"借贷和交易比特币（BTC）、以太坊（ETH）、泰达币（USDT）和其他主要加密货币。购买和出售加密货币，获得高达11.57% APY的利息。在继续获得高利率的同时进行交易。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

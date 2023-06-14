@@ -1,0 +1,27 @@
+{
+    "project_name": "Nominex",
+    "path_name":"nominex",
+    "categories": ["Markets"],
+    "logo_file": "nominex-logo.png",
+    "hero_image":"nominex-hero.jpeg",
+    "links":{
+        "official":"https://nominex.io/",
+        "twitter":"https://twitter.com/NominexExchange",
+        "discord":"",
+        "telegram":"https://t.me/nominex_announcements",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"Cryptocurrency exchange Nominex — new trading platform for convenient trading experience with low fees and numerous instruments.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"加密货币交易所Nominex是一家新的交易平台，提供低费用和众多工具，为用户提供便捷的交易体验。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

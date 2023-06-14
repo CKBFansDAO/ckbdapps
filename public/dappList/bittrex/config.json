@@ -1,0 +1,27 @@
+{
+    "project_name": "Bittrex",
+    "path_name":"bittrex",
+    "categories": ["Markets"],
+    "logo_file": "bittrex-logo.png",
+    "hero_image":"bittrex-hero.jpeg",
+    "links":{
+        "official":"https://global.bittrex.com/",
+        "twitter":"https://twitter.com/BittrexGlobal",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Bittrex Global is one of the most secure trading platforms in the world. Built on Bittrex’s cutting-edge technology, we provide an institutional grade experience for professional and novice customers alike. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Bittrex Global是世界上最安全的交易平台之一。基于Bittrex的尖端技术，我们为专业和新手客户提供机构级的体验。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

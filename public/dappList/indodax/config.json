@@ -1,0 +1,27 @@
+{
+    "project_name": "Indodax",
+    "path_name":"indodax",
+    "categories": ["Markets"],
+    "logo_file": "indodax-logo.png",
+    "hero_image":"indodax-hero.jpeg",
+    "links":{
+        "official":"https://indodax.com/",
+        "twitter":"https://twitter.com/indodax/",
+        "discord":"https://discord.com/invite/enpVHPS323",
+        "telegram":"https://t.me/+wzK7k15nbRtiNjg1/",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"https://youtube.com/channel/UC8uYnlRXt__92AUhLWLWgFw/" 
+    },
+    "en_US": {   
+        "project_summary":"Platform Jual-beli Bitcoin dan Aset Kripto Terbesar di Indonesia. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"印度尼西亚最大的比特币和加密货币资产买卖平台。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

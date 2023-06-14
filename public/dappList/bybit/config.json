@@ -1,0 +1,27 @@
+{
+    "project_name": "Bybit",
+    "path_name":"bybit",
+    "categories": ["Markets"],
+    "logo_file": "bybit-logo.png",
+    "hero_image":"bybit-hero.jpeg",
+    "links":{
+        "official":"http://www.bybit.com/",
+        "twitter":"https://twitter.com/Bybit_Official",
+        "discord":"https://discord.com/invite/CeGhhS95fQ",
+        "telegram":"https://t.me/BybitZH",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/c/Bybit"
+    },
+    "en_US": {
+        "project_summary":"Crypto trading experience elevated. Buy, sell, trade BTC, altcoins & NFTs. Get access to the spot and futures market or stake your coins securely.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"买卖交易 BTC、非主流币和 NFT，投资现货和合约市场，或质押代币安享收益。加入 Bybit，开启加密货币交易新纪元！",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

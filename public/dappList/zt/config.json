@@ -1,0 +1,27 @@
+{
+    "project_name": "ZT",
+    "path_name":"zt",
+    "categories": ["Markets"],
+    "logo_file": "zt-logo.png",
+    "hero_image":"zt-hero.jpeg",
+    "links":{
+        "official":"https://www.ztb.im/",
+        "twitter":"https://twitter.com/ZT_exchange",
+        "discord":"https://discord.com/invite/nwuJKCPqtw",
+        "telegram":"https://t.me/ZTGlobal_English",
+        "github":"",
+        "medium":"https://zt-exchange.medium.com/",
+        "reddit":"https://www.reddit.com/r/ZTExchange/",
+        "youtube":"https://www.youtube.com/channel/UCLj7xDvMhPS-VxZiof3PzOw/featured"
+    },
+    "en_US": {
+        "project_summary":"ZT is a blockchain digital currency trading platform, focusing on providing convenient BTC、ETH、LTC market trading services and smooth trading experience for   digital currency lovers. We have been committed to creating a more convenient Bitcoin trading platform.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"ZT是一个区块链数字货币交易平台，专注于为数字货币爱好者提供便捷的BTC、ETH、LTC市场交易服务和流畅的交易体验。我们一直致力于创建一个更方便的比特币交易平台。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

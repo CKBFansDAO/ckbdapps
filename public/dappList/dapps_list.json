@@ -467,6 +467,237 @@
           "categories": [
               "Tools & Infrastructure"
           ]
+        },
+        {
+            "project_name": "Binance",
+            "path_name":"binance",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name":"KuCoin",
+            "path_name":"kucoin",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name":"Bithumb",
+            "path_name":"bithumb",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "Bittrex",
+            "path_name":"bittrex",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "Gate.io",
+            "path_name":"gateio",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "Huobi",
+            "path_name":"huobi",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "Crypto.com Exchange",
+            "path_name":"cryptocom",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "Coinone",
+            "path_name":"coinone",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "MEXC Global",
+            "path_name":"mexcglobal",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "BKEX",
+            "path_name":"bkex",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "Indodax",
+            "path_name":"indodax",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "CoinEx",
+            "path_name":"coinex",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "WazirX",
+            "path_name":"wazirx",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "Tokocrypto",
+            "path_name":"tokocrypto",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "AscendEX",
+            "path_name":"ascendex",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "CoinDCX",
+            "path_name":"coindcx",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "BigOne",
+            "path_name": "bigone",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+          "project_name": "BingX",
+          "path_name": "bingx",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "Bitcoiva",
+          "path_name": "bitcoiva",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "BitGlobal",
+          "path_name": "bitglobal",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "Bitrue",
+          "path_name": "bitrue",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "Bybit",
+          "path_name": "bybit",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "CoinTiger",
+          "path_name": "cointiger",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "BigOne",
+          "path_name": "bigone",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "CoinW",
+          "path_name": "coinw",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "FMFW.io",
+          "path_name": "fmfwio",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "HitBTC",
+          "path_name": "hitbtc",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "Nominex",
+          "path_name": "nominex",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "OceanEx",
+          "path_name": "oceanex",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "SuperEx",
+          "path_name": "superex",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "Vauld",
+          "path_name": "vauld",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "XT.COM",
+          "path_name": "xt.com",
+          "categories": [
+              "Markets"
+          ]
+        },
+        {
+          "project_name": "ZT",
+          "path_name": "zt",
+          "categories": [
+              "Markets"
+          ]
         }
     ]
 }

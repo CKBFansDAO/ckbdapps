@@ -1,0 +1,27 @@
+{
+    "project_name": "Coinone",
+    "path_name":"coinone",
+    "categories": ["Markets"],
+    "logo_file": "coinone-logo.png",
+    "hero_image":"coinone-hero.jpeg",
+    "links":{
+        "official":"https://coinone.co.kr/",
+        "twitter":"https://twitter.com/CoinoneOfficial",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"https://medium.com/coinone",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/c/Coinone" 
+    },
+    "en_US": {   
+        "project_summary":"Bringing Blockchain into the World.Buy and sell cryptocurrency with the safest crypto exchange. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"将区块链带入世界，在最安全的加密货币交易所购买和出售加密货币。 ",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

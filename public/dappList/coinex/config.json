@@ -1,0 +1,27 @@
+{
+    "project_name": "CoinEx",
+    "path_name":"coinex",
+    "categories": ["Markets"],
+    "logo_file": "coinex-logo.png",
+    "hero_image":"coinex-hero.png",
+    "links":{
+        "official":"https://www.coinex.com/",
+        "twitter":"https://twitter.com/coinexcom",
+        "discord":"https://discord.gg/9aTtZBwrbQ",
+        "telegram":"https://t.me/CoinExOfficialEN",
+        "github":"",
+        "medium":"https://coinex.medium.com/",
+        "reddit":"https://www.reddit.com/r/Coinex/",
+        "youtube":"https://www.youtube.com/c/CoinEx" 
+    },
+    "en_US": {   
+        "project_summary":"Making Crypto Trading Easier. A Crypto Exchange for Everyone, the Way to a Barrier-Free Crypto World.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"让加密货币交易更容易。每个人的加密货币交易所，通往无障碍的加密货币世界之路。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

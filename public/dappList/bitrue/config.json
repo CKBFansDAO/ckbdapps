@@ -1,0 +1,27 @@
+{
+    "project_name": "Bitrue",
+    "path_name":"bitrue",
+    "categories": ["Markets"],
+    "logo_file": "bitrue-logo.png",
+    "hero_image":"bitrue-hero.jpeg",
+    "links":{
+        "official":"https://www.bitrue.com/",
+        "twitter":"https://twitter.com/BitrueOfficial",
+        "discord":"",
+        "telegram":"https://t.me/Bitrue_official/",
+        "github":"",
+        "medium":"https://bitrue.medium.com/",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/@BitrueOfficial"
+    },
+    "en_US": {
+        "project_summary":"Bitrue is the most secure and advanced online platform for buying, selling, transferring, and storing digital currency.We provide exchanges of Bitcoin, Bitcoin Cash, Ethereum, USDT and Litecoin with fiat currencies worldwide.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"Bitrue是最安全和先进的在线平台，用于购买、销售、转移和存储数字货币。我们提供比特币、比特币现金以太坊、USDT和莱特币与世界各地的法定货币进行交易。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

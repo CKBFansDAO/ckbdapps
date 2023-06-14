@@ -1,0 +1,27 @@
+{
+    "project_name": "OceanEx",
+    "path_name":"oceanex",
+    "categories": ["Markets"],
+    "logo_file": "oceanex-logo.png",
+    "hero_image":"oceanex-hero.jpeg",
+    "links":{
+        "official":"https://oceanex.pro/",
+        "twitter":"https://twitter.com/OceanexOfficial",
+        "discord":"",
+        "telegram":"https://t.me/OceanEx_Official/",
+        "github":"",
+        "medium":"https://oceanex.medium.com/",
+        "reddit":"https://www.reddit.com/r/OceanExOfficial/",
+        "youtube":"https://www.youtube.com/watch?v=XlTNABhIOWE"
+    },
+    "en_US": {
+        "project_summary":"Launched by BitOcean Global in 2018, OceanEx is an AI powered digital asset trading platform within the VeChainThor Ecosystem, offering professional services to digital asset investors, traders and liquidity providers. Our professional services are fortified by deploying cutting-edge AI technologies, providing an actively protected and ultra-liquid cryptocurrency trading market, full-fledged quantitative trading capabilities, and a rich set investment tools and products to meet a wide spectrum of investment strategies from all types of investors.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"OceanEx是由BitOcean Global于2018年推出的一款基于人工智能的数字资产交易平台，位于VeChainThor生态系统内，为数字资产投资者、交易者和流动性提供者提供专业服务。我们的专业服务采用先进的人工智能技术加强，提供积极保护和超高流动性的加密货币交易市场、全面的量化交易能力以及丰富的投资工和产品，以满足各类投资者的广泛投资策略。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

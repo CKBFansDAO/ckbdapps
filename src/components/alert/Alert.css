@@ -1,0 +1,13 @@
+.halved-alert-bg {
+    background-image: url('../../assets/images/fireworks-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.halving-alert-bg {
+    background-image: url('../../assets/images/bg-having-alert.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

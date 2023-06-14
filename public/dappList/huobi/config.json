@@ -1,0 +1,27 @@
+{
+    "project_name": "Huobi",
+    "path_name":"huobi",
+    "categories": ["Markets"],
+    "logo_file": "huobi-logo.png",
+    "hero_image":"huobi-hero.jpeg",
+    "links":{
+        "official":"https://www.huobi.com/en-us/",
+        "twitter":"https://twitter.com/HuobiGlobal",
+        "discord":"https://discord.com/invite/huobi",
+        "telegram":"https://t.me/huobiglobalofficial",
+        "github":"",
+        "medium":"https://huobiglobal.medium.com/",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/HuobiGlobal" 
+    },
+    "en_US": {   
+        "project_summary":"Your Gateway To Web3! ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"您通往Web3的通道!",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

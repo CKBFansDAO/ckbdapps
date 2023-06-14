@@ -1,0 +1,27 @@
+{
+    "project_name": "CoinDCX",
+    "path_name":"coindcx",
+    "categories": ["Markets"],
+    "logo_file": "coindcx-logo.png",
+    "hero_image":"coindcx-hero.jpeg",
+    "links":{
+        "official":"https://coindcx.com/",
+        "twitter":"https://twitter.com/coindcx",
+        "discord":"https://discord.com/invite/hpgUCTSpKU",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"1.3 Crore+* Indians choose CoinDCX, India's most valued Crypto Investment App. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"1.3亿多印度人选择CoinDCX、印度最具价值的加密货币投资应用程序。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

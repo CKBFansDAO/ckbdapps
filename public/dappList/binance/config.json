@@ -1,0 +1,27 @@
+{
+    "project_name": "Binance",
+    "path_name":"binance",
+    "categories": ["Markets"],
+    "logo_file": "binance-logo.png",
+    "hero_image":"binance-hero.jpeg",
+    "links":{
+        "official":"https://www.binance.com/",
+        "twitter":"https://twitter.com/binance",
+        "discord":"https://discord.com/invite/jE4wt8g2H2",
+        "telegram":"https://t.me/BinanceExchange",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/binance/",
+        "youtube":"https://www.youtube.com/binanceyoutube" 
+    },
+    "en_US": {   
+        "project_summary":"The world’s leading blockchain ecosystem and digital asset exchange. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"世界领先的区块链生态系统和数字资产交易所。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

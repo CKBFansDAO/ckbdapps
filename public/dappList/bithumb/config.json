@@ -1,0 +1,27 @@
+{
+    "project_name":"Bithumb",
+    "path_name":"bithumb",
+    "categories": ["Markets"],
+    "logo_file": "bithumb-logo.png",
+    "hero_image":"bithumb-hero.jpeg",
+    "links":{
+        "official":"https://www.bithumb.com/react/",
+        "twitter":"https://twitter.com/bithumbofficial",
+        "discord":"",
+        "telegram":"https://t.me/BithumbExchange",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/channel/UCh2nkYoiq6hae8ePxaZUgkw" 
+    },
+    "en_US": {   
+        "project_summary":"No.1 Digital Asset Platform based in Korea. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"位于韩国的第一大数字资产平台。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

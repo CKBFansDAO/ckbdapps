@@ -1,0 +1,27 @@
+{
+    "project_name":"KuCoin",
+    "path_name":"kucoin",
+    "categories": ["Markets"],
+    "logo_file": "kucoin-logo.png",
+    "hero_image":"kucoin-hero.jpeg",
+    "links":{
+        "official":"https://www.kucoin.com/",
+        "twitter":"https://twitter.com/KuCoinCom",
+        "discord":"https://discord.com/invite/kucoinofficialserver",
+        "telegram":"https://t.me/Kucoin_Exchange",
+        "github":"https://github.com/Kucoin",
+        "medium":"https://medium.com/kucoinexchange",
+        "reddit":"https://www.reddit.com/r/kucoin",
+        "youtube":"https://www.youtube.com/c/KuCoinExchange" 
+    },
+    "en_US": {   
+        "project_summary":"Our mission is to facilitate the global free flow of digital value. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"我们的使命是促进数字价值的全球自由流动。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

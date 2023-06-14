@@ -39,6 +39,7 @@ class DappListCache {
 
     async getDataList() {
         if (this.dappList.length === 0) {
+            console.log(11111);
             await this.loadData();
         }
         return this.dappList;

@@ -1,0 +1,27 @@
+{
+    "project_name": "XT.COM",
+    "path_name":"xt.com",
+    "categories": ["Markets"],
+    "logo_file": "xt.com-logo.png",
+    "hero_image":"xt.com-hero.jpeg",
+    "links":{
+        "official":"https://www.xt.com/",
+        "twitter":"https://twitter.com/XTexchange",
+        "discord":"https://discord.com/invite/tcx84qXNW3",
+        "telegram":"https://t.me/XTsupport_EN",
+        "github":"",
+        "medium":"https://medium.com/@XT_com",
+        "reddit":"https://www.reddit.com/r/XTExchange/",
+        "youtube":"https://www.youtube.com/channel/UCeiEo_mY82qbg5v0C22TyZA"
+    },
+    "en_US": {
+        "project_summary":"XT.COM is the world’s first social infused cryptocurrency exchange for trading bitcoin, ethereum, and altcoins with deep liquidity and low fees. We are paving the way for global adoption of Web3.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"XT.COM 是全球首家社交化加密货币交易所，用于交易比特币、以太坊和其他数字资产，具有高流动性和低费用的特点。我们正在为全球采用 Web3 铺平道路。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

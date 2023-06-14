@@ -1,0 +1,27 @@
+{
+    "project_name": "Crypto.com Exchange",
+    "path_name":"cryptocom",
+    "categories": ["Markets"],
+    "logo_file": "cryptocom-logo.png",
+    "hero_image":"cryptocom-hero.jpeg",
+    "links":{
+        "official":"https://crypto.com/exchange",
+        "twitter":"https://twitter.com/cryptocom",
+        "discord":"https://discord.com/invite/nsp9JTC",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/Crypto_com",
+        "youtube":"https://www.youtube.com/channel/UCOMprzxakZOqmY23LYIawmg" 
+    },
+    "en_US": {   
+        "project_summary":"The best place to buy, sell, and pay with crypto. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"用加密货币购买、出售和支付的最佳场所。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

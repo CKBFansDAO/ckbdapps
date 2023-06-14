@@ -1,0 +1,27 @@
+{
+    "project_name": "WazirX",
+    "path_name":"wazirx",
+    "categories": ["Markets"],
+    "logo_file": "wazirx-logo.png",
+    "hero_image":"wazirx-hero.jpeg",
+    "links":{
+        "official":"https://wazirx.com/",
+        "twitter":"https://twitter.com/WazirXIndia?utm_source=wazirxmainwebsite&utm_medium=referral&utm_campaign=twitter-wxweb-link-footer",
+        "discord":"",
+        "telegram":"https://t.me/wazirx?utm_source=wazirxmainwebsite&utm_medium=referral&utm_campaign=telegram-wxweb-link-footer",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/user/wazirx?utm_source=wazirxmainwebsite&utm_medium=referral&utm_campaign=reddit-wxweb-link-footer",
+        "youtube":"https://www.youtube.com/wazirx?utm_source=wazirxmainwebsite&utm_medium=referral&utm_campaign=youtube-wxweb-link-footer" 
+    },
+    "en_US": {   
+        "project_summary":"Wazirx is India's most trusted Bitcoin & cryptocurrency exchange. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Wazirx是印度最值得信赖的比特币和加密货币交易所。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

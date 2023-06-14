@@ -1,6 +1,6 @@
 {
-    "project_name": "",
-    "path_name":"",
+    "project_name": "Your App Name",
+    "path_name":"yourappname",
     "categories": [""],
     "logo_file": "{yourappname}-logo.png",
     "hero_image":"{yourappname}-hero.png",

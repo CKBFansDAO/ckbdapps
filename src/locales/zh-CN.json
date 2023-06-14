@@ -10,7 +10,8 @@
       "github":"Github，浏览项目代码",
       "telegram":"电报，加入电报群",
       "reddit":"Reddit，加入主题论坛",
-      "tutorial":"教程"
+      "tutorial":"教程",
+      "learn-more":"了解更多"
     },
     "theme":{
       "dark":"Dark",
@@ -22,18 +23,21 @@
     "alert": {
       "yes":"YES",
       "cancel":"Cancel",
-      "ok":"OK"
+      "ok":"OK",
+      "next-halving-tip":"Nervos CKB 的第一次减半事件预计发生在 {{time}}。",
+      "halved-tip":"已于 {{time}} 成功完成第一次减半。🎉🚀"
     },
     "bulletin":{
-      "content":"",
-      "hot-events":{
-        "title":"🔥TOP EVENT:",
-        "no1":"",
-        "no2":""
+      "content":{
+        "item1":"Nervos CKB 的第一次减半事件预计发生在 2023/11/19。",
+        "item2":"",
+        "item3":"",
+        "item4":"",
+        "item5":""
       }
     },
     "nav": {
-      "home": "概览",
+      "home": "首页",
       "dapps": "Dapps",
       "ecosystem":"生态系统",
       "halving": "CKB减半",
@@ -47,7 +51,15 @@
       "about-us":"About us"
     },
     "home": {
-      
+      "market-data": {
+        "token-summary":"CKB 发行量信息一览",
+        "total-supply":"发行数量",
+        "circulating-supply":"流通量",
+        "deposit":"NervosDAO 锁仓",
+        "tradable":"可交易",
+        "ckb-his-price":"CKB 历史价格",
+        "ckb-his-hash-rate":"全网算力走势"
+      }
     },
     "halving": { 
       "seconds":"秒",

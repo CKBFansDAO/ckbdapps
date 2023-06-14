@@ -1,0 +1,27 @@
+{
+    "project_name": "SuperEx",
+    "path_name":"superex",
+    "categories": ["Markets"],
+    "logo_file": "superex-logo.png",
+    "hero_image":"superex-hero.png",
+    "links":{
+        "official":"https://www.superex.com/index",
+        "twitter":"https://twitter.com/SuperExet",
+        "discord":"https://discord.com/invite/superex",
+        "telegram":"https://t.me/SuperExOfficial",
+        "github":"",
+        "medium":"https://superex.medium.com/",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/@superexdex"
+    },
+    "en_US": {
+        "project_summary":"SuperEx is the first web3 largest crypto exchange that allows you to buy BTC, ETH and do future trading and margin trading-Superex.com.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"SuperEx是第一个Web3最大的加密货币交易所，允许您购买比特币（BTC）、以太坊（ETH）并进行期货交易和杠杆交易-Superex。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

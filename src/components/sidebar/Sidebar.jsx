@@ -15,6 +15,20 @@ const SidebarItem = props => {
 
     const active = props.active ? 'active' : ''
 
+    const renderBadge = (badge) => {
+        if (badge.type === 'icon' && badge.icon) {
+            return <div className='flex w-full place-content-end'><img className='flex h-5 w-full' src={badge.icon}></img></div>
+        }
+        else if (badge.type === 'text') {
+            return <span className='absolute flex items-center h-[14px] text-center text-[10px] px-2 py-1 rounded-full bg-[#EB5757] text-[#FFF] -mt-[22px] -ml-8'>{badge.text}</span>
+        }
+        else if (badge.type === 'dot') {
+            return <span className='absolute w-[10px] h-[10px] rounded-full bg-[#EB5757] -mt-5'></span>
+        }
+
+        return <></>
+    }
+
     return (
         <div className="sidebar__item my-1">
             <div className={`sidebar__item-inner ${active}`}>
@@ -22,6 +36,10 @@ const SidebarItem = props => {
                 <span>
                     {props.title}
                 </span>
+                <div className='grow'></div>
+                {props.badge ? (<div className=''>
+                    {renderBadge(props.badge)}
+                </div>) : ('')}
             </div>
         </div>
     )
@@ -66,6 +84,7 @@ const Sidebar = props => {
                                 title={t(item.display_name)}
                                 icon={item.icon}
                                 active={isActiveItem(item)}
+                                badge={item.badge}
                             />
                         </Link>
                     ))
@@ -83,11 +102,11 @@ const Sidebar = props => {
                 <a className='w-6 h-6 rounded-full mr-2 icon-shadow hover:shadow-lg  active:bg-emerald-500 focus:outline-none'
                     href={'hhd'} rel="noopener noreferrer" target="_blank">
                     <i className="h-6 text-[24px] text-[#249AE6] flex justify-center hover:text-[#ddd] items-center fa-brands fa-telegram"></i>
-                </a>   
+                </a>
                 <div className='grow'></div>
                 <LanguageMenu></LanguageMenu>
             </div>
-           
+
         </div>
     )
 }

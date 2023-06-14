@@ -1,26 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useTranslation } from 'react-i18next';
 
 import Marquee from "react-fast-marquee";
 
 import bulletin_config from '../../assets/JsonData/bulletin_config.json'
+import { useLocation, useNavigate } from 'react-router-dom';
 
-
-const new_feature_config = [
-    {
-        display_name:"footer.feedback",
-        link:"https://rr3ottoa6u.larksuite.com/sheets/shtusaqvqtJViGREM9rbRk2GBZn?from=seekdid.com"
-    },
-    {
-        display_name:"footer.followus",
-        link:"https://twitter.com/@seekdid"
-    },
-    {
-        display_name:"footer.digitdao-proposal",
-        link:"https://metaforo.io/g/digitdao?filter=proposals"
-    }
-]
 
 const Bulletin = (props) => {
 
@@ -28,7 +14,8 @@ const Bulletin = (props) => {
 
     const [t] = useTranslation();
 
-    
+    const navigate = useNavigate(); 
+    const location = useLocation();
 
     useEffect(() => {
         setBulletinVisible(checkNeedShowBulletin());
@@ -44,54 +31,82 @@ const Bulletin = (props) => {
         return false;
     }
 
-    const renderHotEvents = () => {
-        if (!bulletin_config.hot_events || bulletin_config.hot_events.length == 0) {
+    const renderBulletinItem = (item) => {
+        let bulletDom = <span className='flex items-center text-[14px] text-[#FFF] font-semibold break-all mr-2'>{t(item.text)}</span>
+        if (!item.url || item.url.length == 0) {
+            return bulletDom
+        }
+
+        // 如果链接是一个完整
+        let url = item.url;
+        if (url && url.startsWith('/')) {
+            if (url === location.pathname) {
+                // 当前页面是指定的相对路径，创建<span>标签
+                return bulletDom
+            } else {
+                // 在网站内部进行跳转
+                return (<div className='flex'>
+                    {bulletDom}
+                    <span onClick={() => navigate(url)} className='text-[14px] cursor-pointer underline underline-offset-1 text-[#00DF9B] hover:text-white'>{t("common.learn-more")}</span>
+                </div>
+                );
+            }
+        } else if (url) {
+            // 配置的是站外的URL地址，创建<a>标签
+            return (<div className='flex'>
+                {bulletDom}
+                <a href={url} target="_blank" rel="noopener noreferrer" className='text-[14px] underline underline-offset-2 text-[#00DF9B]  hover:text-white'>{t("common.learn-more")}
+                </a>
+            </div>
+            );
+        } else {
+            // 配置的URL为空，创建<span>标签
+            return bulletDom
+        }
+    }
+
+    const renderBulletins = () => {
+        if (!bulletin_config.bulletins || bulletin_config.bulletins.length == 0) {
             return;
         }
 
-        return <div>
+        return <div className='flex gap-5'>
+                
             {
-                bulletin_config.hot_events?.map((item, index) => {
-                    if (index == 0) {
-                        return <div className='flex flex-row' key={`bulletin-${index}`}>
-                            <span className='flex items-center text-[14px] text-[#FFF] flex items-center px-2 font-semibold break-all'>🔥🔥🔥🔥🔥{t('bulletin.hot-events.title')}</span>
-                            { 
-                                item.url ? (<a className='text-[14px] text-[#FFF] text-sm px-3 py-5 hover:text-[#FFA000]' href={item.url} rel="noopener noreferrer" target="_blank">
-                            {t(item.name)}
-                                </a>):(<span className='flex items-center text-[14px] text-[#FFF] flex items-center px-2 font-semibold break-all'>{t(item.name)}</span>)
-                            }
-                        </div>
-                    }
-                    else {
-                        return <div key={`bulletin-${index}`}>
-                            { 
-                                item.url ? (<a className='text-[14px] text-[#FFF] text-sm px-3 py-5 hover:text-[#FFA000]' href={item.url} rel="noopener noreferrer" target="_blank">
-                            {t(item.name)}
-                                </a>):(<span className='flex items-center text-[14px] text-[#FFF] flex items-center px-2 font-semibold break-all'>{t(item.name)}</span>)
-                            }
-                        </div>
-                    }
+                bulletin_config.bulletins?.map((item, index) => {
+                    return <div key={`bulletin-${index}`} className='flex mr-5'>
+                        <span className='flex items-center text-[14px] text-[#FFF] px-2 font-semibold break-all'>📢</span>
+                        {renderBulletinItem(item)}
+                        {/*
+                            item.url ? (<a className='text-[14px] text-[#FFF] text-sm px-3 hover:text-[#FFA000]' href={item.url} rel="noopener noreferrer" target="_blank">
+                                {t(item.text)}
+                            </a>) : (<span className='flex items-center text-[14px] text-[#FFF] px-2 font-semibold break-all'>{t(item.text)}</span>)
+                */}
+                    </div>
+
                 })
             }
-    </div>
+        </div>
     }
 
     const renderBulletin = () => {
         if (bulletinVisible) {
-            return <div className='flex flex-row px-3 items-center justify-center h-10 bg-[#DF4A46]'>
-            <div className='flex grow justify-between'>
-                <div/>
-                <div className='flex h-7 flex-row items-center py-1 justify-center rounded-[15px]'>
-                    <Marquee className='' pauseOnHover='true' pauseOnClick='true' speed='35' gradient='true' gradientColor={[223, 74, 71]} gradientWidth='40px'> 
-                        <span className='flex items-center text-[14px] text-[#FFF] flex items-center px-2 font-semibold break-all'>{t(bulletin_config.bulletin)}</span>
-                        {renderHotEvents()}
-                    </Marquee>
+            return <div className='flex flex-row px-3 items-center justify-center h-10 bg-[#733DFF]'>
+                <div className='flex grow justify-between'>
+                    <div />
+                    <div className='flex h-7 flex-row items-center py-1 justify-center rounded-[15px]'>
+                        <Marquee className='' pauseOnHover='true' pauseOnClick='true' speed='35' gradient='false' gradientColor={[115, 51, 255]} gradientWidth='40px'>
+                            
+                            <div className='flex gap-3'>
+                                {renderBulletins()}
+                            </div>
+                        </Marquee>
+                    </div>
+                    <div />
                 </div>
-                <div/>
+                <i className="flex items-center justify-center fa-solid fa-xmark text-[14px] cursor-pointer hover:text-red ml-3 pl-[5px] pt-[3px] h-5 w-5"
+                    onClick={closeBulletin}></i>
             </div>
-            <i className="flex items-center justify-center fa-solid fa-xmark text-[14px] cursor-pointer hover:text-red ml-3 px-2 h-5 w-5 rounded-[10px] bg-[#B73A3A] hover:bg-[#ed6b61] active:bg-[#b35048] border-0 text-white"
-                onClick={closeBulletin}></i>
-        </div>
         }
 
         return <></>
@@ -104,7 +119,7 @@ const Bulletin = (props) => {
         localStorage.setItem('bulletin-closed', bulletin_config.version);
     }
 
-    return (<div>
+    return (<div className='w-full'>
         {renderBulletin()}
     </div>
     )

@@ -1,0 +1,27 @@
+{
+    "project_name": "Bitcoiva",
+    "path_name":"bitcoiva",
+    "categories": ["Markets"],
+    "logo_file": "bitcoiva-logo.png",
+    "hero_image":"bitcoiva-hero.png",
+    "links":{
+        "official":"https://www.bitcoiva.com/markets",
+        "twitter":"https://twitter.com/bitcoiva",
+        "discord":"",
+        "telegram":"https://t.me/BITCOIVA",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/channel/UCxPyXRsK0TFIKfG1p2Ws0QA"
+    },
+    "en_US": {
+        "project_summary":"Bitcoiva - global crypto trading platform highly safe, user friendly, you can buy and sell cryptocurrency.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"Bitcoiva - 全球加密货币交易平台，非常安全、用户友好，您可以买卖加密货币。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

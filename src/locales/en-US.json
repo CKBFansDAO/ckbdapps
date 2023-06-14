@@ -10,7 +10,8 @@
       "github": "GitHub, Browse code repository",
       "telegram": "Telegram, Join the Telegram group",
       "reddit": "Reddit, Join the topic forum",
-      "tutorial": "Tutorial"
+      "tutorial": "Tutorial",
+      "learn-more":"Learn more"
     },
     "theme":{
       "dark":"Dark",
@@ -22,14 +23,17 @@
     "alert": {
       "yes":"YES",
       "cancel":"Cancel",
-      "ok":"OK"
+      "ok":"OK",
+      "next-halving-tip":"The first halving event of Nervos CKB is estimated at {{time}}",
+      "halved-tip":"has successfully halved on {{time}}.🎉🚀"
     },
     "bulletin":{
-      "content":"",
-      "hot-events":{
-        "title":"🔥TOP EVENT:",
-        "no1":"",
-        "no2":""
+      "content":{
+        "item1":"The first halving event of Nervos CKB is expected to occur on November 19, 2023.",
+        "item2":"",
+        "item3":"",
+        "item4":"",
+        "item5":""
       }
     },
     "nav": {
@@ -47,6 +51,15 @@
       "about-us":"About us"
     },
     "home": {
+      "market-data": {
+        "token-summary":"CKB Token Summary",
+        "total-supply":"Total Supply",
+        "circulating-supply":"Circulating Supply",
+        "deposit":"NervosDAO Deposit",
+        "tradable":"Tradable",
+        "ckb-his-price":"CKB Historical Price",
+        "ckb-his-hash-rate":"Historical Hash Rate"
+      }
       
     },
     "halving": { 

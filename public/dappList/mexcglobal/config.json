@@ -1,7 +1,7 @@
 {
     "project_name": "MEXC Global",
     "path_name":"mexcglobal",
-    "categories": ["Business Partner"],
+    "categories": ["Business Partner","Markets"],
     "logo_file": "mexcglobal-logo.png",
     "hero_image":"mexcglobal-hero.jpeg",
     "links":{

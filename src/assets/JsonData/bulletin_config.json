@@ -1,15 +1,10 @@
 {
-    "version": "2023010401",
-    "need_show": false,
-    "bulletin": "bulletin.content",
-    "hot_events":[
+    "version": "2023010402",
+    "need_show": true,
+    "bulletins":[
         {
-            "name":"bulletin.hot-events.no1",
-            "url":"https://metaforo.io/g/digitdao?filter=proposals"
-        },
-        {
-            "name":"bulletin.hot-events.no2",
-            "url":""
+            "text":"bulletin.content.item1",
+            "url":"/halving"
         }
     ]
 }

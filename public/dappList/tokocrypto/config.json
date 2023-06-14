@@ -1,0 +1,27 @@
+{
+    "project_name": "Tokocrypto",
+    "path_name":"tokocrypto",
+    "categories": ["Markets"],
+    "logo_file": "tokocrypto-logo.png",
+    "hero_image":"tokocrypto-hero.jpeg",
+    "links":{
+        "official":"https://www.tokocrypto.com/",
+        "twitter":"https://twitter.com/TokoCrypto",
+        "discord":"",
+        "telegram":"https://t.me/TokocryptoOfficial",
+        "github":"",
+        "medium":"https://medium.com/tokocrypto",
+        "reddit":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"No.1 Crypto Exchange in Indonesia! Terdaftar resmi di BAPPEBTI.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"印度尼西亚第一大加密货币交易所!在BAPPEBTI正式注册。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

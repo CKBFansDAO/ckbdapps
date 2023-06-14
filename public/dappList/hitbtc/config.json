@@ -1,0 +1,27 @@
+{
+    "project_name": "HitBTC",
+    "path_name":"hitbtc",
+    "categories": ["Markets"],
+    "logo_file": "hitbtc-logo.png",
+    "hero_image":"hitbtc-hero.jpeg",
+    "links":{
+        "official":"https://hitbtc.com/",
+        "twitter":"https://twitter.com/hitbtc",
+        "discord":"",
+        "telegram":"https://t.me/HitBTC_channel",
+        "github":"https://github.com/hitbtc-com/hitbtc-api",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/hitbtc/",
+        "youtube":""
+    },
+    "en_US": {
+        "project_summary":"The most advanced cryptocurrency exchange to buy and sell Bitcoin, Ethereum, Litecoin, EOS, ZCash, Ripple, Ardor",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {
+        "project_summary":"提供比特币买卖服务的最先进加密数字货币交易平台 门罗币 ZCash 数字钞票 Ardor。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    }
+}

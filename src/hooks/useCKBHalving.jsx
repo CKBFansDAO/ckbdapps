@@ -67,11 +67,8 @@ const useCKBHalving = () => {
 
         gBaseEpochBlockInfo.clear();
 
-        console.log(epoch_index);
         const epochInfo = await rpc.getEpochByNumber(BI.from(epoch_index).toBigInt());
-        console.log(epochInfo);
         let blockInfo = await rpc.getHeaderByNumber(epochInfo.startNumber);
-        console.log(blockInfo);
 
         gBaseEpochBlockInfo.set(epoch_index, blockInfo);
 
@@ -79,7 +76,6 @@ const useCKBHalving = () => {
     }
 
     const getBlockInfo = async (block_index) => {
-        console.log(block_index);
         const blockInfo = await rpc.getHeaderByNumber(block_index);
         console.log(blockInfo);
     }
@@ -94,14 +90,15 @@ const useCKBHalving = () => {
 
             const epochInfo = await rpc.getEpochByNumber(BI.from(prevHalvingEpoch).toBigInt());
             let blockInfo = await rpc.getHeaderByNumber(epochInfo.startNumber);
+            console.log(blockInfo);
 
             gPrevHalvingBlockInfo.set(prevHalvingEpoch, blockInfo);
-
+            
             return blockInfo;
         }
 
         // not halved yet
-        return undefined;
+        return null;
     }
 
     const parseDAO = (data) => {
@@ -156,11 +153,15 @@ const useCKBHalving = () => {
 
             return {
                 curEpoch,
-                estimatedHalvingTime: targetTime
+                estimatedHalvingTime: targetTime,
+                prevHalvingTime: prevHalvingBlockInfo ? {
+                    timestamp: BI.from(prevHalvingBlockInfo.timestamp).toNumber(),
+                    epoch: getPrevHalvingEpoch(curEpoch.number)
+                }  : null
             }
         }, {
-        staleTime: 6 * 1000, // 1 minute
-        refetchInterval: 6 * 1000, // 1 minute
+        staleTime: 60 * 1000, // 1 minute
+        refetchInterval: 60 * 1000, // 1 minute
     });
 
     return { data: result, isLoading, isError };
