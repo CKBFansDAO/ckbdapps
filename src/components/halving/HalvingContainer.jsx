@@ -32,9 +32,9 @@ const HalvingContainer = (props) => {
 
         /*`📢Nervos CKB*/
 
-        return <a className='w-6 h-6 rounded-full bg-white mr-2 icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
+        return <a className='w-6 h-6 flex justify-center items-center rounded-full bg-white mr-2 icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
             href={url} rel="noopener noreferrer" target="_blank">
-            <i className="h-6 pl-1 flex justify-center items-center fa-brands fa-twitter text-[#28C1B0]"></i>
+            <i className="fa-sm fa-brands fa-twitter text-[#28C1B0]"></i>
         </a>
 
     }
@@ -45,9 +45,9 @@ const HalvingContainer = (props) => {
 
         /*`📢Nervos CKB*/
 
-        return <a className='w-6 h-6 rounded-full bg-white mr-4 icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
+        return <a className='w-6 h-6 flex justify-center items-center rounded-full bg-white mr-4 icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
             href={url} rel="noopener noreferrer" target="_blank">
-            <i className="h-6 pl-[2px] flex justify-center items-center fa-solid fa-link text-[#28C1B0]"></i>
+            <i className="fa-sm fa-solid fa-link text-[#28C1B0]"></i>
         </a>
 
     }
