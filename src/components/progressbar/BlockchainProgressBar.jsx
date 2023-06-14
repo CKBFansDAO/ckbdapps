@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getNextHalvingEpoch } from "../../utils/helper";
+import { useTranslation } from "react-i18next";
 
 const BlockchainProgressBar = ({ epoch }) => {
 
   const [color, setColor] = useState("#C59DFF");
+
+  const [t] = useTranslation();
   
   const progress = epoch ? (epoch.number / getNextHalvingEpoch(epoch.number) * 100) : 50;
 
@@ -37,7 +40,7 @@ const BlockchainProgressBar = ({ epoch }) => {
     const epochNumber = !epoch ? '-' : epoch.number;
 
     return <div className="flex flex-col gap-2">
-      <span className='text-sm whitespace-nowrap'>Current Epoch</span>
+      <span className='text-sm whitespace-nowrap'>{t('halving.current-epoch')}</span>
       <div className="relative">
         <div className="relative rounded-full h-6 w-[100px] bg-[#D5CCE9] text-gray-700">
           <div className="absolute h-6  bg-[#00DF9B]"

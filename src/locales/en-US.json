@@ -69,7 +69,14 @@
       "days":"Days",
       "years":"years",
       "title":"CKB Halving Countdown",
-      "top-tips":"The next halving is estimated at"
+      "top-tips":"The next halving is estimated at",
+      "latest-block":"Latest Block",
+      "current-epoch":"Current Epoch",
+      "halving-epoch":"Halving Epoch",
+      "halving-date":"Estimated Halving Date",
+      "genesis-epoch":"Genesis Epoch",
+      "block-chain-progress":"Block Chain Progress",
+      "whats-epoch":"What's epoch?"
     },
     "ecosystem": {
       "risk-warning":"BE ADVISED: We have not officially vetted or contacted these projects for proof. Do your own research before using any service in this open network.",

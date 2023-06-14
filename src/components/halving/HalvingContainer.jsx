@@ -10,7 +10,7 @@ import BlockchainProgressBar from '../progressbar/BlockchainProgressBar';
 import CountdownTimer from '../countdown/CountdownTimer';
 import CKBTipSummary from '../CKBTipSummary/CKBTipSummary';
 import useCKBTipHeader from '../../hooks/useCKBTipHeader';
-import { getNextHalvingEpoch } from '../../utils/helper';
+import { FormatLocaleDate, getNextHalvingEpoch } from '../../utils/helper';
 
 const HalvingContainer = (props) => {
 
@@ -99,14 +99,16 @@ const HalvingContainer = (props) => {
 
             <div className='flex flex-col py-5 px-3 md:px-5'>
                 <div className='flex mb-16'>
-                    <span className='grow text-[20px] md:text-[30px] font-bold'>Block Chain Progress</span>
-                    <span className='flex items-center'>What's epoch?</span>
+                    <span className='grow text-[20px] md:text-[30px] font-bold'>{t('halving.block-chain-progress')}</span>
+                    <a href='https://docs.nervos.org/docs/basics/glossary#epoch' target="_blank" rel="noopener noreferrer" >
+                        <span className='flex items-center text-[#733DFF] hover:text-[#9e35FF] underline underline-offset-2'>{t('halving.whats-epoch')}</span>
+                    </a>
                 </div>
                 <div className='flex mb-5 gap-1 md:gap-6'>
                     <div className='flex flex-col w-[100px] text-center gap-2'>
-                        <span className='text-sm whitespace-nowrap'>Genesis Epoch</span>
+                        <span className='text-sm whitespace-nowrap'>{t('halving.genesis-epoch')}</span>
                         <span className='text-center bg-white rounded-full text-[#733DFF] font-bold'># 0</span>
-                        <span className='text-[#999999] text-sm text-center'>2019/11/16</span>
+                        <span className='text-[#999999] text-sm text-center'>{FormatLocaleDate(1573852190812)}</span>
                     </div>
                     <div className='flex grow items-center'>
                         <div className="w-[1px] h-12 border-dashed border-r border-black ml-2" />
@@ -119,9 +121,9 @@ const HalvingContainer = (props) => {
                     </div>
 
                     <div className='flex flex-col w-[100px] text-center gap-2'>
-                        <span className='text-sm whitespace-nowrap'>Halving Epoch</span>
+                        <span className='text-sm whitespace-nowrap'>{t('halving.halving-epoch')}</span>
                         <span className='text-center bg-white rounded-full text-[#733DFF] font-bold'># {data ? getNextHalvingEpoch(data.curEpoch.number) : '----'}</span>
-                        <span className='text-[#999999] text-sm text-center'>{data ? new Date(data.estimatedHalvingTime).toLocaleDateString() : 'YYYY-MM-DD'}</span>
+                        <span className='text-[#999999] text-sm text-center'>{data ? FormatLocaleDate(data.estimatedHalvingTime) : 'YYYY-MM-DD'}</span>
                     </div>
                 </div>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import SummaryItem from './SummaryItem';
+import { FormatLocaleDate } from '../../utils/helper';
 
 const EpochItem = ({ epoch, itemName, isLoading }) => {
     return (
@@ -32,19 +33,19 @@ const CKBTipSummary = ({ blockNumber, epoch, halvingEpoch, halvingDate }) => {
     return (
         <div className='grid grid-cols-2 md:grid-cols-4 divide-x divide-y-reverse border-b-[1px] border-dashed py-10'>
             <SummaryItem value={blockNumber?.toLocaleString()}
-                itemName='Latest Block'
+                itemName={t('halving.latest-block')}
                 isLoading={isLoading}>
             </SummaryItem>
             <EpochItem epoch={epoch}
-                itemName='Current Epoch'
+                itemName={t('halving.current-epoch')}
                 isLoading={isLoading}>
             </EpochItem>
             <SummaryItem value={halvingEpoch}
-                itemName='Estimated Halving Epoch'
+                itemName={t('halving.halving-epoch')}
                 isLoading={isLoading}>
             </SummaryItem>
-            <SummaryItem value={new Date(halvingDate).toLocaleDateString()}
-                itemName='Estimated Halving Date'
+            <SummaryItem value={FormatLocaleDate(halvingDate) /*new Date(halvingDate).toLocaleDateString()*/}
+                itemName={t('halving.halving-date')}
                 isLoading={isLoading}>
             </SummaryItem>
         </div>

@@ -68,10 +68,17 @@
       "days":"天",
       "years":"年",
       "title":"CKB减半倒计时",
-      "top-tips":"预计即将到来的减半事件发生在"
+      "top-tips":"预计即将到来的减半事件发生在",
+      "latest-block":"区块高度",
+      "current-epoch":"当前Epoch",
+      "halving-epoch":"减半时的Epoch",
+      "halving-date":"预计减半日期",
+      "genesis-epoch":"创世Epoch",
+      "block-chain-progress":"区块链运行进度",
+      "whats-epoch":"什么是Epoch？"
     },
     "ecosystem": {
-      "risk-warning":"BE ADVISED: We have not officially vetted or contacted these projects for proof. Do your own research before using any service in this open network.",
+      "risk-warning":"请注意：我们尚未正式审核或联系这些项目以验证其真实性。在使用该开放网络中的任何服务之前，请进行自己的调查研究。",
       "all-projects":"所有项目"
     },
     "about-us": {

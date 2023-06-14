@@ -106,8 +106,8 @@ export function FormatLocaleDate(timestamp) {
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
     }).format(timestamp);
 
-    const date = (new Date(timestamp)).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"});
-    return date;
+    //const date = (new Date(timestamp)).toLocaleDateString(lang, {year:"numeric", month:"long", day:"numeric"});
+    return formattedTime;
 }
 
 export function numberFormatter(num, digits) {
