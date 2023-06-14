@@ -1,0 +1,32 @@
+{
+    "community":{
+        "zh_CN":{
+            "twitter": {
+                "name":"字节元宇宙推特",
+                "link":"https://twitter.com/@ckbmeta"
+            },
+            "discord": {
+                "name":"CKBFans中文社区",
+                "link":"https://discord.com/invite/X2VGqQX6zT"
+            },
+            "telegram": {
+                "name":"Nervos中文社区电报群",
+                "link":"https://t.me/NervosNetworkcn"
+            }
+        },
+        "en_US":{
+            "twitter": {
+                "name":"Nervos Twitter",
+                "link":"https://twitter.com/NervosNetwork"
+            },
+            "discord": {
+                "name":"Nervos Discord",
+                "link":"https://discord.gg/FKh8Zzvwqa"
+            },
+            "telegram": {
+                "name":"Nervos Group",
+                "link":"https://t.me/NervosNetwork"
+            }
+        }
+    }
+}
