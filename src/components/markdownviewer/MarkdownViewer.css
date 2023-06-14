@@ -2,6 +2,8 @@
 
 .markdown-body {
     font-family: 'Space Grotesk', 'Space Mono';
+    --color-canvas-default: #FFFFFF;
+    --color-fg-default: #24292f;
 }
 
 .markdown-body pre code{
@@ -11,8 +13,8 @@
 
 .wmde-markdown {
     font-family: 'Space Grotesk', 'Space Mono';
-    background-color: #FFFFFF;
-    color: #24292f;
+    --color-canvas-default: #FFFFFF;
+    --color-fg-default: #24292f;
 }
 
 
@@ -31,6 +33,11 @@
 
 .markdown-body table tr:nth-child(2n) {
     background-color: #EBE6FF;
+}
+
+.markdown-body table tr {
+    background-color: #f7f5f400;
+    border-top: 1px solid var(--color-border-muted);
 }
 
 .markdown-body a {
