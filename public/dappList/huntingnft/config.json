@@ -1,0 +1,23 @@
+{
+    "project_name": "HuntingNFT",
+    "path_name":"huntingnft",
+    "categories": ["GemeFi", "L1"],
+    "logo_file": "huntingnft-logo.png",
+    "hero_image":"huntingnft-hero.jpg",
+    "links":{
+        "official":"https://www.huntingnft.cc/web",
+        "twitter":"https://twitter.com/HuntingnftTeam",
+        "discord":"https://discord.gg/Acm7JuKw5D",
+        "medium":"https://medium.com/@huntingnft.team" 
+    },
+    "en_US": {   
+        "project_summary":"HuntingNFT is an original Play to Eern GameFi project initiated by volunteers in the Nervos global community.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.huntingnft.cc/get-started"
+    },
+    "zh_CN": {   
+        "project_summary":"HuntingNFT是一款 Nervos 全球社区志愿者共同发起的Play to Earn GameFi游戏。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.huntingnft.cc/get-started"  
+    } 
+}
