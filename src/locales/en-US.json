@@ -23,7 +23,7 @@
       "yes": "YES",
       "cancel": "Cancel",
       "ok": "OK",
-      "next-halving-tip": "The first halving event of Nervos CKB is estimated at {{time}}",
+      "next-halving-tip": "The first halving event of Nervos CKB is estimated on {{time}}",
       "halved-tip": "has successfully halved on {{time}}.🎉🚀"
     },
     "bulletin": {

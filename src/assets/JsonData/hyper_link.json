@@ -12,6 +12,10 @@
             "telegram": {
                 "name":"Nervos中文社区电报群",
                 "link":"https://t.me/NervosNetworkcn"
+            },
+            "feedback": {
+                "name":"反馈与建议",
+                "link":"https://talk.nervos.org/t/ckbdapps-com-dev/7272"
             }
         },
         "en_US":{
@@ -26,6 +30,10 @@
             "telegram": {
                 "name":"Nervos Group",
                 "link":"https://t.me/NervosNetwork"
+            },
+            "feedback": {
+                "name":"Feedback",
+                "link":"https://talk.nervos.org/t/ckbdapps-com-experience-firsthand-feedback/7271"
             }
         }
     }
