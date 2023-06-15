@@ -72,6 +72,9 @@ const App = ({ config }) => {
         return <div className='flex gap-2'>
             {
                 categories?.map((category, index) => {
+                    if (index > 2) {
+                        return <></>
+                    }
                     return <span key={`${category}-${index}`} className='px-4 text-sm h-[20px] flex items-center rounded-full bg-[#000] border-[#ccc] border-[1px]'>{category}</span>
                 })
             }
