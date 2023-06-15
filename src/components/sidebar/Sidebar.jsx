@@ -71,6 +71,12 @@ const Sidebar = props => {
     //const activeItem = sidebar_items.findIndex(item => item.route === props.location.pathname)
     const [t] = useTranslation();
 
+    const itemClicked = () => {
+        if(props.closeDrawer) {
+            props.closeDrawer()
+        }
+    }
+
     return (
 
         <div className='sidebar__wapper flex flex-col h-full  text-white'>
@@ -82,7 +88,7 @@ const Sidebar = props => {
             <div className='flex flex-col grow'>
                 {
                     sidebar_items.map((item, index) => (
-                        <Link to={item.route} key={`${index}-${item.route}`}>
+                        <Link to={item.route} key={`${index}-${item.route}`} onClick={itemClicked}>
                             <SidebarItem
                                 title={t(item.display_name)}
                                 icon={item.icon}

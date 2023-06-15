@@ -8,6 +8,10 @@ const SidebarDrawer = () => {
         setIsOpen(!isOpen);
     }
 
+    const closeDrawer = () => {
+        setIsOpen(false);
+    }
+
     const sidebarRef = useRef();
 
     function handleClickOutside(event) {
@@ -28,7 +32,7 @@ const SidebarDrawer = () => {
             <div className={`fixed z-[999] bg-[#1C1C23] w-64 h-full shadow-lg transform-gpu top-0 left-0 transition-all duration-150 ease-[cubic-bezier(0.4, 0, 0.2, 1)] ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 {/* 侧边栏内容 */}
                 <div className="bg-[#1C1C23] h-full">
-                    <Sidebar></Sidebar>
+                    <Sidebar closeDrawer={closeDrawer}></Sidebar>
                 </div>
             </div>
             <div className="flex-1 flex justify-center items-center">
