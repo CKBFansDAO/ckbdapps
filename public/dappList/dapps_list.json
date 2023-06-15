@@ -589,13 +589,6 @@
             ]
         },
         {
-            "project_name": "BigOne",
-            "path_name": "bigone",
-            "categories": [
-                "Markets"
-            ]
-        },
-        {
             "project_name": "BingX",
             "path_name": "bingx",
             "categories": [
