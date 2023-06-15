@@ -1,7 +1,7 @@
 {
   "translation": {
     "common": {
-      "slogan":"One-Stop Exploring of Nervos Ecosystem",
+      "slogan": "One-Stop Exploring of Nervos Ecosystem",
       "official": "Official Website",
       "twitter": "Twitter, View the latest updates",
       "discord": "Discord, Join the international community",
@@ -11,86 +11,81 @@
       "telegram": "Telegram, Join the Telegram group",
       "reddit": "Reddit, Join the topic forum",
       "tutorial": "Tutorial",
-      "learn-more":"Learn more",
-      "coming-soon":"Coming soon"
+      "learn-more": "Learn more",
+      "coming-soon": "Coming soon"
     },
-    "theme":{
-      "dark":"Dark",
-      "light":"Light"
+    "theme": {
+      "dark": "Dark",
+      "light": "Light"
     },
-    "toast": {
-      
-    },
+    "toast": {},
     "alert": {
-      "yes":"YES",
-      "cancel":"Cancel",
-      "ok":"OK",
-      "next-halving-tip":"The first halving event of Nervos CKB is estimated at {{time}}",
-      "halved-tip":"has successfully halved on {{time}}.🎉🚀"
+      "yes": "YES",
+      "cancel": "Cancel",
+      "ok": "OK",
+      "next-halving-tip": "The first halving event of Nervos CKB is estimated at {{time}}",
+      "halved-tip": "has successfully halved on {{time}}.🎉🚀"
     },
-    "bulletin":{
-      "content":{
-        "item1":"The first halving event of Nervos CKB is expected to occur on November 19, 2023.",
-        "item2":"",
-        "item3":"",
-        "item4":"",
-        "item5":""
+    "bulletin": {
+      "content": {
+        "item1": "The first halving event of Nervos CKB is expected to occur on November 19, 2023.",
+        "item2": "",
+        "item3": "",
+        "item4": "",
+        "item5": ""
       }
     },
     "nav": {
       "home": "Home",
       "dapps": "Dapps",
-      "ecosystem":"Ecosystem",
+      "ecosystem": "Ecosystem",
       "halving": "Halving",
       "about-us": "About us"
     },
     "page-title": {
-      "home":"CKBdapps, One-Stop Exploring of Nervos Ecosystem",
-      "dapps":"CKB dapps",
-      "ecosystem":"CKB Ecosystem",
-      "halving":"CKB halving",
-      "about-us":"About us"
+      "home": "CKBdapps, One-Stop Exploring of Nervos Ecosystem",
+      "dapps": "CKB dapps",
+      "ecosystem": "CKB Ecosystem",
+      "halving": "CKB halving",
+      "about-us": "About us"
     },
     "home": {
       "market-data": {
-        "token-summary":"CKB Token Summary",
-        "total-supply":"Total Supply",
-        "circulating-supply":"Circulating Supply",
-        "deposit":"NervosDAO Deposit",
-        "tradable":"Tradable",
-        "ckb-his-price":"CKB Historical Price",
-        "ckb-his-hash-rate":"Historical Hash Rate"
+        "token-summary": "CKB Token Summary",
+        "total-supply": "Total Supply",
+        "circulating-supply": "Circulating Supply",
+        "deposit": "NervosDAO Deposit",
+        "tradable": "Tradable",
+        "ckb-his-price": "CKB Historical Price",
+        "ckb-his-hash-rate": "Historical Hash Rate"
       }
-      
     },
-    "halving": { 
-      "seconds":"Secs",
-      "minutes":"Mins",  
-      "hours":"Hours",
-      "days":"Days",
-      "years":"years",
-      "title":"CKB Halving Countdown",
-      "top-tips":"The next halving is estimated at",
-      "latest-block":"Latest Block",
-      "current-epoch":"Current Epoch",
-      "halving-epoch":"Halving Epoch",
-      "halving-date":"Estimated Halving Date",
-      "genesis-epoch":"Genesis Epoch",
-      "block-chain-progress":"Block Chain Progress",
-      "whats-epoch":"What's epoch?",
-      "twitter-share-content-before-halving":"📢 @NervosNetwork CKB is estimated to halve on {{date}} {{timeZone}} 🚀,\n\n📅 There are {{countdown}} {{countdownUnit}} left until the halving countdown.\n\n🔗 Visit 👉 https://ckbdapps.com/halving to learn more about #CKB halving information.",
-      "twitter-share-content-after-halving":"🎉 Congratulations to @NervosNetwork CKB for successfully completing its first halving on {{datetime}} {{timeZone}} 🚀🧨🎆,\n\n🔗 Visit 👉 https://ckbdapps.com to explore #CKB ecosystem information."
+    "halving": {
+      "seconds": "Secs",
+      "minutes": "Mins",
+      "hours": "Hours",
+      "days": "Days",
+      "years": "years",
+      "title": "CKB Halving Countdown",
+      "top-tips": "The next halving is estimated at",
+      "latest-block": "Latest Block",
+      "current-epoch": "Current Epoch",
+      "halving-epoch": "Halving Epoch",
+      "halving-date": "Estimated Halving Date",
+      "genesis-epoch": "Genesis Epoch",
+      "block-chain-progress": "Block Chain Progress",
+      "whats-epoch": "What's epoch?",
+      "twitter-share-content-before-halving": "📢 @NervosNetwork CKB is estimated to halve on {{date}} {{timeZone}} 🚀,\n\n📅 There are {{countdown}} {{countdownUnit}} left until the halving countdown.\n\n🔗 Visit 👉 https://ckbdapps.com/halving to learn more about #CKB halving information.",
+      "twitter-share-content-after-halving": "🎉 Congratulations to @NervosNetwork CKB for successfully completing its first halving on {{datetime}} {{timeZone}} 🚀🧨🎆\n\n⚒️ After the halving, CKB's real inflation rate will be reduced to below 3.8%.\n\n🔗 Visit 👉 https://ckbdapps.com to explore #CKB ecosystem."                                            
     },
     "ecosystem": {
-      "risk-warning":"BE ADVISED: We have not officially vetted or contacted these projects for proof. Do your own research before using any service in this open network.",
-      "all-projects":"All Projects"
+      "risk-warning": "BE ADVISED: We have not officially vetted or contacted these projects for proof. Do your own research before using any service in this open network.",
+      "all-projects": "All Projects"
     },
-    "about-us": {
-      
-    },
+    "about-us": {},
     "footer": {
-      "feedback":"Feedback",
-      "followus":"Follow US"
+      "feedback": "Feedback",
+      "followus": "Follow US"
     }
   }
 }

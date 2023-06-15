@@ -1,8 +1,8 @@
 {
   "translation": {
     "common": {
-      "slogan":"One-Stop Exploring of Nervos Ecosystem",
-      "official":"访问官网站",
+      "slogan":"一站式探索 Nervos 生态",
+      "official":"访问官网",
       "twitter":"推特，查看项目最新动态",
       "discord":"Discord，加入国际化社区",
       "medium":"Medium，查看项目博客",
@@ -78,7 +78,7 @@
       "block-chain-progress":"区块链运行进度",
       "whats-epoch":"什么是Epoch？",
       "twitter-share-content-before-halving":"📢 @NervosNetwork CKB 预计于 {{date}} {{timeZone}} 迎来第一次减半🚀，\n\n📅距离减半倒计时还有 {{countdown}} {{countdownUnit}}。\n\n🔗 访问👉 https://ckbdapps.com/halving 了解更多 #CKB 减半信息",
-      "twitter-share-content-after-halving":"🎉 祝贺 @NervosNetwork CKB 已于 {{datetime}} {{timeZone}} 成功完成第一次减半🚀🧨🎆，\n\n🔗 访问👉 https://ckbdapps.com 了解 #CKB 生态信息"
+      "twitter-share-content-after-halving":"🎉 祝贺 @NervosNetwork CKB 已于 {{datetime}} {{timeZone}} 成功完成第一次减半🚀🧨🎆。\n\n⚒️ 减半后，CKB 的实际通胀率将降至 3.8% 以下，每日挖矿产出降至 575 万 CKB。\n\n🔗 访问👉 https://ckbdapps.com 了解 #CKB 生态信息"
     },
     "ecosystem": {
       "risk-warning":"请注意：我们尚未正式审核或联系这些项目以验证其真实性。在使用该开放网络中的任何服务之前，请进行自己的调查研究。",

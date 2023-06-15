@@ -17,7 +17,7 @@
         "tutorial_link":""
     },
     "zh_CN": {   
-        "project_summary":"Cross-chain stable swap on Nervos Network, providing the liquid foundation for stablecoins.",
+        "project_summary":"一个支持多链的去中心化稳定币兑换平台，搭建在 Nervos Godwoken 上，任何人都可以利用 StableKoi 轻松地交易不同链上的稳定币或者通过提供流动性来赚取收益。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
     } 

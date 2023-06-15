@@ -1,7 +1,7 @@
 {
     "project_name": "Hadouken",
     "path_name":"hadouken",
-    "categories": ["DeFi", "L2", "Bridges"],
+    "categories": ["DeFi", "L2", "Bridges", "Lending"],
     "logo_file": "Hadouken-logo.png",
     "hero_image":"hadouken-hero.jpeg",
     "links":{
@@ -17,7 +17,7 @@
         "tutorial_link":""
     },
     "zh_CN": {   
-        "project_summary":"Enjoy the Best of DeFi with Unparalleled Capital Efficiency",
+        "project_summary":"一个集交易、借贷、跨链桥于一身的DeFi平台，其内部有一个自动交易的机器人，使得流通性提供者可以获得收入。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
     } 

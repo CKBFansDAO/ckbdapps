@@ -17,7 +17,7 @@
         "tutorial_link":"https://docs.nervos.org/docs/basics/guides/crypto wallets/neuron/"
     },
     "zh_CN": {   
-        "project_summary":"A CKB wallet produced by the Nervos Foundation",
+        "project_summary":"由 Nervos 基金会主导研发的桌面端钱包，支持收发CKB、存NervosDAO等多项功能。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":"https://docs.nervos.org/docs/basics/guides/crypto wallets/neuron/ "  
     } 
