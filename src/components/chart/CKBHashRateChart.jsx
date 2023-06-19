@@ -35,16 +35,16 @@ const hashRateFormatter = (num, digits) => {
     var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
     var i;
     for (i = si.length - 1; i > 0; i--) {
-      if (num >= si[i].value) {
-        break;
-      }
+        if (num >= si[i].value) {
+            break;
+        }
     }
 
     let res = (num / si[i].value).toFixed(digits).replace(rx, "$1");
     if (digits === 2 && res < 0.01) {
         res = '<0.01'
     }
-    
+
     return res + si[i].symbol;
 }
 
@@ -80,7 +80,7 @@ const CKBHashRateChart = () => {
                 //setData(response.data);
                 const newData = response.data.map((item) => ({
                     ...item,
-                    avg_hash_rate: parseFloat(item.avg_hash_rate)*1000
+                    avg_hash_rate: parseFloat(item.avg_hash_rate) * 1000
                 }));
                 setData(newData);
                 setIsLoading(false);
@@ -101,7 +101,7 @@ const CKBHashRateChart = () => {
         if (tick < 1) {
             tick = parseFloat(value) / 1e12;
             unit = 'T'
-            if(tick < 0.001) {
+            if (tick < 0.001) {
                 unit = '';
             }
         }
@@ -128,7 +128,7 @@ const CKBHashRateChart = () => {
                 ) : (
                     <ResponsiveContainer className='select-none'>
                         <LineChart data={data} >
-                            <CartesianGrid strokeDasharray='3 3' />
+                            <CartesianGrid strokeDasharray='3 3'/>
                             <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} />
                             <YAxis interval="preserveStartEnd" tickFormatter={yAxisTickFormater}>
                                 <Label
@@ -138,8 +138,8 @@ const CKBHashRateChart = () => {
                                     dy="0"
                                 /></YAxis>
                             <Tooltip content={<CustomTooltip />} />
-                            <Line type='monotone' dataKey='avg_hash_rate' stroke='#8884d8' dot={false} />
-                            <Brush dataKey='created_at_unix' height={30} stroke='#8884d8' tickFormatter={formatXAxis} />
+                            <Line type='monotone' dataKey='avg_hash_rate' stroke='#28C1B0' dot={false} />
+                            <Brush dataKey='created_at_unix' height={30} stroke='#28C1B0' tickFormatter={formatXAxis} />
                         </LineChart>
                     </ResponsiveContainer>
                 )

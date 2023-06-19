@@ -12,12 +12,12 @@
         "medium":"https://medium.com/@unipass"
     },
     "en_US": {   
-        "project_summary":"A Seedless and Gasless User Experience for Your Web3 Apps",
+        "project_summary":"Your Universial Passport to Web3",
         "full_description_file":"full_description_en.md",
         "tutorial_link":"https://www.notion.so/UniPass-a285cce65d454cd3a35bc2765eea1c10"
     },
-    "zh_CN": {   
-        "project_summary":"A Seedless and Gasless User Experience for Your Web3 Apps",
+    "zh_CN": {
+        "project_summary":"你的 Web3 通用护照",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":"https://www.notion.so/UniPass-e386f845b30a4e18951744f9af6b97bb#9b8c6efa812b4387a87a3765809e7dde"  
     } 
