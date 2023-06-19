@@ -53,7 +53,7 @@ const CustomTooltip = ({ active, payload }) => {
         const { value } = payload[0];
         // Customize the tooltip content here
         return (
-            <div className="bg-[#8884d8] px-4 py-2 rounded-md text-white opacity-80">
+            <div className="bg-[#28C1B0] px-4 py-2 rounded-md text-white opacity-80">
                 <p className="">{`${formatXAxis(payload[0].payload.created_at_unix)}`}</p>
                 <p className="">{`${formatYAxis(value)}`}</p>
             </div>
@@ -128,8 +128,8 @@ const CKBHashRateChart = () => {
                 ) : (
                     <ResponsiveContainer className='select-none'>
                         <LineChart data={data} >
-                            <CartesianGrid strokeDasharray='3 3'/>
-                            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} />
+                            <CartesianGrid strokeDasharray='4 4'/>
+                            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd"/>
                             <YAxis interval="preserveStartEnd" tickFormatter={yAxisTickFormater}>
                                 <Label
                                     value="Hash Rate"

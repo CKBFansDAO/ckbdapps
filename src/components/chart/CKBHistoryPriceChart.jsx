@@ -64,8 +64,8 @@ const CKBHistoryPriceChart = () => {
                 ) : (
                     <ResponsiveContainer className='select-none'>
                         <LineChart data={data}>
-                            <CartesianGrid strokeDasharray='3 3' />
-                            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} />
+                            <CartesianGrid strokeDasharray='4 4' />
+                            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd"/>
                             <YAxis />
                             <Tooltip content={<CustomTooltip />} />
                             <Line type='monotone' dataKey='price' stroke='#8884d8' dot={false} />
