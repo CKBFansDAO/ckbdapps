@@ -4,8 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import './sidebar.css'
 
-//import logo from '../../assets/images/logo-full-light.png'
-import { ReactComponent as AppLogo } from '../../assets/images/logo_white_mark.svg';
+//import { ReactComponent as AppLogo } from '../../assets/images/logo_white_mark.svg';
 
 import sidebar_items from '../../assets/JsonData/sidebar_routes.json'
 import community_link from '../../assets/JsonData/hyper_link.json'
@@ -81,8 +80,9 @@ const Sidebar = props => {
 
         <div className='sidebar__wapper flex flex-col h-full  text-white'>
             <div className='hidden md:block h-10'></div>
-            <div className="sidebar__logo-wapper">
-                <AppLogo />
+            <div className="sidebar__logo-wapper px-[25px]">
+                {/*<AppLogo />*/}
+                <div className='app-logo w-full h-10'></div>
             </div>
             <div className="sidebar__adv"></div>
             <div className='flex flex-col grow'>

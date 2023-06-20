@@ -48,3 +48,10 @@ a {
 a:hover {
   color: #733DFF;
 }
+
+.app-logo {
+  background-image: url('../images/logo-standard-01@4x.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
