@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import 'github-markdown-css';
 import './MarkdownViewer.css'
-import { MAX_VIEW_WIDTH } from '../../constants/common';
 
 const MarkdownViewer = ({ filePath }) => {
 
@@ -21,7 +20,7 @@ const MarkdownViewer = ({ filePath }) => {
         fetchMarkdown();
     }, [filePath]);
 
-    return (<div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full py-5 px-5 md:px-0 md:py-10`}>
+    return (<div className={`max-w-content mx-auto w-full py-5 px-5 md:px-0 md:py-10`}>
         <div className="markdown-body md:px-5 ">
             <MarkdownPreview source={markdownContent} />
         </div>

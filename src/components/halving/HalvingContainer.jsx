@@ -11,7 +11,6 @@ import CountdownTimer from '../countdown/CountdownTimer';
 import CKBTipSummary from '../CKBTipSummary/CKBTipSummary';
 import useCKBTipHeader from '../../hooks/useCKBTipHeader';
 import { FormatLocaleDate, FormatLocaleDateTime, getNextHalvingEpoch, getTimeZoneOffset } from '../../utils/helper';
-import { MAX_VIEW_WIDTH } from '../../constants/common';
 
 const HalvingContainer = (props) => {
 
@@ -136,7 +135,7 @@ const HalvingContainer = (props) => {
             <span className='mt-14 w-full text-center text-[24px] md:text-[48px] text-white font-["Zen_Dots"]'>{t('halving.title')}</span>
             {renderHalvingTip()}
 
-            <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full`}>
+            <div className={`max-w-content mx-auto w-full`}>
                 <CountdownTimer targetDate={data?.estimatedHalvingTime/*1684038959*/}></CountdownTimer>
             </div>
 
@@ -149,7 +148,7 @@ const HalvingContainer = (props) => {
             </div>
         </div>
         <div className='flex flex-col bg-[#F4EFFF] '>
-            <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full`}>
+            <div className={`max-w-content mx-auto w-full`}>
                 <CKBTipSummary blockNumber={tipHeader?.latestBlock}
                     epoch={tipHeader?.epoch}
                     halvingEpoch={data ? getNextHalvingEpoch(data.curEpoch.number) : NaN}
@@ -157,7 +156,7 @@ const HalvingContainer = (props) => {
                 </CKBTipSummary>
             </div>
 
-            <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full`}>
+            <div className={`max-w-content mx-auto w-full`}>
             <div className='flex flex-col py-5 px-3 md:px-5'>
                 <div className='flex mb-16'>
                     <span className='grow text-[20px] md:text-[30px] font-bold'>{t('halving.block-chain-progress')}</span>

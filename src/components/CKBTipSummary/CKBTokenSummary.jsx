@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import SummaryItem from './SummaryItem';
 import axios from 'axios';
 import { numberFormatter } from '../../utils/helper';
-import { MAX_VIEW_WIDTH } from '../../constants/common';
 
 const CKBTokenSummary = () => {
 
@@ -30,7 +29,7 @@ const CKBTokenSummary = () => {
     <div className='w-full flex h-16 text-center justify-center text-[20px] md:text-[30px] font-["Zen_Dots"]'>
       <span className='flex items-end'>{t('home.market-data.token-summary')}</span>
     </div>
-    <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full `}>
+    <div className={`max-w-content mx-auto w-full `}>
       <div className='grid grid-cols-2 md:grid-cols-4 divide-x divide-y-reverse border-b-[1px] border-dashed py-5 md:py-10'>
         <div className='border-b-[1px] md:border-b-0 md:px-3 md:py-3'>
           <SummaryItem

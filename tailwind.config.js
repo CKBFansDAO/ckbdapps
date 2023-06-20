@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        content: '1024px',
+      },
+    },
     // ...
     lineClamp: {
       2: '2', // 设置最大显示的行数

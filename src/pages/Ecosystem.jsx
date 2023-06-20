@@ -4,7 +4,6 @@ import { currentLanguage } from '../utils/i18n';
 import { ReactComponent as WarningIcon } from '../assets/images/icon-Warn@1x.svg';
 import { AppList } from '../components/ecosystem/AppList';
 import dappListCache from '../utils/cache/dappListCache';
-import { MAX_VIEW_WIDTH } from '../constants/common';
 
 const Ecosystem = () => {
 
@@ -113,7 +112,7 @@ const Ecosystem = () => {
     }
 
     return (
-        <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full `}>
+        <div className={`max-w-content mx-auto w-full `}>
         <div className='p-4 gap-6 flex flex-col'>
             {renderRiskWarningBar()}
             {renderCategories()}

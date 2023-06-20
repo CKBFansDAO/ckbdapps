@@ -11,7 +11,6 @@ import { HalvingAlertType, checkHalvingAlertType, getNextHalvingEpoch } from '..
 import CKBHistoryPriceChart from '../components/chart/CKBHistoryPriceChart';
 import CKBTokenSummary from '../components/CKBTipSummary/CKBTokenSummary';
 import CKBHashRateChart from '../components/chart/CKBHashRateChart';
-import { MAX_VIEW_WIDTH } from '../constants/common';
 
 const Home = () => {
 
@@ -58,7 +57,7 @@ const Home = () => {
         <div className='flex flex-col w-full h-full'>
             <div className='flex-grow'>
                 <div className='w-full bg-[#280D5F]'>
-                    <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full `}>
+                    <div className={`max-w-content mx-auto w-full `}>
                         <ProjectIconsSVG icons={dappLogos} />
                     </div>
                 </div>

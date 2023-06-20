@@ -2,7 +2,6 @@ import React from 'react'
 import HalvingContainer from '../components/halving/HalvingContainer'
 import MarkdownViewer from '../components/markdownviewer/MarkdownViewer'
 import { useSelector } from 'react-redux'
-import { MAX_VIEW_WIDTH } from '../constants/common'
 
 const Halving = () => {
 
