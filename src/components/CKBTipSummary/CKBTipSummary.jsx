@@ -40,14 +40,18 @@ const CKBTipSummary = ({ blockNumber, epoch, halvingEpoch, halvingDate }) => {
                 itemName={t('halving.current-epoch')}
                 isLoading={isLoading}>
             </EpochItem>
+            <div className='flex md:justify-end md:pr-4'>
             <SummaryItem value={halvingEpoch}
                 itemName={t('halving.halving-epoch')}
                 isLoading={isLoading}>
             </SummaryItem>
+            </div>
+            <div className='flex md:justify-end md:pr-4'>
             <SummaryItem value={FormatLocaleDate(halvingDate) /*new Date(halvingDate).toLocaleDateString()*/}
                 itemName={t('halving.halving-date')}
                 isLoading={isLoading}>
             </SummaryItem>
+            </div>
         </div>
     );
 };

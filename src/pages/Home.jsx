@@ -11,6 +11,7 @@ import { HalvingAlertType, checkHalvingAlertType, getNextHalvingEpoch } from '..
 import CKBHistoryPriceChart from '../components/chart/CKBHistoryPriceChart';
 import CKBTokenSummary from '../components/CKBTipSummary/CKBTokenSummary';
 import CKBHashRateChart from '../components/chart/CKBHashRateChart';
+import { MAX_VIEW_WIDTH } from '../constants/common';
 
 const Home = () => {
 
@@ -49,22 +50,26 @@ const Home = () => {
         }
 
 
-        return <></>    
+        return <></>
     }
 
     document.title = t('page-title.home');
     return (
-        <div className='flex flex-col '>
-            <div className='-mx-3 md:-mx-7 -mt-3 md:-mt-7'>
-                <ProjectIconsSVG icons={dappLogos} />
+        <div className='flex flex-col w-full h-full'>
+            <div className='flex-grow'>
+                <div className='w-full bg-[#280D5F]'>
+                    <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full `}>
+                        <ProjectIconsSVG icons={dappLogos} />
+                    </div>
+                </div>
+                <CKBTokenSummary></CKBTokenSummary>
             </div>
-            <CKBTokenSummary></CKBTokenSummary>
-            
+
             {showHalvingRemindAlert(halvingData)}
-            {/*<ViewHalvingAlert halvingTime={halvingData?.estimatedHalvingTime} ></ViewHalvingAlert>*/}
-            {/*<CKBHalvedAlert></CKBHalvedAlert>*/}
-            <CKBHistoryPriceChart></CKBHistoryPriceChart>
-            <CKBHashRateChart></CKBHashRateChart>
+            <div className="mx-auto max-w-[1200px] w-full">
+                <CKBHistoryPriceChart></CKBHistoryPriceChart>
+                <CKBHashRateChart></CKBHashRateChart>
+            </div>
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { currentLanguage } from '../utils/i18n';
 import { ReactComponent as WarningIcon } from '../assets/images/icon-Warn@1x.svg';
 import { AppList } from '../components/ecosystem/AppList';
 import dappListCache from '../utils/cache/dappListCache';
+import { MAX_VIEW_WIDTH } from '../constants/common';
 
 const Ecosystem = () => {
 
@@ -75,7 +76,7 @@ const Ecosystem = () => {
 
     const renderRiskWarningBar = () => {
         return (
-            <div className='flex flex-row w-full'>
+            <div className='flex flex-row w-full md:mt-10'>
                 <div className='flex flex-row items-center w-full p-1 justify-center bg-[#28C1B0] rounded-[5px] md:rounded-full'>
                     <div>
                         <WarningIcon className='h-7 ml-2 md:ml-5 w-5'></WarningIcon>
@@ -112,11 +113,12 @@ const Ecosystem = () => {
     }
 
     return (
+        <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full `}>
         <div className='p-4 gap-6 flex flex-col'>
             {renderRiskWarningBar()}
             {renderCategories()}
             <AppList appList={filterProject(categorySel)}></AppList>
-        </div>
+        </div></div>
     )
 }
 

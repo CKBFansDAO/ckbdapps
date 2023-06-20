@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import d3Tip from 'd3-tip';
 
-let starryBackground = './images/starry-bg.png';
+let starryBackground = './images/starry-bg.jpeg';
 let nervosLogo = './images/nervos-logo-white.svg'
 
 const ProjectIconsSVG = ({ icons }) => {

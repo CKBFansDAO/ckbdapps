@@ -144,7 +144,7 @@ const App = ({ config }) => {
     }
 
     return (
-        <div className='rounded-[10px] flex flex-col w-[370px] shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
+        <div className='rounded-[10px] flex flex-col w-full md:w-[314px] shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
             <div className='relative'>
                 <div className='flex category-dapp-img place-content-center rounded-t-[10px] bg-[#1C1C23] overflow-hidden'>
                     {

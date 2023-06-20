@@ -11,6 +11,7 @@ import CountdownTimer from '../countdown/CountdownTimer';
 import CKBTipSummary from '../CKBTipSummary/CKBTipSummary';
 import useCKBTipHeader from '../../hooks/useCKBTipHeader';
 import { FormatLocaleDate, FormatLocaleDateTime, getNextHalvingEpoch, getTimeZoneOffset } from '../../utils/helper';
+import { MAX_VIEW_WIDTH } from '../../constants/common';
 
 const HalvingContainer = (props) => {
 
@@ -52,14 +53,14 @@ const HalvingContainer = (props) => {
                 }
                 else {
                     const seconds = Math.floor((duration % (1000 * 60)) / 1000);
-                    if (seconds >0) {
+                    if (seconds > 0) {
                         countdown = seconds;
                         countdownUnit = t('halving.seconds');
                     }
                     else {
                         return;
                     }
-                    
+
                 }
             }
         }
@@ -130,12 +131,14 @@ const HalvingContainer = (props) => {
         </div>
     }
 
-    return (<div className='flex flex-col -mx-3 -mt-7 md:-mx-7'>
+    return (<div className='flex flex-col'>
         <div className='bg-[url("../../assets/images/bg_head_halving.png")] bg-cover flex flex-col gap-10'>
             <span className='mt-14 w-full text-center text-[24px] md:text-[48px] text-white font-["Zen_Dots"]'>{t('halving.title')}</span>
             {renderHalvingTip()}
 
-            <CountdownTimer targetDate={data?.estimatedHalvingTime/*1684038959*/}></CountdownTimer>
+            <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full`}>
+                <CountdownTimer targetDate={data?.estimatedHalvingTime/*1684038959*/}></CountdownTimer>
+            </div>
 
             <div className='flex flex-row justify-between -mt-16 md:-mt-20'>
                 <div></div>
@@ -145,13 +148,16 @@ const HalvingContainer = (props) => {
                 <div></div>
             </div>
         </div>
-        <div className='flex flex-col bg-[#F4EFFF]'>
-            <CKBTipSummary blockNumber={tipHeader?.latestBlock}
-                epoch={tipHeader?.epoch}
-                halvingEpoch={data ? getNextHalvingEpoch(data.curEpoch.number) : NaN}
-                halvingDate={data?.estimatedHalvingTime} >
-            </CKBTipSummary>
+        <div className='flex flex-col bg-[#F4EFFF] '>
+            <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full`}>
+                <CKBTipSummary blockNumber={tipHeader?.latestBlock}
+                    epoch={tipHeader?.epoch}
+                    halvingEpoch={data ? getNextHalvingEpoch(data.curEpoch.number) : NaN}
+                    halvingDate={data?.estimatedHalvingTime} >
+                </CKBTipSummary>
+            </div>
 
+            <div className={`max-w-[${MAX_VIEW_WIDTH}px] mx-auto w-full`}>
             <div className='flex flex-col py-5 px-3 md:px-5'>
                 <div className='flex mb-16'>
                     <span className='grow text-[20px] md:text-[30px] font-bold'>{t('halving.block-chain-progress')}</span>
@@ -182,6 +188,7 @@ const HalvingContainer = (props) => {
                     </div>
                 </div>
 
+            </div>
             </div>
         </div>
 

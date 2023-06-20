@@ -8,22 +8,40 @@ import TopNav from '../TopNav/topNav'
 
 const MainPage = (props) => {
 
-    console.log(props)
-    return (<div className=''>
-        {console.log(222)}
-        <div className='sidebar hidden md:block w-0 md:w-[260px] bg-[#1C1C23]'>
-            <Sidebar {...props}/>
+  return (
+    <div className="flex flex-col">
+      <div className="sidebar hidden md:block w-0 md:w-[260px] bg-[#1C1C23]">
+        <Sidebar {...props} />
+      </div>
+      <div className="layout__content pl-0 md:ml-[260px] flex flex-col items-center">
+        <Bulletin />
+        <TopNav />
+        <div className="flex grow w-full justify-center">
+          <div className="bg-[#F8F8F8] flex flex-col w-full">
+            <PageRoutes />
+          </div>
         </div>
-        <div className="layout__content pl-0 md:pl-[260px] flex flex-col">
-            <Bulletin/>
-            <TopNav/>
-            <div className="p-3 md:p-7 grow bg-[#F8F8F8]">
-                <PageRoutes/>
-            </div>
-            <Footer></Footer>
-            <div id="app-message-box" />
-        </div>  
-    </div>)
+        <Footer></Footer>
+        <div id="app-message-box" />
+      </div>
+    </div>
+    /*<div className="flex flex-col">
+      <div className="sidebar hidden md:block w-0 md:w-[260px] bg-[#1C1C23]">
+        <Sidebar {...props} />
+      </div>
+      <div className="layout__content pl-0 md:ml-[260px] flex flex-col items-center">
+        <Bulletin />
+        <TopNav />
+        <div className="flex max-w-6xl grow w-full">
+          <div className="p-3 md:p-7 bg-[#F8F8F8] w-full flex flex-col place-content-center">
+            <PageRoutes />
+          </div>
+        </div>
+        <Footer></Footer>
+        <div id="app-message-box" />
+      </div>
+    </div>*/
+  )
 }
 
 export default MainPage

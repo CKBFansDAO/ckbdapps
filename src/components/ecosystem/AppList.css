@@ -2,7 +2,7 @@
     border-radius: 10px 10px 0px 0px;
     transition: all 0.3s ease-in-out 0s;
     overflow: hidden;
-    height: 210px;
+    height: 180px;
     width: 100;
 }
 .category-dapp-img::after {
