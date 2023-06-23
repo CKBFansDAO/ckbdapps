@@ -40,37 +40,6 @@ const Ecosystem = () => {
         };
           
         fetchDappList();
-        /*
-        return;
-
-        fetch('../dappList/dapps_list.json')
-            .then(response => response.json())
-            .then((data) => {
-                setAppList(data.dappList);
-                // collect categories   
-                //const allCategories = [...new Set(data.dappList.flatMap(item => item.categories))];
-                //setCategories(allCategories);
-
-                // 创建一个空对象用于统计每个 category 的应用数量
-                const categoryCounts = { 'all': 0 };
-                // 遍历 dappList 数组
-                data.dappList.forEach(item => {
-                    // 遍历当前应用的 categories 数组
-                    item.categories.forEach(category => {
-                        // 检查当前 category 是否已经存在于 categoryCounts 对象中
-                        if (category in categoryCounts) {
-                            // 如果已存在，则将对应 category 的计数加一
-                            categoryCounts[category]++;
-                        } else {
-                            // 如果不存在，则初始化对应 category 的计数为一
-                            categoryCounts[category] = 1;
-                        }
-                    });
-                    categoryCounts['all']++
-                });
-
-                setCategories(categoryCounts);
-            });*/
     }, []);
 
     const renderRiskWarningBar = () => {
@@ -116,7 +85,7 @@ const Ecosystem = () => {
         <div className='p-4 gap-6 flex flex-col'>
             {renderRiskWarningBar()}
             {renderCategories()}
-            <AppList appList={filterProject(categorySel)}></AppList>
+            <AppList appList={filterProject(categorySel)} isLoading={appList.length === 0}></AppList>
         </div></div>
     )
 }

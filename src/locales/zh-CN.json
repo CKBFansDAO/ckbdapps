@@ -70,6 +70,7 @@
       "years":"年",
       "title":"CKB 减半倒计时",
       "top-tips":"预计即将到来的减半事件发生在",
+      "share-twitter":"一键分享 CKB 减半事件到推特",
       "latest-block":"区块高度",
       "current-epoch":"当前Epoch",
       "halving-epoch":"减半时的Epoch",
@@ -77,7 +78,7 @@
       "genesis-epoch":"创世Epoch",
       "block-chain-progress":"区块链运行进度",
       "whats-epoch":"什么是Epoch？",
-      "twitter-share-content-before-halving":"📢 @NervosNetwork CKB 预计于 {{date}} {{timeZone}} 迎来第一次减半🚀，\n\n📅距离减半倒计时还有 {{countdown}} {{countdownUnit}}。\n\n🔗 访问👉 https://ckbdapps.com/halving 了解更多 #CKB 减半信息",
+      "twitter-share-content-before-halving":"📢 @NervosNetwork CKB 预计于 {{date}} {{timeZone}} 迎来第一次减半🚀，\n\n📅距离减半倒计时还有 {{countdown}} {{countdownUnit}}。\n\n🔗 访问👉 https://ckbdapps.com/halving 了解更多 #CKB 减半信息 #PoW #Halving",
       "twitter-share-content-after-halving":"🎉 祝贺 @NervosNetwork CKB 已于 {{datetime}} {{timeZone}} 成功完成第一次减半🚀🧨🎆。\n\n⚒️ 减半后，CKB 的实际通胀率将降至 3.8% 以下，每日挖矿产出降至 575 万 CKB。\n\n🔗 访问👉 https://ckbdapps.com 了解 #CKB 生态信息"
     },
     "ecosystem": {
@@ -90,6 +91,17 @@
     "footer": {
       "feedback":"反馈",
       "followus":"关注我们"
+    },
+    "component":{
+      "pagination": {
+        "prev-page":"<<",
+        "next-page":">>",
+        "10-per-page":"10/页",
+        "20-per-page":"20/页",
+        "40-per-page":"40/页",
+        "50-per-page":"50/页",
+        "goto-page":"转到"
+      }
     }
   }
 }

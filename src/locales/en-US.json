@@ -68,6 +68,7 @@
       "years": "years",
       "title": "CKB Halving Countdown",
       "top-tips": "The next halving is estimated at",
+      "share-twitter":"One-click share the CKB halving event on Twitter.",
       "latest-block": "Latest Block",
       "current-epoch": "Current Epoch",
       "halving-epoch": "Halving Epoch",
@@ -75,7 +76,7 @@
       "genesis-epoch": "Genesis Epoch",
       "block-chain-progress": "Block Chain Progress",
       "whats-epoch": "What's epoch?",
-      "twitter-share-content-before-halving": "📢 @NervosNetwork CKB is estimated to halve on {{date}} {{timeZone}} 🚀,\n\n📅 There are {{countdown}} {{countdownUnit}} left until the halving countdown.\n\n🔗 Visit 👉 https://ckbdapps.com/halving to learn more about #CKB halving information.",
+      "twitter-share-content-before-halving": "📢 @NervosNetwork CKB is estimated to halve on {{date}} {{timeZone}} 🚀,\n\n📅 There are {{countdown}} {{countdownUnit}} left until the halving countdown.\n\n🔗 Visit 👉 https://ckbdapps.com/halving to learn more about #CKB halving information.  #PoW #Halving",
       "twitter-share-content-after-halving": "🎉 Congratulations to @NervosNetwork CKB for successfully completing its first halving on {{datetime}} {{timeZone}} 🚀🧨🎆\n\n⚒️ After the halving, CKB's real inflation rate will be reduced to below 3.8%.\n\n🔗 Visit 👉 https://ckbdapps.com to explore #CKB ecosystem."                                            
     },
     "ecosystem": {
@@ -86,6 +87,17 @@
     "footer": {
       "feedback": "Feedback",
       "followus": "Follow US"
+    },
+    "component": {
+      "pagination": {
+        "prev-page":"<<",
+        "next-page":">>",
+        "10-per-page":"10/page",
+        "20-per-page":"20/page",
+        "40-per-page":"40/page",
+        "50-per-page":"50/page",
+        "goto-page":"go to"
+      }
     }
   }
 }

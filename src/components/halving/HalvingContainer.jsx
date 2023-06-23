@@ -86,11 +86,12 @@ const HalvingContainer = (props) => {
         let url =
             `https://twitter.com/intent/tweet?text=${encodedShareText}`
 
-        return <a className='w-6 h-6 flex justify-center items-center rounded-full bg-white mr-2 icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
-            href={url} rel="noopener noreferrer" target="_blank">
-            <i className="fa-sm fa-brands fa-twitter text-[#28C1B0]"></i>
-        </a>
-
+        return <BitTooltip content={t(`halving.share-twitter`)} direction="top">
+            <a className='w-6 h-6 flex justify-center items-center rounded-full bg-white icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
+                href={url} rel="noopener noreferrer" target="_blank">
+                <i className="fa-sm fa-brands fa-twitter text-[#28C1B0]"></i>
+            </a>
+        </BitTooltip>
     }
 
     const renderClipboardShareLink = () => {
@@ -108,11 +109,10 @@ const HalvingContainer = (props) => {
     }
 
     const renderHalvingTip = () => {
-        return <div className='flex flex-row'>
-            <div className='grow'></div>
-            <div className='flex flex-row items-center  p-1 justify-center bg-[#28C1B0] rounded-full'>
-                <CKBLogo className='h-7 ml-5'></CKBLogo>
-                <div className='flex flex-col'>
+        return <div className='flex justify-center'>
+            <div className='flex flex-row items-center py-1 px-3 justify-center bg-[#28C1B0] rounded-full'>
+                <CKBLogo className='h-7 ml-2'></CKBLogo>
+                <div className='flex flex-col w-full'>
                     <div className=' text-[14px] text-[#FFF] flex items-center px-3 font-semibold break-keep'>{t('halving.top-tips')}</div>
                     {
                         (isLoading || isError) ? <div className='w-20 h-6 animate-pulse'>
@@ -126,12 +126,11 @@ const HalvingContainer = (props) => {
                 {renderClipboardShareLink()}
 
             </div>
-            <div className='grow'></div>
         </div>
     }
 
     return (<div className='flex flex-col'>
-        <div className='bg-[url("../../assets/images/bg_head_halving.png")] bg-cover flex flex-col gap-10'>
+        <div className='bg-[url("../../assets/images/bg_head_halving.jpg")] bg-cover flex flex-col gap-10'>
             <span className='mt-14 w-full text-center text-[24px] md:text-[48px] text-white font-["Zen_Dots"]'>{t('halving.title')}</span>
             {renderHalvingTip()}
 
@@ -157,37 +156,37 @@ const HalvingContainer = (props) => {
             </div>
 
             <div className={`max-w-content mx-auto w-full`}>
-            <div className='flex flex-col py-5 px-3 md:px-5'>
-                <div className='flex mb-16'>
-                    <span className='grow text-[20px] md:text-[30px] font-bold'>{t('halving.block-chain-progress')}</span>
-                    <a href='https://docs.nervos.org/docs/basics/glossary#epoch' target="_blank" rel="noopener noreferrer" >
-                        <span className='flex items-center text-[#733DFF] hover:text-[#9e35FF] underline underline-offset-2'>{t('halving.whats-epoch')}</span>
-                    </a>
-                </div>
-                <div className='flex mb-5 gap-1 md:gap-6'>
-                    <div className='flex flex-col w-[100px] text-center gap-2'>
-                        <span className='text-sm whitespace-nowrap'>{t('halving.genesis-epoch')}</span>
-                        <span className='text-center bg-white rounded-full text-[#733DFF] font-bold'># 0</span>
-                        <span className='text-[#999999] text-sm text-center'>{FormatLocaleDate(1573852190812)}</span>
+                <div className='flex flex-col py-5 px-3 md:px-5'>
+                    <div className='flex mb-16'>
+                        <span className='grow text-[20px] md:text-[30px] font-bold'>{t('halving.block-chain-progress')}</span>
+                        <a href='https://docs.nervos.org/docs/basics/glossary#epoch' target="_blank" rel="noopener noreferrer" >
+                            <span className='flex items-center text-[#733DFF] hover:text-[#9e35FF] underline underline-offset-2'>{t('halving.whats-epoch')}</span>
+                        </a>
                     </div>
-                    <div className='flex grow items-center'>
-                        <div className="w-[1px] h-12 border-dashed border-r border-black ml-2" />
-                        <div className='grow'>
-                            <BlockchainProgressBar className='grow'
-                                epoch={tipHeader?.epoch} >
-                            </BlockchainProgressBar>
+                    <div className='flex mb-5 gap-1 md:gap-6'>
+                        <div className='flex flex-col w-[100px] text-center gap-2'>
+                            <span className='text-sm whitespace-nowrap'>{t('halving.genesis-epoch')}</span>
+                            <span className='text-center bg-white rounded-full text-[#733DFF] font-bold'># 0</span>
+                            <span className='text-[#999999] text-sm text-center'>{FormatLocaleDate(1573852190812)}</span>
                         </div>
-                        <div className="w-[1px] h-12 border-dashed border-l border-black mr-2" />
+                        <div className='flex grow items-center'>
+                            <div className="w-[1px] h-12 border-dashed border-r border-black ml-2" />
+                            <div className='grow'>
+                                <BlockchainProgressBar className='grow'
+                                    epoch={tipHeader?.epoch} >
+                                </BlockchainProgressBar>
+                            </div>
+                            <div className="w-[1px] h-12 border-dashed border-l border-black mr-2" />
+                        </div>
+
+                        <div className='flex flex-col w-[100px] text-center gap-2'>
+                            <span className='text-sm whitespace-nowrap'>{t('halving.halving-epoch')}</span>
+                            <span className='text-center bg-white rounded-full text-[#733DFF] font-bold'># {data ? getNextHalvingEpoch(data.curEpoch.number) : '----'}</span>
+                            <span className='text-[#999999] text-sm text-center'>{data ? FormatLocaleDate(data.estimatedHalvingTime) : 'YYYY-MM-DD'}</span>
+                        </div>
                     </div>
 
-                    <div className='flex flex-col w-[100px] text-center gap-2'>
-                        <span className='text-sm whitespace-nowrap'>{t('halving.halving-epoch')}</span>
-                        <span className='text-center bg-white rounded-full text-[#733DFF] font-bold'># {data ? getNextHalvingEpoch(data.curEpoch.number) : '----'}</span>
-                        <span className='text-[#999999] text-sm text-center'>{data ? FormatLocaleDate(data.estimatedHalvingTime) : 'YYYY-MM-DD'}</span>
-                    </div>
                 </div>
-
-            </div>
             </div>
         </div>
 

@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { currentLanguage } from '../../utils/i18n';
 import './AppList.css'
 import BitTooltip from '../tooltip/bitTooltip';
+import Pagination from '../pagination/Pagination';
+import loadingGif from '../../assets/images/loading.gif'
 
 
 
@@ -33,24 +35,77 @@ const link_icon_config = {
     }
 }
 
-const AppList = ({ appList }) => {
+const AppList = ({ appList, isLoading }) => {
     //const [appList, setAppList] = useState([]);
 
-    console.log(appList);
+    const [paginationParam, setPaginationParam] = useState({
+        pageSize: 10,
+        pageIndex: 1,
+        pageCount: Math.ceil(appList.lengh / 10)
+    })
 
     useEffect(() => {
-        //fetch('../dappList/dapps_list.json')
-        //.then(response => response.json())
-        //.then(data => setAppList(data.dappList));
-    }, []);
+        const pageCount = Math.ceil(appList.length / paginationParam.pageSize);
+        setPaginationParam(prevState => ({
+            ...prevState,
+            pageCount: pageCount,
+            pageIndex: 1,
+        }));
+    }, [appList, paginationParam.pageSize]);
+
+    const gotoPage = (pageIndex) => {
+        setPaginationParam(prevState => ({
+            ...prevState,
+            pageIndex: pageIndex
+        }));
+    }
+
+    const changePageSize = (newSize) => {
+
+        const pageCount = Math.ceil(appList.length / newSize);
+        setPaginationParam(prevState => ({
+            ...prevState,
+            pageSize: newSize,
+            pageIndex: 1,
+            pageCount: pageCount
+        }));
+    }
+
+    const renderLoading = () => {
+        return <div className='flex justify-center w-full'>
+        <img className='w-[300px] h-[300px]' src={loadingGif} alt="Loading" />
+        </div>
+    }
+
+    const renderPagination = () => {
+        if (isLoading) {
+            return <></>
+        }
+
+        return (
+            <Pagination
+                pageCount={paginationParam.pageCount}
+                pageIndex={paginationParam.pageIndex}
+                pageSize={paginationParam.pageSize}
+                fnGotoPage={gotoPage}
+                fnChangePageSize={changePageSize}>
+            </Pagination>
+        )
+    }
 
     // 
-    return (
+    return (<div className='flex flex-col gap-5'>
+        {isLoading ? renderLoading() :(
         <div className='flex flex-row flex-wrap gap-6 justify-center'>
-            {appList?.map((app, index) => (
+            {appList?.slice(
+                (paginationParam.pageIndex - 1) * paginationParam.pageSize,
+                paginationParam.pageIndex * paginationParam.pageSize
+            ).map((app, index) => (
                 <App key={`${app.project_name}-${index}`} config={app} />
             ))}
-        </div>
+        </div>)}
+        {renderPagination()}
+    </div>
     );
 }
 
@@ -92,7 +147,7 @@ const App = ({ config }) => {
 
     const getAppDescToolTipContent = (config_key) => {
         let tooltip = getAppLocaleConfig(config_key);
-        return <div className='w-[346px]'>
+        return <div className='w-[314px]'>
             <span className='whitespace-normal break-words leading-relaxed'>{tooltip}</span>
         </div>
     }
@@ -178,30 +233,13 @@ const App = ({ config }) => {
                     {renderAppLinks()}
                     <div className='grow'></div>
                     <BitTooltip content={t('common.coming-soon')} direction="top">
-                    <i className="fa-regular fa-heart"></i>
+                        <i className="fa-regular fa-heart"></i>
                     </BitTooltip>
                 </div>
 
             </div>
         </div>
     );
-    /*return (
-        <div className='w-full md:w-[364px] hover:scale-105 transform-gpu p-5 gap-5 rounded-xl flex flex-col border-[#EFEFEF] shadow-[0_2px_10px_0_rgba(0,0,0,0.2)]'>
-            <div className='flex  items-center'>
-                <img className='w-12 h-12 rounded-full' src={`../dappList/${appConfig.path_name}/${appConfig.logo_file}`}></img>
-                <div className='flex flex-col ml-2 grow'>
-                    <span className="text-base font-bold text-[25px]" >{appConfig.project_name}</span>
-                    <span className="text-base text-[#888888] font-thin" >{appConfig.project_name}</span>
-                </div>
-                <i className="fa-regular fa-heart"></i>
-            </div>
-            <div className='flex'>
-                {renderAppCategories(appConfig.categories)}
-            </div>
-            <span className='text-sm h-10'>{getAppLocaleConfig('project_summary')}</span>
-            {renderAppLinks()}
-        </div>
-    );*/
 
 }
 
