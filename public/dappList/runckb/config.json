@@ -1,0 +1,29 @@
+{
+    "project_name": "RUNCKB",
+    "path_name": "runckb",
+    "categories": [
+        "L2",
+        "MEME"
+    ],
+    "logo_file": "runckb-logo.png",
+    "hero_image":"runckb-hero.jpeg",
+    "links":{
+        "official":"https://run.ckbees.app/",
+        "twitter":"https://twitter.com/57u",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"#RUNCKB is the first meme project on Nervos Network Layer 2.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"#RUNCKB 是 Nervos 二层 Godwoken 上第一个 meme 项目.",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

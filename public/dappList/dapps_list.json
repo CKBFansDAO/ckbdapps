@@ -100,6 +100,9 @@
                 "Bridges"
             ]
         },
+        {"project_name": "CKB Explorer",
+        "path_name":"ckbexplorer",
+        "categories": ["Explorer", "L1"]},
         {
             "project_name": "Neuron",
             "path_name": "neuron",
@@ -131,6 +134,14 @@
                 "L2",
                 "DeFi",
                 "Lending"
+            ]
+        },
+        {
+            "project_name": "RUNCKB",
+            "path_name": "runckb",
+            "categories": [
+                "L2",
+                "MEME"
             ]
         },
         {

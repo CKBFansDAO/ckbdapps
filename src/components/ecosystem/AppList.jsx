@@ -203,7 +203,7 @@ const App = ({ config }) => {
             <div className='relative'>
                 <div className='flex category-dapp-img place-content-center rounded-t-[10px] bg-[#1C1C23] overflow-hidden'>
                     {
-                        appConfig.hero_image ? (<img className=" h-[210px] w-full object-cover duration-300 ease-in-out hover:scale-125" src={appConfig.hero_image ? `../dappList/${appConfig.path_name}/${appConfig.hero_image}` : ''} />)
+                        appConfig.hero_image ? (<img className=" h-[180px] w-full object-cover duration-300 ease-in-out hover:scale-125" src={appConfig.hero_image ? `../dappList/${appConfig.path_name}/${appConfig.hero_image}` : ''} />)
                             : (<div></div>)
                     }
 
