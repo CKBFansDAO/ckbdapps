@@ -25,7 +25,7 @@ const CKBTokenSummary = () => {
     fetchData();
   }, []);
 
-  return (<div className='flex flex-col pt-1 md:pt-5 -mx-3 md:-mx-7 bg-[#F4EFFF]'>
+  return (<div className='flex flex-col pt-1 md:pt-5 bg-[#F4EFFF]'>
     <div className='w-full flex h-16 text-center justify-center text-[20px] md:text-[30px] font-["Zen_Dots"]'>
       <span className='flex items-end'>{t('home.market-data.token-summary')}</span>
     </div>

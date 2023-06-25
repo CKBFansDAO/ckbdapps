@@ -65,10 +65,11 @@ const Home = () => {
             </div>
 
             {showHalvingRemindAlert(halvingData)}
-            <div className="mx-auto max-w-[1200px] w-full">
+            <div className="mx-auto max-w-content w-full">
                 <CKBHistoryPriceChart></CKBHistoryPriceChart>
                 <CKBHashRateChart></CKBHashRateChart>
             </div>
+            <div className='h-10'></div>
         </div>
     )
 }
