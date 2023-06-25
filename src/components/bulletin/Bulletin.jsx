@@ -92,17 +92,15 @@ const Bulletin = (props) => {
     const renderBulletin = () => {
         if (bulletinVisible) {
             return <div className='flex flex-row px-3 items-center justify-center h-10 bg-[#733DFF]'>
-                <div className='flex grow justify-between'>
-                    <div />
-                    <div className='flex h-7 flex-row items-center py-1 justify-center rounded-[15px]'>
-                        <Marquee className='' pauseOnHover='true' pauseOnClick='true' speed='35' gradient='false' gradientColor={[115, 51, 255]} gradientWidth='40px'>
+                <div className='flex grow justify-center'>
+                    <div className='flex h-7 w-full flex-row items-center py-1 justify-center rounded-[15px]'>
+                        <Marquee className='' pauseOnHover='true' pauseOnClick='true' speed='35' gradient='false' gradientColor={[115, 61, 255]} gradientWidth='80px'>
                             
                             <div className='flex gap-3'>
                                 {renderBulletins()}
                             </div>
                         </Marquee>
                     </div>
-                    <div />
                 </div>
                 <i className="flex items-center justify-center fa-solid fa-xmark text-[14px] cursor-pointer hover:text-red ml-3 pl-[5px] pt-[3px] h-5 w-5"
                     onClick={closeBulletin}></i>
