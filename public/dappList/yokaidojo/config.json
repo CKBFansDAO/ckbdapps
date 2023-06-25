@@ -1,0 +1,29 @@
+{
+    "project_name": "YokaiDojo",
+    "path_name": "yokaidojo",
+    "categories": [
+        "L2",
+        "NFT"
+    ],
+    "logo_file": "yokaidojo-logo.png",
+    "hero_image":"yokaidojo-hero.jpeg",
+    "links":{
+        "official":"https://yokaiswap.com",
+        "twitter":"https://twitter.com/yokaiswapnervos",
+        "discord":"https://discord.gg/zr7u9FJeV5",
+        "github":"https://github.com/yokaiswap",
+        "medium":"https://medium.com/@yokaiswap",
+        "telegram":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"YokaiDojo is an NFT marketplace built on Godwoken.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"YokaiDojo 是基于 Godwoken 构建的一个 NFT 交易市场。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

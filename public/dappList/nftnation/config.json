@@ -1,0 +1,29 @@
+{
+    "project_name": "NFTnation",
+    "path_name": "nftnation",
+    "categories": [
+        "L2",
+        "NFT"
+    ],
+    "logo_file": "nftnation-logo.png",
+    "hero_image":"nftnation-hero.jpeg",
+    "links":{
+        "official":"https://nft-nation.live",
+        "twitter":"https://twitter.com/NFTxnation",
+        "discord":"https://discord.gg/2DBVH3qgMf",
+        "telegram":"",
+        "github":"",
+        "medium":"https://medium.com/nervos-nation",
+        "youtube":"http://youtube.com/NervosNation" 
+    },
+    "en_US": {   
+        "project_summary":"NFTnation is an NFT marketplace built on Godwoken.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://nftnation.gitbook.io/nftnation-explained"
+    },
+    "zh_CN": {   
+        "project_summary":"NFTnation 是基于 Godwoken 构建的一个 NFT 交易市场。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://nftnation.gitbook.io/nftnation-explained"  
+    } 
+}

@@ -68,6 +68,22 @@
             ]
         },
         {
+            "project_name": "YokaiDojo",
+            "path_name": "yokaidojo",
+            "categories": [
+                "L2",
+                "NFT"
+            ]
+        },
+        {
+            "project_name": "NFTnation",
+            "path_name": "nftnation",
+            "categories": [
+                "L2",
+                "NFT"
+            ]
+        },
+        {
             "project_name": "CKBull",
             "path_name": "ckbull",
             "categories": [
