@@ -26,7 +26,7 @@ const BitTooltip = (props) => {
       {/* Wrapping */}
       {props.children}
       {active && (
-        <div className={`Tooltip-Tip ${props.direction || "top"}`}>
+        <div className={`Tooltip-Tip ${props.direction || "top"} ${props.className || ''}`}>
           {/* Content */}
           {props.content}
         </div>

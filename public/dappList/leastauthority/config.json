@@ -1,0 +1,28 @@
+{
+    "project_name": "Least Authority",
+    "path_name": "leastauthority",
+    "categories": [
+        "Security & Audit"
+    ],
+    "logo_file": "leastauthority-logo.jpeg",
+    "hero_image":"leastauthority-hero.jpeg",
+    "links":{
+        "official":"https://leastauthority.com/",
+        "twitter":"https://twitter.com/LeastAuthority",
+        "discord":"",
+        "telegram":"",
+        "github":"https://github.com/LeastAuthority",
+        "medium":"",
+        "youtube":"https://www.youtube.com/channel/UCemZol-P7c9_WxewG0S9j5Q" 
+    },
+    "en_US": {   
+        "project_summary":"Focus on Security, helps projects improve their security and build secure technology.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"专注于安全领域，帮助项目提高安全性并构建安全技术。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

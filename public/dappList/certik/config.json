@@ -1,0 +1,28 @@
+{
+    "project_name": "CertiK",
+    "path_name": "certik",
+    "categories": [
+        "Security & Audit"
+    ],
+    "logo_file": "certik-logo.png",
+    "hero_image":"certik-hero.jpeg",
+    "links":{
+        "official":"https://www.certik.com/",
+        "twitter":"https://twitter.com/CertiK",
+        "discord":"https://discord.com/invite/S5YbXrSgEA",
+        "telegram":"https://t.me/CertiKCommunity",
+        "github":"https://github.com/LeastAuthority",
+        "medium":"https://medium.com/certik",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"CertiK is Web3's leading smart contract auditor and provides a comprehensive suite of tools to secure the industry at scale.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"CertiK是Web3.0世界领先的智能合约审计机构。为企业提供完整的端到端安全解决方案，以提高业内安全水准。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

@@ -1,0 +1,29 @@
+{
+    "project_name": "Project Kami",
+    "path_name": "projectkami",
+    "categories": [
+        "L2",
+        "NFT"
+    ],
+    "logo_file": "projectkami-logo.png",
+    "hero_image":"projectkami-hero.jpeg",
+    "links":{
+        "official":"https://www.projectkami.io ",
+        "twitter":"https://twitter.com/ProjectKami_NFT",
+        "discord":"https://discord.gg/FQNU3rt8Ms",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Project Kami is the first NFT collection to be launched on Nervos Layer 2 (Godwoken). It is a series of 10,000 programmatically generated portraits.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://www.projectkami.io/faq"
+    },
+    "zh_CN": {   
+        "project_summary":"Project Kami 是在 Nervos Layer 2（Godwoken）上推出的首个 NFT 系列。它包括一系列由程序生成的 10,000 张肖像。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://www.projectkami.io/faq"  
+    } 
+}

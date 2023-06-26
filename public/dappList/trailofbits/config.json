@@ -1,0 +1,28 @@
+{
+    "project_name": "Trail of Bits",
+    "path_name": "trailofbits",
+    "categories": [
+        "Security & Audit"
+    ],
+    "logo_file": "trailofbits-logo.png",
+    "hero_image":"trailofbits-hero.jpeg",
+    "links":{
+        "official":"https://www.trailofbits.com/",
+        "twitter":"https://twitter.com/trailofbits",
+        "discord":"",
+        "telegram":"",
+        "github":"https://github.com/trailofbits",
+        "medium":"https://blog.trailofbits.com/",
+        "youtube":"https://www.youtube.com/channel/UCemZol-P7c9_WxewG0S9j5Q" 
+    },
+    "en_US": {   
+        "project_summary":"Trail of Bits is a full-service security firm, with specialized expertise in blockchain, cryptographic, and application security reviews.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Trail of Bits是一家提供全面服务的安全公司，在区块链、密码学和应用安全审查方面拥有丰富的经验。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

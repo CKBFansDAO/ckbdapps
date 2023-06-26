@@ -1,0 +1,28 @@
+{
+    "project_name": "PeckShield",
+    "path_name": "peckshield",
+    "categories": [
+        "Security & Audit"
+    ],
+    "logo_file": "PeckShield-logo.png",
+    "hero_image":"PeckShield-hero.jpeg",
+    "links":{
+        "official":"https://peckshield.com/",
+        "twitter":"https://twitter.com/peckshield",
+        "discord":"https://github.com/peckshield",
+        "telegram":"https://t.me/peckshield",
+        "github":"https://github.com/peckshield",
+        "medium":"https://medium.com/@peckshield",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"PeckShield is an Industry Leading Blockchain Security Company.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"PeckShield 是一家行业领先的区块链安全公司。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

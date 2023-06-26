@@ -226,7 +226,7 @@ const App = ({ config }) => {
             </div>
 
             <div className='flex flex-col rounded-b-xl bg-white p-5 gap-5'>
-                <BitTooltip content={getAppDescToolTipContent('project_summary')} direction="top">
+                <BitTooltip content={getAppDescToolTipContent('project_summary')} direction="top" className='mb-4'>
                     <span className='text-sm h-10 line-clamp-[2]'>{getAppLocaleConfig('project_summary')}</span>
                 </BitTooltip>
                 <div className='flex w-full'>

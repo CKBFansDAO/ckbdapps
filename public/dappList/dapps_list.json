@@ -100,9 +100,14 @@
                 "Bridges"
             ]
         },
-        {"project_name": "CKB Explorer",
-        "path_name":"ckbexplorer",
-        "categories": ["Explorer", "L1"]},
+        {
+            "project_name": "CKB Explorer",
+            "path_name": "ckbexplorer",
+            "categories": [
+                "Explorer",
+                "L1"
+            ]
+        },
         {
             "project_name": "Neuron",
             "path_name": "neuron",
@@ -158,6 +163,14 @@
             "categories": [
                 "GameFi",
                 "L1"
+            ]
+        },
+        {
+            "project_name": "Project Kami",
+            "path_name": "projectkami",
+            "categories": [
+                "L2",
+                "NFT"
             ]
         },
         {
@@ -725,6 +738,34 @@
             "path_name": "zt",
             "categories": [
                 "Markets"
+            ]
+        },
+        {
+            "project_name": "CertiK",
+            "path_name": "certik",
+            "categories": [
+                "Security & Audit"
+            ]
+        },
+        {
+            "project_name": "PeckShield",
+            "path_name": "peckshield",
+            "categories": [
+                "Security & Audit"
+            ]
+        },
+        {
+            "project_name": "Least Authority",
+            "path_name": "trailofbits",
+            "categories": [
+                "Security & Audit"
+            ]
+        },
+        {
+            "project_name": "Least Authority",
+            "path_name": "leastauthority",
+            "categories": [
+                "Security & Audit"
             ]
         }
     ]
