@@ -1,0 +1,28 @@
+{
+    "project_name": "FBG Capital",
+    "path_name": "FBGCapital",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "FBGCapital-logo.jpeg",
+    "hero_image":"FBGCapital-hero.jpeg",
+    "links":{
+        "official":"https://fbg.capital/",
+        "twitter":"https://twitter.com/fbgcapital",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"FBG Capital is a prominent blockchain and digital asset investment firm actively supporting innovative blockchain projects.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"FBG Capital 是一家著名的区块链和数字资产投资公司，积极支持创新的区块链项目。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

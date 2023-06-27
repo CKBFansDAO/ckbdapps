@@ -1,0 +1,28 @@
+{
+    "project_name": "Dekrypt Capital",
+    "path_name": "DekryptCapital",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "DekryptCapital-logo.png",
+    "hero_image":"DekryptCapital-hero.png",
+    "links":{
+        "official":"https://dekrypt.capital/",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Dekrypt Capital is a renowned investment firm focused on cryptocurrencies and the blockchain space.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Dekrypt Capital 是一家专注于加密货币和区块链领域的知名投资公司。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

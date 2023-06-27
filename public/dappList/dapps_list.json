@@ -569,7 +569,8 @@
             "project_name": "MEXC Global",
             "path_name": "mexcglobal",
             "categories": [
-                "Partners","Markets"
+                "Partners",
+                "Markets"
             ]
         },
         {
@@ -804,6 +805,20 @@
             ]
         },
         {
+            "project_name": "FBG Capital",
+            "path_name": "FBGCapital",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "1confirmation",
+            "path_name": "1confirmation",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
             "project_name": "Dragonfly",
             "path_name": "dragonfly",
             "categories": [
@@ -818,8 +833,22 @@
             ]
         },
         {
+            "project_name": "Dekrypt Capital",
+            "path_name": "DekryptCapital",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
             "project_name": "1kx",
             "path_name": "1kx",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "MatrixPartners",
+            "path_name": "matrixpartners",
             "categories": [
                 "Investors"
             ]

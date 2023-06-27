@@ -7,7 +7,7 @@
     "logo_file": "1kx-logo.png",
     "hero_image":"1kx-hero.jpeg",
     "links":{
-        "official":"https://www.sequoiacap.com/",
+        "official":"https://1kx.network/",
         "twitter":"",
         "discord":"",
         "telegram":"",
@@ -16,12 +16,12 @@
         "youtube":"" 
     },
     "en_US": {   
-        "project_summary":"Sequoia Capital is a venture capital firm. The firm mainly focuses on the technology industry.",
+        "project_summary":"1kx is a renowned venture capital firm focusing on early-stage blockchain projects.",
         "full_description_file":"full_description_en.md",
         "tutorial_link":""
     },
     "zh_CN": {   
-        "project_summary":"红杉资本是一家风险投资公司，主要关注科技行业。",
+        "project_summary":"1kx 是一家专注于早期区块链项目投资的知名风险投资机构。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
     } 

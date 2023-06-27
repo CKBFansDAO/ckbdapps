@@ -1,0 +1,28 @@
+{
+    "project_name": "1confirmation",
+    "path_name": "1confirmation",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "1confirmation-logo.jpeg",
+    "hero_image":"1confirmation-hero.jpeg",
+    "links":{
+        "official":"https://www.1confirmation.com/",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"1confirmation is a renowned cryptocurrency venture capital firm supporting promising blockchain startups.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"1confirmation 是一家知名的加密货币风险投资公司，支持具有潜力的区块链创业公司。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
