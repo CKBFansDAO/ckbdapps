@@ -1,7 +1,7 @@
 {
     "project_name": "ChainLink",
     "path_name":"chainlink",
-    "categories": ["Business Partner"],
+    "categories": ["Partners"],
     "logo_file": "chainlink-logo.png",
     "hero_image":"chainlink-hero.jpeg",
     "links":{

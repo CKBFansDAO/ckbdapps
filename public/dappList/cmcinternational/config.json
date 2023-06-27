@@ -1,0 +1,28 @@
+{
+    "project_name": "CMC International",
+    "path_name": "cmcinternational",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "cmcinternational-logo.png",
+    "hero_image":"cmcinternational-hero.png",
+    "links":{
+        "official":"https://www.cmbi.com",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Incorporated in Hong Kong, supported by the mainland and targeting in global market, CMB International Capital Corporation Limited (“CMBI”) is an integrated financial institution providing comprehensive and professional services.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"招银国际金融有限公司（“招银国际”）是一家立足香港、深植内地、面向全球的全方位、专业化综合金融服务机构。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

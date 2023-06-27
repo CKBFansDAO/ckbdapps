@@ -1,17 +1,17 @@
 {
-    "project_name": "Project Kami",
-    "path_name": "projectkami",
+    "project_name": "Nervos.Land",
+    "path_name": "nervosland",
     "categories": [
         "L2",
-        "NFT"
+        "GameFi"
     ],
-    "logo_file": "projectkami-logo.png",
-    "hero_image":"projectkami-hero.jpeg",
+    "logo_file": "nervosland-logo.png",
+    "hero_image":"nervosland-hero.jpeg",
     "links":{
-        "official":"https://www.projectkami.io ",
-        "twitter":"https://twitter.com/ProjectKami_NFT",
-        "discord":"https://discord.gg/FQNU3rt8Ms",
-        "telegram":"",
+        "official":"https://nervos.land/",
+        "twitter":"https://twitter.com/nervos_land",
+        "discord":"https://discord.gg/2wys3DyJYj",
+        "telegram":"https://t.me/nervos_land",
         "github":"",
         "medium":"",
         "youtube":"" 

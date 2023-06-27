@@ -1,7 +1,7 @@
 {
     "project_name": "MixPay",
     "path_name":"mixpay",
-    "categories": ["Business Partner"],
+    "categories": ["Partners"],
     "logo_file": "mixpay-logo.png",
     "hero_image":"mixpay-hero.jpeg",
     "links":{

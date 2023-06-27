@@ -1,0 +1,28 @@
+{
+    "project_name": "Cumberland",
+    "path_name": "cumberland",
+    "categories": [
+        "Partners"
+    ],
+    "logo_file": "cumberland-logo.png",
+    "hero_image":"cumberland-hero.jpeg",
+    "links":{
+        "official":"https://cumberland.io/",
+        "twitter":"https://twitter.com/cumberlandsays",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Cumberland.io is an institutional-grade cryptocurrency trading firm specializing in digital asset trading and liquidity solutions.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Cumberland.io是一家专注于数字资产交易和流动性解决方案的机构级加密货币交易公司。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

@@ -1,7 +1,7 @@
 {
     "project_name": "Gitcoin",
     "path_name":"gitcoin",
-    "categories": ["Business Partner"],
+    "categories": ["Partners"],
     "logo_file": "gitcoin-logo.png",
     "hero_image":"gitcoin-hero.jpeg",
     "links":{

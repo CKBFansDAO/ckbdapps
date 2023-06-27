@@ -1,0 +1,28 @@
+{
+    "project_name": "Blockchain Capital",
+    "path_name": "BlockchainCapital",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "BlockchainCapital-logo.png",
+    "hero_image":"BlockchainCapital-hero.jpeg",
+    "links":{
+        "official":"https://blockchain.capital",
+        "twitter":"https://twitter.com/blockchaincap",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Blockchain Capital is a leading venture capital firm focused on investing in blockchain technology and cryptocurrency-related projects.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Blockchain Capital是一家专注于投资区块链技术和加密货币项目的领先风险投资公司。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

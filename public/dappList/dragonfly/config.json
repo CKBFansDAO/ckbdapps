@@ -1,0 +1,28 @@
+{
+    "project_name": "Dragonfly",
+    "path_name": "dragonfly",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "dragonfly-logo.jpeg",
+    "hero_image":"dragonfly-hero.jpeg",
+    "links":{
+        "official":"https://www.dragonfly.xyz/",
+        "twitter":"https://twitter.com/dragonfly_xyz",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"A cross-border crypto venture fund. Global from day one. ＞|＜",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"一个跨境加密货币风险基金。从第一天起就面向全球。 ＞|＜",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

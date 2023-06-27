@@ -1,0 +1,28 @@
+{
+    "project_name": "Cryptape",
+    "path_name": "cryptape",
+    "categories": [
+        "Partners"
+    ],
+    "logo_file": "cryptape-logo.png",
+    "hero_image":"cryptape-hero.jpeg",
+    "links":{
+        "official":"https://cryptape.com/",
+        "twitter":"https://twitter.com/cryptape",
+        "discord":"",
+        "telegram":"",
+        "github":"https://github.com/cryptape",
+        "medium":"https://blog.cryptape.com/",
+        "youtube":"https://www.youtube.com/channel/UCP8gpAk4yFs6dQQBQrqA5rw/featured" 
+    },
+    "en_US": {   
+        "project_summary":"Cryptape is a veteran in blockchain infrastructure research and engineering. By committing to the 「open source everything」 model, Cryptape continues to design and build trustworthy protocols and products serving millions of users, covering all aspects of the blockchain ecosystem and servicing the digital world of tomorrow.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Cryptape是区块链基础设施研究和工程领域的老牌公司。通过秉承“开源一切”的模式，Cryptape不断设计和构建可信任的协议和产品，为数百万用户提供服务，涵盖区块链生态系统的各个方面，为未来的数字世界提供支持。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

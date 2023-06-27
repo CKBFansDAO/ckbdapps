@@ -1,0 +1,28 @@
+{
+    "project_name": "Polychain Capital",
+    "path_name": "PolychainCapital",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "PolychainCapital-logo.png",
+    "hero_image":"PolychainCapital-hero.jpeg",
+    "links":{
+        "official":"https://polychain.capital/",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Polychain Capital (Polychain) is an American investment firm based in San Francisco, California.The firm focuses on investments related to cryptocurrency and blockchain technology.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Polychain Capital (Polychain) 是一家位于加利福尼亚旧金山的美国投资公司。该公司专注于与加密货币和区块链技术相关的投资。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

@@ -275,140 +275,119 @@
             "project_name": "UTXO Alliance",
             "path_name": "utxoalliance",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
-            "project_name": "Ripple Africa",
-            "path_name": "rippleafrica",
+            "project_name": "Cryptape",
+            "path_name": "cryptape",
             "categories": [
-                "Business Partner"
-            ]
-        },
-        {
-            "project_name": "MEXC Global",
-            "path_name": "mexcglobal",
-            "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "Messari",
             "path_name": "messari",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "Arweave",
             "path_name": "arweave",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "Gitcoin",
             "path_name": "gitcoin",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "Grin",
             "path_name": "grin",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "IOHK",
             "path_name": "iohk",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "ChainLink",
             "path_name": "chainlink",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "Kava Labs",
             "path_name": "kavalabs",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "Lumos Labs",
             "path_name": "lumoslabs",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "Linear Finance",
             "path_name": "linearfinance",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "MixPay",
             "path_name": "mixpay",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "StartFi",
             "path_name": "startfi",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "ChainSafe",
             "path_name": "chainsafe",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
             "project_name": "ImmuneFi",
             "path_name": "immunefi",
             "categories": [
-                "Business Partner"
+                "Partners"
             ]
         },
         {
-            "project_name": "2miners",
-            "path_name": "2miners",
+            "project_name": "Cumberland",
+            "path_name": "cumberland",
             "categories": [
-                "Mining Pools"
+                "Partners"
             ]
         },
         {
-            "project_name": "Antpool",
-            "path_name": "antpool",
+            "project_name": "Ripple Africa",
+            "path_name": "rippleafrica",
             "categories": [
-                "Mining Pools"
-            ]
-        },
-        {
-            "project_name": "BTC.com POOL",
-            "path_name": "btc.compool",
-            "categories": [
-                "Mining Pools"
-            ]
-        },
-        {
-            "project_name": "DxPool",
-            "path_name": "dxpool",
-            "categories": [
-                "Mining Pools"
+                "Partners"
             ]
         },
         {
@@ -419,15 +398,8 @@
             ]
         },
         {
-            "project_name": "Hash Pools",
-            "path_name": "hashpool",
-            "categories": [
-                "Mining Pools"
-            ]
-        },
-        {
-            "project_name": "Kele Pool",
-            "path_name": "kelepool",
+            "project_name": "Antpool",
+            "path_name": "antpool",
             "categories": [
                 "Mining Pools"
             ]
@@ -442,6 +414,27 @@
         {
             "project_name": "ViaBTC",
             "path_name": "viabtc",
+            "categories": [
+                "Mining Pools"
+            ]
+        },
+        {
+            "project_name": "2miners",
+            "path_name": "2miners",
+            "categories": [
+                "Mining Pools"
+            ]
+        },
+        {
+            "project_name": "DxPool",
+            "path_name": "dxpool",
+            "categories": [
+                "Mining Pools"
+            ]
+        },
+        {
+            "project_name": "Hash Pools",
+            "path_name": "hashpool",
             "categories": [
                 "Mining Pools"
             ]
@@ -576,7 +569,7 @@
             "project_name": "MEXC Global",
             "path_name": "mexcglobal",
             "categories": [
-                "Markets"
+                "Partners","Markets"
             ]
         },
         {
@@ -755,7 +748,7 @@
             ]
         },
         {
-            "project_name": "Least Authority",
+            "project_name": "Trail Of Bits",
             "path_name": "trailofbits",
             "categories": [
                 "Security & Audit"
@@ -766,6 +759,69 @@
             "path_name": "leastauthority",
             "categories": [
                 "Security & Audit"
+            ]
+        },
+        {
+            "project_name": "CMC International",
+            "path_name": "cmcinternational",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Polychain Capital",
+            "path_name": "PolychainCapital",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Sequoia",
+            "path_name": "sequoia",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "HashKey Group",
+            "path_name": "HashKeyGroup",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "万向区块链",
+            "path_name": "wanxiang",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Multicoin Capital ",
+            "path_name": "MulticoinCapital",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Dragonfly",
+            "path_name": "dragonfly",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Blockchain Capital",
+            "path_name": "BlockchainCapital",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "1kx",
+            "path_name": "1kx",
+            "categories": [
+                "Investors"
             ]
         }
     ]

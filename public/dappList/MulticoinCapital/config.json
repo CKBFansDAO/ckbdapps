@@ -1,0 +1,28 @@
+{
+    "project_name": "Multicoin Capital",
+    "path_name": "MulticoinCapital",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "MulticoinCapital-logo.svg",
+    "hero_image":"MulticoinCapital-hero.jpeg",
+    "links":{
+        "official":"https://multicoin.capital/",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Multicoin Capital is a thesis-driven investment firm that invests in cryptocurrencies, tokens, and blockchain companies reshaping trillion-dollar markets.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Multicoin Capital 是一家研究驱动型投资机构，专注于投资正在重塑万亿美元市场的加密货币、区块链代币与早期区块链项目。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

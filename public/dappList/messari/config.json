@@ -1,7 +1,7 @@
 {
     "project_name": "Messari",
     "path_name":"messari",
-    "categories": ["Business Partner"],
+    "categories": ["Partners"],
     "logo_file": "messari-logo.png",
     "hero_image":"messari-hero.jpeg",
     "links":{

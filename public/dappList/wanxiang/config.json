@@ -1,0 +1,28 @@
+{
+    "project_name": "万向区块链",
+    "path_name": "wanxiang",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "wanxiang-logo.jpeg",
+    "hero_image":"wanxiang-hero.webp",
+    "links":{
+        "official":"https://www.wxblockchain.com/",
+        "twitter":"https://twitter.com/Wxblockchain",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Wanxiang Blockchain provides workable blockchain solutions across industries and a wide range of areas.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"万向区块链聚焦数字金融、乡村振兴、能源双碳、数字化商业等重点领域，为各行业提供企业级区块链解决方案，以技术支持实体经济发展。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

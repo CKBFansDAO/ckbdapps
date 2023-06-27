@@ -35,13 +35,15 @@ const link_icon_config = {
     }
 }
 
+const PAGE_SIZE = 9;
+
 const AppList = ({ appList, isLoading }) => {
     //const [appList, setAppList] = useState([]);
 
     const [paginationParam, setPaginationParam] = useState({
-        pageSize: 10,
+        pageSize: PAGE_SIZE,
         pageIndex: 1,
-        pageCount: Math.ceil(appList.lengh / 10)
+        pageCount: Math.ceil(appList.lengh / PAGE_SIZE)
     })
 
     useEffect(() => {
@@ -130,7 +132,7 @@ const App = ({ config }) => {
                     if (index > 2) {
                         return <></>
                     }
-                    return <span key={`${category}-${index}`} className='px-4 text-sm h-[20px] flex items-center rounded-full bg-[#000] border-[#ccc] border-[1px]'>{category}</span>
+                    return <span key={`${category}-${index}`} className='px-3 text-sm h-[20px] flex items-center rounded-full bg-[#000] border-[#ccc] border-[1px]'>{category}</span>
                 })
             }
         </div>
@@ -216,7 +218,7 @@ const App = ({ config }) => {
                         }
 
                         <div className='flex flex-col ml-2 gap-2 grow'>
-                            <span className="text-base font-bold text-[25px]" >{appConfig.project_name}</span>
+                            <span className="text-base font-bold text-[24px]" >{appConfig.project_name}</span>
                             <div className='flex'>
                                 {renderAppCategories(appConfig.categories)}
                             </div>

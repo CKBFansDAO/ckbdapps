@@ -1,0 +1,28 @@
+{
+    "project_name": "HashKey Group",
+    "path_name": "HashKeyGroup",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "HashKeyGroup-logo.png",
+    "hero_image":"HashKeyGroup-hero.jpeg",
+    "links":{
+        "official":"https://www.hashkey.com",
+        "twitter":"https://twitter.com/HashKeyGroup",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"https://medium.com/hashkey-group",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"HashKey Group is an end-to-end digital asset financial services group in Asia, offering new investment opportunities and solutions to institutions, family offices, funds and professional investors across the digital asset and blockchain ecosystem.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"HashKey Group是一家亚洲端到端数字资产金融服务集团，为企业、家族办公室、基金和专业投资者，在数字资产和区块链生态系统的领域中，提供崭新的投资机会和解决方案。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

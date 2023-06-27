@@ -1,0 +1,28 @@
+{
+    "project_name": "Sequoia",
+    "path_name": "sequoia",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "sequoia-logo.png",
+    "hero_image":"sequoia-hero.png",
+    "links":{
+        "official":"https://www.sequoiacap.com/",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Sequoia Capital is a venture capital firm. The firm mainly focuses on the technology industry.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"红杉资本是一家风险投资公司，主要关注科技行业。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
