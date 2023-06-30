@@ -17,6 +17,10 @@ const Footer = (props) => {
         {
             display_name: "footer.followus",
             link: "https://twitter.com/@ckbmeta"
+        },
+        {
+            display_name: "footer.submit-dapp",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSdGKSqRXJLLSh5C4EWYRafyl74cL4Gcq1JGvuBd9y29W51cDQ/viewform"
         }
     ]
 

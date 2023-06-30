@@ -12,6 +12,7 @@ const ProjectIconsSVG = ({ icons }) => {
 
   const canvasWidth = 1620;
   const canvasHeight = 880;
+  const starRadius = 28;
 
   useEffect(() => {
     const svgElement = d3.select(svgRef.current);
@@ -19,10 +20,12 @@ const ProjectIconsSVG = ({ icons }) => {
     const radius1 = 230; // 轨道1的半径
     const radius2 = 320; // 轨道2的半径
     const radius3 = 420; // 轨道3的半径
-    const radius4 = 670; // 轨道3的半径
+    const radius4 = 540; // 轨道4的半径
+    const radius5 = 670; // 轨道5的半径
     const radius1Count = icons.length > 14 ? 14 : icons.length; // 轨道图标的数量
     const radius2Count = (icons.length - radius1Count) > 20 ? 20 : (icons.length - radius1Count); // 圆上图标的数量
     const radius3Count = (icons.length - radius1Count - radius2Count) > 25 ? 25 : (icons.length - radius1Count - radius2Count); // 圆上图标的数量
+    const radius4Count = (icons.length - radius1Count - radius2Count - radius3Count) > 30 ? 30 : (icons.length - radius1Count - radius2Count - radius3Count); // 圆上图标的数量
 
     // 添加星空背景图
     svgElement.style('background-image', `url(${starryBackground})`)
@@ -33,7 +36,8 @@ const ProjectIconsSVG = ({ icons }) => {
       { radius: radius1, stroke: '#631BA7', strokeWidth: '2', fill: 'none',strokeDasharray:"5,2" },
       { radius: radius2, stroke: '#360E7B', strokeWidth: '4', fill: 'none',strokeDasharray:"5,2" },
       { radius: radius3, stroke: '#322C3E', strokeWidth: '0', fill: 'none' },
-      { radius: radius4, stroke: '#ffffff', strokeWidth: '0', fill: 'none' }
+      { radius: radius4, stroke: '#ffffff', strokeWidth: '0', fill: 'none' },
+      { radius: radius5, stroke: '#ffffff', strokeWidth: '0', fill: 'none' }
     ];
 
     svgElement
@@ -58,7 +62,7 @@ const ProjectIconsSVG = ({ icons }) => {
       const x = canvasWidth / 2 + radius1 * Math.cos(angle);
       const y = canvasHeight / 2 + radius1 * Math.sin(angle);
       const icon = icons[i];
-      stars.push({ x, y, radius: 30, orbitalRadius: radius1, v: 0.00045, angle, icon, direction: -1 });
+      stars.push({ x, y, radius: starRadius, orbitalRadius: radius1, v: 0.00045, angle, icon, direction: -1 });
     }
 
     // 在第二个圆的轨道上绘制图标
@@ -68,7 +72,7 @@ const ProjectIconsSVG = ({ icons }) => {
       const x = canvasWidth / 2 + radius2 * Math.cos(angle);
       const y = canvasHeight / 2 + radius2 * Math.sin(angle);
       const icon = icons[radius1Count + i];
-      stars.push({ x, y, radius: 30, orbitalRadius: radius2, v: 0.00025, angle, icon, direction: 1 });
+      stars.push({ x, y, radius: starRadius, orbitalRadius: radius2, v: 0.00025, angle, icon, direction: 1 });
     }
 
     // 在第三个圆的轨道上绘制图标
@@ -78,16 +82,26 @@ const ProjectIconsSVG = ({ icons }) => {
       const x = canvasWidth / 2 + radius3 * Math.cos(angle);
       const y = canvasHeight / 2 + radius3 * Math.sin(angle);
       const icon = icons[radius1Count + radius2Count + i];
-      stars.push({ x, y, radius: 30, orbitalRadius: radius3, v: 0.00015, angle, icon, direction: -1 });
+      stars.push({ x, y, radius: starRadius, orbitalRadius: radius3, v: 0.00015, angle, icon, direction: -1 });
+    }
+
+    // 在第4个圆的轨道上绘制图标
+    const angle4 = (2 * Math.PI) / radius4Count;
+    for (let i = 0; i < radius4Count; i++) {
+      const angle = i * angle4;
+      const x = canvasWidth / 2 + radius4 * Math.cos(angle);
+      const y = canvasHeight / 2 + radius4 * Math.sin(angle);
+      const icon = icons[radius1Count + radius2Count + radius3Count + i];
+      stars.push({ x, y, radius: starRadius, orbitalRadius: radius4, v: 0.00015, angle, icon, direction: 1 });
     }
 
     // 在最外面的圆形轨道上绘制剩余的图标
-    for (let i = radius1Count + radius2Count + radius3Count; i < icons.length; i++) {
-      const angle = (2 * Math.PI * (i - radius1Count - radius2Count - radius3Count)) / (icons.length - radius1Count - radius2Count - radius3Count);
+    for (let i = radius1Count + radius2Count + radius3Count + radius4Count; i < icons.length; i++) {
+      const angle = (2 * Math.PI * (i - radius1Count - radius2Count - radius3Count - radius4Count)) / (icons.length - radius1Count - radius2Count - radius3Count - radius4Count);
       const x = canvasWidth / 2 + radius4 * Math.cos(angle);
       const y = canvasHeight / 2 + radius4 * Math.sin(angle);
       const icon = icons[i];
-      stars.push({ x, y, radius: 30, orbitalRadius: radius4, v: 0.00010, angle, icon, direction: 1 });
+      stars.push({ x, y, radius: starRadius, orbitalRadius: radius5, v: 0.00010, angle, icon, direction: -1 });
     }
 
     const tip = d3Tip()

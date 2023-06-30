@@ -86,7 +86,8 @@
     "about-us": {},
     "footer": {
       "feedback": "Feedback",
-      "followus": "Follow US"
+      "followus": "Follow US",
+      "submit-dapp":"Submit dApp"
     },
     "component": {
       "pagination": {

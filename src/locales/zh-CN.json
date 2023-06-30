@@ -90,7 +90,8 @@
     },
     "footer": {
       "feedback":"反馈",
-      "followus":"关注我们"
+      "followus":"关注我们",
+      "submit-dapp":"提交应用"
     },
     "component":{
       "pagination": {
