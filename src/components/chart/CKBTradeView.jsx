@@ -109,7 +109,6 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Brush, R
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
         const { value } = payload[0];
-        console.log(payload);
         // Customize the tooltip content here
         return (
             <div className="custom-tooltip">

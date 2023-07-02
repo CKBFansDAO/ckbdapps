@@ -49,18 +49,14 @@ const useCKBHalving = () =>{
         }
 
         async function getEpochStartBlock(epoch_index) {
-            console.log(epoch_index);
             const epochInfo = await rpc.getEpochByNumber(BI.from(epoch_index).toBigInt());
-            console.log(epochInfo);
             let blockInfo = await rpc.getHeaderByNumber(epochInfo.startNumber);
-            console.log(blockInfo);
             return blockInfo;
         }
 
         async function getBlockInfo(block_index) {
-            console.log(block_index);
             const blockInfo = await rpc.getHeaderByNumber(block_index);
-            console.log(blockInfo);
+            return blockInfo;
         }
         
         // 
@@ -72,18 +68,12 @@ const useCKBHalving = () =>{
             // get tip header
             const tipHeader = await rpc.getTipHeader();
             const curEpoch = parseEpoch(tipHeader.epoch);
-            console.log(curEpoch);
             
             // Calculate the time spent on the latest 1000 epochs.
             const t0Epoch = await getEpochStartBlock(curEpoch.number - 1000);
-            console.log(t0Epoch);
 
             let subTime = (BI.from(tipHeader.timestamp).toNumber() - BI.from(t0Epoch.timestamp).toNumber())
-            console.log(subTime);
-            console.log(1000 + curEpoch.index/curEpoch.length)
             let avgEpochTime = subTime / (1000 + curEpoch.index/curEpoch.length);
-            console.log(avgEpochTime);
-
 
             // Calculate the target epoch.
             const targetEpoch = Math.floor(curEpoch.number / EPOCHS_PER_HALVING) * EPOCHS_PER_HALVING + EPOCHS_PER_HALVING;
@@ -91,8 +81,6 @@ const useCKBHalving = () =>{
             // Calculate the duration and time of the target epoch.
             const targetDuration = Math.floor((targetEpoch - (curEpoch.number + (curEpoch.index / curEpoch.length))) * avgEpochTime); // Time until epoch in milliseconds.
             const targetTime = Date.now() + targetDuration; // Date in the future when the epoch will occur.
-            console.log(targetTime);
-
             
             setEstimatedHalvingTime(targetTime); 
             setIsLoading(false);

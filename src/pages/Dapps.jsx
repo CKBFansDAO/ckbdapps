@@ -92,9 +92,9 @@ function App({ config }) {
         return <div className='flex gap-2'>
         {   
             linkArr?.map((linkObj, index) => {
-               console.log(linkObj);
-               console.log(link_icon_config);
-               console.log(link_icon_config[linkObj.name]);
+               //console.log(linkObj);
+               //console.log(link_icon_config);
+               //console.log(link_icon_config[linkObj.name]);
                let icon_class = link_icon_config[linkObj.name].icon_class;
                 return <a key={`${linkObj.name}-${index}`} href={`${linkObj.url}`} target='_blank' className='h-6 w-6 bg-[#666666] pt-[11.5px] rounded-full flex justify-center'>
                     <i className={`${icon_class} fa-sm`}></i>

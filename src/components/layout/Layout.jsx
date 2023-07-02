@@ -30,7 +30,6 @@ const Layout = () => {
     }
 
     useEffect(() => {
-        console.log(111)
         let themeClass = localStorage.getItem('themeMode')
         if (!themeClass) {
             themeClass = 'theme-mode-dark';

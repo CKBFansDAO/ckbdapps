@@ -59,7 +59,7 @@ const BlockchainProgressBar = ({ epoch }) => {
             >{epochProgress.toFixed(0)}%</div>
         </div>
         
-        <div class="absolute w-0 h-0 
+        <div className="absolute w-0 h-0 
             border-l-[5px] border-l-transparent
             border-t-[10px] 
             border-r-[5px] border-r-transparent

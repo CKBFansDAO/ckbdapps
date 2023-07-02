@@ -34,13 +34,13 @@ const Home = () => {
     // While a user stays on any page, if the halving event occurs during that time, dialog CKBHalvedAlert is shown.
     const showHalvingRemindAlert = () => {
         if (!halvingData) {
-            console.log(halvingData)
+            //console.log(halvingData)
             return <></>;
         }
 
-        console.log(halvingData)
+        //console.log(halvingData)
         let alertType = checkHalvingAlertType(halvingData);
-        console.log(alertType);
+        //console.log(alertType);
         if (alertType === HalvingAlertType.HALVING) {
             return <ViewHalvingAlert halvingTime={halvingData.estimatedHalvingTime} halvingEpoch={getNextHalvingEpoch(halvingData.curEpoch.number)}></ViewHalvingAlert>
         }

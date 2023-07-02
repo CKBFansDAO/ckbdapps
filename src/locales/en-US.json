@@ -40,14 +40,14 @@
       "dapps": "Dapps",
       "ecosystem": "Ecosystem",
       "halving": "Halving",
-      "about-us": "About us"
+      "about-us": "About US"
     },
     "page-title": {
       "home": "CKBdapps, One-Stop Exploring of Nervos Ecosystem",
       "dapps": "CKB dapps",
-      "ecosystem": "CKB Ecosystem",
-      "halving": "CKB halving",
-      "about-us": "About us"
+      "ecosystem": "Nervos Ecosystem, Explore the Nervos Ecosystem",
+      "halving": "CKB halving, CKB Halving, Discover Details About CKB Halving",
+      "about-us": "About US"
     },
     "home": {
       "market-data": {

@@ -2,11 +2,15 @@ import React from 'react'
 import HalvingContainer from '../components/halving/HalvingContainer'
 import MarkdownViewer from '../components/markdownviewer/MarkdownViewer'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const Halving = () => {
 
+    const [t] = useTranslation();
+    
     const langReducer = useSelector((state) => state.langReducer);
 
+    document.title = t('page-title.halving');
     return (
         <div className='flex flex-col w-full'>
 

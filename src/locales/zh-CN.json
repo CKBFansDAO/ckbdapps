@@ -47,9 +47,9 @@
     "page-title": {
       "home":"CKBdapps, 一站式探索 Nervos 生态",
       "dapps":"CKB dapps",
-      "ecosystem":"CKB ecosystem",
-      "halving":"CKB halving",
-      "about-us":"About us"
+      "ecosystem":"CKB ecosystem，探索 Nervos 的生态",
+      "halving":"CKB halving，查看关于 CKB 减半的细节",
+      "about-us":"关于我们"
     },
     "home": {
       "market-data": {

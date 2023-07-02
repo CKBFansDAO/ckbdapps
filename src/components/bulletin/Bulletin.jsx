@@ -22,7 +22,6 @@ const Bulletin = (props) => {
     }, []);
 
     const checkNeedShowBulletin = () => {
-        console.log(bulletin_config);
         let bulletinClosedVersion = localStorage.getItem('bulletin-closed');
         if (bulletinClosedVersion !== bulletin_config.version && bulletin_config.need_show) {
             return true;

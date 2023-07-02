@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Popup = ({ isOpen, onClose, title, children }) => {
-    console.log(isOpen);
+    //console.log(isOpen);
     const [isClosed, setIsClosed] = useState(false);
 
     // 点击关闭按钮
@@ -12,7 +12,6 @@ const Popup = ({ isOpen, onClose, title, children }) => {
 
     return (
         <>
-            {console.log(isOpen && !isClosed)}
             {isOpen && !isClosed && (
                 <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
                     <div className="bg-white rounded-lg shadow-lg p-4 mx-4 md:mx-auto">

@@ -8,8 +8,6 @@ let nervosLogo = './images/nervos-logo-white.svg'
 const ProjectIconsSVG = ({ icons }) => {
   const svgRef = useRef(null);
 
-  console.log(icons)
-
   const canvasWidth = 1620;
   const canvasHeight = 880;
   const starRadius = 28;

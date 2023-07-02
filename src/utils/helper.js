@@ -40,7 +40,7 @@ export function timestampToDateString(timestamp) {
 // If not, the ViewHalvingAlert dialog is displayed. 
 // While a user stays on any page, if the halving event occurs during that time, dialog CKBHalvedAlert is shown.
 export function checkHalvingAlertType(halvingData) {
-    console.log(halvingData);
+    //console.log(halvingData);
     if (!halvingData || !halvingData.curEpoch) {
         console.log('eroror');
         return HalvingAlertType.NULL;

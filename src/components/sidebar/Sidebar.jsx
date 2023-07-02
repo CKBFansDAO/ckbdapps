@@ -49,7 +49,7 @@ const SidebarItem = props => {
 
 const Sidebar = props => {
     const location = useLocation()
-    console.log(location);
+    //console.log(location);
 
     const isActiveItem = (item) => {
         let find = item.route === location.pathname;

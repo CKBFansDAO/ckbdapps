@@ -37,9 +37,7 @@ const useCKBHalving = () => {
 
     const getTipHeader = async () => {
         const tipHeader = await rpc.getTipHeader();
-        console.log(tipHeader);
         const curEpoch = parseEpoch(tipHeader.epoch);
-        console.log(curEpoch);
         /*    const res = {    
                 epoch: curEpoch,
                 number:BI.from(tipHeader.number).toNumber(),
@@ -77,7 +75,6 @@ const useCKBHalving = () => {
 
     const getBlockInfo = async (block_index) => {
         const blockInfo = await rpc.getHeaderByNumber(block_index);
-        console.log(blockInfo);
     }
 
     const getPrevHalvingBlockInfo = async (curEpochNumber) => {
@@ -90,7 +87,6 @@ const useCKBHalving = () => {
 
             const epochInfo = await rpc.getEpochByNumber(BI.from(prevHalvingEpoch).toBigInt());
             let blockInfo = await rpc.getHeaderByNumber(epochInfo.startNumber);
-            console.log(blockInfo);
 
             gPrevHalvingBlockInfo.set(prevHalvingEpoch, blockInfo);
             
@@ -121,8 +117,8 @@ const useCKBHalving = () => {
             const curEpoch = parseEpoch(tipHeader.epoch);
             //console.log(curEpoch);
 
-            const dao = parseDAO(tipHeader.dao);
-            console.log(dao);
+           // const dao = parseDAO(tipHeader.dao);
+            //console.log(dao);
 
             const prevHalvingBlockInfo = await getPrevHalvingBlockInfo(curEpoch.number);
             //console.log(prevHalvingBlockInfo);

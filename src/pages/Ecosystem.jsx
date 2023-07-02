@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next'
-import { currentLanguage } from '../utils/i18n';
 import { ReactComponent as WarningIcon } from '../assets/images/icon-Warn@1x.svg';
 import { AppList } from '../components/ecosystem/AppList';
 import dappListCache from '../utils/cache/dappListCache';
@@ -80,6 +79,7 @@ const Ecosystem = () => {
         return filteredDapps;
     }
 
+    document.title = t('page-title.ecosystem');
     return (
         <div className={`max-w-content mx-auto w-full `}>
         <div className='p-4 gap-6 flex flex-col'>
