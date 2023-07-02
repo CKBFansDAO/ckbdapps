@@ -55,3 +55,16 @@ a:hover {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+input:checked ~ .dot {
+  transform: translateX(140%);
+  background-color: #FFF;
+}
+
+input[type="text"]:focus {
+  border: 1px solid #733DFF !important; /* 设置焦点时的边框颜色为绿色 */
+}
+
+input[type="text"]:hover {
+  border: 1px solid #733DFF !important; /* 设置焦点时的边框颜色为绿色 */
+}

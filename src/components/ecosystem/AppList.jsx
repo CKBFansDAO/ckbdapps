@@ -5,6 +5,7 @@ import './AppList.css'
 import BitTooltip from '../tooltip/bitTooltip';
 import Pagination from '../pagination/Pagination';
 import loadingGif from '../../assets/images/loading.gif'
+import { CKBdappWatchListCache } from '../../utils/cache/dappListCache';
 
 
 
@@ -39,7 +40,6 @@ const PAGE_SIZE = 9;
 
 const AppList = ({ appList, isLoading }) => {
     //const [appList, setAppList] = useState([]);
-
     const [paginationParam, setPaginationParam] = useState({
         pageSize: PAGE_SIZE,
         pageIndex: 1,
@@ -113,6 +113,7 @@ const AppList = ({ appList, isLoading }) => {
 
 const App = ({ config }) => {
     const [appConfig, setAppConfig] = useState(config);
+    const [isFavApp, setIsFavApp] = useState(CKBdappWatchListCache.hasItem(appConfig.project_name));
     const [t] = useTranslation();
 
     /*useEffect(() => {
@@ -200,6 +201,32 @@ const App = ({ config }) => {
         </div>
     }
 
+    const onClickFavorite = () => {
+        let isWatchItem = !isFavApp;
+        setIsFavApp(isWatchItem);
+        if (isWatchItem) {
+            CKBdappWatchListCache.addItem(appConfig.project_name);
+        }
+        else {
+            CKBdappWatchListCache.removeItem(appConfig.project_name);
+        }
+    }
+
+    const renderAddToWatchList = () => {
+        let isAlreadyInWatchList = CKBdappWatchListCache.hasItem(appConfig.project_name);
+
+        if (isAlreadyInWatchList) {
+            return <BitTooltip content={t('ecosystem.remove-watchlist')} direction="top">
+            <i className="fa-solid fa-heart text-[#EB5757]"  onClick={onClickFavorite} ></i>
+        </BitTooltip>
+        }
+        else {
+            return <BitTooltip content={t('ecosystem.add-watchlist')} direction="top">
+            <i className="fa-regular fa-heart " onClick={onClickFavorite} ></i>
+        </BitTooltip>
+        }
+    }
+
     return (
         <div className='rounded-[10px] flex flex-col w-full md:w-[314px] shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
             <div className='relative'>
@@ -234,9 +261,7 @@ const App = ({ config }) => {
                 <div className='flex w-full'>
                     {renderAppLinks()}
                     <div className='grow'></div>
-                    <BitTooltip content={t('common.coming-soon')} direction="top">
-                        <i className="fa-regular fa-heart"></i>
-                    </BitTooltip>
+                    {renderAddToWatchList()}
                 </div>
 
             </div>

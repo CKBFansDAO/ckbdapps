@@ -81,7 +81,16 @@
     },
     "ecosystem": {
       "risk-warning": "BE ADVISED: We have not officially vetted or contacted these projects for proof. Do your own research before using any service in this open network.",
-      "all-projects": "All Projects"
+      "all-projects": "All Projects",
+      "show-watchlist":"WatchList",
+      "toast-show-watchlist":"Show My WatchList",
+      "toast-show-all":"Show All Projects",
+      "no-watchlist-tip":"No watchlist projects yet!",
+      "no-search-result-tip":"No matching projects found.",
+      "clear-search":"Enter a new keyword",
+      "search-placehold":"Search...",
+      "add-watchlist":"Add to WatchList",
+      "remove-watchlist":"Remove from WatchList"
     },
     "about-us": {},
     "footer": {

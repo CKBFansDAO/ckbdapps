@@ -1,7 +1,10 @@
+import { localListDataStore } from "./localListDataStore";
+
 class DappListCache {
     static instance = null;
     dappList = [];
     dappLogos = [];
+    watchListCache = [];
 
     constructor() {
         if (DappListCache.instance) {
@@ -9,6 +12,10 @@ class DappListCache {
         }
 
         DappListCache.instance = this;
+
+        const cmpFn = (item, value) => item == value;
+        const removeFn = (item, value) => item != value;
+        this.watchListCache = new localListDataStore('CKBdappWatchList', cmpFn, removeFn);
 
         return this;
     }
@@ -37,13 +44,24 @@ class DappListCache {
         return this.dappLogos;
     }
 
-    async getDataList() {
+    async getDataList(isWatchList = false) {
         if (this.dappList.length === 0) {
             await this.loadData();
         }
-        return this.dappList;
+
+        if (isWatchList) {
+            const watchListAppNames = this.watchListCache.getDataList();
+            const watchList = this.dappList.filter((dapp) => watchListAppNames.includes(dapp.project_name));
+
+            return watchList;
+        }
+        else {
+            return this.dappList;
+        }  
     }
 }
 
 const dappListCache = new DappListCache();
+
+export let CKBdappWatchListCache = dappListCache.watchListCache;
 export default dappListCache;
