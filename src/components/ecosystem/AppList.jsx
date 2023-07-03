@@ -230,13 +230,14 @@ const App = ({ config }) => {
     return (
         <div className='rounded-[10px] flex flex-col w-full md:w-[314px] shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
             <div className='relative'>
+                <a className='' href={appConfig.links['official']} rel="noopener noreferrer" target="_blank">
                 <div className='flex category-dapp-img place-content-center rounded-t-[10px] bg-[#1C1C23] overflow-hidden'>
                     {
                         appConfig.hero_image ? (<img className=" h-[180px] w-full object-cover duration-300 ease-in-out hover:scale-125" src={appConfig.hero_image ? `../dappList/${appConfig.path_name}/${appConfig.hero_image}` : ''} />)
                             : (<div></div>)
                     }
 
-                </div>
+                </div></a>
                 <div className='category-dapp-title p-5 text-white'>
                     <div className='flex items-center w-full'>
                         {
