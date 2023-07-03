@@ -10,6 +10,14 @@ const formatXAxis = (tickItem) => {
     return date.toLocaleDateString(getLocales()); // Format the date as desired
 };
 
+const period_intervals = {
+    "7D": 7,
+    "1M": 30,
+    "6M": 180,
+    "1Y": 365,
+    "ALL": 9999
+}
+
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
         const { value } = payload[0];
@@ -32,6 +40,7 @@ const getLocales = () => {
 const CKBHistoryPriceChart = () => {
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [chartInterval, setChartInterval] = useState('ALL');
     const [t] = useTranslation();
 
     useEffect(() => {
@@ -48,6 +57,26 @@ const CKBHistoryPriceChart = () => {
         fetchData();
     }, []);
 
+    // 按周期筛选数据的函数
+    const filterDataByInterval = (numToShow) => {
+        const startIndex = Math.max(data.length - numToShow, 0);
+        return data.slice(startIndex);
+    };
+
+    const getDataByInterval = () => {
+        if (chartInterval === 'ALL') {
+            return data;
+        }
+        else {
+            let interval = period_intervals[chartInterval];
+            if (interval) {
+                return filterDataByInterval(interval);
+            }
+        }
+
+        return data;
+    }
+
     return (<div className='flex flex-col md:mt-5'>
         <div className='w-full flex h-16 text-center justify-center text-[20px] md:text-[30px] font-["Zen_Dots"]'>
             <span className='flex items-end'>{t('home.market-data.ckb-his-price')}</span>
@@ -62,16 +91,29 @@ const CKBHistoryPriceChart = () => {
                         </svg>*/}
                     </div>
                 ) : (
-                    <ResponsiveContainer className='select-none'>
-                        <LineChart data={data}>
-                            <CartesianGrid strokeDasharray='4 4' />
-                            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd"/>
-                            <YAxis />
-                            <Tooltip content={<CustomTooltip />} />
-                            <Line type='monotone' dataKey='price' stroke='#8884d8' dot={false} />
-                            <Brush dataKey='created_at_unix' height={30} stroke='#8884d8' tickFormatter={formatXAxis} />
-                        </LineChart>
-                    </ResponsiveContainer>
+                    <div className='flex flex-col h-full'>
+                        <div className='flex w-full'>
+                            <div className='grow'></div>
+                            <div className='flex px-1 py-1 gap-1 text-sm bg-[#E7E6F7] rounded-sm'>
+                                {Object.entries(period_intervals).map(([key, value]) => (
+                                    <div key={key} className={`flex items-center ${chartInterval === key ? 'bg-[#733DFF] text-white font-bold' : 'bg-[#F4EFFF] hover:bg-[#5727AE] text-black hover:text-white'} text-white rounded-sm px-1 cursor-pointer`} 
+                                       onClick={()=>setChartInterval(key)} >{key}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        <ResponsiveContainer className='select-none'>
+                            <LineChart data={getDataByInterval()}>
+                                <CartesianGrid strokeDasharray='4 4' />
+                                <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd" />
+                                <YAxis />
+                                <Tooltip content={<CustomTooltip />} />
+                                <Line type='monotone' dataKey='price' stroke='#8884d8' dot={false} />
+                                <Brush dataKey='created_at_unix' height={30} stroke='#8884d8' tickFormatter={formatXAxis} />
+                            </LineChart>
+                        </ResponsiveContainer>
+                    </div>
                 )
             }
         </div>
