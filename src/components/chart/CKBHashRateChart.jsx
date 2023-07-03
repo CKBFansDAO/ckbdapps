@@ -5,6 +5,14 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Brush, R
 import { currentLanguage } from '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
 
+const period_intervals = {
+    "7D": 7,
+    "1M": 30,
+    "6M": 180,
+    "1Y": 365,
+    "ALL": 9999
+}
+
 const formatXAxis = (tickItem) => {
     const date = new Date(tickItem * 1000);
     return date.toLocaleDateString(getLocales()); // Format the date as desired
@@ -70,6 +78,7 @@ const getLocales = () => {
 const CKBHashRateChart = () => {
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [chartInterval, setChartInterval] = useState('ALL');
 
     const [t] = useTranslation();
 
@@ -110,7 +119,25 @@ const CKBHashRateChart = () => {
         //return (parseFloat(value) / 1e15).toFixed(0);
     };
 
+    // 按周期筛选数据的函数
+    const filterDataByInterval = (numToShow) => {
+        const startIndex = Math.max(data.length - numToShow, 0);
+        return data.slice(startIndex);
+    };
 
+    const getDataByInterval = () => {
+        if (chartInterval === 'ALL') {
+            return data;
+        }
+        else {
+            let interval = period_intervals[chartInterval];
+            if (interval) {
+                return filterDataByInterval(interval);
+            }
+        }
+
+        return data;
+    }
 
     return (<div className='flex flex-col md:mt-5'>
         <div className='w-full flex h-16 text-center justify-center text-[20px] md:text-[30px] font-["Zen_Dots"]'>
@@ -125,11 +152,21 @@ const CKBHashRateChart = () => {
                             <use xlinkHref='/images/nervos-logo-black.svg#Layer_1' />
                         </svg>*/}
                     </div>
-                ) : (
+                ) : (<div className='flex flex-col h-full'>
+                    <div className='flex w-full'>
+                        <div className='grow'></div>
+                        <div className='flex px-1 py-1 gap-1 text-sm bg-[#E7E6F7] rounded-sm'>
+                            {Object.entries(period_intervals).map(([key, value]) => (
+                                <div key={key} className={`flex items-center ${chartInterval === key ? 'bg-[#28C1B0] text-white font-bold' : 'bg-[#DAF3EF] hover:bg-[#31a89a] text-black hover:text-white'} text-white rounded-sm px-1 cursor-pointer`}
+                                    onClick={() => setChartInterval(key)} >{key}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                     <ResponsiveContainer className='select-none'>
-                        <LineChart data={data} >
-                            <CartesianGrid strokeDasharray='4 4'/>
-                            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd"/>
+                        <LineChart data={getDataByInterval()} >
+                            <CartesianGrid strokeDasharray='4 4' />
+                            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd" />
                             <YAxis interval="preserveStartEnd" tickFormatter={yAxisTickFormater}>
                                 <Label
                                     value="Hash Rate"
@@ -142,7 +179,7 @@ const CKBHashRateChart = () => {
                             <Brush dataKey='created_at_unix' height={30} stroke='#28C1B0' tickFormatter={formatXAxis} />
                         </LineChart>
                     </ResponsiveContainer>
-                )
+                </div>)  
             }
         </div>
     </div>
