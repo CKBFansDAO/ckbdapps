@@ -1,7 +1,7 @@
 {
     "project_name": "imToken",
     "path_name":"imtoken",
-    "categories": ["Wallet", "L1"],
+    "categories": ["Wallet"],
     "logo_file": "imtoken-logo.png",
     "hero_image":"imtoken-hero.png",
     "links":{

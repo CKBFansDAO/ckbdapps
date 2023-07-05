@@ -1,7 +1,7 @@
 {
     "project_name": "OpenBlock",
     "path_name":"openblock",
-    "categories": ["Wallet", "L1"],
+    "categories": ["Wallet"],
     "logo_file": "openblock-logo.png",
     "hero_image":"openblock-hero.jpeg",
     "links":{

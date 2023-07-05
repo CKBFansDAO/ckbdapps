@@ -133,7 +133,7 @@ const App = ({ config }) => {
                     if (index > 2) {
                         return <></>
                     }
-                    return <span key={`${category}-${index}`} className='px-3 text-sm h-[20px] flex items-center rounded-full bg-[#000] border-[#ccc] border-[1px]'>{category}</span>
+                    return <span key={`${category}-${index}`} className='px-2 text-sm h-[20px] flex items-center rounded-md bg-[#000] border-[#ccc] border-[1px]'>{category}</span>
                 })
             }
         </div>

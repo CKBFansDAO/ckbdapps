@@ -1,7 +1,7 @@
 {
     "project_name": "imKey",
     "path_name":"imkey",
-    "categories": ["Hardware Wallet", "L1"],
+    "categories": ["Hardware Wallet"],
     "logo_file": "imkey-logo.png",
     "hero_image":"imkey-hero.webp",
     "links":{

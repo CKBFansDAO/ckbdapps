@@ -1,7 +1,7 @@
 {
     "project_name": "Opera Wallet",
     "path_name":"operawallet",
-    "categories": ["Wallet", "L1"],
+    "categories": ["Wallet"],
     "logo_file": "operawallet-logo.png",
     "hero_image":"operawallet-hero.jpeg",
     "links":{

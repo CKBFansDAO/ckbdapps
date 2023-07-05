@@ -1,7 +1,7 @@
 {
     "project_name": "Portal Wallet",
     "path_name":"portalwallet",
-    "categories": ["L1","Wallet"],
+    "categories": ["Wallet","Nervos DAO"],
     "logo_file": "portalwallet-logo.png",
     "hero_image":"portalwallet-hero.png",
     "links":{

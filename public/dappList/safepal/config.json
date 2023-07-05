@@ -1,7 +1,7 @@
 {
     "project_name": "SafePal",
     "path_name":"safepal",
-    "categories": ["Hardware Wallet", "L1", "L2"],
+    "categories": ["Hardware Wallet", "Wallet"],
     "logo_file": "safepal-logo.png",
     "hero_image":"safepal-hero.png",
     "links":{

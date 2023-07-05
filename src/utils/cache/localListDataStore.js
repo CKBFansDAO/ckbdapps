@@ -7,8 +7,6 @@ export class localListDataStore {
     }
 
     constructor(key, cmpFn, removeFn){
-        //console.log("--- localeCache constructor ---")
-        //console.log(removeFn);
         this.key = key;
         this.comparison = cmpFn;
         this.removeFilter = removeFn;
@@ -34,21 +32,11 @@ export class localListDataStore {
             this.listData.push(newItem);  
         }
 
-        /*
-        if (!this.listData.includes(newItem)) {
-            
-            this.listData.push(newItem);
-
-            this.saveListData(this.listData);
-        }*/
         this.saveListData(this.listData);
     }
 
     removeFromArray = (arr, value) => { 
         return arr.filter(ele => this.removeFilter(ele, value));
-        /*return arr.filter(function(ele){ 
-            return this.removeFilter(ele, value);
-        });*/
     }
 
     removeItem = (item) => {
@@ -70,28 +58,12 @@ export class localListDataStore {
     }
 
     hasItem = (value) => {
-    /*    let index = this.listData.findIndex(this.comparison);
-        if (index >= 0) {
-            this.cartRegisterList[index] = newItem;
-        }
-        else {
-            this.cartRegisterList.push(newItem);  
-        }
-*/
-        //console.log(value);
         let index = this.listData.findIndex(item => this.comparison(item, value));
         if (index >= 0) {
             return true;
         }
 
         return false;
-
-        /*
-        if (this.listData.includes(item)) {
-            return true;
-        }
-
-        return false;*/
     }
 
     getDataList = () => {

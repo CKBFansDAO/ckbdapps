@@ -1,7 +1,7 @@
 {
     "project_name": "BitKeep",
     "path_name":"bitkeep",
-    "categories": ["Wallet", "L1"],
+    "categories": ["Wallet"],
     "logo_file": "bitkeep-logo.jpg",
     "hero_image":"bitkeep-hero.jpg",
     "links":{

@@ -21,8 +21,8 @@
             "project_name": "Portal Wallet",
             "path_name": "portalwallet",
             "categories": [
-                "L1",
-                "Wallet"
+                "Wallet",
+                "Nervos DAO"
             ]
         },
         {
@@ -88,7 +88,7 @@
             "path_name": "ckbull",
             "categories": [
                 "Wallet",
-                "L1"
+                "Nervos DAO"
             ]
         },
         {
@@ -113,7 +113,7 @@
             "path_name": "neuron",
             "categories": [
                 "Wallet",
-                "L1"
+                "Nervos DAO"
             ]
         },
         {
@@ -177,24 +177,14 @@
             "project_name": "imToken",
             "path_name": "imtoken",
             "categories": [
-                "Wallet",
-                "L1"
+                "Wallet"
             ]
         },
         {
             "project_name": "Opera Wallet",
             "path_name": "operawallet",
             "categories": [
-                "Wallet",
-                "L1"
-            ]
-        },
-        {
-            "project_name": "Cobo Wallet",
-            "path_name": "cobowallet",
-            "categories": [
-                "Wallet",
-                "L1"
+                "Wallet"
             ]
         },
         {
@@ -202,48 +192,49 @@
             "path_name": "safepal",
             "categories": [
                 "Hardware Wallet",
-                "L1",
-                "L2"
+                "Wallet"
+            ]
+        },
+        {
+            "project_name": "Cobo Wallet",
+            "path_name": "cobowallet",
+            "categories": [
+                "Wallet"
             ]
         },
         {
             "project_name": "Via Wallet",
             "path_name": "viawallet",
             "categories": [
-                "Wallet",
-                "L1"
+                "Wallet"
             ]
         },
         {
             "project_name": "BitKeep",
             "path_name": "bitkeep",
             "categories": [
-                "Wallet",
-                "L1"
+                "Wallet"
             ]
         },
         {
             "project_name": "imKey",
             "path_name": "imkey",
             "categories": [
-                "Hardware Wallet",
-                "L1"
+                "Hardware Wallet"
             ]
         },
         {
             "project_name": "Ledger",
             "path_name": "ledger",
             "categories": [
-                "Hardware Wallet",
-                "L1"
+                "Hardware Wallet"
             ]
         },
         {
             "project_name": "OpenBlock",
             "path_name": "openblock",
             "categories": [
-                "Wallet",
-                "L1"
+                "Wallet"
             ]
         },
         {

@@ -1,7 +1,7 @@
 {
     "project_name": "Ledger",
     "path_name":"ledger",
-    "categories": ["Hardware Wallet", "L1"],
+    "categories": ["Hardware Wallet"],
     "logo_file": "ledger-logo.png",
     "hero_image":"ledger-hero.webp",
     "links":{

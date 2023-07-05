@@ -1,7 +1,7 @@
 {
     "project_name": "CKBull",
     "path_name":"ckbull",
-    "categories": ["Wallet", "L1"],
+    "categories": ["Wallet", "Nervos DAO"],
     "logo_file": "ckbull-logo.png",
     "hero_image":"ckbull-hero.png",
     "links":{

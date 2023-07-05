@@ -1,7 +1,7 @@
 {
     "project_name": "Neuron",
     "path_name":"neuron",
-    "categories": ["Wallet", "L1"],
+    "categories": ["Wallet", "Nervos DAO"],
     "logo_file": "neuron-logo.png",
     "hero_image":"neuron-hero.png",
     "links":{
