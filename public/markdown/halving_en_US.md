@@ -40,7 +40,7 @@ The following table details the schedule for several upcoming CKB halvings and t
 
 ⚠️ Note that CKB block rewards include **Base (issuance) reward**, **Secondary (issuance) reward**, **Commit reward**, and **Proposal reward**:
 
-![block-rewards](markdown/block-rewards-en.png)
+![CKB block-rewards](markdown/block-rewards-en.png)
 
 However, when we are discussing CKB halving, it only relates to **Base issuance rewards**. Therefore, the block rewards listed in the table only include the portion of rewards from base issuance to help with understanding.
 
