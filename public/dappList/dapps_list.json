@@ -150,6 +150,22 @@
             ]
         },
         {
+            "project_name": "Transinu",
+            "path_name": "transinu",
+            "categories": [
+                "MEME",
+                "L2"
+            ]
+        },
+        {
+            "project_name": "Eggslys",
+            "path_name": "eggslys",
+            "categories": [
+                "NFT",
+                "L2"
+            ]
+        },
+        {
             "project_name": "Jioswap",
             "path_name": "jioswap",
             "categories": [

@@ -1,0 +1,23 @@
+{
+    "project_name": "Eggslys",
+    "path_name":"eggslys",
+    "categories": ["NFT", "L2"],
+    "logo_file": "eggslys-logo.jpeg",
+    "hero_image":"eggslys-hero.jpeg",
+    "links":{
+        "official":"https://eggsly.fun",
+        "twitter":"https://twitter.com/eggslys",
+        "discord":"",
+        "medium":"https://medium.com/@eggsly" 
+    },
+    "en_US": {   
+        "project_summary":"Eggsly is an NFT collection that showcases a league of courageous and charming Eggslys ready to embark on epic adventures.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Eggsly 是一系列 NFT 收藏品，展示了一群勇敢迷人的 Eggsly 英雄，他们准备踏上史诗般的冒险之旅。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

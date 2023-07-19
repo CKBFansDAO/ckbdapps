@@ -1,0 +1,24 @@
+{
+    "project_name": "Transinu",
+    "path_name":"transinu",
+    "categories": ["MEME", "L2"],
+    "logo_file": "transinu-logo.jpeg",
+    "hero_image":"transinu-hero.jpeg",
+    "links":{
+        "official":"https://www.transinu.me/",
+        "twitter":"https://twitter.com/transinu",
+        "discord":"",
+        "medium":"https://medium.com/@transinu",
+        "telegram":"https://t.me/transinuofficial" 
+    },
+    "en_US": {   
+        "project_summary":"TransINU is far more than just a meme token; it is an emerging crypto project with a strong focus on community-building and collaboration.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"TransINU 不止是一个 MEME 代币，它是一个新兴的加密项目，专注于社区建设和合作，将具有共同目标的个人团结在一起，以促进合作。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
