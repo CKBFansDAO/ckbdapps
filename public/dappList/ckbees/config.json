@@ -1,0 +1,25 @@
+{
+    "project_name": "CKBees",
+    "path_name":"ckbees",
+    "categories": ["NFT", "L2","GameFi"],
+    "logo_file": "ckbees-logo.png",
+    "hero_image":"ckbees-hero.jpeg",
+    "links":{
+        "official":"https://ckbees.app",
+        "twitter":"https://twitter.com/57u",
+        "discord":"",
+        "youtube":"https://youtube.com/@_57u",
+        "medium":"",
+        "telegram":"" 
+    },
+    "en_US": {   
+        "project_summary":"CKBees is a multi-token NFT and Games Parlour on Nervos Network layer 2. Play cross-chain games and challenges using CKBees NFTs.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"CKBees 是 Nervos 网络第二层的多代币 NFT 和游戏平台。使用 CKBees 的 NFT 可以参与跨链游戏和挑战。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
