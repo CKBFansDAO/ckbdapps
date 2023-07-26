@@ -1,0 +1,28 @@
+{
+    "project_name": "Kindred Ventures",
+    "path_name": "kindredventures",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "kindredventures-logo.png",
+    "hero_image":"kindredventures-hero.jpeg",
+    "links":{
+        "official":"https://kindredventures.com/companies",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Early-stage investment fund established in 2014, and located in San Francisco, California.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Kindred Ventures 成立于2014年，是一家位于美国加利福尼亚州旧金山的风险投资公司，专注于早期阶段的种子轮和初创公司投资，关注的领域包括科技、互联网、人工智能、区块链等新兴技术。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

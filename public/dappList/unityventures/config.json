@@ -1,0 +1,28 @@
+{
+    "project_name": "Unity Ventures",
+    "path_name": "unityventures",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "unityventures-logo.jpeg",
+    "hero_image":"",
+    "links":{
+        "official":"http://www.unityvc.com",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Unity Ventures was founded in 2011 by Shaw Wang, who was one of the 7 founding members of Chinese tech giant Baidu (NASDAQ:BIDU).",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"九合创投（Unity Ventures）是一家聚焦中国科技领域的专业投资机构，关注数据智能基础设施及产业升级等领域的早期投资机会。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

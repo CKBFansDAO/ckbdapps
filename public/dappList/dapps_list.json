@@ -849,6 +849,13 @@
             ]
         },
         {
+            "project_name": "imToken Ventures",
+            "path_name": "imtokenventures",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
             "project_name": "Dekrypt Capital",
             "path_name": "DekryptCapital",
             "categories": [
@@ -900,6 +907,55 @@
         {
             "project_name": "Access Ventures",
             "path_name": "accessventures",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Distributed Global",
+            "path_name": "distributedglobal",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Kindred Ventures",
+            "path_name": "kindredventures",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Ceyuan Ventures",
+            "path_name": "ceyuanventures",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Unity Ventures",
+            "path_name": "unityventures",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "zk Capital",
+            "path_name": "zkcapital",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Bixin Ventures",
+            "path_name": "bixinvc",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Queschain Capital",
+            "path_name": "queschaincapital",
             "categories": [
                 "Investors"
             ]

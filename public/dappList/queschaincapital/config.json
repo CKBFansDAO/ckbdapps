@@ -1,0 +1,28 @@
+{
+    "project_name": "Queschain Capital",
+    "path_name": "queschaincapital",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "queschaincapital-logo.jpeg",
+    "hero_image":"",
+    "links":{
+        "official":"",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Queschain Capital is a blockchain-focused venture capital, invest in disruptive and transformative movements in the blockchain industry and the crypto community.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Queschain Capital 是一家专注于区块链的风险投资公司。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

@@ -1,0 +1,28 @@
+{
+    "project_name": "Distributed Global",
+    "path_name": "distributedglobal",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "DistributedGlobal-logo.webp",
+    "hero_image":"distributedglobal-hero.png",
+    "links":{
+        "official":"http://www.distributedglobal.com/",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Distributed Global is an investment firm focused on the blockchain and digital asset ecosystem.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Distributed Global 是一家专注于数字资产领域的风险投资公司，通过投资、战略指导和资源支持，助力区块链和加密资产项目在全球范围内取得成功，推动数字经济的发展和创新。。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

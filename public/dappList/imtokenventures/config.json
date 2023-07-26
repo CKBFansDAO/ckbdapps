@@ -1,0 +1,27 @@
+{
+    "project_name": "imToken Ventures",
+    "path_name": "imtokenventures",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "imtoken-logo.png",
+    "hero_image":"imtoken-hero.png",
+    "links":{
+        "official":"https://token.im/",
+        "twitter":"https://twitter.com/imTokenOfficial",
+        "discord":"https://discord.com/invite/imToken",
+        "telegram":"",
+        "github":"",
+        "medium":"https://medium.com/@imtoken" 
+    },
+    "en_US": {   
+        "project_summary":"imToken is a feature-rich digital asset wallet enabling multi-chain asset management, DApp browsing and secure, private exchange of value. ",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"imToken 是一款功能丰富的数字资产钱包，支持多链资产管理、DApp 浏览和安全、私密的价值交换。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

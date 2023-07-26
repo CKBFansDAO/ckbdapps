@@ -1,0 +1,28 @@
+{
+    "project_name": "Ceyuan Ventures",
+    "path_name": "ceyuanventures",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "ceyuanventures-logo.png",
+    "hero_image":"",
+    "links":{
+        "official":"http://www.ceyuan.com/index.html",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Ceyuan Ventures is a Beijing-based early stage venture capital firm focused on IT and emerging growth companies.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"策源创投是一家总部位于北京的风险投资公司，专注于信息产业和成长型企业的早期投资。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
