@@ -1,0 +1,28 @@
+{
+    "project_name": "Huobi Capital",
+    "path_name": "huobicapital",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "huobicapital-logo.jpeg",
+    "hero_image":"huobicapital-hero.jpeg",
+    "links":{
+        "official":"https://www.huobi.com/ru-ru/capital/",
+        "twitter":"https://twitter.com/huobicapital",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Huobi Capital is the investment arm of Huobi Group, focusing exclusively on ventures and projects related to blockchain technology, digital currency, and crypto assets.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"火币资本是火币集团的投资部门，专注于与区块链技术、数字货币和加密资产相关的创业项目。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

@@ -1,0 +1,28 @@
+{
+    "project_name": "Access Ventures",
+    "path_name": "accessventures",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "accessventures-logo.jpeg",
+    "hero_image":"accessventures-hero.jpeg",
+    "links":{
+        "official":"https://accessventures.org/our-portfolio/",
+        "twitter":"https://twitter.com/AcsVentures",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"Access Ventures is a catalyst building a more inclusive and creative economy by changing the way the world invests.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Access Ventures 是一家总部位于美国肯塔基州的风险投资公司，成立于2015年，通过投资和支持具有社会影响力的企业和创业项目，推动社会和经济的正向变革。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

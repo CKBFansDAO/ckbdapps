@@ -868,6 +868,41 @@
             "categories": [
                 "Investors"
             ]
+        },
+        {
+            "project_name": "500 Global",
+            "path_name": "500global",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Huobi Capital",
+            "path_name": "huobicapital",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "SNZ",
+            "path_name": "snz",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "FreeS Fund",
+            "path_name": "freesfund",
+            "categories": [
+                "Investors"
+            ]
+        },
+        {
+            "project_name": "Access Ventures",
+            "path_name": "accessventures",
+            "categories": [
+                "Investors"
+            ]
         }
     ]
 }

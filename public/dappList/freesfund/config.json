@@ -1,0 +1,28 @@
+{
+    "project_name": "FreeS Fund",
+    "path_name": "freesfund",
+    "categories": [
+        "Investors"
+    ],
+    "logo_file": "freesfund-logo.png",
+    "hero_image":"freesfund-hero.jpeg",
+    "links":{
+        "official":"https://www.freesvc.com",
+        "twitter":"",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"FreeS Fund is commited to mobilize all possible funds, technology and resources to invest in outstanding startups and help them to grow into the future as great companies with long-term business and social values.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"峰瑞资本(FREES FUND)致力于调动所有可能的资金、技术和资源，投资优秀创业公司，并帮助它们成长为具有长期社会价值和商业价值的伟大企业。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
