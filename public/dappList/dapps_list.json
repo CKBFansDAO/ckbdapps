@@ -26,6 +26,14 @@
             ]
         },
         {
+            "project_name": "Khalani",
+            "path_name": "khalani",
+            "categories": [
+                "Liquidity",
+                "L2"
+            ]
+        },
+        {
             "project_name": "UniPass",
             "path_name": "unipass",
             "categories": [
