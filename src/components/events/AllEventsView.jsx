@@ -50,9 +50,9 @@ const AllEventsView = ({ eventList, setView }) => {
         // 存入状态中
         setCategories(uniqueCategories);*/
     }, [eventList]);
-    
+
     const onReturnClicked = () => {
-        setSearchParams({ display: EventViewType.HOT});
+        setSearchParams({ display: EventViewType.HOT });
         if (setView) {
             setView(EventViewType.HOT);
         }
@@ -90,10 +90,10 @@ const AllEventsView = ({ eventList, setView }) => {
                             setSearchKeyword(e.target.value);
                         }
                     }}
-                />                
+                />
             </div>
             <div className='grow'></div>
-            <a className={`text-sm`} href='https://forms.gle/JV4MW6CFT4zgTVCX7' rel="noopener noreferrer" target="_blank">            
+            <a className={`text-sm`} href='https://forms.gle/JV4MW6CFT4zgTVCX7' rel="noopener noreferrer" target="_blank">
                 <span className='opacity-90 flex items-center rounded-full px-3 py-1 text-white font-bold hover:text-black bg-[#28C1B0]'>{t('footer.submit-event')}</span>
             </a>
         </div>
@@ -151,10 +151,12 @@ const AllEventsView = ({ eventList, setView }) => {
         }
         else {
             if (result.length === 0) {
-                return <div className='flex flex-col items-center gap-3'>
-                <span className='text-lg font-semibold'>{t('ecosystem.no-search-result-tip')}</span>
-                <div className='flex items-center bg-[#733DFF] text-sm font-bold text-white rounded-[5px] px-2 md:px-5 py-1 md:py-2 cursor-pointer' onClick={clearSearchEdit}>{t('ecosystem.clear-search')}</div>
-            </div>
+                return <div className='flex items-center justify-center h-[368px] w-full'>
+                    <div className='flex flex-col items-center gap-3'>
+                        <span className='text-lg font-semibold'>{t('ecosystem.no-search-result-tip')}</span>
+                        <div className='flex items-center bg-[#733DFF] text-sm font-bold text-white rounded-[5px] px-2 md:px-5 py-1 md:py-2 cursor-pointer' onClick={clearSearchEdit}>{t('ecosystem.clear-search')}</div>
+                    </div>
+                </div>
             }
         }
 

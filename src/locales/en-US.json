@@ -90,7 +90,7 @@
       "no-watchlist-tip":"No watchlist projects yet!",
       "no-search-result-tip":"No matching projects found.",
       "clear-search":"Enter a new keyword",
-      "search-placehold":"Search...",
+      "search-placehold":"Search by project",
       "add-watchlist":"Add to WatchList",
       "remove-watchlist":"Remove from WatchList"
     },
