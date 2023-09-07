@@ -31,9 +31,9 @@ const GroupCards = ({ title, eventList, eventStatus, onViewAllClick, isLoading }
         {isLoading ? renderLoading() : (
             <div className='flex flex-col gap-5'>
                 <div className='flex '>
-                    <span className='text-[#151515] text-[25px] font-bold'>{title}</span>
+                    <span className='text-[#151515] text-[18px] md:text-[25px] font-bold'>{title}</span>
                     <div className='grow'></div>
-                    <span className='text-[#888888] text-[20px] font-bold hover:text-[#733DFF] cursor-pointer'
+                    <span className='text-[#888888] text-[18px] md:text-[20px] font-bold hover:text-[#733DFF] cursor-pointer'
                         onClick={onViewAll}>
                         {t('events.view-all')}
                     </span>
