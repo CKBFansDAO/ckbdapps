@@ -106,7 +106,8 @@
     "footer": {
       "feedback": "Feedback",
       "followus": "Follow US",
-      "submit-dapp":"Submit dApp"
+      "submit-dapp":"Submit dApp",
+      "submit-event":"Submit Event"
     },
     "component": {
       "pagination": {

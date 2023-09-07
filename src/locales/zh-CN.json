@@ -107,7 +107,8 @@
     "footer": {
       "feedback":"反馈",
       "followus":"关注我们",
-      "submit-dapp":"提交项目"
+      "submit-dapp":"提交项目",
+      "submit-event":"提交活动"
     },
     "component":{
       "pagination": {

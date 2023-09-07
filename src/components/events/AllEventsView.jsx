@@ -72,7 +72,7 @@ const AllEventsView = ({ eventList, setView }) => {
     }
 
     const renderSearchBar = () => {
-        return <div className='flex gap-5 w-full items-center'>
+        return <div className='flex gap-3 md:gap-5 w-full items-center'>
             <i className="fa-solid fa-angle-left fa-xl hover:text-[#733DFF] cursor-pointer" onClick={onReturnClicked}></i>
             <span className='items-center text-[24px] hidden md:block'>{t('events.all-events')}</span>
             <div className="relative">
@@ -93,7 +93,9 @@ const AllEventsView = ({ eventList, setView }) => {
                 />                
             </div>
             <div className='grow'></div>
-            
+            <a className={`text-sm`} href='https://forms.gle/JV4MW6CFT4zgTVCX7' rel="noopener noreferrer" target="_blank">            
+                <span className='opacity-90 flex items-center rounded-full px-3 py-1 text-white font-bold hover:text-black bg-[#28C1B0]'>{t('footer.submit-event')}</span>
+            </a>
         </div>
     }
 
