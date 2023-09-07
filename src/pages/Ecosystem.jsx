@@ -48,7 +48,7 @@ const Ecosystem = () => {
 
     const renderRiskWarningBar = () => {
         return (
-            <div className='flex flex-row w-full md:mt-10'>
+            <div className='flex flex-row w-full md:mt-6'>
                 <div className='flex flex-row items-center w-full p-1 justify-center bg-[#28C1B0] rounded-[5px] md:rounded-full'>
                     <div>
                         <WarningIcon className='h-7 ml-2 md:ml-5 w-5'></WarningIcon>
@@ -187,7 +187,8 @@ const Ecosystem = () => {
                 {renderCategories()}
                 {renderNoResult()}
                 <AppList appList={dataList} isLoading={dataList.length === 0}></AppList>
-            </div></div>
+            </div>
+        </div>
     )
 }
 

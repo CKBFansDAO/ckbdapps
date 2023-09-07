@@ -1,0 +1,25 @@
+{
+    "project_name": "HaCKBee",
+    "path_name":"hackbee",
+    "categories": ["Community"],
+    "logo_file": "hackbee-logo.jpeg",
+    "hero_image":"hackbee-hero.jpeg",
+    "links":{
+        "official":"https://academy.ckb.dev/",
+        "twitter":"https://twitter.com/web5hive",
+        "discord":"https://discord.com/invite/ZmbbT529fQ",
+        "telegram":"",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"HaCKBee is a technology community born to support CKB developers, offering a wealth of activities and resources, and dedicated to gathering outstanding CKB developers.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://academy.ckb.dev/courses"
+    },
+    "zh_CN": {   
+        "project_summary":"HaCKBee 是为支持 CKB 开发者而生的技术社区，提供丰富的活动和资源，致力于汇集优秀的 CKB 开发者。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://academy.ckb.dev/courses"  
+    }
+}

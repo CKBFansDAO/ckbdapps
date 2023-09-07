@@ -1,0 +1,162 @@
+[
+    {
+        "project_name": "JoyID",
+        "path_name": "joyid",
+        "start_at": "2023/09/08 9:00 UTC-4",
+        "end_at": "2023/09/08 11:00 UTC-4",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "AMA on Reddit",
+            "event_desc": "Explore new features, and learn about JoyId's functions directly from Cipher."
+        },
+        "zh_CN": {
+            "event_title": "JoyID新功能探索AMA",
+            "event_desc": "Cipher 将在这场 AMA 透露 JoyID 的多项功能，欢迎提前提问。"
+        },
+        "img": "joyid-reddit-ama-20230908.jpg",
+        "url":"https://www.reddit.com/r/NervosNetwork/comments/163rypr/joyid_ama_with_cipher_wang/",
+        "position": "banner"
+    },
+    {
+        "project_name": ".bit",
+        "path_name": "dotbit",
+        "start_at": "2023/09/08 20:00 UTC+8",
+        "end_at": "2023/09/08 22:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "AMA On Twitter Spaces",
+            "event_desc": "Exploring the Limits of DID Protocols: A Deep Dive into the Upcoming Brand Upgrade of .bit."
+        },
+        "zh_CN": {
+            "event_title": "推特 Spaces",
+            "event_desc": "围绕 .bit 即将到来的品牌升级，深入探讨身份协议的尽头在哪里。"
+        },
+        "img": "dotbit-foresight-ama-20230908.jpg",
+        "url":"https://twitter.com/i/spaces/1yoJMZPmlNRxQ?s=20",
+        "position": "banner"
+    },
+    {
+        "project_name": "CKBull",
+        "path_name": "ckbull",
+        "start_at": "2023/08/22 00:00 UTC-4",
+        "end_at": "2023/09/03 11:59 PM UTC-4",
+        "categories": [
+            "Hackathon"
+        ],
+        "en_US": {
+            "event_title": "CKBull Signer API Hackathon",
+            "event_desc": "Hackers will be competing for a prize pool of 1.5 million CKB."
+        },
+        "zh_CN": {
+            "event_title": "CKBull 签名接口黑客松",
+            "event_desc": "参与本次黑客送的开发者将瓜分 150 万 CKB 奖金。"
+        },
+        "img": "ckbull-hackthon-20230822.jpeg",
+        "url":"https://twitter.com/CKBull_Wallet/status/1693669358977851832",
+        "position": "normal"
+    },
+    {
+        "project_name": "HaCKBee",
+        "path_name": "hackbee",
+        "start_at": "2023/08/21 20:00 UTC-4",
+        "end_at": "2023/08/31 20:30 UTC-4",
+        "categories": [
+            "Meme"
+        ],
+        "en_US": {
+            "event_title": "CKB Meme Fest",
+            "event_desc": "Let your bee-utiful meme ideas take flight."
+        },
+        "zh_CN": {
+            "event_title": "CKB Meme 创作",
+            "event_desc": "让你的创意飞起来吧。"
+        },
+        "img": "cryptape-ckb-meme-20230823.jpeg",
+        "url":"https://blog.cryptape.com/ignite-creativity-be-part-of-the-ckb-meme-fest-digest-10",
+        "position": "normal"
+    },
+    {
+        "project_name": "Nervape",
+        "path_name": "nervape",
+        "start_at": "2023/08/27 05:00 PM UTC-4",
+        "end_at": "2023/08/27 07:00 PM UTC-4",
+        "categories": [
+            "AMA","Giveaway"
+        ],
+        "en_US": {
+            "event_title": "NFTnation x Nervape AMA",
+            "event_desc": "Talk about NFT nation project and its community-first ethos, and give away 5 Nervape NACP BoneList(WhiteList)."
+        },
+        "zh_CN": {
+            "event_title": "NFTnation x Nervape AMA",
+            "event_desc": "谈论 NFT Nation 项目及其以社区为先的理念，并赠送 5 个 Nervape NACP BoneList（白名单）。"
+        },
+        "img": "nervape&nation-twitter-ama-20230827.jpeg",
+        "url":"https://twitter.com/i/spaces/1nAJErgozpexL",
+        "position": "normal"
+    },
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2023/08/22 10:30 UTC-4",
+        "end_at": "2023/08/22 11:30 UTC-4",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "AMA with Jordan Mack",
+            "event_desc": "AMA with Jordan Mack our Senior Software Engineer with your chance to ask anything Nervos-related and what he thinks the future holds for the project."
+        },
+        "zh_CN": {
+            "event_title": "Nervos高级开发工程师的AMA",
+            "event_desc": "Jordan Mack 在这场 AMA 回答了与 Nervos 有关的多个问题，同时分享了他对项目未来的看法。"
+        },
+        "img": "nervos-jordan-reddit-ama-20230822.webp",
+        "url":"https://www.reddit.com/r/NervosNetwork/comments/15kojo9/jordan_mack_ama/",
+        "position": "normal"
+    },
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2023/07/24 10:30 UTC-4",
+        "end_at": "2023/07/24 11:30 UTC-4",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "Kevin Wang AMA -What is the Khalani protocol?",
+            "event_desc": "Kevin introduced the Universal Liquidity Protocol Khalani in this AMA, while also sharing his insights on the future of DeFi and Nervos."
+        },
+        "zh_CN": {
+            "event_title": "对话 Kevin，Khalani 协议是什么？",
+            "event_desc": "Kevin 在这场 AMA 介绍了通用流动性协议 Khalani，同时分享了他对 DeFi、Nervos 项目未来的看法。"
+        },
+        "img": "nervos-kevin-reddit-ama-20230724.webp",
+        "url":"https://www.reddit.com/r/NervosNetwork/comments/14q7i7t/kevin_wang_ama_what_is_the_khalani_protocol/",
+        "position": "normal"
+    },
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2023/06/21 9:00 UTC-4",
+        "end_at": "2023/06/21 11:00 UTC-4",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "AMA with our lead Architect Jan Xie",
+            "event_desc": "Knowing what makes him tick, views on Nervos, blockchains and what the future might hold."
+        },
+        "zh_CN": {
+            "event_title": "Nervos首席架构师的AMA",
+            "event_desc": "通过这场AMA，可以了解到Nervos首席架构师 Jan Xie 对 Nervos、区块链以及未来的看法。"
+        },
+        "img": "nervos-janx-reddit-ama-20230621.webp",
+        "url":"https://www.reddit.com/r/NervosNetwork/comments/13yd3oc/an_ama_with_our_lead_architect_jan_xie/",
+        "position": "normal"
+    }
+]

@@ -13,5 +13,10 @@
         "display_name": "nav.ecosystem",
         "route": "/ecosystem",
         "icon": "fa-solid fa-cubes fa-sm sidebar_mr_10px"
+    },
+    {
+        "display_name": "nav.events",
+        "route": "/events",
+        "icon": "fa-solid fa-calendar-days fa-sm sidebar_mr_10px"
     }
 ]

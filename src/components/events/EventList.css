@@ -1,0 +1,18 @@
+.event-expire-info {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    padding: 0px 10px;
+}
+
+.app-list-loading {
+    width: 100px;
+    height: 100px;
+    background-image: url('../../assets/images/loading.gif');
+    
+    background-repeat: no-repeat;
+    background-position: center;
+}

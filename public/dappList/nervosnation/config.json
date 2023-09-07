@@ -1,0 +1,25 @@
+{
+    "project_name": "NervosNation",
+    "path_name":"nervosnation",
+    "categories": ["Community"],
+    "logo_file": "nervosnation-logo.jpeg",
+    "hero_image":"nervosnation-hero.jpeg",
+    "links":{
+        "official":"",
+        "twitter":"https://twitter.com/nervosnation",
+        "discord":"",
+        "telegram":"https://t.me/NervosNation",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"Nervos Nation is a global community group dedicated to Nervos Network with a focus on education and advocacy.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"http://abc.ckbdapps.com"
+    },
+    "zh_CN": {   
+        "project_summary":"Nervos Nation 是一个致力于 Nervos Network 的全球社区，专注于 CKB 的教育和宣传。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"http://123.ckbdapps.com"  
+    }
+}

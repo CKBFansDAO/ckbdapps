@@ -44,6 +44,16 @@ class DappListCache {
         return this.dappLogos;
     }
 
+    async getLogoByProjectName(projectName) {
+        if (this.dappLogos.length === 0) {
+            await this.loadData();
+        }
+
+        const dapp = this.dappLogos.find(item => item.name === projectName);
+        
+        return dapp ? dapp.icon : null;
+    }
+
     async getDataList(isWatchList = false) {
         if (this.dappList.length === 0) {
             await this.loadData();

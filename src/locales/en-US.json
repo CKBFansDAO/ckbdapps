@@ -40,6 +40,7 @@
       "dapps": "Dapps",
       "ecosystem": "Ecosystem",
       "halving": "Halving",
+      "events":"Events",
       "about-us": "About US"
     },
     "page-title": {
@@ -47,6 +48,7 @@
       "dapps": "CKB dapps",
       "ecosystem": "Nervos Ecosystem, Explore the Nervos Ecosystem",
       "halving": "CKB halving, CKB Halving, Discover Details About CKB Halving",
+      "events":"CKBdapps, hot events",
       "about-us": "About US"
     },
     "home": {
@@ -91,6 +93,14 @@
       "search-placehold":"Search...",
       "add-watchlist":"Add to WatchList",
       "remove-watchlist":"Remove from WatchList"
+    },
+    "events":{
+      "upcoming":"Upcoming",
+      "ongoing":"Ongoing",
+      "ended":"Ended",
+      "popular":"Popular",
+      "all-events":"All Events",
+      "view-all":"View All"
     },
     "about-us": {},
     "footer": {

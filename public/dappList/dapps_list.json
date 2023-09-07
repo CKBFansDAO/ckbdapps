@@ -967,6 +967,27 @@
             "categories": [
                 "Investors"
             ]
+        },
+        {
+            "project_name": "CKBFans",
+            "path_name": "ckbfans",
+            "categories": [
+                "Community"
+            ]
+        },
+        {
+            "project_name": "NervosNation",
+            "path_name": "nervosnation",
+            "categories": [
+                "Community"
+            ]
+        },
+        {
+            "project_name": "HaCKBee",
+            "path_name": "hackbee",
+            "categories": [
+                "Community"
+            ]
         }
     ]
 }

@@ -1,0 +1,25 @@
+{
+    "project_name": "CKBFans",
+    "path_name":"ckbfans",
+    "categories": ["Community"],
+    "logo_file": "ckbfans-logo.jpg",
+    "hero_image":"ckbfans-hero.jpeg",
+    "links":{
+        "official":"",
+        "twitter":"https://twitter.com/CKBMeta",
+        "discord":"https://discord.com/invite/X2VGqQX6zT",
+        "telegram":"https://t.me/NervosNetworkcn",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"CKBFans is a gathering place for Chinese enthusiasts of $CKB, dedicated to providing an interactive and collaborative platform to facilitate learning and discussions related to CKB technology, and to support the kickstarting of CKB ecosystem projects.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"http://abc.ckbdapps.com/"
+    },
+    "zh_CN": {   
+        "project_summary":"CKBFans 是 CKB 的中文粉丝聚集地，致力于提供一个互动和合作的平台，以促进 CKB 技术的学习和探讨，并助力 CKB 生态项目完成冷启动。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"http://123.ckbdapps.com"  
+    }
+}

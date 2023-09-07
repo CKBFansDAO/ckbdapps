@@ -18,9 +18,7 @@
       "dark":"Dark",
       "light":"Light"
     },
-    "toast": {
-      
-    },
+    "toast": {},
     "alert": {
       "yes":"YES",
       "cancel":"Cancel",
@@ -42,6 +40,7 @@
       "dapps": "Dapps",
       "ecosystem":"生态系统",
       "halving": "CKB 减半",
+      "events":"活动",
       "about-us": "关于我们"
     },
     "page-title": {
@@ -49,6 +48,7 @@
       "dapps":"CKB dapps",
       "ecosystem":"CKB ecosystem，探索 Nervos 的生态",
       "halving":"CKB halving，查看关于 CKB 减半的细节",
+      "events":"CKBdapps - CKB 生态热门活动",
       "about-us":"关于我们"
     },
     "home": {
@@ -93,6 +93,13 @@
       "search-placehold":"输入项目名搜索...",
       "add-watchlist":"收藏",
       "remove-watchlist":"取消收藏"
+    },
+    "events":{
+      "upcoming":"即将开始",
+      "ongoing":"进行中",
+      "ended":"已结束",
+      "all-events":"所有活动",
+      "view-all":"查看更多"
     },
     "about-us": {
       
