@@ -36,7 +36,21 @@ const EventCard = ({ eventConfig }) => {
         let backgroundColor = ''; // 背景色
 
         if (currentTime < startTime) {
-            statusText = t('events.upcoming');
+            const timeDiff = startTime - currentTime;
+            const minutesDiff = Math.floor(timeDiff / (1000 * 60)); // 转换为分钟
+            const hoursDiff = Math.floor(timeDiff / (1000 * 60 * 60)); // 转换为小时
+            const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24)); // 转换为天
+
+            if (daysDiff > 1) {
+                statusText = t('events.start-in-days', {days: daysDiff});
+            } else if (hoursDiff >= 1) {
+                statusText = t('events.start-in-hours', {hours: hoursDiff});
+            } else if (minutesDiff >= 1){
+                statusText = t('events.start-in-mins', {minutes: minutesDiff});
+            } else { 
+                statusText = t('events.upcoming');
+            } 
+            
             backgroundColor = 'bg-[#F56100]'; // 红色
         } else if (currentTime > endTime) {
             statusText = t('events.ended');
@@ -74,7 +88,7 @@ const EventCard = ({ eventConfig }) => {
         if (eventConfig.project_name.match(new RegExp('nervos', 'i'))) {
             return './images/nervos-symbol-white.png'
         }
-        
+
     }
 
     return (

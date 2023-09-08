@@ -159,7 +159,27 @@
         "url":"https://www.reddit.com/r/NervosNetwork/comments/14q7i7t/kevin_wang_ama_what_is_the_khalani_protocol/",
         "position": "normal"
     },
+    
     {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2023/09/13 08:00 UTC+8",
+        "end_at": "2023/09/14 23:59 UTC+8",
+        "categories": [
+            "Conference"
+        ],
+        "en_US": {
+            "event_title": "TOKEN2049 Singapore",
+            "event_desc": "TOKEN2049 is the premier crypto event, organised annually in Singapore, where founders and executives of the leading Web3 companies and projects share their view on the industry."
+        },
+        "zh_CN": {
+            "event_title": "TOKEN2049 新加坡",
+            "event_desc": "TOKEN2049是一年一度在新加坡举办的顶级加密货币活动，汇集了领先的Web3公司和项目的创始人和高管，他们分享对行业的看法。"
+        },
+        "img": "nervos-token2049-singapore-20230913.jpg",
+        "url":"https://www.asia.token2049.com",
+        "position": "banner"
+    },{
         "project_name": "Nervos",
         "path_name": "nervos",
         "start_at": "2023/06/21 9:00 UTC-4",

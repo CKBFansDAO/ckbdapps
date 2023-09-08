@@ -25,17 +25,17 @@ const HotEventsView = ({ eventList, setView }) => {
 
     const getUpcomingEvents = () => {
         const upComingEvents = eventList.filter(item => new Date() < new Date(item.start_at));
-        return upComingEvents;
+        return upComingEvents.sort((a, b) => new Date(a.start_at) - new Date(b.start_at)).slice(0, 3);
     }
 
     const getOngoingEvents = () => {
         const ongoingEvents = eventList.filter(item => new Date(item.start_at) <= new Date() && new Date() < new Date(item.end_at));
-        return ongoingEvents.sort((a, b) => new Date(a.start_at) - new Date(b.start_at)).slice(0, 3);;
+        return ongoingEvents.sort((a, b) => new Date(a.start_at) - new Date(b.start_at)).slice(0, 3);
     }
 
     const getEndedEvents = () => {
         const endedEvents = eventList.filter(item =>  new Date() >= new Date(item.end_at));
-        return endedEvents.sort((a, b) => new Date(b.end_at) - new Date(a.end_at)).slice(0, 3);;
+        return endedEvents.sort((a, b) => new Date(b.end_at) - new Date(a.end_at)).slice(0, 3);
     }
 
     const onViewAllClicked = (eventStatus) => {
@@ -61,8 +61,8 @@ const HotEventsView = ({ eventList, setView }) => {
         <div className={`max-w-content mx-auto w-full `}>
             <div className='p-4 gap-6 flex flex-col md:py-10'>
                 {bannerImages.length > 0 && (<Carousel images={bannerImages} interval={5000} onImageClick={onBannerClicked}></Carousel>)}
-                <GroupCards title={t('events.upcoming')} eventList={upComingEvents} eventStatus={EventStatus.UNCOMING} onViewAllClick={onViewAllClicked} isLoading={eventList.length === 0}></GroupCards>
                 {ongoingEvents.length > 0 && (<GroupCards title={t('events.ongoing')} eventList={ongoingEvents} eventStatus={EventStatus.ONGOING} onViewAllClick={onViewAllClicked} isLoading={eventList.length === 0}></GroupCards>)}
+                <GroupCards title={t('events.upcoming')} eventList={upComingEvents} eventStatus={EventStatus.UNCOMING} onViewAllClick={onViewAllClicked} isLoading={eventList.length === 0}></GroupCards>
                 <GroupCards title={t('events.ended')} eventList={endedEvents} eventStatus={EventStatus.ENDED} onViewAllClick={onViewAllClicked} isLoading={eventList.length === 0}></GroupCards>
             </div>
         </div>

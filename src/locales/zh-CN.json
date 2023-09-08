@@ -99,7 +99,10 @@
       "ongoing":"进行中",
       "ended":"已结束",
       "all-events":"所有活动",
-      "view-all":"查看更多"
+      "view-all":"查看更多",
+      "start-in-days":"{{days}}天后开始",
+      "start-in-hours":"{{hours}}小时后开始",
+      "start-in-mins":"{{minutes}}分钟后开始"
     },
     "about-us": {
       
