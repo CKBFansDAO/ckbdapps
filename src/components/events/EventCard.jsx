@@ -81,7 +81,7 @@ const EventCard = ({ eventConfig }) => {
         <div className='rounded-[10px] flex flex-col w-full md:w-[314px] shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
             <div className='relative'>
                 <a className='' href={eventConfig.url} rel="noopener noreferrer" target="_blank">
-                    <div className='flex event-card-img place-content-center rounded-t-[10px] bg-[#1C1C23] overflow-hidden'>
+                    <div className='flex event-card-img place-content-center rounded-t-[10px] overflow-hidden'>
                         {
                             eventConfig.img ? (<img className=" h-[180px] w-full object-cover duration-300 ease-in-out hover:scale-125" src={eventConfig.img ? `../eventRes/${eventConfig.img}` : ''} />)
                                 : (<div></div>)
