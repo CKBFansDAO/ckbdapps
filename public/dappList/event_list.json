@@ -1,5 +1,25 @@
 [
     {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2023/11/19 20:00 UTC+8",
+        "end_at": "2023/11/20 20:00 UTC+8",
+        "categories": [
+            "Halving"
+        ],
+        "en_US": {
+            "event_title": "CKB First Halving Event",
+            "event_desc": "is estimated on Nov.19, 2023, reducing the inflation rate from 7.92% to 3.77%."
+        },
+        "zh_CN": {
+            "event_title": "CKB 第一次减半事件",
+            "event_desc": "预计发生在 2023/11/19，减半后通胀率从 7.92% 降至 3.77%。"
+        },
+        "img": "ckbdapps-ckb-halving-count-down.jpg",
+        "url":"https://ckbdapps.com/halving",
+        "position": "banner"
+    },
+    {
         "project_name": "JoyID",
         "path_name": "joyid",
         "start_at": "2023/09/08 9:00 UTC-4",
