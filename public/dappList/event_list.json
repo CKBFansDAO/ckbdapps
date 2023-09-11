@@ -22,6 +22,26 @@
     {
         "project_name": "Nervos",
         "path_name": "nervos",
+        "start_at": "2023/09/22 09:00 UTC+8",
+        "end_at": "2023/09/23 22:00 UTC+8",
+        "categories": [
+            "Conference"
+        ],
+        "en_US": {
+            "event_title": "WDMS Global 2023",
+            "event_desc": "Matt Quinn, Executive Director of Nervos Network, will join WDMS Global 2023 to deliver a keynote speech on 'CKB: Here to Stay'."
+        },
+        "zh_CN": {
+            "event_title": "2023全球数字矿业峰会",
+            "event_desc": "Nervos Network的执行董事Matt Quinn，将参加2023年的WDMS Global活动，并发表题为“CKB：未来可期”的主题演讲。"
+        },
+        "img": "nervos-MattQuinn-WDMS2023.jpg",
+        "url":"https://www.bitmain.com/wdmsGlobal/Hongkong",
+        "position": "banner"
+    },
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
         "start_at": "2023/11/19 20:00 UTC+8",
         "end_at": "2023/11/20 20:00 UTC+8",
         "categories": [
