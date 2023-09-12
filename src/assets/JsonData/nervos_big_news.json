@@ -1,0 +1,22 @@
+[
+    {
+        "event_name": "halving.launches",
+        "target_epoch": 0,
+        "halving_index": 0
+    },
+    {
+        "event_name": "halving.first-halving",
+        "target_epoch": 8760,
+        "halving_index": 1
+    },
+    {
+        "event_name": "halving.second-halving",
+        "target_epoch": 17520,
+        "halving_index": 2
+    },
+    {
+        "event_name": "halving.third-halving",
+        "target_epoch": 26280,
+        "halving_index": 3
+    }
+]
