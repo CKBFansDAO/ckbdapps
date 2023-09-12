@@ -92,7 +92,27 @@
       "clear-search":"重新输入关键字",
       "search-placehold":"输入项目名搜索...",
       "add-watchlist":"收藏",
-      "remove-watchlist":"取消收藏"
+      "remove-watchlist":"取消收藏",
+      "tags":{
+        "L1":"一层",
+        "L2":"二层",
+        "Wallet":"钱包",
+        "Liquidity":"流动性",
+        "Bridges":"跨链桥",
+        "Lending":"借贷",
+        "Explorer":"浏览器",
+        "Hardware Wallet":"硬件钱包",
+        "Partners":"合作伙伴",
+        "Mining Pools":"矿池",
+        "Tools & Infrastructure":"工具/基础设施",
+        "Markets":"交易市场",
+        "Security & Audit":"安全审计",
+        "Investors":"投资人",
+        "Community":"社区",
+        "Chinese":"中文",
+        "English":"英文",
+        "Developer":"开发者"
+      }
     },
     "events":{
       "upcoming":"即将开始",

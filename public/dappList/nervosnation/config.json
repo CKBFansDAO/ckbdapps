@@ -2,6 +2,7 @@
     "project_name": "NervosNation",
     "path_name":"nervosnation",
     "categories": ["Community"],
+    "tag":["English"],
     "logo_file": "nervosnation-logo.jpeg",
     "hero_image":"nervosnation-hero.jpeg",
     "links":{

@@ -119,7 +119,7 @@ const Ecosystem = () => {
             {Object.entries(categories).map(([category, count]) => (
                 <div key={category} className={`flex items-center ${categorySel === category ? 'bg-[#733DFF] text-white font-bold' : 'bg-[#C4C4C4] hover:bg-[#5727AE] text-black hover:text-white'} text-white rounded-[5px] px-2 md:px-5 py-1 md:py-2 cursor-pointer`}
                     onClick={() => setCategorySel(category)}>
-                    <span className="mr-1">{category === 'all' ? t('ecosystem.all-projects') : category}</span>
+                    <span className="mr-1">{category === 'all' ? t('ecosystem.all-projects') : t(`ecosystem.tags.${category}`, category)}</span>
                     <span className="text-[10px]">({count})</span>
                 </div>
             ))}

@@ -2,6 +2,7 @@
     "project_name": "HaCKBee",
     "path_name":"hackbee",
     "categories": ["Community"],
+    "tag":["Developer"],
     "logo_file": "hackbee-logo.jpeg",
     "hero_image":"hackbee-hero.jpeg",
     "links":{

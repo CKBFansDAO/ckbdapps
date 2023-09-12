@@ -93,19 +93,40 @@
       "search-placehold":"Search by project",
       "add-watchlist":"Add to WatchList",
       "remove-watchlist":"Remove from WatchList"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     },
     "events":{
       "upcoming":"Upcoming",
       "ongoing":"Ongoing",
       "ended":"Ended",
-      "popular":"Popular",
       "all-events":"All Events",
       "view-all":"View All",
       "start-in-days":"Starting in {{days}}d",
       "start-in-hours":"Starting in {{hours}}h",
       "start-in-mins":"Starting in {{minutes}}m"
     },
-    "about-us": {},
+    "about-us": {
+
+    },
     "footer": {
       "feedback": "Feedback",
       "followus": "Follow US",
