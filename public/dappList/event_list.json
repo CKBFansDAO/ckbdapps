@@ -1,5 +1,25 @@
 [
     {
+        "project_name": ".bit",
+        "path_name": "dotbit",
+        "start_at": "2023/09/12 20:00 UTC+8",
+        "end_at": "2023/09/15 21:00 UTC+8",
+        "categories": [
+            "Follow & Share","Giveaway"
+        ],
+        "en_US": {
+            "event_title": "Share Your DID Card",
+            "event_desc": "Go print your DID card and complete the DID challenge, 🎁 4 digits .bit✖️5; 5 digits .bit✖️10"
+        },
+        "zh_CN": {
+            "event_title": "DID 名片分享",
+            "event_desc": "打印你的DID名片，并分享，瓜分5个4位数.bit，以及10个5 位数.bit账号。"
+        },
+        "img": "dotbit-20230913.jpeg",
+        "url":"https://twitter.com/dotbitHQ/status/1701428702393860346",
+        "position": "normal"
+    },
+    {
         "project_name": "Nervos",
         "path_name": "nervos",
         "start_at": "2023/09/22 09:00 UTC+8",
