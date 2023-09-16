@@ -25,12 +25,12 @@ const CKBTokenSummary = () => {
     fetchData();
   }, []);
 
-  return (<div className='flex flex-col pt-1 md:pt-5 bg-[#F4EFFF]'>
+  return (<div className='flex flex-col pt-1 md:pt-5 bg-[#6833D2]'>
     <div className='w-full flex h-16 text-center justify-center text-[20px] md:text-[30px] font-["Zen_Dots"]'>
-      <span className='flex items-end'>{t('home.market-data.token-summary')}</span>
+      <span className='flex items-end text-[#00DF9B]'>{t('home.market-data.token-summary')}</span>
     </div>
     <div className={`max-w-content mx-auto w-full `}>
-      <div className='grid grid-cols-2 md:grid-cols-4 divide-x divide-y-reverse border-b-[1px] border-dashed py-5 md:py-10'>
+      <div className='grid grid-cols-2 md:grid-cols-4 divide-x divide-purple-500 divide-y-reverse border-b-[1px] border-dashed py-5 md:py-10'>
         <div className='border-b-[1px] md:border-b-0 md:px-3 md:py-3'>
           <SummaryItem
             value={numberFormatter(data?.total_supply, 2)}
@@ -58,7 +58,8 @@ const CKBTokenSummary = () => {
             itemName={t('home.market-data.tradable')}
             isLoading={isLoading}
           />
-        </div></div>
+        </div>
+      </div>
     </div>
   </div>
   );
