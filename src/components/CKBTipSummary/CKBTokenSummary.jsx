@@ -35,6 +35,8 @@ const CKBTokenSummary = () => {
           <SummaryItem
             value={numberFormatter(data?.total_supply, 2)}
             itemName={t('home.market-data.total-supply')}
+            valueClass='font-bold text-[#FFF]'
+            nameClass='text-[#00DF9B]'
             isLoading={isLoading}
           />
         </div>
@@ -42,6 +44,8 @@ const CKBTokenSummary = () => {
           <SummaryItem
             value={numberFormatter(data?.circulating_supply, 2)}
             itemName={t('home.market-data.circulating-supply')}
+            valueClass='font-bold text-[#FFF]'
+            nameClass='text-[#00DF9B]'
             isLoading={isLoading}
           />
         </div>
@@ -49,6 +53,8 @@ const CKBTokenSummary = () => {
           <SummaryItem
             value={numberFormatter(data?.nervos_dao?.total_deposit * Math.pow(0.1, 8), 2)}
             itemName={t('home.market-data.deposit')}
+            valueClass='font-bold text-[#FFF]'
+            nameClass='text-[#00DF9B]'
             isLoading={isLoading}
           />
         </div>
@@ -56,6 +62,8 @@ const CKBTokenSummary = () => {
           <SummaryItem
             value={numberFormatter(data?.circulating_supply - data?.nervos_dao?.total_deposit * Math.pow(0.1, 8), 2)}
             itemName={t('home.market-data.tradable')}
+            valueClass='font-bold text-[#FFF]'
+            nameClass='text-[#00DF9B]'
             isLoading={isLoading}
           />
         </div>

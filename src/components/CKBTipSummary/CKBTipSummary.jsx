@@ -33,6 +33,7 @@ const CKBTipSummary = ({ blockNumber, epoch, halvingEpoch, halvingDate }) => {
         <div className='grid grid-cols-2 md:grid-cols-4 divide-x divide-y-reverse border-b-[1px] border-dashed py-10'>
             <SummaryItem value={blockNumber?.toLocaleString()}
                 itemName={t('halving.latest-block')}
+                nameClass='text-[#999999]'
                 isLoading={isLoading}>
             </SummaryItem>
             <EpochItem epoch={epoch}
@@ -42,12 +43,14 @@ const CKBTipSummary = ({ blockNumber, epoch, halvingEpoch, halvingDate }) => {
             <div className='flex md:justify-end md:pr-4'>
             <SummaryItem value={halvingEpoch}
                 itemName={t('halving.halving-epoch')}
+                nameClass='text-[#999999]'
                 isLoading={isLoading}>
             </SummaryItem>
             </div>
             <div className='flex md:justify-end md:pr-4'>
             <SummaryItem value={FormatLocaleDate(halvingDate) /*new Date(halvingDate).toLocaleDateString()*/}
                 itemName={t('halving.halving-date')}
+                nameClass='text-[#999999]'
                 isLoading={isLoading}>
             </SummaryItem>
             </div>
