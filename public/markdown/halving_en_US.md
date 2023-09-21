@@ -4,6 +4,9 @@ A block halving is a process of reducing the rate at which new cryptocurrency un
 ## Why are halvings significant?
 Halvings are at the core of the cryptocurrency economic models because they ensure coins will be issued at a steady pace, following a predictable decaying rate. Such a controlled rate of monetary inflation is one of the main differences between cryptocurrencies and traditional fiat currencies, which essentially have an infinite supply.
 
+The chart below depicts the inflation rate curve of CKB as halvings occur. It's evident that prior to the first halving in November 2023, CKB had an inflation rate of 7.92%. After the first halving, the inflation rate will decrease to 3.77%, and with each subsequent halving, it will approach 0%.
+
+![CKB inflation rate](markdown/ckb-inflation-rate-zh.png)
 
 ## How does the CKB Halving work?
 
@@ -17,7 +20,9 @@ In order to make the halving plan work as expected, a concept of time called **e
 
 Epochs per halving is `4 * 365 * (24 / 4)` = `8760`, and the Nth halving of CKB firstly occurs on epoch: `the_Nth_halving_epoch = 8760 * N `.
 
-So, The CKB halving event occurs on the specified epoch, e.g. 8760, 17520. 
+So, The CKB halving event occurs on the specified epoch, e.g. 8760, 17520:
+
+![CKB halving epochs](markdown/ckbhalving-epochs.jpeg)
 
 ## When will CKB be halved?
 
@@ -37,6 +42,13 @@ The following table details the schedule for several upcoming CKB halvings and t
 |9th having         |Expected November 2055|78,840            |3,746 CKB        |2.09375 CKB        |22,474.3125 CKB    |32,812,500 CKB              |
 |10th having        |Expected November 2059|87,600            |1,873 CKB        |1.046875 CKB         |11,237.15625 CKB     |16,406,250 CKB              |
 
+**The following chart shows the daily mining rewards after each halving:**
+
+![CKB daily-rewards](markdown/ckbhaving-daily-rewards.png)
+
+**The following chart shows the mining rewards for each epoch before and after the halving:**
+
+![CKB epoch rewards](markdown/ckb-epoch-reward-zh.png)
 
 ⚠️ Note that CKB block rewards include **Base (issuance) reward**, **Secondary (issuance) reward**, **Commit reward**, and **Proposal reward**:
 

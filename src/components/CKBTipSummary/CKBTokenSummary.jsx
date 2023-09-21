@@ -30,8 +30,8 @@ const CKBTokenSummary = () => {
       <span className='flex items-end text-[#00DF9B]'>{t('home.market-data.token-summary')}</span>
     </div>
     <div className={`max-w-content mx-auto w-full `}>
-      <div className='grid grid-cols-2 md:grid-cols-4 divide-x divide-purple-500 divide-y-reverse border-b-[1px] border-dashed py-5 md:py-10'>
-        <div className='border-b-[1px] md:border-b-0 md:px-3 md:py-3'>
+      <div className='grid grid-cols-2 md:grid-cols-4 divide-x divide-purple-500 divide-y-reverse border-dashed py-5 md:py-10'>
+        <div className='md:border-b-0 md:px-3 md:py-3'>
           <SummaryItem
             value={numberFormatter(data?.total_supply, 2)}
             itemName={t('home.market-data.total-supply')}
@@ -40,7 +40,7 @@ const CKBTokenSummary = () => {
             isLoading={isLoading}
           />
         </div>
-        <div className='border-b-[1px] md:border-b-0 md:px-3 md:py-3'>
+        <div className='md:border-b-0 md:px-3 md:py-3'>
           <SummaryItem
             value={numberFormatter(data?.circulating_supply, 2)}
             itemName={t('home.market-data.circulating-supply')}

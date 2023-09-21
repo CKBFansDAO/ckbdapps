@@ -30,7 +30,7 @@ const CKBTipSummary = ({ blockNumber, epoch, halvingEpoch, halvingDate }) => {
     const [t] = useTranslation();
     //console.log(blockNumber, epoch, halvingEpoch, halvingDate);
     return (
-        <div className='grid grid-cols-2 md:grid-cols-4 divide-x divide-y-reverse border-b-[1px] border-dashed py-10'>
+        <div className='grid grid-cols-2 md:grid-cols-4 divide-x divide-y-reverse border-dashed py-10'>
             <SummaryItem value={blockNumber?.toLocaleString()}
                 itemName={t('halving.latest-block')}
                 nameClass='text-[#999999]'
