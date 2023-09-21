@@ -6,7 +6,7 @@ Halvings are at the core of the cryptocurrency economic models because they ensu
 
 The chart below depicts the inflation rate curve of CKB as halvings occur. It's evident that prior to the first halving in November 2023, CKB had an inflation rate of 7.92%. After the first halving, the inflation rate will decrease to 3.77%, and with each subsequent halving, it will approach 0%.
 
-![CKB inflation rate](markdown/ckb-inflation-rate-zh.png)
+![CKB inflation rate](markdown/ckb-inflation-rate.png)
 
 ## How does the CKB Halving work?
 
