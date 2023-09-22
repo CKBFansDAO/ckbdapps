@@ -1,5 +1,25 @@
 [
     {
+        "project_name": "HaCKBee",
+        "path_name": "hackbee",
+        "start_at": "2023/09/21 20:00 UTC+8",
+        "end_at": "2023/09/29 20:00 UTC+8",
+        "categories": [
+            "Meme"
+        ],
+        "en_US": {
+            "event_title": "Collect the Spore Cards",
+            "event_desc": "A 9-day Spore Protocol journey. Collect dynamic cards after tasks, unlock Spore characters every three days, and complete the puzzle in nine days."
+        },
+        "zh_CN": {
+            "event_title": "收集小蘑菇拼图",
+            "event_desc": "为期9天的时间，通过学习Spore这个NFT协议，完成任务后收集动态卡牌，每三天解锁小蘑菇角色，九天内完成完整的拼图。"
+        },
+        "img": "hackbee-spore-20230922.jpeg",
+        "url":"https://blog.cryptape.com/unlock-the-secrets-of-spore-with-a-9-day-exploration-digest-11",
+        "position": "banner"
+    },
+    {
         "project_name": ".bit",
         "path_name": "dotbit",
         "start_at": "2023/09/12 20:00 UTC+8",
