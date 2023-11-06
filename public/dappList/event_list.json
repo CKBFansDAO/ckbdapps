@@ -2,6 +2,26 @@
     {
         "project_name": "Nervape",
         "path_name": "nervape",
+        "start_at": "2023/10/31 08:00 PM UTC-4",
+        "end_at": "2023/11/08 10:00 PM UTC-4",
+        "categories": [
+            "AMA","Giveaway"
+        ],
+        "en_US": {
+            "event_title": "Spooky Nervapes",
+            "event_desc": "Create your own Spooky Nervape with our Spooky Nervapes creator. Win special scary assets && Nervape NACP BoneList(WhiteList)."
+        },
+        "zh_CN": {
+            "event_title": "Spooky Nervapes",
+            "event_desc": "参加 Nervape 万圣节捏脸活动，赢取稀有 NFT、5 个白名单(Nervape NACP BoneList)。"
+        },
+        "img": "Spooky-Nervapes-Banner-20231031.png",
+        "url":"https://www.nervape.com/spooky-nervapes/nacp/",
+        "position": "banner"
+    },
+    {
+        "project_name": "Nervape",
+        "path_name": "nervape",
         "start_at": "2023/09/28 08:00 PM UTC-4",
         "end_at": "2023/09/28 10:00 PM UTC-4",
         "categories": [

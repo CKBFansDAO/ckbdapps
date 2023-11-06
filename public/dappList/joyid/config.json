@@ -2,13 +2,13 @@
     "project_name": "JoyID",
     "path_name":"joyid",
     "categories": ["L1","Wallet","DID"],
-    "logo_file": "joyid-logo.png",
+    "logo_file": "joyid-logo.svg",
     "hero_image":"joyid-hero.jpeg",
     "links":{
         "official":"https://joy.id/",
         "twitter":"https://twitter.com/joy_protocol",
         "discord":"https://discord.gg/77MyakRKVB",
-        "telegram":"",
+        "telegram":"https://t.me/joyidwallet",
         "github":"https://github.com/nervina-labs",
         "medium":"" 
     },
@@ -18,7 +18,7 @@
         "tutorial_link":""
     },
     "zh_CN": {   
-        "project_summary":"基于 FIDO Webauthn 协议和 Nervos CKB 的无密码和无助记词的钱包解决方案。",
+        "project_summary":"10 秒钟拥有支付安全级别数字钱包。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
     } 
