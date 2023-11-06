@@ -19,6 +19,21 @@ export function getPrevHalvingEpoch(curEpochNumber) {
     return Math.floor(curEpochNumber / EPOCHS_PER_HALVING) * EPOCHS_PER_HALVING;
 }
 
+export function getHalvingHistoryEpochs(curEpochNumber) {
+    let ret = [];
+    if (curEpochNumber < EPOCHS_PER_HALVING) {
+        return ret;
+    }
+
+    let halvedTimes = Math.floor(curEpochNumber / EPOCHS_PER_HALVING);
+    // 有几次减半，将减半的epoch序号添加到数组中
+    for (let i = 1; i <= halvedTimes; i++) {
+        ret.push(i * EPOCHS_PER_HALVING);
+    }
+
+    return ret;
+}
+
 export function timestampToDateString(timestamp) {
     // 根据用户选择的语言设置日期格式
     const options = {
@@ -124,7 +139,7 @@ export function numberFormatter(num, digits) {
         { value: 1E15, symbol: "P" },
         { value: 1E18, symbol: "E" }
     ];
-    
+
     let locale = currentLanguage();
 
     // 中文的习惯，使用万，百万。。
@@ -133,22 +148,22 @@ export function numberFormatter(num, digits) {
             { value: 1, symbol: "" },
             { value: 1E4, symbol: "万" },
             { value: 99999900, symbol: "亿" }
-          ];
+        ];
     }
 
     var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
     var i;
     for (i = si.length - 1; i > 0; i--) {
-      if (num >= si[i].value) {
-        break;
-      }
+        if (num >= si[i].value) {
+            break;
+        }
     }
 
     let res = (num / si[i].value).toFixed(digits).replace(rx, "$1");
     if (digits === 2 && res < 0.01) {
         res = '<0.01'
     }
-    
+
     return res + si[i].symbol;
 }
 
@@ -159,6 +174,6 @@ export function getTimeZoneOffset() {
     const offsetSign = offsetMinutes < 0 ? "+" : "-";
     const offsetMinutesFormatted = (Math.abs(offsetMinutes) % 60).toString().padStart(2, "0");
     const timeZoneOffset = `GMT${offsetSign}${offsetHours.toString().padStart(2, "0")}:${offsetMinutesFormatted}`;
-    
+
     return timeZoneOffset;
-  }
+}

@@ -79,7 +79,7 @@
       "block-chain-progress": "Block Chain Progress",
       "whats-epoch": "What's epoch?",
       "twitter-share-content-before-halving": "📢 @NervosNetwork CKB is estimated to halve on {{date}} {{timeZone}} 🚀,\n\n📅 There are {{countdown}} {{countdownUnit}} left until the halving countdown.\n\n🔗 Visit 👉 https://ckbdapps.com/halving to learn more about #CKB halving information.  #PoW #Halving",
-      "twitter-share-content-after-halving": "🎉 Congratulations to @NervosNetwork CKB for successfully completing its first halving on {{datetime}} {{timeZone}} 🚀🧨🎆\n\n⚒️ After the halving, CKB's real inflation rate will be reduced to below 3.8%.\n\n🔗 Visit 👉 https://ckbdapps.com to explore #CKB ecosystem."                                            
+      "twitter-share-content-after-halving": "🎉 Congrats to @NervosNetwork CKB for its first halving on {{datetime}} {{timeZone}} 🚀🧨🎆\n\n⚒️ After the halving, CKB's real inflation rate will be reduced from 7.92% to 3.77%.\n\n🔗 Visit 👉 https://ckbdapps.com to explore #CKB ecosystem."                                            
     },
     "ecosystem": {
       "risk-warning": "BE ADVISED: We have not officially vetted or contacted these projects for proof. Do your own research before using any service in this open network.",
