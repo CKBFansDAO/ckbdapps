@@ -1,5 +1,25 @@
 [
     {
+        "project_name": "JoyID",
+        "path_name": "joyid",
+        "start_at": "2023/11/06 08:00 UTC+8",
+        "end_at": "2023/12/06 08:00 UTC+8",
+        "categories": [
+            "Giveaway","Quest"
+        ],
+        "en_US": {
+            "event_title": "JoyID Exploration Odyssey",
+            "event_desc": "By interacting and experiencing JoyID,you have the chance to earn JPoint and unique NFT rewards."
+        },
+        "zh_CN": {
+            "event_title": "JoyID ",
+            "event_desc": "通过与 JoyID 的互动，你有机会赚取 JPoint 和独特的 NFT 。"
+        },
+        "img": "joyid-quest-20231106.jpeg",
+        "url":"https://app.joy.id/quest",
+        "position": "banner"
+    },
+    {
         "project_name": "Nervape",
         "path_name": "nervape",
         "start_at": "2023/10/31 08:00 PM UTC-4",
