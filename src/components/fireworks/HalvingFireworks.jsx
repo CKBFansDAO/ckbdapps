@@ -69,11 +69,11 @@ const HalvingFireworks = () => {
 
   return (
     <>
-      <div>
+      {/*<div>
         <button onClick={startAnimation}>Start</button>
         <button onClick={pauseAnimation}>Pause</button>
         <button onClick={stopAnimation}>Stop</button>
-      </div>
+      </div>*/}
       <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
     </>
   );

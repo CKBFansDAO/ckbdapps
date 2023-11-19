@@ -135,7 +135,7 @@ const HalvingContainer = (props) => {
             {renderHalvingTip()}
 
             <div className={`max-w-content mx-auto w-full`}>
-                <CountdownTimer targetDate={data?.estimatedHalvingTime/*1684038959*/}></CountdownTimer>
+                <CountdownTimer targetDate={data?.estimatedHalvingTime/*1684038959*/} lastHalvedTimestamp={data?.prevHalvingTime?.timestamp}></CountdownTimer>
             </div>
 
             <div className='flex flex-row justify-between -mt-16 md:-mt-20'>

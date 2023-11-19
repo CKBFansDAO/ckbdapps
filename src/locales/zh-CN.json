@@ -78,7 +78,7 @@
       "genesis-epoch":"创世Epoch",
       "block-chain-progress":"区块链运行进度",
       "whats-epoch":"什么是Epoch？",
-      "twitter-share-content-before-halving":"📢 @NervosNetwork CKB 预计于 {{date}} {{timeZone}} 迎来第一次减半🚀，\n\n📅距离减半倒计时还有 {{countdown}} {{countdownUnit5}}。\n\n🔗 访问👉 https://ckbdapps.com/halving 了解更多 #CKB 减半信息 #PoW #Halving",
+      "twitter-share-content-before-halving":"📢 @NervosNetwork CKB 预计于 {{date}} {{timeZone}} 迎来第一次减半🚀，\n\n📅距离减半倒计时还有 {{countdown}} {{countdownUnit}}。\n\n🔗 访问👉 https://ckbdapps.com/halving 了解更多 #CKB 减半信息 #PoW #Halving",
       "twitter-share-content-after-halving":"🎉 祝贺 @NervosNetwork CKB 已于 {{datetime}} {{timeZone}} 成功完成第一次减半🚀🧨🎆。\n\n⚒️ 减半后，CKB 的实际通胀率将从 7.92 降至 3.77%，每日挖矿产出降至 575 万 CKB。\n\n🔗 访问👉 https://ckbdapps.com 了解 #CKB 生态信息"
     },
     "ecosystem": {

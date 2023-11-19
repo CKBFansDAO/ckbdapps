@@ -9,9 +9,6 @@ const rpc = new RPC("https://mainnet.ckb.dev");
 //const rpc = new RPC("https://inside.ckb.dev");
 
 
-// The number of epochs per halving. This should never change.
-//const EPOCHS_PER_HALVING = 8760;//8760;
-
 //
 const EVERY_EPOCH_TIME_INTERVAL = 1000;
 
@@ -34,6 +31,7 @@ const useCKBHalving = () => {
         timestamp: 0
     });
     const [prevHalvingTime, setPrevHalvingTime] = useState();
+    const [nearHalving, setNearHalving] = useState(false);
 
     const getTipHeader = async () => {
         const tipHeader = await rpc.getTipHeader();
@@ -89,7 +87,7 @@ const useCKBHalving = () => {
             let blockInfo = await rpc.getHeaderByNumber(epochInfo.startNumber);
 
             gPrevHalvingBlockInfo.set(prevHalvingEpoch, blockInfo);
-            
+
             return blockInfo;
         }
 
@@ -111,54 +109,81 @@ const useCKBHalving = () => {
 
     const { data: result, isLoading, isError } = useQuery(
         ["ckbhalving"], async () => {
-            //const tipHeader = await getTipHeader();
             const tipHeader = await rpc.getTipHeader();
 
             const curEpoch = parseEpoch(tipHeader.epoch);
-            //console.log(curEpoch);
 
-           // const dao = parseDAO(tipHeader.dao);
-            //console.log(dao);
-
-            const prevHalvingBlockInfo = await getPrevHalvingBlockInfo(curEpoch.number);
-            //console.log(prevHalvingBlockInfo);
+            let prevHalvingBlockInfo = await getPrevHalvingBlockInfo(curEpoch.number);
             if (prevHalvingBlockInfo) {
                 setPrevHalvingTime(BI.from(prevHalvingBlockInfo.timestamp).toNumber());
             }
-            //console.log(prevHalvingTime);
-
-            // Calculate the time spent on the latest 1000 epochs.
-            const t0Epoch = await getEpochStartBlock(curEpoch.number - EVERY_EPOCH_TIME_INTERVAL);
-            //console.log(t0Epoch);
-
-            let subTime = (BI.from(tipHeader.timestamp).toNumber() - BI.from(t0Epoch.timestamp).toNumber())
-            //console.log(subTime);
-            let curEpochProgress = curEpoch.index / curEpoch.length;
-
-            let avgEpochTime = subTime / (EVERY_EPOCH_TIME_INTERVAL + curEpochProgress);
-            //console.log(avgEpochTime);
 
             // Calculate the target epoch.
             const targetEpoch = getNextHalvingEpoch(curEpoch.number);
 
-            // Calculate the duration and time of the target epoch.
-            const targetDuration = Math.floor((targetEpoch - (curEpoch.number + curEpochProgress)) * avgEpochTime); // Time until epoch in milliseconds.
-            
-            //const targetTime = Date.now() + targetDuration; // Date in the future when the epoch will occur.
-            const targetTime = BI.from(tipHeader.timestamp).toNumber() + targetDuration; // Date in the future when the epoch will occur.
+            // 最后一个epoch的前一半使用原有算法；进入到最后100个区块，改为10秒钟更新一次
+            const shouldUseRealTime = (targetEpoch - curEpoch.number <= 1) && (curEpoch.index / curEpoch.length) > 0.5;
+            const isNearHalving = shouldUseRealTime && curEpoch.length - curEpoch.index < 100;
+            setNearHalving(isNearHalving);
+            let estimatedHalvingTime;
+            if (shouldUseRealTime) {
+                // 获取到最后一个epoch的起始区块，
+                const curEpochStartBlock = await getEpochStartBlock(curEpoch.number);
+                // todo
+                /*if (curEpoch.index > 1360) {
+                    //curEpoch.length = 800;//curEpoch.index + 10;
+                    prevHalvingBlockInfo = {
+                        timestamp: "0x18bccd70c51"
+                    }
+                }
+                else {
+                    curEpoch.length = 1360;//curEpoch.index + 10;
+                    setNearHalving(true);
+                }*/
+                
+              
+                // 本epoch截至现在所耗费的时间？
+                let curEpochUsedTime = (BI.from(tipHeader.timestamp).toNumber() - BI.from(curEpochStartBlock.timestamp).toNumber())
+                // 本epoch平均每一个块消耗的时间
+                let everyBlockTime = curEpochUsedTime / curEpoch.index;
+                //console.log(everyBlockTime);
+                // 预估减半的时间，需要等到下一个epoch诞生的时候，才确认减半，所以区块数量 + 1
+                estimatedHalvingTime = Math.floor(everyBlockTime * (curEpoch.length + 1 - curEpoch.index)) + BI.from(tipHeader.timestamp).toNumber();
+                //console.log('calcu:\t', estimatedHalvingTime, new Date(estimatedHalvingTime).toLocaleString());
+            }
+            else {
+                // Calculate the time spent on the latest 1000 epochs.
+                const t0Epoch = await getEpochStartBlock(curEpoch.number - EVERY_EPOCH_TIME_INTERVAL);
+                //console.log(t0Epoch);
+
+                let subTime = (BI.from(tipHeader.timestamp).toNumber() - BI.from(t0Epoch.timestamp).toNumber())
+                
+                let curEpochProgress = curEpoch.index / curEpoch.length;
+
+                let avgEpochTime = subTime / (EVERY_EPOCH_TIME_INTERVAL + curEpochProgress);
+                //console.log(avgEpochTime);
+
+                // Calculate the duration and time of the target epoch.
+                const targetDuration = Math.floor((targetEpoch - (curEpoch.number + curEpochProgress)) * avgEpochTime); // Time until epoch in milliseconds.
+
+                //const estimatedHalvingTime = Date.now() + targetDuration; // Date in the future when the epoch will occur.
+                estimatedHalvingTime = BI.from(tipHeader.timestamp).toNumber() + targetDuration; // Date in the future when the epoch will occur.
+            }
 
             return {
                 curEpoch,
-                estimatedHalvingTime: targetTime,
+                estimatedHalvingTime: estimatedHalvingTime,
                 prevHalvingTime: prevHalvingBlockInfo ? {
                     timestamp: BI.from(prevHalvingBlockInfo.timestamp).toNumber(),
                     epoch: getPrevHalvingEpoch(curEpoch.number)
-                }  : null
+                } : null,
+                isNearHalving
             }
         }, {
-        staleTime: 60 * 1000, // 1 minute
-        refetchInterval: 60 * 1000, // 1 minute
-    });
+            refetchInterval: nearHalving ? 10 * 1000 : 60 * 1000, // 10 seconds if near halving, otherwise 1 minute
+            //staleTime: 10 * 1000, 
+            staleTime: nearHalving ? 10 * 1000 : 60 * 1000,
+        });
 
     return { data: result, isLoading, isError };
 

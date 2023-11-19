@@ -20,7 +20,7 @@ const useCountdown = (targetDate) => {
     return () => {
         clearInterval(intervalRef.current);
     }
-  }, [countDownDate]);
+  }, [targetDate]);
 
   return getReturnValues(countDown);
 };

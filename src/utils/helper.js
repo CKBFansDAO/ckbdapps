@@ -3,7 +3,7 @@ import HalvingConfig from '../assets/JsonData/halving_events.json'
 import { currentLanguage } from './i18n';
 
 // The number of epochs per halving. This should never change.
-const EPOCHS_PER_HALVING = 8760;
+const EPOCHS_PER_HALVING = 8760;//8760;
 
 export const HalvingAlertType = {
     HALVING: 'halving',
