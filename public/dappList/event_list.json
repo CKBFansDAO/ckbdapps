@@ -20,6 +20,26 @@
         "position": "banner"
     },
     {
+        "project_name": "Nervos",
+        "path_name": "Nervos",
+        "start_at": "2023/11/29 19:00 CST",
+        "end_at": "2023/11/29 21:00 CST",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "Online show on Youtube",
+            "event_desc": "The Ultimate Risk: RISC-V"
+        },
+        "zh_CN": {
+            "event_title": "Youtube 直播",
+            "event_desc": "终极冒险：RISC-V"
+        },
+        "img": "riscv-ama-20231120.jpg",
+        "url":"https://www.youtube.com/live/H5QeOUrjBn4?si=kvXICXv4GlDuDweR",
+        "position": "normal"
+    },
+    {
         "project_name": "Nervape",
         "path_name": "nervape",
         "start_at": "2023/10/31 08:00 PM UTC-4",
