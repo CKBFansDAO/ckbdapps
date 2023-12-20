@@ -13,8 +13,7 @@
             "path_name": "joyid",
             "categories": [
                 "L1",
-                "Wallet",
-                "DID"
+                "Wallet"
             ]
         },
         {
@@ -26,13 +25,11 @@
             ]
         },
         {
-            "project_name": "Khalani",
-            "path_name": "khalani",
-            "categories": [
-                "Liquidity",
-                "L2"
-            ]
+            "project_name": "JoyGift",
+            "path_name":"joygift",
+            "categories": ["L1"]
         },
+        
         {
             "project_name": "UniPass",
             "path_name": "unipass",
@@ -147,6 +144,14 @@
                 "L2",
                 "DeFi",
                 "Lending"
+            ]
+        },
+        {
+            "project_name": "Khalani",
+            "path_name": "khalani",
+            "categories": [
+                "Liquidity",
+                "L2"
             ]
         },
         {

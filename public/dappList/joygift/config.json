@@ -1,0 +1,25 @@
+{
+    "project_name": "JoyGift",
+    "path_name":"joygift",
+    "categories": ["L1"],
+    "logo_file": "joygift-logo.jpeg",
+    "hero_image":"joygift-hero.jpeg",
+    "links":{
+        "official":"https://joygift.cc/",
+        "twitter":"https://twitter.com/yixiu_yx",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"JoyGift is a platform for sending crypto assets as gifts to your friends, communities, or users. Share the joy, Start with JoyGift.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"JoyGift 是一个发红包工具，你可以通过 JoyGift 向朋友、社区或用户发送加密资产作为礼物。目前已支持 CKB 红包。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
