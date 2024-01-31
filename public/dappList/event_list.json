@@ -1,5 +1,26 @@
 [
     {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/01/31 20:00 UTC+8",
+        "end_at": "2024/01/31 22:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "BTCKB AMA",
+            "event_desc": "Nervos Chief Architect Jan, Co-Founder Terry, and Cipher talk about the 'BTCKB' program "
+        },
+        "zh_CN": {
+            "event_title": "聊聊 Nervos 生态基金启动的 “BTCKB” 计划",
+            "event_desc": "Nervos 首席架构师 Jan、联合创始人 Terry 和 Cipher，和大家聊聊 Nervos 生态基金启动的 “BTCKB” 计划，以及如何打通 BTC 与 CKB，助力 CKB 成为首个与 BTC 完全同构的比特币 Layer 2。"
+        },
+        "img": "nervos-btckb.jpg",
+        "url":"https://twitter.com/i/spaces/1BdGYrkQPWgJX",
+        "position": "banner"
+    },
+   
+    {
         "project_name": "JoyID",
         "path_name": "joyid",
         "start_at": "2023/11/06 08:00 UTC+8",
