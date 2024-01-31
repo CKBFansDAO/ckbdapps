@@ -1,0 +1,25 @@
+{
+    "project_name": "Omiga",
+    "path_name":"omiga",
+    "categories": ["L1", "Inscription"],
+    "logo_file": "omiga-logo.webp",
+    "hero_image":"omiga-hero.jpeg",
+    "links":{
+        "official":"https://omiga.io/",
+        "twitter":"https://twitter.com/omigahq",
+        "discord":"",
+        "telegram":"https://t.me/omigackb",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"The first inscription protocol established on Nervos $CKB blockchain.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.omiga.io/"
+    },
+    "zh_CN": {   
+        "project_summary":"Nervos $CKB 上的第一个铭文协议。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.omiga.io/"  
+    } 
+}
