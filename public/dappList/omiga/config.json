@@ -13,12 +13,12 @@
         "medium":"" 
     },
     "en_US": {   
-        "project_summary":"Omiga is an innovative inscription protocol established on the CKB. Meticulously designed the project to break from tradition and provide users with a fairer, more efficient inscription minting and management experience.",
+        "project_summary":"The first inscription protocol established on Nervos $CKB blockchain.",
         "full_description_file":"full_description_en.md",
         "tutorial_link":"https://docs.omiga.io/"
     },
     "zh_CN": {   
-        "project_summary":"Omiga 是建立在 CKB 区块链上的一项创新性铭文协议。通过精心设计，旨在突破传统，为用户提供更公平、更高效的代币铸造和资产管理体验。",
+        "project_summary":"Nervos $CKB 上的第一个铭文协议。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":"https://docs.omiga.io/"  
     } 
