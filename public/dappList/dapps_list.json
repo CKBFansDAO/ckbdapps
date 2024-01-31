@@ -17,6 +17,14 @@
             ]
         },
         {
+            "project_name": "Omiga",
+            "path_name": "omiga",
+            "categories": [
+                "L1",
+                "inscription"
+            ]
+        },
+        {
             "project_name": "Portal Wallet",
             "path_name": "portalwallet",
             "categories": [
