@@ -37,15 +37,6 @@
             "path_name":"joygift",
             "categories": ["L1"]
         },
-        
-        {
-            "project_name": "UniPass",
-            "path_name": "unipass",
-            "categories": [
-                "DID",
-                "L1"
-            ]
-        },
         {
             "project_name": "YokaiSwap",
             "path_name": "yokaiswap",
@@ -64,6 +55,11 @@
             ]
         },
         {
+            "project_name": "Philosopher's Stone",
+            "path_name":"philosopherstone",
+            "categories": ["L1", "NFT"]
+        },
+        {
             "project_name": "NFTBox",
             "path_name": "nftbox",
             "categories": [
@@ -78,6 +74,14 @@
                 "Wallet",
                 "L1",
                 "NFT"
+            ]
+        },
+        {
+            "project_name": "UniPass",
+            "path_name": "unipass",
+            "categories": [
+                "DID",
+                "L1"
             ]
         },
         {
