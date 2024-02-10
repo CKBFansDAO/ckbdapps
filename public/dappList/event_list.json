@@ -1,4 +1,67 @@
 [
+
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/02/05 7:00 UTC+8",
+        "end_at": "2024/02/05 9:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "All things CKB",
+            "event_desc": "The latest news and chat with the Nervos community"
+        },
+        "zh_CN": {
+            "event_title": "和 Nervos 社区聊一聊 CKB 最新动态",
+            "event_desc": "和 Nervos 社区聊一聊 CKB 最新动态"
+        },
+        "img": "nervos-nervosnation.jpg",
+        "url":"https://twitter.com/i/spaces/1mnxepwQqQnJX?s=20",
+        "position": "banner"
+    },
+
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/01/30 1:00 UTC+8",
+        "end_at": "2024/01/30 2:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "Hashing it Out: January 2024, Episode 16",
+            "event_desc": "Kevin Wang discussed Khalani, the decentralized solver infrastructure for intent-driven applications."
+        },
+        "zh_CN": {
+            "event_title": "Hashing it Out: January 2024, Episode 16",
+            "event_desc": "Kevin Wang 讨论了面向意图驱动型应用程序的基础设施 Khalani"
+        },
+        "img": "nervos-hashing16.jpg",
+        "url":"https://www.youtube.com/watch?v=bUOnGKLjBYY",
+        "position": "banner"
+    },
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/01/30 22:00 UTC+8",
+        "end_at": "2024/01/30 23:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "2024 Community Town Hall",
+            "event_desc": "Delving into a comprehensive review of 2023's journey and achievements. "
+        },
+        "zh_CN": {
+            "event_title": "Nervos 2024 社区 Town Hall",
+            "event_desc": "全面回顾 2023 年的历程和成就"
+        },
+        "img": "nervos-townhall2024.jpg",
+        "url":"https://www.youtube.com/watch?v=b98L_4spGDE&t=18s",
+        "position": "banner"
+    },
+
     {
         "project_name": "Nervos",
         "path_name": "nervos",
