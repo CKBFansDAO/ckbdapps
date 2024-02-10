@@ -1,7 +1,7 @@
 {
     "project_name": "Khalani",
     "path_name":"khalani",
-    "categories": ["Liquidity", "L2"],
+    "categories": ["Intent-centric", "L2"],
     "logo_file": "khalani-logo.png",
     "hero_image":"khalani-hero.jpeg",
     "links":{
@@ -13,13 +13,13 @@
         "medium":"" 
     },
     "en_US": {   
-        "project_summary":"Khalani is the first Universal Liquidity Protocol designed from the ground up for the interoperable blockchains. Built to scale permissionlessly with high capital efficiency and security, Khalani is ready to serve as the liquidity foundation for the next 10,000 modular blockchains.",
+        "project_summary":"Khalani Network is the decentralized solvers infrastructure for intent-driven applications.",
         "full_description_file":"full_description_en.md",
-        "tutorial_link":"https://www.notion.so/Khalani-5133f279de114686821cdea3191021c6"
+        "tutorial_link":"https://blog.khalani.network/introducing-khalani-the-decentralized-solver-infrastructure"
     },
     "zh_CN": {   
-        "project_summary":"Khalani 是第一个专为可互操作的区块链而设计的通用流动性协议，旨在以高资本效率和安全性进行无需许可的扩展，已准备好作为未来 10,000 个模块化区块链的流动性基础设施。",
+        "project_summary":"Khalani Network 是面向意图驱动应用的去中心化求解器基础设施。",
         "full_description_file":"full_description_zh.md",
-        "tutorial_link":"https://www.notion.so/jackylhh/Nervos-6836c451287f44cfa7c4375102f8d778?p=424e39f038064b86b68bfe9ad206c3c5&pm=c"  
+        "tutorial_link":"https://blog.khalani.network/introducing-khalani-the-decentralized-solver-infrastructure"  
     }
 }
