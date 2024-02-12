@@ -1,4 +1,24 @@
 [
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/02/23 22:00 UTC+8",
+        "end_at": "2024/02/23 24:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "BTCKB AMA with Cipher Wang 2024",
+            "event_desc": "Written AMA with Cipher Wang, Founder of CELL STUDIO, bridging Bitcoin to CKB L1."
+        },
+        "zh_CN": {
+            "event_title": "BTCKB AMA with Cipher Wang 2024",
+            "event_desc": "CELL STUDIO 创始人 Cipher Wang 将在 Nervos Reddit 举办 BTCKB 文字AMA。"
+        },
+        "img": "nervos-redditbtckb.png",
+        "url":"https://www.reddit.com/r/NervosNetwork/comments/1alruvx/btckb_ama_with_cipher_wang_2024/",
+        "position": "banner"
+    },
 
     {
         "project_name": "Nervos",
