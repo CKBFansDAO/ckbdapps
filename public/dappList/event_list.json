@@ -1,4 +1,28 @@
 [
+    
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/02/13 20:00 UTC+8",
+        "end_at": "2024/02/13 24:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "CKB AMA BTC L2 RGB++",
+            "event_desc": "Twitter Space with Cipher, Liyang, and Baiyu discussing BTC L2 & RGB++."
+        },
+        "zh_CN": {
+            "event_title": "CKB币安涨幅榜第一 & 新年快闪AMA",
+            "event_desc": "和Cipher、李阳、 Baiyu快闪聊一聊BTC L2 & RGB++。"
+        },
+        "img": "nervos-2024bnama.png",
+        "url":"https://x.com/CKBMeta/status/1757372894525739519?s=20",
+        "position": "banner"
+    },
+    
+    
+    
     {
         "project_name": "Nervos",
         "path_name": "nervos",
