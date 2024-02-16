@@ -1,4 +1,25 @@
 [
+
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/02/16 20:00 UTC+8",
+        "end_at": "2024/02/16 22:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "BTC Asset Issuance with New Protocol RGB++",
+            "event_desc": "Twitter Space with Cipher, Dpangdun, Huajiao, Shawn,and Baiyu discussing BTC L2 & RGB++."
+        },
+        "zh_CN": {
+            "event_title": "聊一聊 BTC 资产发行新协议 RGB++",
+            "event_desc": "Cipher、大胖墩、花椒、Shawn、Baiyu 和大家聊一聊 RGB++ 的技术创新与优势。"
+        },
+        "img": "nervos-spacergb.jpg",
+        "url":"https://x.com/ckbcell/status/1757976939967791302?s=20",
+        "position": "banner"
+    },
     
     {
         "project_name": "Nervos",
@@ -20,9 +41,6 @@
         "url":"https://x.com/CKBMeta/status/1757372894525739519?s=20",
         "position": "banner"
     },
-    
-    
-    
     {
         "project_name": "Nervos",
         "path_name": "nervos",
