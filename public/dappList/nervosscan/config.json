@@ -1,0 +1,24 @@
+{
+    "project_name": "Nervos Scan",
+    "path_name": "nervosscan",
+    "categories": ["Explorer","L1"],
+    "logo_file": "nervosscan-logo.png",
+    "hero_image":"nervosscan-hero.jpeg",
+    "links":{
+        "official":"https://nervosscan.com",
+        "twitter":"",
+        "discord":"",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"A CKB Explorer Made with ♥ by 7774.bit",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"由 7774.bit 用爱发电的简易浏览器，支持查看巨鲸持仓地址。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    } 
+}

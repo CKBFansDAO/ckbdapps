@@ -189,6 +189,14 @@
             ]
         },
         {
+            "project_name": "Nervos Scan",
+            "path_name": "nervosscan",
+            "categories": [
+                "Explorer",
+                "L1"
+            ]
+        },
+        {
             "project_name": "UTXO Alliance",
             "path_name": "utxoalliance",
             "categories": [
