@@ -38,20 +38,11 @@
             "categories": ["L1"]
         },
         {
-            "project_name": "YokaiSwap",
-            "path_name": "yokaiswap",
-            "categories": [
-                "DeFi",
-                "L2"
-            ]
-        },
-        {
             "project_name": "Nervape",
             "path_name": "nervape",
             "categories": [
                 "NFT",
-                "L1",
-                "L2"
+                "L1"
             ]
         },
         {
@@ -85,39 +76,6 @@
             ]
         },
         {
-            "project_name": "YokaiDojo",
-            "path_name": "yokaidojo",
-            "categories": [
-                "L2",
-                "NFT"
-            ]
-        },
-        {
-            "project_name": "NFTnation",
-            "path_name": "nftnation",
-            "categories": [
-                "L2",
-                "NFT"
-            ]
-        },
-        {
-            "project_name": "CKBull",
-            "path_name": "ckbull",
-            "categories": [
-                "Wallet",
-                "Nervos DAO"
-            ]
-        },
-        {
-            "project_name": "Hadouken",
-            "path_name": "hadouken",
-            "categories": [
-                "DeFi",
-                "L2",
-                "Bridges"
-            ]
-        },
-        {
             "project_name": "CKB Explorer",
             "path_name": "ckbexplorer",
             "categories": [
@@ -134,14 +92,6 @@
             ]
         },
         {
-            "project_name": "Stablekoi",
-            "path_name": "stablekoi",
-            "categories": [
-                "DeFi",
-                "L2"
-            ]
-        },
-        {
             "project_name": "ForceBridge",
             "path_name": "forcebridge",
             "categories": [
@@ -150,84 +100,18 @@
             ]
         },
         {
-            "project_name": "Brainiac Finance",
-            "path_name": "brainiac",
-            "categories": [
-                "L2",
-                "DeFi",
-                "Lending"
-            ]
-        },
-        {
-            "project_name": "Khalani",
-            "path_name": "khalani",
-            "categories": [
-                "Liquidity",
-                "L2"
-            ]
-        },
-        {
-            "project_name": "RUNCKB",
-            "path_name": "runckb",
-            "categories": [
-                "L2",
-                "MEME"
-            ]
-        },
-        {
-            "project_name": "Transinu",
-            "path_name": "transinu",
-            "categories": [
-                "MEME",
-                "L2"
-            ]
-        },
-        {
-            "project_name": "Eggslys",
-            "path_name": "eggslys",
-            "categories": [
-                "NFT",
-                "L2"
-            ]
-        },
-        {
-            "project_name": "Jioswap",
-            "path_name": "jioswap",
-            "categories": [
-                "L2",
-                "DeFi"
-            ]
-        },
-        {
-            "project_name": "HuntingNFT",
-            "path_name": "huntingnft",
-            "categories": [
-                "GameFi",
-                "L1"
-            ]
-        },
-        {
-            "project_name": "CKBees",
-            "path_name": "ckbees",
-            "categories": [
-                "NFT",
-                "L2",
-                "GameFi"
-            ]
-        },
-        {
-            "project_name": "Project Kami",
-            "path_name": "projectkami",
-            "categories": [
-                "L2",
-                "NFT"
-            ]
-        },
-        {
             "project_name": "imToken",
             "path_name": "imtoken",
             "categories": [
                 "Wallet"
+            ]
+        },
+        {
+            "project_name": "CKBull",
+            "path_name": "ckbull",
+            "categories": [
+                "Wallet",
+                "Nervos DAO"
             ]
         },
         {
@@ -302,6 +186,122 @@
                 "Explorer",
                 "L1",
                 "NFT"
+            ]
+        },
+        {
+            "project_name": "YokaiSwap",
+            "path_name": "yokaiswap",
+            "categories": [
+                "DeFi",
+                "L2"
+            ]
+        },
+        {
+            "project_name": "YokaiDojo",
+            "path_name": "yokaidojo",
+            "categories": [
+                "L2",
+                "NFT"
+            ]
+        },
+        {
+            "project_name": "NFTnation",
+            "path_name": "nftnation",
+            "categories": [
+                "L2",
+                "NFT"
+            ]
+        },
+        
+        {
+            "project_name": "Hadouken",
+            "path_name": "hadouken",
+            "categories": [
+                "DeFi",
+                "L2",
+                "Bridges"
+            ]
+        },
+        {
+            "project_name": "Brainiac Finance",
+            "path_name": "brainiac",
+            "categories": [
+                "L2",
+                "DeFi",
+                "Lending"
+            ]
+        },
+        {
+            "project_name": "Khalani",
+            "path_name": "khalani",
+            "categories": [
+                "Intent-centric",
+                "L2"
+            ]
+        },
+        {
+            "project_name": "RUNCKB",
+            "path_name": "runckb",
+            "categories": [
+                "L2",
+                "MEME"
+            ]
+        },
+        {
+            "project_name": "Transinu",
+            "path_name": "transinu",
+            "categories": [
+                "MEME",
+                "L2"
+            ]
+        },
+        {
+            "project_name": "Eggslys",
+            "path_name": "eggslys",
+            "categories": [
+                "NFT",
+                "L2"
+            ]
+        },
+        {
+            "project_name": "Jioswap",
+            "path_name": "jioswap",
+            "categories": [
+                "L2",
+                "DeFi"
+            ]
+        },
+        {
+            "project_name": "HuntingNFT",
+            "path_name": "huntingnft",
+            "categories": [
+                "GameFi",
+                "L2"
+            ]
+        },
+        {
+            "project_name": "CKBees",
+            "path_name": "ckbees",
+            "categories": [
+                "NFT",
+                "L2",
+                "GameFi"
+            ]
+        },
+        {
+            "project_name": "Project Kami",
+            "path_name": "projectkami",
+            "categories": [
+                "L2",
+                "NFT"
+            ]
+        },
+        {
+            "project_name": "Stablekoi",
+            "path_name": "stablekoi",
+            "categories": [
+                "DeFi",
+                "L2"
             ]
         },
         {
