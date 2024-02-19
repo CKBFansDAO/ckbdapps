@@ -1,0 +1,124 @@
+[{
+    "project_name": "YokaiSwap",
+    "path_name": "yokaiswap",
+    "categories": [
+        "DeFi",
+        "L2"
+    ]
+},
+{
+    "project_name": "YokaiDojo",
+    "path_name": "yokaidojo",
+    "categories": [
+        "L2",
+        "NFT"
+    ]
+},
+{
+    "project_name": "NFTnation",
+    "path_name": "nftnation",
+    "categories": [
+        "L2",
+        "NFT"
+    ]
+},
+
+{
+    "project_name": "Hadouken",
+    "path_name": "hadouken",
+    "categories": [
+        "DeFi",
+        "L2",
+        "Bridges"
+    ]
+},
+{
+    "project_name": "Brainiac Finance",
+    "path_name": "brainiac",
+    "categories": [
+        "L2",
+        "DeFi",
+        "Lending"
+    ]
+},
+{
+    "project_name": "Khalani",
+    "path_name": "khalani",
+    "categories": [
+        "Intent-centric",
+        "L2"
+    ]
+},
+{
+    "project_name": "RUNCKB",
+    "path_name": "runckb",
+    "categories": [
+        "L2",
+        "MEME"
+    ]
+},
+{
+    "project_name": "Transinu",
+    "path_name": "transinu",
+    "categories": [
+        "MEME",
+        "L2"
+    ]
+},
+{
+    "project_name": "Eggslys",
+    "path_name": "eggslys",
+    "categories": [
+        "NFT",
+        "L2"
+    ]
+},
+{
+    "project_name": "Jioswap",
+    "path_name": "jioswap",
+    "categories": [
+        "L2",
+        "DeFi"
+    ]
+},
+{
+    "project_name": "HuntingNFT",
+    "path_name": "huntingnft",
+    "categories": [
+        "GameFi",
+        "L2"
+    ]
+},
+{
+    "project_name": "CKBees",
+    "path_name": "ckbees",
+    "categories": [
+        "NFT",
+        "L2",
+        "GameFi"
+    ]
+},
+{
+    "project_name": "Project Kami",
+    "path_name": "projectkami",
+    "categories": [
+        "L2",
+        "NFT"
+    ]
+},
+{
+    "project_name": "Stablekoi",
+    "path_name": "stablekoi",
+    "categories": [
+        "DeFi",
+        "L2"
+    ]
+},
+{
+    "project_name": "Godwoken Explorer",
+    "path_name": "godwokenexplorer",
+    "categories": [
+        "Explorer",
+        "L2"
+    ]
+}]
