@@ -1,4 +1,25 @@
 [
+   {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/03/09 09:00 UTC+8",
+        "end_at": "2024/03/09 22:00 UTC+8",
+        "categories": [
+            "Conference"
+        ],
+        "en_US": {
+            "event_title": "Bitcoin Singapore 2024",
+            "event_desc": "Bitcoin Singapore 2024 is a one-day conference hosted by Nervos CKB and ABCDE, focusing on exploring Bitcoin ecosystem development and the latest community advancements."
+        },
+        "zh_CN": {
+            "event_title": "Bitcoin Singapore 2024",
+            "event_desc": "Bitcoin Singapore 2024 由 Nervos CKB 和 ABCDE 共同举办，会议为期一天，专注于探讨比特币生态建设及社区最新发展。"
+        },
+        "img": "nervos-singapore2024.png",
+        "url":"https://lu.ma/vobk70pd",
+        "position": "banner"
+    },
+   
     {
         "project_name": "Nervos",
         "path_name": "nervos",
