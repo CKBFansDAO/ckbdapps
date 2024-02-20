@@ -51,6 +51,14 @@
             "categories": ["L1", "NFT"]
         },
         {
+            "project_name": "NFTnation",
+            "path_name": "nftnation",
+            "categories": [
+                "L1",
+                "NFT"
+            ]
+        },
+        {
             "project_name": "NFTBox",
             "path_name": "nftbox",
             "categories": [
