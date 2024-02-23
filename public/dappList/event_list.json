@@ -10,15 +10,15 @@
             "AMA"
         ],
         "en_US": {
-            "event_title": "Bitcoin Native L2 Boom Approaches: What Sets RGB++ Apart?",
-            "event_desc": "Twitter Space with Cipher,Zhixiong,Haotian,Fasut and Baiyu discuss the unique charm of RGB++."
+            "event_title": "RGB++: The Past and Present",
+            "event_desc": "Join us to explore the past and present of RGB++, and learn about its birth, technical features, and more interesting stories."
         },
         "zh_CN": {
-            "event_title": "比特币原生L2 风口来临，RGB++ 有什么独特魅力可以脱颖而出？",
-            "event_desc": "Cipher, Zhixiong, Haotian, Fasut和 Baiyu ，聊一聊 RGB++ 的独特魅力。"
+            "event_title": "RGB++ 的前世今生",
+            "event_desc": "和众多大咖共同探讨 RGB++ 的前世今生，了解它的诞生，技术特点以及更多有趣的故事。"
         },
-        "img": "nervos-ama-rgb0223.jpg",
-        "url":"https://twitter.com/i/spaces/1RDGllkdEoRGL?s=20",        
+        "img": "nervos-ama-rgb0223-2.jpg",
+        "url":"https://x.com/ckbcell/status/1760873135048683890?s=20",        
         "position": "banner"
     },
     {
