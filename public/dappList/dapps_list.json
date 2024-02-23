@@ -180,14 +180,6 @@
             ]
         },
         {
-            "project_name": "TokenView",
-            "path_name": "tokenview",
-            "categories": [
-                "Explorer",
-                "L1"
-            ]
-        },
-        {
             "project_name": "Token City Explorer",
             "path_name": "tokencityexplorer",
             "categories": [
@@ -897,6 +889,11 @@
             "categories": [
                 "Community"
             ]
+        },
+        {
+            "project_name": "SeeDAO",
+            "path_name":"seedao",
+            "categories": ["Community"]
         }
     ]
 }

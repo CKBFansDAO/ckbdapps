@@ -1,0 +1,25 @@
+{
+    "project_name": "SeeDAO",
+    "path_name":"seedao",
+    "categories": ["Community"],
+    "logo_file": "seedao-logo.jpeg",
+    "hero_image":"seedao-hero.jpeg",
+    "links":{
+        "official":"https://seedao.xyz",
+        "twitter":"https://twitter.com/see_dao",
+        "discord":"https://discord.com/invite/seedao-xyz",
+        "telegram":"",
+        "github":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"SeeDAO is a network polis, a decentralized autonomous world aimed at 「good life」.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://seedao.xyz/intro"
+    },
+    "zh_CN": {   
+        "project_summary":"SeeDAO 是一个基于区块链构建的数字城邦，由去中心化的数字网络和映射在全球各地的物理据点组成，由 SeeDAO 成员共建、共治、共享。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://seedao.xyz/intro"  
+    }
+}

@@ -1,7 +1,7 @@
 {
     "project_name": "Nervos Scan",
     "path_name": "nervosscan",
-    "categories": ["Explorer","L1"],
+    "categories": ["Explorer"],
     "logo_file": "nervosscan-logo.png",
     "hero_image":"nervosscan-hero.jpeg",
     "links":{

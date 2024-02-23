@@ -1,7 +1,7 @@
 {
     "project_name": "CKB Explorer",
     "path_name":"ckbexplorer",
-    "categories": ["Explorer", "L1"],
+    "categories": ["Explorer"],
     "logo_file": "ckbexplorer-logo.png",
     "hero_image":"ckbexplorer-hero.png",
     "links":{

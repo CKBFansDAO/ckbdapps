@@ -1,7 +1,7 @@
 {
     "project_name": "UniPass",
     "path_name":"unipass",
-    "categories": ["DID", "Wallet"],
+    "categories": ["Wallet"],
     "logo_file": "unipass-logo.ico",
     "hero_image":"unipass-hero.png",
     "links":{
