@@ -1,11 +1,11 @@
 {
     "project_name": "Hadouken",
     "path_name":"hadouken",
-    "categories": ["DeFi", "L2", "Bridges", "Lending"],
+    "categories": ["DeFi", "Bridges", "Lending"],
     "logo_file": "Hadouken-logo.png",
     "hero_image":"hadouken-hero.jpeg",
     "links":{
-        "official":"https://hadouken.finance/",
+        "official":"https://app.hadouken.finance/bridge/?action=deposit",
         "twitter":"https://twitter.com/HadoukenFinance",
         "discord":"https://discord.com/invite/pxZJpJPJBH",
         "github":"",

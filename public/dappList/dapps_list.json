@@ -108,6 +108,11 @@
             ]
         },
         {
+            "project_name": "Hadouken",
+            "path_name":"hadouken",
+            "categories": ["DeFi", "Bridges", "Lending"]
+        },
+        {
             "project_name": "imToken",
             "path_name": "imtoken",
             "categories": [
