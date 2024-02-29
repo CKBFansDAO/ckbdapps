@@ -1,6 +1,25 @@
 [
    
-   
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/02/28 20:00 UTC+8",
+        "end_at": "2024/02/28 22:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "Bitcoin Singapore 2024 - Why We Do It",
+            "event_desc": "Join us to explore the topics of the summit and why we are hosting this event."
+        },
+        "zh_CN": {
+            "event_title": "我们为什么要办 Bitcoin Singapore 2024",
+            "event_desc": "CKB 中文邀请 CKB 生态负责人发起人Baiyu, ABCDELabs Co-Founder BMAN 以及 DeltaLabs 发起人 Grace 共同探讨峰会的议题以及为什么要举办这场峰会。"
+        },
+        "img": "nervos-ama-0228.png",
+        "url":"https://x.com/CKB_CN/status/1762290023553290707?s=20",     
+        "position": "banner"
+    },
     {
         "project_name": "Nervos",
         "path_name": "nervos",
