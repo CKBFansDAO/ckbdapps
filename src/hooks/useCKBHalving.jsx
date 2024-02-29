@@ -113,6 +113,9 @@ const useCKBHalving = () => {
 
             const curEpoch = parseEpoch(tipHeader.epoch);
 
+            const dao_data = parseDAO(tipHeader.dao);
+            //console.log(dao_data);
+
             let prevHalvingBlockInfo = await getPrevHalvingBlockInfo(curEpoch.number);
             if (prevHalvingBlockInfo) {
                 setPrevHalvingTime(BI.from(prevHalvingBlockInfo.timestamp).toNumber());
