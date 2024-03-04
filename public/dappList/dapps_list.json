@@ -25,17 +25,19 @@
             ]
         },
         {
-            "project_name": "Portal Wallet",
-            "path_name": "portalwallet",
+            "project_name": "Spore",
+            "path_name": "spore",
             "categories": [
-                "Wallet",
-                "Nervos DAO"
+                "NFT",
+                "L1"
             ]
         },
         {
-            "project_name": "JoyGift",
-            "path_name":"joygift",
-            "categories": ["L1"]
+            "project_name": "Khalani",
+            "path_name": "khalani",
+            "categories": [
+                "Intent-centric"
+            ]
         },
         {
             "project_name": "Nervape",
@@ -44,6 +46,11 @@
                 "NFT",
                 "L1"
             ]
+        },
+        {
+            "project_name": "JoyGift",
+            "path_name":"joygift",
+            "categories": ["L1"]
         },
         {
             "project_name": "Philosopher's Stone",
@@ -59,31 +66,6 @@
             ]
         },
         {
-            "project_name": "NFTBox",
-            "path_name": "nftbox",
-            "categories": [
-                "L1",
-                "NFT"
-            ]
-        },
-        {
-            "project_name": "Token City",
-            "path_name": "tokencity",
-            "categories": [
-                "Wallet",
-                "L1",
-                "NFT"
-            ]
-        },
-        {
-            "project_name": "UniPass",
-            "path_name": "unipass",
-            "categories": [
-                "DID",
-                "L1"
-            ]
-        },
-        {
             "project_name": "CKB Explorer",
             "path_name": "ckbexplorer",
             "categories": [
@@ -94,6 +76,14 @@
         {
             "project_name": "Neuron",
             "path_name": "neuron",
+            "categories": [
+                "Wallet",
+                "Nervos DAO"
+            ]
+        },
+        {
+            "project_name": "Portal Wallet",
+            "path_name": "portalwallet",
             "categories": [
                 "Wallet",
                 "Nervos DAO"
@@ -182,15 +172,6 @@
             "path_name": "openblock",
             "categories": [
                 "Wallet"
-            ]
-        },
-        {
-            "project_name": "Token City Explorer",
-            "path_name": "tokencityexplorer",
-            "categories": [
-                "Explorer",
-                "L1",
-                "NFT"
             ]
         },
         {

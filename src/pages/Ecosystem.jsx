@@ -92,11 +92,11 @@ const Ecosystem = () => {
     const renderSearchBar = () => {
         return <div className='flex gap-6 w-full items-center'>
             <span className='items-center text-[24px] hidden md:block'>{t('ecosystem.all-projects')}</span>
-            <div class="relative">
-                <div class="absolute top-1 left-2.5 ">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+            <div className="relative">
+                <div className="absolute top-1 left-2.5 ">
+                    <i className="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input ref={searchEditRef} class="w-full h-[30px] border-[#C4C4C4] border-[1px] rounded-full pl-8" type="text" placeholder={t('ecosystem.search-placehold')}
+                <input ref={searchEditRef} className="w-full h-[30px] border-[#C4C4C4] border-[1px] rounded-full pl-8" type="text" placeholder={t('ecosystem.search-placehold')}
                     onChange={(e) => {
                         if (e.target.value === '') {
                             setSearchKeyword('')

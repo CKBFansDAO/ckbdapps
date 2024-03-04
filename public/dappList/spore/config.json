@@ -1,0 +1,23 @@
+{
+    "project_name": "Spore",
+    "path_name":"spore",
+    "categories": ["NFT", "L1"],
+    "logo_file": "spore-logo.svg",
+    "hero_image":"spore-hero.png",
+    "links":{
+        "official":"https://spore.pro/",
+        "twitter":"https://twitter.com/sporeprotocol",
+        "discord":"https://discord.gg/X7D7xG7YeX",
+        "github":"https://github.com/sporeprotocol" 
+    },
+    "en_US": {   
+        "project_summary":"Spore Protocol infuses digital assets with enduring value backed by tokenomics, redeemable at any time. Ensures true on-chain ownership, privacy, creative freedom and frictionless interaction.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.spore.pro/"
+    },
+    "zh_CN": {   
+        "project_summary":"Spore Protocol 是 CKB 团队核心成员的独立项目，目标是利用 CKB 的独特优势，为非同质化代币（NFT）界定新的标准。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.spore.pro/"  
+    } 
+}

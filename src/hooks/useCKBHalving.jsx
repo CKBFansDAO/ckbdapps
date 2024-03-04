@@ -112,9 +112,12 @@ const useCKBHalving = () => {
             const tipHeader = await rpc.getTipHeader();
 
             const curEpoch = parseEpoch(tipHeader.epoch);
-
-            const dao_data = parseDAO(tipHeader.dao);
-            //console.log(dao_data);
+            //console.log(1);
+            //console.log((BI.from(113)).toBigInt());
+            /*const b = await rpc.getHeaderByNumber((BI.from(0)).toBigInt());
+            console.log(b);
+            const dao_data = parseDAO('0x8268d571c743a32ee1e547ea57872300989ceafa3e710000005d6a650b53ff06');
+            console.log(dao_data);*/
 
             let prevHalvingBlockInfo = await getPrevHalvingBlockInfo(curEpoch.number);
             if (prevHalvingBlockInfo) {

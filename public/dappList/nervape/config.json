@@ -8,7 +8,7 @@
         "official":"https://nervape.com",
         "twitter":"https://twitter.com/Nervapes",
         "discord":"https://discord.com/invite/7br6nvuNHP",
-        "github":"https://github.com/dotbitHQ" 
+        "github":"https://github.com/nervape" 
     },
     "en_US": {   
         "project_summary":"A Metaverse with an ongoing Story and NFTs Shaped by the Community.",
@@ -16,7 +16,7 @@
         "tutorial_link":"https://tourmaline-elderberry-f93.notion.site/Nervape-Community-Wiki-e46261f411ed42e19b859f48da06fe63"
     },
     "zh_CN": {   
-        "project_summary":"由持续故事和社区共创的 NFT 所组成的猿宇宙。中文社区里也叫他为「小猴子」",
+        "project_summary":"神经猿，由持续的故事和社区共创的 NFT 所组成的猿宇宙。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":"https://tourmaline-elderberry-f93.notion.site/Nervape-Community-Wiki-e46261f411ed42e19b859f48da06fe63"  
     } 

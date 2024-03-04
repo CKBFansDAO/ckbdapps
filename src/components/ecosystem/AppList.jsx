@@ -198,8 +198,8 @@ const App = ({ config }) => {
             {
                 linkArr?.map((linkObj, index) => {
                     let icon_class = link_icon_config[linkObj.name].icon_class;
-                    return <BitTooltip content={t(`common.${linkObj.name}`)} direction="top">
-                        <a key={`${linkObj.name}-${index}`} href={`${linkObj.url}`} target='_blank' className='h-6 w-6 bg-[#EBEBEB] pt-[11.5px] rounded-full flex justify-center'>
+                    return <BitTooltip key={`${linkObj.name}-${index}`} content={t(`common.${linkObj.name}`)} direction="top">
+                        <a href={`${linkObj.url}`} target='_blank' className='h-6 w-6 bg-[#EBEBEB] pt-[11.5px] rounded-full flex justify-center'>
                             <i className={`${icon_class} fa-sm`}></i>
                         </a>
                     </BitTooltip>

@@ -1,7 +1,7 @@
 {
     "project_name": "Khalani",
     "path_name":"khalani",
-    "categories": ["Intent-centric", "L2"],
+    "categories": ["Intent-centric"],
     "logo_file": "khalani-logo.png",
     "hero_image":"khalani-hero.jpeg",
     "links":{

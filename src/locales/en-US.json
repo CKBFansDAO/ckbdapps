@@ -60,6 +60,14 @@
         "tradable": "Tradable",
         "ckb-his-price": "CKB Historical Price",
         "ckb-his-hash-rate": "Historical Hash Rate"
+      },
+      "charts": {
+        "ckb-his-occupied":"CKB Historical Occupied",
+        "date":"Date",
+        "total-occupied":"Occupied CKB",
+        "circulating-supply":"Circulating Supply",
+        "satosh-gift-occupied":"Satoshi Gift Occupied",
+        "actual-ckb-occupied":"Actual CKB Occupied"
       }
     },
     "halving": {

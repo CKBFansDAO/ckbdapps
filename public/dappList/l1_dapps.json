@@ -1,0 +1,36 @@
+[
+    {
+        "project_name": "NFTBox",
+        "path_name": "nftbox",
+        "categories": [
+            "L1",
+            "NFT"
+        ]
+    },
+    {
+        "project_name": "Token City",
+        "path_name": "tokencity",
+        "categories": [
+            "Wallet",
+            "L1",
+            "NFT"
+        ]
+    },
+    {
+        "project_name": "UniPass",
+        "path_name": "unipass",
+        "categories": [
+            "DID",
+            "L1"
+        ]
+    },
+    {
+        "project_name": "Token City Explorer",
+        "path_name": "tokencityexplorer",
+        "categories": [
+            "Explorer",
+            "L1",
+            "NFT"
+        ]
+    }
+]

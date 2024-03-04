@@ -33,14 +33,6 @@
     ]
 },
 {
-    "project_name": "Khalani",
-    "path_name": "khalani",
-    "categories": [
-        "Intent-centric",
-        "L2"
-    ]
-},
-{
     "project_name": "RUNCKB",
     "path_name": "runckb",
     "categories": [

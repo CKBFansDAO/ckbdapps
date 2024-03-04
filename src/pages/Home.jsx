@@ -11,6 +11,7 @@ import { HalvingAlertType, checkHalvingAlertType, getNextHalvingEpoch } from '..
 import CKBHistoryPriceChart from '../components/chart/CKBHistoryPriceChart';
 import CKBTokenSummary from '../components/CKBTipSummary/CKBTokenSummary';
 import CKBHashRateChart from '../components/chart/CKBHashRateChart';
+import CKBHistoryOccupiedChart from '../components/chart/CKBHistoryOccupiedChart';
 
 const Home = () => {
 
@@ -68,6 +69,7 @@ const Home = () => {
             <div className="mx-auto max-w-content w-full">
                 <CKBHistoryPriceChart></CKBHistoryPriceChart>
                 <CKBHashRateChart></CKBHashRateChart>
+                <CKBHistoryOccupiedChart></CKBHistoryOccupiedChart>
             </div>
             <div className='h-10'></div>
         </div>
