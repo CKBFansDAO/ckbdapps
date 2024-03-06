@@ -202,7 +202,7 @@ const CKBHistoryOccupiedChart = () => {
 
                         <ResponsiveContainer className='select-none'>
                             <AreaChart data={getDataByInterval()}>
-                                <CartesianGrid strokeDasharray='4 4' />
+                                <CartesianGrid strokeDasharray='2 8' vertical={false} />
                                 <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd" />
                                 <YAxis tickFormatter={formatYAxis} />
                                 <Tooltip content={<CustomTooltip />} />

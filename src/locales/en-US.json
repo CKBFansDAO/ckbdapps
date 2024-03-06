@@ -67,7 +67,10 @@
         "total-occupied":"Occupied CKB",
         "circulating-supply":"Circulating Supply",
         "satosh-gift-occupied":"Satoshi Gift Occupied",
-        "actual-ckb-occupied":"Actual CKB Occupied"
+        "actual-ckb-occupied":"Actual CKB Occupied",
+        "event":"Event",
+        "hash-rate":"Hash Rate",
+        "miner-released":"miner released"
       }
     },
     "halving": {

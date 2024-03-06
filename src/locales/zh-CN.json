@@ -67,7 +67,10 @@
         "total-occupied":"CKB占用量",
         "circulating-supply":"CKB流通量",
         "satosh-gift-occupied":"致敬中本聪占用量",
-        "actual-ckb-occupied":"应用实际占用量"
+        "actual-ckb-occupied":"应用实际占用量",
+        "event":"事件",
+        "hash-rate":"算力",
+        "miner-released":"矿机上市"
       }
     },
     "halving": { 
