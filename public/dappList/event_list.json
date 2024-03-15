@@ -1,5 +1,24 @@
 [
-   
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/03/15 20:00 UTC+8",
+        "end_at": "2024/03/15 22:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "Nervos CKB CN Community Ambassador X Space",
+            "event_desc": "CKB CN invites Baiyu, the founder of CKB ecosystem, and 4 community ambassadors to discuss the next steps for community operations."
+        },
+        "zh_CN": {
+            "event_title": " 首场 CKB 社区大使 X Space ",
+            "event_desc": "CKB 中文邀请 CKB 生态负责人发起人Baiyu, 以及 4 位社区大使聊一聊下一步的社区运营计划"
+        },
+        "img": "nervos-ama-0315.jpeg",
+        "url":"https://x.com/CKB_CN/status/1768606872528158944?s=20",     
+        "position": "banner"
+    },
     {
         "project_name": "Nervos",
         "path_name": "nervos",
