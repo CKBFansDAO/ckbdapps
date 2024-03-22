@@ -2,6 +2,26 @@
     {
         "project_name": "Nervos",
         "path_name": "nervos",
+        "start_at": "2024/03/22 20:30 UTC+8",
+        "end_at": "2024/03/22 22:00 UTC+8",
+        "categories": [
+            "AMA"
+        ],
+        "en_US": {
+            "event_title": "The Next Wave of Opportunities for Bitcoin New Asset Protocols",
+            "event_desc": "CKB CN invites Wizz Wallet co-founder Brutoshi, crypto KOLs Wizard, OxSea.eth, Shawn, community ambassador Cyberorange, and DeltaLabs founder Grace to discuss the next wave of opportunities for Bitcoin new asset protocols."
+        },
+        "zh_CN": {
+            "event_title": " 比特币新资产协议下一波的机会 ",
+            "event_desc": "CKB 中文社区将邀请 Wizz Wallet 联创 Brutoshi ， 加密圈 KOL 巫师、OxSea.eth、Shawn，社区大使 Cyberorange 以及  DeltaLabs 发起人 Grace 聊一聊比特币新资产协议下一波的机会 "
+        },
+        "img": "nervos-ama-0322.png",
+        "url":"https://x.com/CKB_CN/status/1770989843952333229?s=20",     
+        "position": "banner"
+    },
+     {
+        "project_name": "Nervos",
+        "path_name": "nervos",
         "start_at": "2024/03/15 20:00 UTC+8",
         "end_at": "2024/03/15 22:00 UTC+8",
         "categories": [
