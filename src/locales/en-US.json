@@ -70,6 +70,7 @@
         "actual-ckb-occupied":"Actual CKB Occupied",
         "event":"Event",
         "hash-rate":"Hash Rate",
+        "price":"Price",
         "miner-released":"miner released"
       }
     },

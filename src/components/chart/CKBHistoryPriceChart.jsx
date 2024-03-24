@@ -19,13 +19,22 @@ const period_intervals = {
 }
 
 const CustomTooltip = ({ active, payload }) => {
+
+    const [t] = useTranslation();
+
     if (active && payload && payload.length) {
         const { value } = payload[0];
         // Customize the tooltip content here
         return (
             <div className="bg-[#8884d8] px-4 py-2 rounded-md text-white opacity-80">
-                <p className="">{`${formatXAxis(payload[0].payload.created_at_unix)}`}</p>
-                <p className="">${`${parseFloat(value).toFixed(5)}`}</p>
+                <div className="flex justify-between  gap-3">
+                    <span className='font-bold text-black'>{t('home.charts.date')}:</span>
+                    <span>{`${formatXAxis(payload[0].payload.created_at_unix)}`}</span>
+                </div>
+                <div className="flex justify-between  gap-3">
+                    <span className='font-bold text-black'>{t('home.charts.price')}:</span>
+                    <span>${`${parseFloat(value).toFixed(5)}`}</span>
+                </div>
             </div>
         );
     }

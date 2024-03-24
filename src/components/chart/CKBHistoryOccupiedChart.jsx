@@ -75,13 +75,13 @@ const CustomTooltip = ({ active, payload }) => {
         return (
             <div className="flex flex-col bg-[#ffc658] px-4 py-2 rounded-md text-black opacity-80">
                 <div className="flex justify-between  gap-3">
-                    <span>{t('home.charts.date')}:</span>
+                    <span className='font-bold'>{t('home.charts.date')}:</span>
                     <span>{`${formatXAxis(payload[0].payload.created_at_unix)}`}</span>
                 </div>
                 {
                     payload.map((item, index) => {
                         return <div key={index} className="flex justify-between  gap-3">
-                        <span>{t(`home.charts.${item.name}`)}:</span>
+                        <span className='font-bold'>{t(`home.charts.${item.name}`)}:</span>
                         <span>{`${numberFormatter(item.value, 2)}`}</span>
                     </div>
                     })

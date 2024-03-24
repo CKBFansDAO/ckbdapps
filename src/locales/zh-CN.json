@@ -70,6 +70,7 @@
         "actual-ckb-occupied":"应用实际占用量",
         "event":"事件",
         "hash-rate":"算力",
+        "price":"价格",
         "miner-released":"矿机上市"
       }
     },
