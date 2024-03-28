@@ -1,4 +1,25 @@
 [
+   {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/04/07 19:00 UTC+8",
+        "end_at": "2024/04/07 22:00 UTC+8",
+        "categories": [
+            "Conference"
+        ],
+        "en_US": {
+            "event_title": "Nervos CKB & Friends (Hong Kong)",
+            "event_desc": "This event is hosted by the CKB Eco Fund, co-hosted by OpenStamp and QED Protocol, and supported by Cell Studio, d.id, NERVAPE, SeeDAO, Rebase, and other ecological projects. Welcome all community friends to join the party and chat together."
+        },
+        "zh_CN": {
+            "event_title": "CKB 和她的朋友们（香港站）",
+            "event_desc": "本活动由 CKB 生态基金主办，OpenStamp 与 QED Protocol 联合主办，更有 Cell Studio、d.id、NERVAPE、SeeDAO、Rebase 等生态项目的联合支持，欢迎各位社区小伙伴前来参与酒会一起畅聊。"
+        },
+        "img": "nervos-hk-afterparty.png",
+        "url":"https://lu.ma/dk4219i8",     
+        "position": "banner"
+    },
+   
     {
         "project_name": "Nervos",
         "path_name": "nervos",
