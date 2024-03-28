@@ -1,5 +1,28 @@
 [
-   {
+   
+    {
+        "project_name": "Nervos",
+        "path_name": "nervos",
+        "start_at": "2024/04/09 9:00 UTC+8",
+        "end_at": "2024/04/09 19:00 UTC+8",
+        "categories": [
+            "Conference"
+        ],
+        "en_US": { 
+            "event_title": "HK Web3 Festival 2024 Bitcoin Forum",
+            "event_desc": "On April 9, CKB and BitcoinMagazine, as Co-Organizers, will host the 'Bitcoin Technology Development and Ecosystem Construction' forum at the main venue (morning) and sub-venue three (afternoon) of the 2024 Hong Kong Web3 Festival, inviting global industry elites to discuss the current development and future trends of the Bitcoin ecosystem and encrypted assets."
+        },
+        "zh_CN": {
+            "event_title": "CKB与万向区块链联合举办比特币论坛",
+            "event_desc": "4 月 9 日，CKB 与 BitcoinMagazine 作为 Co-Organizer，与 2024 香港Web3嘉年华主办方一起在主会场（上午）和分会场三（下午）举办 “比特币技术发展和生态建设” 主题论坛，广邀全球业界精英，共同探讨比特币生态及加密资产的发展现状与未来趋势。"
+        },
+        "img": "nervos-hk-con.png",
+        "url":"https://lu.ma/hkweb3festival2024",    
+        "position": "banner"
+    },
+   
+   
+    {
         "project_name": "Nervos",
         "path_name": "nervos",
         "start_at": "2024/04/07 19:00 UTC+8",
@@ -29,7 +52,7 @@
             "AMA"
         ],
         "en_US": {
-            "event_title": "The Next Wave of Opportunities for Bitcoin New Asset Protocols",
+            "event_title": "Space：Bitcoin New Asset Protocols",
             "event_desc": "CKB CN invites Wizz Wallet co-founder Brutoshi, crypto KOLs Wizard, OxSea.eth, Shawn, community ambassador Cyberorange, and DeltaLabs founder Grace to discuss the next wave of opportunities for Bitcoin new asset protocols."
         },
         "zh_CN": {
@@ -49,7 +72,7 @@
             "AMA"
         ],
         "en_US": {
-            "event_title": "Nervos CKB CN Community Ambassador X Space",
+            "event_title": "Space: CKB CN Community Ambassador",
             "event_desc": "CKB CN invites Baiyu, the founder of CKB ecosystem, and 4 community ambassadors to discuss the next steps for community operations."
         },
         "zh_CN": {
@@ -69,7 +92,7 @@
             "AMA"
         ],
         "en_US": {
-            "event_title": "Bitcoin Singapore 2024 - Why We Do It",
+            "event_title": "Space: Bitcoin Singapore 2024",
             "event_desc": "Join us to explore the topics of the summit and why we are hosting this event."
         },
         "zh_CN": {
