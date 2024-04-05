@@ -52,7 +52,7 @@ const Footer = (props) => {
         </div>
 
         <div className=' text-sm px-3 py-5 flex items-center justify-center'>
-            © 2023 ckbdapps.com All rights reserved
+            © 2023 - {new Date().getFullYear()} ckbdapps.com All rights reserved
         </div>
     </div>
     )
