@@ -1,0 +1,24 @@
+{
+    "project_name": "Huehub",
+    "path_name":"huehub",
+    "categories": ["L1", "DEX", "RGB++"],
+    "logo_file": "huehub-logo.jpeg",
+    "hero_image":"huehub-hero.jpeg",
+    "links":{
+        "official":"https://huehub.xyz/",
+        "twitter":"https://x.com/HueHubOfficial",
+        "telegram":"https://t.me/HueHubOfficial",
+        "discord":"",
+        "github":"" 
+    },
+    "en_US": {   
+        "project_summary":"HueHub, the First Dex of RGB++",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Huehub 是第一个基于 RGB++ 上的交易市场",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

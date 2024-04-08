@@ -17,19 +17,24 @@
             ]
         },
         {
-            "project_name": "Omiga",
-            "path_name": "omiga",
-            "categories": [
-                "L1",
-                "inscription"
-            ]
-        },
-        {
             "project_name": "Spore",
             "path_name": "spore",
             "categories": [
                 "NFT",
                 "L1"
+            ]
+        },
+        {
+            "project_name": "Huehub",
+            "path_name":"huehub",
+            "categories": ["L1", "DEX", "RGB++"]
+        },
+        {
+            "project_name": "Omiga",
+            "path_name": "omiga",
+            "categories": [
+                "L1",
+                "inscription"
             ]
         },
         {
@@ -43,7 +48,7 @@
             "project_name": "Nervape",
             "path_name": "nervape",
             "categories": [
-                "NFT",
+                "DOB",
                 "L1"
             ]
         },
@@ -55,7 +60,7 @@
         {
             "project_name": "Philosopher's Stone",
             "path_name":"philosopherstone",
-            "categories": ["L1", "NFT"]
+            "categories": ["L1", "DOB"]
         },
         {
             "project_name": "NFTnation",

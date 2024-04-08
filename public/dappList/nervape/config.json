@@ -1,22 +1,23 @@
 {
     "project_name": "Nervape",
     "path_name":"nervape",
-    "categories": ["NFT", "L1"],
+    "categories": ["DOB", "L1", "RGB++"],
     "logo_file": "nervape-logo.jpeg",
-    "hero_image":"nervape-hero.png",
+    "hero_image":"nervape-hero.jpeg",
     "links":{
         "official":"https://nervape.com",
         "twitter":"https://twitter.com/Nervapes",
+        "telegram":"https://t.me/Nervape_CN",
         "discord":"https://discord.com/invite/7br6nvuNHP",
         "github":"https://github.com/nervape" 
     },
     "en_US": {   
-        "project_summary":"A Metaverse with an ongoing Story and NFTs Shaped by the Community.",
+        "project_summary":"Nervape, multi-chain composable digital objects built on Bitcoin. BE YOURSELF, TRUST YOURSELF, CREATE YOURSELF.",
         "full_description_file":"full_description_en.md",
         "tutorial_link":"https://tourmaline-elderberry-f93.notion.site/Nervape-Community-Wiki-e46261f411ed42e19b859f48da06fe63"
     },
     "zh_CN": {   
-        "project_summary":"神经猿，由持续的故事和社区共创的 NFT 所组成的猿宇宙。",
+        "project_summary":"神经猿，基于比特币构建的多链可组合数字对象。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":"https://tourmaline-elderberry-f93.notion.site/Nervape-Community-Wiki-e46261f411ed42e19b859f48da06fe63"  
     } 
