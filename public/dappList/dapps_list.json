@@ -1,6 +1,20 @@
 {
     "dappList": [
         {
+            "project_name": "Huehub",
+            "path_name":"huehub",
+            "categories": ["RGB++", "L1", "DEX"]
+        },
+        {
+            "project_name": "Spore",
+            "path_name": "spore",
+            "categories": [
+                "DOBs",
+                "L1",
+                "Protocols"
+            ]
+        },
+        {
             "project_name": ".bit",
             "path_name": "dotbit",
             "categories": [
@@ -15,19 +29,6 @@
                 "L1",
                 "Wallet"
             ]
-        },
-        {
-            "project_name": "Spore",
-            "path_name": "spore",
-            "categories": [
-                "NFT",
-                "L1"
-            ]
-        },
-        {
-            "project_name": "Huehub",
-            "path_name":"huehub",
-            "categories": ["L1", "DEX", "RGB++"]
         },
         {
             "project_name": "Omiga",
@@ -48,7 +49,7 @@
             "project_name": "Nervape",
             "path_name": "nervape",
             "categories": [
-                "DOB",
+                "DOBs",
                 "L1"
             ]
         },
@@ -60,7 +61,7 @@
         {
             "project_name": "Philosopher's Stone",
             "path_name":"philosopherstone",
-            "categories": ["L1", "DOB"]
+            "categories": ["L1", "DOBs"]
         },
         {
             "project_name": "NFTnation",

@@ -1,7 +1,7 @@
 {
     "project_name": "Huehub",
     "path_name":"huehub",
-    "categories": ["L1", "DEX", "RGB++"],
+    "categories": ["RGB++","L1", "DEX"],
     "logo_file": "huehub-logo.jpeg",
     "hero_image":"huehub-hero.jpeg",
     "links":{
