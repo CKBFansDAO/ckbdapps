@@ -1,7 +1,7 @@
 {
     "project_name": "Philosopher's Stone",
     "path_name":"philosopherstone",
-    "categories": ["L1", "NFT"],
+    "categories": ["L1", "Spore", "DOBs"],
     "logo_file": "ps-logo.png",
     "hero_image":"ps-hero.png",
     "links":{
@@ -13,12 +13,12 @@
         "medium":"" 
     },
     "en_US": {   
-        "project_summary":"Philosopher's Stone is a novel NFT platform powered by the Spore Protocol. It blends the excitement of Blind Box gifting, delivering a captivating user experience.",
+        "project_summary":"Philosopher's Stone is a novel DOBs platform powered by the Spore Protocol. It blends the excitement of Blind Box gifting, delivering a captivating user experience.",
         "full_description_file":"full_description_en.md",
         "tutorial_link":""
     },
     "zh_CN": {   
-        "project_summary":"Philosopher's Stone 是基于 Spore 协议搭建的 NFT 礼物平台。它融合了盲盒礼物的刺激性，提供了令人着迷的用户体验。",
+        "project_summary":"Philosopher's Stone 是基于 Spore 协议搭建的 DOBs 礼物平台。它融合了盲盒礼物的刺激性，提供了令人着迷的用户体验。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
     } 

@@ -1,9 +1,9 @@
 {
     "dappList": [
         {
-            "project_name": "Huehub",
-            "path_name":"huehub",
-            "categories": ["RGB++", "L1", "DEX"]
+            "project_name": "RGB++",
+            "path_name":"rgbpp",
+            "categories": ["RGB++", "Protocol", "L1"]
         },
         {
             "project_name": "Spore",
@@ -12,6 +12,19 @@
                 "DOBs",
                 "L1",
                 "Protocols"
+            ]
+        },
+        {
+            "project_name": "Huehub",
+            "path_name":"huehub",
+            "categories": ["RGB++", "L1", "DEX"]
+        },
+        {
+            "project_name": "Nervape",
+            "path_name": "nervape",
+            "categories": [
+                "DOBs",
+                "L1"
             ]
         },
         {
@@ -43,14 +56,6 @@
             "path_name": "khalani",
             "categories": [
                 "Intent-centric"
-            ]
-        },
-        {
-            "project_name": "Nervape",
-            "path_name": "nervape",
-            "categories": [
-                "DOBs",
-                "L1"
             ]
         },
         {
