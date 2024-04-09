@@ -71,7 +71,7 @@ const Sidebar = props => {
     const [t] = useTranslation();
 
     const itemClicked = () => {
-        if(props.closeDrawer) {
+        if (props.closeDrawer) {
             props.closeDrawer()
         }
     }
@@ -98,6 +98,15 @@ const Sidebar = props => {
                         </Link>
                     ))
                 }
+                <a href="https://cookckb.dev" target='_blank' rel="noopener noreferrer" >
+                    <div className="sidebar__item my-1">
+                        <div className={`sidebar__item-inner`}>
+                            <i className="fa-solid fa-burger fa-sm sidebar_mr_10px"></i>
+                            <span className='grow'>Cook CKB</span>
+                            <i className="fa-solid fa-up-right-from-square fa-sm"></i>
+                        </div>
+                    </div>
+                </a>
             </div>
             <div className='flex w-full p-5'>
                 <a className='w-6 h-6 flex justify-center items-center rounded-full bg-[#4F4F63] mr-2 icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
