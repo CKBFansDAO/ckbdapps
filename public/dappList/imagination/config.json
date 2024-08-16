@@ -1,0 +1,30 @@
+{
+    "project_name": "imagiNation",
+    "path_name": "imagination",
+    "categories": [
+        "Marketplace",
+        "NFT",
+        "DOBs"
+    ],
+    "logo_file": "imagination-logo.png",
+    "hero_image":"imagination-hero.jpeg",
+    "links":{
+        "official":"https://imagination.to/",
+        "twitter":"https://x.com/imagiNation_mkt",
+        "discord":"https://discord.gg/2DBVH3qgMf",
+        "telegram":"",
+        "github":"",
+        "medium":"https://medium.com/nervos-nation",
+        "youtube":"http://youtube.com/NervosNation" 
+    },
+    "en_US": {   
+        "project_summary":"Digital collectibles on CKB. Creative on-chain assets. Unleash your imagination!",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"imagiNation 是 CKB 上的一个数字藏品交易市场。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

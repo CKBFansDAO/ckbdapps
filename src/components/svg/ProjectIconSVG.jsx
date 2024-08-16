@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import d3Tip from 'd3-tip';
 
 let starryBackground = './images/starry-bg.jpeg';
-let nervosLogo = './images/nervos-logo-white.svg'
+let nervosLogo = './images/ckb-logo-white.svg'
 
 const ProjectIconsSVG = ({ icons }) => {
   const svgRef = useRef(null);
@@ -211,7 +211,7 @@ const ProjectIconsSVG = ({ icons }) => {
         width={200}
         height={null}
         x={canvasWidth / 2 - 100 + 20}
-        y={canvasHeight / 2 - 66-20}
+        y={canvasHeight / 2 - 100-20}
         preserveAspectRatio="xMidYMid meet"
       />
   </svg>;

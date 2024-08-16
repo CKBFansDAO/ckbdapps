@@ -69,11 +69,12 @@
             "categories": ["L1", "DOBs"]
         },
         {
-            "project_name": "NFTnation",
-            "path_name": "nftnation",
+            "project_name": "imagiNation",
+            "path_name": "imagination",
             "categories": [
-                "L1",
-                "NFT"
+                "Marketplace",
+                "NFT",
+                "DOBs"
             ]
         },
         {
