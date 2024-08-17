@@ -1,7 +1,7 @@
 {
     "project_name": "Token City",
     "path_name":"tokencity",
-    "categories": ["Wallet", "L1", "NFT"],
+    "categories": ["Wallet", "NFT"],
     "logo_file": "tokencity-logo.png",
     "hero_image":"tokencity-hero.png",
     "links":{

@@ -1,0 +1,23 @@
+{
+    "project_name": "Dobby",
+    "path_name":"dobby",
+    "categories": ["RGB++", "Marketplace", "DEX"],
+    "logo_file": "dobby-logo.jpg",
+    "links":{
+        "official":"https://app.dobby.market",
+        "twitter":"https://x.com/Dobby_Market",
+        "telegram":"https://t.co/skopMpvu14",
+        "discord":"",
+        "github":"" 
+    },
+    "en_US": {   
+        "project_summary":"Dobby is the platform for Digital Objects on Bitcoin.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Dobby 是比特币数码物的交易平台。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

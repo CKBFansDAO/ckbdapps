@@ -1,7 +1,7 @@
 {
     "project_name": "Nervape",
     "path_name":"nervape",
-    "categories": ["RGB++", "DOBs", "L1"],
+    "categories": ["RGB++", "DOBs"],
     "logo_file": "nervape-logo.jpeg",
     "hero_image":"nervape-hero.jpeg",
     "links":{

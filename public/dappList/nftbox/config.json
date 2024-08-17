@@ -1,7 +1,7 @@
 {
     "project_name": "NFTBox",
     "path_name":"nftbox",
-    "categories": ["L1","NFT"],
+    "categories": ["NFT"],
     "logo_file": "nftbox-logo.png",
     "hero_image":"nftbox-hero.jpg",
     "links":{

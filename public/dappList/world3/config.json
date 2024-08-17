@@ -1,0 +1,26 @@
+{
+    "project_name": "World3",
+    "path_name":"world3",
+    "categories": ["RGB++", "DOBs", "AW"],
+    "logo_file": "world3-logo.jpg",
+    "hero_image":"world3-hero.jpeg",
+    "links":{
+        "official":"https://world3.ai/",
+        "twitter":"https://twitter.com/world3_ai",
+        "telegram":"https://t.me/WORLD3_AI",
+        "discord":"https://discord.gg/world3-884322697172107285",
+        "github":"",
+        "youtube":"https://www.youtube.com/channel/UC96imRrk0fanrIBBsLgMBvw",
+        "medium": "https://medium.com/@world3_ai" 
+    },
+    "en_US": {   
+        "project_summary":"World3 is an AI-powered Autonomous World built on Bitcoin, featuring multi-chain usability",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"World3 是一个去中心化的自主 AI 世界，以比特币主网为数码物（DOB）的资产控制层，以 CKB 为数码物的 DA 层和智能合约层，实现了比特币与其他图灵完备区块链的无缝对接。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

@@ -1,7 +1,7 @@
 {
     "project_name": "Philosopher's Stone",
     "path_name":"philosopherstone",
-    "categories": ["L1", "Spore", "DOBs"],
+    "categories": ["DOBs", "Tools"],
     "logo_file": "ps-logo.png",
     "hero_image":"ps-hero.png",
     "links":{

@@ -3,7 +3,6 @@
         "project_name": "NFTBox",
         "path_name": "nftbox",
         "categories": [
-            "L1",
             "NFT"
         ]
     },
@@ -12,7 +11,6 @@
         "path_name": "tokencity",
         "categories": [
             "Wallet",
-            "L1",
             "NFT"
         ]
     },
@@ -20,8 +18,7 @@
         "project_name": "UniPass",
         "path_name": "unipass",
         "categories": [
-            "DID",
-            "L1"
+            "DID"
         ]
     },
     {
@@ -29,7 +26,6 @@
         "path_name": "tokencityexplorer",
         "categories": [
             "Explorer",
-            "L1",
             "NFT"
         ]
     }

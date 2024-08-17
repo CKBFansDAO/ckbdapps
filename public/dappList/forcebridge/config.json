@@ -1,7 +1,7 @@
 {
     "project_name": "ForceBridge",
     "path_name":"forcebridge",
-    "categories": ["Bridges", "L1"],
+    "categories": ["Bridges"],
     "logo_file": "forcebridge-logo.png",
     "hero_image":"forcebridge-hero.png",
     "links":{

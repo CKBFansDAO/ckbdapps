@@ -71,6 +71,16 @@
             "categories": ["RGB++", "Infra"]
         },
         {
+            "project_name": "Cellula",
+            "path_name":"cellula",
+            "categories": ["RGB++", "DOBs", "AW"]
+        },
+        {
+            "project_name": "World3",
+            "path_name":"world3",
+            "categories": ["RGB++", "DOBs", "AW"]
+        },
+        {
             "project_name": "Khalani",
             "path_name": "khalani",
             "categories": [
@@ -80,12 +90,12 @@
         {
             "project_name": "JoyGift",
             "path_name":"joygift",
-            "categories": ["L1"]
+            "categories": ["Tools"]
         },
         {
             "project_name": "Philosopher's Stone",
             "path_name":"philosopherstone",
-            "categories": ["L1", "DOBs"]
+            "categories": ["Tools", "DOBs"]
         },
         {
             "project_name": "imagiNation",
@@ -97,11 +107,15 @@
             ]
         },
         {
+            "project_name": "Dobby",
+            "path_name":"dobby",
+            "categories": ["RGB++", "Marketplace", "DEX"]
+        },
+        {
             "project_name": "CKB Explorer",
             "path_name": "ckbexplorer",
             "categories": [
-                "Explorer",
-                "L1"
+                "Explorer"
             ]
         },
         {
@@ -124,8 +138,7 @@
             "project_name": "ForceBridge",
             "path_name": "forcebridge",
             "categories": [
-                "Bridges",
-                "L1"
+                "Bridges"
             ]
         },
         {
@@ -209,8 +222,7 @@
             "project_name": "Nervos Scan",
             "path_name": "nervosscan",
             "categories": [
-                "Explorer",
-                "L1"
+                "Explorer"
             ]
         },
         {
