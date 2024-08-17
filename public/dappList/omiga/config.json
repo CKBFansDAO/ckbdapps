@@ -1,7 +1,7 @@
 {
     "project_name": "Omiga",
     "path_name":"omiga",
-    "categories": ["L1", "Inscription"],
+    "categories": ["Marketplace", "DEX", "RGB++"],
     "logo_file": "omiga-logo.webp",
     "hero_image":"omiga-hero.jpeg",
     "links":{
@@ -13,12 +13,12 @@
         "medium":"" 
     },
     "en_US": {   
-        "project_summary":"The first inscription protocol established on Nervos $CKB blockchain.",
+        "project_summary":"The first  inscription protocol established on Nervos $CKB, also a DEX.",
         "full_description_file":"full_description_en.md",
         "tutorial_link":"https://docs.omiga.io/"
     },
     "zh_CN": {   
-        "project_summary":"Nervos $CKB 上的第一个铭文协议。",
+        "project_summary":"Nervos $CKB 上的第一个铭文协议，目前是 CKB 上资产品类支持得最多的 DEX。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":"https://docs.omiga.io/"  
     } 

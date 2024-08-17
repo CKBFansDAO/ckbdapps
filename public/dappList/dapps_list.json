@@ -47,8 +47,17 @@
             "project_name": "Omiga",
             "path_name": "omiga",
             "categories": [
-                "L1",
-                "inscription"
+                "DEX",
+                "Marketplace"
+            ]
+        },
+        {
+            "project_name": "UTXOSwap",
+            "path_name": "utxoswap",
+            "categories": [
+                "DEX",
+                "DeFi",
+                "RGB++"
             ]
         },
         {

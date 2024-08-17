@@ -1,0 +1,24 @@
+{
+    "project_name": "UTXOSwap",
+    "path_name": "utxoswap",
+    "categories": ["DEX", "DeFi", "RGB++"],
+    "logo_file": "utxoswap-logo.png",
+    "hero_image":"utxoswap-hero.jpg",
+    "links":{
+        "official":"https://utxoswap.xyz/",
+        "twitter":"https://x.com/UTXOSwap",
+        "telegram":"https://t.me/UTXOSwap",
+        "discord":"",
+        "github":"" 
+    },
+    "en_US": {   
+        "project_summary":"UTXOSwap is the first decentralized exchange (DEX) based on the RGB++ Layer, designed to unlock asset liquidity across all UTXO chains through intent-based trading, bridgeless leap, and smart contract.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://utxoswap.gitbook.io/en"
+    },
+    "zh_CN": {   
+        "project_summary":"UTXOSwap 是首个基于 RGB++ Layer 的去中心化交易平台(DEX)，旨在通过意图交易、无桥跨链和智能合约技术，为所有 UTXO 链提供资产流动性解决方案。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://utxoswap.gitbook.io/zh"  
+    } 
+}
