@@ -1,0 +1,25 @@
+{
+    "project_name": "Stable++",
+    "path_name":"stablepp",
+    "categories": ["RGB++", "DeFi", "Stablecoin"],
+    "logo_file": "stablepp-logo.png",
+    "hero_image":"stablepp-hero.jpeg",
+    "links":{
+        "official":"https://www.stablepp.xyz/",
+        "twitter":"https://twitter.com/stablepp",
+        "telegram":"https://t.me/Stablepp",
+        "discord":"https://discord.gg/uwnMswHrgj",
+        "github":"",
+        "medium":"https://medium.com/@Stablepp"
+    },
+    "en_US": {   
+        "project_summary":"An RGB++ based, over-collateralized stablecoin protocol, using BTC and CKB as collateral while USD-pegged stablecoin RUSD is minted in return.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://stablepp.gitbook.io/stable++"
+    },
+    "zh_CN": {   
+        "project_summary":"Stable++ 是一个基于 RGB++ 的超额抵押稳定币协议，使用 BTC 和 CKB 作为抵押品，同时铸造美元挂钩的稳定币 RUSD 作为回报。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://stablepp.gitbook.io/stable++"  
+    } 
+}

@@ -71,6 +71,11 @@
             "categories": ["RGB++", "Infra"]
         },
         {
+            "project_name": "Stable++",
+            "path_name":"stablepp",
+            "categories": ["RGB++", "DeFi", "Stablecoin"]
+        },
+        {
             "project_name": "Cellula",
             "path_name":"cellula",
             "categories": ["RGB++", "DOBs", "AW"]
