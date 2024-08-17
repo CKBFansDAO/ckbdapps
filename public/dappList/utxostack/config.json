@@ -1,0 +1,24 @@
+{
+    "project_name": "UTXO Stack",
+    "path_name":"utxostack",
+    "categories": ["RGB++", "Infra"],
+    "logo_file": "utxostack-logo.svg",
+    "hero_image":"utxostack-hero.jpeg",
+    "links":{
+        "official":"https://utxostack.network",
+        "twitter":"https://x.com/utxostack",
+        "discord":"",
+        "github":"https://github.com/ckb-cell",
+        "medium":"https://medium.com/@utxostack" 
+    },
+    "en_US": {   
+        "project_summary":"A native programmability and scalability Layer 2 solution for Bitcoin ecosystem.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.utxostack.network/docs/intro"
+    },
+    "zh_CN": {   
+        "project_summary":"UTXO Stack 将致力于扩展比特币生态，帮助项目开发者一键启动基于 UTXO 架构的 BTC L2，并原生集成 RGB++ 协议能力，使得 BTC 和 Stack 平行 L2 之间可以无需跨链桥实现无缝互操作，并可通过质押 BTC、CKB 以及 BTC L1 资产以保障 L2 安全。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.utxostack.network/docs/intro"  
+    } 
+}

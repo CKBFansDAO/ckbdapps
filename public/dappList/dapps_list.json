@@ -1,30 +1,37 @@
 {
     "dappList": [
         {
-            "project_name": "RGB++",
+            "project_name": "RGB++ Layer",
             "path_name":"rgbpp",
-            "categories": ["RGB++", "Protocol", "L1"]
+            "categories": ["RGB++", "Protocol"]
         },
         {
             "project_name": "Spore",
             "path_name": "spore",
             "categories": [
                 "DOBs",
-                "L1",
                 "Protocols"
+            ]
+        },
+        {
+            "project_name": "JoyID",
+            "path_name": "joyid",
+            "categories": [
+                "RGB++",
+                "Wallet"
             ]
         },
         {
             "project_name": "Huehub",
             "path_name":"huehub",
-            "categories": ["RGB++", "L1", "DEX"]
+            "categories": ["RGB++", "DEX", "Launchpad"]
         },
         {
             "project_name": "Nervape",
             "path_name": "nervape",
             "categories": [
                 "DOBs",
-                "L1"
+                "RGB++"
             ]
         },
         {
@@ -32,15 +39,7 @@
             "path_name": "dotbit",
             "categories": [
                 "DID",
-                "L1"
-            ]
-        },
-        {
-            "project_name": "JoyID",
-            "path_name": "joyid",
-            "categories": [
-                "L1",
-                "Wallet"
+                "RGB++"
             ]
         },
         {
@@ -48,7 +47,8 @@
             "path_name": "omiga",
             "categories": [
                 "DEX",
-                "Marketplace"
+                "Marketplace",
+                "RGB++"
             ]
         },
         {
@@ -59,6 +59,16 @@
                 "DeFi",
                 "RGB++"
             ]
+        },
+        {
+            "project_name": "UTXO Stack",
+            "path_name":"utxostack",
+            "categories": ["RGB++", "Infra"]
+        },
+        {
+            "project_name": "CELL Studio",
+            "path_name":"cellstudio",
+            "categories": ["RGB++", "Infra"]
         },
         {
             "project_name": "Khalani",

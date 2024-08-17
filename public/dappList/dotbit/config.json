@@ -1,7 +1,7 @@
 {
     "project_name": ".bit",
     "path_name":"dotbit",
-    "categories": ["DID", "L1"],
+    "categories": ["DID", "RGB++"],
     "logo_file": "dotbit-logo.svg",
     "hero_image":"dotbit-hero.jpeg",
     "links":{

@@ -1,7 +1,7 @@
 {
     "project_name": "Spore",
     "path_name":"spore",
-    "categories": ["DOBs", "L1", "Protocol"],
+    "categories": ["DOBs", "Protocol"],
     "logo_file": "spore-logo.svg",
     "hero_image":"spore-hero.png",
     "links":{

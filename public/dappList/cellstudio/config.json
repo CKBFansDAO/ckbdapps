@@ -1,0 +1,24 @@
+{
+    "project_name": "CELL Studio",
+    "path_name":"cellstudio",
+    "categories": ["RGB++", "Infra"],
+    "logo_file": "cellstudio-logo.jpg",
+    "hero_image":"cellstudio-hero.jpeg",
+    "links":{
+        "official":"https://cell.studio/",
+        "twitter":"https://x.com/ckbcell",
+        "discord":"",
+        "github":"https://github.com/ckb-cell",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"A Blockchain Software Development Company Committed to Advancing the BTCKB Initiative.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Cell Sdutio 是一家致力于推进 BTCKB 计划的区块链软件开发公司。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

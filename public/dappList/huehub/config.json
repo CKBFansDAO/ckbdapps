@@ -1,7 +1,7 @@
 {
     "project_name": "Huehub",
     "path_name":"huehub",
-    "categories": ["RGB++","L1", "DEX"],
+    "categories": ["RGB++", "DEX", "Launchpad"],
     "logo_file": "huehub-logo.jpeg",
     "hero_image":"huehub-hero.jpeg",
     "links":{
@@ -12,12 +12,12 @@
         "github":"" 
     },
     "en_US": {   
-        "project_summary":"HueHub, the First Dex of RGB++",
+        "project_summary":"HueHub is the first orderbook exchange for RGB++ assets on Bitcoin.",
         "full_description_file":"full_description_en.md",
         "tutorial_link":""
     },
     "zh_CN": {   
-        "project_summary":"Huehub 是第一个基于 RGB++ 上的交易市场",
+        "project_summary":"HueHub 是比特币上首个服务 RGB++ 资产的订单簿交易所。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":""  
     } 

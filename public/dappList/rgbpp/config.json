@@ -1,14 +1,14 @@
 {
-    "project_name": "RGB++",
+    "project_name": "RGB++ Layer",
     "path_name":"rgbpp",
-    "categories": ["RGB++", "Protocol", "L1"],
+    "categories": ["RGB++", "Protocol"],
     "logo_file": "rgbpp-logo.jpeg",
     "hero_image":"rgbpp-hero.jpeg",
     "links":{
         "official":"https://cell.studio/",
         "twitter":"https://twitter.com/ckbcell",
         "discord":"",
-        "github":"" 
+        "github":"https://github.com/ckb-cell" 
     },
     "en_US": {   
         "project_summary":"An extended RGB protocol by using single-use seals and client-side validation techniques to manage state changes and transaction verification.",
@@ -16,7 +16,7 @@
         "tutorial_link":"https://github.com/ckb-cell/RGBPlusPlus-design/blob/main/docs/light-paper-en.md"
     },
     "zh_CN": {   
-        "project_summary":"RGB++ 是一个基于 RGB 的扩展协议，利用一次性密封条和客户端验证技术来管理状态变更和交易验证。它通过同构绑定将比特币 UTXO 映射到 Nervos CKB 的 Cell 上，并利用 CKB 链和 Bitcoin 链上的脚本约束来验证状态计算的正确性和变更所有权的有效性。",
+        "project_summary":"RGB++ Layer是一个基于 RGB 的扩展协议，利用一次性密封条和客户端验证技术来管理状态变更和交易验证。它通过同构绑定将比特币 UTXO 映射到 Nervos CKB 的 Cell 上，并利用 CKB 链和 Bitcoin 链上的脚本约束来验证状态计算的正确性和变更所有权的有效性。",
         "full_description_file":"full_description_zh.md",
         "tutorial_link":"https://github.com/ckb-cell/RGBPlusPlus-design/blob/main/docs/light-paper-cn.md"  
     } 

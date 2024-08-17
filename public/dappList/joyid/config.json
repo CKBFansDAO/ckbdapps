@@ -1,7 +1,7 @@
 {
     "project_name": "JoyID",
     "path_name":"joyid",
-    "categories": ["L1","Wallet"],
+    "categories": ["RGB++","Wallet"],
     "logo_file": "joyid-logo.svg",
     "hero_image":"joyid-hero.jpeg",
     "links":{
