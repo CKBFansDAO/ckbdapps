@@ -85,7 +85,7 @@ const BlockchainProgressBar = ({ epoch }) => {
           style={{
             left: -130,
             top: 52,
-          }}>{index+1} Having at</span>
+          }}>{index+1}st Halving at 11/19/2023</span>
       </div>
     </div>
 
@@ -158,7 +158,7 @@ const BlockchainProgressBar = ({ epoch }) => {
           </div>
         )}
         {
-          //renderHalvedHistory()
+          renderHalvedHistory()
         }
       </div>
     </div>
