@@ -23,7 +23,7 @@
       "yes":"YES",
       "cancel":"Cancel",
       "ok":"OK",
-      "next-halving-tip":"Nervos CKB 的第一次减半事件预计发生在 {{time}}。",
+      "next-halving-tip":"CKB 下一次减半预计发生在 {{time}}。",
       "halved-tip":"已于 {{time}} 成功完成第一次减半。🎉🚀"
     },
     "bulletin":{
@@ -79,9 +79,11 @@
       "minutes":"分钟",  
       "hours":"小时",
       "days":"天",
+      "months":"月",
       "years":"年",
       "title":"CKB 减半倒计时",
-      "top-tips":"预计即将到来的减半事件发生在",
+      "top-tips-lt-1year":"CKB 减半事件预计发生在",
+      "top-tips-gt-1year":"CKB 下一次减半预计发生在",
       "share-twitter":"一键分享 CKB 减半事件到推特",
       "latest-block":"区块高度",
       "current-epoch":"当前Epoch",

@@ -48,7 +48,7 @@ The following table details the schedule for several upcoming CKB halvings and t
 
 **The following chart shows the mining rewards for each epoch before and after the halving:**
 
-![CKB epoch rewards](markdown/ckb-epoch-reward-zh.png)
+![CKB epoch rewards](markdown/ckb-epoch-reward.png)
 
 ⚠️ Note that CKB block rewards include **Base (issuance) reward**, **Secondary (issuance) reward**, **Commit reward**, and **Proposal reward**:
 

@@ -11,6 +11,7 @@ import CountdownTimer from '../countdown/CountdownTimer';
 import CKBTipSummary from '../CKBTipSummary/CKBTipSummary';
 import useCKBTipHeader from '../../hooks/useCKBTipHeader';
 import { FormatLocaleDate, FormatLocaleDateTime, getNextHalvingEpoch, getTimeZoneOffset } from '../../utils/helper';
+import Countdown from '../countdown/Countdown';
 
 const HalvingContainer = (props) => {
 
@@ -25,6 +26,16 @@ const HalvingContainer = (props) => {
 
     }, []);
 
+    const getHalvingDurationYears = () => {
+        if (!data || !data.estimatedHalvingTime) {
+            return 366;
+        }
+
+        let duration = data.estimatedHalvingTime - new Date().getTime();
+        let days = Math.floor(duration / (1000 * 60 * 60 * 24));
+        //console.log(days);
+        return days / 365;
+    }
 
     const renderTwitterShareLink = () => {
         if (!data || !data.estimatedHalvingTime) {
@@ -113,7 +124,7 @@ const HalvingContainer = (props) => {
             <div className='flex flex-row items-center py-1 px-3 justify-center bg-[#28C1B0] rounded-full'>
                 <CKBLogo className='h-7 ml-2'></CKBLogo>
                 <div className='flex flex-col w-full'>
-                    <div className=' text-[14px] text-[#FFF] flex items-center px-3 font-semibold break-keep'>{t('halving.top-tips')}</div>
+                    <div className=' text-[14px] text-[#FFF] flex items-center px-3 font-semibold break-keep'>{getHalvingDurationYears() > 1 ? t('halving.top-tips-gt-1year') : t('halving.top-tips-lt-1year') }</div>
                     {
                         (isLoading || isError) ? <div className='w-20 h-6 animate-pulse'>
                             <div className='w-20 h-4 my-1 mx-16 flex items-center rounded-full bg-slate-500'></div>
@@ -135,8 +146,9 @@ const HalvingContainer = (props) => {
             {renderHalvingTip()}
 
             <div className={`max-w-content mx-auto w-full`}>
-                <CountdownTimer targetDate={data?.estimatedHalvingTime/*1684038959*/} lastHalvedTimestamp={data?.prevHalvingTime?.timestamp}></CountdownTimer>
-            </div>
+                {getHalvingDurationYears() > 1 ? 
+                    <Countdown targetDate={data?.estimatedHalvingTime/*1684038959*/}></Countdown> : (<CountdownTimer targetDate={data?.estimatedHalvingTime/*1684038959*/} lastHalvedTimestamp={data?.prevHalvingTime?.timestamp}></CountdownTimer>)
+            }</div>
 
             <div className='flex flex-row justify-between -mt-16 md:-mt-20'>
                 <div></div>
