@@ -17,12 +17,12 @@ const Footer = (props) => {
         {
             display_name: "footer.followus",
             class_name:'',
-            link: "https://twitter.com/@ckbmeta"
+            link: "https://twitter.com/@CKB_CN"
         },
         {
             display_name: "footer.submit-dapp",
             class_name:'opacity-90 flex items-center rounded-full px-3 py-1 text-white font-bold hover:text-black bg-[#F56100]',
-            link: "https://docs.google.com/forms/d/e/1FAIpQLSdGKSqRXJLLSh5C4EWYRafyl74cL4Gcq1JGvuBd9y29W51cDQ/viewform"
+            link: "https://github.com/CKBFansDAO/ckbdapps/issues"
         }/*,
         {
             display_name: "footer.submit-event",

@@ -2,16 +2,20 @@
     "community":{
         "zh_CN":{
             "twitter": {
-                "name":"字节元宇宙推特",
-                "link":"https://twitter.com/@ckbmeta"
+                "name":"CKB中文社区推特",
+                "link":"https://twitter.com/CKB_CN"
             },
             "discord": {
                 "name":"CKBFans中文社区",
                 "link":"https://discord.com/invite/X2VGqQX6zT"
             },
             "telegram": {
-                "name":"Nervos中文社区电报群",
-                "link":"https://t.me/NervosNetworkcn"
+                "name":"CKB中文社区电报群",
+                "link":"https://t.me/ckb_community"
+            },
+            "github": {
+                "name":"Github",
+                "link":"https://github.com/CKBFansDAO/ckbdapps"
             },
             "feedback": {
                 "name":"反馈与建议",
@@ -30,6 +34,10 @@
             "telegram": {
                 "name":"Nervos Group",
                 "link":"https://t.me/NervosNetwork"
+            },
+            "github": {
+                "name":"Github",
+                "link":"https://github.com/CKBFansDAO/ckbdapps"
             },
             "feedback": {
                 "name":"Feedback",

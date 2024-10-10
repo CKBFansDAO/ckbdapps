@@ -33,7 +33,7 @@ const HalvingContainer = (props) => {
 
         let duration = data.estimatedHalvingTime - new Date().getTime();
         let days = Math.floor(duration / (1000 * 60 * 60 * 24));
-        //console.log(days);
+        //sconsole.log(days);
         return days / 365;
     }
 
