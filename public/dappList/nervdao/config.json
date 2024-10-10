@@ -1,0 +1,24 @@
+{
+    "project_name": "NervDAO",
+    "path_name":"nervdao",
+    "categories": ["Nervos DAO"],
+    "logo_file": "nervdao-logo.svg",
+    "hero_image":"nervdao-hero.png",
+    "links":{
+        "official":"https://www.nervdao.com/",
+        "twitter":"https://x.com/CKBDevrel",
+        "discord":"",
+        "github":"https://github.com/ckb-ecofund/nervdao",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"Nerv DAO is an advanced implementation of the Nervos DAO, designed to deliver a more user-friendly and accessible experience for CKB holders.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://eloved.notion.site/NervDAO-Tutorial-How-To-Stake-CKB-11b0a4c01f52807a8de0e99489f02251"
+    },
+    "zh_CN": {   
+        "project_summary":"Nerv DAO 是 Nervos DAO 的高级实现，旨在为 CKB 持有者提供更友好、更易访问的体验。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://eloved.notion.site/NervDAO-CKB-1110a4c01f528015b6c0fd36aa5cae01"  
+    } 
+}

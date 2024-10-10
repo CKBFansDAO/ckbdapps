@@ -147,9 +147,11 @@
             ]
         },
         {
-            "project_name": "Hadouken",
-            "path_name":"hadouken",
-            "categories": ["DeFi", "Bridges", "Lending"]
+            "project_name": "NervDAO",
+            "path_name": "nervdao",
+            "categories": [
+                "Nervos DAO"
+            ]
         },
         {
             "project_name": "imToken",
@@ -221,13 +223,6 @@
             "path_name": "openblock",
             "categories": [
                 "Wallet"
-            ]
-        },
-        {
-            "project_name": "Nervos Scan",
-            "path_name": "nervosscan",
-            "categories": [
-                "Explorer"
             ]
         },
         {
