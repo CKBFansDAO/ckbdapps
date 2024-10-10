@@ -98,11 +98,11 @@ const Sidebar = props => {
                         </Link>
                     ))
                 }
-                <a href="https://cookckb.dev" target='_blank' rel="noopener noreferrer" >
+                <a href="https://app.ckbccc.com/" target='_blank' rel="noopener noreferrer" >
                     <div className="sidebar__item my-1">
                         <div className={`sidebar__item-inner`}>
                             <i className="fa-solid fa-burger fa-sm sidebar_mr_10px"></i>
-                            <span className='grow'>Cook CKB</span>
+                            <span className='grow'>Cook CKB（CCC）</span>
                             <i className="fa-solid fa-up-right-from-square fa-sm"></i>
                         </div>
                     </div>
