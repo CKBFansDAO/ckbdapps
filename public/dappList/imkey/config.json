@@ -3,7 +3,7 @@
     "path_name":"imkey",
     "categories": ["Hardware Wallet"],
     "logo_file": "imkey-logo.png",
-    "hero_image":"imkey-hero.jpeg",
+    "hero_image":"imkey-hero.png",
     "links":{
         "official":"https://imkey.store/",
         "twitter":"https://twitter.com/imKeyOfficial",

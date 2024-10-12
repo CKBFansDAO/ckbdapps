@@ -184,6 +184,11 @@
             ]
         },
         {
+            "project_name": "OneKey",
+            "path_name":"onekey",
+            "categories": ["Hardware Wallet", "Wallet"]
+        },
+        {
             "project_name": "Cobo Wallet",
             "path_name": "cobowallet",
             "categories": [

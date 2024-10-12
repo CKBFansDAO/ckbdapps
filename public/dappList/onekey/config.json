@@ -1,0 +1,25 @@
+{
+    "project_name": "OneKey",
+    "path_name":"onekey",
+    "categories": ["Hardware Wallet", "Wallet"],
+    "logo_file": "onekey-logo.jpg",
+    "hero_image":"onekey-hero.webp",
+    "links":{
+        "official":"https://onekey.so/",
+        "twitter":"https://x.com/OneKeyHQ",
+        "discord":"https://discord.gg/onekey",
+        "telegram":"",
+        "github":"https://github.com/OneKeyHQ/",
+        "medium":"https://blog.onekey.so/" 
+    },
+    "en_US": {   
+        "project_summary":"Open Source Hardware & Crypto Wallet, Trusted by Millions.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://help.onekey.so/hc/en-us/articles/10266543529615-Get-started-with-OneKey-Classic-1S"
+    },
+    "zh_CN": {   
+        "project_summary":"开源加密钱包，超过百万用户信赖。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://help.onekey.so/hc/zh-cn/articles/10266543529615-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-OneKey-Classic-1S"  
+    } 
+}
