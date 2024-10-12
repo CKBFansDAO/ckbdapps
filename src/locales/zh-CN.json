@@ -126,7 +126,13 @@
         "Chinese":"中文",
         "English":"英文",
         "Developer":"开发者",
-        "Inscription":"铭文"
+        "Inscription":"铭文",
+        "Tools":"工具",
+        "Stablecoin":"稳定币",
+        "Protocol":"协议",
+        "Marketplace":"市场",
+        "Intent-centric":"意图",
+        "DOBs":"数码物(DOBs)"
       }
     },
     "events":{
