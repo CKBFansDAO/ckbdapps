@@ -1,0 +1,24 @@
+{
+    "project_name": "RGB++ Explorer",
+    "path_name":"rgbppexplorer",
+    "categories": ["Explorer"],
+    "logo_file": "rgbppexplorer-logo.svg",
+    "hero_image":"rgbppexplorer-hero.jpeg",
+    "links":{
+        "official":"https://explorer.rgbpp.io/",
+        "twitter":"https://x.com/utxostack",
+        "discord":"",
+        "github":"https://github.com/utxostack",
+        "medium":"https://medium.com/@utxostack" 
+    },
+    "en_US": {   
+        "project_summary":"Explore the UTXO Ecosystem.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"由 Cell Studio 主导研发的 RGB++ 浏览器。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""
+    } 
+}

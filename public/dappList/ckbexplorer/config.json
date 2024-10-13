@@ -3,13 +3,14 @@
     "path_name":"ckbexplorer",
     "categories": ["Explorer"],
     "logo_file": "ckbexplorer-logo.png",
-    "hero_image":"ckbexplorer-hero.png",
+    "hero_image":"ckbexplorer-hero.jpeg",
     "links":{
         "official":"https://explorer.nervos.org/",
         "twitter":"https://twitter.com/NervosNetwork",
         "discord":"https://discord.com/invite/pxZJpJPJBH",
         "github":"https://github.com/nervosnetwork/",
-        "medium":"" 
+        "telegram":"https://t.me/nervosnetwork",
+        "medium":"https://medium.com/nervosnetwork" 
     },
     "en_US": {   
         "project_summary":"A CKB Explorer produced by the Nervos Foundation",

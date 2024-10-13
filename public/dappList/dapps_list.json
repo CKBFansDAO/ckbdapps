@@ -124,6 +124,11 @@
             ]
         },
         {
+            "project_name": "RGB++ Explorer",
+            "path_name":"rgbppexplorer",
+            "categories": ["Explorer"]
+        },
+        {
             "project_name": "Neuron",
             "path_name": "neuron",
             "categories": [

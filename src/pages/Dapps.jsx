@@ -7,7 +7,7 @@ const link_icon_config = {
         "icon_class":"fa-solid fa-globe",
     },
     "twitter":{
-        "icon_class":"fa-brands fa-twitter",
+        "icon_class":"fa-brands fa-x-twitter",
     },
     "discord":{
         "icon_class":"fa-brands fa-discord",

@@ -100,7 +100,7 @@ const HalvingContainer = (props) => {
         return <BitTooltip content={t(`halving.share-twitter`)} direction="top">
             <a className='w-6 h-6 flex justify-center items-center rounded-full bg-white icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
                 href={url} rel="noopener noreferrer" target="_blank">
-                <i className="fa-sm fa-brands fa-twitter text-[#28C1B0]"></i>
+                <i className="fa-sm fa-brands fa-x-twitter text-[#28C1B0]"></i>
             </a>
         </BitTooltip>
     }
