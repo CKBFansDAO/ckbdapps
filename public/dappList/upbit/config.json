@@ -1,0 +1,27 @@
+{
+    "project_name": "Upbit Korea",
+    "path_name":"upbit",
+    "categories": ["Markets"],
+    "logo_file": "upbit-logo.png",
+    "hero_image":"upbit-hero.jpeg",
+    "links":{
+        "official":"https://upbit.com/exchange?code=CRIX.UPBIT.KRW-CKB",
+        "twitter":"https://x.com/Official_Upbit",
+        "discord":"",
+        "telegram":"",
+        "github":"",
+        "medium":"",
+        "reddit":"",
+        "youtube":"https://www.youtube.com/channel/UCnUVXiMdlPmDI9NAnX1AlGQ" 
+    },
+    "en_US": {   
+        "project_summary":"Upbit Korea is the largest cryptocurrency exchange in South Korea in terms of trading volume and customer base.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Upbit 是韩国交易量和客户群最大的加密货币交易所，于 2024/9/13 上线 CKB 交易对。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

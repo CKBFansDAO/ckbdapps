@@ -501,6 +501,26 @@
             ]
         },
         {
+            "project_name": "Upbit Korea",
+            "path_name":"upbit",
+            "categories": ["Markets"]
+        },
+        {
+            "project_name": "Gate.io",
+            "path_name": "gateio",
+            "categories": [
+                "Markets"
+            ]
+        },
+        {
+            "project_name": "MEXC Global",
+            "path_name": "mexcglobal",
+            "categories": [
+                "Partners",
+                "Markets"
+            ]
+        },
+        {
             "project_name": "KuCoin",
             "path_name": "kucoin",
             "categories": [
@@ -521,13 +541,7 @@
                 "Markets"
             ]
         },
-        {
-            "project_name": "Gate.io",
-            "path_name": "gateio",
-            "categories": [
-                "Markets"
-            ]
-        },
+        
         {
             "project_name": "Huobi",
             "path_name": "huobi",
@@ -546,14 +560,6 @@
             "project_name": "Coinone",
             "path_name": "coinone",
             "categories": [
-                "Markets"
-            ]
-        },
-        {
-            "project_name": "MEXC Global",
-            "path_name": "mexcglobal",
-            "categories": [
-                "Partners",
                 "Markets"
             ]
         },
