@@ -246,6 +246,11 @@
             ]
         },
         {
+            "project_name": "Haste",
+            "path_name":"haste",
+            "categories": ["Assets Manager", "RGB++"]
+        },
+        {
             "project_name": "UTXO Alliance",
             "path_name": "utxoalliance",
             "categories": [

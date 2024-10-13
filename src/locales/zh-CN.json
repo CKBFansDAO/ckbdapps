@@ -134,7 +134,8 @@
         "Intent-centric":"意图",
         "DOBs":"数码物(DOBs)",
         "Extension":"浏览器插件",
-        "Multi-Sig":"多签"
+        "Multi-Sig":"多签",
+        "Assets Manager":"资产管理器"
       }
     },
     "events":{

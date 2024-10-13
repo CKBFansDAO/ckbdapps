@@ -1,0 +1,26 @@
+{
+    "project_name": "Haste",
+    "path_name":"haste",
+    "categories": ["Assets Manager", "RGB++"],
+    "logo_file": "haste-logo.webp",
+    "hero_image":"haste-hero.png",
+    "links":{
+        "official":"https://haste.pro",
+        "twitter":"",
+        "telegram":"https://t.me/hastepro",
+        "discord":"",
+        "github":"",
+        "youtube":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"Haste is an asset manager that makes it easy to manage your crypto assets on Bitcoin/RGB++/CKB.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"Haste 是一个资产管理器，通过它你可以方便地管理 Bitcoin、RGB++、CKB 上的资产。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
