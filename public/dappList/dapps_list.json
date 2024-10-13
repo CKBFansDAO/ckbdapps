@@ -184,13 +184,6 @@
             ]
         },
         {
-            "project_name": "Opera Wallet",
-            "path_name": "operawallet",
-            "categories": [
-                "Wallet"
-            ]
-        },
-        {
             "project_name": "SafePal",
             "path_name": "safepal",
             "categories": [
@@ -236,6 +229,13 @@
             "path_name": "ledger",
             "categories": [
                 "Hardware Wallet"
+            ]
+        },
+        {
+            "project_name": "Opera Wallet",
+            "path_name": "operawallet",
+            "categories": [
+                "Wallet"
             ]
         },
         {
