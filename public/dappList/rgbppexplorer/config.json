@@ -1,7 +1,7 @@
 {
     "project_name": "RGB++ Explorer",
     "path_name":"rgbppexplorer",
-    "categories": ["Explorer"],
+    "categories": ["Explorer", "RGB++"],
     "logo_file": "rgbppexplorer-logo.svg",
     "hero_image":"rgbppexplorer-hero.jpeg",
     "links":{

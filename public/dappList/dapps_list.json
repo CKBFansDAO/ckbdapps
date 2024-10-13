@@ -126,7 +126,7 @@
         {
             "project_name": "RGB++ Explorer",
             "path_name":"rgbppexplorer",
-            "categories": ["Explorer"]
+            "categories": ["Explorer", "RGB++"]
         },
         {
             "project_name": "Neuron",
@@ -135,6 +135,11 @@
                 "Wallet",
                 "Nervos DAO"
             ]
+        },
+        {
+            "project_name": "UTXO Global",
+            "path_name":"utxoglobal",
+            "categories": ["Wallet", "Extension", "Multi-Sig"]
         },
         {
             "project_name": "Portal Wallet",

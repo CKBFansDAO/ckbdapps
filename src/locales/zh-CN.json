@@ -132,7 +132,9 @@
         "Protocol":"协议",
         "Marketplace":"市场",
         "Intent-centric":"意图",
-        "DOBs":"数码物(DOBs)"
+        "DOBs":"数码物(DOBs)",
+        "Extension":"浏览器插件",
+        "Multi-Sig":"多签"
       }
     },
     "events":{

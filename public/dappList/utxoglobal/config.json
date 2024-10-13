@@ -1,0 +1,26 @@
+{
+    "project_name": "UTXO Global",
+    "path_name":"utxoglobal",
+    "categories": ["Wallet", "Extension", "Multi-Sig"],
+    "logo_file": "utxoglobal-logo.svg",
+    "hero_image":"utxoglobal-hero.jpeg",
+    "links":{
+        "official":"https://utxo.global",
+        "twitter":"https://x.com/UTXOGlobal",
+        "telegram":"https://t.me/utxoglobal",
+        "discord":"",
+        "github":"https://github.com/UTXO-Global",
+        "youtube":"https://www.youtube.com/@UTXOGlobal",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"UTXO Global is a revolutionary wallet for the CKB ecosystem. It delivers the robust security guarantees of the UTXO model while addressing its limitations in scalability and interoperability.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://utxo-global.gitbook.io/utxo-global"
+    },
+    "zh_CN": {   
+        "project_summary":"UTXO Global 是 CKB 生态系统的革命性钱包。它提供 UTXO 模型的强大安全性保证，同时解决其在可扩展性和互操作性方面的限制。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://utxo-global.gitbook.io/utxo-global"  
+    } 
+}

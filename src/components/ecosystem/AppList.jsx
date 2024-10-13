@@ -133,7 +133,7 @@ const App = ({ config }) => {
                     if (index > 2) {
                         return <></>
                     }
-                    return <span key={`${category}-${index}`} className='px-2 text-sm h-[20px] flex items-center rounded-md bg-[#000] border-[#ccc] border-[1px]'>{t(`ecosystem.tags.${category}`, category)}</span>
+                    return <span key={`${category}-${index}`} className='px-1 text-xs h-[20px] flex items-center rounded-md bg-[#000] border-[#ccc] border-[1px]'>{t(`ecosystem.tags.${category}`, category)}</span>
                 })
             }
             {
@@ -141,7 +141,7 @@ const App = ({ config }) => {
                     if (index > 2) {
                         return <></>
                     }
-                    return <span key={`${tag}-${index}`} className='px-2 text-sm h-[20px] flex items-center rounded-md bg-[#000] border-[#ccc] border-[1px]'>{t(`ecosystem.tags.${tag}`, tag)}</span>
+                    return <span key={`${tag}-${index}`} className='px-1 text-xs h-[20px] flex items-center rounded-md bg-[#000] border-[#ccc] border-[1px]'>{t(`ecosystem.tags.${tag}`, tag)}</span>
                 })
             }
         </div>
