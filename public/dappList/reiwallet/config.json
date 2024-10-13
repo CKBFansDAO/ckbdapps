@@ -1,0 +1,26 @@
+{
+    "project_name": "REI Wallet",
+    "path_name":"reiwallet",
+    "categories": ["Wallet", "Extension", "RGB++"],
+    "logo_file": "reiwallet-logo.png",
+    "hero_image":"reiwallet-hero.jpeg",
+    "links":{
+        "official":"https://reiwallet.io",
+        "twitter":"",
+        "telegram":"https://t.me/reiwallet",
+        "discord":"https://discord.com/invite/aAMjFeD8q7",
+        "github":"https://github.com/TeamTaoist/reiwallet",
+        "youtube":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"REI Wallet is a Chrome Extension for Bitcoin Layer2s.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.reiwallet.io/"
+    },
+    "zh_CN": {   
+        "project_summary":"REI 是首个 CKB 原生的 Chrome 插件钱包。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.reiwallet.io/"  
+    } 
+}

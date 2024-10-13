@@ -150,6 +150,11 @@
             ]
         },
         {
+            "project_name": "REI Wallet",
+            "path_name":"reiwallet",
+            "categories": ["Wallet", "Extension", "RGB++"]
+        },
+        {
             "project_name": "ForceBridge",
             "path_name": "forcebridge",
             "categories": [
