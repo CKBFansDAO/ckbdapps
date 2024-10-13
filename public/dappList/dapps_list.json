@@ -701,6 +701,13 @@
             ]
         },
         {
+            "project_name": "ScaleBit",
+            "path_name": "scalebit",
+            "categories": [
+                "Security & Audit"
+            ]
+        },
+        {
             "project_name": "PeckShield",
             "path_name": "peckshield",
             "categories": [

@@ -1,0 +1,28 @@
+{
+    "project_name": "ScaleBit",
+    "path_name": "scalebit",
+    "categories": [
+        "Security & Audit"
+    ],
+    "logo_file": "scalebit-logo.jpeg",
+    "hero_image":"scalebit-hero.jpeg",
+    "links":{
+        "official":"https://www.scalebit.xyz/",
+        "twitter":"https://x.com/scalebit_",
+        "discord":"",
+        "telegram":"https://t.me/BitsLabHQ",
+        "github":"https://github.com/scalebit",
+        "medium":"",
+        "youtube":"" 
+    },
+    "en_US": {   
+        "project_summary":"ScaleBit , a subsidiary brand of BitsLab, is a blockchain security team that provides security solutions for Mass Adoption of Web3.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"ScaleBit 是 BitsLab 的子品牌，是一个区块链安全团队，专门从事比特币第二层、零知识证明和区块链互操作性的审计工作。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}
