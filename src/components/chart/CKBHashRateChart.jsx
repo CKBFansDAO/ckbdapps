@@ -146,7 +146,7 @@ const CKBHashRateChart = () => {
             }
         }
 
-        return `${tick}${unit}`;
+        return `${tick.toFixed(1)}${unit}`;
         //return (parseFloat(value) / 1e15).toFixed(0);
     };
 
@@ -198,7 +198,7 @@ const CKBHashRateChart = () => {
                         <LineChart data={getDataByInterval()} >
                             <CartesianGrid strokeDasharray='2 8' vertical={false} />
                             <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd" />
-                            <YAxis interval="preserveStartEnd" tickFormatter={yAxisTickFormater}>
+                            <YAxis interval="preserveStartEnd" tickFormatter={yAxisTickFormater} domain={['dataMin', 'dataMax']}>
                                 <Label
                                     value="Hash Rate"
                                     angle={0}
