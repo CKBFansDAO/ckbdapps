@@ -170,6 +170,39 @@ const CKBHashRateChart = () => {
         return data;
     }
 
+    const renderChart = () => {
+        return <ResponsiveContainer className='select-none'>
+        <LineChart data={getDataByInterval()} >
+            <CartesianGrid strokeDasharray='2 8' vertical={false} />
+            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd" />
+            <YAxis interval="preserveStartEnd" tickFormatter={yAxisTickFormater} domain={['dataMin', 'dataMax']}>
+                <Label
+                    value="Hash Rate"
+                    angle={0}
+                    position="top"
+                    dy="0"
+                /></YAxis>
+            <Tooltip content={<CustomTooltip />} />
+            <Line type='monotone' dataKey='avg_hash_rate' stroke='#28C1B0' dot={false} />
+            <Brush dataKey='created_at_unix' height={30} stroke='#28C1B0' tickFormatter={formatXAxis} />
+            {/* 在这里添加特殊事件的 ReferenceDot */}
+            {specialEvents.map((event, index) => (
+                <ReferenceDot
+                    key={index}
+                    x={event.date}
+                    y={event.value}
+                    r={5} // 指定点的半径
+                    fill="red" // 点的颜色
+                    stroke="none" // 点的边框颜色
+                    dataKey={event.date} // 添加 dataKey
+                    onClick={() => handleEventClick(event)} // 添加点击事件处理函数
+                />
+            ))}
+        </LineChart>
+        
+    </ResponsiveContainer>
+    }
+
     return (<div className='flex flex-col md:mt-5'>
         <div className='w-full flex h-16 text-center justify-center text-[20px] md:text-[30px] font-["Zen_Dots"]'>
             <span className='flex items-end'>{t('home.market-data.ckb-his-hash-rate')}</span>
@@ -194,36 +227,7 @@ const CKBHashRateChart = () => {
                             ))}
                         </div>
                     </div>
-                    <ResponsiveContainer className='select-none'>
-                        <LineChart data={getDataByInterval()} >
-                            <CartesianGrid strokeDasharray='2 8' vertical={false} />
-                            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd" />
-                            <YAxis interval="preserveStartEnd" tickFormatter={yAxisTickFormater} domain={['dataMin', 'dataMax']}>
-                                <Label
-                                    value="Hash Rate"
-                                    angle={0}
-                                    position="top"
-                                    dy="0"
-                                /></YAxis>
-                            <Tooltip content={<CustomTooltip />} />
-                            <Line type='monotone' dataKey='avg_hash_rate' stroke='#28C1B0' dot={false} />
-                            <Brush dataKey='created_at_unix' height={30} stroke='#28C1B0' tickFormatter={formatXAxis} />
-                            {/* 在这里添加特殊事件的 ReferenceDot */}
-                            {specialEvents.map((event, index) => (
-                                <ReferenceDot
-                                    key={index}
-                                    x={event.date}
-                                    y={event.value}
-                                    r={5} // 指定点的半径
-                                    fill="red" // 点的颜色
-                                    stroke="none" // 点的边框颜色
-                                    dataKey={event.date} // 添加 dataKey
-                                    onClick={() => handleEventClick(event)} // 添加点击事件处理函数
-                                />
-                            ))}
-                        </LineChart>
-                        
-                    </ResponsiveContainer>
+                    {renderChart()}
                 </div>)
             }
         </div>

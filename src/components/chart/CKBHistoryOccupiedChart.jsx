@@ -48,7 +48,9 @@ const formatXAxis = (tickItem) => {
 const formatYAxis = (value) => {
     // Convert the value to the desired unit (e.g., divide by 1e9 for GH/s)
     //const formattedValue = parseFloat(value).toFixed(2);
+    //return formattedValue;
     const formattedValue = numberFormatter(parseFloat(value), 2);
+
     return `${formattedValue}`;
 };
 
@@ -177,6 +179,32 @@ const CKBHistoryOccupiedChart = () => {
         }));
     };
 
+    const renderChart = () => {
+        return <ResponsiveContainer className='select-none'>
+        <AreaChart data={getDataByInterval()}>
+            <CartesianGrid strokeDasharray='2 8' vertical={false} />
+            <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd" />
+            <YAxis interval="preserveStartEnd" tickFormatter={formatYAxis} domain={['dataMin', 'dataMax']}/>
+            <Tooltip content={<CustomTooltip />} />
+            <Legend
+                wrapperStyle={{ paddingTop: '10px' }}
+                formatter={renderColorfulLegendText}
+                onClick={(e) => toggleActiveArea(e.value)}
+                payload={LegendData.map((entry) => ({
+                    dataKey: entry.dataKey,
+                    color: entry.color,
+                    value: entry.value,
+                    inactive: !activeAreas[entry.value],
+                }))}
+            /> 
+            {/*<Area type="monotone" dataKey="circulating_supply" stackId="1" stroke="#82ca9d" fill="#82ca9d" />*/}
+            {activeAreas[`${LegendData[0].value}`] && <Area type="monotone" dataKey={data => 5040000000} name={`${LegendData[0].value}`} stackId="1" stroke={`${LegendData[0].color}`} fill={`${LegendData[0].color}`} />}
+            {activeAreas[`${LegendData[1].value}`] && <Area type="monotone" dataKey={data => data.total_occupied - 5040000000} name={`${LegendData[1].value}`} stackId="1" stroke={`${LegendData[1].color}`} fill={`${LegendData[1].color}`} />}
+            <Brush dataKey='created_at_unix' height={30} stroke='#ffc658' tickFormatter={formatXAxis} />
+        </AreaChart>
+    </ResponsiveContainer>
+    }
+
     return (<div className='flex flex-col md:mt-5'>
         <div className='w-full flex h-16 text-center justify-center text-[20px] md:text-[30px] font-["Zen_Dots"]'>
             <span className='flex items-end'>{t('home.charts.ckb-his-occupied')}</span>
@@ -200,29 +228,7 @@ const CKBHistoryOccupiedChart = () => {
                             </div>
                         </div>
 
-                        <ResponsiveContainer className='select-none'>
-                            <AreaChart data={getDataByInterval()}>
-                                <CartesianGrid strokeDasharray='2 8' vertical={false} />
-                                <XAxis dataKey='created_at_unix' tickFormatter={formatXAxis} minTickGap={20} interval="preserveStartEnd" />
-                                <YAxis tickFormatter={formatYAxis} />
-                                <Tooltip content={<CustomTooltip />} />
-                                <Legend
-                                    wrapperStyle={{ paddingTop: '10px' }}
-                                    formatter={renderColorfulLegendText}
-                                    onClick={(e) => toggleActiveArea(e.value)}
-                                    payload={LegendData.map((entry) => ({
-                                        dataKey: entry.dataKey,
-                                        color: entry.color,
-                                        value: entry.value,
-                                        inactive: !activeAreas[entry.value],
-                                    }))}
-                                />
-                                {/*<Area type="monotone" dataKey="circulating_supply" stackId="1" stroke="#82ca9d" fill="#82ca9d" />*/}
-                                {activeAreas[`${LegendData[0].value}`] && <Area type="monotone" dataKey={data => 5040000000} name={`${LegendData[0].value}`} stackId="1" stroke={`${LegendData[0].color}`} fill={`${LegendData[0].color}`} />}
-                                {activeAreas[`${LegendData[1].value}`] && <Area type="monotone" dataKey={data => data.total_occupied - 5040000000} name={`${LegendData[1].value}`} stackId="1" stroke={`${LegendData[1].color}`} fill={`${LegendData[1].color}`} />}
-                                <Brush dataKey='created_at_unix' height={30} stroke='#ffc658' tickFormatter={formatXAxis} />
-                            </AreaChart>
-                        </ResponsiveContainer>
+                        {renderChart()}
                     </div>
                 )
             }
