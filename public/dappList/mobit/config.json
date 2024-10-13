@@ -1,0 +1,26 @@
+{
+    "project_name": "Mobit",
+    "path_name":"mobit",
+    "categories": ["Assets Manager", "RGB++"],
+    "logo_file": "mobit-logo.png",
+    "hero_image":"mobit-hero.png",
+    "links":{
+        "official":"https://mobit.app/",
+        "twitter":"",
+        "telegram":"",
+        "discord":"",
+        "github":"",
+        "youtube":"",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"CKB Assets Manager",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"CKB 资产管理器",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

@@ -251,6 +251,11 @@
             "categories": ["Assets Manager", "RGB++"]
         },
         {
+            "project_name": "Mobit",
+            "path_name":"mobit",
+            "categories": ["Assets Manager", "RGB++"]
+        },
+        {
             "project_name": "UTXO Alliance",
             "path_name": "utxoalliance",
             "categories": [
