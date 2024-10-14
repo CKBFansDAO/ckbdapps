@@ -1,0 +1,27 @@
+{
+    "project_name": "Binance Pool",
+    "path_name":"binancepool",
+    "categories": ["Mining Pools"],
+    "logo_file": "binancepool-logo.svg",
+    "hero_image":"binancepool-hero.png",
+    "links":{
+        "official":"https://pool.binance.com",
+        "twitter":"https://twitter.com/binance",
+        "discord":"https://discord.com/invite/jE4wt8g2H2",
+        "telegram":"https://t.me/BinanceExchange",
+        "github":"",
+        "medium":"",
+        "reddit":"https://www.reddit.com/r/binance/",
+        "youtube":"https://www.youtube.com/binanceyoutube" 
+    },
+    "en_US": {
+        "project_summary":"Binance Pool is a comprehensive service platform dedicated to improving the income of miners. Binance Pool provides mining services to users with a focus on PoW",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://www.binance.com/en-IN/support/faq/how-to-mine-nervos-ckb-on-binance-pool-6967ad3306b84ec49dcbb5ed8ac30a9b"
+    },
+    "zh_CN": {
+        "project_summary":"币安矿池是致力于提升矿机收益的综合服务平台，为用户提供以 PoW 为主的挖矿服务。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://www.binance.com/zh-CN/support/faq/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%B8%81%E5%AE%89%E7%9F%BF%E6%B1%A0%E6%8C%96nervos-ckb-6967ad3306b84ec49dcbb5ed8ac30a9b"
+    }
+}
