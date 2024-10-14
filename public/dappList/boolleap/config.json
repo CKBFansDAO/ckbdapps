@@ -1,0 +1,25 @@
+{
+    "project_name": "Bool Leap",
+    "path_name":"boolleap",
+    "categories": ["Bridges", "RGB++"],
+    "logo_file": "boolleap-logo.jpeg",
+    "hero_image":"boolleap-hero.jpeg",
+    "links":{
+        "official":"https://boolleap.com/",
+        "twitter":"https://x.com/bool_official",
+        "discord":"https://discord.com/invite/DVd4q9qq7a",
+        "telegram":"https://t.me/BOOLCommunity",
+        "github":"https://github.com/boolnetwork",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"Bool Network is a BTC verification layer, designed to seamlessly convey any messages across chains, significantly enhancing the security and scalability of the Bitcoin ecosystem without changing Bitcoin’s core consensus.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":""
+    },
+    "zh_CN": {   
+        "project_summary":"通过 Bool Leap 可以将 Bitcoin 上的资产 Leap 到 CKB 链上，利用 CKB 的智能合约图灵完备的特性进行 DeFi 等活动。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":""  
+    } 
+}

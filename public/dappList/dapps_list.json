@@ -162,6 +162,11 @@
             ]
         },
         {
+            "project_name": "Bool Leap",
+            "path_name":"boolleap",
+            "categories": ["Bridges", "RGB++"]
+        },
+        {
             "project_name": "NervDAO",
             "path_name": "nervdao",
             "categories": [
