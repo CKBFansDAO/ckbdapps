@@ -167,6 +167,11 @@
             "categories": ["Bridges", "RGB++"]
         },
         {
+            "project_name": "Meson Finance",
+            "path_name":"meson",
+            "categories": ["Bridges", "RGB++"]
+        },
+        {
             "project_name": "NervDAO",
             "path_name": "nervdao",
             "categories": [

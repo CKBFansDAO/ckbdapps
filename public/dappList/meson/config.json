@@ -1,0 +1,25 @@
+{
+    "project_name": "Meson Finance",
+    "path_name":"meson",
+    "categories": ["Bridges", "RGB++"],
+    "logo_file": "meson-logo.jpeg",
+    "hero_image":"meson-hero.jpeg",
+    "links":{
+        "official":"https://meson.fi/",
+        "twitter":"https://x.com/mesonfi",
+        "discord":"https://discord.com/invite/mesonfi",
+        "telegram":"https://t.me/mesonfi",
+        "github":"https://github.com/mesonfi",
+        "medium":"" 
+    },
+    "en_US": {   
+        "project_summary":"Meson Finance, a leading provider of cross-chain services, supports all major public chains and Layer2 networks and offers users access to assets like BTC, ETH, and stablecoins.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://docs.meson.fi/"
+    },
+    "zh_CN": {   
+        "project_summary":"Meson Finance是领先的跨链服务提供商，支持所有主流公链和Layer2网络，为用户提供BTC、ETH、稳定币等资产的接入。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://docs.meson.fi/"  
+    } 
+}
