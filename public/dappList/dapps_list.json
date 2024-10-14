@@ -93,6 +93,11 @@
             ]
         },
         {
+            "project_name": "Seek DID",
+            "path_name":"seekdid",
+            "categories": ["DID", "Tools"]
+        },
+        {
             "project_name": "JoyGift",
             "path_name":"joygift",
             "categories": ["Tools"]
