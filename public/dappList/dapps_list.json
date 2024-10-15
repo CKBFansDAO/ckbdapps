@@ -14,6 +14,11 @@
             ]
         },
         {
+            "project_name": "Fiber Network",
+            "path_name":"fiber",
+            "categories": ["Lightning Network", "Protocol"]
+        },
+        {
             "project_name": "JoyID",
             "path_name": "joyid",
             "categories": [

@@ -135,7 +135,8 @@
         "DOBs":"数码物(DOBs)",
         "Extension":"浏览器插件",
         "Multi-Sig":"多签",
-        "Assets Manager":"资产管理器"
+        "Assets Manager":"资产管理器",
+        "Lightning Network":"闪电网络"
       }
     },
     "events":{

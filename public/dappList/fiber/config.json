@@ -1,0 +1,23 @@
+{
+    "project_name": "Fiber Network",
+    "path_name":"fiber",
+    "categories": ["Lightning Network", "Protocol"],
+    "logo_file": "fiber-logo.svg",
+    "hero_image":"fiber-hero.png",
+    "links":{
+        "official":"https://www.ckbfiber.net/",
+        "twitter":"https://x.com/CKBEcoFund",
+        "discord":"",
+        "github":"https://github.com/nervosnetwork/fiber" 
+    },
+    "en_US": {   
+        "project_summary":"Fiber Network is a next-generation, common lightning network built on Nervos CKB and off-chain channels. It is designed to provide fast, low-cost, and decentralized multi-token payments and peer-to-peer transactions for RGB++ assets.",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"https://www.ckbfiber.net/resources"
+    },
+    "zh_CN": {   
+        "project_summary":"Fiber Network 是基于 Nervos CKB 和链下通道构建的下一代通用闪电网络。它旨在为 RGB++ 资产提供快速、低成本、去中心化的多代币支付和点对点交易。",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"https://www.ckbfiber.net/resources"  
+    } 
+}
