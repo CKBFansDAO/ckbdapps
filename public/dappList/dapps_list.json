@@ -505,13 +505,6 @@
             ]
         },
         {
-            "project_name": "Tools",
-            "path_name": "tools",
-            "categories": [
-                "Tools & Infrastructure"
-            ]
-        },
-        {
             "project_name": "Unifra",
             "path_name": "unifra",
             "categories": [
