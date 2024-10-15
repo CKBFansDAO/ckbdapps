@@ -498,13 +498,6 @@
             ]
         },
         {
-            "project_name": "PW SDK",
-            "path_name": "pwsdk",
-            "categories": [
-                "Tools & Infrastructure"
-            ]
-        },
-        {
             "project_name": "Unifra",
             "path_name": "unifra",
             "categories": [
