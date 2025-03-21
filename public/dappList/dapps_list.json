@@ -66,14 +66,16 @@
             ]
         },
         {
-            "project_name": "UTXO Stack",
-            "path_name":"utxostack",
-            "categories": ["RGB++", "Infra"]
+            "project_name": "NervDAO",
+            "path_name": "nervdao",
+            "categories": [
+                "Nervos DAO"
+            ]
         },
         {
-            "project_name": "CELL Studio",
-            "path_name":"cellstudio",
-            "categories": ["RGB++", "Infra"]
+            "project_name": "Mobit",
+            "path_name":"mobit",
+            "categories": ["Assets Manager", "RGB++"]
         },
         {
             "project_name": "Stable++",
@@ -89,13 +91,6 @@
             "project_name": "World3",
             "path_name":"world3",
             "categories": ["RGB++", "DOBs", "AW"]
-        },
-        {
-            "project_name": "Khalani",
-            "path_name": "khalani",
-            "categories": [
-                "Intent-centric"
-            ]
         },
         {
             "project_name": "Seek DID",
@@ -152,14 +147,6 @@
             "categories": ["Wallet", "Extension", "Multi-Sig"]
         },
         {
-            "project_name": "Portal Wallet",
-            "path_name": "portalwallet",
-            "categories": [
-                "Wallet",
-                "Nervos DAO"
-            ]
-        },
-        {
             "project_name": "REI Wallet",
             "path_name":"reiwallet",
             "categories": ["Wallet", "Extension", "RGB++"]
@@ -182,10 +169,10 @@
             "categories": ["Bridges", "RGB++"]
         },
         {
-            "project_name": "NervDAO",
-            "path_name": "nervdao",
+            "project_name": "Khalani",
+            "path_name": "khalani",
             "categories": [
-                "Nervos DAO"
+                "Intent-centric"
             ]
         },
         {
@@ -271,9 +258,9 @@
             "categories": ["Assets Manager", "RGB++"]
         },
         {
-            "project_name": "Mobit",
-            "path_name":"mobit",
-            "categories": ["Assets Manager", "RGB++"]
+            "project_name": "UTXO Stack",
+            "path_name":"utxostack",
+            "categories": ["RGB++", "Infra"]
         },
         {
             "project_name": "UTXO Alliance",
