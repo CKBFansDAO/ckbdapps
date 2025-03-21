@@ -1,0 +1,26 @@
+{
+    "project_name": "Nervos Community",
+    "path_name":"nervos",
+    "categories": ["Community"],
+    "tag":["Global"],
+    "logo_file": "nervos-logo.png",
+    "hero_image":"nervos-hero.webp",
+    "links":{
+        "official":"https://www.nervos.org/",
+        "twitter":"https://x.com/NervosNetwork",
+        "discord":"https://discord.com/invite/FKh8Zzvwqa",
+        "telegram":"https://t.me/NervosNetwork",
+        "github":"https://github.com/nervosnetwork",
+        "youtube":"https://www.youtube.com/c/NervosNetwork"
+    },
+    "en_US": {   
+        "project_summary":"Nervos Global Community",
+        "full_description_file":"full_description_en.md",
+        "tutorial_link":"http://docs.nervos.org/"
+    },
+    "zh_CN": {   
+        "project_summary":"Nervos 全球社区",
+        "full_description_file":"full_description_zh.md",
+        "tutorial_link":"http://docs.nervos.org/"  
+    }
+}
