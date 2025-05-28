@@ -1,7 +1,6 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Graduate&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Zen+Dots&display=swap');*/
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +8,7 @@
 
 body {
   margin: 0;
-  font-family:'Space Grotesk','Space Mono','JetBrains Mono', monospace, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Space Grotesk', 'Space Mono', monospace, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   font-size: 16px;
@@ -26,16 +25,14 @@ code {
     --sidebar-width: 240px;
     --border-radius: 5px;
     --topnav-height: 60px;
-
     --topnav-logo-height: 0px;
-    --sidebar-logo:url('../images/logo_icon_white_mark.svg');
-    
+    --sidebar-logo: url('../images/logo_icon_white_mark.svg');
 }
 
 /*窄屏时去掉侧边栏*/
 @media screen and (max-width: 1024px) {
   :root {
-      --sidebar-width:0px;
+      --sidebar-width: 0px;
       --topnav-logo-height: 36px;
   }
 }
@@ -62,21 +59,21 @@ input:checked ~ .dot {
 }
 
 input[type="text"]:focus {
-  border: 1px solid #733DFF !important; /* 设置焦点时的边框颜色为绿色 */
+  border: 1px solid #733DFF !important;
 }
 
 input[type="text"]:hover {
-  border: 1px solid #733DFF !important; /* 设置焦点时的边框颜色为绿色 */
+  border: 1px solid #733DFF !important;
 }
 
 .svg-icon {
-  transition: fill 0.3s ease; /* 添加渐变动画效果 */
+  transition: fill 0.3s ease;
 }
 
 .svg-icon path:hover {
-  fill: #733DFF; /* 悬停时的填充颜色 */
+  fill: #733DFF;
 }
 
 .svg-icon:hover {
-  fill: #733DFF; /* 悬停时的填充颜色 */
+  fill: #733DFF;
 }
