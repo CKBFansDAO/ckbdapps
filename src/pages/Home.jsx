@@ -5,10 +5,10 @@ import { ChevronLeft, ChevronRight, Upload } from "lucide-react"
 import Button from "../components/ui/button"
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-900 text-white">
+    <div className="min-h-screen bg-white text-black">
       {/* Header - Giant Blank Picture Area in Slideshow Container */}
-      <header className="relative w-full h-[500px] overflow-hidden bg-zinc-800">
-        <div className="absolute inset-0">
+      <header className="relative w-full h-[550px] overflow-hidde">
+        <div className="absolute inset-0 z-10">
           <img
             src="https://ckbdapps.com/dappList/rgbpp/rgbpp-hero.jpeg"
             alt="Giant Blank Picture Area"
@@ -36,10 +36,10 @@ export default function Home() {
       </header>
 
       {/* Description */}
-      <section className="bg-zinc-800 py-4 px-4 md:py-6">
+      <section className="bg-white py-4 px-4 md:py-6 z-20">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-2">Omiga — CKB Inscription</h2>
-          <p className="text-sm text-gray-300 mt-1">
+          <h2 className="text-xl md:text-2xl font-bold text-black mb-2">Omiga — CKB Inscription</h2>
+          <p className="text-sm text-black mt-1">
             A decentralized inscription protocol on CKB, empowering fair minting and management of digital assets like
             MEMES, fueling cross-chain innovation and boosting Nervos Network's ecosystem.
           </p>
@@ -77,7 +77,7 @@ export default function Home() {
             <div className="p-4 flex flex-col justify-between h-20">
               <h3 className="text-lg font-bold text-black">Quantum Purge</h3>
               <div className="flex justify-between items-center">
-                <p className="text-sm text-gray-700">A spin-quantum wallet for CKB</p>
+                <p className="text-sm text-black">A spin-quantum wallet for CKB</p>
                 <p className="text-black font-bold">700 USDT</p>
               </div>
             </div>
@@ -105,9 +105,9 @@ export default function Home() {
                 </div>
                 <div className="p-4 md:p-8 flex flex-col justify-center">
                   <div className="flex justify-center items-center mb-8">
-                    <h3 className="text-2xl md:text-3xl font-bold">Nervape</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-black">Nervape</h3>
                   </div>
-                  <p className="text-base text-gray-300 leading-relaxed">
+                  <p className="text-base text-black leading-relaxed">
                     A vibrant digital realm on the CKB blockchain, offers an extraordinary haven where creators conjure
                     and trade digital treasures across chains, igniting a seamless alchemy of cross-chain artistry
                     amidst CKB's ecosystem, creating a constellation of developers and artists in a harmonious digital
@@ -131,9 +131,9 @@ export default function Home() {
               </div>
               <div className="p-4 md:p-8 flex flex-col justify-center order-2 lg:order-1">
                 <div className="flex justify-center items-center mb-8">
-                  <h3 className="text-2xl md:text-3xl font-bold">Cellula</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-black">Cellula</h3>
                 </div>
-                <p className="text-base text-gray-300 leading-relaxed">
+                <p className="text-base text-black leading-relaxed">
                   A celestial symphony on the CKB blockchain, weaves an AI-driven gaming cosmos where BLDAO NFTs dance
                   across the digital firmament, harmoniously crafting a tapestry of boundless digital life. Like a
                   cosmic loom, it intertwines artful minting and on-chain innovation, birthing a kaleidoscope of
@@ -156,9 +156,9 @@ export default function Home() {
               </div>
               <div className="p-4 md:p-8 flex flex-col justify-center">
                 <div className="flex justify-center items-center mb-8">
-                  <h3 className="text-2xl md:text-3xl font-bold">JoyID</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-black">JoyID</h3>
                 </div>
-                <p className="text-base text-gray-300 leading-relaxed">
+                <p className="text-base text-black leading-relaxed">
                   A luminous thread in the CKB tapestry, weaves a decentralized identity realm where users wield
                   sovereign control over their digital essence across blockchain's boundless stage. Its elegant fusion
                   of passkey authentication and cross-chain sensory perception empowers users to navigate the vast
@@ -186,8 +186,8 @@ export default function Home() {
               </div>
             </div>
             <div className="p-6">
-              <h3 className="text-lg md:text-xl font-bold mb-3">HueHub</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <h3 className="text-lg md:text-xl font-bold text-black mb-3">HueHub</h3>
+              <p className="text-sm text-black leading-relaxed">
                 A decentralized exchange on CKB, empowers seamless trading and fair issuance of Omni-assets, enhancing
                 Bitcoin's functionality and enriching Nervos Network's vibrant ecosystem.
               </p>
@@ -204,8 +204,8 @@ export default function Home() {
               </div>
             </div>
             <div className="p-6">
-              <h3 className="text-lg md:text-xl font-bold mb-3">DotBit</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <h3 className="text-lg md:text-xl font-bold text-black mb-3">DotBit</h3>
+              <p className="text-sm text-black leading-relaxed">
                 A decentralized domain name system on CKB, enables users to register and manage their digital identities
                 across the Nervos Network, fostering a more accessible and user-friendly blockchain ecosystem.
               </p>
@@ -242,7 +242,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h3 className="font-bold text-lg md:text-xl">NervDao</h3>
+                <h3 className="font-bold text-lg md:text-xl text-black">NervDao</h3>
                 <div className="flex flex-wrap gap-2 mt-2">
                   <span className="bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-medium">NFT</span>
                   <span className="bg-gray-500 text-white text-xs px-3 py-1 rounded-full font-medium">Game</span>
@@ -250,7 +250,7 @@ export default function Home() {
               </div>
             </div>
             <div className="absolute bottom-6 left-6 right-6">
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-black">
                 An advanced implementation of the Nervos DAO with enhanced governance features and cross-chain
                 capabilities
               </p>
@@ -267,7 +267,7 @@ export default function Home() {
         <div className="bg-gradient-to-br from-purple-900 to-blue-900 rounded-2xl h-52 shadow-2xl overflow-hidden relative">
           <div className="absolute inset-0 opacity-20"></div>
           <div className="h-full flex items-center justify-center relative z-10">
-            <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center">Community Fund DAO</h3>
+            <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-black text-center">Community Fund DAO</h3>
           </div>
         </div>
       </section>
