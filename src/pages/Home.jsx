@@ -177,7 +177,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* HueHub */}
-          <div className="bg-zinc-800 border border-gray-700 rounded-2xl overflow-hidden shadow-lg">
+          <div className="bg-white border border-gray-700 rounded-2xl overflow-hidden shadow-lg">
             <div className="h-[200px] relative">
               <img src="https://ckbdapps.com/dappList/rgbpp/rgbpp-hero.jpeg" alt="HueHub" fill className="object-cover" />
               <div className="absolute top-6 left-6 flex gap-3">
@@ -195,7 +195,7 @@ export default function Home() {
           </div>
 
           {/* DotBit */}
-          <div className="bg-zinc-800 border border-gray-700 rounded-2xl overflow-hidden shadow-lg">
+          <div className="bg-white border border-gray-700 rounded-2xl overflow-hidden shadow-lg">
             <div className="h-[200px] relative">
               <img src="https://ckbdapps.com/dappList/rgbpp/rgbpp-hero.jpeg" alt="DotBit" fill className="object-cover" />
               <div className="absolute top-6 left-6 flex gap-3">
@@ -215,7 +215,7 @@ export default function Home() {
       </section>
 
       {/* Community-driven Projects */}
-      <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
+      <section className="max-w-7xl mx-auto py-8 px-4 md:py-12 text-white">
         <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold">Community-driven Projects</h2>
           <div className="flex items-center">
@@ -230,7 +230,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* NervDao - Redesigned with bigger avatar */}
-          <div className="bg-zinc-800 rounded-2xl p-6 h-52 shadow-lg relative">
+          <div className="bg-white rounded-2xl p-6 h-52 shadow-lg relative">
             <div className="flex items-start">
               <div className="bg-cyan-500 rounded-md h-16 w-16 md:h-20 md:w-20 flex items-center justify-center shadow-lg mr-4">
                 <img
