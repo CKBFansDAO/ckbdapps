@@ -17,7 +17,7 @@ const DateTimeDisplay = ({ value, typeName, isDanger }) => {
       </div>
 
       <div className='flex place-content-center rounded-b-xl bg-white'>
-        <span className='h-[40px] md:h-[50px] flex items-center uppercase font-semibold'>{typeName}</span>
+        <span className='h-[40px] md:h-[50px] flex items-center uppercase font-semibold text-[#232325]'>{typeName}</span>
       </div>
     </div>
   );
