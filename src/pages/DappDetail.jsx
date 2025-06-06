@@ -1,0 +1,376 @@
+import { ArrowLeft, ExternalLink, Zap } from "lucide-react";
+import Button from "../components/ui/button";
+import { useState, useEffect } from "react";
+
+// highlight 颜色配置，最多 6 个
+const highlightsColors = [
+  {
+    from: "from-amber-50", to: "to-orange-50", border: "border-amber-200", hover: "hover:border-amber-300", text: "text-amber-700", icon: "text-amber-600", iconHover: "hover:text-amber-700 hover:bg-amber-100"
+  },
+  {
+    from: "from-blue-50", to: "to-purple-50", border: "border-blue-200", hover: "hover:border-blue-300", text: "text-blue-700", icon: "text-blue-600", iconHover: "hover:text-blue-700 hover:bg-blue-100"
+  },
+  {
+    from: "from-green-50", to: "to-emerald-50", border: "border-green-200", hover: "hover:border-green-300", text: "text-green-700", icon: "text-green-600", iconHover: "hover:text-green-700 hover:bg-green-100"
+  },
+  {
+    from: "from-purple-50", to: "to-pink-50", border: "border-purple-200", hover: "hover:border-purple-300", text: "text-purple-700", icon: "text-purple-600", iconHover: "hover:text-purple-700 hover:bg-purple-100"
+  },
+  {
+    from: "from-pink-50", to: "to-red-50", border: "border-pink-200", hover: "hover:border-pink-300", text: "text-pink-700", icon: "text-pink-600", iconHover: "hover:text-pink-700 hover:bg-pink-100"
+  },
+  {
+    from: "from-cyan-50", to: "to-sky-50", border: "border-cyan-200", hover: "hover:border-cyan-300", text: "text-cyan-700", icon: "text-cyan-600", iconHover: "hover:text-cyan-700 hover:bg-cyan-100"
+  },
+];
+
+export default function DappDetail({ dappId, onClose }) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [expandedFaq, setExpandedFaq] = useState(null);
+  const [videoIndex, setVideoIndex] = useState(0);
+
+  useEffect(() => {
+    if (!dappId) return;
+    setLoading(true);
+    fetch(`/dappDetails/${dappId}.json`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load data");
+        return res.json();
+      })
+      .then((json) => {
+        setData(json);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [dappId]);
+
+  if (loading) {
+    return (
+      <div className="fixed inset-0 bg-white text-gray-900 z-50 flex items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="fixed inset-0 bg-white text-gray-900 z-50 flex items-center justify-center text-red-500">
+        {error}
+      </div>
+    );
+  }
+  if (!data) return null;
+
+  return (
+    <div className="fixed inset-0 bg-white text-gray-900 z-50 overflow-y-auto">
+      {/* Header */}
+      <header className="bg-white py-4 px-4 border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto flex items-center">
+          <button onClick={onClose} className="flex items-center text-gray-900 hover:text-gray-600">
+            <ArrowLeft className="h-5 w-5 mr-2" />
+            Back to Projects
+          </button>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative w-full h-[200px] md:h-[300px] overflow-hidden">
+        <img src={data.heroImage || "/placeholder.svg?height=300&width=1200"} alt={data.name + " Hero"} className="object-cover w-full h-full absolute inset-0" style={{objectFit:'cover'}} />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent" />
+      </section>
+
+      {/* Project Header */}
+      <section className="bg-white py-6 px-4 md:py-8 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+            <div className="flex items-center mb-4 md:mb-0">
+              <div className="bg-gray-900 rounded-lg p-6 mr-4 h-24 w-24 md:h-32 md:w-32 flex items-center justify-center -mt-12 md:-mt-16 border-4 border-white shadow-xl relative z-20">
+                <h1 className="text-xl font-bold text-white">{data.name}</h1>
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{data.name}</h2>
+                <div className="flex gap-2 mt-2">
+                  {data.tags && data.tags.map((tag, index) => (
+                    <span key={index} className={`${tag.color} text-white text-sm px-3 py-1 rounded-full`}>
+                      {tag.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 md:flex-row md:items-center">
+              <div className="flex gap-2 justify-center md:justify-start">
+                {data.socialLinks && data.socialLinks.map((link, index) => (
+                  <Button key={index} variant="outline" size="icon" className="rounded-full border-gray-300">
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
+                ))}
+              </div>
+              <Button className="bg-orange-500 hover:bg-orange-600 w-full md:w-auto">
+                Visit Website
+              </Button>
+            </div>
+          </div>
+
+          <p className="text-gray-700 leading-relaxed">
+            {data.description}
+          </p>
+        </div>
+      </section>
+
+      {/* Awesome Highlights */}
+      {data.highlights && (
+        <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
+          <div className="bg-[#FFF9E6] border border-[#FFF2CC] rounded-2xl p-8 shadow-lg">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-3">
+                <Zap className="h-8 w-8 text-amber-500" />
+                Awesome Highlights
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {data.highlights.slice(0, 6).map((item, idx) => {
+                const color = highlightsColors[idx] || highlightsColors[0];
+                return (
+                  <div
+                    key={idx}
+                    className={`group bg-gradient-to-r ${color.from} ${color.to} rounded-xl p-6 border ${color.border} ${color.hover} transition-all duration-300 hover:shadow-md`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="text-gray-900 font-bold text-lg">{item.title}</h4>
+                        <p className={`${color.text} text-sm`}>{item.description}</p>
+                      </div>
+                      {item.link ? (
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className={`${color.icon} ${color.iconHover} rounded-full`}
+                          asChild
+                        >
+                          <a href={item.link} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-5 w-5" />
+                          </a>
+                        </Button>
+                      ) : (
+                        <span className={`${color.icon} rounded-full opacity-60`}>
+                          <ExternalLink className="h-5 w-5" />
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Video Section */}
+      {data.videos && (
+        <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="lg:col-span-3">
+              <div className="bg-gray-100 rounded-lg aspect-video flex items-center justify-center relative border border-gray-200 overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={data.videos[videoIndex].url}
+                  title={data.videos[videoIndex].title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full rounded-lg"
+                ></iframe>
+              </div>
+            </div>
+            <div className="flex flex-col space-y-4 overflow-y-auto max-h-[400px]">
+              {data.videos.map((video, idx) => (
+                <Button
+                  key={idx}
+                  onClick={() => setVideoIndex(idx)}
+                  className={`bg-gray-100 rounded-lg w-full h-32 flex items-center justify-center overflow-hidden transition-all duration-200 ${
+                    videoIndex === idx
+                      ? 'border-2 border-orange-400'
+                      : 'border border-gray-200'
+                  }`}
+                >
+                  <img
+                    src={video.thumbnail}
+                    alt={video.title}
+                    className={`object-cover w-full h-full ${videoIndex === idx ? '' : 'opacity-70'}`}
+                  />
+                </Button>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Project Transparency Section */}
+      {data.transparency && (
+        <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
+          <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">Project Transparency</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Team Card */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+              <div className="flex items-center mb-6">
+                <div className="bg-gray-500 rounded-full p-3 mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900">{data.transparency.team.title}</h4>
+                  <p className="text-gray-600 text-sm">Founded {data.transparency.team.foundedDate}</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                {data.transparency.team.items.map((item, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-green-100 rounded-lg hover:bg-green-200 transition">
+                    <span className="text-gray-900 font-medium">{item.name}</span>
+                    <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Project Card */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+              <div className="flex items-center mb-6">
+                <div className="bg-gray-500 rounded-full p-3 mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900">{data.transparency.project.title}</h4>
+                  <p className="text-gray-600 text-sm">Launched {data.transparency.project.launchedDate}</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                {data.transparency.project.items.map((item, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-green-100 rounded-lg hover:bg-green-200 transition">
+                    <span className="text-gray-900 font-medium">{item.name}</span>
+                    <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Technology Card */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+              <div className="flex items-center mb-6">
+                <div className="bg-gray-500 rounded-full p-3 mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900">{data.transparency.technology.title}</h4>
+                  <p className="text-gray-600 text-sm">Technical Implementation</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                {data.transparency.technology.items.map((item, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-green-100 rounded-lg hover:bg-green-200 transition">
+                    <span className="text-gray-900 font-medium">{item.name}</span>
+                    <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ & Related Section - Side by Side */}
+      <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* FAQ 区域 */}
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">FAQ</h3>
+            <div className="space-y-4">
+              {data.faq && data.faq.map((item, idx) => (
+                <div
+                  key={idx}
+                  className={`rounded-lg border border-gray-200 p-4 cursor-pointer transition hover:bg-gray-100 ${expandedFaq === idx ? 'bg-gray-50' : 'bg-white'}`}
+                  onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-gray-900">{item.q}</span>
+                    <span className="ml-2 text-gray-400">{expandedFaq === idx ? '-' : '+'}</span>
+                  </div>
+                  {expandedFaq === idx && (
+                    <div className="mt-2 text-gray-700 text-sm">{item.a}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Related 区域 */}
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">Related Projects</h3>
+            <div className="flex flex-col gap-4">
+              {data.related && data.related.map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.url}
+                  className="flex items-center bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg hover:-translate-y-1 transition cursor-pointer px-4 py-3 group h-20"
+                >
+                  <img src={item.icon || '/placeholder.svg'} alt={item.title} className="w-12 h-12 rounded-md object-contain bg-gray-100" />
+                  <div className="ml-4 flex-1 min-w-0">
+                    <div className="font-bold text-base text-gray-900 truncate">{item.title}</div>
+                    <div className="text-gray-600 text-sm truncate">{item.desc}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+} 

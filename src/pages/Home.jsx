@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, Sparkles, Zap, ExternalLink, Globe } from "l
 import Button from "../components/ui/button"
 import { useEffect, useState, useCallback } from "react"
 
-export default function Home() {
+export default function Home({ onDappSelect }) {
     const [sections, setSections] = useState({
       sparkGranted: [],
       highlighted: [],
@@ -196,7 +196,11 @@ export default function Home() {
                               </div>
                             </div>
                           ) : (
-                            <a key={`${pageIdx}-${idx}`} href={project.link} className="block group">
+                            <div
+                              key={`${pageIdx}-${idx}`}
+                              className="block group cursor-pointer"
+                              onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
+                            >
                               <div className="bg-white rounded-xl overflow-hidden border border-cosmic-purple/20 hover:border-cosmic-purple/50 transition-all duration-300 h-[280px] shadow-lg">
                                 <div className="h-40 relative bg-gradient-to-br from-purple-600 to-blue-600 overflow-hidden">
                                   <img
@@ -223,7 +227,7 @@ export default function Home() {
                                   </div>
                                 </div>
                               </div>
-                            </a>
+                            </div>
                           )
                         )}
                       </div>
@@ -245,7 +249,11 @@ export default function Home() {
   
               <div className="space-y-16">
                 {highlightedProjects.map((project, idx) => (
-                  <a key={idx} href={project.link} className="block group">
+                  <div
+                    key={idx}
+                    className="block group cursor-pointer"
+                    onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
+                  >
                     <div className={
                       idx % 2 === 1
                         ? 'grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 bg-white rounded-xl overflow-hidden border border-cosmic-purple/20 hover:border-cosmic-purple/50 transition-all duration-300 shadow-lg md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1'
@@ -290,7 +298,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>
@@ -307,7 +315,11 @@ export default function Home() {
   
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {premiumProjects.map((project, idx) => (
-                  <a key={idx} href={project.link} className="block group">
+                  <div
+                    key={idx}
+                    className="block group cursor-pointer"
+                    onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
+                  >
                     <div className="bg-white rounded-xl overflow-hidden border border-cosmic-purple/20 hover:border-cosmic-purple/50 transition-all duration-300 h-full shadow-lg">
                       <div className="h-48 relative">
                         <img
@@ -333,7 +345,7 @@ export default function Home() {
                         </p>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>
@@ -395,7 +407,11 @@ export default function Home() {
                                 </div>
                               </div>
                             ) : (
-                              <a key={idx} href={project.link} className="block group">
+                              <div
+                                key={idx}
+                                className="block group cursor-pointer"
+                                onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
+                              >
                                 <div className="bg-white rounded-xl p-6 border border-cosmic-purple/20 hover:border-cosmic-purple/50 transition-all duration-300 h-60 shadow-lg">
                                   <div className="flex items-start">
                                     <div className="h-24 w-28 bg-cosmic-purple/10 rounded-lg flex items-center justify-center border border-cosmic-purple/30 mr-4 overflow-hidden">
@@ -422,7 +438,7 @@ export default function Home() {
                                     {project.desc}
                                   </p>
                                 </div>
-                              </a>
+                              </div>
                             )
                           )}
                         </div>
