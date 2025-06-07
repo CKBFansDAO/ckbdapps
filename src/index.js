@@ -9,7 +9,6 @@ import { Provider } from 'react-redux'
 import rootReducer from './redux/reducers'
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import './assets/css/index.css';
 import './assets/fontawesome/css/all.min.css';
@@ -36,7 +35,6 @@ root.render(
   <Provider store={store}>
     <React.StrictMode>
         <QueryClientProvider client={queryClient}>
-          <ReactQueryDevtools initialIsOpen={false} />
           <Layout />
         </QueryClientProvider>
     </React.StrictMode>

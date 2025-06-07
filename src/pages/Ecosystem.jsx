@@ -91,7 +91,7 @@ const Ecosystem = () => {
 
     const renderSearchBar = () => {
         return <div className='flex gap-6 w-full items-center'>
-            <span className='items-center text-[24px] hidden md:block'>{t('ecosystem.all-projects')}</span>
+            <span className='items-center text-[24px] hidden md:block text-[#222] font-medium'>{t('ecosystem.all-projects')}</span>
             <div className="relative">
                 <div className="absolute top-1 left-2.5 ">
                     <i className="fa-solid fa-magnifying-glass"></i>

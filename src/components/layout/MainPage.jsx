@@ -1,27 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import Home from "../../pages/Home";
 import DappDetail from "../../pages/DappDetail";
 import { AnimatePresence, motion } from "framer-motion";
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Ecosystem from '../../pages/Ecosystem';
+import Halving from '../../pages/Halving';
+import Events from '../../pages/Events';
 
 import Bulletin from '../bulletin/Bulletin'
 import Footer from '../footer/Footer'
 import Sidebar from '../sidebar/Sidebar'
 import TopNav from '../TopNav/topNav'
 
+// Scroll position memory and restoration hook for a scrollable container
+const scrollPositions = {};
+function useScrollRestoration(containerRef) {
+  const location = useLocation();
+  const prevPath = useRef(location.pathname);
+
+  useLayoutEffect(() => {
+    return () => {
+      if (containerRef.current) {
+        scrollPositions[prevPath.current] = containerRef.current.scrollTop;
+      }
+    };
+  }, [location.pathname]);
+
+  useLayoutEffect(() => {
+    if (containerRef.current) {
+      if (scrollPositions[location.pathname] !== undefined) {
+        containerRef.current.scrollTop = scrollPositions[location.pathname];
+      } else {
+        containerRef.current.scrollTop = 0;
+      }
+    }
+    prevPath.current = location.pathname;
+  }, [location.pathname, containerRef]);
+}
+
 export default function MainPage() {
+  const contentRef = useRef(null);
+  useScrollRestoration(contentRef);
   const [selectedDapp, setSelectedDapp] = useState(null);
+  const location = useLocation();
 
   return (
     <div className="flex flex-col">
       <div className="sidebar hidden md:block w-0 md:w-[260px] bg-[#1C1C23]">
         <Sidebar />
       </div>
-      <div className="layout__content pl-0 md:ml-[260px] flex flex-col items-center">
+      <div className="layout__content pl-0 md:ml-[260px] flex flex-col items-center overflow-auto" ref={contentRef}>
         <Bulletin />
         <TopNav />
         <div className="flex grow w-full justify-center">
           <div className="bg-[#F8F8F8] flex flex-col w-full">
-            <Home onDappSelect={setSelectedDapp} />
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home onDappSelect={setSelectedDapp} />} />
+              <Route path="/ecosystem" element={<Ecosystem />} />
+              <Route path="/halving" element={<Halving />} />
+              <Route path="/events" element={<Events />} />
+              {/* New pages can be added here */}
+            </Routes>
           </div>
         </div>
         <Footer></Footer>
