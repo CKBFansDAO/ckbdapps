@@ -1,18 +1,17 @@
 {
   "name": "Nervape",
   "description": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem, focusing on narrative-driven, customizable 3D NFTs that operate on both Bitcoin and CKB chains, allowing users to create, modify, and transfer assets across chains. Its significance lies in enhancing the Nervos ecosystem by fostering community-driven storytelling, metaverse integration, and interoperability, while expanding practical NFT use cases through trading, gaming, and DeFi collaborations, thus driving user engagement and ecosystem growth.",
+  "titleImage": "/dappDetails/images/nervape/detailBanner.jpeg",
   "tags": [
     { "name": "DOBs", "color": "bg-green-600" },
     { "name": "RGB++", "color": "bg-purple-600" },
     { "name": "DApp", "color": "bg-blue-600" }
   ],
-  "socialLinks": [
-    { "icon": "external-link", "url": "#" },
-    { "icon": "external-link", "url": "#" },
-    { "icon": "external-link", "url": "#" },
-    { "icon": "external-link", "url": "#" }
-  ],
-  "websiteUrl": "#",
+  "socialLinks": {
+    "twitter": "https://x.com/Nervapes",
+    "discord": "https://discord.com/invite/7br6nvuNHP"
+  },
+  "websiteUrl": "https://www.nervape.com/",
   "highlights": [
     {
       "title": "First RGB++ DOB on Bitcoin",
@@ -53,19 +52,19 @@
   ],
   "videos": [
     {
-      "title": "Nervape 介绍视频",
+      "title": "Into the Third Continent",
       "url": "https://www.youtube.com/embed/QWntf2sOuRY",
       "thumbnail": "https://img.youtube.com/vi/QWntf2sOuRY/hqdefault.jpg"
     },
     {
-      "title": "Nervape 玩法演示",
-      "url": "https://www.youtube.com/embed/2vj37yeQQHg",
-      "thumbnail": "https://img.youtube.com/vi/2vj37yeQQHg/hqdefault.jpg"
+      "title": "Design a Spooky Ape and Post to Win",
+      "url": "https://www.youtube.com/embed/IOE5JxUqURY",
+      "thumbnail": "https://img.youtube.com/vi/IOE5JxUqURY/hqdefault.jpg"
     },
     {
-      "title": "Nervape 技术解析",
-      "url": "https://www.youtube.com/embed/3fumBcKC6RE",
-      "thumbnail": "https://img.youtube.com/vi/3fumBcKC6RE/hqdefault.jpg"
+      "title": "The Nervape Bridge",
+      "url": "https://www.youtube.com/embed/hPktZ9njEuo",
+      "thumbnail": "https://img.youtube.com/vi/hPktZ9njEuo/hqdefault.jpg"
     }
   ],
   "transparency": {
@@ -84,18 +83,19 @@
       "launchedDate": "Jan 01, 2019",
       "items": [
         { "name": "Open Source", "status": true },
-        { "name": "Documentation", "status": true },
-        { "name": "Regular Updates", "status": true },
-        { "name": "Community Driven", "status": true }
+        { "name": "Audited", "status": true },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
       ]
     },
-    "technology": {
-      "title": "Technology",
+    "token": {
+      "title": "Token",
+      "issuedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Smart Contracts", "status": true },
-        { "name": "Security Audits", "status": true },
-        { "name": "Test Coverage", "status": true },
-        { "name": "Performance", "status": true }
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": true },
+        { "name": "Tradable", "status": true },
+        { "name": "Exchange Listed", "status": false }
       ]
     }
   },
@@ -111,12 +111,6 @@
       "desc": "Ape-themed NFT collection on CKB.",
       "icon": "/placeholder.svg",
       "url": "/ckbapes"
-    },
-    {
-      "title": "Nervos Domains",
-      "desc": "Decentralized domain service on CKB.",
-      "icon": "/placeholder.svg",
-      "url": "/nervosdomains"
     }
   ],
   "faq": [

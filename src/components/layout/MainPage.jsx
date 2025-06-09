@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import Home from "../../pages/Home";
 import DappDetail from "../../pages/DappDetail";
 import { AnimatePresence, motion } from "framer-motion";
@@ -21,10 +21,11 @@ function useScrollRestoration(containerRef) {
   useLayoutEffect(() => {
     return () => {
       if (containerRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         scrollPositions[prevPath.current] = containerRef.current.scrollTop;
       }
     };
-  }, [location.pathname]);
+  }, [containerRef, location.pathname]);
 
   useLayoutEffect(() => {
     if (containerRef.current) {

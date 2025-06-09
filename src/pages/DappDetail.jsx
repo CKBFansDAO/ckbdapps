@@ -1,4 +1,5 @@
 import { ArrowLeft, ExternalLink, Zap } from "lucide-react";
+import { FaReddit, FaDiscord, FaTelegramPlane, FaTwitter, FaGithub } from "react-icons/fa";
 import Button from "../components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -31,6 +32,34 @@ const tagColorMap = {
   'DApp': 'bg-[#2563EB] text-white',
 };
 
+const marketingIconMap = {
+  twitter: {
+    icon: FaTwitter,
+    color: 'hover:text-[#1DA1F2] text-gray-700',
+    label: 'Twitter',
+  },
+  github: {
+    icon: FaGithub,
+    color: 'hover:text-[#333] text-gray-700',
+    label: 'GitHub',
+  },
+  discord: {
+    icon: FaDiscord,
+    color: 'hover:text-[#5865F2] text-gray-700',
+    label: 'Discord',
+  },
+  telegram: {
+    icon: FaTelegramPlane,
+    color: 'hover:text-[#229ED9] text-gray-700',
+    label: 'Telegram',
+  },
+  reddit: {
+    icon: FaReddit,
+    color: 'hover:text-[#FF4500] text-gray-700',
+    label: 'Reddit',
+  },
+};
+
 const ProjectHeader = ({ data, onClose }) => {
   return (
     <section className="bg-white py-6 px-4 md:py-8 border-b border-gray-200">
@@ -56,15 +85,40 @@ const ProjectHeader = ({ data, onClose }) => {
           </div>
           <div className="flex flex-col gap-4 md:flex-row md:items-center">
             <div className="flex gap-2 justify-center md:justify-start">
-              {data.socialLinks && data.socialLinks.map((link, index) => (
-                <Button key={index} variant="outline" size="icon" className="rounded-full border-gray-300">
-                  <ExternalLink className="h-4 w-4" />
-                </Button>
-              ))}
+              {/* social icons */}
+              {data.socialLinks && Object.entries(data.socialLinks).map(([icon, url]) => {
+                const info = marketingIconMap[icon];
+                if (!info) return null;
+                const Icon = info.icon;
+                return (
+                  <a
+                    key={icon}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={info.label}
+                    className={`rounded-full border border-gray-300 w-10 h-10 flex items-center justify-center transition-colors ${info.color}`}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                );
+              })}
             </div>
-            <Button className="bg-orange-500 hover:bg-orange-600 w-full md:w-auto">
-              Visit Website
-            </Button>
+            <a
+              href={data.websiteUrl || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={data.websiteUrl ? 0 : -1}
+              aria-disabled={!data.websiteUrl}
+              style={{ pointerEvents: data.websiteUrl ? 'auto' : 'none' }}
+            >
+              <Button
+                className={`w-full md:w-auto px-8 py-3 text-lg font-bold rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg transition-transform duration-200 ${data.websiteUrl ? 'hover:scale-105 hover:shadow-lg' : 'opacity-50 cursor-not-allowed'}`}
+                disabled={!data.websiteUrl}
+              >
+                Visit Website
+              </Button>
+            </a>
           </div>
         </div>
         <p className="text-gray-700 leading-relaxed">
@@ -188,21 +242,23 @@ const ProjectTransparency = ({ transparency }) => {
             </div>
             <div>
               <h4 className="text-xl font-bold text-gray-900">{transparency.team.title}</h4>
-              <p className="text-gray-600 text-sm">Founded {transparency.team.foundedDate}</p>
+              <p className="text-gray-600 text-sm">Founded at {transparency.team.foundedDate}</p>
             </div>
           </div>
           <div className="space-y-4">
             {transparency.team.items.map((item, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-green-100 rounded-lg hover:bg-green-200 transition">
-                <span className="text-gray-900 font-medium">{item.name}</span>
-                <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition ${item.status === false ? 'bg-gray-100' : 'bg-green-100 hover:bg-green-200'}`}>
+                <span className={item.status === false ? 'text-gray-400 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${item.status === false ? 'bg-gray-400' : 'bg-green-500'}`}>
+                  {item.status === false ? (
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6.707 6.293a1 1 0 00-1.414 1.414L8.586 11l-3.293 3.293a1 1 0 101.414 1.414L10 12.414l3.293 3.293a1 1 0 001.414-1.414L11.414 11l3.293-3.293a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  )}
                 </div>
               </div>
             ))}
@@ -223,27 +279,29 @@ const ProjectTransparency = ({ transparency }) => {
             </div>
             <div>
               <h4 className="text-xl font-bold text-gray-900">{transparency.project.title}</h4>
-              <p className="text-gray-600 text-sm">Launched {transparency.project.launchedDate}</p>
+              <p className="text-gray-600 text-sm">Launched at {transparency.project.launchedDate}</p>
             </div>
           </div>
           <div className="space-y-4">
             {transparency.project.items.map((item, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-green-100 rounded-lg hover:bg-green-200 transition">
-                <span className="text-gray-900 font-medium">{item.name}</span>
-                <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition ${item.status === false ? 'bg-gray-100' : 'bg-green-100 hover:bg-green-200'}`}>
+                <span className={item.status === false ? 'text-gray-400 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${item.status === false ? 'bg-gray-400' : 'bg-green-500'}`}>
+                  {item.status === false ? (
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6.707 6.293a1 1 0 00-1.414 1.414L8.586 11l-3.293 3.293a1 1 0 101.414 1.414L10 12.414l3.293 3.293a1 1 0 001.414-1.414L11.414 11l3.293-3.293a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  )}
                 </div>
               </div>
             ))}
           </div>
         </div>
-        {/* Technology Card */}
+        {/* Token Card */}
         <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
           <div className="flex items-center mb-6">
             <div className="bg-[#F56100] rounded-full p-3 mr-4">
@@ -257,22 +315,24 @@ const ProjectTransparency = ({ transparency }) => {
               </svg>
             </div>
             <div>
-              <h4 className="text-xl font-bold text-gray-900">{transparency.technology.title}</h4>
-              <p className="text-gray-600 text-sm">Technical Implementation</p>
+              <h4 className="text-xl font-bold text-gray-900">{transparency.token.title}</h4>
+              <p className="text-gray-600 text-sm">Issued at {transparency.token.issuedDate}</p>
             </div>
           </div>
           <div className="space-y-4">
-            {transparency.technology.items.map((item, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-green-100 rounded-lg hover:bg-green-200 transition">
-                <span className="text-gray-900 font-medium">{item.name}</span>
-                <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+            {transparency.token.items.map((item, index) => (
+              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition ${item.status === false ? 'bg-gray-100' : 'bg-green-100 hover:bg-green-200'}`}>
+                <span className={item.status === false ? 'text-gray-400 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${item.status === false ? 'bg-gray-400' : 'bg-green-500'}`}>
+                  {item.status === false ? (
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6.707 6.293a1 1 0 00-1.414 1.414L8.586 11l-3.293 3.293a1 1 0 101.414 1.414L10 12.414l3.293 3.293a1 1 0 001.414-1.414L11.414 11l3.293-3.293a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  )}
                 </div>
               </div>
             ))}
@@ -405,8 +465,7 @@ export default function DappDetail({ dappId, onClose }) {
 
       {/* Hero Section */}
       <section className="relative w-full h-[200px] md:h-[300px] overflow-hidden">
-        <img src={data.heroImage || "/placeholder.svg?height=300&width=1200"} alt={data.name + " Hero"} className="object-cover w-full h-full absolute inset-0" style={{objectFit:'cover'}} />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent" />
+        <img src={data.titleImage} alt={data.name + " Hero"} className="object-cover w-full h-full absolute inset-0" style={{objectFit:'cover'}} />
       </section>
 
       {/* Project Header (modularized) */}

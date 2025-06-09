@@ -6,22 +6,22 @@ import Button from "../components/ui/button"
 import { useEffect, useState, useCallback } from "react"
 
 // Hero Banner Carousel Section
-const HeroBannerCarousel = ({ banners, current, prev, next, goto }) => {
+const HeroBannerCarousel = ({ banners, current, prev, next, goto, onDappSelect }) => {
   return (
     <section className="relative h-[600px] bg-cosmic-gradient overflow-hidden flex flex-col justify-end">
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern bg-[length:30px_30px]"></div>
-      {/* Banner image */}
-      <img src={banners[current].image} alt={banners[current].title} className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none select-none" />
-      {/* Title and description */}
-      <div className="absolute bottom-24 left-0 right-0 text-center z-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-cosmic-dark">
-          <span className="text-cosmic-accent">{banners[current].title.split(' ')[0]}</span> {banners[current].title.split(' ').slice(1).join(' ')}
-        </h1>
-        <p className="text-lg text-cosmic-gray max-w-2xl mx-auto text-sm">
-          {banners[current].desc}
-        </p>
-      </div>
+      {/* Banner image (no overlay, no opacity) */}
+      <img
+        src={banners[current].image}
+        alt={banners[current].title}
+        className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer z-10 transition-transform duration-300 hover:scale-105"
+        onClick={() => {
+          if (banners[current].dappId && onDappSelect) {
+            onDappSelect(banners[current].dappId);
+          }
+        }}
+      />
       {/* Left and right buttons */}
       <button onClick={prev} className="absolute left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm border border-cosmic-purple/30 flex items-center justify-center hover:bg-white transition-all shadow-lg">
         <ChevronLeft className="h-6 w-6 text-cosmic-purple" />
@@ -44,6 +44,9 @@ const ProjectIntroduction = ({ banners, current }) => {
   return (
     <section className="bg-cosmic-lightGray py-6 px-6">
       <div className="max-w-6xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-cosmic-dark text-center">
+          <span className="text-cosmic-accent">{banners[current].title.split(' ')[0]}</span> {banners[current].title.split(' ').slice(1).join(' ')}
+        </h1>
         <p className="text-cosmic-gray text-sm text-center">
           {banners[current].project.desc}
         </p>
@@ -119,13 +122,27 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, sparkWin
                             <img
                               src={project.image}
                               alt={project.name + ' Logo'}
-                              className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity transition-transform duration-300 group-hover:scale-110"
+                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                             />
-                            {project.tag && (
-                              <div className="absolute top-4 left-4">
-                                <span className="bg-white/90 backdrop-blur-sm text-cosmic-purple text-xs px-3 py-1 rounded-full font-tech border border-cosmic-purple/30">
-                                  {project.tag}
-                                </span>
+                            {/* tags 容器 */}
+                            {project.tags && project.tags.length > 0 && (
+                              <div className="absolute top-4 left-4 flex gap-1 z-10">
+                                {project.tags.map((tag, tIdx) => (
+                                  <span
+                                    key={tIdx}
+                                    className="px-2 py-1 rounded-full text-xs font-medium shadow-sm"
+                                    style={{
+                                      background: tag.color || '#F3F4F6',
+                                      color: tag.color ? '#fff' : '#8B5CF6',
+                                      border: tag.color ? 'none' : '1px solid #E5E7EB',
+                                      display: 'inline-block',
+                                      minWidth: 40,
+                                      textAlign: 'center',
+                                    }}
+                                  >
+                                    {tag.name || tag}
+                                  </span>
+                                ))}
                               </div>
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent"></div>
@@ -179,12 +196,23 @@ const HighlightedProjects = ({ highlightedProjects, onDappSelect }) => {
                   <img
                     src={project.image}
                     alt={project.name + ' Logo'}
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity transition-transform duration-300 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute top-6 left-6 flex gap-3">
-                    {project.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="bg-white/90 backdrop-blur-sm text-cosmic-purple text-xs px-3 py-1 rounded-full font-tech border border-cosmic-purple/30">
-                        {tag}
+                  <div className="absolute top-6 left-6 flex gap-1">
+                    {project.tags && project.tags.map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="px-2 py-1 rounded-full text-sm font-medium shadow-sm"
+                        style={{
+                          background: tag.color || '#F3F4F6',
+                          color: tag.color ? '#fff' : '#8B5CF6',
+                          border: tag.color ? 'none' : '1px solid #E5E7EB',
+                          display: 'inline-block',
+                          minWidth: 48,
+                          textAlign: 'center',
+                        }}
+                      >
+                        {tag.name || tag}
                       </span>
                     ))}
                   </div>
@@ -244,12 +272,23 @@ const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
                   <img
                     src={project.image}
                     alt={project.name + ' Logo'}
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity transition-transform duration-300 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    {project.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="bg-white/90 backdrop-blur-sm text-cosmic-purple text-xs px-3 py-1 rounded-full font-tech border border-cosmic-purple/30">
-                        {tag}
+                  <div className="absolute top-4 left-4 flex gap-1">
+                    {project.tags && project.tags.map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="px-2 py-1 rounded-full text-xs font-medium shadow-sm"
+                        style={{
+                          background: tag.color || '#F3F4F6',
+                          color: tag.color ? '#fff' : '#8B5CF6',
+                          border: tag.color ? 'none' : '1px solid #E5E7EB',
+                          display: 'inline-block',
+                          minWidth: 40,
+                          textAlign: 'center',
+                        }}
+                      >
+                        {tag.name || tag}
                       </span>
                     ))}
                   </div>
@@ -347,10 +386,21 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
                                 <h3 className="text-xl font-bold text-cosmic-dark group-hover:text-cosmic-accent transition-colors">
                                   {project.name}
                                 </h3>
-                                <div className="flex flex-wrap gap-2 mt-2">
-                                  {project.tags.map((tag, tIdx) => (
-                                    <span key={tIdx} className="bg-cosmic-purple/10 text-cosmic-purple text-xs px-3 py-1 rounded-full font-tech border border-cosmic-purple/30">
-                                      {tag}
+                                <div className="flex flex-wrap gap-1 mt-2">
+                                  {project.tags && project.tags.map((tag, tIdx) => (
+                                    <span
+                                      key={tIdx}
+                                      className="px-2 py-1 rounded-full text-xs font-medium mr-1 shadow-sm"
+                                      style={{
+                                        background: tag.color || '#F3F4F6',
+                                        color: tag.color ? '#fff' : '#8B5CF6',
+                                        border: tag.color ? 'none' : '1px solid #E5E7EB',
+                                        display: 'inline-block',
+                                        minWidth: 40,
+                                        textAlign: 'center',
+                                      }}
+                                    >
+                                      {tag.name || tag}
                                     </span>
                                   ))}
                                 </div>
@@ -415,6 +465,7 @@ export default function Home({ onDappSelect }) {
     banners: []
   });
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     document.body.classList.add("cosmic-inscription");
     fetch("/homeSections.json")
@@ -466,11 +517,7 @@ export default function Home({ onDappSelect }) {
 
   // Community-driven Projects data
   const communityProjects = sections.community;
-  const communityPerPage = 3;
   const [communityPage, setCommunityPage] = useState(0);
-  const communityMaxPage = Math.ceil(communityProjects.length / communityPerPage);
-  const communityPrev = () => setCommunityPage((p) => (p - 1 + communityMaxPage) % communityMaxPage);
-  const communityNext = () => setCommunityPage((p) => (p + 1) % communityMaxPage);
 
   // 1. Generate windowed pagination data
   const total = communityProjects.length;
@@ -492,7 +539,7 @@ export default function Home({ onDappSelect }) {
     <div className="cosmic-inscription min-h-screen bg-cosmic-light text-cosmic-dark overflow-hidden">
       {/* Main Content */}
       <div className="w-full">
-        <HeroBannerCarousel banners={banners} current={current} prev={prev} next={next} goto={goto} />
+        <HeroBannerCarousel banners={banners} current={current} prev={prev} next={next} goto={goto} onDappSelect={onDappSelect} />
         <ProjectIntroduction banners={banners} current={current} />
         <SparkGrantedProjects sparkProjects={sparkProjects} sparkPage={sparkPage} setSparkPage={setSparkPage} sparkWindows={sparkWindows} showSparkSlider={showSparkSlider} onDappSelect={onDappSelect} />
         <HighlightedProjects highlightedProjects={highlightedProjects} onDappSelect={onDappSelect} />
