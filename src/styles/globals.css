@@ -86,6 +86,41 @@ body {
 
 .text-cosmic-dark {
   color: #1a1a1a;
+  position: relative;
+  transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  display: inline-block;
+}
+
+.text-cosmic-dark::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: fit-content;
+  height: 100%;
+  text-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+  background: linear-gradient(to right, #4ade80, #22d3ee, #8b5cf6, #4ade80);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+  animation: flowingLight 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.group:hover .text-cosmic-dark::before {
+  opacity: 1;
+  animation-play-state: running;
 }
 
 .text-cosmic-gray {
@@ -146,19 +181,6 @@ body {
   }
 }
 
-.animate-glow {
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #8b5cf6;
-  }
-  to {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #8b5cf6;
-  }
-}
-
 .text-balance {
   text-wrap: balance;
 }
@@ -190,5 +212,17 @@ body.cosmic-inscription::-webkit-scrollbar-thumb:hover {
 }
 .cosmic-text-glow {
   text-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(5, 150, 105, 0.3);
+}
+
+@keyframes flowingLight {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 } 
  

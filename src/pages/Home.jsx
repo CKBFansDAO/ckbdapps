@@ -300,8 +300,9 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
                         </div>
                         <div className="p-4">
                           <h3
-                            className="text-xl font-bold text-cosmic-dark transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:drop-shadow-[0_2px_12px_rgba(80,200,255,0.7)] group-hover:animate-glow"
+                            className="text-xl font-bold text-cosmic-dark"
                             style={{ position: 'relative', zIndex: 2 }}
+                            data-text={project.name}
                           >
                             {project.name}
                           </h3>
@@ -381,8 +382,9 @@ const HighlightedProjects = ({ highlightedProjects, onDappSelect }) => {
                       />
                     </div>
                     <h3
-                      className="text-2xl font-bold text-cosmic-dark transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:drop-shadow-[0_2px_12px_rgba(80,200,255,0.7)] group-hover:animate-glow"
+                      className="text-2xl font-bold text-cosmic-dark"
                       style={{ position: 'relative', zIndex: 2 }}
+                      data-text={project.name}
                     >
                       {project.name}
                     </h3>
@@ -452,8 +454,9 @@ const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
                 </div>
                 <div className="p-6">
                   <h3
-                    className="text-xl font-bold text-cosmic-dark transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:drop-shadow-[0_2px_12px_rgba(80,200,255,0.7)] group-hover:animate-glow mb-3"
+                    className="text-xl font-bold text-cosmic-dark mb-3"
                     style={{ position: 'relative', zIndex: 2 }}
+                    data-text={project.name}
                   >
                     {project.name}
                   </h3>
@@ -540,8 +543,9 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
                           </div>
                           <div className="flex flex-col justify-end h-24 ml-4">
                             <h3
-                              className="text-xl font-bold text-cosmic-dark transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:drop-shadow-[0_2px_12px_rgba(80,200,255,0.7)] group-hover:animate-glow mb-2"
+                              className="text-xl font-bold text-cosmic-dark mb-2"
                               style={{ position: 'relative', zIndex: 2 }}
+                              data-text={project.name}
                             >
                               {project.name}
                             </h3>
