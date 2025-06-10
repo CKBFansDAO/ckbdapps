@@ -123,6 +123,23 @@ body {
   animation-play-state: running;
 }
 
+.text-fund-dao {
+  content: attr(data-text);
+  top: 0;
+  width: fit-content;
+  height: 100%;
+  background: linear-gradient(to right, #4ade80, #22d3ee, #8b5cf6, #4ade80);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 1;
+  white-space: nowrap;
+  animation: flowingLight 3s linear infinite;
+  animation-play-state: running;
+}
+
 .text-cosmic-gray {
   color: #666666;
 }
@@ -224,5 +241,5 @@ body.cosmic-inscription::-webkit-scrollbar-thumb:hover {
   100% {
     background-position: 0% 50%;
   }
-} 
+}
  

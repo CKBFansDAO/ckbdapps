@@ -276,27 +276,6 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
                             alt={project.name + ' Logo'}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                           />
-                          {project.tags && project.tags.length > 0 && (
-                            <div className="absolute top-4 left-4 flex gap-1 z-10">
-                              {project.tags.map((tag, tIdx) => (
-                                <span
-                                  key={tIdx}
-                                  className="px-2 py-1 rounded-full text-xs font-medium shadow-sm"
-                                  style={{
-                                    background: tag.color || '#F3F4F6',
-                                    color: tag.color ? '#fff' : '#8B5CF6',
-                                    border: tag.color ? 'none' : '1px solid #E5E7EB',
-                                    display: 'inline-block',
-                                    minWidth: 40,
-                                    textAlign: 'center',
-                                  }}
-                                >
-                                  {tag.name || tag}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                          <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent"></div>
                         </div>
                         <div className="p-4">
                           <h3
@@ -352,25 +331,6 @@ const HighlightedProjects = ({ highlightedProjects, onDappSelect }) => {
                     alt={project.name + ' Logo'}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute top-6 left-6 flex gap-1">
-                    {project.tags && project.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="px-2 py-1 rounded-full text-sm font-medium shadow-sm"
-                        style={{
-                          background: tag.color || '#F3F4F6',
-                          color: tag.color ? '#fff' : '#8B5CF6',
-                          border: tag.color ? 'none' : '1px solid #E5E7EB',
-                          display: 'inline-block',
-                          minWidth: 48,
-                          textAlign: 'center',
-                        }}
-                      >
-                        {tag.name || tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 md:bg-none"></div>
                 </div>
                 <div className="p-6 md:p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
@@ -432,25 +392,6 @@ const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
                     alt={project.name + ' Logo'}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 left-4 flex gap-1">
-                    {project.tags && project.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="px-2 py-1 rounded-full text-xs font-medium shadow-sm"
-                        style={{
-                          background: tag.color || '#F3F4F6',
-                          color: tag.color ? '#fff' : '#8B5CF6',
-                          border: tag.color ? 'none' : '1px solid #E5E7EB',
-                          display: 'inline-block',
-                          minWidth: 40,
-                          textAlign: 'center',
-                        }}
-                      >
-                        {tag.name || tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent"></div>
                 </div>
                 <div className="p-6">
                   <h3
@@ -541,7 +482,7 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
                               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                             />
                           </div>
-                          <div className="flex flex-col justify-end h-24 ml-4">
+                          <div className="flex flex-col justify-center h-24 ml-4 pt-6 pl-2">
                             <h3
                               className="text-xl font-bold text-cosmic-dark mb-2"
                               style={{ position: 'relative', zIndex: 2 }}
@@ -549,27 +490,9 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
                             >
                               {project.name}
                             </h3>
-                            <div className="flex flex-wrap gap-2 mb-2">
-                              {project.tags && project.tags.map((tag, tIdx) => (
-                                <span
-                                  key={tIdx}
-                                  className="px-4 py-1 rounded-full text-xs font-medium shadow-sm"
-                                  style={{
-                                    background: tag.color || '#F3F4F6',
-                                    color: tag.color ? '#fff' : '#8B5CF6',
-                                    border: tag.color ? 'none' : '1px solid #E5E7EB',
-                                    display: 'inline-block',
-                                    minWidth: 40,
-                                    textAlign: 'center',
-                                  }}
-                                >
-                                  {tag.name || tag}
-                                </span>
-                              ))}
-                            </div>
                           </div>
                         </div>
-                        <p className="text-cosmic-gray text-sm mt-2 leading-relaxed">
+                        <p className="text-cosmic-gray text-sm mt-2 leading-relaxed pt-4">
                           {project.desc}
                         </p>
                       </div>
@@ -591,7 +514,10 @@ const CommunityFundDAO = () => {
     <section className="bg-cosmic-light pt-2 pb-28 px-6">
       <div className="max-w-6xl mx-auto">
         <a href="https://talk.nervos.org/c/ckb-community-fund-dao/65" target="_blank" rel="noopener noreferrer" className="block group">
-          <div className="relative bg-cosmic-gradient rounded-xl h-52 overflow-hidden border border-cosmic-purple/20 shadow-lg transition-transform group-hover:scale-[1.02] cursor-pointer">
+          <div
+            className="relative bg-cosmic-gradient rounded-xl h-52 overflow-hidden border border-cosmic-purple/20 shadow-lg transition-transform group-hover:scale-[1.04] cursor-pointer"
+            style={{ transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }}
+          >
             {/* Background Elements */}
             <div className="absolute inset-0 bg-grid-pattern bg-[length:20px_20px] opacity-30"></div>
             <div className="absolute w-80 h-80 rounded-full bg-cosmic-purple/10 blur-3xl -top-20 -left-20"></div>
@@ -601,7 +527,7 @@ const CommunityFundDAO = () => {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
                 <h3 className="text-4xl md:text-5xl font-bold text-cosmic-dark mb-4">
-                  Community <span className="text-cosmic-accent">Fund</span> DAO
+                  Community <span className="text-fund-dao">Fund</span> DAO
                 </h3>
                 <div className="flex items-center justify-center gap-4">
                   <div className="h-px w-12 bg-cosmic-purple/50"></div>
