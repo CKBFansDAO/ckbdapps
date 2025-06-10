@@ -476,7 +476,7 @@ export default function DappDetail({ dappId, onClose }) {
         <div className="max-w-7xl mx-auto flex items-center">
           <button onClick={onClose} className="flex items-center text-gray-900 hover:text-gray-600">
             <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Projects
+            <h3 className="text-ml">Back to Projects</h3>
           </button>
         </div>
       </header>
