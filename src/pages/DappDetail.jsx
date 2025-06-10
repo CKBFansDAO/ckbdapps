@@ -1,5 +1,5 @@
 import { ArrowLeft, ExternalLink, Zap } from "lucide-react";
-import { FaReddit, FaDiscord, FaTelegramPlane, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaReddit, FaDiscord, FaTelegramPlane, FaTwitter, FaGithub, FaYoutube, FaMedium } from "react-icons/fa";
 import Button from "../components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -58,6 +58,16 @@ const marketingIconMap = {
     color: 'hover:text-[#FF4500] text-gray-700',
     label: 'Reddit',
   },
+  youtube: {
+    icon: FaYoutube,
+    color: 'hover:text-[#FF0000] text-gray-700',
+    label: 'YouTube',
+  },
+  medium: {
+    icon: FaMedium,
+    color: 'hover:text-[#00ab6c] text-gray-700',
+    label: 'Medium',
+  },
 };
 
 const ProjectHeader = ({ data, onClose }) => {
@@ -66,8 +76,16 @@ const ProjectHeader = ({ data, onClose }) => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
           <div className="flex items-center mb-4 md:mb-0">
-            <div className="bg-gray-900 rounded-lg p-6 mr-4 h-24 w-24 md:h-32 md:w-32 flex items-center justify-center -mt-12 md:-mt-16 border-4 border-white shadow-xl relative z-20">
-              <h1 className="text-xl font-bold text-white uppercase">{data.name}</h1>
+            <div className="h-32 w-32 rounded-lg bg-cosmic-purple/10 flex items-center justify-center overflow-hidden mr-4 -mt-12 md:-mt-16 relative z-20 border-4 border-white">
+              {data.logo ? (
+                <img
+                  src={data.logo}
+                  alt={data.name + ' logo'}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <h1 className="text-xl font-bold text-white uppercase">{data.name}</h1>
+              )}
             </div>
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{data.name}</h2>
@@ -228,7 +246,7 @@ const ProjectTransparency = ({ transparency }) => {
       <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">Project Transparency</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Team Card */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+        <div className="group bg-white border border-amber-200 hover:border-amber-300 rounded-2xl p-8 shadow-lg hover:shadow-md transition-all duration-300">
           <div className="flex items-center mb-6">
             <div className="bg-[#28C1B0] rounded-full p-3 mr-4">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -265,7 +283,7 @@ const ProjectTransparency = ({ transparency }) => {
           </div>
         </div>
         {/* Project Card */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+        <div className="group bg-white border border-amber-200 hover:border-amber-300 rounded-2xl p-8 shadow-lg hover:shadow-md transition-all duration-300">
           <div className="flex items-center mb-6">
             <div className="bg-[#733DFF] rounded-full p-3 mr-4">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -302,7 +320,7 @@ const ProjectTransparency = ({ transparency }) => {
           </div>
         </div>
         {/* Token Card */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+        <div className="group bg-white border border-amber-200 hover:border-amber-300 rounded-2xl p-8 shadow-lg hover:shadow-md transition-all duration-300">
           <div className="flex items-center mb-6">
             <div className="bg-[#F56100] rounded-full p-3 mr-4">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

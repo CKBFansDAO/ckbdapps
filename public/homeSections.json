@@ -10,31 +10,22 @@
       "dappId": "omiga"
     },
     {
-      "image": "/images/placeholder.svg?height=600&width=1200&text=Project+2",
-      "title": "Project Two",
+      "image": "/dappDetails/images/utxoswap/banner.jpg",
+      "title": "UTXO Swap",
       "project": {
-        "name": "Project Two",
-        "desc": "Description for Project Two. Replace with real content."
+        "name": "UTXO Swap",
+        "desc": "UTXO Swap is a decentralized exchange built on Nervos CKB Layer 2, designed for seamless, intent-driven trading of Bitcoin-native assets like Runes and inscriptions, leveraging CKB Extended UTXO model and cross-chain bridging for secure, efficient swaps with minimal trust requirements."
       },
-      "dappId": "project-two"
+      "dappId": "utxoswap"
     },
     {
-      "image": "/images/placeholder.svg?height=600&width=1200&text=Project+3",
-      "title": "Project Three",
+      "image": "/dappDetails/images/imagination/banner.jpeg",
+      "title": "imagiNation",
       "project": {
-        "name": "Project Three",
-        "desc": "Description for Project Three. Replace with real content."
+        "name": "imagiNation",
+        "desc": "ImagiNation is a decentralized marketplace on Nervos CKB, enabling fully on-chain asset creation, trading, and value capture, with plans to support RGB++ for Bitcoin-compatible smart contracts and asset issuance."
       },
-      "dappId": "project-three"
-    },
-    {
-      "image": "/images/placeholder.svg?height=600&width=1200&text=Project+4",
-      "title": "Project Four",
-      "project": {
-        "name": "Project Four",
-        "desc": "Description for Project Four. Replace with real content."
-      },
-      "dappId": "project-four"
+      "dappId": "imagination"
     }
   ],
   "sparkGranted": [

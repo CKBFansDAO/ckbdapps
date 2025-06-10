@@ -6,48 +6,204 @@ import Button from "../components/ui/button"
 import { useEffect, useState, useCallback } from "react"
 
 // Hero Banner Carousel Section
-const HeroBannerCarousel = ({ banners, current, prev, next, goto, onDappSelect }) => {
+const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
   return (
-    <section className="relative h-[600px] bg-cosmic-gradient overflow-hidden flex flex-col justify-end">
+    <section
+      className="relative h-[600px] bg-cosmic-gradient overflow-hidden flex flex-col justify-end"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern bg-[length:30px_30px]"></div>
-      {/* Banner image (no overlay, no opacity) */}
-      <img
-        src={banners[current].image}
-        alt={banners[current].title}
-        className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer z-10 transition-transform duration-300 hover:scale-105"
-        onClick={() => {
-          if (banners[current].dappId && onDappSelect) {
-            onDappSelect(banners[current].dappId);
+      {/* Banner images with true cross-fade transition */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        {/* Always render both images, but control their visibility with opacity */}
+        <img
+          key={`current-${current}`}
+          src={banners[current].image}
+          alt={banners[current].title}
+          className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer transition-all duration-700 ease-in-out"
+          style={{
+            zIndex: fadeStage === 'fading' ? 1 : 2,
+            opacity: fadeStage === 'fading' ? 0 : 1,
+            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            pointerEvents: fadeStage === 'fading' ? 'none' : 'auto',
+          }}
+          onClick={() => {
+            if (banners[current].dappId && onDappSelect) {
+              onDappSelect(banners[current].dappId);
+            }
+          }}
+        />
+        {next !== null && (
+          <img
+            key={`next-${next}`}
+            src={banners[next].image}
+            alt={banners[next].title}
+            className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer transition-all duration-700 ease-in-out"
+            style={{
+              zIndex: fadeStage === 'fading' ? 2 : 1,
+              opacity: fadeStage === 'fading' ? 1 : 0,
+              transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+              pointerEvents: fadeStage === 'fading' ? 'auto' : 'none',
+            }}
+            onClick={() => {
+              if (banners[next].dappId && onDappSelect) {
+                onDappSelect(banners[next].dappId);
+              }
+            }}
+          />
+        )}
+      </div>
+      {/* Pagination and progress dots always on top (z-10) */}
+      <button 
+        onClick={() => triggerFade('prev')} 
+        className="absolute left-0 top-0 h-full w-16 z-10 flex items-center justify-center group transition-all duration-300"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-white/40 to-white/10 group-hover:from-white/60 group-hover:to-white/20 transition-all duration-300"></div>
+        <ChevronLeft className="h-8 w-8 text-cosmic-dark relative z-10" />
+      </button>
+      <button 
+        onClick={() => triggerFade('next')} 
+        className="absolute right-0 top-0 h-full w-16 z-10 flex items-center justify-center group transition-all duration-300"
+      >
+        <div className="absolute inset-0 bg-gradient-to-l from-white/40 to-white/10 group-hover:from-white/60 group-hover:to-white/20 transition-all duration-300"></div>
+        <ChevronRight className="h-8 w-8 text-cosmic-dark relative z-10" />
+      </button>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+        {banners.map((_, i) => {
+          // Determine dot state for animation
+          let isLoaded = false;
+          if ((fadeStage === 'fading' || fadeStage === 'prepare') && next !== null) {
+            if (i === current && fadeStage === 'prepare') isLoaded = true;
+            else if (i === next && fadeStage === 'fading') isLoaded = true;
+          } else if (i === current) {
+            isLoaded = true;
           }
-        }}
-      />
-      {/* Left and right buttons */}
-      <button onClick={prev} className="absolute left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm border border-cosmic-purple/30 flex items-center justify-center hover:bg-white transition-all shadow-lg">
-        <ChevronLeft className="h-6 w-6 text-cosmic-purple" />
-      </button>
-      <button onClick={next} className="absolute right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm border border-cosmic-purple/30 flex items-center justify-center hover:bg-white transition-all shadow-lg">
-        <ChevronRight className="h-6 w-6 text-cosmic-purple" />
-      </button>
-      {/* Dot indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-        {banners.map((_, i) => (
-          <div key={i} onClick={() => goto(i)} className={`w-3 h-3 rounded-full cursor-pointer transition-all ${i === current ? 'bg-cosmic-accent' : 'bg-cosmic-gray/30'}`}></div>
-        ))}
+          return (
+            <div
+              key={i}
+              onClick={() => triggerFade(i)}
+              className={
+                `w-5 h-5 rounded-full cursor-pointer transition-all duration-500`
+              }
+              style={{
+                boxSizing: 'border-box',
+                transition: 'all 0.5s cubic-bezier(.4,2,.6,1)',
+                background: isLoaded
+                  ? 'linear-gradient(to bottom right, #4ade80, #22d3ee)'
+                  : '#fff',
+                border: isLoaded ? '2px solid #fff' : '1px solid #d1d5db',
+                boxShadow: isLoaded ? '0 2px 8px 0 rgba(34,211,238,0.3)' : 'none',
+                transform: isLoaded ? 'scale(1.25)' : 'scale(1)',
+              }}
+            ></div>
+          );
+        })}
       </div>
     </section>
   );
 };
 
+const DOT_COUNT = 36;
+
 // Project Introduction Section
 const ProjectIntroduction = ({ banners, current }) => {
+  // Initialize dots with random properties, including hue for color animation
+  const [dots, setDots] = useState(() =>
+    Array.from({ length: DOT_COUNT }).map(() => ({
+      left: Math.random() * 100, // percent
+      bottom: Math.random() * 64, // px
+      size: 8 + Math.random() * 16, // px
+      opacity: 0.4 + Math.random() * 0.5,
+      dx: (Math.random() - 0.5) * 0.04, // quadrupled horizontal speed
+      dy: (Math.random() - 0.5) * 0.04, // quadrupled vertical speed
+      hue: 200 + Math.random() * 80, // initial hue (blue to purple)
+      dhue: 0.2 + Math.random() * 0.2, // hue change rate
+    }))
+  );
+
+  // Animate dots movement and color
+  useEffect(() => {
+    let animationId;
+    let lastTime = performance.now();
+    const FRAME_DURATION = 1000 / 60; // 60fps
+
+    function animate(currentTime) {
+      const deltaTime = currentTime - lastTime;
+      if (deltaTime >= FRAME_DURATION) {
+        setDots(prev =>
+          prev.map(dot => {
+            let newLeft = dot.left + dot.dx;
+            let newBottom = dot.bottom + dot.dy;
+            let dx = dot.dx;
+            let dy = dot.dy;
+            // Bounce on horizontal edges
+            if (newLeft < 0 || newLeft > 100) {
+              dx = -dx;
+              newLeft = Math.max(0, Math.min(100, newLeft));
+            }
+            // Bounce on vertical edges
+            if (newBottom < 0 || newBottom > 64) {
+              dy = -dy;
+              newBottom = Math.max(0, Math.min(64, newBottom));
+            }
+            // Animate hue (color)
+            let newHue = dot.hue + dot.dhue;
+            if (newHue > 280) newHue = 200; // loop in blue-purple range
+            return {
+              ...dot,
+              left: newLeft,
+              bottom: newBottom,
+              dx,
+              dy,
+              hue: newHue,
+            };
+          })
+        );
+        lastTime = currentTime;
+      }
+      animationId = requestAnimationFrame(animate);
+    }
+    animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, []);
+
   return (
-    <section className="bg-cosmic-lightGray py-6 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-cosmic-dark text-center">
-          <span className="text-cosmic-accent">{banners[current].title.split(' ')[0]}</span> {banners[current].title.split(' ').slice(1).join(' ')}
+    <section className="relative bg-cosmic-lightGray py-6 px-6 overflow-hidden">
+      {/* Bottom light blue bar with animated decorative dots */}
+      <div className="absolute left-0 right-0 bottom-0 h-16 bg-[#EAF4FB] opacity-95 rounded-t-3xl z-0">
+        {/* Animated decorative dots with color gradient */}
+        {dots.map((dot, i) => (
+          <div
+            key={i}
+            className="rounded-full pointer-events-none"
+            style={{
+              position: 'absolute',
+              left: `${dot.left}%`,
+              bottom: `${dot.bottom}px`,
+              width: `${dot.size}px`,
+              height: `${dot.size}px`,
+              opacity: dot.opacity,
+              zIndex: 1,
+              background: `hsl(${dot.hue}, 80%, 80%)`,
+              transition: 'background-color 0.3s ease-in-out', // faster color transition
+            }}
+          ></div>
+        ))}
+      </div>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+          <span
+            className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(80,200,255,0.5)]"
+            style={{
+              WebkitTextStroke: '1px rgba(255,255,255,0.15)'
+            }}
+          >
+            {banners[current].title}
+          </span>
         </h1>
-        <p className="text-cosmic-gray text-sm text-center">
+        <p className="text-cosmic-gray text-lm text-center">
           {banners[current].project.desc}
         </p>
       </div>
@@ -68,17 +224,15 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, sparkWin
           {showSparkSlider && (
             <div className="flex items-center gap-4">
               <Button
-                variant="outline"
                 size="icon"
-                className="w-10 h-10 rounded-full border border-cosmic-purple/50 bg-white hover:bg-cosmic-lightGray"
+                className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
                 onClick={() => setSparkPage((p) => (p - 1 + sparkWindows.length) % sparkWindows.length)}
               >
                 <ChevronLeft className="h-5 w-5 text-cosmic-purple" />
               </Button>
               <Button
-                variant="outline"
                 size="icon"
-                className="w-10 h-10 rounded-full border border-cosmic-purple/50 bg-white hover:bg-cosmic-lightGray"
+                className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
                 onClick={() => setSparkPage((p) => (p + 1) % sparkWindows.length)}
               >
                 <ChevronRight className="h-5 w-5 text-cosmic-purple" />
@@ -314,7 +468,7 @@ const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
 // Community-driven Projects Section
 const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunityPage, communityWindows, onDappSelect }) => {
   return (
-    <section className="bg-cosmic-light py-12 px-6">
+    <section className="bg-cosmic-light pt-8 pb-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-10">
           <div className="flex items-center gap-3">
@@ -324,17 +478,15 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
           </div>
           <div className="flex items-center gap-4">
             <Button
-              variant="outline"
               size="icon"
-              className="w-10 h-10 rounded-full border border-cosmic-purple/50 bg-white hover:bg-cosmic-lightGray"
+              className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
               onClick={() => setCommunityPage((p) => (p - 1 + communityWindows.length) % communityWindows.length)}
             >
               <ChevronLeft className="h-5 w-5 text-cosmic-purple" />
             </Button>
             <Button
-              variant="outline"
               size="icon"
-              className="w-10 h-10 rounded-full border border-cosmic-purple/50 bg-white hover:bg-cosmic-lightGray"
+              className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
               onClick={() => setCommunityPage((p) => (p + 1) % communityWindows.length)}
             >
               <ChevronRight className="h-5 w-5 text-cosmic-purple" />
@@ -374,23 +526,23 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
                           onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
                         >
                           <div className="bg-white rounded-xl p-6 transition-all duration-300 h-60 shadow-lg">
-                            <div className="flex items-start">
-                              <div className="h-24 w-28 bg-cosmic-purple/10 rounded-lg flex items-center justify-center mr-4 overflow-hidden">
+                            <div className="flex items-start h-24">
+                              <div className="h-24 w-28 bg-cosmic-purple/10 rounded-lg flex items-center justify-center overflow-hidden">
                                 <img
                                   src={project.image}
                                   alt={project.name + ' Logo'}
                                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                 />
                               </div>
-                              <div>
-                                <h3 className="text-xl font-bold text-cosmic-dark group-hover:text-cosmic-accent transition-colors">
+                              <div className="flex flex-col justify-end h-24 ml-4">
+                                <h3 className="text-xl font-bold text-cosmic-dark group-hover:text-cosmic-accent transition-colors mb-2">
                                   {project.name}
                                 </h3>
-                                <div className="flex flex-wrap gap-1 mt-2">
+                                <div className="flex flex-wrap gap-2 mb-2">
                                   {project.tags && project.tags.map((tag, tIdx) => (
                                     <span
                                       key={tIdx}
-                                      className="px-2 py-1 rounded-full text-xs font-medium mr-1 shadow-sm"
+                                      className="px-4 py-1 rounded-full text-xs font-medium shadow-sm"
                                       style={{
                                         background: tag.color || '#F3F4F6',
                                         color: tag.color ? '#fff' : '#8B5CF6',
@@ -406,7 +558,7 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
                                 </div>
                               </div>
                             </div>
-                            <p className="text-cosmic-gray text-sm mt-4 leading-relaxed">
+                            <p className="text-cosmic-gray text-sm mt-2 leading-relaxed">
                               {project.desc}
                             </p>
                           </div>
@@ -427,7 +579,7 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
 // Community Fund DAO Section
 const CommunityFundDAO = () => {
   return (
-    <section className="bg-cosmic-light py-12 px-6">
+    <section className="bg-cosmic-light pt-2 pb-28 px-6">
       <div className="max-w-6xl mx-auto">
         <a href="https://talk.nervos.org/c/ckb-community-fund-dao/65" target="_blank" rel="noopener noreferrer" className="block group">
           <div className="relative bg-cosmic-gradient rounded-xl h-52 overflow-hidden border border-cosmic-purple/20 shadow-lg transition-transform group-hover:scale-[1.02] cursor-pointer">
@@ -482,17 +634,53 @@ export default function Home({ onDappSelect }) {
   // Carousel data
   const banners = sections.banners;
   const [current, setCurrent] = useState(0);
-  const prev = () => setCurrent((current - 1 + banners.length) % banners.length);
-  const next = useCallback(() => setCurrent((current + 1) % banners.length), [current, banners.length]);
-  const goto = (i) => setCurrent(i);
+  const [next, setNext] = useState(null);
+  const [fadeStage, setFadeStage] = useState('idle'); // 'idle' | 'prepare' | 'fading'
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Add auto-play timer for carousel
+  // Cross-fade trigger for both auto and manual
+  const triggerFade = useCallback((iOrDir) => {
+    if (fadeStage === 'fading' || fadeStage === 'prepare') return;
+    let target = 0;
+    if (iOrDir === 'prev') {
+      target = (current - 1 + banners.length) % banners.length;
+    } else if (iOrDir === 'next') {
+      target = (current + 1) % banners.length;
+    } else {
+      target = iOrDir;
+    }
+    if (target === current) return;
+    setNext(target);
+    setFadeStage('prepare');
+  }, [current, banners.length, fadeStage]);
+
+  // Fade stage effect: prepare -> fading -> idle
   useEffect(() => {
+    if (fadeStage === 'prepare') {
+      const id = setTimeout(() => setFadeStage('fading'), 50); // Slightly longer delay
+      return () => clearTimeout(id);
+    }
+    if (fadeStage === 'fading') {
+      const id = setTimeout(() => {
+        setCurrent(next);
+        setNext(null);
+        setFadeStage('idle');
+      }, 700); // Match the transition duration
+      return () => clearTimeout(id);
+    }
+  }, [fadeStage, next]);
+
+  // Auto-play timer for carousel, pause on hover
+  useEffect(() => {
+    if (isHovered) return;
     const interval = setInterval(() => {
-      next();
-    }, 5000); // Auto-play every 5 seconds
+      triggerFade('next');
+    }, 15000);
     return () => clearInterval(interval);
-  }, [current, next]); // Depend on current and next to reset timer when current changes
+  }, [triggerFade, isHovered]);
+
+  // For title/desc: always show the one matching the visible banner (immediate switch)
+  const displayIdx = (fadeStage === 'fading' || fadeStage === 'prepare') && next !== null ? next : current;
 
   // Spark Granted Projects sliding window pagination
   const [sparkPage, setSparkPage] = useState(0);
@@ -539,8 +727,8 @@ export default function Home({ onDappSelect }) {
     <div className="cosmic-inscription min-h-screen bg-cosmic-light text-cosmic-dark overflow-hidden">
       {/* Main Content */}
       <div className="w-full">
-        <HeroBannerCarousel banners={banners} current={current} prev={prev} next={next} goto={goto} onDappSelect={onDappSelect} />
-        <ProjectIntroduction banners={banners} current={current} />
+        <HeroBannerCarousel banners={banners} current={current} next={next} fadeStage={fadeStage} triggerFade={triggerFade} onDappSelect={onDappSelect} setIsHovered={setIsHovered} isHovered={isHovered} />
+        <ProjectIntroduction banners={banners} current={displayIdx} />
         <SparkGrantedProjects sparkProjects={sparkProjects} sparkPage={sparkPage} setSparkPage={setSparkPage} sparkWindows={sparkWindows} showSparkSlider={showSparkSlider} onDappSelect={onDappSelect} />
         <HighlightedProjects highlightedProjects={highlightedProjects} onDappSelect={onDappSelect} />
         <PremiumProjects premiumProjects={premiumProjects} onDappSelect={onDappSelect} />

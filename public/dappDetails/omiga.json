@@ -1,22 +1,21 @@
 {
-  "name": "Nervape",
-  "description": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem, focusing on narrative-driven, customizable 3D NFTs that operate on both Bitcoin and CKB chains, allowing users to create, modify, and transfer assets across chains. Its significance lies in enhancing the Nervos ecosystem by fostering community-driven storytelling, metaverse integration, and interoperability, while expanding practical NFT use cases through trading, gaming, and DeFi collaborations, thus driving user engagement and ecosystem growth.",
-  "titleImage": "/dappDetails/images/nervape/banner.jpeg",
-  "logo": "/dappDetails/images/nervape/logo.jpeg",
+  "name": "Omiga",
+  "description": "Omiga is an innovative inscription protocol built on the CKB (Common Knowledge Base) blockchain, designed to provide a fairer and more efficient experience for minting and managing inscriptions. Developed by anonymous Nervos community members, Omiga aims to leverage CKB's unique Cell model to enhance L1 state usage, lock more CKB, and foster ecosystem growth through features like basic inscription issuance, an order book marketplace, blind box inscriptions, and PoW-based inscriptions. The project seeks to capitalize on the 2024 momentum around UTXO-based applications and Bitcoin Layer2 developments, positioning itself as an open protocol to drive broader adoption of CKB's capabilities.",
+  "titleImage": "/dappDetails/images/omiga/banner.jpg",
+  "logo": "/dappDetails/images/omiga/logo.webp",
   "tags": [
-    { "name": "DOBs", "color": "bg-green-600" },
     { "name": "RGB++", "color": "bg-purple-600" },
     { "name": "DApp", "color": "bg-blue-600" }
   ],
   "socialLinks": {
-    "twitter": "https://x.com/Nervapes",
-    "discord": "https://discord.com/invite/7br6nvuNHP"
+    "twitter": "https://x.com/omigahq",
+    "telegram": "https://t.me/omigackb"
   },
-  "websiteUrl": "https://www.nervape.com/",
+  "websiteUrl": "https://omiga.io/",
   "highlights": [
     {
-      "title": "First RGB++ DOB on Bitcoin",
-      "description": "Pioneering cross-chain digital objects",
+      "title": "First Inscription Protocol on CKB",
+      "description": "Pioneering inscription protocol built on Nervos CKB",
       "gradient": "from-amber-50 to-orange-50",
       "borderColor": "border-amber-200",
       "hoverBorderColor": "hover:border-amber-300",
@@ -24,8 +23,8 @@
       "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
     },
     {
-      "title": "Composable Equipment System",
-      "description": "Each piece stored in separate Cells",
+      "title": "Fair Minting Mechanism",
+      "description": "Equitable distribution with a fair minting process",
       "gradient": "from-blue-50 to-purple-50",
       "borderColor": "border-blue-200",
       "hoverBorderColor": "hover:border-blue-300",
@@ -33,8 +32,8 @@
       "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
     },
     {
-      "title": "Customizable Dressing Effects",
-      "description": "Dynamic binding relationships",
+      "title": "Bitcoin Wallet Compatibility",
+      "description": "Supports mainstream Bitcoin wallets like Unisat and OKX Web3",
       "gradient": "from-green-50 to-emerald-50",
       "borderColor": "border-green-200",
       "hoverBorderColor": "hover:border-green-300",
@@ -42,30 +41,13 @@
       "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
     },
     {
-      "title": "Seamless Cross-Chain Leaps",
-      "description": "Bitcoin ↔ CKB without bridges",
+      "title": "Full On-Chain Verification",
+      "description": "Removing the need for centralized indexing, unlike inscription on Bitcoin",
       "gradient": "from-purple-50 to-pink-50",
       "borderColor": "border-purple-200",
       "hoverBorderColor": "hover:border-purple-300",
       "textColor": "text-purple-700",
       "buttonColor": "text-purple-600 hover:text-purple-700 hover:bg-purple-100"
-    }
-  ],
-  "videos": [
-    {
-      "title": "Into the Third Continent",
-      "url": "https://www.youtube.com/embed/QWntf2sOuRY",
-      "thumbnail": "https://img.youtube.com/vi/QWntf2sOuRY/hqdefault.jpg"
-    },
-    {
-      "title": "Design a Spooky Ape and Post to Win",
-      "url": "https://www.youtube.com/embed/IOE5JxUqURY",
-      "thumbnail": "https://img.youtube.com/vi/IOE5JxUqURY/hqdefault.jpg"
-    },
-    {
-      "title": "The Nervape Bridge",
-      "url": "https://www.youtube.com/embed/hPktZ9njEuo",
-      "thumbnail": "https://img.youtube.com/vi/hPktZ9njEuo/hqdefault.jpg"
     }
   ],
   "transparency": {
@@ -83,8 +65,8 @@
       "title": "Project",
       "launchedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Open Source", "status": true },
-        { "name": "Audited", "status": true },
+        { "name": "Open Source", "status": false },
+        { "name": "Audited", "status": false },
         { "name": "White Paper", "status": true },
         { "name": "Smart Contract", "status": true }
       ]
@@ -94,8 +76,8 @@
       "issuedDate": "Jan 01, 2019",
       "items": [
         { "name": "FT Token", "status": false },
-        { "name": "NFT/DOB Token", "status": true },
-        { "name": "Tradable", "status": true },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": false },
         { "name": "Exchange Listed", "status": false }
       ]
     }
