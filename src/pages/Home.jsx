@@ -212,7 +212,7 @@ const ProjectIntroduction = ({ banners, current }) => {
 };
 
 // Spark Granted Projects Section
-const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, sparkWindows, showSparkSlider, onDappSelect }) => {
+const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSize, maxPage, onDappSelect }) => {
   return (
     <section className="bg-cosmic-light py-12 px-6">
       <div className="max-w-6xl mx-auto">
@@ -221,102 +221,101 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, sparkWin
             <Sparkles className="h-6 w-6 text-cosmic-accent" />
             <h2 className="text-2xl font-bold text-cosmic-dark">Spark Granted Projects</h2>
           </div>
-          {showSparkSlider && (
-            <div className="flex items-center gap-4">
-              <Button
-                size="icon"
-                className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
-                onClick={() => setSparkPage((p) => (p - 1 + sparkWindows.length) % sparkWindows.length)}
-              >
-                <ChevronLeft className="h-5 w-5 text-cosmic-purple" />
-              </Button>
-              <Button
-                size="icon"
-                className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
-                onClick={() => setSparkPage((p) => (p + 1) % sparkWindows.length)}
-              >
-                <ChevronRight className="h-5 w-5 text-cosmic-purple" />
-              </Button>
-            </div>
-          )}
+          <div className="flex items-center gap-4">
+            <Button
+              size="icon"
+              className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
+              onClick={() => setSparkPage((p) => Math.max(0, p - 1))}
+              disabled={sparkPage === 0}
+            >
+              <ChevronLeft className="h-5 w-5 text-cosmic-purple" />
+            </Button>
+            <Button
+              size="icon"
+              className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
+              onClick={() => setSparkPage((p) => Math.min(maxPage, p + 1))}
+              disabled={sparkPage === maxPage}
+            >
+              <ChevronRight className="h-5 w-5 text-cosmic-purple" />
+            </Button>
+          </div>
         </div>
-        <div className="overflow-hidden">
-          <div
-            className={`flex transition-transform duration-200${showSparkSlider ? '' : ' !transition-none'}`}
-            style={{
-              width: `${sparkWindows.length * 100}%`,
-              transform: `translateX(-${sparkPage * (100 / sparkWindows.length)}%)`
-            }}
-          >
-            {sparkWindows.map((page, pageIdx) => (
-              <div
-                key={pageIdx}
-                className="flex-shrink-0"
-                style={{ width: `${100 / sparkWindows.length}%` }}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {page.map((project, idx) =>
-                    project.placeholder ? (
-                      <div key={`${pageIdx}-${idx}`} className="bg-cosmic-lightGray/50 rounded-xl border border-dashed border-cosmic-purple/30 h-[280px] flex items-center justify-center">
-                        <div className="text-center p-6">
-                          <div className="w-16 h-16 rounded-full bg-cosmic-purple/10 flex items-center justify-center mx-auto mb-4 border border-cosmic-purple/20">
-                            <Zap className="h-8 w-8 text-cosmic-purple/70" />
-                          </div>
-                          <p className="text-cosmic-gray text-sm">{project.name}</p>
+        <div className="relative">
+          <div className="overflow-hidden" style={{ margin: '-8px', padding: '8px' }}>
+            <div
+              className="flex transition-transform duration-200 gap-6"
+              style={{
+                width: "100%",
+                transform: `translateX(-${sparkPage * (100 / windowSize)}%)`
+              }}
+            >
+              {sparkProjects.map((project, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0"
+                  style={{ width: `calc(${100 / windowSize}% - 16px)` }}
+                >
+                  {project.placeholder ? (
+                    <div className="bg-cosmic-lightGray/50 rounded-xl border border-dashed border-cosmic-purple/30 h-[280px] flex items-center justify-center">
+                      <div className="text-center p-6">
+                        <div className="w-16 h-16 rounded-full bg-cosmic-purple/10 flex items-center justify-center mx-auto mb-4 border border-cosmic-purple/20">
+                          <Zap className="h-8 w-8 text-cosmic-purple/70" />
                         </div>
+                        <p className="text-cosmic-gray text-sm">{project.name}</p>
                       </div>
-                    ) : (
-                      <div
-                        key={`${pageIdx}-${idx}`}
-                        className="block group cursor-pointer"
-                        onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
-                      >
-                        <div className="bg-white rounded-xl overflow-hidden transition-all duration-300 h-[280px] shadow-lg">
-                          <div className="h-40 relative bg-gradient-to-br from-purple-600 to-blue-600 overflow-hidden">
-                            <img
-                              src={project.image}
-                              alt={project.name + ' Logo'}
-                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                            />
-                            {/* tags 容器 */}
-                            {project.tags && project.tags.length > 0 && (
-                              <div className="absolute top-4 left-4 flex gap-1 z-10">
-                                {project.tags.map((tag, tIdx) => (
-                                  <span
-                                    key={tIdx}
-                                    className="px-2 py-1 rounded-full text-xs font-medium shadow-sm"
-                                    style={{
-                                      background: tag.color || '#F3F4F6',
-                                      color: tag.color ? '#fff' : '#8B5CF6',
-                                      border: tag.color ? 'none' : '1px solid #E5E7EB',
-                                      display: 'inline-block',
-                                      minWidth: 40,
-                                      textAlign: 'center',
-                                    }}
-                                  >
-                                    {tag.name || tag}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
-                            <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent"></div>
-                          </div>
-                          <div className="p-4">
-                            <h3 className="text-xl font-bold text-cosmic-dark group-hover:text-cosmic-accent transition-colors">
-                              {project.name}
-                            </h3>
-                            <div className="flex justify-between items-center mt-3">
-                              <p className="text-sm text-cosmic-gray text-sm">{project.desc}</p>
-                              <p className="text-cosmic-accent font-future">{project.amount}</p>
+                    </div>
+                  ) : (
+                    <div
+                      className="block group cursor-pointer"
+                      onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
+                    >
+                      <div className="bg-white rounded-xl overflow-hidden transition-all duration-300 h-[280px] shadow-lg">
+                        <div className="h-40 relative bg-gradient-to-br from-purple-600 to-blue-600 overflow-hidden">
+                          <img
+                            src={project.image}
+                            alt={project.name + ' Logo'}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                          {project.tags && project.tags.length > 0 && (
+                            <div className="absolute top-4 left-4 flex gap-1 z-10">
+                              {project.tags.map((tag, tIdx) => (
+                                <span
+                                  key={tIdx}
+                                  className="px-2 py-1 rounded-full text-xs font-medium shadow-sm"
+                                  style={{
+                                    background: tag.color || '#F3F4F6',
+                                    color: tag.color ? '#fff' : '#8B5CF6',
+                                    border: tag.color ? 'none' : '1px solid #E5E7EB',
+                                    display: 'inline-block',
+                                    minWidth: 40,
+                                    textAlign: 'center',
+                                  }}
+                                >
+                                  {tag.name || tag}
+                                </span>
+                              ))}
                             </div>
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent"></div>
+                        </div>
+                        <div className="p-4">
+                          <h3
+                            className="text-xl font-bold text-cosmic-dark transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:drop-shadow-[0_2px_12px_rgba(80,200,255,0.7)] group-hover:animate-glow"
+                            style={{ position: 'relative', zIndex: 2 }}
+                          >
+                            {project.name}
+                          </h3>
+                          <div className="flex justify-between items-center mt-3">
+                            <p className="text-sm text-cosmic-gray text-sm">{project.desc}</p>
+                            <p className="text-cosmic-accent font-future">{project.amount}</p>
                           </div>
                         </div>
                       </div>
-                    )
+                    </div>
                   )}
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -381,7 +380,10 @@ const HighlightedProjects = ({ highlightedProjects, onDappSelect }) => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="text-2xl font-bold text-cosmic-dark group-hover:text-cosmic-accent transition-colors">
+                    <h3
+                      className="text-2xl font-bold text-cosmic-dark transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:drop-shadow-[0_2px_12px_rgba(80,200,255,0.7)] group-hover:animate-glow"
+                      style={{ position: 'relative', zIndex: 2 }}
+                    >
                       {project.name}
                     </h3>
                   </div>
@@ -449,7 +451,10 @@ const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-cosmic-dark group-hover:text-cosmic-accent transition-colors mb-3">
+                  <h3
+                    className="text-xl font-bold text-cosmic-dark transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:drop-shadow-[0_2px_12px_rgba(80,200,255,0.7)] group-hover:animate-glow mb-3"
+                    style={{ position: 'relative', zIndex: 2 }}
+                  >
                     {project.name}
                   </h3>
                   <p className="text-cosmic-gray text-sm leading-relaxed">
@@ -466,7 +471,7 @@ const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
 };
 
 // Community-driven Projects Section
-const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunityPage, communityWindows, onDappSelect }) => {
+const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunityPage, windowSize, maxPage, onDappSelect }) => {
   return (
     <section className="bg-cosmic-light pt-8 pb-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -480,92 +485,92 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
             <Button
               size="icon"
               className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
-              onClick={() => setCommunityPage((p) => (p - 1 + communityWindows.length) % communityWindows.length)}
+              onClick={() => setCommunityPage((p) => Math.max(0, p - 1))}
+              disabled={communityPage === 0}
             >
               <ChevronLeft className="h-5 w-5 text-cosmic-purple" />
             </Button>
             <Button
               size="icon"
               className="w-10 h-10 rounded-full bg-white hover:bg-cosmic-lightGray shadow"
-              onClick={() => setCommunityPage((p) => (p + 1) % communityWindows.length)}
+              onClick={() => setCommunityPage((p) => Math.min(maxPage, p + 1))}
+              disabled={communityPage === maxPage}
             >
               <ChevronRight className="h-5 w-5 text-cosmic-purple" />
             </Button>
           </div>
         </div>
-        <div className="max-w-6xl mx-auto">
-          <div className="overflow-hidden">
+        <div className="relative">
+          <div className="overflow-hidden" style={{ margin: '-8px', padding: '8px' }}>
             <div
-              className="flex transition-transform duration-200"
+              className="flex transition-transform duration-200 gap-6"
               style={{
-                width: `${communityWindows.length * 100}%`,
-                transform: `translateX(-${communityPage * (100 / communityWindows.length)}%)`
+                width: "100%",
+                transform: `translateX(-${communityPage * (100 / windowSize)}%)`
               }}
             >
-              {communityWindows.map((page, pageIdx) => (
+              {communityProjects.map((project, idx) => (
                 <div
-                  key={pageIdx}
+                  key={idx}
                   className="flex-shrink-0"
-                  style={{ width: `${100 / communityWindows.length}%` }}
+                  style={{ width: `calc(${100 / windowSize}% - 16px)` }}
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {page.map((project, idx) =>
-                      project.placeholder ? (
-                        <div key={idx} className="bg-cosmic-lightGray/50 rounded-xl border border-dashed border-cosmic-purple/30 h-60 flex items-center justify-center">
-                          <div className="text-center p-6">
-                            <div className="w-16 h-16 rounded-full bg-cosmic-purple/10 flex items-center justify-center mx-auto mb-4 border border-cosmic-purple/20">
-                              <Globe className="h-8 w-8 text-cosmic-purple/70" />
+                  {project.placeholder ? (
+                    <div className="bg-cosmic-lightGray/50 rounded-xl border border-dashed border-cosmic-purple/30 h-60 flex items-center justify-center">
+                      <div className="text-center p-6">
+                        <div className="w-16 h-16 rounded-full bg-cosmic-purple/10 flex items-center justify-center mx-auto mb-4 border border-cosmic-purple/20">
+                          <Globe className="h-8 w-8 text-cosmic-purple/70" />
+                        </div>
+                        <p className="text-cosmic-gray text-sm">{project.name}</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div
+                      className="block group cursor-pointer"
+                      onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
+                    >
+                      <div className="bg-white rounded-xl p-6 transition-all duration-300 h-60 shadow-lg">
+                        <div className="flex items-start h-24">
+                          <div className="h-24 w-28 bg-cosmic-purple/10 rounded-lg flex items-center justify-center overflow-hidden">
+                            <img
+                              src={project.image}
+                              alt={project.name + ' Logo'}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                          </div>
+                          <div className="flex flex-col justify-end h-24 ml-4">
+                            <h3
+                              className="text-xl font-bold text-cosmic-dark transition-all duration-500 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent group-hover:drop-shadow-[0_2px_12px_rgba(80,200,255,0.7)] group-hover:animate-glow mb-2"
+                              style={{ position: 'relative', zIndex: 2 }}
+                            >
+                              {project.name}
+                            </h3>
+                            <div className="flex flex-wrap gap-2 mb-2">
+                              {project.tags && project.tags.map((tag, tIdx) => (
+                                <span
+                                  key={tIdx}
+                                  className="px-4 py-1 rounded-full text-xs font-medium shadow-sm"
+                                  style={{
+                                    background: tag.color || '#F3F4F6',
+                                    color: tag.color ? '#fff' : '#8B5CF6',
+                                    border: tag.color ? 'none' : '1px solid #E5E7EB',
+                                    display: 'inline-block',
+                                    minWidth: 40,
+                                    textAlign: 'center',
+                                  }}
+                                >
+                                  {tag.name || tag}
+                                </span>
+                              ))}
                             </div>
-                            <p className="text-cosmic-gray text-sm">{project.name}</p>
                           </div>
                         </div>
-                      ) : (
-                        <div
-                          key={idx}
-                          className="block group cursor-pointer"
-                          onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
-                        >
-                          <div className="bg-white rounded-xl p-6 transition-all duration-300 h-60 shadow-lg">
-                            <div className="flex items-start h-24">
-                              <div className="h-24 w-28 bg-cosmic-purple/10 rounded-lg flex items-center justify-center overflow-hidden">
-                                <img
-                                  src={project.image}
-                                  alt={project.name + ' Logo'}
-                                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                                />
-                              </div>
-                              <div className="flex flex-col justify-end h-24 ml-4">
-                                <h3 className="text-xl font-bold text-cosmic-dark group-hover:text-cosmic-accent transition-colors mb-2">
-                                  {project.name}
-                                </h3>
-                                <div className="flex flex-wrap gap-2 mb-2">
-                                  {project.tags && project.tags.map((tag, tIdx) => (
-                                    <span
-                                      key={tIdx}
-                                      className="px-4 py-1 rounded-full text-xs font-medium shadow-sm"
-                                      style={{
-                                        background: tag.color || '#F3F4F6',
-                                        color: tag.color ? '#fff' : '#8B5CF6',
-                                        border: tag.color ? 'none' : '1px solid #E5E7EB',
-                                        display: 'inline-block',
-                                        minWidth: 40,
-                                        textAlign: 'center',
-                                      }}
-                                    >
-                                      {tag.name || tag}
-                                    </span>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                            <p className="text-cosmic-gray text-sm mt-2 leading-relaxed">
-                              {project.desc}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                    )}
-                  </div>
+                        <p className="text-cosmic-gray text-sm mt-2 leading-relaxed">
+                          {project.desc}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -686,16 +691,7 @@ export default function Home({ onDappSelect }) {
   const [sparkPage, setSparkPage] = useState(0);
   const sparkProjects = sections.sparkGranted;
   const sparkWindowSize = 3;
-  const sparkWindowPages = sparkProjects.length <= sparkWindowSize ? 1 : sparkProjects.length - sparkWindowSize + 1;
-  const sparkWindows = [];
-  for (let i = 0; i < sparkWindowPages; i++) {
-    let windowItems = sparkProjects.slice(i, i + sparkWindowSize);
-    if (windowItems.length < sparkWindowSize) {
-      windowItems = windowItems.concat(Array(sparkWindowSize - windowItems.length).fill({ placeholder: true }));
-    }
-    sparkWindows.push(windowItems);
-  }
-  const showSparkSlider = sparkProjects.length > sparkWindowSize;
+  const sparkMaxPage = sparkProjects.length > sparkWindowSize ? sparkProjects.length - sparkWindowSize : 0;
 
   // Highlighted Projects data
   const highlightedProjects = sections.highlighted;
@@ -706,20 +702,9 @@ export default function Home({ onDappSelect }) {
   // Community-driven Projects data
   const communityProjects = sections.community;
   const [communityPage, setCommunityPage] = useState(0);
-
-  // 1. Generate windowed pagination data
-  const total = communityProjects.length;
   const windowSize = 3;
-  const windowPages = total <= windowSize ? 1 : total - windowSize + 1;
-  const communityWindows = [];
-  for (let i = 0; i < windowPages; i++) {
-    let windowItems = communityProjects.slice(i, i + windowSize);
-    // If the last page has less than 3 items, pad left with empty slots
-    if (windowItems.length < windowSize) {
-      windowItems = Array(windowSize - windowItems.length).fill({ placeholder: true }).concat(windowItems);
-    }
-    communityWindows.push(windowItems);
-  }
+  const total = communityProjects.length;
+  const maxPage = total > windowSize ? total - windowSize : 0;
 
   if (loading) return <div className="text-center py-20">Loading...</div>;
 
@@ -729,10 +714,24 @@ export default function Home({ onDappSelect }) {
       <div className="w-full">
         <HeroBannerCarousel banners={banners} current={current} next={next} fadeStage={fadeStage} triggerFade={triggerFade} onDappSelect={onDappSelect} setIsHovered={setIsHovered} isHovered={isHovered} />
         <ProjectIntroduction banners={banners} current={displayIdx} />
-        <SparkGrantedProjects sparkProjects={sparkProjects} sparkPage={sparkPage} setSparkPage={setSparkPage} sparkWindows={sparkWindows} showSparkSlider={showSparkSlider} onDappSelect={onDappSelect} />
+        <SparkGrantedProjects 
+          sparkProjects={sparkProjects} 
+          sparkPage={sparkPage} 
+          setSparkPage={setSparkPage} 
+          windowSize={sparkWindowSize}
+          maxPage={sparkMaxPage}
+          onDappSelect={onDappSelect} 
+        />
         <HighlightedProjects highlightedProjects={highlightedProjects} onDappSelect={onDappSelect} />
         <PremiumProjects premiumProjects={premiumProjects} onDappSelect={onDappSelect} />
-        <CommunityDrivenProjects communityProjects={communityProjects} communityPage={communityPage} setCommunityPage={setCommunityPage} communityWindows={communityWindows} onDappSelect={onDappSelect} />
+        <CommunityDrivenProjects 
+          communityProjects={communityProjects} 
+          communityPage={communityPage} 
+          setCommunityPage={setCommunityPage} 
+          windowSize={windowSize}
+          maxPage={maxPage}
+          onDappSelect={onDappSelect} 
+        />
         <CommunityFundDAO />
       </div>
     </div>
