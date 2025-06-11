@@ -1,0 +1,105 @@
+{
+  "name": "Quantum Purge",
+  "description": "Quantum Purge is an innovative anti-quantum wallet built on the Nervos CKB (Common Knowledge Base) blockchain, designed to provide cutting-edge security for digital assets in a post-quantum computing world. By integrating a CKB light node, Quantum Purge enables users to interact with the blockchain directly from their web browsers, eliminating the need for heavy software installations while maintaining efficiency and accessibility. This seamless browser-based functionality is a standout technical feature, making the wallet user-friendly and highly adaptable to various devices and environments.",
+  "titleImage": "/dappDetails/images/quantumpurge/banner.jpg",
+  "logo": "/dappDetails/images/quantumpurge/logo.jpg",
+  "tags": [
+    { "name": "Wallet", "color": "bg-red-600" }
+  ],
+  "socialLinks": {
+    "github": "https://github.com/tea2x/quantum-purse-web-static"
+  },
+  "websiteUrl": "https://quantum-purse.vercel.app/wallet",
+  "highlights": [
+    {
+      "title": "First Spark Projects Grantee",
+      "description": "Selected as the inaugural recipient of the Spark Projects Fund, recognizing its innovative potential",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "Anti-Quantum Wallet",
+      "description": "Utilizes advanced anti-quantum algorithms to safeguard digital assets against future quantum computing threats",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": "CKB Light Client Integration",
+      "description": "Runs a CKB light client directly in browsers, enabling seamless blockchain interaction without heavy software",
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    },
+    {
+      "title": "Browser-Based Accessibility",
+      "description": "Operates entirely within web browsers, offering user-friendly access across devices with minimal setup",
+      "gradient": "from-purple-50 to-pink-50",
+      "borderColor": "border-purple-200",
+      "hoverBorderColor": "hover:border-purple-300",
+      "textColor": "text-purple-700",
+      "buttonColor": "text-purple-600 hover:text-purple-700 hover:bg-purple-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited", "status": false },
+        { "name": "White Paper", "status": false },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "issuedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": false },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "JoyID",
+      "desc": "The first NFT collection on Nervos.",
+      "icon": "/placeholder.svg",
+      "url": "/ckbpunks"
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is Nervape?",
+      "a": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem."
+    },
+    {
+      "q": "How to get a Nervape DOB?",
+      "a": "You can mint or trade DOBs on the Nervape platform."
+    },
+    {
+      "q": "What chains does Nervape support?",
+      "a": "Currently supports Bitcoin and CKB."
+    }
+  ]
+} 

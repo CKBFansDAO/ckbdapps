@@ -31,14 +31,12 @@
   "sparkGranted": [
     {
       "name": "Quantum Purge",
-      "desc": "A spin-quantum wallet for CKB",
+      "desc": "A pioneering anti-quantum wallet developed on the CKB blockchain",
       "amount": "700 USDT",
-      "tag": "Wallet",
-      "image": "/images/placeholder.svg?height=160&width=320&text=Quantum+Purge",
-      "link": "/quantum-purge",
+      "image": "/dappDetails/images/quantumpurge/banner.jpg",
+      "link": "/quantumpurge",
       "tags": [
-        {"name": "DeFi", "color": "#22c55e"},
-        {"name": "NFT", "color": "#8b5cf6"}
+        {"name": "Wallet", "color": "#22c55e"}
       ]
     },
     {

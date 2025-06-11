@@ -1,5 +1,5 @@
 import { ArrowLeft, ExternalLink, Zap } from "lucide-react";
-import { FaReddit, FaDiscord, FaTelegramPlane, FaTwitter, FaGithub, FaYoutube, FaMedium } from "react-icons/fa";
+import { FaReddit, FaDiscord, FaTelegramPlane, FaTwitter, FaGithub, FaYoutube, FaMedium, FaQuestionCircle, FaLightbulb } from "react-icons/fa";
 import Button from "../components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -158,18 +158,18 @@ const AwesomeHighlights = ({ highlights }) => {
             Awesome Highlights
           </h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
           {highlights.slice(0, 6).map((item, idx) => {
             const color = highlightsColors[idx] || highlightsColors[0];
             return (
               <div
                 key={idx}
-                className={`group bg-gradient-to-r ${color.from} ${color.to} rounded-xl p-6 border ${color.border} ${color.hover} transition-all duration-300 hover:shadow-md`}
+                className={`w-full group bg-gradient-to-r ${color.from} ${color.to} rounded-xl p-6 border ${color.border} ${color.hover} transition-all duration-300 hover:shadow-md`}
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className="text-gray-900 font-bold text-lg">{item.title}</h4>
-                    <p className={`${color.text} text-sm`}>{item.description}</p>
+                <div className="flex items-center justify-between w-full">
+                  <div className="max-w-[90%] min-w-0">
+                    <h4 className="text-gray-900 font-bold text-lg break-words whitespace-normal">{item.title}</h4>
+                    <p className={`${color.text} text-sm break-words whitespace-normal pt-2`}>{item.description}</p>
                   </div>
                   {item.link ? (
                     <Button
@@ -372,15 +372,25 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq }) => {
             {faq && faq.map((item, idx) => (
               <div
                 key={idx}
-                className={`rounded-lg border border-gray-200 p-4 cursor-pointer transition hover:bg-gray-100 ${expandedFaq === idx ? 'bg-gray-50' : 'bg-white'}`}
+                className={`rounded-xl border border-gray-200 p-0 cursor-pointer transition-all duration-300 shadow-sm overflow-hidden
+                  ${expandedFaq === idx ? 'bg-orange-50 border-orange-300 shadow-lg scale-[1.02]' : 'bg-white hover:bg-gray-50'}
+                `}
                 onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-medium text-gray-900">{item.q}</span>
-                  <span className="ml-2 text-gray-400">{expandedFaq === idx ? '-' : '+'}</span>
+                <div className="flex items-center justify-between px-6 py-4">
+                  <div className="flex items-center gap-2">
+                    <FaQuestionCircle className="text-orange-400" />
+                    <span className="font-medium text-gray-900 text-lg">{item.q}</span>
+                  </div>
+                  <span className="ml-2 text-gray-400 text-2xl font-bold select-none">
+                    {expandedFaq === idx ? '-' : '+'}
+                  </span>
                 </div>
                 {expandedFaq === idx && (
-                  <div className="mt-2 text-gray-700 text-sm">{item.a}</div>
+                  <div className="transition-all duration-300 py-4 px-8 bg-white border-t border-orange-100 flex items-start gap-3 text-gray-700 text-base">
+                    <FaLightbulb className="mt-1 text-yellow-400" />
+                    <span>{item.a}</span>
+                  </div>
                 )}
               </div>
             ))}
@@ -394,7 +404,7 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq }) => {
               <a
                 key={idx}
                 href={item.url}
-                className="flex items-center bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg hover:-translate-y-1 transition cursor-pointer px-4 py-3 group h-20"
+                className="flex items-center bg-white border border-gray-200 rounded-lg shadow transition-shadow duration-300 hover:shadow-lg cursor-pointer px-4 py-3 group h-20"
               >
                 <img src={item.icon} alt={item.title} className="w-12 h-12 rounded-md object-contain bg-gray-100" />
                 <div className="ml-4 flex-1 min-w-0">

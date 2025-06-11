@@ -287,7 +287,7 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
                           </h3>
                           <div className="flex justify-between items-center mt-3">
                             <p className="text-sm text-cosmic-gray text-sm">{project.desc}</p>
-                            <p className="text-cosmic-accent font-future">{project.amount}</p>
+                            <p className="text-cosmic-accent font-future whitespace-nowrap">{project.amount}</p>
                           </div>
                         </div>
                       </div>
