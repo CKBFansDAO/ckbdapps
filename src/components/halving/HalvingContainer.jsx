@@ -129,7 +129,7 @@ const HalvingContainer = (props) => {
                         (isLoading || isError) ? <div className='w-20 h-6 animate-pulse'>
                             <div className='w-20 h-4 my-1 mx-16 flex items-center rounded-full bg-slate-500'></div>
                         </div>
-                            : <span className='text-center h-6 text-[18px] text-[#000] px-2 font-semibold'>{new Date(data.estimatedHalvingTime).toLocaleString()}</span>
+                            : <span className='text-center h-6 text-[18px] text-[#232325] px-2 font-semibold'>{new Date(data.estimatedHalvingTime).toLocaleString()}</span>
                     }
 
                 </div>
@@ -170,7 +170,7 @@ const HalvingContainer = (props) => {
             <div className={`max-w-content mx-auto w-full`}>
                 <div className='flex flex-col py-5 px-3 md:px-5'>
                     <div className='flex mb-16'>
-                        <span className='grow text-[20px] md:text-[30px] font-bold'>{t('halving.block-chain-progress')}</span>
+                        <span className='grow text-[20px] md:text-[30px] font-bold text-[#232325]'>{t('halving.block-chain-progress')}</span>
                         <a href='https://docs.nervos.org/docs/basics/glossary#epoch' target="_blank" rel="noopener noreferrer" >
                             <span className='flex items-center text-[#733DFF] hover:text-[#9e35FF] underline underline-offset-2'>{t('halving.whats-epoch')}</span>
                         </a>

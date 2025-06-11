@@ -1,0 +1,131 @@
+{
+  "name": "Nervape",
+  "description": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem, focusing on narrative-driven, customizable 3D NFTs that operate on both Bitcoin and CKB chains, allowing users to create, modify, and transfer assets across chains. Its significance lies in enhancing the Nervos ecosystem by fostering community-driven storytelling, metaverse integration, and interoperability, while expanding practical NFT use cases through trading, gaming, and DeFi collaborations, thus driving user engagement and ecosystem growth.",
+  "titleImage": "/dappDetails/images/nervape/banner.jpeg",
+  "logo": "/dappDetails/images/nervape/logo.jpeg",
+  "tags": [
+    { "name": "DOBs", "color": "bg-green-600" },
+    { "name": "RGB++", "color": "bg-purple-600" },
+    { "name": "DApp", "color": "bg-blue-600" }
+  ],
+  "socialLinks": {
+    "twitter": "https://x.com/Nervapes",
+    "discord": "https://discord.com/invite/7br6nvuNHP"
+  },
+  "websiteUrl": "https://www.nervape.com/",
+  "highlights": [
+    {
+      "title": "First RGB++ DOB on Bitcoin",
+      "description": "Pioneering cross-chain digital objects",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "Composable Equipment System",
+      "description": "Each piece stored in separate Cells",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": "Customizable Dressing Effects",
+      "description": "Dynamic binding relationships",
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    },
+    {
+      "title": "Seamless Cross-Chain Leaps",
+      "description": "Bitcoin ↔ CKB without bridges",
+      "gradient": "from-purple-50 to-pink-50",
+      "borderColor": "border-purple-200",
+      "hoverBorderColor": "hover:border-purple-300",
+      "textColor": "text-purple-700",
+      "buttonColor": "text-purple-600 hover:text-purple-700 hover:bg-purple-100"
+    }
+  ],
+  "videos": [
+    {
+      "title": "Into the Third Continent",
+      "url": "https://www.youtube.com/embed/QWntf2sOuRY",
+      "thumbnail": "https://img.youtube.com/vi/QWntf2sOuRY/hqdefault.jpg"
+    },
+    {
+      "title": "Design a Spooky Ape and Post to Win",
+      "url": "https://www.youtube.com/embed/IOE5JxUqURY",
+      "thumbnail": "https://img.youtube.com/vi/IOE5JxUqURY/hqdefault.jpg"
+    },
+    {
+      "title": "The Nervape Bridge",
+      "url": "https://www.youtube.com/embed/hPktZ9njEuo",
+      "thumbnail": "https://img.youtube.com/vi/hPktZ9njEuo/hqdefault.jpg"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited", "status": true },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "issuedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": true },
+        { "name": "Tradable", "status": true },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "CKB Punks",
+      "desc": "The first NFT collection on Nervos.",
+      "icon": "/placeholder.svg",
+      "url": "/ckbpunks"
+    },
+    {
+      "title": "CKB Apes",
+      "desc": "Ape-themed NFT collection on CKB.",
+      "icon": "/placeholder.svg",
+      "url": "/ckbapes"
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is Nervape?",
+      "a": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem."
+    },
+    {
+      "q": "How to get a Nervape DOB?",
+      "a": "You can mint or trade DOBs on the Nervape platform."
+    },
+    {
+      "q": "What chains does Nervape support?",
+      "a": "Currently supports Bitcoin and CKB."
+    }
+  ]
+} 

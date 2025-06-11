@@ -5,6 +5,7 @@
 }
 
 .markdown-body {
+    background: #FFFFFF !important;
     font-family: 'Space Grotesk', 'Space Mono';
     --color-canvas-default: #FFFFFF;
     --color-fg-default: #24292f;

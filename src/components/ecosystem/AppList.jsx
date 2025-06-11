@@ -254,7 +254,7 @@ const App = ({ config }) => {
                         }
 
                         <div className='flex flex-col ml-2 gap-2 grow'>
-                            <span className="text-base font-bold text-[24px]" >{appConfig.project_name}</span>
+                            <span className="text-[24px] font-bold">{appConfig.project_name}</span>
                             <div className='flex'>
                                 {renderAppCategories(appConfig.categories)}
                             </div>
@@ -263,7 +263,7 @@ const App = ({ config }) => {
                 </div>
             </div>
 
-            <div className='flex flex-col rounded-b-xl bg-white p-5 gap-5'>
+            <div className='flex flex-col rounded-b-xl bg-white p-5 gap-5 text-black'>
                 <BitTooltip content={getAppDescToolTipContent('project_summary')} direction="top" className='mb-4'>
                     <span className='text-sm h-10 line-clamp-[2]'>{getAppLocaleConfig('project_summary')}</span>
                 </BitTooltip>

@@ -1,0 +1,104 @@
+{
+  "name": "UTXO Swap",
+  "description": "UTXO Swap is an innovative decentralized exchange deployed on Nervos CKB’s Layer 2 infrastructure, harnessing the blockchain’s Extended UTXO model and robust Proof-of-Work security to enable highly efficient, intent-driven trading of Bitcoin-native assets, such as Runes and inscriptions, while offering seamless cross-chain bridging capabilities to facilitate secure, trust-minimized asset transfers between Bitcoin and CKB ecosystems, thereby enhancing scalability, interoperability, and user accessibility for decentralized finance applications.",
+  "titleImage": "/dappDetails/images/utxoswap/banner.jpg",
+  "logo": "/dappDetails/images/utxoswap/logo.png",
+  "tags": [
+    { "name": "RGB++", "color": "bg-purple-600" },
+    { "name": "DEX", "color": "bg-yellow-600" }
+  ],
+  "socialLinks": {
+    "twitter": "https://x.com/UTXOSwap",
+    "telegram": "https://t.me/UTXOSwap"
+  },
+  "websiteUrl": "https://utxoswap.xyz/",
+  "highlights": [
+    {
+      "title": "Intent-Driven Trading",
+      "description": "Utilizes an intent-based model to streamline asset swaps, improving efficiency and user experience for Bitcoin ecosystem traders",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "Integration with Bitcoin Wallets",
+      "description": "Compatible with popular Bitcoin wallets like Unisat, enabling easy access for Bitcoin ecosystem users",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": "Community-Driven Development",
+      "description": "Actively incorporates community feedback to refine features and expand functionality for broader DeFi adoption",
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": false },
+        { "name": "Identified Members", "status": false },
+        { "name": "Active", "status": false }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited", "status": true },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "issuedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": false },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "CKB Punks",
+      "desc": "The first NFT collection on Nervos.",
+      "icon": "/placeholder.svg",
+      "url": "/ckbpunks"
+    },
+    {
+      "title": "CKB Apes",
+      "desc": "Ape-themed NFT collection on CKB.",
+      "icon": "/placeholder.svg",
+      "url": "/ckbapes"
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is Nervape?",
+      "a": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem."
+    },
+    {
+      "q": "How to get a Nervape DOB?",
+      "a": "You can mint or trade DOBs on the Nervape platform."
+    },
+    {
+      "q": "What chains does Nervape support?",
+      "a": "Currently supports Bitcoin and CKB."
+    }
+  ]
+} 

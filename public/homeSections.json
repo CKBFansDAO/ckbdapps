@@ -1,0 +1,165 @@
+{
+  "banners": [
+    {
+      "image": "/dappDetails/images/omiga/banner.jpg",
+      "title": "Omiga",
+      "project": {
+        "name": "Omiga",
+        "desc": "A decentralized inscription protocol on CKB, empowering fair minting and management of digital assets like MEMES, fueling cross-chain innovation and boosting Nervos Network's ecosystem."
+      },
+      "dappId": "omiga"
+    },
+    {
+      "image": "/dappDetails/images/utxoswap/banner.jpg",
+      "title": "UTXO Swap",
+      "project": {
+        "name": "UTXO Swap",
+        "desc": "UTXO Swap is a decentralized exchange built on Nervos CKB Layer 2, designed for seamless, intent-driven trading of Bitcoin-native assets like Runes and inscriptions, leveraging CKB Extended UTXO model and cross-chain bridging for secure, efficient swaps with minimal trust requirements."
+      },
+      "dappId": "utxoswap"
+    },
+    {
+      "image": "/dappDetails/images/imagination/banner.jpeg",
+      "title": "imagiNation",
+      "project": {
+        "name": "imagiNation",
+        "desc": "ImagiNation is a decentralized marketplace on Nervos CKB, enabling fully on-chain asset creation, trading, and value capture, with plans to support RGB++ for Bitcoin-compatible smart contracts and asset issuance."
+      },
+      "dappId": "imagination"
+    }
+  ],
+  "sparkGranted": [
+    {
+      "name": "Quantum Purge",
+      "desc": "A spin-quantum wallet for CKB",
+      "amount": "700 USDT",
+      "tag": "Wallet",
+      "image": "/images/placeholder.svg?height=160&width=320&text=Quantum+Purge",
+      "link": "/quantum-purge",
+      "tags": [
+        {"name": "DeFi", "color": "#22c55e"},
+        {"name": "NFT", "color": "#8b5cf6"}
+      ]
+    },
+    {
+      "name": "Spark Project 1",
+      "desc": "",
+      "tags": [],
+      "image": "",
+      "link": "",
+      "placeholder": true
+    },
+    {
+      "name": "Spark Project 2",
+      "desc": "",
+      "tags": [],
+      "image": "",
+      "link": "",
+      "placeholder": true
+    },
+    {
+      "name": "Spark Project 3",
+      "desc": "",
+      "tags": [],
+      "image": "",
+      "link": "",
+      "placeholder": true
+    }
+  ],
+  "highlighted": [
+    {
+      "name": "Nervape",
+      "desc": "A vibrant digital realm on the CKB blockchain, offers an extraordinary haven where creators conjure and trade digital treasures across chains, igniting a seamless alchemy of cross-chain artistry amidst CKB's ecosystem, creating a constellation of developers and artists in a harmonious digital tapestry.",
+      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
+      "image": "/dappDetails/images/nervape/highlight.jpg",
+      "tinyImage": "/dappDetails/images/nervape/logo.jpeg",
+      "link": "/nervape"
+    },
+    {
+      "name": "JoyID",
+      "desc": "A luminous thread in the CKB tapestry, weaves a decentralized identity realm where users wield sovereign control over their digital essence across blockchain's boundless stage. Its elegant fusion of passkey authentication and cross-chain sensory perception empowers users.",
+      "tags": [{"name": "Wallet", "color": "#22c55e"}, {"name": "Identity", "color": "#8b5cf6"}],
+      "image": "/images/placeholder.svg?height=400&width=600&text=JoyID",
+      "tinyImage": "/images/placeholder.svg?height=96&width=112&text=JoyID",
+      "link": "/joyid"
+    },
+    {
+      "name": "Cellula",
+      "desc": "A modular smart contract platform on CKB, enabling composable dApps and seamless on-chain logic upgrades, empowering developers to build next-gen blockchain applications.",
+      "tags": [{"name": "Smart Contract", "color": "#22c55e"}, {"name": "Platform", "color": "#8b5cf6"}],
+      "image": "/images/placeholder.svg?height=400&width=600&text=Cellula",
+      "tinyImage": "/images/placeholder.svg?height=96&width=112&text=Cellula",
+      "link": "/cellula"
+    }
+  ],
+  "premium": [
+    {
+      "name": "HueHub",
+      "desc": "A decentralized exchange on CKB, empowers seamless trading and fair issuance of Omni-assets, enhancing Bitcoin's functionality and enriching Nervos Network's vibrant ecosystem.",
+      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
+      "image": "/images/placeholder.svg?height=200&width=400&text=HueHub",
+      "link": "/huehub"
+    },
+    {
+      "name": "DotBit",
+      "desc": "A decentralized identity protocol on CKB, weaves a cross-chain tapestry of domain, user-friendly addresses, and secure management of digital identity and asset management across blockchains.",
+      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
+      "image": "/images/placeholder.svg?height=200&width=400&text=DotBit",
+      "link": "/dotbit"
+    },
+    {
+      "name": "Stable++",
+      "desc": "A decentralized stablecoin protocol on CKB, crafts BUSD through over-collateralized BTC assets, enhancing stability and liquidity across the Bitcoin and RGB++ ecosystems.",
+      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
+      "image": "/images/placeholder.svg?height=200&width=400&text=Stable++",
+      "link": "/stable-plus-plus"
+    },
+    {
+      "name": "JoyGift",
+      "desc": "A heartfelt melody on the CKB blockchain, orchestrates a digital red envelope tradition, where users craft and share personalized token-filled tales.",
+      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
+      "image": "/images/placeholder.svg?height=200&width=400&text=JoyGift",
+      "link": "/joygift"
+    },
+    {
+      "name": "Philosopher's Stone",
+      "desc": "An enigmatic protocol on CKB, transmutes the blockchain into a crucible of boundless transformation, where its alchemical essence empowers users to conjure unique digital artifacts.",
+      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
+      "image": "/images/placeholder.svg?height=200&width=400&text=Philosopher's+Stone",
+      "link": "/philosophers-stone"
+    }
+  ],
+  "community": [
+    {
+      "name": "NervDao",
+      "desc": "An advanced implementation of the Nervos DAO with enhanced governance features and cross-chain capabilities",
+      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
+      "image": "/images/placeholder.svg?height=200&width=400&text=Nervdao",
+      "link": "/nervdao"
+    },
+    {
+      "name": "Community Project 1",
+      "desc": "",
+      "tags": [],
+      "image": "",
+      "link": "",
+      "placeholder": true
+    },
+    {
+      "name": "Community Project 2",
+      "desc": "",
+      "tags": [],
+      "image": "",
+      "link": "",
+      "placeholder": true
+    },
+    {
+      "name": "Community Project 3",
+      "desc": "",
+      "tags": [],
+      "image": "",
+      "link": "",
+      "placeholder": true
+    }
+  ]
+} 
