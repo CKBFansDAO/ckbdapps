@@ -64,7 +64,7 @@
       "launchedDate": "Jan 01, 2019",
       "items": [
         { "name": "Open Source", "status": true },
-        { "name": "Audited", "status": false },
+        { "name": "Audited" },
         { "name": "White Paper", "status": false },
         { "name": "Smart Contract", "status": true }
       ]

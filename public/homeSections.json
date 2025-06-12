@@ -14,7 +14,7 @@
       "title": "UTXO Swap",
       "project": {
         "name": "UTXO Swap",
-        "desc": "UTXO Swap is a decentralized exchange built on Nervos CKB Layer 2, designed for seamless, intent-driven trading of Bitcoin-native assets like Runes and inscriptions, leveraging CKB Extended UTXO model and cross-chain bridging for secure, efficient swaps with minimal trust requirements."
+        "desc": "UTXO Swap is a decentralized exchange built on Nervos CKB Layer 2, designed for seamless, intent-driven trading, leveraging CKB Extended UTXO model and cross-chain bridging for secure, efficient swaps with minimal trust requirements."
       },
       "dappId": "utxoswap"
     },

@@ -3,7 +3,7 @@
 import { ChevronLeft, ChevronRight, Sparkles, Zap, ExternalLink, Globe } from "lucide-react"
 // import { Button } from "@/components/ui/button"
 import Button from "../components/ui/button"
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState, useCallback, useRef } from "react"
 
 // Hero Banner Carousel Section
 const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
@@ -105,19 +105,34 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
   );
 };
 
-const DOT_COUNT = 36;
+const DOT_COUNT = 50;
+const DOT_VERTICAL_MARGIN = 50; // px
 
 // Project Introduction Section
 const ProjectIntroduction = ({ banners, current }) => {
+  const containerRef = useRef(null);
+  const [containerHeight, setContainerHeight] = useState(300);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (containerRef.current) {
+        setContainerHeight(containerRef.current.offsetHeight);
+      }
+    };
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
+
   // Initialize dots with random properties, including hue for color animation
   const [dots, setDots] = useState(() =>
     Array.from({ length: DOT_COUNT }).map(() => ({
       left: Math.random() * 100, // percent
-      bottom: Math.random() * 64, // px
+      bottom: DOT_VERTICAL_MARGIN + Math.random() * Math.max(0, 300 - 2 * DOT_VERTICAL_MARGIN),
       size: 8 + Math.random() * 16, // px
       opacity: 0.4 + Math.random() * 0.5,
       dx: (Math.random() - 0.5) * 0.04, // quadrupled horizontal speed
-      dy: (Math.random() - 0.5) * 0.04, // quadrupled vertical speed
+      dy: (Math.random() - 0.5) * 0.25, // quadrupled vertical speed
       hue: 200 + Math.random() * 80, // initial hue (blue to purple)
       dhue: 0.2 + Math.random() * 0.2, // hue change rate
     }))
@@ -143,10 +158,10 @@ const ProjectIntroduction = ({ banners, current }) => {
               dx = -dx;
               newLeft = Math.max(0, Math.min(100, newLeft));
             }
-            // Bounce on vertical edges
-            if (newBottom < 0 || newBottom > 64) {
+            // Bounce on vertical edges，留出上下 margin
+            if (newBottom < DOT_VERTICAL_MARGIN || newBottom > containerHeight - DOT_VERTICAL_MARGIN) {
               dy = -dy;
-              newBottom = Math.max(0, Math.min(64, newBottom));
+              newBottom = Math.max(DOT_VERTICAL_MARGIN, Math.min(containerHeight - DOT_VERTICAL_MARGIN, newBottom));
             }
             // Animate hue (color)
             let newHue = dot.hue + dot.dhue;
@@ -167,12 +182,12 @@ const ProjectIntroduction = ({ banners, current }) => {
     }
     animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
-  }, []);
+  }, [containerHeight]);
 
   return (
-    <section className="relative bg-cosmic-lightGray py-6 px-6 overflow-hidden">
+    <section ref={containerRef} className="relative bg-cosmic-lightGray py-6 px-6 overflow-hidden">
       {/* Bottom light blue bar with animated decorative dots */}
-      <div className="absolute left-0 right-0 bottom-0 h-16 bg-[#EAF4FB] opacity-95 rounded-t-3xl z-0">
+      <div className="absolute left-0 right-0 bottom-0 top-0 h-full pointer-events-none z-0">
         {/* Animated decorative dots with color gradient */}
         {dots.map((dot, i) => (
           <div
@@ -197,15 +212,34 @@ const ProjectIntroduction = ({ banners, current }) => {
           <span
             className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(80,200,255,0.5)]"
             style={{
-              WebkitTextStroke: '1px rgba(255,255,255,0.15)'
+              WebkitTextStroke: '2px rgba(255,255,255,0.85)',
+              textShadow: '0 4px 24px rgba(0,0,0,0.45)'
             }}
           >
             {banners[current].title}
           </span>
         </h1>
-        <p className="text-cosmic-gray text-lm text-center">
-          {banners[current].project.desc}
-        </p>
+        <div
+          style={{
+            display: 'inline-block',
+            background: 'rgba(255,255,255,0.75)',
+            borderRadius: '1rem',
+            padding: '0.75rem 1.5rem',
+            boxShadow: '0 2px 16px 0 rgba(80,200,255,0.10)',
+            backdropFilter: 'blur(2px)',
+            margin: '0 auto'
+          }}
+        >
+          <p
+            className="text-cosmic-gray text-l text-center"
+            style={{
+              textShadow: '0 2px 8px rgba(0,0,0,0.10)',
+              margin: 0
+            }}
+          >
+            {banners[current].project.desc}
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -238,6 +272,18 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
             >
               <ChevronRight className="h-5 w-5 text-cosmic-purple" />
             </Button>
+            <a
+              href="https://discord.com/channels/657799690070523914/1364236242190995558/threads/1365948819728105503"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center px-4 h-12 rounded-full bg-gradient-to-br from-[#4ade80] via-[#22d3ee] to-[#a78bfa] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none text-white font-semibold text-base"
+              style={{ boxShadow: '0 0 16px 2px #22d3ee55, 0 2px 8px 0 #a78bfa33', minWidth: '120px' }}
+            >
+              <svg className="w-6 h-6 mr-2 animate-pulse group-hover:animate-spin" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" />
+              </svg>
+              Discord
+            </a>
           </div>
         </div>
         <div className="relative">
@@ -287,7 +333,7 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
                           </h3>
                           <div className="flex justify-between items-center mt-3">
                             <p className="text-sm text-cosmic-gray text-sm">{project.desc}</p>
-                            <p className="text-cosmic-accent font-future whitespace-nowrap">{project.amount}</p>
+                            <p className="text-cosmic-accent font-future">{project.amount}</p>
                           </div>
                         </div>
                       </div>
@@ -667,4 +713,3 @@ export default function Home({ onDappSelect }) {
     </div>
   );
 }
-  

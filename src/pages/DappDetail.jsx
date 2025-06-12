@@ -243,7 +243,20 @@ const ProjectTransparency = ({ transparency }) => {
   if (!transparency) return null;
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
-      <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">Project Transparency</h3>
+      <div className="flex items-center justify-between mb-12">
+        <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Project Transparency</h3>
+        <a
+          href="https://github.com/CKBFansDAO/ckbdapps/pulls"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white font-semibold shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg focus:outline-none"
+        >
+          <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+          </svg>
+          Submit Appeal
+        </a>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Team Card */}
         <div className="group bg-white border border-amber-200 hover:border-amber-300 rounded-2xl p-8 shadow-lg hover:shadow-md transition-all duration-300">
@@ -265,13 +278,17 @@ const ProjectTransparency = ({ transparency }) => {
           </div>
           <div className="space-y-4">
             {transparency.team.items.map((item, index) => (
-              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition ${item.status === false ? 'bg-gray-100' : 'bg-green-100 hover:bg-green-200'}`}>
-                <span className={item.status === false ? 'text-gray-400 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${item.status === false ? 'bg-gray-400' : 'bg-green-500'}`}>
+              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition
+                ${item.status === false ? 'bg-gray-100' : item.status === undefined ? 'bg-yellow-100' : 'bg-green-100 hover:bg-green-200'}`}>
+                <span className={item.status === false ? 'text-gray-400 font-medium' : item.status === undefined ? 'text-yellow-700 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center
+                  ${item.status === false ? 'bg-gray-400' : item.status === undefined ? 'bg-yellow-400' : 'bg-green-500'}`}>
                   {item.status === false ? (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.707 6.293a1 1 0 00-1.414 1.414L8.586 11l-3.293 3.293a1 1 0 101.414 1.414L10 12.414l3.293 3.293a1 1 0 001.414-1.414L11.414 11l3.293-3.293a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293z" clipRule="evenodd" />
                     </svg>
+                  ) : item.status === undefined ? (
+                    <FaQuestionCircle className="w-3 h-3 text-white" />
                   ) : (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -302,13 +319,17 @@ const ProjectTransparency = ({ transparency }) => {
           </div>
           <div className="space-y-4">
             {transparency.project.items.map((item, index) => (
-              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition ${item.status === false ? 'bg-gray-100' : 'bg-green-100 hover:bg-green-200'}`}>
-                <span className={item.status === false ? 'text-gray-400 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${item.status === false ? 'bg-gray-400' : 'bg-green-500'}`}>
+              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition
+                ${item.status === false ? 'bg-gray-100' : item.status === undefined ? 'bg-yellow-100' : 'bg-green-100 hover:bg-green-200'}`}>
+                <span className={item.status === false ? 'text-gray-400 font-medium' : item.status === undefined ? 'text-yellow-700 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center
+                  ${item.status === false ? 'bg-gray-400' : item.status === undefined ? 'bg-yellow-400' : 'bg-green-500'}`}>
                   {item.status === false ? (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.707 6.293a1 1 0 00-1.414 1.414L8.586 11l-3.293 3.293a1 1 0 101.414 1.414L10 12.414l3.293 3.293a1 1 0 001.414-1.414L11.414 11l3.293-3.293a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293z" clipRule="evenodd" />
                     </svg>
+                  ) : item.status === undefined ? (
+                    <FaQuestionCircle className="w-3 h-3 text-white" />
                   ) : (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -339,13 +360,17 @@ const ProjectTransparency = ({ transparency }) => {
           </div>
           <div className="space-y-4">
             {transparency.token.items.map((item, index) => (
-              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition ${item.status === false ? 'bg-gray-100' : 'bg-green-100 hover:bg-green-200'}`}>
-                <span className={item.status === false ? 'text-gray-400 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${item.status === false ? 'bg-gray-400' : 'bg-green-500'}`}>
+              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition
+                ${item.status === false ? 'bg-gray-100' : item.status === undefined ? 'bg-yellow-100' : 'bg-green-100 hover:bg-green-200'}`}>
+                <span className={item.status === false ? 'text-gray-400 font-medium' : item.status === undefined ? 'text-yellow-700 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center
+                  ${item.status === false ? 'bg-gray-400' : item.status === undefined ? 'bg-yellow-400' : 'bg-green-500'}`}>
                   {item.status === false ? (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.707 6.293a1 1 0 00-1.414 1.414L8.586 11l-3.293 3.293a1 1 0 101.414 1.414L10 12.414l3.293 3.293a1 1 0 001.414-1.414L11.414 11l3.293-3.293a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293z" clipRule="evenodd" />
                     </svg>
+                  ) : item.status === undefined ? (
+                    <FaQuestionCircle className="w-3 h-3 text-white" />
                   ) : (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />

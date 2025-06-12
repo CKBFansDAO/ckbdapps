@@ -221,7 +221,7 @@ const CKBHistoryOccupiedChart = () => {
                             <div className='grow'></div>
                             <div className='flex px-1 py-1 gap-1 text-sm bg-[#E7E6F7] rounded-sm'>
                                 {Object.entries(period_intervals).map(([key, value]) => (
-                                    <div key={key} className={`flex items-center ${chartInterval === key ? 'bg-[#ffc658] text-black font-bold' : 'bg-[#F4EFFF] hover:bg-[#ffc658] text-black '} rounded-sm px-1 cursor-pointer`}
+                                    <div key={key} className={`flex items-center ${chartInterval === key ? 'bg-[#ffc658] text-black font-bold' : 'bg-[#F4EFFF] hover:bg-[#ffc658] text-black'} rounded-sm px-1 cursor-pointer`}
                                         onClick={() => setChartInterval(key)} >{key}
                                     </div>
                                 ))}

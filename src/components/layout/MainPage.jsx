@@ -6,6 +6,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Ecosystem from '../../pages/Ecosystem';
 import Halving from '../../pages/Halving';
 import Events from '../../pages/Events';
+import Statistics from '../../pages/Statistics';
 
 import Bulletin from '../bulletin/Bulletin'
 import Footer from '../footer/Footer'
@@ -60,6 +61,7 @@ export default function MainPage() {
               <Route path="/ecosystem" element={<Ecosystem />} />
               <Route path="/halving" element={<Halving />} />
               <Route path="/events" element={<Events />} />
+              <Route path="/statistics" element={<Statistics />} />
               {/* New pages can be added here */}
             </Routes>
           </div>
