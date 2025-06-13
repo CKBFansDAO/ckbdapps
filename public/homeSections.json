@@ -40,25 +40,22 @@
       ]
     },
     {
-      "name": "Spark Project 1",
+      "name": "Wait Your Project",
       "desc": "",
-      "tags": [],
       "image": "",
       "link": "",
       "placeholder": true
     },
     {
-      "name": "Spark Project 2",
+      "name": "Wait Your Project",
       "desc": "",
-      "tags": [],
       "image": "",
       "link": "",
       "placeholder": true
     },
     {
-      "name": "Spark Project 3",
+      "name": "Wait Your Project",
       "desc": "",
-      "tags": [],
       "image": "",
       "link": "",
       "placeholder": true
@@ -68,7 +65,6 @@
     {
       "name": "Nervape",
       "desc": "A vibrant digital realm on the CKB blockchain, offers an extraordinary haven where creators conjure and trade digital treasures across chains, igniting a seamless alchemy of cross-chain artistry amidst CKB's ecosystem, creating a constellation of developers and artists in a harmonious digital tapestry.",
-      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
       "image": "/dappDetails/images/nervape/highlight.jpg",
       "tinyImage": "/dappDetails/images/nervape/logo.jpeg",
       "link": "/nervape"
@@ -77,17 +73,17 @@
       "name": "JoyID",
       "desc": "A luminous thread in the CKB tapestry, weaves a decentralized identity realm where users wield sovereign control over their digital essence across blockchain's boundless stage. Its elegant fusion of passkey authentication and cross-chain sensory perception empowers users.",
       "tags": [{"name": "Wallet", "color": "#22c55e"}, {"name": "Identity", "color": "#8b5cf6"}],
-      "image": "/images/placeholder.svg?height=400&width=600&text=JoyID",
-      "tinyImage": "/images/placeholder.svg?height=96&width=112&text=JoyID",
+      "image": "/dappDetails/images/joyid/highlight.jpg",
+      "tinyImage": "/dappDetails/images/joyid/logo.jpg",
       "link": "/joyid"
     },
     {
-      "name": "Cellula",
-      "desc": "A modular smart contract platform on CKB, enabling composable dApps and seamless on-chain logic upgrades, empowering developers to build next-gen blockchain applications.",
-      "tags": [{"name": "Smart Contract", "color": "#22c55e"}, {"name": "Platform", "color": "#8b5cf6"}],
-      "image": "/images/placeholder.svg?height=400&width=600&text=Cellula",
-      "tinyImage": "/images/placeholder.svg?height=96&width=112&text=Cellula",
-      "link": "/cellula"
+      "name": "DotBit",
+      "desc": "A decentralized identity protocol on CKB, weaves a cross-chain tapestry of domain, user-friendly addresses, and secure management of digital identity and asset management across blockchains.",
+      "tags": [{"name": "DID", "color": "#8b5cf6"}],
+      "image": "/dappDetails/images/dotbit/highlight.jpeg",
+      "tinyImage": "/dappDetails/images/dotbit/logo.jpg",
+      "link": "/dotbit"
     }
   ],
   "premium": [
@@ -97,13 +93,6 @@
       "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
       "image": "/images/placeholder.svg?height=200&width=400&text=HueHub",
       "link": "/huehub"
-    },
-    {
-      "name": "DotBit",
-      "desc": "A decentralized identity protocol on CKB, weaves a cross-chain tapestry of domain, user-friendly addresses, and secure management of digital identity and asset management across blockchains.",
-      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
-      "image": "/images/placeholder.svg?height=200&width=400&text=DotBit",
-      "link": "/dotbit"
     },
     {
       "name": "Stable++",

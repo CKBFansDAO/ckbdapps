@@ -1,4 +1,4 @@
-import { ArrowLeft, ExternalLink, Zap } from "lucide-react";
+import { ArrowLeft, ExternalLink, Zap, Info } from "lucide-react";
 import { FaReddit, FaDiscord, FaTelegramPlane, FaTwitter, FaGithub, FaYoutube, FaMedium, FaQuestionCircle, FaLightbulb } from "react-icons/fa";
 import Button from "../components/ui/button";
 import { useState, useEffect } from "react";
@@ -244,7 +244,18 @@ const ProjectTransparency = ({ transparency }) => {
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
       <div className="flex items-center justify-between mb-12">
-        <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Project Transparency</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Project Transparency</h3>
+          {/* Info icon with tooltip */}
+          <div className="relative group pt-2">
+            <Info className="w-5 h-5 text-gray-400 cursor-pointer" />
+            <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 z-50 pointer-events-none
+              bg-white border border-gray-200 rounded-lg shadow-md px-4 py-2 text-sm text-gray-500 whitespace-pre-line min-w-[580px] max-w-xs
+              opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200">
+              Disclaimer: The following information may be inaccurate or incomplete, platform does not guarantee the accuracy or completeness. If you have any questions or corrections, please submit an appeal.
+            </div>
+          </div>
+        </div>
         <a
           href="https://github.com/CKBFansDAO/ckbdapps/pulls"
           target="_blank"
@@ -254,7 +265,7 @@ const ProjectTransparency = ({ transparency }) => {
           <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
           </svg>
-          Submit Appeal
+          Submit Correction
         </a>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

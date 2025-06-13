@@ -1,0 +1,83 @@
+{
+  "name": "DotBit",
+  "description": "DotBit is a decentralized, cross-chain account and digital identity (DID) protocol built on the Nervos CKB blockchain. It provides a globally unique naming system with a .bit suffix (e.g., imac.bit), enabling users to register and manage accounts that function across multiple blockchains for use cases like cryptocurrency transfers, domain name resolution, and identity authentication. Unlike traditional domain systems like DNS or Ethereum’s ENS, .bit is highly interoperable, allowing users to use any public chain address (e.g., Ethereum, Bitcoin, or TRON) or even an email as the owner or manager of a .bit account. Powered by Nervos CKB’s secure Layer 1 infrastructure, .bit leverages smart contracts (Lock Scripts and Type Scripts) to define account operations and supports flexible record types for diverse data storage. Its ecosystem includes resolution services, client SDKs, and DApp interfaces, fostering integration with wallets, marketplaces, and Web3 applications. By offering a user-friendly, blockchain-agnostic identity solution, .bit aims to simplify Web3 interactions and enhance decentralized identity management.",
+  "titleImage": "/dappDetails/images/dotbit/banner.jpg",
+  "logo": "/dappDetails/images/dotbit/logo.jpg",
+  "tags": [
+    { "name": "DID", "color": "#8b5cf6" }
+  ],
+  "socialLinks": {
+    "twitter": "https://twitter.com/dotbitHQ",
+    "discord": "https://discord.gg/did",
+    "github": "https://github.com/dotbitHQ",
+    "medium": "https://dotbit.medium.com/"
+  },
+  "websiteUrl": "https://did.id",
+  "highlights": [
+    {
+      "title": "Decentralized Naming System",
+      "description": "Provides unique .bit accounts (e.g., name.bit) for crypto transfers, domain resolution, and identity authentication, independent of centralized systems like DNS",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "User-Friendly Integration",
+      "description": "Offers resolution services and registrar interfaces (similar to GoDaddy for domains) for easy account registration, management, and trading, enhancing Web3 accessibility",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited" },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "issuedDate": "unknown",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": true },
+        { "name": "Tradable", "status": true },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": "How does .bit differ from ENS or DNS?",
+      "a": "Unlike Ethereum’s ENS or centralized DNS, .bit is blockchain-agnostic, allowing any public chain address (e.g., Bitcoin, Ethereum, TRON) or email to own/manage accounts. It offers flexible record types and operates on CKB’s secure Layer 1."
+    },
+    {
+      "q": "What can I do with a .bit account?",
+      "a": ".bit accounts enable cryptocurrency transfers, domain name resolution for Web3 DApps, identity authentication, and data storage (e.g., profiles, custom records). They can also be traded as NFTs on platforms like OpenSea."
+    },
+    {
+      "q": "Can I use .bit without technical knowledge?",
+      "a": "Absolutely. .bit’s user-friendly interfaces and wallet integrations simplify account registration, management, and usage, making it accessible for both Web3 beginners and experts."
+    }
+  ]
+} 

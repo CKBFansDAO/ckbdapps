@@ -83,11 +83,6 @@
             "categories": ["RGB++", "DeFi", "Stablecoin"]
         },
         {
-            "project_name": "Cellula",
-            "path_name":"cellula",
-            "categories": ["RGB++", "DOBs", "AW"]
-        },
-        {
             "project_name": "World3",
             "path_name":"world3",
             "categories": ["RGB++", "DOBs", "AW"]
