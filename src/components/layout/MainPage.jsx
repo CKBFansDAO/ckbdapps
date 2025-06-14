@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Home from "../../pages/Home";
 import DappDetail from "../../pages/DappDetail";
 import { AnimatePresence, motion } from "framer-motion";
@@ -22,6 +22,7 @@ function useScrollRestoration(containerRef) {
   useLayoutEffect(() => {
     return () => {
       if (containerRef.current) {
+        // Save scroll position for previous path
         // eslint-disable-next-line react-hooks/exhaustive-deps
         scrollPositions[prevPath.current] = containerRef.current.scrollTop;
       }
@@ -43,8 +44,68 @@ function useScrollRestoration(containerRef) {
 export default function MainPage() {
   const contentRef = useRef(null);
   useScrollRestoration(contentRef);
-  const [selectedDapp, setSelectedDapp] = useState(null);
   const location = useLocation();
+
+  // Double detail modal stack state
+  const [detailA, setDetailA] = useState({ dappId: null, visible: false });
+  const [detailB, setDetailB] = useState({ dappId: null, visible: false });
+  const [isAOnTop, setIsAOnTop] = useState(true);
+
+  // Unified body overflow management: only restore when all details are closed
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+    const originalBg = document.body.style.background;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    const anyDetailOpen = detailA.visible || detailB.visible;
+    if (anyDetailOpen) {
+      document.body.style.overflow = 'hidden';
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+        document.body.style.background = '#F8F7FA';
+      }
+    } else {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
+      document.body.style.background = originalBg;
+    }
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
+      document.body.style.background = originalBg;
+    };
+  }, [detailA.visible, detailB.visible]);
+
+  // Home/project entry click
+  const handleShowDetail = (dappId) => {
+    if (isAOnTop) {
+      setDetailA({ dappId, visible: true });
+      setDetailB({ dappId: null, visible: false });
+    } else {
+      setDetailB({ dappId, visible: true });
+      setDetailA({ dappId: null, visible: false });
+    }
+  };
+
+  // Related area click
+  const handleRelatedClick = (dappId) => {
+    if (isAOnTop) {
+      setDetailA(a => ({ ...a, visible: false }));
+      setDetailB({ dappId, visible: true });
+      setIsAOnTop(false);
+    } else {
+      setDetailB(b => ({ ...b, visible: false }));
+      setDetailA({ dappId, visible: true });
+      setIsAOnTop(true);
+    }
+  };
+
+  // Close detail
+  const handleClose = () => {
+    setDetailA(a => ({ ...a, visible: false }));
+    setDetailB(b => ({ ...b, visible: false }));
+  };
 
   return (
     <div className="flex flex-col">
@@ -57,7 +118,7 @@ export default function MainPage() {
         <div className="flex grow w-full justify-center">
           <div className="bg-[#F8F8F8] flex flex-col w-full">
             <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Home onDappSelect={setSelectedDapp} />} />
+              <Route path="/" element={<Home onDappSelect={handleShowDetail} />} />
               <Route path="/ecosystem" element={<Ecosystem />} />
               <Route path="/halving" element={<Halving />} />
               <Route path="/events" element={<Events />} />
@@ -70,35 +131,47 @@ export default function MainPage() {
         <div id="app-message-box" />
       </div>
       <AnimatePresence>
-        {selectedDapp && (
+        {detailA.visible && (
           <motion.div
-            key={selectedDapp}
+            key={`detailA-${detailA.dappId}`}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 50 }}
+            style={{
+              position: "fixed",
+              top: 0, left: 0, right: 0, bottom: 0,
+              zIndex: isAOnTop ? 70 : 60
+            }}
           >
-            <DappDetail dappId={selectedDapp} onClose={() => setSelectedDapp(null)} />
+            <DappDetail
+              dappId={detailA.dappId}
+              onClose={handleClose}
+              onRelatedClick={handleRelatedClick}
+            />
+          </motion.div>
+        )}
+        {detailB.visible && (
+          <motion.div
+            key={`detailB-${detailB.dappId}`}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            style={{
+              position: "fixed",
+              top: 0, left: 0, right: 0, bottom: 0,
+              zIndex: isAOnTop ? 60 : 70
+            }}
+          >
+            <DappDetail
+              dappId={detailB.dappId}
+              onClose={handleClose}
+              onRelatedClick={handleRelatedClick}
+            />
           </motion.div>
         )}
       </AnimatePresence>
     </div>
-    /*<div className="flex flex-col">
-      <div className="sidebar hidden md:block w-0 md:w-[260px] bg-[#1C1C23]">
-        <Sidebar {...props} />
-      </div>
-      <div className="layout__content pl-0 md:ml-[260px] flex flex-col items-center">
-        <Bulletin />
-        <TopNav />
-        <div className="flex max-w-6xl grow w-full">
-          <div className="p-3 md:p-7 bg-[#F8F8F8] w-full flex flex-col place-content-center">
-            <PageRoutes />
-          </div>
-        </div>
-        <Footer></Footer>
-        <div id="app-message-box" />
-      </div>
-    </div>*/
-  )
+  );
 }

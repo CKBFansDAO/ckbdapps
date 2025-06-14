@@ -79,7 +79,7 @@
       "title": "Quantum Purge",
       "desc": "A quantum-resistant wallet built on Nervos CKB.",
       "icon": "/dappDetails/images/quantumpurge/logo.jpg",
-      "url": "/quantumpurge"
+      "dappId": "quantumpurge"
     }
   ],
   "faq": [

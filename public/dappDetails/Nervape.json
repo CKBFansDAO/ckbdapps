@@ -100,20 +100,7 @@
       ]
     }
   },
-  "related": [
-    {
-      "title": "CKB Punks",
-      "desc": "The first NFT collection on Nervos.",
-      "icon": "/placeholder.svg",
-      "url": "/ckbpunks"
-    },
-    {
-      "title": "CKB Apes",
-      "desc": "Ape-themed NFT collection on CKB.",
-      "icon": "/placeholder.svg",
-      "url": "/ckbapes"
-    }
-  ],
+  "related": [],
   "faq": [
     {
       "q": "What is Nervape?",

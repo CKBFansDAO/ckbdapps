@@ -397,7 +397,7 @@ const ProjectTransparency = ({ transparency }) => {
   );
 }
 
-const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq }) => {
+const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedClick }) => {
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -437,17 +437,17 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq }) => {
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">Related</h3>
           <div className="flex flex-col gap-4">
             {related && related.map((item, idx) => (
-              <a
+              <div
                 key={idx}
-                href={item.url}
                 className="flex items-center bg-white border border-gray-200 rounded-lg shadow transition-shadow duration-300 hover:shadow-lg cursor-pointer px-4 py-3 group h-20"
+                onClick={() => onRelatedClick && onRelatedClick(item.dappId)}
               >
                 <img src={item.icon} alt={item.title} className="w-12 h-12 rounded-md object-contain bg-gray-100" />
                 <div className="ml-4 flex-1 min-w-0">
                   <div className="font-bold text-base text-gray-900 truncate">{item.title}</div>
                   <div className="text-gray-600 text-sm truncate">{item.desc}</div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
@@ -456,30 +456,12 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq }) => {
   );
 }
 
-export default function DappDetail({ dappId, onClose }) {
+export default function DappDetail({ dappId, onClose, onRelatedClick }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [videoIndex, setVideoIndex] = useState(0);
-
-  // Prevent background scroll and layout shift when DappDetail is open
-  useEffect(() => {
-    const originalOverflow = document.body.style.overflow;
-    const originalPaddingRight = document.body.style.paddingRight;
-    const originalBg = document.body.style.background;
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.overflow = 'hidden';
-    if (scrollbarWidth > 0) {
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-      document.body.style.background = '#F8F7FA'; // Home background color
-    }
-    return () => {
-      document.body.style.overflow = originalOverflow;
-      document.body.style.paddingRight = originalPaddingRight;
-      document.body.style.background = originalBg;
-    };
-  }, []);
 
   useEffect(() => {
     if (!dappId) return;
@@ -545,7 +527,13 @@ export default function DappDetail({ dappId, onClose }) {
       <ProjectTransparency transparency={data.transparency} />
 
       {/* FAQ & Related (modularized) */}
-      <FAQAndRelated faq={data.faq} related={data.related} expandedFaq={expandedFaq} setExpandedFaq={setExpandedFaq} />
+      <FAQAndRelated
+        faq={data.faq}
+        related={data.related}
+        expandedFaq={expandedFaq}
+        setExpandedFaq={setExpandedFaq}
+        onRelatedClick={onRelatedClick}
+      />
     </div>
   );
 } 

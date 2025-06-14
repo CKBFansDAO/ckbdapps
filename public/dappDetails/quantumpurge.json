@@ -83,23 +83,15 @@
   "related": [
     {
       "title": "JoyID",
-      "desc": "The first NFT collection on Nervos.",
-      "icon": "/placeholder.svg",
-      "url": "/ckbpunks"
+      "desc": "Multi-chain identity protocol allows users to manage digital identity.",
+      "icon": "/dappDetails/images/joyid/logo.jpg",
+      "dappId": "joyid"
     }
   ],
   "faq": [
     {
-      "q": "What is Nervape?",
-      "a": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem."
-    },
-    {
-      "q": "How to get a Nervape DOB?",
-      "a": "You can mint or trade DOBs on the Nervape platform."
-    },
-    {
-      "q": "What chains does Nervape support?",
-      "a": "Currently supports Bitcoin and CKB."
+      "q": "Is Quantum Purge self-custody?",
+      "a": "Yes. When you use Quantum Purge, a browser-based light client will be running in the background, which will help you manage wallet in a self-custody way."
     }
   ]
 } 
