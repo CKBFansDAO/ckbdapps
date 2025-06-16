@@ -1,6 +1,6 @@
 {
   "name": "imagiNation",
-  "description": "UTXO Swap is an innovative decentralized exchange deployed on Nervos CKB Layer 2 infrastructure, harnessing the blockchain Extended UTXO model and robust Proof-of-Work security to enable highly efficient, intent-driven trading of Bitcoin-native assets, such as Runes and inscriptions, while offering seamless cross-chain bridging capabilities to facilitate secure, trust-minimized asset transfers between Bitcoin and CKB ecosystems, thereby enhancing scalability, interoperability, and user accessibility for decentralized finance applications.",
+  "description": "imagiNation is a decentralized NFT collection platform on the Nervos CKB blockchain, designed to leverage CKB’s Proof-of-Work (PoW) and extended UTXO (Cell) model to facilitate innovative blockchain applications. Operating within the CKB ecosystem, imagiNation aims to enhance interoperability with Bitcoin Layer 1 assets, potentially focusing on inscriptions, DeFi, or tokenized assets. Compatible with mainstream Bitcoin wallets like Unisat, OKX, and JoyID, it emphasizes decentralization, security, and user accessibility. imagiNation seeks to contribute to the Nervos ecosystem by offering scalable, low-cost solutions for asset management and trading, aligning with CKB’s vision of a modular, Bitcoin-integrated blockchain.",
   "titleImage": "/dappDetails/images/imagination/banner.jpeg",
   "logo": "/dappDetails/images/imagination/logo.jpg",
   "tags": [
@@ -63,32 +63,15 @@
       ]
     }
   },
-  "related": [
-    {
-      "title": "CKB Punks",
-      "desc": "The first NFT collection on Nervos.",
-      "icon": "/placeholder.svg",
-      "url": "/ckbpunks"
-    },
-    {
-      "title": "CKB Apes",
-      "desc": "Ape-themed NFT collection on CKB.",
-      "icon": "/placeholder.svg",
-      "url": "/ckbapes"
-    }
-  ],
+  "related": [],
   "faq": [
     {
-      "q": "What is Nervape?",
-      "a": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem."
+      "q": "How does imagiNation ensure fairness?",
+      "a": "Following CKB ecosystem standards, imagiNation likely adopts a fair launch mechanism to ensure equitable access and participation for all users."
     },
     {
-      "q": "How to get a Nervape DOB?",
-      "a": "You can mint or trade DOBs on the Nervape platform."
-    },
-    {
-      "q": "What chains does Nervape support?",
-      "a": "Currently supports Bitcoin and CKB."
+      "q": "What are the use cases for imagiNation?",
+      "a": "imagiNation may support applications like tokenized assets, decentralized exchanges, or community-driven projects, leveraging CKB’s Turing-complete contracts and xUDT standards."
     }
   ]
 } 

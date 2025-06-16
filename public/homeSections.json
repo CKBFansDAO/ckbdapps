@@ -72,7 +72,6 @@
     {
       "name": "JoyID",
       "desc": "A luminous thread in the CKB tapestry, weaves a decentralized identity realm where users wield sovereign control over their digital essence across blockchain's boundless stage. Its elegant fusion of passkey authentication and cross-chain sensory perception empowers users.",
-      "tags": [{"name": "Wallet", "color": "#22c55e"}, {"name": "Identity", "color": "#8b5cf6"}],
       "image": "/dappDetails/images/joyid/highlight.jpg",
       "tinyImage": "/dappDetails/images/joyid/logo.jpg",
       "link": "/joyid"
@@ -80,7 +79,6 @@
     {
       "name": "DotBit",
       "desc": "A decentralized identity protocol on CKB, weaves a cross-chain tapestry of domain, user-friendly addresses, and secure management of digital identity and asset management across blockchains.",
-      "tags": [{"name": "DID", "color": "#8b5cf6"}],
       "image": "/dappDetails/images/dotbit/highlight.jpeg",
       "tinyImage": "/dappDetails/images/dotbit/logo.jpg",
       "link": "/dotbit"
@@ -90,42 +88,37 @@
     {
       "name": "HueHub",
       "desc": "A decentralized exchange on CKB, empowers seamless trading and fair issuance of Omni-assets, enhancing Bitcoin's functionality and enriching Nervos Network's vibrant ecosystem.",
-      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
-      "image": "/images/placeholder.svg?height=200&width=400&text=HueHub",
+      "image": "/dappDetails/images/huehub/highlight.jpg",
       "link": "/huehub"
     },
     {
       "name": "Stable++",
       "desc": "A decentralized stablecoin protocol on CKB, crafts BUSD through over-collateralized BTC assets, enhancing stability and liquidity across the Bitcoin and RGB++ ecosystems.",
-      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
-      "image": "/images/placeholder.svg?height=200&width=400&text=Stable++",
-      "link": "/stable-plus-plus"
+      "image": "/dappDetails/images/stablepp/highlight.jpg",
+      "link": "/stablepp"
     },
     {
       "name": "JoyGift",
       "desc": "A heartfelt melody on the CKB blockchain, orchestrates a digital red envelope tradition, where users craft and share personalized token-filled tales.",
-      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
-      "image": "/images/placeholder.svg?height=200&width=400&text=JoyGift",
+      "image": "/dappDetails/images/joygift/highlight.jpeg",
       "link": "/joygift"
     },
     {
       "name": "Philosopher's Stone",
       "desc": "An enigmatic protocol on CKB, transmutes the blockchain into a crucible of boundless transformation, where its alchemical essence empowers users to conjure unique digital artifacts.",
-      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
-      "image": "/images/placeholder.svg?height=200&width=400&text=Philosopher's+Stone",
-      "link": "/philosophers-stone"
+      "image": "/dappDetails/images/philosopherstone/highlight.png",
+      "link": "/philosopherstone"
     }
   ],
   "community": [
     {
       "name": "NervDao",
       "desc": "An advanced implementation of the Nervos DAO with enhanced governance features and cross-chain capabilities",
-      "tags": [{"name": "NFT", "color": "#8b5cf6"}, {"name": "Game", "color": "#22c55e"}],
-      "image": "/images/placeholder.svg?height=200&width=400&text=Nervdao",
+      "image": "/dappDetails/images/nervdao/logo.jpg",
       "link": "/nervdao"
     },
     {
-      "name": "Community Project 1",
+      "name": "Empty Community Project",
       "desc": "",
       "tags": [],
       "image": "",
@@ -133,7 +126,7 @@
       "placeholder": true
     },
     {
-      "name": "Community Project 2",
+      "name": "Empty Community Project",
       "desc": "",
       "tags": [],
       "image": "",
@@ -141,7 +134,7 @@
       "placeholder": true
     },
     {
-      "name": "Community Project 3",
+      "name": "Empty Community Project",
       "desc": "",
       "tags": [],
       "image": "",

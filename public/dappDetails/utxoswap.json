@@ -75,30 +75,24 @@
   },
   "related": [
     {
-      "title": "CKB Punks",
-      "desc": "The first NFT collection on Nervos.",
-      "icon": "/placeholder.svg",
-      "url": "/ckbpunks"
-    },
-    {
-      "title": "CKB Apes",
-      "desc": "Ape-themed NFT collection on CKB.",
-      "icon": "/placeholder.svg",
-      "url": "/ckbapes"
+      "title": "HueHub",
+      "desc": "The first orderbook exchange for RGB++ assets on Bitcoin.",
+      "icon": "/dappDetails/images/huehub/logo.jpeg",
+      "dappId": "huehub"
     }
   ],
   "faq": [
     {
-      "q": "What is Nervape?",
-      "a": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem."
+      "q": "Is UTXOSwap supported by any funds?",
+      "a": "UTXOSwap has received full support from the CKB Eco Fund and is considering raising additional funds to expand its team and enhance product development."
     },
     {
-      "q": "How to get a Nervape DOB?",
-      "a": "You can mint or trade DOBs on the Nervape platform."
+      "q": "Does UTXOSwap require a bridge for transactions?",
+      "a": "Yes, UTXOSwap currently requires bridging to facilitate transactions, particularly for Runes. It collaborates with Bool Network to bridge Runes from Bitcoin to CKB. Plans are in place to integrate a bridge directly into UTXOSwap for a seamless experience."
     },
     {
-      "q": "What chains does Nervape support?",
-      "a": "Currently supports Bitcoin and CKB."
+      "q": "What is the role of UTXO Stack in UTXOSwap?",
+      "a": "UTXO Stack is a modular Bitcoin Layer 2 chain issuance platform that supports UTXOSwap by enabling the creation of more Bitcoin Layer 2 chains. This fosters the development of additional projects and assets, expanding the ecosystem and enhancing UTXOSwap’s capabilities for asset issuance and trading."
     }
   ]
 } 

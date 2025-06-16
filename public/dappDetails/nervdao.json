@@ -1,0 +1,72 @@
+{
+  "name": "NervDao",
+  "description": "Philosopher's Stone is a decentralized blind box NFT collection project on the Nervos CKB blockchain, designed to bring gamified excitement to digital collectibles. Leveraging the RGB++ protocol, it enables users to unbox unique NFTs with varying rarities, inspired by the alchemical mystique of the Philosopher's Stone. Built on CKB’s Proof-of-Work (PoW) consensus and Cell model, the project offers secure, scalable, and permissionless NFT minting and trading. Compatible with Bitcoin wallets like JoyID, Unisat, and OKX, Philosopher's Stone enhances user engagement through the thrill of mystery unboxing, fostering a vibrant community within the CKB ecosystem. Likely supported by the CKB Eco Fund, it aims to boost liquidity and exposure for NFT creators and collectors.",
+  "titleImage": "/dappDetails/images/nervdao/banner.jpg",
+  "logo": "/dappDetails/images/nervdao/logo.jpg",
+  "tags": [
+    { "name": "DAO", "color": "bg-purple-600" }
+  ],
+  "socialLinks": {
+    "github": "https://github.com/ckb-devrel/nervdao"
+  },
+  "websiteUrl": "https://www.nervdao.com/",
+  "highlights": [
+    {
+      "title": "iCKB Protocol Integration",
+      "description": "Integrates with the iCKB protocol, enabling seamless deposit and withdrawal of Nervos Dao assets",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "Visualized Process of Nervos DAO ",
+      "description": "Simplify opreations on Nervos DAO, with visualized process hint",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited", "status": false },
+        { "name": "White Paper", "status": false },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "issuedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": false },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": "How does NervDao work?",
+      "a": "NervDao integrates with the iCKB protocol, enabling seamless deposit and withdrawal of Nervos Dao assets, simplifying operations on Nervos DAO with visualized process hints."
+    }
+  ]
+} 

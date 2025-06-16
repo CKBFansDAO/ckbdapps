@@ -1,0 +1,84 @@
+{
+  "name": "Joygift",
+  "description": "JoyGift is a decentralized NFT gifting platform built on the Nervos CKB blockchain, leveraging the RGB++ protocol to enable secure and scalable digital asset interactions within the Bitcoin ecosystem. Designed to enhance user engagement through gamified and social features, JoyGift allows users to create, send, and receive unique NFTs as gifts, fostering community-driven experiences. Integrated with CKB’s Proof-of-Work (PoW) and Cell model, JoyGift supports seamless interoperability with Bitcoin-native wallets like JoyID, Unisat, and OKX. Backed by the CKB Eco Fund, JoyGift aims to redefine digital gifting by combining the security of CKB’s Layer 1 with innovative NFT use cases, contributing to the growth of decentralized applications (dApps) in the Nervos ecosystem.",
+  "titleImage": "/dappDetails/images/joygift/banner.jpg",
+  "logo": "/dappDetails/images/joygift/logo.jpeg",
+  "tags": [
+    { "name": "RGB++", "color": "bg-purple-600" },
+    { "name": "DOBs", "color": "bg-yellow-600" }
+  ],
+  "socialLinks": {
+    "twitter": "https://twitter.com/yixiu_yx"
+  },
+  "websiteUrl": "https://joygift.cc/",
+  "highlights": [
+    {
+      "title": "NFT Gifting Platform",
+      "description": "Enables users to create and exchange unique NFTs as gifts, enhancing social and gamified interactions within the CKB ecosystem",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "RGB++ Protocol Integration",
+      "description": "Built on the RGB++ Layer, JoyGift ensures secure, scalable, and Bitcoin-compatible NFT transactions without relying on cross-chain bridges",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": false },
+        { "name": "Identified Members", "status": false },
+        { "name": "Active", "status": false }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited", "status": true },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "issuedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": false },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "Philosopher's Stone",
+      "desc": "The first DOB-based NFT collection on Nervos.",
+      "icon": "/dappDetails/images/philosopherstone/logo.jpg",
+      "dappId": "philosopherstone"
+    }
+  ],
+  "faq": [
+    {
+      "q": "What are the use cases for JoyGift’s NFTs?",
+      "a": "JoyGift’s NFTs can be used for social gifting, community engagement, collectibles, or tokenized rewards, supporting diverse applications within the CKB ecosystem."
+    },
+    {
+      "q": "How does JoyGift work?",
+      "a": "JoyGift uses CKB’s PoW consensus and Cell model, combined with RGB++, to facilitate secure NFT creation and gifting, integrated with Bitcoin-native wallets for seamless transactions"
+    }
+  ]
+} 
