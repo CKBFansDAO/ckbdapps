@@ -25,16 +25,26 @@ const link_icon_config = {
 
 function AppList() {
     const [appList, setAppList] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('../dappList/dapps_list.json')
-        .then(response => response.json())
-        .then(data => setAppList(data.dappList));
+        fetch('/dappList/dapps_list.json')
+        .then(res => res.json())
+        .then(data => {
+            setAppList(data.dappList);
+            setLoading(false);
+        })
+        .catch(error => {
+            console.error('Error loading dapps list:', error);
+            setLoading(false);
+        });
     }, []);
 
     return (
         <div className='flex flex-row flex-wrap gap-6 justify-center'>
-        {appList.map((app, index) => (
+        {loading ? (
+            <p>Loading apps...</p>
+        ) : appList.map((app, index) => (
             <App key={`${app.project_name}-${index}`} config={app} />
         ))}
         </div>
@@ -43,13 +53,39 @@ function AppList() {
 
 function App({ config }) {
     const [appConfig, setAppConfig] = useState({});
+    const [dappId, setDappId] = useState(null);
+    const [dappsList, setDappsList] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     console.log(config);
     useEffect(() => {
-        fetch(`../dappList/${config.path_name}/${config.config_file}`)
-        .then(response => response.json())
-        .then(data => setAppConfig(data));
-    }, [config]);
+        fetch('/dappList/dapps_list.json')
+        .then(res => res.json())
+        .then(data => {
+            setDappsList(data.dappList);
+            setLoading(false);
+        })
+        .catch(error => {
+            console.error('Error loading dapps list:', error);
+            setLoading(false);
+        });
+    }, []);
+
+    useEffect(() => {
+        if (dappId && dappsList.length > 0) {
+            const config = dappsList.find(dapp => dapp.path_name === dappId);
+            if (config) {
+                fetch(`/dappList/${config.path_name}/${config.config_file}`)
+                .then(res => res.json())
+                .then(data => {
+                    setAppConfig(data);
+                })
+                .catch(error => {
+                    console.error('Error loading dapp config:', error);
+                });
+            }
+        }
+    }, [dappId, dappsList]);
 
     const renderAppCategories = (categories) => {
         return <div className='flex gap-2'>

@@ -247,6 +247,26 @@ const ProjectIntroduction = ({ banners, current }) => {
 
 // Spark Granted Projects Section
 const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSize, maxPage, onDappSelect }) => {
+  const [currentWindowSize, setCurrentWindowSize] = useState(() => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 640) return windowSize.mobile;
+      if (window.innerWidth < 1024) return windowSize.tablet;
+      return windowSize.desktop;
+    }
+    return windowSize.desktop;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setCurrentWindowSize(windowSize.mobile);
+      else if (window.innerWidth < 1024) setCurrentWindowSize(windowSize.tablet);
+      else setCurrentWindowSize(windowSize.desktop);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [windowSize]);
+
   return (
     <section className="bg-cosmic-light py-12 px-6">
       <div className="max-w-6xl mx-auto">
@@ -292,7 +312,7 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
               className="flex transition-transform duration-200"
               style={{
                 width: "100%",
-                transform: `translateX(-${sparkPage * (100 / windowSize.desktop)}%)`
+                transform: `translateX(-${sparkPage * (100 / currentWindowSize)}%)`
               }}
             >
               {sparkProjects.map((project, idx) => (
@@ -462,6 +482,26 @@ const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
 
 // Community-driven Projects Section
 const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunityPage, windowSize, maxPage, onDappSelect }) => {
+  const [currentWindowSize, setCurrentWindowSize] = useState(() => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 640) return windowSize.mobile;
+      if (window.innerWidth < 1024) return windowSize.tablet;
+      return windowSize.desktop;
+    }
+    return windowSize.desktop;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setCurrentWindowSize(windowSize.mobile);
+      else if (window.innerWidth < 1024) setCurrentWindowSize(windowSize.tablet);
+      else setCurrentWindowSize(windowSize.desktop);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [windowSize]);
+
   return (
     <section className="bg-cosmic-light pt-8 pb-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -496,7 +536,7 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
               className="flex transition-transform duration-200"
               style={{
                 width: "100%",
-                transform: `translateX(-${communityPage * (100 / windowSize.desktop)}%)`
+                transform: `translateX(-${communityPage * (100 / currentWindowSize)}%)`
               }}
             >
               {communityProjects.map((project, idx) => (
@@ -598,6 +638,25 @@ export default function Home({ onDappSelect }) {
     banners: []
   });
   const [loading, setLoading] = useState(true);
+  const [currentWindowSize, setCurrentWindowSize] = useState(() => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 640) return 1;
+      if (window.innerWidth < 1024) return 2;
+      return 3;
+    }
+    return 3;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setCurrentWindowSize(1);
+      else if (window.innerWidth < 1024) setCurrentWindowSize(2);
+      else setCurrentWindowSize(3);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     document.body.classList.add("cosmic-inscription");
@@ -671,7 +730,7 @@ export default function Home({ onDappSelect }) {
     tablet: 2,
     desktop: 3
   };
-  const sparkMaxPage = sparkProjects.length > sparkWindowSize.desktop ? sparkProjects.length - sparkWindowSize.desktop : 0;
+  const sparkMaxPage = sparkProjects.length > currentWindowSize ? sparkProjects.length - currentWindowSize : 0;
 
   // Highlighted Projects data
   const highlightedProjects = sections.highlighted;
@@ -688,7 +747,7 @@ export default function Home({ onDappSelect }) {
     desktop: 3
   };
   const total = communityProjects.length;
-  const maxPage = total > windowSize.desktop ? total - windowSize.desktop : 0;
+  const maxPage = total > currentWindowSize ? total - currentWindowSize : 0;
 
   if (loading) return <div className="text-center py-20">Loading...</div>;
 

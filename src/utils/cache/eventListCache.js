@@ -1,4 +1,3 @@
-
 class EventListCache {
     static instance = null;
     eventList = [];
@@ -14,7 +13,7 @@ class EventListCache {
     }
 
     loadData = async () => {
-        const response = await fetch('../dappList/event_list.json');
+        const response = await fetch('/dappList/event_list.json');
         const data = await response.json();
 
         // 获取当前时间
@@ -61,3 +60,14 @@ class EventListCache {
 const eventListCache = new EventListCache();
 
 export default eventListCache;
+
+export const fetchEventList = async () => {
+  try {
+    const response = await fetch('/dappList/event_list.json');
+    const data = await response.json();
+    return data.eventList;
+  } catch (error) {
+    console.error('Error fetching event list:', error);
+    return [];
+  }
+};
