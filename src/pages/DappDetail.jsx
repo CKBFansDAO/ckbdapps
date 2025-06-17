@@ -1,5 +1,5 @@
-import { ArrowLeft, ExternalLink, Zap } from "lucide-react";
-import { FaReddit, FaDiscord, FaTelegramPlane, FaTwitter, FaGithub, FaYoutube, FaMedium } from "react-icons/fa";
+import { ArrowLeft, ExternalLink, Zap, Info } from "lucide-react";
+import { FaReddit, FaDiscord, FaTelegramPlane, FaTwitter, FaGithub, FaYoutube, FaMedium, FaQuestionCircle, FaLightbulb } from "react-icons/fa";
 import Button from "../components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -158,18 +158,18 @@ const AwesomeHighlights = ({ highlights }) => {
             Awesome Highlights
           </h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
           {highlights.slice(0, 6).map((item, idx) => {
             const color = highlightsColors[idx] || highlightsColors[0];
             return (
               <div
                 key={idx}
-                className={`group bg-gradient-to-r ${color.from} ${color.to} rounded-xl p-6 border ${color.border} ${color.hover} transition-all duration-300 hover:shadow-md`}
+                className={`w-full group bg-gradient-to-r ${color.from} ${color.to} rounded-xl p-6 border ${color.border} ${color.hover} transition-all duration-300 hover:shadow-md`}
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className="text-gray-900 font-bold text-lg">{item.title}</h4>
-                    <p className={`${color.text} text-sm`}>{item.description}</p>
+                <div className="flex items-center justify-between w-full">
+                  <div className="max-w-[90%] min-w-0">
+                    <h4 className="text-gray-900 font-bold text-lg break-words whitespace-normal">{item.title}</h4>
+                    <p className={`${color.text} text-sm break-words whitespace-normal pt-2`}>{item.description}</p>
                   </div>
                   {item.link ? (
                     <Button
@@ -243,7 +243,31 @@ const ProjectTransparency = ({ transparency }) => {
   if (!transparency) return null;
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
-      <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">Project Transparency</h3>
+      <div className="flex items-center justify-between mb-12">
+        <div className="flex items-center gap-2">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Project Transparency</h3>
+          {/* Info icon with tooltip */}
+          <div className="relative group pt-2">
+            <Info className="w-5 h-5 text-gray-400 cursor-pointer" />
+            <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 z-50 pointer-events-none
+              bg-white border border-gray-200 rounded-lg shadow-md px-4 py-2 text-sm text-gray-500 whitespace-pre-line min-w-[580px] max-w-xs
+              opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200">
+              Disclaimer: The following information may be inaccurate or incomplete, platform does not guarantee the accuracy or completeness. If you have any questions or corrections, please submit an appeal.
+            </div>
+          </div>
+        </div>
+        <a
+          href="https://github.com/CKBFansDAO/ckbdapps/pulls"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 text-white font-semibold shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg focus:outline-none"
+        >
+          <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+          </svg>
+          Submit Correction
+        </a>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Team Card */}
         <div className="group bg-white border border-amber-200 hover:border-amber-300 rounded-2xl p-8 shadow-lg hover:shadow-md transition-all duration-300">
@@ -265,13 +289,17 @@ const ProjectTransparency = ({ transparency }) => {
           </div>
           <div className="space-y-4">
             {transparency.team.items.map((item, index) => (
-              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition ${item.status === false ? 'bg-gray-100' : 'bg-green-100 hover:bg-green-200'}`}>
-                <span className={item.status === false ? 'text-gray-400 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${item.status === false ? 'bg-gray-400' : 'bg-green-500'}`}>
+              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition
+                ${item.status === false ? 'bg-gray-100' : item.status === undefined ? 'bg-yellow-100' : 'bg-green-100 hover:bg-green-200'}`}>
+                <span className={item.status === false ? 'text-gray-400 font-medium' : item.status === undefined ? 'text-yellow-700 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center
+                  ${item.status === false ? 'bg-gray-400' : item.status === undefined ? 'bg-yellow-400' : 'bg-green-500'}`}>
                   {item.status === false ? (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.707 6.293a1 1 0 00-1.414 1.414L8.586 11l-3.293 3.293a1 1 0 101.414 1.414L10 12.414l3.293 3.293a1 1 0 001.414-1.414L11.414 11l3.293-3.293a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293z" clipRule="evenodd" />
                     </svg>
+                  ) : item.status === undefined ? (
+                    <FaQuestionCircle className="w-3 h-3 text-white" />
                   ) : (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -302,13 +330,17 @@ const ProjectTransparency = ({ transparency }) => {
           </div>
           <div className="space-y-4">
             {transparency.project.items.map((item, index) => (
-              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition ${item.status === false ? 'bg-gray-100' : 'bg-green-100 hover:bg-green-200'}`}>
-                <span className={item.status === false ? 'text-gray-400 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${item.status === false ? 'bg-gray-400' : 'bg-green-500'}`}>
+              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition
+                ${item.status === false ? 'bg-gray-100' : item.status === undefined ? 'bg-yellow-100' : 'bg-green-100 hover:bg-green-200'}`}>
+                <span className={item.status === false ? 'text-gray-400 font-medium' : item.status === undefined ? 'text-yellow-700 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center
+                  ${item.status === false ? 'bg-gray-400' : item.status === undefined ? 'bg-yellow-400' : 'bg-green-500'}`}>
                   {item.status === false ? (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.707 6.293a1 1 0 00-1.414 1.414L8.586 11l-3.293 3.293a1 1 0 101.414 1.414L10 12.414l3.293 3.293a1 1 0 001.414-1.414L11.414 11l3.293-3.293a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293z" clipRule="evenodd" />
                     </svg>
+                  ) : item.status === undefined ? (
+                    <FaQuestionCircle className="w-3 h-3 text-white" />
                   ) : (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -339,13 +371,17 @@ const ProjectTransparency = ({ transparency }) => {
           </div>
           <div className="space-y-4">
             {transparency.token.items.map((item, index) => (
-              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition ${item.status === false ? 'bg-gray-100' : 'bg-green-100 hover:bg-green-200'}`}>
-                <span className={item.status === false ? 'text-gray-400 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${item.status === false ? 'bg-gray-400' : 'bg-green-500'}`}>
+              <div key={index} className={`flex items-center justify-between p-3 rounded-lg transition
+                ${item.status === false ? 'bg-gray-100' : item.status === undefined ? 'bg-yellow-100' : 'bg-green-100 hover:bg-green-200'}`}>
+                <span className={item.status === false ? 'text-gray-400 font-medium' : item.status === undefined ? 'text-yellow-700 font-medium' : 'text-gray-900 font-medium'}>{item.name}</span>
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center
+                  ${item.status === false ? 'bg-gray-400' : item.status === undefined ? 'bg-yellow-400' : 'bg-green-500'}`}>
                   {item.status === false ? (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.707 6.293a1 1 0 00-1.414 1.414L8.586 11l-3.293 3.293a1 1 0 101.414 1.414L10 12.414l3.293 3.293a1 1 0 001.414-1.414L11.414 11l3.293-3.293a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293z" clipRule="evenodd" />
                     </svg>
+                  ) : item.status === undefined ? (
+                    <FaQuestionCircle className="w-3 h-3 text-white" />
                   ) : (
                     <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -361,7 +397,7 @@ const ProjectTransparency = ({ transparency }) => {
   );
 }
 
-const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq }) => {
+const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedClick }) => {
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -372,15 +408,25 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq }) => {
             {faq && faq.map((item, idx) => (
               <div
                 key={idx}
-                className={`rounded-lg border border-gray-200 p-4 cursor-pointer transition hover:bg-gray-100 ${expandedFaq === idx ? 'bg-gray-50' : 'bg-white'}`}
+                className={`rounded-xl border border-gray-200 p-0 cursor-pointer transition-all duration-300 shadow-sm overflow-hidden
+                  ${expandedFaq === idx ? 'bg-orange-50 border-orange-300 shadow-lg scale-[1.02]' : 'bg-white hover:bg-gray-50'}
+                `}
                 onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-medium text-gray-900">{item.q}</span>
-                  <span className="ml-2 text-gray-400">{expandedFaq === idx ? '-' : '+'}</span>
+                <div className="flex items-center justify-between px-6 py-4">
+                  <div className="flex items-center gap-2">
+                    <FaQuestionCircle className="text-orange-400" />
+                    <span className="font-medium text-gray-900 text-lg">{item.q}</span>
+                  </div>
+                  <span className="ml-2 text-gray-400 text-2xl font-bold select-none">
+                    {expandedFaq === idx ? '-' : '+'}
+                  </span>
                 </div>
                 {expandedFaq === idx && (
-                  <div className="mt-2 text-gray-700 text-sm">{item.a}</div>
+                  <div className="transition-all duration-300 py-4 px-8 bg-white border-t border-orange-100 flex items-start gap-3 text-gray-700 text-base">
+                    <FaLightbulb className="mt-1 text-yellow-400" />
+                    <span>{item.a}</span>
+                  </div>
                 )}
               </div>
             ))}
@@ -391,17 +437,17 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq }) => {
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">Related</h3>
           <div className="flex flex-col gap-4">
             {related && related.map((item, idx) => (
-              <a
+              <div
                 key={idx}
-                href={item.url}
-                className="flex items-center bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg hover:-translate-y-1 transition cursor-pointer px-4 py-3 group h-20"
+                className="flex items-center bg-white border border-gray-200 rounded-lg shadow transition-shadow duration-300 hover:shadow-lg cursor-pointer px-4 py-3 group h-20"
+                onClick={() => onRelatedClick && onRelatedClick(item.dappId)}
               >
                 <img src={item.icon} alt={item.title} className="w-12 h-12 rounded-md object-contain bg-gray-100" />
                 <div className="ml-4 flex-1 min-w-0">
                   <div className="font-bold text-base text-gray-900 truncate">{item.title}</div>
                   <div className="text-gray-600 text-sm truncate">{item.desc}</div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
@@ -410,30 +456,12 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq }) => {
   );
 }
 
-export default function DappDetail({ dappId, onClose }) {
+export default function DappDetail({ dappId, onClose, onRelatedClick }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [videoIndex, setVideoIndex] = useState(0);
-
-  // Prevent background scroll and layout shift when DappDetail is open
-  useEffect(() => {
-    const originalOverflow = document.body.style.overflow;
-    const originalPaddingRight = document.body.style.paddingRight;
-    const originalBg = document.body.style.background;
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.overflow = 'hidden';
-    if (scrollbarWidth > 0) {
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-      document.body.style.background = '#F8F7FA'; // Home background color
-    }
-    return () => {
-      document.body.style.overflow = originalOverflow;
-      document.body.style.paddingRight = originalPaddingRight;
-      document.body.style.background = originalBg;
-    };
-  }, []);
 
   useEffect(() => {
     if (!dappId) return;
@@ -499,7 +527,13 @@ export default function DappDetail({ dappId, onClose }) {
       <ProjectTransparency transparency={data.transparency} />
 
       {/* FAQ & Related (modularized) */}
-      <FAQAndRelated faq={data.faq} related={data.related} expandedFaq={expandedFaq} setExpandedFaq={setExpandedFaq} />
+      <FAQAndRelated
+        faq={data.faq}
+        related={data.related}
+        expandedFaq={expandedFaq}
+        setExpandedFaq={setExpandedFaq}
+        onRelatedClick={onRelatedClick}
+      />
     </div>
   );
 } 

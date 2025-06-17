@@ -177,7 +177,7 @@ const HalvingContainer = (props) => {
                     </div>
                     <div className='flex mb-5 gap-1 md:gap-6'>
                         <div className='flex flex-col w-[100px] text-center gap-2'>
-                            <span className='text-sm whitespace-nowrap'>{t('halving.genesis-epoch')}</span>
+                            <span className='text-sm whitespace-nowrap text-black'>{t('halving.genesis-epoch')}</span>
                             <span className='text-center bg-white rounded-full text-[#733DFF] font-bold'># 0</span>
                             <span className='text-[#999999] text-sm text-center'>{FormatLocaleDate(1573852190812)}</span>
                         </div>
@@ -192,7 +192,7 @@ const HalvingContainer = (props) => {
                         </div>
 
                         <div className='flex flex-col w-[100px] text-center gap-2'>
-                            <span className='text-sm whitespace-nowrap'>{t('halving.halving-epoch')}</span>
+                            <span className='text-sm whitespace-nowrap text-black'>{t('halving.halving-epoch')}</span>
                             <span className='text-center bg-white rounded-full text-[#733DFF] font-bold'># {data ? getNextHalvingEpoch(data.curEpoch.number) : '----'}</span>
                             <span className='text-[#999999] text-sm text-center'>{data ? FormatLocaleDate(data.estimatedHalvingTime) : 'YYYY-MM-DD'}</span>
                         </div>

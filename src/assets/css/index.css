@@ -60,11 +60,17 @@ input:checked ~ .dot {
 }
 
 input[type="text"]:focus {
-  border: 1px solid #733DFF !important;
+  outline: none;
+  border-color: #1976d2;
+  caret-color: #222;
 }
 
 input[type="text"]:hover {
-  border: 1px solid #733DFF !important;
+  border-color: #1976d2;
+}
+
+input[type="text"] {
+  caret-color: #222;
 }
 
 .svg-icon {

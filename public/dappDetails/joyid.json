@@ -1,0 +1,99 @@
+{
+  "name": "JoyID",
+  "description": "JoyID is a pioneering universal account protocol crafted to accelerate Web3 mass adoption by redefining the crypto wallet experience with simplicity, security, and accessibility. Built on the robust FIDO WebAuthn standard and integrated with the Nervos CKB blockchain, JoyID eliminates the traditional barriers of password and mnemonic phrase management, offering a seamless, passwordless, and seed-phrase-free wallet solution. It supports a wide range of major blockchains, including Bitcoin, Ethereum, Solana, and others, enabling users to manage diverse digital assets within a single, intuitive interface. JoyID’s standout features include biometric authentication via Face ID, Touch ID, or passkeys, ensuring secure and user-friendly access, while its non-custodial architecture guarantees that users maintain complete control over their assets with advanced cryptographic protection. The protocol’s multi-device synchronization allows effortless access across smartphones, tablets, and computers, delivering a consistent experience without sacrificing security. By combining Web2’s ease of use with Web3’s decentralized power, JoyID serves as a bridge for both crypto novices and experienced users, fostering broader adoption of blockchain technologies through its innovative approach.",
+  "titleImage": "/dappDetails/images/joyid/banner.jpg",
+  "logo": "/dappDetails/images/joyid/logo.jpg",
+  "tags": [
+    { "name": "Wallet", "color": "#22c55e" }
+  ],
+  "socialLinks": {
+    "twitter": "https://twitter.com/joy_protocol",
+    "discord": "https://discord.gg/77MyakRKVB",
+    "telegram": "https://t.me/joyidwallet",
+    "github": "https://github.com/nervina-labs"
+  },
+  "websiteUrl": "https://joy.id/",
+  "highlights": [
+    {
+      "title": "Biometric Login",
+      "description": "Supports secure, user-friendly authentication via Face ID, Touch ID, or passkeys",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "Multi-Device Support",
+      "description": "Syncs effortlessly across devices for a consistent, hassle-free experience",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": "Passwordless & Mnemonic-Free",
+      "description": "Simplifies wallet access using FIDO WebAuthn, eliminating complex passwords and seed phrases",
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited" },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "issuedDate": "unknown",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": false },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "Quantum Purge",
+      "desc": "A quantum-resistant wallet built on Nervos CKB.",
+      "icon": "/dappDetails/images/quantumpurge/logo.jpg",
+      "dappId": "quantumpurge"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Is JoyID suitable for Web2 users new to crypto?",
+      "a": "Absolutely. JoyID’s passwordless, biometric-based login and user-friendly design make it easy for Web2 users to transition to Web3 without needing technical knowledge of seed phrases or private keys."
+    },
+    {
+      "q": "Do I need to remember a seed phrase with JoyID?",
+      "a": "No, JoyID eliminates the need for seed phrases, using secure biometric authentication and WebAuthn to simplify and enhance wallet access."
+    },
+    {
+      "q": "Can I use JoyID on multiple devices?",
+      "a": "Yes, JoyID offers multi-device support, allowing you to sync your wallet securely across devices for a consistent and convenient experience."
+    }
+  ]
+} 
