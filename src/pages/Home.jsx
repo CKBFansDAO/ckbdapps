@@ -9,7 +9,7 @@ import { useEffect, useState, useCallback, useRef } from "react"
 const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
   return (
     <section
-      className="relative h-[600px] bg-cosmic-gradient overflow-hidden flex flex-col justify-end"
+      className="relative aspect-[16/7] max-h-[900px] min-h-[180px] bg-cosmic-gradient overflow-hidden flex flex-col justify-end"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -559,7 +559,7 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
                       className="block group cursor-pointer"
                       onClick={() => onDappSelect(project.link.replace(/^\//, '').toLowerCase())}
                     >
-                      <div className="bg-white rounded-xl p-6 transition-all duration-300 h-60 shadow-lg">
+                      <div className="bg-white rounded-xl p-6 transition-all duration-300 min-h-60 shadow-lg">
                         <div className="flex items-start h-24">
                           <div className="h-24 w-28 bg-cosmic-purple/10 rounded-lg flex items-center justify-center overflow-hidden">
                             <img
