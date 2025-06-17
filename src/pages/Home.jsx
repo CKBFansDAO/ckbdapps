@@ -213,7 +213,7 @@ const ProjectIntroduction = ({ banners, current }) => {
             className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(80,200,255,0.5)]"
             style={{
               WebkitTextStroke: '2px rgba(255,255,255,0.85)',
-              textShadow: '0 4px 24px rgba(0,0,0,0.45)'
+              textShadow: '0 4px 12px rgba(0,0,0,0.45)'
             }}
           >
             {banners[current].title}
@@ -225,7 +225,7 @@ const ProjectIntroduction = ({ banners, current }) => {
             background: 'rgba(255,255,255,0.75)',
             borderRadius: '1rem',
             padding: '0.75rem 1.5rem',
-            boxShadow: '0 2px 16px 0 rgba(80,200,255,0.10)',
+            boxShadow: '0 2px 6px 0 rgba(80,200,255,0.10)',
             backdropFilter: 'blur(2px)',
             margin: '0 auto'
           }}
@@ -289,17 +289,17 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
         <div className="relative">
           <div className="overflow-hidden" style={{ margin: '-8px', padding: '8px' }}>
             <div
-              className="flex transition-transform duration-200 gap-6"
+              className="flex transition-transform duration-200"
               style={{
                 width: "100%",
-                transform: `translateX(-${sparkPage * (100 / windowSize)}%)`
+                transform: `translateX(-${sparkPage * (100 / windowSize.desktop)}%)`
               }}
             >
               {sparkProjects.map((project, idx) => (
                 <div
                   key={idx}
-                  className="flex-shrink-0"
-                  style={{ width: `calc(${100 / windowSize}% - 16px)` }}
+                  className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"
+                  style={{ padding: '8px' }}
                 >
                   {project.placeholder ? (
                     <div className="bg-cosmic-lightGray/50 rounded-xl border border-dashed border-cosmic-purple/30 h-[280px] flex items-center justify-center">
@@ -493,17 +493,17 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
         <div className="relative">
           <div className="overflow-hidden" style={{ margin: '-8px', padding: '8px' }}>
             <div
-              className="flex transition-transform duration-200 gap-6"
+              className="flex transition-transform duration-200"
               style={{
                 width: "100%",
-                transform: `translateX(-${communityPage * (100 / windowSize)}%)`
+                transform: `translateX(-${communityPage * (100 / windowSize.desktop)}%)`
               }}
             >
               {communityProjects.map((project, idx) => (
                 <div
                   key={idx}
-                  className="flex-shrink-0"
-                  style={{ width: `calc(${100 / windowSize}% - 16px)` }}
+                  className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"
+                  style={{ padding: '8px' }}
                 >
                   {project.placeholder ? (
                     <div className="bg-cosmic-lightGray/50 rounded-xl border border-dashed border-cosmic-purple/30 h-60 flex items-center justify-center">
@@ -666,8 +666,12 @@ export default function Home({ onDappSelect }) {
   // Spark Granted Projects sliding window pagination
   const [sparkPage, setSparkPage] = useState(0);
   const sparkProjects = sections.sparkGranted;
-  const sparkWindowSize = 3;
-  const sparkMaxPage = sparkProjects.length > sparkWindowSize ? sparkProjects.length - sparkWindowSize : 0;
+  const sparkWindowSize = {
+    mobile: 1,
+    tablet: 2,
+    desktop: 3
+  };
+  const sparkMaxPage = sparkProjects.length > sparkWindowSize.desktop ? sparkProjects.length - sparkWindowSize.desktop : 0;
 
   // Highlighted Projects data
   const highlightedProjects = sections.highlighted;
@@ -678,9 +682,13 @@ export default function Home({ onDappSelect }) {
   // Community-driven Projects data
   const communityProjects = sections.community;
   const [communityPage, setCommunityPage] = useState(0);
-  const windowSize = 3;
+  const windowSize = {
+    mobile: 1,
+    tablet: 2,
+    desktop: 3
+  };
   const total = communityProjects.length;
-  const maxPage = total > windowSize ? total - windowSize : 0;
+  const maxPage = total > windowSize.desktop ? total - windowSize.desktop : 0;
 
   if (loading) return <div className="text-center py-20">Loading...</div>;
 
