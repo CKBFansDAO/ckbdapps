@@ -247,7 +247,7 @@ const ProjectTransparency = ({ transparency }) => {
         <div className="flex items-center gap-2">
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Project Transparency</h3>
           {/* Info icon with tooltip */}
-          <div className="relative group pt-2">
+          <div className="relative group pt-2 hidden md:block">
             <Info className="w-5 h-5 text-gray-400 cursor-pointer" />
             <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 z-50 pointer-events-none
               bg-white border border-gray-200 rounded-lg shadow-md px-4 py-2 text-sm text-gray-500 whitespace-pre-line min-w-[580px] max-w-xs

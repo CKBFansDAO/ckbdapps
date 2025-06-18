@@ -1,6 +1,6 @@
 {
   "name": "NervDao",
-  "description": "Philosopher's Stone is a decentralized blind box NFT collection project on the Nervos CKB blockchain, designed to bring gamified excitement to digital collectibles. Leveraging the RGB++ protocol, it enables users to unbox unique NFTs with varying rarities, inspired by the alchemical mystique of the Philosopher's Stone. Built on CKB’s Proof-of-Work (PoW) consensus and Cell model, the project offers secure, scalable, and permissionless NFT minting and trading. Compatible with Bitcoin wallets like JoyID, Unisat, and OKX, Philosopher's Stone enhances user engagement through the thrill of mystery unboxing, fostering a vibrant community within the CKB ecosystem. Likely supported by the CKB Eco Fund, it aims to boost liquidity and exposure for NFT creators and collectors.",
+  "description": "NervDao is a decentralized application on Nervos Network's CKB, enhancing user interaction with the Nervos DAO. Using wallet abstraction via the Common Chain Connector, it supports wallets like MetaMask, Unisat, OKX Wallet, and JoyID, enabling easy CKB deposits and withdrawals. Users earn rewards while protecting assets from dilution. NervDao offers automatic reward compounding, a one-month minimum lockup, and plans to improve UI, add NFT credentials, and expand wallet support for greater accessibility.",
   "titleImage": "/dappDetails/images/nervdao/banner.jpg",
   "logo": "/dappDetails/images/nervdao/logo.jpg",
   "tags": [
@@ -62,7 +62,14 @@
       ]
     }
   },
-  "related": [],
+  "related": [
+    {
+      "title": "iCKB",
+      "icon": "/dappDetails/images/ickb/logo.jpg",
+      "desc": "iCKB is a dApp on Nervos CKB, enhancing the Nervos DAO by offering a liquid staking token",
+      "dappId": "ickb"
+    }
+  ],
   "faq": [
     {
       "q": "How does NervDao work?",

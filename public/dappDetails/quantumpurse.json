@@ -1,8 +1,8 @@
 {
-  "name": "Quantum Purge",
-  "description": "Quantum Purge is an innovative anti-quantum wallet built on the Nervos CKB (Common Knowledge Base) blockchain, designed to provide cutting-edge security for digital assets in a post-quantum computing world. By integrating a CKB light node, Quantum Purge enables users to interact with the blockchain directly from their web browsers, eliminating the need for heavy software installations while maintaining efficiency and accessibility. This seamless browser-based functionality is a standout technical feature, making the wallet user-friendly and highly adaptable to various devices and environments.",
-  "titleImage": "/dappDetails/images/quantumpurge/banner.jpg",
-  "logo": "/dappDetails/images/quantumpurge/logo.jpg",
+  "name": "Quantum Purse",
+  "description": "Quantum Purse is an innovative anti-quantum wallet built on the Nervos CKB (Common Knowledge Base) blockchain, designed to provide cutting-edge security for digital assets in a post-quantum computing world. By integrating a CKB light node, Quantum Purge enables users to interact with the blockchain directly from their web browsers, eliminating the need for heavy software installations while maintaining efficiency and accessibility. This seamless browser-based functionality is a standout technical feature, making the wallet user-friendly and highly adaptable to various devices and environments.",
+  "titleImage": "/dappDetails/images/quantumpurse/banner.jpg",
+  "logo": "/dappDetails/images/quantumpurse/logo.jpg",
   "tags": [
     { "name": "Wallet", "color": "bg-red-600" }
   ],
@@ -90,8 +90,8 @@
   ],
   "faq": [
     {
-      "q": "Is Quantum Purge self-custody?",
-      "a": "Yes. When you use Quantum Purge, a browser-based light client will be running in the background, which will help you manage wallet in a self-custody way."
+      "q": "Is Quantum Purse self-custody?",
+      "a": "Yes. When you use Quantum Purse, a browser-based light client will be running in the background, which will help you manage wallet in a self-custody way."
     }
   ]
 } 

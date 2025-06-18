@@ -30,11 +30,11 @@
   ],
   "sparkGranted": [
     {
-      "name": "Quantum Purge",
+      "name": "Quantum Purse",
       "desc": "A pioneering anti-quantum wallet developed on the CKB blockchain",
       "amount": "700 USDT",
-      "image": "/dappDetails/images/quantumpurge/banner.jpg",
-      "link": "/quantumpurge",
+      "image": "/dappDetails/images/quantumpurse/banner.jpg",
+      "link": "/quantumpurse",
       "tags": [
         {"name": "Wallet", "color": "#22c55e"}
       ]
@@ -63,39 +63,39 @@
   ],
   "highlighted": [
     {
-      "name": "Nervape",
-      "desc": "A vibrant digital realm on the CKB blockchain, offers an extraordinary haven where creators conjure and trade digital treasures across chains, igniting a seamless alchemy of cross-chain artistry amidst CKB's ecosystem, creating a constellation of developers and artists in a harmonious digital tapestry.",
-      "image": "/dappDetails/images/nervape/highlight.jpg",
-      "tinyImage": "/dappDetails/images/nervape/logo.jpeg",
-      "link": "/nervape"
+      "name": "Stable++",
+      "desc": "A decentralized stablecoin protocol on CKB, crafts BUSD through over-collateralized BTC assets, enhancing stability and liquidity across the Bitcoin and RGB++ ecosystems.",
+      "image": "/dappDetails/images/stablepp/highlight.jpg",
+      "tinyImage": "/dappDetails/images/stablepp/logo.png",
+      "link": "/stablepp"
     },
-    {
-      "name": "JoyID",
-      "desc": "A luminous thread in the CKB tapestry, weaves a decentralized identity realm where users wield sovereign control over their digital essence across blockchain's boundless stage. Its elegant fusion of passkey authentication and cross-chain sensory perception empowers users.",
-      "image": "/dappDetails/images/joyid/highlight.jpg",
-      "tinyImage": "/dappDetails/images/joyid/logo.jpg",
-      "link": "/joyid"
-    },
-    {
-      "name": "DotBit",
-      "desc": "A decentralized identity protocol on CKB, weaves a cross-chain tapestry of domain, user-friendly addresses, and secure management of digital identity and asset management across blockchains.",
-      "image": "/dappDetails/images/dotbit/highlight.jpeg",
-      "tinyImage": "/dappDetails/images/dotbit/logo.jpg",
-      "link": "/dotbit"
-    }
-  ],
-  "premium": [
     {
       "name": "HueHub",
       "desc": "A decentralized exchange on CKB, empowers seamless trading and fair issuance of Omni-assets, enhancing Bitcoin's functionality and enriching Nervos Network's vibrant ecosystem.",
       "image": "/dappDetails/images/huehub/highlight.jpg",
+      "tinyImage": "/dappDetails/images/huehub/logo.jpeg",
       "link": "/huehub"
     },
     {
-      "name": "Stable++",
-      "desc": "A decentralized stablecoin protocol on CKB, crafts BUSD through over-collateralized BTC assets, enhancing stability and liquidity across the Bitcoin and RGB++ ecosystems.",
-      "image": "/dappDetails/images/stablepp/highlight.jpg",
-      "link": "/stablepp"
+      "name": "Philosopher's Stone",
+      "desc": "An enigmatic protocol on CKB, transmutes the blockchain into a crucible of boundless transformation, where its alchemical essence empowers users to conjure unique digital artifacts.",
+      "image": "/dappDetails/images/philosopherstone/highlight.png",
+      "tinyImage": "/dappDetails/images/philosopherstone/logo.jpg",
+      "link": "/philosopherstone"
+    }
+  ],
+  "premium": [
+    {
+      "name": "JoyID",
+      "desc": "A luminous thread in the CKB tapestry, weaves a decentralized identity realm where users wield sovereign control over their digital essence across blockchain's boundless stage. Its elegant fusion of passkey authentication and cross-chain sensory perception empowers users.",
+      "image": "/dappDetails/images/joyid/highlight.jpg",
+      "link": "/joyid"
+    },
+    {
+      "name": "Nervape",
+      "desc": "A vibrant digital realm on the CKB blockchain, offers an extraordinary haven where creators conjure and trade digital treasures across chains, igniting a seamless alchemy of cross-chain artistry amidst CKB's ecosystem, creating a constellation of developers and artists in a harmonious digital tapestry.",
+      "image": "/dappDetails/images/nervape/highlight.jpg",
+      "link": "/nervape"
     },
     {
       "name": "JoyGift",
@@ -104,18 +104,24 @@
       "link": "/joygift"
     },
     {
-      "name": "Philosopher's Stone",
-      "desc": "An enigmatic protocol on CKB, transmutes the blockchain into a crucible of boundless transformation, where its alchemical essence empowers users to conjure unique digital artifacts.",
-      "image": "/dappDetails/images/philosopherstone/highlight.png",
-      "link": "/philosopherstone"
+      "name": "DotBit",
+      "desc": "A decentralized identity protocol on CKB, weaves a cross-chain tapestry of domain, user-friendly addresses, and secure management of digital identity and asset management across blockchains.",
+      "image": "/dappDetails/images/dotbit/highlight.jpeg",
+      "link": "/dotbit"
+    },
+    {
+      "name": "NervDao",
+      "desc": "NervDao is a dApp on Nervos CKB, streamlining Nervos DAO interaction. It supports wallets like MetaMask and JoyID for easy CKB deposits/withdrawals, offering rewards and dilution protection. Features include auto-compounded rewards, a one-month lockup, and plans for UI upgrades and NFT credentials.",
+      "image": "/dappDetails/images/nervdao/highlight.jpg",
+      "link": "/nervdao"
     }
   ],
   "community": [
     {
-      "name": "NervDao",
-      "desc": "An advanced implementation of the Nervos DAO with enhanced governance features and cross-chain capabilities",
-      "image": "/dappDetails/images/nervdao/logo.jpg",
-      "link": "/nervdao"
+      "name": "iCKB (@Phroi)",
+      "desc": "iCKB offers liquid staking tokens for Nervos DAO, enabling instant CKB-to-iCKB conversions and withdrawals without the 30-day lockup.",
+      "image": "/dappDetails/images/ickb/logo.jpg",
+      "link": "/ickb"
     },
     {
       "name": "Empty Community Project",

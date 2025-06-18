@@ -1,0 +1,96 @@
+{
+  "name": "iCKB",
+  "description": "iCKB is a decentralized application on Nervos Network’s CKB, enhancing the Nervos DAO by offering a liquid staking token. It allows users to convert CKB to iCKB, representing Nervos DAO deposits, enabling fast withdrawals without the standard 30-day lockup. Supporting wallets like JoyID and Neuron, iCKB maintains security through audited L1 scripts and provides flexibility for DeFi integration. Future plans include expanding ecosystem compatibility and user adoption.",
+  "titleImage": "/dappDetails/images/ickb/highlight.jpg",
+  "logo": "/dappDetails/images/ickb/logo.jpg",
+  "tags": [
+    { "name": "DAO", "color": "bg-purple-600" }
+  ],
+  "socialLinks": {
+    "telegram": "https://t.me/c/NervosNation/307406"
+  },
+  "websiteUrl": "https://ickb.org/",
+  "highlights": [
+    {
+      "title": "DeFi Integration Potential",
+      "description": "Designed to expand compatibility with DeFi protocols, fostering broader adoption and utility within the Nervos ecosystem",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "Liquid Staking Token",
+      "description": "Enables users to convert CKB into a liquid staking token, representing Nervos DAO deposits, for flexible asset management",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": "Instant Withdrawals",
+      "description": "Users can withdraw iCKB instantly, bypassing the standard 30-day lockup period required by Nervos DAO",
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited", "status": true },
+        { "name": "White Paper" },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "issuedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "FT Token", "status": true },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": true },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "NervDao",
+      "icon": "/dappDetails/images/nervdao/logo.jpg",
+      "desc": "NervDao is a dApp on Nervos CKB, streamlining Nervos DAO interaction",
+      "dappId": "nervdao"
+    }
+  ],
+  "faq": [
+    {
+      "q": "How does iCKB work?",
+      "a": "Users convert CKB to iCKB, enabling instant withdrawals from Nervos DAO without the standard 30-day lockup."
+    },
+    {
+      "q": "Is iCKB secure?",
+      "a": "Yes, iCKB uses audited Layer 1 scripts on CKB to ensure robust security for transactions and assets."
+    },
+    {
+      "q": "Can iCKB be used in DeFi?",
+      "a": "iCKB is designed to support DeFi integration, with plans to expand compatibility for broader ecosystem use."
+    }
+  ]
+} 
