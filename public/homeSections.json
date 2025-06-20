@@ -10,22 +10,31 @@
       "dappId": "omiga"
     },
     {
-      "image": "/dappDetails/images/utxoswap/banner.jpg",
-      "title": "UTXO Swap",
+      "image": "/dappDetails/images/ickb/highlight.jpg",
+      "title": "iCKB Protocol",
       "project": {
-        "name": "UTXO Swap",
-        "desc": "UTXO Swap is a decentralized exchange built on Nervos CKB Layer 2, designed for seamless, intent-driven trading, leveraging CKB Extended UTXO model and cross-chain bridging for secure, efficient swaps with minimal trust requirements."
+        "name": "iCKB",
+        "desc": "A protocol that tokenizes NervosDAO deposits into liquid iCKB tokens. It addresses the ~30-day lockup of CKB in NervosDAO by allowing users to withdraw mature deposits from a shared pool, maintaining inflation protection while enabling flexible use in DeFi."
       },
-      "dappId": "utxoswap"
+      "dappId": "ickb"
     },
     {
-      "image": "/dappDetails/images/imagination/banner.jpeg",
-      "title": "imagiNation",
+      "image": "/dappDetails/images/utxoglobal/highlight.jpg",
+      "title": "UTXO Global",
       "project": {
-        "name": "imagiNation",
-        "desc": "ImagiNation is a decentralized marketplace on Nervos CKB, enabling fully on-chain asset creation, trading, and value capture, with plans to support RGB++ for Bitcoin-compatible smart contracts and asset issuance."
+        "name": "UTXO Global Wallet",
+        "desc": "A wallet for managing UTXO-based blockchain assets, built on Nervos CKB. It supports DeFi applications, integrates with the RGB++ protocol for asset management and trading, and is the first wallet available as both a Telegram integration and a Chrome extension."
       },
-      "dappId": "imagination"
+      "dappId": "utxoglobal"
+    },
+    {
+      "image": "/dappDetails/images/catfusion/highlight.jpg",
+      "title": "CAT Fusion",
+      "project": {
+        "name": "CAT Fusion",
+        "desc": "The first Telegram-based hyper-casual game on the CKB, players battle bosses, upgrade their cat-themed digital assets, and compete on leaderboards to earn rewards, likely in the form of CKB tokens or NFTs."
+      },
+      "dappId": "catfusion"
     }
   ],
   "sparkGranted": [
@@ -52,36 +61,29 @@
       "image": "",
       "link": "",
       "placeholder": true
-    },
-    {
-      "name": "Wait Your Project",
-      "desc": "",
-      "image": "",
-      "link": "",
-      "placeholder": true
     }
   ],
   "highlighted": [
     {
-      "name": "Stable++",
-      "desc": "A decentralized stablecoin protocol on CKB, crafts BUSD through over-collateralized BTC assets, enhancing stability and liquidity across the Bitcoin and RGB++ ecosystems.",
-      "image": "/dappDetails/images/stablepp/highlight.jpg",
-      "tinyImage": "/dappDetails/images/stablepp/logo.png",
-      "link": "/stablepp"
+      "name": "NervDao",
+      "desc": "NervDao is a dApp on Nervos CKB, streamlining Nervos DAO interaction. It supports wallets like MetaMask and JoyID for easy CKB deposits/withdrawals, offering rewards and dilution protection. Features include auto-compounded rewards, a one-month lockup, and plans for UI upgrades and NFT credentials.",
+      "image": "/dappDetails/images/nervdao/highlight.jpg",
+      "tinyImage": "/dappDetails/images/nervdao/logo.jpg",
+      "link": "/nervdao"
     },
     {
-      "name": "HueHub",
-      "desc": "A decentralized exchange on CKB, empowers seamless trading and fair issuance of Omni-assets, enhancing Bitcoin's functionality and enriching Nervos Network's vibrant ecosystem.",
-      "image": "/dappDetails/images/huehub/highlight.jpg",
-      "tinyImage": "/dappDetails/images/huehub/logo.jpeg",
-      "link": "/huehub"
+      "name": "CKBull",
+      "desc": "A non-custodial mobile wallet for Nervos Network (CKB), launched in July 2022 by Peersyst Technology. It supports managing CKB, bridged tokens via ForceBridge, NFTs, and Nervos DAO staking. Built on CKB’s secure Layer 1 and UTXO-based Cell model, it offers a customizable interface on Android and iOS, though some users report withdrawal issues",
+      "image": "/dappDetails/images/ckbull/highlight.jpg",
+      "tinyImage": "/dappDetails/images/ckbull/logo.png",
+      "link": "/ckbull"
     },
     {
-      "name": "Philosopher's Stone",
+      "name": "Mobit",
       "desc": "An enigmatic protocol on CKB, transmutes the blockchain into a crucible of boundless transformation, where its alchemical essence empowers users to conjure unique digital artifacts.",
-      "image": "/dappDetails/images/philosopherstone/highlight.png",
-      "tinyImage": "/dappDetails/images/philosopherstone/logo.jpg",
-      "link": "/philosopherstone"
+      "image": "/dappDetails/images/mobit/highlight.jpg",
+      "tinyImage": "/dappDetails/images/mobit/logo.jpg",
+      "link": "/mobit"
     }
   ],
   "premium": [
@@ -98,54 +100,54 @@
       "link": "/nervape"
     },
     {
-      "name": "JoyGift",
-      "desc": "A heartfelt melody on the CKB blockchain, orchestrates a digital red envelope tradition, where users craft and share personalized token-filled tales.",
-      "image": "/dappDetails/images/joygift/highlight.jpeg",
-      "link": "/joygift"
-    },
-    {
       "name": "DotBit",
       "desc": "A decentralized identity protocol on CKB, weaves a cross-chain tapestry of domain, user-friendly addresses, and secure management of digital identity and asset management across blockchains.",
       "image": "/dappDetails/images/dotbit/highlight.jpeg",
       "link": "/dotbit"
     },
     {
-      "name": "NervDao",
-      "desc": "NervDao is a dApp on Nervos CKB, streamlining Nervos DAO interaction. It supports wallets like MetaMask and JoyID for easy CKB deposits/withdrawals, offering rewards and dilution protection. Features include auto-compounded rewards, a one-month lockup, and plans for UI upgrades and NFT credentials.",
-      "image": "/dappDetails/images/nervdao/highlight.jpg",
-      "link": "/nervdao"
+      "name": "Stable++",
+      "desc": "A decentralized stablecoin protocol on CKB, crafts BUSD through over-collateralized BTC assets, enhancing stability and liquidity across the Bitcoin and RGB++ ecosystems.",
+      "image": "/dappDetails/images/stablepp/highlight.jpg",
+      "link": "/stablepp"
+    },
+    {
+      "name": "VeriX",
+      "desc": "A bot on CKB, empowers seamless trading and fair issuance, enriching Nervos Network's vibrant ecosystem.",
+      "image": "/dappDetails/images/verix/logo.jpg",
+      "link": "/verix"
     }
   ],
   "community": [
     {
-      "name": "iCKB (@Phroi)",
-      "desc": "iCKB offers liquid staking tokens for Nervos DAO, enabling instant CKB-to-iCKB conversions and withdrawals without the 30-day lockup.",
-      "image": "/dappDetails/images/ickb/logo.jpg",
-      "link": "/ickb"
+      "name": "UTXO Swap",
+      "desc": "UTXO Swap is a decentralized exchange built on Nervos CKB Layer 2, designed for seamless, intent-driven trading.",
+      "image": "/dappDetails/images/utxoswap/logo.png",
+      "link": "/utxoswap"
     },
     {
-      "name": "Empty Community Project",
-      "desc": "",
-      "tags": [],
-      "image": "",
-      "link": "",
-      "placeholder": true
+      "name": "imagiNation",
+      "desc": "A marketplace on Nervos CKB, enabling fully on-chain asset creation, trading, and value capture, with plans to support RGB++.",
+      "image": "/dappDetails/images/imagination/logo.jpg",
+      "link": "/imagination"
     },
     {
-      "name": "Empty Community Project",
-      "desc": "",
-      "tags": [],
-      "image": "",
-      "link": "",
-      "placeholder": true
+      "name": "Philosopher's Stone",
+      "desc": "An enigmatic protocol on CKB, transmutes the blockchain into a crucible of boundless transformation.",
+      "image": "/dappDetails/images/philosopherstone/logo.jpg",
+      "link": "/philosopherstone"
     },
     {
-      "name": "Empty Community Project",
-      "desc": "",
-      "tags": [],
-      "image": "",
-      "link": "",
-      "placeholder": true
+      "name": "JoyGift",
+      "desc": "A heartfelt melody on the CKB, orchestrates a digital red envelope tradition, where users share personalized tales.",
+      "image": "/dappDetails/images/joygift/logo.jpeg",
+      "link": "/joygift"
+    },
+    {
+      "name": "HueHub",
+      "desc": "A decentralized exchange on CKB, empowers seamless trading and fair issuance, enriching Nervos Network's vibrant ecosystem.",
+      "image": "/dappDetails/images/huehub/logo.jpeg",
+      "link": "/huehub"
     }
   ]
 } 

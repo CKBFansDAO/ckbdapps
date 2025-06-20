@@ -125,7 +125,7 @@ const Pagination = (props) => {
                 renderItems={(item, index) => RenderPageSizeMenuItem(item, index)}
     ></DropdownMenu>*/}
             <span className='py-0.5 text-[#222] font-medium'>{t("component.pagination.goto-page")}</span>
-            <input className='w-[50px] h-[28px] text-center px-1 border-gray-400 rounded-full border-[1px]' 
+            <input className='w-[50px] h-[28px] text-center px-1 border-gray-400 rounded-full border-[1px] text-black' 
                 ref={gotoPageRef} type="text" onKeyDown={handleKeyDown}/>
         </div>
     }

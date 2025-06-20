@@ -284,7 +284,6 @@ const ProjectTransparency = ({ transparency }) => {
             </div>
             <div>
               <h4 className="text-xl font-bold text-gray-900">{transparency.team.title}</h4>
-              <p className="text-gray-600 text-sm">Founded at {transparency.team.foundedDate}</p>
             </div>
           </div>
           <div className="space-y-4">
@@ -325,7 +324,6 @@ const ProjectTransparency = ({ transparency }) => {
             </div>
             <div>
               <h4 className="text-xl font-bold text-gray-900">{transparency.project.title}</h4>
-              <p className="text-gray-600 text-sm">Launched at {transparency.project.launchedDate}</p>
             </div>
           </div>
           <div className="space-y-4">
@@ -366,7 +364,6 @@ const ProjectTransparency = ({ transparency }) => {
             </div>
             <div>
               <h4 className="text-xl font-bold text-gray-900">{transparency.token.title}</h4>
-              <p className="text-gray-600 text-sm">Issued at {transparency.token.issuedDate}</p>
             </div>
           </div>
           <div className="space-y-4">

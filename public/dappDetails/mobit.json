@@ -1,0 +1,75 @@
+{
+  "name": "Mobit",
+  "description": "Mobit is a decentralized wallet interface on the Nervos Network (CKB) that connects to existing wallets to \"easily and securely transfer assets between Bitcoin and CKB\" using the RGB++ Leap protocol for a \"seamless cross-chain experience.\" Built on CKB’s secure Layer 1 and UTXO-based Cell model, Mobit integrates with the JoyID protocol to provide a passwordless, mnemonic-free experience for managing Bitcoin (BTC), Ethereum (ETH), and CKB assets. Announced in July 2024, Mobit enhances cross-chain interoperability and DeFi interactions by leveraging RGB++ Leap for trustless, bridge-free asset transfers, acting as a wrapper to streamline asset management and trading within the Nervos ecosystem.",
+  "titleImage": "/dappDetails/images/mobit/banner.jpg",
+  "logo": "/dappDetails/images/mobit/logo.jpg",
+  "tags": [
+    { "name": "RGB++", "color": "bg-purple-600" },
+    { "name": "DeFi", "color": "bg-yellow-600" }
+  ],
+  "socialLinks": {
+    "telegram": "https://t.me/mobit_app",
+    "github": "https://github.com/unistate-io/mobit"
+  },
+  "websiteUrl": "https://mobit.app/",
+  "highlights": [
+    {
+      "title": "Seamless Cross-Chain Transfers",
+      "description": "Enables easy and secure asset transfers between Bitcoin and CKB using RGB++ Leap, offering trustless, bridge-free cross-chain functionality",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "DeFi Accessibility",
+      "description": "Simplifies DeFi participation by offering a user-friendly interface for cross-chain asset management and trading within the Nervos ecosystem",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited", "status": false },
+        { "name": "White Paper", "status": false },
+        { "name": "Smart Contract", "status": false }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": false },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": "Why is Mobit special?",
+      "a": "Mobit is unique as a wallet interface that connects to existing wallets, enabling seamless, trustless asset transfers between Bitcoin and CKB via RGB++ Leap without traditional bridges. Its JoyID integration offers a passwordless experience, and it enhances DeFi accessibility for BTC, ETH, and CKB assets."
+    },
+    {
+      "q": "How does RGB++ Leap work in Mobit?",
+      "a": "RGB++ Leap enables trustless cross-chain transfers by mapping Bitcoin UTXOs to CKB Cells via isomorphic binding, allowing secure, permissionless movement of assets (e.g., coins and NFTs) without traditional bridges."
+    }
+  ]
+} 

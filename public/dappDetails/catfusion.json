@@ -1,0 +1,82 @@
+{
+  "name": "CAT Fusion",
+  "description": "CAT Fusion is the first Telegram-based hyper-casual game on the Nervos Network (CKB), a Bitcoin Layer 2 blockchain, designed to engage players with a rewarding and interactive experience. Players battle bosses, upgrade their cat-themed digital assets, and compete on leaderboards to earn rewards, likely in the form of CKB tokens or NFTs. Built on CKB’s secure Layer 1 and UTXO-based Cell model, CAT Fusion leverages the RGB++ protocol for managing in-game assets, ensuring secure and trustless interactions. Recently awarded a grant by the CKB Eco Fund, CAT Fusion is expanding its community with planned collaborations, airdrop campaigns, and an official beta launch, enhancing its role in the Nervos ecosystem.",
+  "titleImage": "/dappDetails/images/catfusion/banner.jpg",
+  "logo": "/dappDetails/images/catfusion/logo.jpg",
+  "tags": [
+    { "name": "Game", "color": "bg-purple-600" },
+    { "name": "Hyper-Casual", "color": "bg-yellow-600" }
+  ],
+  "socialLinks": {
+    "telegram": "https://t.me/CatFusionCKB_Chat",
+    "twitter": "https://x.com/CatFusionCKB"
+  },
+  "websiteUrl": "https://ckcat.xyz/",
+  "highlights": [
+    {
+      "title": "First Telegram Hyper-Casual Game",
+      "description": "Pioneers blockchain gaming on CKB as the first Telegram-based hyper-casual game, offering accessible and engaging gameplay via a popular messaging platform",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "CKB Eco Fund Grant",
+      "description": "Received funding from the CKB Eco Fund to support community growth, partnerships, airdrops, and the official beta launch, boosting ecosystem integration",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "videos": [
+    {
+      "title": "CAT Fusion",
+      "url": "https://www.youtube.com/embed/hdLuujNmcRE",
+      "thumbnail": "https://img.youtube.com/vi/hdLuujNmcRE/hqdefault.jpg"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "items": [
+        { "name": "Open Source", "status": false },
+        { "name": "Audited", "status": false },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "items": [
+        { "name": "FT Token", "status": true },
+        { "name": "NFT/DOB Token", "status": true },
+        { "name": "Tradable", "status": true },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": "What are the game mechanics?",
+      "a": "CAT Fusion is a Telegram-based hyper-casual game where players engage in boss battles, upgrade their cat-themed digital assets (e.g., NFTs representing unique cats), and compete on leaderboards to earn rewards such as CKB tokens or exclusive in-game items. Players can enhance their cats’ abilities, participate in time-based challenges, and trade assets within the Nervos ecosystem, leveraging the RGB++ protocol for secure transactions."
+    },
+    {
+      "q": "Does it support UTXO Global Telegram wallet?",
+      "a": "Yes, CAT Fusion is likely to support integration with the UTXO Global Telegram wallet, given its role as a leading wallet interface in the Nervos ecosystem. This allows players to manage their in-game assets (e.g., cat NFTs and CKB rewards) seamlessly within Telegram, utilizing UTXO Global’s features like RGB++ asset management and cross-platform synchronization for a streamlined gaming experience."
+    }
+  ]
+} 

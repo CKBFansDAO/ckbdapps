@@ -1,0 +1,104 @@
+{
+  "name": "UTXO Global",
+  "description": "UTXO Global is a DeFi-focused wallet on the Nervos Network (CKB), designed for managing assets on UTXO-based blockchains. It integrates with the RGB++ protocol to enable seamless management and trading of digital assets, such as meme tokens. As the first wallet integrated into Telegram and available as a Chrome extension, it offers batch transfers, cross-platform synchronization, and CKB.Fi integration for minting and trading RGB++ tokens from social content, driving DeFi innovation in the UTXO ecosystem.",
+  "titleImage": "/dappDetails/images/utxoglobal/banner.jpg",
+  "logo": "/dappDetails/images/utxoglobal/logo.jpg",
+  "tags": [
+    { "name": "Wallet", "color": "bg-purple-600" }
+  ],
+  "socialLinks": {
+    "twitter": "https://x.com/UTXOGlobal",
+    "telegram": "https://t.me/utxoglobal",
+    "github": "https://github.com/UTXO-Global",
+    "youtube": "https://www.youtube.com/@UTXOGlobal"
+  },
+  "websiteUrl": "https://utxo.global",
+  "highlights": [
+    {
+      "title": "First Telegram-Integrated Wallet",
+      "description": "Pioneers DeFi by being the first wallet integrated into Telegram, enabling seamless asset management within a popular messaging platform",
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": "Multi-Asset Support",
+      "description": "Manages UTXO-compatible assets using Nervos CKB’s Cell model and RGB++ protocol for secure, flexible handling",
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": "Chrome Extension Wallet",
+      "description": "Available as a Chrome extension, providing a convenient and accessible interface for managing UTXO-based assets directly in the browser",
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    }
+  ],
+  "videos": [
+    {
+      "title": "UTXO Global Multi-Sig Wallet",
+      "url": "https://www.youtube.com/embed/LcLPZpT2m78",
+      "thumbnail": "https://img.youtube.com/vi/LcLPZpT2m78/hqdefault.jpg"
+    },
+    {
+      "title": "UTXO Global Multi-Sig Wallet supporting xUDT",
+      "url": "https://www.youtube.com/embed/grT6W99kHLE",
+      "thumbnail": "https://img.youtube.com/vi/grT6W99kHLE/hqdefault.jpg"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": "Team",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": "Project",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited" },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": "Token",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": false },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "JoyID",
+      "desc": "A pioneering universal account protocol crafted to accelerate Web3 mass adoption.",
+      "icon": "/dappDetails/images/joyid/logo.jpg",
+      "dappId": "joyid"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Why is UTXO Global special?",
+      "a": "UTXO Global stands out as the first wallet integrated into Telegram, offering seamless DeFi access within a popular messaging platform. It also operates as a Chrome extension, supports batch transfers, synchronizes across platforms, and integrates with CKB.Fi for minting/trading RGB++ meme tokens, enhancing liquidity and user engagement in the Nervos ecosystem."
+    },
+    {
+      "q": "What are its main features?",
+      "a": "Enabling seamless asset management across platforms with cross-platform synchronization. It supports multiple UTXO-compatible assets using CKB’s Cell model and RGB++ protocol, facilitates efficient batch transfers through a multisig wallet, integrates with CKB.Fi for minting and trading RGB++ meme tokens from social content, and enhances cross-chain liquidity for Nervos CKB and Fiber networks."
+    }
+  ]
+} 
