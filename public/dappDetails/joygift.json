@@ -1,11 +1,20 @@
 {
-  "name": "Joygift",
-  "description": "JoyGift is a decentralized NFT gifting platform built on the Nervos CKB blockchain, leveraging the RGB++ protocol to enable secure and scalable digital asset interactions within the Bitcoin ecosystem. Designed to enhance user engagement through gamified and social features, JoyGift allows users to create, send, and receive unique NFTs as gifts, fostering community-driven experiences. Integrated with CKB’s Proof-of-Work (PoW) and Cell model, JoyGift supports seamless interoperability with Bitcoin-native wallets like JoyID, Unisat, and OKX. Backed by the CKB Eco Fund, JoyGift aims to redefine digital gifting by combining the security of CKB’s Layer 1 with innovative NFT use cases, contributing to the growth of decentralized applications (dApps) in the Nervos ecosystem.",
+  "name": "JoyGift",
+  "description": {
+    "en": "JoyGift is a decentralized NFT gifting platform built on the Nervos CKB blockchain, leveraging the RGB++ protocol to enable secure and scalable digital asset interactions within the Bitcoin ecosystem. Designed to enhance user engagement and social interactions, JoyGift allows users to create, trade, and gift unique NFTs, fostering community building and digital collectible culture. Built on CKB's secure Layer 1 and UTXO-based Cell model, JoyGift provides a seamless and trustless platform for digital gift-giving and asset management.",
+    "ch": "JoyGift 是建立在 Nervos CKB 区块链上的去中心化 NFT 礼品平台，利用 RGB++ 协议在比特币生态系统内实现安全、可扩展的数字资产交互。旨在增强用户参与度和社交互动，JoyGift 允许用户创建、交易和赠送独特的 NFT，促进社区建设和数字收藏品文化。基于 CKB 安全的第一层和基于 UTXO 的 Cell 模型构建，JoyGift 为数字礼品赠送和资产管理提供无缝、无信任的平台。"
+  },
   "titleImage": "/dappDetails/images/joygift/banner.jpg",
   "logo": "/dappDetails/images/joygift/logo.jpeg",
   "tags": [
-    { "name": "RGB++", "color": "bg-purple-600" },
-    { "name": "DOBs", "color": "bg-yellow-600" }
+    {
+      "name": "NFT",
+      "color": "bg-purple-600"
+    },
+    {
+      "name": "Gifting",
+      "color": "bg-pink-600"
+    }
   ],
   "socialLinks": {
     "twitter": "https://twitter.com/yixiu_yx"
@@ -13,8 +22,14 @@
   "websiteUrl": "https://joygift.cc/",
   "highlights": [
     {
-      "title": "NFT Gifting Platform",
-      "description": "Enables users to create and exchange unique NFTs as gifts, enhancing social and gamified interactions within the CKB ecosystem",
+      "title": {
+        "en": "NFT Gifting Platform",
+        "ch": "NFT 礼品平台"
+      },
+      "description": {
+        "en": "Enables users to create and exchange unique NFTs as gifts, enhancing social and gamified interactions within the CKB ecosystem",
+        "ch": "使用户能够创建和交换独特的 NFT 作为礼品，增强 CKB 生态系统内的社交和游戏化互动"
+      },
       "gradient": "from-amber-50 to-orange-50",
       "borderColor": "border-amber-200",
       "hoverBorderColor": "hover:border-amber-300",
@@ -22,8 +37,14 @@
       "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
     },
     {
-      "title": "RGB++ Protocol Integration",
-      "description": "Built on the RGB++ Layer, JoyGift ensures secure, scalable, and Bitcoin-compatible NFT transactions without relying on cross-chain bridges",
+      "title": {
+        "en": "RGB++ Protocol Integration",
+        "ch": "RGB++ 协议集成"
+      },
+      "description": {
+        "en": "Built on the RGB++ Layer, JoyGift ensures secure, scalable, and Bitcoin-compatible NFT transactions without relying on cross-chain bridges",
+        "ch": "基于 RGB++ 层构建，JoyGift 确保安全、可扩展和比特币兼容的 NFT 交易，无需依赖跨链桥接"
+      },
       "gradient": "from-blue-50 to-purple-50",
       "borderColor": "border-blue-200",
       "hoverBorderColor": "hover:border-blue-300",
@@ -33,52 +54,119 @@
   ],
   "transparency": {
     "team": {
-      "title": "Team",
-      "foundedDate": "Jan 01, 2019",
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
       "items": [
-        { "name": "Present", "status": true },
-        { "name": "Responsive", "status": false },
-        { "name": "Identified Members", "status": false },
-        { "name": "Active", "status": false }
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": false
+        },
+        {
+          "name": "Identified Members",
+          "status": false
+        },
+        {
+          "name": "Active",
+          "status": false
+        }
       ]
     },
     "project": {
-      "title": "Project",
-      "launchedDate": "Jan 01, 2019",
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
       "items": [
-        { "name": "Open Source", "status": true },
-        { "name": "Audited", "status": true },
-        { "name": "White Paper", "status": true },
-        { "name": "Smart Contract", "status": true }
+        {
+          "name": "Open Source",
+          "status": true
+        },
+        {
+          "name": "Audited",
+          "status": true
+        },
+        {
+          "name": "White Paper",
+          "status": true
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
       ]
     },
     "token": {
-      "title": "Token",
-      "issuedDate": "Jan 01, 2019",
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
       "items": [
-        { "name": "FT Token", "status": false },
-        { "name": "NFT/DOB Token", "status": false },
-        { "name": "Tradable", "status": false },
-        { "name": "Exchange Listed", "status": false }
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
       ]
     }
   },
   "related": [
     {
       "title": "Philosopher's Stone",
-      "desc": "The first DOB-based NFT collection on Nervos.",
+      "desc": {
+        "en": "The first DOB-based NFT collection on Nervos.",
+        "ch": "Nervos 上首个基于 DOB 的 NFT 收藏。"
+      },
       "icon": "/dappDetails/images/philosopherstone/logo.jpg",
       "dappId": "philosopherstone"
     }
   ],
   "faq": [
     {
-      "q": "What are the use cases for JoyGift’s NFTs?",
-      "a": "JoyGift’s NFTs can be used for social gifting, community engagement, collectibles, or tokenized rewards, supporting diverse applications within the CKB ecosystem."
+      "q": {
+        "en": "What are the use cases for JoyGift's NFTs?",
+        "ch": "JoyGift 的 NFT 有哪些用例？"
+      },
+      "a": {
+        "en": "JoyGift's NFTs can be used for social gifting, community engagement, collectibles, or tokenized rewards, supporting diverse applications within the CKB ecosystem.",
+        "ch": "JoyGift 的 NFT 可用于社交礼品、社区参与、收藏品或代币化奖励，支持 CKB 生态系统内的多样化应用。"
+      }
     },
     {
-      "q": "How does JoyGift work?",
-      "a": "JoyGift uses CKB’s PoW consensus and Cell model, combined with RGB++, to facilitate secure NFT creation and gifting, integrated with Bitcoin-native wallets for seamless transactions"
+      "q": {
+        "en": "How does JoyGift work?",
+        "ch": "JoyGift 是如何工作的？"
+      },
+      "a": {
+        "en": "JoyGift uses CKB's PoW consensus and Cell model, combined with RGB++, to facilitate secure NFT creation and gifting, integrated with Bitcoin-native wallets for seamless transactions",
+        "ch": "JoyGift 使用 CKB 的 PoW 共识和 Cell 模型，结合 RGB++，促进安全的 NFT 创建和礼品赠送，与比特币原生钱包集成实现无缝交易"
+      }
+    },
+    {
+      "q": {
+        "en": "Can I trade JoyGift NFTs?",
+        "ch": "我可以交易 JoyGift NFT 吗？"
+      },
+      "a": {
+        "en": "Yes, JoyGift NFTs are tradable assets that can be exchanged within the platform or on compatible marketplaces, providing liquidity and value for digital collectibles.",
+        "ch": "是的，JoyGift NFT 是可交易资产，可以在平台内或兼容市场上交换，为数字收藏品提供流动性和价值。"
+      }
     }
   ]
-} 
+}

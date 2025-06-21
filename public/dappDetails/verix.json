@@ -1,17 +1,29 @@
 {
   "name": "VeriX",
-  "description": "VeriX is the first Telegram bot designed for the Nervos Network (CKB), a Bitcoin Layer 2 blockchain, aimed at enhancing community management for CKB-based projects. As a pioneering bot, VeriX enables group administrators to restrict member additions based on configurable criteria, such as holdings of CKB, xUDT tokens (CKB’s standard for fungible tokens), and NFT tokens. Leveraging CKB’s secure Layer 1 and UTXO-based Cell model, VeriX ensures trustless verification of asset ownership, fostering secure and exclusive communities within the Nervos ecosystem. By facilitating token-gated access, VeriX supports the growth of CKB projects, including DeFi and NFT initiatives, by ensuring only qualified participants join project-related Telegram groups.",
+  "description": {
+    "en": "VeriX is the first Telegram bot designed for the Nervos Network (CKB), a Bitcoin Layer 2 blockchain, aimed at enhancing community management for CKB-based projects. As a pioneering bot, VeriX enables group administrators to restrict member additions based on configurable criteria, such as holdings of CKB, xUDT tokens (CKB’s standard for fungible tokens), and NFT tokens. Leveraging CKB’s secure Layer 1 and UTXO-based Cell model, VeriX ensures trustless verification of asset ownership, fostering secure and exclusive communities within the Nervos ecosystem. By facilitating token-gated access, VeriX supports the growth of CKB projects, including DeFi and NFT initiatives, by ensuring only qualified participants join project-related Telegram groups.",
+    "ch": "VeriX is the first Telegram bot designed for the Nervos 网络 (CKB), a 比特币 第二层 区块链, aimed at enhancing 社区 management for CKB-based projects. As a pioneering bot, VeriX enables group administrators to restrict member additions based on configurable criteria, such as holdings of CKB, xUDT 代币s (CKB’s standard for fungible 代币s), and NFT 代币s. Leveraging CKB’s secure 第一层 and UTXO-based Cell模型, VeriX ensures trustless verification of asset ownership, fostering secure and exclusive communities within the Nervos 生态系统. By facilitating 代币-gated access, VeriX 支持s the growth of CKB projects, including DeFi and NFT initiatives, by ensuring only qualified participants join project-related Telegram groups."
+  },
   "titleImage": "/dappDetails/images/verix/highlight.jpg",
   "logo": "/dappDetails/images/verix/logo.jpg",
   "tags": [
-    { "name": "Bot", "color": "bg-purple-600" }
+    {
+      "name": "Bot",
+      "color": "bg-purple-600"
+    }
   ],
   "socialLinks": {},
   "websiteUrl": "https://utxo-global.gitbook.io/utxo-global/verix",
   "highlights": [
     {
-      "title": "First CKB-Related Telegram Bot",
-      "description": "Pioneers Telegram-based community management for CKB projects by restricting group access based on CKB, xUDT, and NFT token holdings",
+      "title": {
+        "en": "First CKB-Related Telegram Bot",
+        "ch": "First CKB-Related Telegram Bot (需要专业翻译)"
+      },
+      "description": {
+        "en": "Pioneers Telegram-based community management for CKB projects by restricting group access based on CKB, xUDT, and NFT token holdings",
+        "ch": "Pioneers Telegram-based 社区 management for CKB projects by restricting group access based on CKB, xUDT, and NFT 代币 holdings"
+      },
       "gradient": "from-amber-50 to-orange-50",
       "borderColor": "border-amber-200",
       "hoverBorderColor": "hover:border-amber-300",
@@ -19,8 +31,14 @@
       "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
     },
     {
-      "title": "Token-Gated Community Access",
-      "description": "Allows group admins to set entry requirements using CKB, xUDT tokens, or NFTs, verified trustlessly via CKB’s Cell model for secure community management",
+      "title": {
+        "en": "Token-Gated Community Access",
+        "ch": "代币-Gated 社区 Access"
+      },
+      "description": {
+        "en": "Allows group admins to set entry requirements using CKB, xUDT tokens, or NFTs, verified trustlessly via CKB’s Cell model for secure community management",
+        "ch": "Allows group admins to set entry requirements using CKB, xUDT 代币s, or NFTs, verified trustlessly via CKB’s Cell模型 for secure 社区 management"
+      },
       "gradient": "from-blue-50 to-purple-50",
       "borderColor": "border-blue-200",
       "hoverBorderColor": "hover:border-blue-300",
@@ -28,8 +46,14 @@
       "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
     },
     {
-      "title": "RGB++ Compatibility",
-      "description": "Likely integrates with the RGB++ protocol to verify NFT and token ownership, enabling seamless asset management and potential cross-chain interactions with Bitcoin",
+      "title": {
+        "en": "RGB++ Compatibility",
+        "ch": "RGB++ 兼容性"
+      },
+      "description": {
+        "en": "Likely integrates with the RGB++ protocol to verify NFT and token ownership, enabling seamless asset management and potential cross-chain interactions with Bitcoin",
+        "ch": "Likely integrates with the RGB++ 协议 to verify NFT and 代币 ownership, enabling seamless asset management and potential 跨链 interactions with 比特币"
+      },
       "gradient": "from-green-50 to-emerald-50",
       "borderColor": "border-green-200",
       "hoverBorderColor": "hover:border-green-300",
@@ -39,49 +63,112 @@
   ],
   "transparency": {
     "team": {
-      "title": "Team",
+      "title": {
+        "en": "Team",
+        "ch": "Team (需要专业翻译)"
+      },
       "foundedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Present", "status": true },
-        { "name": "Responsive", "status": true },
-        { "name": "Identified Members", "status": true },
-        { "name": "Active", "status": true }
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": true
+        },
+        {
+          "name": "Identified Members",
+          "status": true
+        },
+        {
+          "name": "Active",
+          "status": true
+        }
       ]
     },
     "project": {
-      "title": "Project",
+      "title": {
+        "en": "Project",
+        "ch": "Project (需要专业翻译)"
+      },
       "launchedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Open Source", "status": false },
-        { "name": "Audited", "status": false },
-        { "name": "White Paper", "status": true },
-        { "name": "Smart Contract", "status": false }
+        {
+          "name": "Open Source",
+          "status": false
+        },
+        {
+          "name": "Audited",
+          "status": false
+        },
+        {
+          "name": "White Paper",
+          "status": true
+        },
+        {
+          "name": "Smart Contract",
+          "status": false
+        }
       ]
     },
     "token": {
-      "title": "Token",
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
       "issuedDate": "Jan 01, 2019",
       "items": [
-        { "name": "FT Token", "status": false },
-        { "name": "NFT/DOB Token", "status": false },
-        { "name": "Tradable", "status": false },
-        { "name": "Exchange Listed", "status": false }
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
       ]
     }
   },
   "related": [],
   "faq": [
     {
-      "q": "I entered the wrong date of birth or chose the wrong wallet. What now?",
-      "a": "Leave the group, wait 15 minutes, and re‑join. You’ll receive a new verification link where you can submit the correct DOB or connect the right wallet. VeriX always checks your latest submission—previous data is discarded."
+      "q": {
+        "en": "I entered the wrong date of birth or chose the wrong wallet. What now?",
+        "ch": "I entered the wrong date of birth or chose the wrong 钱包. What now?"
+      },
+      "a": {
+        "en": "Leave the group, wait 15 minutes, and re‑join. You’ll receive a new verification link where you can submit the correct DOB or connect the right wallet. VeriX always checks your latest submission—previous data is discarded.",
+        "ch": "Leave the group, wait 15 minutes, and re‑join. You’ll receive a new verification link where you can submit the correct DOB or connect the right 钱包. VeriX always checks your latest submission—previous data is discarded."
+      }
     },
     {
-      "q": "Do rule changes kick existing members?",
-      "a": "No. When admins update /setage, /settoken, or /setamount, only future joins must meet the new requirements. Existing verified members stay unless they leave and come back later."
+      "q": {
+        "en": "Do rule changes kick existing members?",
+        "ch": "Do rule changes kick existing members? (需要专业翻译)"
+      },
+      "a": {
+        "en": "No. When admins update /setage, /settoken, or /setamount, only future joins must meet the new requirements. Existing verified members stay unless they leave and come back later.",
+        "ch": "No. When admins 更新 /setage, /set代币, or /setamount, only future joins must meet the new requirements. Existing verified members stay unless they leave and come back later."
+      }
     },
     {
-      "q": "I missed the 5‑minute window and got kicked. What now?",
-      "a": "Wait the full 15‑minute cooldown, then re‑join the group and finish the verification steps in one attempt. The timer restarts each time you successfully re‑enter the group."
+      "q": {
+        "en": "I missed the 5‑minute window and got kicked. What now?",
+        "ch": "I missed the 5‑minute window and got kicked. What now? (需要专业翻译)"
+      },
+      "a": {
+        "en": "Wait the full 15‑minute cooldown, then re‑join the group and finish the verification steps in one attempt. The timer restarts each time you successfully re‑enter the group.",
+        "ch": "Wait the full 15‑minute cooldown, then re‑join the group and finish the verification steps in one attempt. The timer restarts each time you successfully re‑enter the group. (需要专业翻译)"
+      }
     }
   ]
-} 
+}

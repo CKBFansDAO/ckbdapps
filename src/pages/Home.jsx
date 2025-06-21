@@ -4,6 +4,8 @@ import { ChevronLeft, ChevronRight, Sparkles, Zap, ExternalLink, Globe } from "l
 // import { Button } from "@/components/ui/button"
 import Button from "../components/ui/button"
 import { useEffect, useState, useCallback, useRef } from "react"
+import { useSelector } from 'react-redux'
+import { getLocalizedText } from "../utils/i18n"
 
 // Hero Banner Carousel Section
 const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
@@ -109,7 +111,7 @@ const DOT_COUNT = 50;
 const DOT_VERTICAL_MARGIN = 50; // px
 
 // Project Introduction Section
-const ProjectIntroduction = ({ banners, current }) => {
+const ProjectIntroduction = ({ banners, current, language }) => {
   const containerRef = useRef(null);
   const [containerHeight, setContainerHeight] = useState(300);
 
@@ -237,7 +239,7 @@ const ProjectIntroduction = ({ banners, current }) => {
               margin: 0
             }}
           >
-            {banners[current].project.desc}
+            {getLocalizedText(banners[current].project.desc, language)}
           </p>
         </div>
       </div>
@@ -246,7 +248,7 @@ const ProjectIntroduction = ({ banners, current }) => {
 };
 
 // Spark Granted Projects Section
-const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSize, maxPage, onDappSelect }) => {
+const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSize, maxPage, onDappSelect, language }) => {
   const [currentWindowSize, setCurrentWindowSize] = useState(() => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth < 640) return windowSize.mobile;
@@ -352,7 +354,7 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
                             {project.name}
                           </h3>
                           <div className="flex justify-between items-center mt-3">
-                            <p className="text-sm text-cosmic-gray text-sm">{project.desc}</p>
+                            <p className="text-sm text-cosmic-gray text-sm">{getLocalizedText(project.desc, language)}</p>
                             <p className="text-cosmic-accent font-future">{project.amount}</p>
                           </div>
                         </div>
@@ -370,7 +372,7 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
 };
 
 // Highlighted Projects Section
-const HighlightedProjects = ({ highlightedProjects, onDappSelect }) => {
+const HighlightedProjects = ({ highlightedProjects, onDappSelect, language }) => {
   return (
     <section className="bg-cosmic-light py-12 px-6">
       <div className="max-w-6xl mx-auto">
@@ -416,7 +418,7 @@ const HighlightedProjects = ({ highlightedProjects, onDappSelect }) => {
                     </h3>
                   </div>
                   <p className="text-cosmic-gray text-sm leading-relaxed">
-                    {project.desc}
+                    {getLocalizedText(project.desc, language)}
                   </p>
                   <div className="mt-6 flex justify-end">
                     <div className="inline-flex items-center gap-2 text-cosmic-accent text-sm group-hover:translate-x-1 transition-transform">
@@ -435,7 +437,7 @@ const HighlightedProjects = ({ highlightedProjects, onDappSelect }) => {
 };
 
 // Premium Projects Section
-const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
+const PremiumProjects = ({ premiumProjects, onDappSelect, language }) => {
   return (
     <section className="bg-cosmic-light py-12 px-6">
       <div className="max-w-6xl mx-auto">
@@ -468,7 +470,7 @@ const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
                     {project.name}
                   </h3>
                   <p className="text-cosmic-gray text-sm leading-relaxed">
-                    {project.desc}
+                    {getLocalizedText(project.desc, language)}
                   </p>
                 </div>
               </div>
@@ -481,7 +483,7 @@ const PremiumProjects = ({ premiumProjects, onDappSelect }) => {
 };
 
 // Community-driven Projects Section
-const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunityPage, windowSize, maxPage, onDappSelect }) => {
+const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunityPage, windowSize, maxPage, onDappSelect, language }) => {
   const [currentWindowSize, setCurrentWindowSize] = useState(() => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth < 640) return windowSize.mobile;
@@ -579,7 +581,7 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
                           </div>
                         </div>
                         <p className="text-cosmic-gray text-sm mt-2 leading-relaxed pt-4">
-                          {project.desc}
+                          {getLocalizedText(project.desc, language)}
                         </p>
                       </div>
                     </div>
@@ -630,6 +632,7 @@ const CommunityFundDAO = () => {
 };
 
 export default function Home({ onDappSelect }) {
+  const language = useSelector(state => state.langReducer.language);
   const [sections, setSections] = useState({
     sparkGranted: [],
     highlighted: [],
@@ -756,25 +759,27 @@ export default function Home({ onDappSelect }) {
       {/* Main Content */}
       <div className="w-full">
         <HeroBannerCarousel banners={banners} current={current} next={next} fadeStage={fadeStage} triggerFade={triggerFade} onDappSelect={onDappSelect} setIsHovered={setIsHovered} isHovered={isHovered} />
-        <ProjectIntroduction banners={banners} current={displayIdx} />
-        <SparkGrantedProjects 
-          sparkProjects={sparkProjects} 
-          sparkPage={sparkPage} 
-          setSparkPage={setSparkPage} 
-          windowSize={sparkWindowSize}
-          maxPage={sparkMaxPage}
-          onDappSelect={onDappSelect} 
-        />
-        <HighlightedProjects highlightedProjects={highlightedProjects} onDappSelect={onDappSelect} />
-        <PremiumProjects premiumProjects={premiumProjects} onDappSelect={onDappSelect} />
-        <CommunityDrivenProjects 
-          communityProjects={communityProjects} 
-          communityPage={communityPage} 
-          setCommunityPage={setCommunityPage} 
-          windowSize={windowSize}
-          maxPage={maxPage}
-          onDappSelect={onDappSelect} 
-        />
+        <ProjectIntroduction banners={banners} current={displayIdx} language={language} />
+                  <SparkGrantedProjects 
+            sparkProjects={sparkProjects} 
+            sparkPage={sparkPage} 
+            setSparkPage={setSparkPage} 
+            windowSize={sparkWindowSize}
+            maxPage={sparkMaxPage}
+            onDappSelect={onDappSelect}
+            language={language}
+          />
+                  <HighlightedProjects highlightedProjects={highlightedProjects} onDappSelect={onDappSelect} language={language} />
+                  <PremiumProjects premiumProjects={premiumProjects} onDappSelect={onDappSelect} language={language} />
+                  <CommunityDrivenProjects 
+            communityProjects={communityProjects} 
+            communityPage={communityPage} 
+            setCommunityPage={setCommunityPage} 
+            windowSize={windowSize}
+            maxPage={maxPage}
+            onDappSelect={onDappSelect}
+            language={language}
+          />
         <CommunityFundDAO />
       </div>
     </div>

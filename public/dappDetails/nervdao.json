@@ -1,10 +1,16 @@
 {
   "name": "NervDao",
-  "description": "NervDao is a decentralized application on Nervos Network's CKB, enhancing user interaction with the Nervos DAO. Using wallet abstraction via the Common Chain Connector, it supports wallets like MetaMask, Unisat, OKX Wallet, and JoyID, enabling easy CKB deposits and withdrawals. Users earn rewards while protecting assets from dilution. NervDao offers automatic reward compounding, a one-month minimum lockup, and plans to improve UI, add NFT credentials, and expand wallet support for greater accessibility.",
+  "description": {
+    "en": "NervDao is a decentralized application on Nervos Network's CKB, enhancing user interaction with the Nervos DAO. Using wallet abstraction via the Common Chain Connector, it supports wallets like MetaMask, Unisat, OKX Wallet, and JoyID, enabling easy CKB deposits and withdrawals. Users earn rewards while protecting assets from dilution. NervDao offers automatic reward compounding, a one-month minimum lockup, and plans to improve UI, add NFT credentials, and expand wallet support for greater accessibility.",
+    "ch": "NervDAO 是 Nervos 网络 CKB 上的去中心化应用程序，增强用户与 Nervos DAO 的交互。通过 Common Chain Connector 使用钱包抽象，它支持 MetaMask、Unisat、OKX 钱包和 JoyID 等钱包，实现轻松的 CKB 存取款。用户可获得奖励，同时保护资产免受稀释。NervDAO 提供自动奖励复投、一个月最短锁定期，并计划改进 UI、添加 NFT 凭证和扩展钱包支持以提高可访问性。"
+  },
   "titleImage": "/dappDetails/images/nervdao/banner.jpg",
   "logo": "/dappDetails/images/nervdao/logo.jpg",
   "tags": [
-    { "name": "DAO", "color": "bg-purple-600" }
+    {
+      "name": "DAO",
+      "color": "bg-purple-600"
+    }
   ],
   "socialLinks": {
     "github": "https://github.com/ckb-devrel/nervdao"
@@ -12,8 +18,14 @@
   "websiteUrl": "https://www.nervdao.com/",
   "highlights": [
     {
-      "title": "iCKB Protocol Integration",
-      "description": "Integrates with the iCKB protocol, enabling seamless deposit and withdrawal of Nervos Dao assets",
+      "title": {
+        "en": "iCKB Protocol Integration",
+        "ch": "iCKB 协议集成"
+      },
+      "description": {
+        "en": "Integrates with the iCKB protocol, enabling seamless deposit and withdrawal of Nervos DAO assets",
+        "ch": "与 iCKB 协议集成，实现 Nervos DAO 资产的无缝存取款"
+      },
       "gradient": "from-amber-50 to-orange-50",
       "borderColor": "border-amber-200",
       "hoverBorderColor": "hover:border-amber-300",
@@ -21,8 +33,14 @@
       "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
     },
     {
-      "title": "Visualized Process of Nervos DAO ",
-      "description": "Simplify opreations on Nervos DAO, with visualized process hint",
+      "title": {
+        "en": "Visualized Process of Nervos DAO",
+        "ch": "Nervos DAO 可视化流程"
+      },
+      "description": {
+        "en": "Simplify opreations on Nervos DAO, with visualized process hint",
+        "ch": "简化 Nervos DAO 操作，提供可视化流程提示"
+      },
       "gradient": "from-blue-50 to-purple-50",
       "borderColor": "border-blue-200",
       "hoverBorderColor": "hover:border-blue-300",
@@ -32,33 +50,78 @@
   ],
   "transparency": {
     "team": {
-      "title": "Team",
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
       "foundedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Present", "status": true },
-        { "name": "Responsive", "status": true },
-        { "name": "Identified Members", "status": true },
-        { "name": "Active", "status": true }
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": true
+        },
+        {
+          "name": "Identified Members",
+          "status": true
+        },
+        {
+          "name": "Active",
+          "status": true
+        }
       ]
     },
     "project": {
-      "title": "Project",
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
       "launchedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Open Source", "status": true },
-        { "name": "Audited", "status": false },
-        { "name": "White Paper", "status": false },
-        { "name": "Smart Contract", "status": true }
+        {
+          "name": "Open Source",
+          "status": true
+        },
+        {
+          "name": "Audited",
+          "status": false
+        },
+        {
+          "name": "White Paper",
+          "status": false
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
       ]
     },
     "token": {
-      "title": "Token",
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
       "issuedDate": "Jan 01, 2019",
       "items": [
-        { "name": "FT Token", "status": false },
-        { "name": "NFT/DOB Token", "status": false },
-        { "name": "Tradable", "status": false },
-        { "name": "Exchange Listed", "status": false }
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
       ]
     }
   },
@@ -66,14 +129,23 @@
     {
       "title": "iCKB",
       "icon": "/dappDetails/images/ickb/logo.jpg",
-      "desc": "iCKB is a dApp on Nervos CKB, enhancing the Nervos DAO by offering a liquid staking token",
+      "desc": {
+        "en": "iCKB is a dApp on Nervos CKB, enhancing the Nervos DAO by offering a liquid staking token",
+        "ch": "iCKB 是 Nervos CKB 上的去中心化应用，通过提供流动性质押代币来增强 Nervos DAO"
+      },
       "dappId": "ickb"
     }
   ],
   "faq": [
     {
-      "q": "How does NervDao work?",
-      "a": "NervDao integrates with the iCKB protocol, enabling seamless deposit and withdrawal of Nervos Dao assets, simplifying operations on Nervos DAO with visualized process hints."
+      "q": {
+        "en": "How does NervDao work?",
+        "ch": "NervDAO 是如何工作的？"
+      },
+      "a": {
+        "en": "NervDao integrates with the iCKB protocol, enabling seamless deposit and withdrawal of Nervos Dao assets, simplifying operations on Nervos DAO with visualized process hints.",
+        "ch": "NervDAO 与 iCKB 协议集成，实现 Nervos DAO 资产的无缝存取款，通过可视化流程提示简化 Nervos DAO 操作。"
+      }
     }
   ]
-} 
+}

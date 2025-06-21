@@ -1,10 +1,16 @@
 {
   "name": "iCKB",
-  "description": "iCKB is a decentralized application on Nervos Network’s CKB, enhancing the Nervos DAO by offering a liquid staking token. It allows users to convert CKB to iCKB, representing Nervos DAO deposits, enabling fast withdrawals without the standard 30-day lockup. Supporting wallets like JoyID and Neuron, iCKB maintains security through audited L1 scripts and provides flexibility for DeFi integration. Future plans include expanding ecosystem compatibility and user adoption.",
+  "description": {
+    "en": "iCKB is a decentralized application on Nervos Network's CKB, enhancing the Nervos DAO by offering a liquid staking token. It allows users to convert CKB to iCKB, representing Nervos DAO deposits, enabling fast withdrawals without the standard 30-day lockup. Supporting wallets like JoyID and Neuron, iCKB maintains security through audited L1 scripts and provides flexibility for DeFi integration. Future plans include expanding ecosystem compatibility and user adoption.",
+    "ch": "iCKB 是 Nervos 网络 CKB 上的去中心化应用程序，通过提供流动性质押代币来增强 Nervos DAO。它允许用户将 CKB 转换为 iCKB，代表 Nervos DAO 存款，无需标准的 30 天锁定期即可快速提取。支持 JoyID 和 Neuron 等钱包，iCKB 通过经过审计的 L1 脚本保持安全性，并为 DeFi 集成提供灵活性。未来计划包括扩展生态系统兼容性和用户采用。"
+  },
   "titleImage": "/dappDetails/images/ickb/highlight.jpg",
   "logo": "/dappDetails/images/ickb/logo.jpg",
   "tags": [
-    { "name": "DAO", "color": "bg-purple-600" }
+    {
+      "name": "DAO",
+      "color": "bg-purple-600"
+    }
   ],
   "socialLinks": {
     "telegram": "https://t.me/c/NervosNation/307406"
@@ -12,8 +18,14 @@
   "websiteUrl": "https://ickb.org/",
   "highlights": [
     {
-      "title": "DeFi Integration Potential",
-      "description": "Designed to expand compatibility with DeFi protocols, fostering broader adoption and utility within the Nervos ecosystem",
+      "title": {
+        "en": "DeFi Integration Potential",
+        "ch": "DeFi 集成潜力"
+      },
+      "description": {
+        "en": "Designed to expand compatibility with DeFi protocols, fostering broader adoption and utility within the Nervos ecosystem",
+        "ch": "旨在扩展与 DeFi 协议的兼容性，促进 Nervos 生态系统内更广泛的采用和实用性"
+      },
       "gradient": "from-amber-50 to-orange-50",
       "borderColor": "border-amber-200",
       "hoverBorderColor": "hover:border-amber-300",
@@ -21,8 +33,14 @@
       "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
     },
     {
-      "title": "Liquid Staking Token",
-      "description": "Enables users to convert CKB into a liquid staking token, representing Nervos DAO deposits, for flexible asset management",
+      "title": {
+        "en": "Liquid Staking Token",
+        "ch": "流动性质押代币"
+      },
+      "description": {
+        "en": "Enables users to convert CKB into a liquid staking token, representing Nervos DAO deposits, for flexible asset management",
+        "ch": "使用户能够将 CKB 转换为流动性质押代币，代表 Nervos DAO 存款，实现灵活的资产管理"
+      },
       "gradient": "from-blue-50 to-purple-50",
       "borderColor": "border-blue-200",
       "hoverBorderColor": "hover:border-blue-300",
@@ -30,8 +48,14 @@
       "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
     },
     {
-      "title": "Instant Withdrawals",
-      "description": "Users can withdraw iCKB instantly, bypassing the standard 30-day lockup period required by Nervos DAO",
+      "title": {
+        "en": "Instant Withdrawals",
+        "ch": "即时提取"
+      },
+      "description": {
+        "en": "Users can withdraw iCKB instantly, bypassing the standard 30-day lockup period required by Nervos DAO",
+        "ch": "用户可以立即提取 iCKB，绕过 Nervos DAO 要求的标准 30 天锁定期"
+      },
       "gradient": "from-green-50 to-emerald-50",
       "borderColor": "border-green-200",
       "hoverBorderColor": "hover:border-green-300",
@@ -41,33 +65,77 @@
   ],
   "transparency": {
     "team": {
-      "title": "Team",
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
       "foundedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Present", "status": true },
-        { "name": "Responsive", "status": true },
-        { "name": "Identified Members", "status": true },
-        { "name": "Active", "status": true }
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": true
+        },
+        {
+          "name": "Identified Members",
+          "status": true
+        },
+        {
+          "name": "Active",
+          "status": true
+        }
       ]
     },
     "project": {
-      "title": "Project",
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
       "launchedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Open Source", "status": true },
-        { "name": "Audited", "status": true },
-        { "name": "White Paper" },
-        { "name": "Smart Contract", "status": true }
+        {
+          "name": "Open Source",
+          "status": true
+        },
+        {
+          "name": "Audited",
+          "status": true
+        },
+        {
+          "name": "White Paper"
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
       ]
     },
     "token": {
-      "title": "Token",
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
       "issuedDate": "Jan 01, 2019",
       "items": [
-        { "name": "FT Token", "status": true },
-        { "name": "NFT/DOB Token", "status": false },
-        { "name": "Tradable", "status": true },
-        { "name": "Exchange Listed", "status": false }
+        {
+          "name": "FT Token",
+          "status": true
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": true
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
       ]
     }
   },
@@ -75,22 +143,43 @@
     {
       "title": "NervDao",
       "icon": "/dappDetails/images/nervdao/logo.jpg",
-      "desc": "NervDao is a dApp on Nervos CKB, streamlining Nervos DAO interaction",
+      "desc": {
+        "en": "NervDao is a dApp on Nervos CKB, streamlining Nervos DAO interaction",
+        "ch": "NervDAO 是 Nervos CKB 上的去中心化应用，简化 Nervos DAO 交互"
+      },
       "dappId": "nervdao"
     }
   ],
   "faq": [
     {
-      "q": "How does iCKB work?",
-      "a": "Users convert CKB to iCKB, enabling instant withdrawals from Nervos DAO without the standard 30-day lockup."
+      "q": {
+        "en": "How does iCKB work?",
+        "ch": "iCKB 是如何工作的？"
+      },
+      "a": {
+        "en": "Users convert CKB to iCKB, enabling instant withdrawals from Nervos DAO without the standard 30-day lockup.",
+        "ch": "用户将 CKB 转换为 iCKB，无需标准的 30 天锁定期即可从 Nervos DAO 即时提取。"
+      }
     },
     {
-      "q": "Is iCKB secure?",
-      "a": "Yes, iCKB uses audited Layer 1 scripts on CKB to ensure robust security for transactions and assets."
+      "q": {
+        "en": "Is iCKB secure?",
+        "ch": "iCKB 安全吗？"
+      },
+      "a": {
+        "en": "Yes, iCKB uses audited Layer 1 scripts on CKB to ensure robust security for transactions and assets.",
+        "ch": "是的，iCKB 使用 CKB 上经过审计的第一层脚本确保交易和资产的强大安全性。"
+      }
     },
     {
-      "q": "Can iCKB be used in DeFi?",
-      "a": "iCKB is designed to support DeFi integration, with plans to expand compatibility for broader ecosystem use."
+      "q": {
+        "en": "Can iCKB be used in DeFi?",
+        "ch": "iCKB 可以用于 DeFi 吗？"
+      },
+      "a": {
+        "en": "iCKB is designed to support DeFi integration, with plans to expand compatibility for broader ecosystem use.",
+        "ch": "iCKB 旨在支持 DeFi 集成，计划扩展兼容性以供更广泛的生态系统使用。"
+      }
     }
   ]
-} 
+}

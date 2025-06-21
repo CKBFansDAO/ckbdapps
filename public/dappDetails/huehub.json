@@ -1,11 +1,20 @@
 {
-  "name": "Huehub",
-  "description": "HueHub is a decentralized exchange (DEX) within the Nervos CKB ecosystem, built on the RGB++ protocol to facilitate trading of Bitcoin Layer 1 assets on the CKB blockchain. Launched to support assets like $SEAL, HueHub offers a marketplace for buying and selling RGB++ assets with compatibility for major Bitcoin wallets such as JoyID, Unisat, and OKX. It features a fair launch mechanism, ensuring equal participation opportunities, and supports seamless asset transfers between Bitcoin and CKB without cross-chain bridges, enhancing security and decentralization. HueHub plays a key role in advancing the CKB ecosystem by enabling efficient, low-cost trading and fostering DeFi adoption.",
+  "name": "HueHub",
+  "description": {
+    "en": "HueHub is a decentralized exchange (DEX) within the Nervos CKB ecosystem, built on the RGB++ protocol, facilitating trading of Bitcoin Layer 1 assets on the CKB blockchain. Launched to support assets like $SEAL, HueHub provides a marketplace for buying and selling RGB++ assets, compatible with major Bitcoin wallets like JoyID, Unisat, and OKX. It features a fair launch mechanism ensuring equal participation opportunities, and supports seamless asset transfers between Bitcoin and CKB without cross-chain bridges, enhancing security and decentralization. HueHub aims to provide efficient, cost-effective trading to enhance DeFi adoption in the CKB ecosystem.",
+    "ch": "HueHub 是 Nervos CKB 生态系统内的去中心化交易所 (DEX)，基于 RGB++ 协议构建，促进比特币第一层资产在 CKB 区块链上的交易。为支持 $SEAL 等资产而推出，HueHub 提供买卖 RGB++ 资产的市场，兼容 JoyID、Unisat 和 OKX 等主要比特币钱包。它具有公平发行机制，确保平等参与机会，并支持比特币和 CKB 之间无缝资产转移而无需跨链桥接，增强安全性和去中心化。HueHub 旨在提供高效、成本效益的交易以增强 CKB 生态系统中的 DeFi 采用。"
+  },
   "titleImage": "/dappDetails/images/huehub/banner.jpg",
   "logo": "/dappDetails/images/huehub/logo.jpeg",
   "tags": [
-    { "name": "DEX", "color": "#8b5cf6" },
-    { "name": "Launchpad", "color": "#22c55e" }
+    {
+      "name": "DEX",
+      "color": "#8b5cf6"
+    },
+    {
+      "name": "Launchpad",
+      "color": "#22c55e"
+    }
   ],
   "socialLinks": {
     "twitter": "https://x.com/HueHubOfficial",
@@ -14,8 +23,14 @@
   "websiteUrl": "https://huehub.xyz/",
   "highlights": [
     {
-      "title": "Fair Launch Mechanism",
-      "description": "Ensures equal participation opportunities for all users during asset launches.",
+      "title": {
+        "en": "RGB++ Asset Trading",
+        "ch": "RGB++ 资产交易"
+      },
+      "description": {
+        "en": "Enables trading of Bitcoin Layer 1 assets on CKB through the RGB++ protocol, providing a secure and efficient marketplace",
+        "ch": "通过 RGB++ 协议在 CKB 上实现比特币第一层资产交易，提供安全高效的市场"
+      },
       "gradient": "from-amber-50 to-orange-50",
       "borderColor": "border-amber-200",
       "hoverBorderColor": "hover:border-amber-300",
@@ -23,8 +38,14 @@
       "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
     },
     {
-      "title": "Low-Cost Trading",
-      "description": "Offers efficient, cost-effective trading to enhance DeFi adoption in the CKB ecosystem.",
+      "title": {
+        "en": "Fair Launch Mechanism",
+        "ch": "公平发行机制"
+      },
+      "description": {
+        "en": "Implements a fair launch system ensuring equal participation opportunities for all users during asset launches",
+        "ch": "实施公平发行系统，确保所有用户在资产发行期间获得平等参与机会"
+      },
       "gradient": "from-blue-50 to-purple-50",
       "borderColor": "border-blue-200",
       "hoverBorderColor": "hover:border-blue-300",
@@ -34,52 +55,112 @@
   ],
   "transparency": {
     "team": {
-      "title": "Team",
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
       "foundedDate": "Jan 01, 2024",
       "items": [
-        { "name": "Present", "status": false },
-        { "name": "Responsive", "status": false },
-        { "name": "Identified Members", "status": false },
-        { "name": "Active", "status": false }
+        {
+          "name": "Present",
+          "status": false
+        },
+        {
+          "name": "Responsive",
+          "status": false
+        },
+        {
+          "name": "Identified Members",
+          "status": false
+        },
+        {
+          "name": "Active",
+          "status": false
+        }
       ]
     },
     "project": {
-      "title": "Project",
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
       "launchedDate": "Jan 01, 2024",
       "items": [
-        { "name": "Open Source", "status": false },
-        { "name": "Audited", "status": false },
-        { "name": "White Paper", "status": false },
-        { "name": "Smart Contract", "status": true }
+        {
+          "name": "Open Source",
+          "status": false
+        },
+        {
+          "name": "Audited",
+          "status": false
+        },
+        {
+          "name": "White Paper",
+          "status": false
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
       ]
     },
     "token": {
-      "title": "Token",
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
       "issuedDate": "Jan 01, 2019",
       "items": [
-        { "name": "FT Token", "status": false },
-        { "name": "NFT/DOB Token", "status": false },
-        { "name": "Tradable", "status": false },
-        { "name": "Exchange Listed", "status": false }
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
       ]
     }
   },
   "related": [
     {
       "title": "UTXO Swap",
-      "desc": "The first orderbook exchange for RGB++ assets on Bitcoin.",
+      "desc": {
+        "en": "The first orderbook exchange for RGB++ assets on Bitcoin.",
+        "ch": "比特币上第一个 RGB++ 资产的订单簿交易所。"
+      },
       "icon": "/dappDetails/images/utxoswap/logo.png",
       "dappId": "utxoswap"
     }
   ],
   "faq": [
     {
-      "q": "What are the benefits of trading on HueHub?",
-      "a": "HueHub offers low-cost, efficient trading, enhancing security and promoting DeFi adoption in the CKB ecosystem."
+      "q": {
+        "en": "What are the benefits of trading on HueHub?",
+        "ch": "在 HueHub 上交易有什么好处？"
+      },
+      "a": {
+        "en": "HueHub provides low-cost, efficient trading, enhanced security, and promotes DeFi adoption in the CKB ecosystem.",
+        "ch": "HueHub 提供低成本、高效的交易，增强安全性并促进 CKB 生态系统中的 DeFi 采用。"
+      }
     },
     {
-      "q": "How does HueHub ensure fair participation?",
-      "a": "HueHub uses a fair launch mechanism to provide equal opportunities for all users during asset launches."
+      "q": {
+        "en": "How does HueHub ensure fair participation?",
+        "ch": "HueHub 如何确保公平参与？"
+      },
+      "a": {
+        "en": "HueHub uses a fair launch mechanism to provide equal opportunities for all users during asset launches.",
+        "ch": "HueHub 使用公平发行机制为所有用户在资产发行期间提供平等机会。"
+      }
     }
   ]
-} 
+}

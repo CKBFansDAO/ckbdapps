@@ -1,10 +1,16 @@
 {
   "name": "Philosopher's Stone",
-  "description": "Philosopher's Stone is a decentralized blind box NFT collection project on the Nervos CKB blockchain, designed to bring gamified excitement to digital collectibles. Leveraging the RGB++ protocol, it enables users to unbox unique NFTs with varying rarities, inspired by the alchemical mystique of the Philosopher's Stone. Built on CKB’s Proof-of-Work (PoW) consensus and Cell model, the project offers secure, scalable, and permissionless NFT minting and trading. Compatible with Bitcoin wallets like JoyID, Unisat, and OKX, Philosopher's Stone enhances user engagement through the thrill of mystery unboxing, fostering a vibrant community within the CKB ecosystem. Likely supported by the CKB Eco Fund, it aims to boost liquidity and exposure for NFT creators and collectors.",
+  "description": {
+    "en": "Philosopher's Stone is a decentralized blind box NFT collection project on the Nervos CKB blockchain, designed to bring gamified excitement to digital collectibles. Leveraging the RGB++ protocol, it enables users to purchase mystery boxes containing NFTs of random rarity, recreating the thrill of opening Pop Mart mystery packages. Players can mint, trade, and showcase their digital collectibles while participating in gamified activities and challenges. Built on CKB's secure Layer 1 and Cell model, Philosopher's Stone provides a unique blend of blockchain technology and collectible culture.",
+    "ch": "Philosopher's Stone 是 Nervos CKB 区块链上的去中心化盲盒 NFT 收藏项目，旨在为数字收藏品带来游戏化的兴奋感。利用 RGB++ 协议，它使用户能够购买包含随机稀有度 NFT 的神秘盒子，重现了类似泡泡玛特神秘包装的刺激感。玩家可以铸造、交易和展示他们的数字收藏品，同时参与游戏化活动和挑战。基于 CKB 安全的第一层和 Cell 模型构建，Philosopher's Stone 提供区块链技术和收藏文化的独特融合。"
+  },
   "titleImage": "/dappDetails/images/philosopherstone/banner.jpg",
   "logo": "/dappDetails/images/philosopherstone/logo.jpg",
   "tags": [
-    { "name": "DOBs", "color": "bg-purple-600" }
+    {
+      "name": "DOBs",
+      "color": "bg-purple-600"
+    }
   ],
   "socialLinks": {
     "twitter": "https://twitter.com/web5hive",
@@ -14,8 +20,14 @@
   "websiteUrl": "https://philosopherstone.xyz/",
   "highlights": [
     {
-      "title": "Blind Box NFT Collection",
-      "description": "Offers a gamified experience where users unbox NFTs with randomized rarities, recreating the thrill of mystery packages like Pop Mart",
+      "title": {
+        "en": "Blind Box NFT Collection",
+        "ch": "盲盒 NFT 收藏"
+      },
+      "description": {
+        "en": "Offers gamified experience where users can open NFTs with random rarity, recreating the thrill of Pop Mart mystery packages",
+        "ch": "提供游戏化体验，用户可以开启具有随机稀有度的 NFT，重现类似泡泡玛特神秘包装的刺激感"
+      },
       "gradient": "from-amber-50 to-orange-50",
       "borderColor": "border-amber-200",
       "hoverBorderColor": "hover:border-amber-300",
@@ -25,48 +37,102 @@
   ],
   "transparency": {
     "team": {
-      "title": "Team",
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
       "foundedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Present", "status": false },
-        { "name": "Responsive", "status": false },
-        { "name": "Identified Members", "status": false },
-        { "name": "Active", "status": false }
+        {
+          "name": "Present",
+          "status": false
+        },
+        {
+          "name": "Responsive",
+          "status": false
+        },
+        {
+          "name": "Identified Members",
+          "status": false
+        },
+        {
+          "name": "Active",
+          "status": false
+        }
       ]
     },
     "project": {
-      "title": "Project",
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
       "launchedDate": "Jan 01, 2019",
       "items": [
-        { "name": "Open Source", "status": true },
-        { "name": "Audited", "status": false },
-        { "name": "White Paper", "status": false },
-        { "name": "Smart Contract", "status": true }
+        {
+          "name": "Open Source",
+          "status": true
+        },
+        {
+          "name": "Audited",
+          "status": false
+        },
+        {
+          "name": "White Paper",
+          "status": false
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
       ]
     },
     "token": {
-      "title": "Token",
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
       "issuedDate": "Jan 01, 2019",
       "items": [
-        { "name": "FT Token", "status": false },
-        { "name": "NFT/DOB Token", "status": true },
-        { "name": "Tradable", "status": true },
-        { "name": "Exchange Listed", "status": false }
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": true
+        },
+        {
+          "name": "Tradable",
+          "status": true
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
       ]
     }
   },
   "related": [
     {
-      "title": "imagiNation",
-      "desc": "A decentralized NFT collection platform on the Nervos CKB",
-      "icon": "/dappDetails/images/imagination/logo.jpg",
-      "dappId": "imagination"
+      "title": "JoyGift",
+      "icon": "/dappDetails/images/joygift/logo.jpeg",
+      "desc": {
+        "en": "Decentralized NFT collection platform on Nervos CKB",
+        "ch": "Nervos CKB 上的去中心化 NFT 收藏平台"
+      },
+      "dappId": "joygift"
     }
   ],
   "faq": [
     {
-      "q": "What are the use cases for Philosopher's Stone NFTs?",
-      "a": "NFTs can be used as collectibles, tradable assets, or rewards in community-driven or gaming ecosystems, with potential integration into CKB’s DeFi platforms."
+      "q": {
+        "en": "What are the use cases for Philosopher's Stone NFTs?",
+        "ch": "Philosopher's Stone NFT 的用例是什么？"
+      },
+      "a": {
+        "en": "NFTs can be used as collectibles, tradeable assets, or rewards in community-driven or gaming ecosystems, with potential integration into CKB's DeFi platforms.",
+        "ch": "NFT 可以用作收藏品、可交易资产，或在社区驱动或游戏生态系统中的奖励，并有可能集成到 CKB 的 DeFi 平台中。"
+      }
     }
   ]
-} 
+}

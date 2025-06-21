@@ -2,6 +2,8 @@ import { ArrowLeft, ExternalLink, Zap, Info } from "lucide-react";
 import { FaReddit, FaDiscord, FaTelegramPlane, FaTwitter, FaGithub, FaYoutube, FaMedium, FaQuestionCircle, FaLightbulb } from "react-icons/fa";
 import Button from "../components/ui/button";
 import { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
+import { getLocalizedText } from "../utils/i18n";
 
 // highlight color configuration, up to 6
 const highlightsColors = [
@@ -70,7 +72,7 @@ const marketingIconMap = {
   },
 };
 
-const ProjectHeader = ({ data, onClose }) => {
+const ProjectHeader = ({ data, onClose, language }) => {
   return (
     <section className="bg-white py-6 px-4 md:py-8 border-b border-gray-200">
       <div className="max-w-7xl mx-auto">
@@ -140,14 +142,14 @@ const ProjectHeader = ({ data, onClose }) => {
           </div>
         </div>
         <p className="text-gray-700 leading-relaxed">
-          {data.description}
+          {getLocalizedText(data.description, language)}
         </p>
       </div>
     </section>
   );
 }
 
-const AwesomeHighlights = ({ highlights }) => {
+const AwesomeHighlights = ({ highlights, language }) => {
   if (!highlights) return null;
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
@@ -168,8 +170,8 @@ const AwesomeHighlights = ({ highlights }) => {
               >
                 <div className="flex items-center justify-between w-full">
                   <div className="max-w-[90%] min-w-0">
-                    <h4 className="text-gray-900 font-bold text-lg break-words whitespace-normal">{item.title}</h4>
-                    <p className={`${color.text} text-sm break-words whitespace-normal pt-2`}>{item.description}</p>
+                    <h4 className="text-gray-900 font-bold text-lg break-words whitespace-normal">{getLocalizedText(item.title, language)}</h4>
+                    <p className={`${color.text} text-sm break-words whitespace-normal pt-2`}>{getLocalizedText(item.description, language)}</p>
                   </div>
                   {item.link ? (
                     <Button
@@ -239,7 +241,7 @@ const VideoSection = ({ videos, videoIndex, setVideoIndex }) => {
   );
 }
 
-const ProjectTransparency = ({ transparency }) => {
+const ProjectTransparency = ({ transparency, language }) => {
   if (!transparency) return null;
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
@@ -283,7 +285,7 @@ const ProjectTransparency = ({ transparency }) => {
               </svg>
             </div>
             <div>
-              <h4 className="text-xl font-bold text-gray-900">{transparency.team.title}</h4>
+              <h4 className="text-xl font-bold text-gray-900">{getLocalizedText(transparency.team.title, language)}</h4>
             </div>
           </div>
           <div className="space-y-4">
@@ -323,7 +325,7 @@ const ProjectTransparency = ({ transparency }) => {
               </svg>
             </div>
             <div>
-              <h4 className="text-xl font-bold text-gray-900">{transparency.project.title}</h4>
+              <h4 className="text-xl font-bold text-gray-900">{getLocalizedText(transparency.project.title, language)}</h4>
             </div>
           </div>
           <div className="space-y-4">
@@ -363,7 +365,7 @@ const ProjectTransparency = ({ transparency }) => {
               </svg>
             </div>
             <div>
-              <h4 className="text-xl font-bold text-gray-900">{transparency.token.title}</h4>
+              <h4 className="text-xl font-bold text-gray-900">{getLocalizedText(transparency.token.title, language)}</h4>
             </div>
           </div>
           <div className="space-y-4">
@@ -394,7 +396,7 @@ const ProjectTransparency = ({ transparency }) => {
   );
 }
 
-const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedClick }) => {
+const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedClick, language }) => {
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -410,19 +412,19 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedCli
                 `}
                 onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
               >
-                <div className="flex items-center justify-between px-6 py-4">
-                  <div className="flex items-center gap-2">
-                    <FaQuestionCircle className="text-orange-400" />
-                    <span className="font-medium text-gray-900 text-lg">{item.q}</span>
+                <div className="flex items-start justify-between px-6 py-4">
+                  <div className="flex items-start gap-3">
+                    <FaQuestionCircle className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0 pt-1" />
+                    <span className="font-medium text-gray-900 text-lg leading-relaxed">{getLocalizedText(item.q, language)}</span>
                   </div>
-                  <span className="ml-2 text-gray-400 text-2xl font-bold select-none">
+                  <span className="ml-2 text-gray-400 text-2xl font-bold select-none mt-0.5">
                     {expandedFaq === idx ? '-' : '+'}
                   </span>
                 </div>
                 {expandedFaq === idx && (
                   <div className="transition-all duration-300 py-4 px-8 bg-white border-t border-orange-100 flex items-start gap-3 text-gray-700 text-base">
-                    <FaLightbulb className="mt-1 text-yellow-400" />
-                    <span>{item.a}</span>
+                    <FaLightbulb className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0 pt-1" />
+                    <span className="leading-relaxed">{getLocalizedText(item.a, language)}</span>
                   </div>
                 )}
               </div>
@@ -442,7 +444,7 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedCli
                 <img src={item.icon} alt={item.title} className="w-12 h-12 rounded-md object-contain bg-gray-100" />
                 <div className="ml-4 flex-1 min-w-0">
                   <div className="font-bold text-base text-gray-900 truncate">{item.title}</div>
-                  <div className="text-gray-600 text-sm truncate">{item.desc}</div>
+                  <div className="text-gray-600 text-sm truncate">{getLocalizedText(item.desc, language)}</div>
                 </div>
               </div>
             ))}
@@ -454,6 +456,7 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedCli
 }
 
 export default function DappDetail({ dappId, onClose, onRelatedClick }) {
+  const language = useSelector(state => state.langReducer.language);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -512,16 +515,16 @@ export default function DappDetail({ dappId, onClose, onRelatedClick }) {
       </section>
 
       {/* Project Header (modularized) */}
-      <ProjectHeader data={data} onClose={onClose} />
+      <ProjectHeader data={data} onClose={onClose} language={language} />
 
       {/* Awesome Highlights (modularized) */}
-      <AwesomeHighlights highlights={data.highlights} />
+      <AwesomeHighlights highlights={data.highlights} language={language} />
 
       {/* Video Section (modularized) */}
       <VideoSection videos={data.videos} videoIndex={videoIndex} setVideoIndex={setVideoIndex} />
 
       {/* Project Transparency (modularized) */}
-      <ProjectTransparency transparency={data.transparency} />
+      <ProjectTransparency transparency={data.transparency} language={language} />
 
       {/* FAQ & Related (modularized) */}
       <FAQAndRelated
@@ -530,6 +533,7 @@ export default function DappDetail({ dappId, onClose, onRelatedClick }) {
         expandedFaq={expandedFaq}
         setExpandedFaq={setExpandedFaq}
         onRelatedClick={onRelatedClick}
+        language={language}
       />
     </div>
   );
