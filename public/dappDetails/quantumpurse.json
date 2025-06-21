@@ -1,0 +1,180 @@
+{
+  "name": "Quantum Purse",
+  "description": {
+    "en": "Quantum Purse is an innovative anti-quantum wallet built on the Nervos CKB (Common Knowledge Base) blockchain, designed to provide cutting-edge security for digital assets in a post-quantum computing world. By integrating a CKB light node, Quantum Purge enables users to interact with the blockchain directly from their web browsers, eliminating the need for heavy software installations while maintaining efficiency and accessibility. This seamless browser-based functionality is a standout technical feature, making the wallet user-friendly and highly adaptable to various devices and environments.",
+    "ch": "Quantum Purse 是一个基于 Nervos CKB 区块链构建的创新型抗量子钱包，旨在为后量子计算时代的数字资产提供前沿安全性。通过集成 CKB 轻节点，Quantum Purse 使用户能够直接从网络浏览器与区块链交互，无需安装重型软件，同时保持效率和可访问性。这种无缝的基于浏览器的功能是其突出的技术特色，使钱包用户友好且高度适应各种设备和环境。"
+  },
+  "titleImage": "/dappDetails/images/quantumpurse/banner.jpg",
+  "logo": "/dappDetails/images/quantumpurse/logo.jpg",
+  "tags": [
+    {
+      "name": "Wallet",
+      "color": "bg-red-600"
+    }
+  ],
+  "socialLinks": {
+    "github": "https://github.com/tea2x/quantum-purse-web-static"
+  },
+  "websiteUrl": "https://quantum-purse.vercel.app/wallet",
+  "highlights": [
+    {
+      "title": {
+        "en": "First Spark Projects Grantee",
+        "ch": "首个 Spark 项目资助获得者"
+      },
+      "description": {
+        "en": "Selected as the inaugural recipient of the Spark Projects Fund, recognizing its innovative potential",
+        "ch": "被选为 Spark 项目基金的首位获得者，获得对其创新潜力的认可"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "Anti-Quantum Wallet",
+        "ch": "抗量子钱包"
+      },
+      "description": {
+        "en": "Utilizes advanced anti-quantum algorithms to safeguard digital assets against future quantum computing threats",
+        "ch": "采用先进的抗量子算法保护数字资产免受未来量子计算威胁"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": {
+        "en": "CKB Light Client Integration",
+        "ch": "CKB 轻客户端集成"
+      },
+      "description": {
+        "en": "Runs a CKB light client directly in browsers, enabling seamless blockchain interaction without heavy software",
+        "ch": "在浏览器中直接运行 CKB 轻客户端，实现无需重型软件的无缝区块链交互"
+      },
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    },
+    {
+      "title": {
+        "en": "Browser-Based Accessibility",
+        "ch": "基于浏览器的可访问性"
+      },
+      "description": {
+        "en": "Operates entirely within web browsers, offering user-friendly access across devices with minimal setup",
+        "ch": "完全在网络浏览器内运行，提供跨设备的用户友好访问，设置最少"
+      },
+      "gradient": "from-purple-50 to-pink-50",
+      "borderColor": "border-purple-200",
+      "hoverBorderColor": "hover:border-purple-300",
+      "textColor": "text-purple-700",
+      "buttonColor": "text-purple-600 hover:text-purple-700 hover:bg-purple-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": true
+        },
+        {
+          "name": "Identified Members",
+          "status": true
+        },
+        {
+          "name": "Active",
+          "status": true
+        }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        {
+          "name": "Open Source",
+          "status": true
+        },
+        {
+          "name": "Audited"
+        },
+        {
+          "name": "White Paper",
+          "status": false
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "issuedDate": "Jan 01, 2019",
+      "items": [
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "JoyID",
+      "desc": {
+        "en": "Multi-chain identity protocol allows users to manage digital identity.",
+        "ch": "多链身份协议允许用户管理数字身份。"
+      },
+      "icon": "/dappDetails/images/joyid/logo.jpg",
+      "dappId": "joyid"
+    }
+  ],
+  "faq": [
+    {
+      "q": {
+        "en": "Is Quantum Purse self-custody?",
+        "ch": "Quantum Purse 是自托管的吗？"
+      },
+      "a": {
+        "en": "Yes. When you use Quantum Purse, a browser-based light client will be running in the background, which will help you manage wallet in a self-custody way.",
+        "ch": "是的。当您使用 Quantum Purse 时，基于浏览器的轻客户端将在后台运行，这将帮助您以自托管的方式管理钱包。"
+      }
+    }
+  ]
+}

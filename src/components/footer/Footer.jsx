@@ -35,23 +35,22 @@ const Footer = (props) => {
 
     }, []);
 
-    return (<div className='flex flex-col place-content-center gap-4'>
+    return (
+        <div className='w-full bg-[#232325] py-8'>
         <span className='border-[0.1px] seperator'></span>
-        <div className=' text-sm px-3 flex items-center justify-center'> 
-            <a className=' text-sm px-3 py-5' href={community_link.community[currentLanguage()].feedback.link} rel="noopener noreferrer" target="_blank">
+            <div className='text-lg px-3 flex items-center justify-center'>
+                <a className='text-lg px-3 py-5' href={community_link.community[currentLanguage()].feedback.link} rel="noopener noreferrer" target="_blank">
                 {community_link.community[currentLanguage()].feedback.name}
             </a>
             {
                 footer_res_config.map((item, index) => {
-                    return <a key={index} className={`text-sm px-3 py-5`} href={item.link} rel="noopener noreferrer" target="_blank">
-                        
+                        return <a key={index} className={`text-lg px-3 py-5`} href={item.link} rel="noopener noreferrer" target="_blank">
                         <span className={item.class_name}>{t(item.display_name)}</span>
                     </a>
                 })
             }
         </div>
-
-        <div className=' text-sm px-3 py-5 flex items-center justify-center'>
+            <div className='text-xl px-3 py-5 flex items-center justify-center'>
             © 2023 - {new Date().getFullYear()} ckbdapps.com All rights reserved
         </div>
     </div>

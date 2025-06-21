@@ -97,7 +97,7 @@ const BlockchainProgressBar = ({ epoch }) => {
     const epochNumber = !epoch ? '-' : epoch.number;
 
     return <div className="flex flex-col gap-2">
-      <span className='text-sm whitespace-nowrap'>{t('halving.current-epoch')}</span>
+      <span className='text-sm whitespace-nowrap text-[#232325]'>{t('halving.current-epoch')}</span>
       <div className="relative">
         <div className="relative rounded-full h-6 w-[100px] bg-[#D5CCE9] text-gray-700">
           <div className="absolute h-6  bg-[#00DF9B]"
@@ -112,7 +112,7 @@ const BlockchainProgressBar = ({ epoch }) => {
           ></div>
           <div className="absolute item-center pt-[2px] px-3 h-6 w-full text-white font-bold text-left"
           ># {epochNumber}</div>
-          <div className="absolute pt-[2px] h-6 w-full pr-1 text-black font-bold text-right text-[10px]"
+          <div className="absolute pt-[2px] h-6 w-full pr-1 text-[#232325] font-bold text-right text-[10px]"
           >{epochProgress.toFixed(0)}%</div>
         </div>
 

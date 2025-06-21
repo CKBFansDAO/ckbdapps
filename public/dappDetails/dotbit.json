@@ -1,0 +1,125 @@
+{
+  "name": "DotBit",
+  "description": {
+    "en": "DotBit is a decentralized, cross-chain account and digital identity (DID) protocol built on the Nervos CKB blockchain. It provides a globally unique naming system with .bit suffix (e.g., imac.bit), enabling users to register and manage accounts that operate across multiple blockchains for use cases like cryptocurrency transfers, domain resolution, and identity verification. Unlike traditional domain systems like DNS or Ethereum's ENS, .bit is highly interoperable, allowing users to use any public chain address (like Ethereum, Bitcoin, or TRON) or even email addresses to own/manage accounts. It provides resolution services and registrar interfaces (similar to GoDaddy for domains), facilitating account registration, management, and trading, enhancing Web3 accessibility.",
+    "ch": "DotBit 是基于 Nervos CKB 区块链构建的去中心化、跨链账户和数字身份 (DID) 协议。它提供带有 .bit 后缀的全球唯一命名系统 (如 imac.bit)，使用户能够注册和管理在多个区块链上运行的账户，用于加密货币转账、域名解析和身份认证等用例。与传统的域名系统如 DNS 或以太坊的 ENS 不同，.bit 具有高度互操作性，允许用户使用任何公链地址 (如以太坊、比特币或 TRON) 甚至电子邮件地址来拥有/管理账户。它提供解析服务和注册商接口 (类似于域名的 GoDaddy)，便于账户注册、管理和交易，增强 Web3 可访问性。"
+  },
+  "titleImage": "/dappDetails/images/dotbit/banner.jpg",
+  "logo": "/dappDetails/images/dotbit/logo.jpg",
+  "tags": [
+    { "name": "DID", "color": "#8b5cf6" }
+  ],
+  "socialLinks": {
+    "twitter": "https://twitter.com/dotbitHQ",
+    "discord": "https://discord.gg/did",
+    "github": "https://github.com/dotbitHQ",
+    "medium": "https://dotbit.medium.com/"
+  },
+  "websiteUrl": "https://did.id",
+  "highlights": [
+    {
+      "title": {
+        "en": "Cross-Chain Account System",
+        "ch": "跨链账户系统"
+      },
+      "description": {
+        "en": "Provides unique .bit accounts (like name.bit) for cryptocurrency transfers, domain resolution, and identity verification, independent of centralized systems like DNS",
+        "ch": "提供独特的 .bit 账户 (如 name.bit) 用于加密货币转账、域名解析和身份认证，独立于 DNS 等中心化系统"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "Resolution Services",
+        "ch": "解析服务"
+      },
+      "description": {
+        "en": "Provides resolution services and registrar interfaces (similar to GoDaddy for domains), facilitating account registration, management, and trading, enhancing Web3 accessibility",
+        "ch": "提供解析服务和注册商接口 (类似于域名的 GoDaddy)，便于账户注册、管理和交易，增强 Web3 可访问性"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        { "name": "Open Source", "status": true },
+        { "name": "Audited" },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "issuedDate": "unknown",
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": true },
+        { "name": "Tradable", "status": true },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": {
+        "en": "How is .bit different from ENS or DNS?",
+        "ch": ".bit 与 ENS 或 DNS 有什么不同？"
+      },
+      "a": {
+        "en": "Unlike Ethereum's ENS or centralized DNS, .bit is blockchain-agnostic, allowing any public chain address (like Bitcoin, Ethereum, TRON) or email to own/manage accounts. It provides flexible record types and runs on CKB's secure Layer 1.",
+        "ch": "与以太坊的 ENS 或中心化 DNS 不同，.bit 是区块链无关的，允许任何公链地址 (如比特币、以太坊、TRON) 或电子邮件拥有/管理账户。它提供灵活的记录类型，并在 CKB 安全的第一层上运行。"
+      }
+    },
+    {
+      "q": {
+        "en": "What can I do with a .bit account?",
+        "ch": "我可以用 .bit 账户做什么？"
+      },
+      "a": {
+        "en": ".bit accounts support cryptocurrency transfers, domain resolution for Web3 DApps, identity verification, and data storage (like profiles, custom records). They can also be traded as NFTs on platforms like OpenSea.",
+        "ch": ".bit 账户支持加密货币转账、Web3 DApp 的域名解析、身份认证和数据存储 (如个人资料、自定义记录)。它们也可以在 OpenSea 等平台上作为 NFT 进行交易。"
+      }
+    },
+    {
+      "q": {
+        "en": "Can I use .bit without technical knowledge?",
+        "ch": "我可以在没有技术知识的情况下使用 .bit 吗？"
+      },
+      "a": {
+        "en": "Absolutely. .bit's user-friendly interface and wallet integration simplify account registration, management, and usage, making it accessible for both Web3 beginners and experts.",
+        "ch": "绝对可以。.bit 的用户友好界面和钱包集成简化了账户注册、管理和使用，使 Web3 初学者和专家都能轻松使用。"
+      }
+    }
+  ]
+} 

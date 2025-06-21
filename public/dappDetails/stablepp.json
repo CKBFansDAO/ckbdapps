@@ -1,0 +1,177 @@
+{
+  "name": "Stable++",
+  "description": {
+    "en": "Stable++ is a pioneering decentralized protocol on the Nervos CKB blockchain, built on the RGB++ layer to enhance Bitcoin's scalability and programmability. As the first over-collateralized stablecoin protocol on CKB, Stable++ allows users to mint BUSD stablecoins by over-collateralizing BTC assets, bringing stability and liquidity to the Bitcoin and RGB++ ecosystems. It leverages CKB's Proof-of-Work (PoW) consensus and Cell model, combined with the RGB++ protocol's Bitcoin UTXO to CKB Cell mapping, to provide secure and scalable stablecoin issuance and trading.",
+    "ch": "Stable++ 是 Nervos CKB 区块链上的开创性去中心化协议，基于 RGB++ 层构建，增强了比特币的可扩展性和可编程性。作为 CKB 上第一个超额抵押稳定币协议，Stable++ 允许用户通过超额抵押 BTC 资产来铸造 BUSD 稳定币，为比特币和 RGB++ 生态系统带来稳定性和流动性。它利用 CKB 的工作量证明 (PoW) 共识和 Cell 模型，结合 RGB++ 协议的比特币 UTXO 到 CKB Cell 的映射，提供安全可扩展的稳定币发行和交易。"
+  },
+  "titleImage": "/dappDetails/images/stablepp/banner.jpg",
+  "logo": "/dappDetails/images/stablepp/logo.png",
+  "tags": [
+    {
+      "name": "Stablecoin",
+      "color": "bg-purple-600"
+    },
+    {
+      "name": "DeFi",
+      "color": "bg-yellow-600"
+    }
+  ],
+  "socialLinks": {
+    "twitter": "https://twitter.com/stablepp",
+    "telegram": "https://t.me/Stablepp",
+    "discord": "https://discord.gg/uwnMswHrgj",
+    "medium": "https://medium.com/@Stablepp"
+  },
+  "websiteUrl": "https://www.stablepp.xyz/",
+  "highlights": [
+    {
+      "title": {
+        "en": "First Over-Collateralized Stablecoin",
+        "ch": "首个超额抵押稳定币"
+      },
+      "description": {
+        "en": "Stable++ launches the first decentralized, over-collateralized stablecoin protocol on CKB, ensuring stability and trustlessness within the Bitcoin ecosystem",
+        "ch": "Stable++ 推出 CKB 上首个去中心化、超额抵押稳定币协议，确保比特币生态系统内的稳定性和去信任化"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "RGB++ Layer Integration",
+        "ch": "RGB++ 层集成"
+      },
+      "description": {
+        "en": "Built on the RGB++ protocol, Stable++ enhances Bitcoin's smart contract capabilities, enabling secure and scalable stablecoin issuance and trading",
+        "ch": "基于 RGB++ 协议构建，Stable++ 增强比特币的智能合约功能，实现安全可扩展的稳定币发行和交易"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": true
+        },
+        {
+          "name": "Identified Members",
+          "status": true
+        },
+        {
+          "name": "Active",
+          "status": true
+        }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        {
+          "name": "Open Source",
+          "status": false
+        },
+        {
+          "name": "Audited"
+        },
+        {
+          "name": "White Paper",
+          "status": true
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "issuedDate": "Jan 01, 2019",
+      "items": [
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": {
+        "en": "How does Stable++ work?",
+        "ch": "Stable++ 是如何工作的？"
+      },
+      "a": {
+        "en": "Stable++ uses CKB's PoW consensus and Cell model, combined with the RGB++ protocol, to issue and manage stablecoins backed by over-collateralized assets, ensuring stability and security.",
+        "ch": "Stable++ 使用 CKB 的 PoW 共识和 Cell 模型，结合 RGB++ 协议，发行和管理由超额抵押资产支持的稳定币，确保稳定性和安全性。"
+      }
+    },
+    {
+      "q": {
+        "en": "Which wallets are compatible with Stable++?",
+        "ch": "哪些钱包与 Stable++ 兼容？"
+      },
+      "a": {
+        "en": "Stable++ supports mainstream Bitcoin wallets like Unisat, OKX, and JoyID, allowing users to seamlessly interact with the protocol.",
+        "ch": "Stable++ 支持 Unisat、OKX 和 JoyID 等主流比特币钱包，允许用户无缝与协议交互。"
+      }
+    },
+    {
+      "q": {
+        "en": "How does Stable++ ensure stability?",
+        "ch": "Stable++ 如何确保稳定性？"
+      },
+      "a": {
+        "en": "By using an over-collateralization model, Stable++ ensures stablecoin values are backed by excess collateral, reducing volatility and enhancing trust.",
+        "ch": "通过使用超额抵押模型，Stable++ 确保稳定币价值由超额抵押品支持，减少波动性并增强信任度。"
+      }
+    },
+    {
+      "q": {
+        "en": "What is the purpose of Stable++ stablecoins?",
+        "ch": "Stable++ 稳定币的目的是什么？"
+      },
+      "a": {
+        "en": "Stable++ aims to provide stable, decentralized value storage for DeFi applications, trading, and asset management within the Bitcoin and CKB ecosystems.",
+        "ch": "Stable++ 旨在为比特币和 CKB 生态系统内的 DeFi 应用、交易和资产管理提供稳定的去中心化价值存储。"
+      }
+    }
+  ]
+}

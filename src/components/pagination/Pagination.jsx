@@ -105,27 +105,27 @@ const Pagination = (props) => {
         let hasNextPage = data.pageCount > data.pageIndex;
         let hasPrevPage = data.pageIndex > 1 && data.pageCount > 1;
         
-        let nextPageBtn = <button className={`opacity-50 cursor-not-allowed didsabled:cursor-not-allowed disabled:opacity-50`} disabled>{t('component.pagination.next-page')}</button>
+        let nextPageBtn = <button className={`text-[#222] font-medium opacity-50 cursor-not-allowed didsabled:cursor-not-allowed disabled:opacity-50`} disabled>{t('component.pagination.next-page')}</button>
         if (hasNextPage) {
-            nextPageBtn = <button className={`hover:text-[#00DF9B]`} onClick={()=>{gotoPage(data.pageIndex + 1)}}>{t('component.pagination.next-page')}</button>
+            nextPageBtn = <button className={`hover:text-[#00DF9B] text-[#222] font-medium`} onClick={()=>{gotoPage(data.pageIndex + 1)}}>{t('component.pagination.next-page')}</button>
         }
 
-        let prevPageBtn = <button className={`opacity-50 cursor-not-allowed didsabled:cursor-not-allowed disabled:opacity-50`} disabled>{t('component.pagination.prev-page')}</button>
+        let prevPageBtn = <button className={`text-[#222] font-medium opacity-50 cursor-not-allowed didsabled:cursor-not-allowed disabled:opacity-50`} disabled>{t('component.pagination.prev-page')}</button>
         if (hasPrevPage) {
-            prevPageBtn = <button className={`hover:text-[#00DF9B]`} onClick={()=>{gotoPage(data.pageIndex - 1)}}>{t('component.pagination.prev-page')}</button>
+            prevPageBtn = <button className={`hover:text-[#00DF9B] text-[#222] font-medium`} onClick={()=>{gotoPage(data.pageIndex - 1)}}>{t('component.pagination.prev-page')}</button>
         }
 
         return <div className='flex flex-row h-[28px] gap-2 md:gap-4 place-content-center'>
             {prevPageBtn}
-            <span className='py-0.5'>{data.pageIndex}/{data.pageCount}</span>
+            <span className='py-0.5 text-[#222] font-medium'>{data.pageIndex}/{data.pageCount}</span>
             {nextPageBtn}
             {/*<DropdownMenu className="z-0"
                 customToggle={() => renderCurPageSize()}
                 contentData={page_size_config}
                 renderItems={(item, index) => RenderPageSizeMenuItem(item, index)}
     ></DropdownMenu>*/}
-            <span className='py-0.5'>{t("component.pagination.goto-page")}</span>
-            <input className='w-[50px] h-[28px] text-center px-1 border-gray-400 rounded-full border-[1px]' 
+            <span className='py-0.5 text-[#222] font-medium'>{t("component.pagination.goto-page")}</span>
+            <input className='w-[50px] h-[28px] text-center px-1 border-gray-400 rounded-full border-[1px] text-black' 
                 ref={gotoPageRef} type="text" onKeyDown={handleKeyDown}/>
         </div>
     }

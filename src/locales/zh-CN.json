@@ -41,6 +41,7 @@
       "ecosystem":"生态系统",
       "halving": "CKB 减半",
       "events":"活动",
+      "statistics": "统计数据",
       "about-us": "关于我们"
     },
     "page-title": {
@@ -52,6 +53,18 @@
       "about-us":"关于我们"
     },
     "home": {
+      "sections": {
+        "spark-granted": "Spark 资助项目",
+        "highlighted": "精选项目",
+        "premium": "优质项目",
+        "community": "社区驱动项目",
+        "community-fund": "社区基金 DAO"
+      },
+      "buttons": {
+        "discord": "Discord",
+        "explore": "探索",
+        "back-to-projects": "返回项目"
+      },
       "market-data": {
         "token-summary":"CKB 发行量信息一览",
         "total-supply":"发行数量",
@@ -72,6 +85,23 @@
         "hash-rate":"算力",
         "price":"价格",
         "miner-released":"矿机上市"
+      }
+    },
+    "detail": {
+      "sections": {
+        "awesome-highlights": "精彩亮点",
+        "project-transparency": "项目透明度",
+        "faq": "常见问题",
+        "related": "相关项目"
+      },
+      "buttons": {
+        "visit-website": "访问官网",
+        "submit-correction": "提交修正"
+      },
+      "transparency": {
+        "team": "团队",
+        "project": "项目",
+        "token": "代币"
       }
     },
     "halving": { 

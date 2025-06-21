@@ -204,7 +204,7 @@ const CKBHashRateChart = () => {
     }
 
     return (<div className='flex flex-col md:mt-5'>
-        <div className='w-full flex h-16 text-center justify-center text-[20px] md:text-[30px] font-["Zen_Dots"]'>
+        <div className='w-full flex h-16 text-center justify-center text-[20px] md:text-[30px] font-["Zen_Dots"] text-black'>
             <span className='flex items-end'>{t('home.market-data.ckb-his-hash-rate')}</span>
         </div>
         <div className='w-full h-[400px]'>
@@ -221,7 +221,7 @@ const CKBHashRateChart = () => {
                         <div className='grow'></div>
                         <div className='flex px-1 py-1 gap-1 text-sm bg-[#E7E6F7] rounded-sm'>
                             {Object.entries(period_intervals).map(([key, value]) => (
-                                <div key={key} className={`flex items-center ${chartInterval === key ? 'bg-[#28C1B0] text-white font-bold' : 'bg-[#DAF3EF] hover:bg-[#31a89a] text-black hover:text-white'} text-white rounded-sm px-1 cursor-pointer`}
+                                <div key={key} className={`flex items-center ${chartInterval === key ? 'bg-[#28C1B0] text-white font-bold' : 'bg-[#DAF3EF] text-black'} rounded-sm px-1 cursor-pointer`}
                                     onClick={() => setChartInterval(key)} >{key}
                                 </div>
                             ))}

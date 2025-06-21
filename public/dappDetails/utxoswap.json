@@ -1,0 +1,188 @@
+{
+  "name": "UTXO Swap",
+  "description": {
+    "en": "UTXO Swap is a decentralized exchange built on Nervos CKB's Layer 2, designed for seamless, intent-driven trading. It leverages the UTXO Stack framework to provide efficient and secure trading of RGB++ assets on Bitcoin, enabling users to trade digital assets without traditional order books or centralized intermediaries. Built on CKB's secure Layer 1 and UTXO-based Cell model, UTXO Swap offers a trustless trading experience with enhanced privacy and scalability.",
+    "ch": "UTXO Swap 是基于 Nervos CKB 第二层构建的去中心化交易所，专为无缝、意图驱动的交易而设计。它利用 UTXO Stack 框架在比特币上提供高效、安全的 RGB++ 资产交易，使用户能够在没有传统订单簿或中心化中介的情况下交易数字资产。基于 CKB 安全的第一层和基于 UTXO 的 Cell 模型构建，UTXO Swap 提供具有增强隐私性和可扩展性的无信任交易体验。"
+  },
+  "titleImage": "/dappDetails/images/utxoswap/banner.jpg",
+  "logo": "/dappDetails/images/utxoswap/logo.png",
+  "tags": [
+    {
+      "name": "DEX",
+      "color": "bg-green-600"
+    },
+    {
+      "name": "Trading",
+      "color": "bg-blue-600"
+    }
+  ],
+  "socialLinks": {
+    "twitter": "https://x.com/UTXOSwap",
+    "telegram": "https://t.me/UTXOSwap"
+  },
+  "websiteUrl": "https://utxoswap.xyz/",
+  "highlights": [
+    {
+      "title": {
+        "en": "Intent-Driven Trading",
+        "ch": "意图驱动交易"
+      },
+      "description": {
+        "en": "Enables seamless trading through intent-based orders, eliminating traditional order books and centralized intermediaries",
+        "ch": "通过基于意图的订单实现无缝交易，消除传统订单簿和中心化中介"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "RGB++ Asset Support",
+        "ch": "RGB++ 资产支持"
+      },
+      "description": {
+        "en": "Supports trading of RGB++ assets on Bitcoin, leveraging CKB's Cell model for enhanced security and efficiency",
+        "ch": "支持比特币上 RGB++ 资产的交易，利用 CKB 的 Cell 模型增强安全性和效率"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": {
+        "en": "UTXO Stack Integration",
+        "ch": "UTXO Stack 集成"
+      },
+      "description": {
+        "en": "Built on UTXO Stack framework, providing efficient and secure trading infrastructure for Bitcoin-based assets directly in the browser",
+        "ch": "基于 UTXO Stack 框架构建，为浏览器中的比特币资产提供高效、安全的交易基础设施"
+      },
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
+      "items": [
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": false
+        },
+        {
+          "name": "Identified Members",
+          "status": false
+        },
+        {
+          "name": "Active",
+          "status": false
+        }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
+      "items": [
+        {
+          "name": "Open Source",
+          "status": true
+        },
+        {
+          "name": "Audited",
+          "status": true
+        },
+        {
+          "name": "White Paper",
+          "status": true
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "items": [
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "HueHub",
+      "desc": {
+        "en": "Decentralized exchange for RGB++ assets on Bitcoin.",
+        "ch": "比特币上 RGB++ 资产的去中心化交易所。"
+      },
+      "icon": "/dappDetails/images/huehub/logo.jpeg",
+      "dappId": "huehub"
+    }
+  ],
+  "faq": [
+    {
+      "q": {
+        "en": "What is the role of UTXO Stack in UTXOSwap?",
+        "ch": "UTXO Stack 在 UTXOSwap 中的作用是什么？"
+      },
+      "a": {
+        "en": "UTXO Stack provides the foundational framework for UTXOSwap, enabling efficient and secure trading of Bitcoin-based assets directly in the browser. It leverages CKB's Cell model to ensure enhanced security and scalability for decentralized trading.",
+        "ch": "UTXO Stack 为 UTXOSwap 提供基础框架，实现浏览器中比特币资产的高效、安全交易。它利用 CKB 的 Cell 模型确保去中心化交易的增强安全性和可扩展性。"
+      }
+    },
+    {
+      "q": {
+        "en": "How does intent-driven trading work?",
+        "ch": "意图驱动交易是如何工作的？"
+      },
+      "a": {
+        "en": "Intent-driven trading allows users to express their trading intentions rather than placing traditional orders. This approach eliminates the need for order books and centralized intermediaries, providing a more efficient and user-friendly trading experience.",
+        "ch": "意图驱动交易允许用户表达他们的交易意图，而不是下传统订单。这种方法消除了对订单簿和中心化中介的需求，提供更高效、用户友好的交易体验。"
+      }
+    },
+    {
+      "q": {
+        "en": "What assets can be traded on UTXO Swap?",
+        "ch": "UTXO Swap 上可以交易哪些资产？"
+      },
+      "a": {
+        "en": "UTXO Swap supports trading of RGB++ assets on Bitcoin, leveraging the protocol's enhanced security and efficiency features. This includes various digital assets that are compatible with the RGB++ standard.",
+        "ch": "UTXO Swap 支持比特币上 RGB++ 资产的交易，利用协议的增强安全性和效率功能。这包括与 RGB++ 标准兼容的各种数字资产。"
+      }
+    }
+  ]
+}

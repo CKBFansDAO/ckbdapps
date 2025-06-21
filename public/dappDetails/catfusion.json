@@ -1,0 +1,118 @@
+{
+  "name": "CAT Fusion",
+  "description": {
+    "en": "CAT Fusion is the first Telegram-based hyper-casual game on the Nervos Network (CKB), a Bitcoin Layer 2 blockchain, designed to provide players with rewarding and interactive experiences. Players can battle bosses, upgrade their cat-themed digital assets, and compete on leaderboards to earn rewards, potentially in CKB tokens or NFT form. Built on CKB's secure Layer 1 and UTXO-based Cell model, CAT Fusion leverages the RGB++ protocol to manage in-game assets, ensuring secure and trustless transactions.",
+    "ch": "CAT Fusion 是 Nervos 网络 (CKB) 上第一个基于 Telegram 的超休闲游戏，CKB 是比特币二层区块链，旨在为玩家提供有奖励性和互动性的体验。玩家可以与 boss 战斗，升级他们的猫主题数字资产，并在排行榜上竞争以获得奖励，可能是 CKB 代币或 NFT 形式。基于 CKB 安全的第一层和基于 UTXO 的 Cell 模型构建，CAT Fusion 利用 RGB++ 协议管理游戏内资产，确保安全和无信任交易。"
+  },
+  "titleImage": "/dappDetails/images/catfusion/banner.jpg",
+  "logo": "/dappDetails/images/catfusion/logo.jpg",
+  "tags": [
+    { "name": "Game", "color": "bg-purple-600" },
+    { "name": "Hyper-Casual", "color": "bg-yellow-600" }
+  ],
+  "socialLinks": {
+    "telegram": "https://t.me/CatFusionCKB_Chat",
+    "twitter": "https://x.com/CatFusionCKB"
+  },
+  "websiteUrl": "https://ckcat.xyz/",
+  "highlights": [
+    {
+      "title": {
+        "en": "First Telegram Hyper-Casual Game",
+        "ch": "首个 Telegram 超休闲游戏"
+      },
+      "description": {
+        "en": "Pioneers blockchain gaming on CKB as the first Telegram-based hyper-casual game, offering accessible and engaging gameplay via a popular messaging platform",
+        "ch": "作为首个基于 Telegram 的超休闲游戏，在 CKB 上开创区块链游戏先河，通过流行的消息平台提供易于访问和引人入胜的游戏体验"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "CKB Eco Fund Grant",
+        "ch": "CKB 生态基金资助"
+      },
+      "description": {
+        "en": "Received funding from the CKB Eco Fund to support community growth, partnerships, airdrops, and the official beta launch, boosting ecosystem integration",
+        "ch": "获得 CKB 生态基金资助，支持社区发展、合作伙伴关系、空投和官方测试版发布，促进生态系统整合"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "videos": [
+    {
+      "title": "CAT Fusion",
+      "url": "https://www.youtube.com/embed/hdLuujNmcRE",
+      "thumbnail": "https://img.youtube.com/vi/hdLuujNmcRE/hqdefault.jpg"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
+      "items": [
+        { "name": "Open Source", "status": false },
+        { "name": "Audited", "status": false },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": true }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "items": [
+        { "name": "FT Token", "status": true },
+        { "name": "NFT/DOB Token", "status": true },
+        { "name": "Tradable", "status": true },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": {
+        "en": "What are the game mechanics?",
+        "ch": "游戏机制是什么？"
+      },
+      "a": {
+        "en": "CAT Fusion is a Telegram-based hyper-casual game where players engage in boss battles, upgrade their cat-themed digital assets (e.g., NFTs representing unique cats), and compete on leaderboards to earn rewards such as CKB tokens or exclusive in-game items. Players can enhance their cats' abilities, participate in time-based challenges, and trade assets within the Nervos ecosystem, leveraging the RGB++ protocol for secure transactions.",
+        "ch": "CAT Fusion 是一个基于 Telegram 的超休闲游戏，玩家可以参与 boss 战斗，升级他们的猫主题数字资产 (如代表独特猫咪的 NFT)，并在排行榜上竞争以获得 CKB 代币或独家游戏内物品等奖励。玩家可以增强他们猫咪的能力，参与基于时间的挑战，并在 Nervos 生态系统内交易资产，利用 RGB++ 协议进行安全交易。"
+      }
+    },
+    {
+      "q": {
+        "en": "Does it support UTXO Global Telegram wallet?",
+        "ch": "它支持 UTXO Global Telegram 钱包吗？"
+      },
+      "a": {
+        "en": "Yes, CAT Fusion is likely to support integration with the UTXO Global Telegram wallet, given its role as a leading wallet interface in the Nervos ecosystem. This allows players to manage their in-game assets (e.g., cat NFTs and CKB rewards) seamlessly within Telegram, utilizing UTXO Global's features like RGB++ asset management and cross-platform synchronization for a streamlined gaming experience.",
+        "ch": "是的，考虑到 UTXO Global 在 Nervos 生态系统中作为领先钱包界面的作用，CAT Fusion 很可能支持与 UTXO Global Telegram 钱包的集成。这允许玩家在 Telegram 内无缝管理他们的游戏内资产 (如猫咪 NFT 和 CKB 奖励)，利用 UTXO Global 的功能，如 RGB++ 资产管理和跨平台同步，提供流畅的游戏体验。"
+      }
+    }
+  ]
+} 

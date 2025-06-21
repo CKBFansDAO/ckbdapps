@@ -1,0 +1,153 @@
+{
+  "name": "Mobit",
+  "description": {
+    "en": "Mobit is a decentralized wallet interface on the Nervos Network (CKB) that connects to existing wallets to \"easily and securely transfer assets between Bitcoin and CKB\" using the RGB++ Leap protocol for a \"seamless cross-chain experience.\" Built on CKB's secure Layer 1 and UTXO-based Cell model, Mobit integrates with the JoyID protocol to provide a passwordless, mnemonic-free experience for managing Bitcoin (BTC), Ethereum (ETH), and CKB assets. Announced in July 2024, Mobit enhances cross-chain interoperability and DeFi interactions by leveraging RGB++ Leap for trustless, bridge-free asset transfers, acting as a wrapper to streamline asset management and trading within the Nervos ecosystem.",
+    "ch": "Mobit 是 Nervos 网络 (CKB) 上的去中心化钱包界面，连接现有钱包，使用 RGB++ Leap 协议\"轻松安全地在比特币和 CKB 之间转移资产\"，提供\"无缝跨链体验\"。基于 CKB 安全的第一层和基于 UTXO 的 Cell 模型构建，Mobit 与 JoyID 协议集成，为管理比特币 (BTC)、以太坊 (ETH) 和 CKB 资产提供无密码、无助记词的体验。Mobit 于 2024 年 7 月宣布，通过利用 RGB++ Leap 实现无信任、无桥接的资产转移，增强跨链互操作性和 DeFi 交互，作为包装器简化 Nervos 生态系统内的资产管理和交易。"
+  },
+  "titleImage": "/dappDetails/images/mobit/banner.jpg",
+  "logo": "/dappDetails/images/mobit/logo.jpg",
+  "tags": [
+    {
+      "name": "RGB++",
+      "color": "bg-purple-600"
+    },
+    {
+      "name": "DeFi",
+      "color": "bg-yellow-600"
+    }
+  ],
+  "socialLinks": {
+    "telegram": "https://t.me/mobit_app",
+    "github": "https://github.com/unistate-io/mobit"
+  },
+  "websiteUrl": "https://mobit.app/",
+  "highlights": [
+    {
+      "title": {
+        "en": "Seamless Cross-Chain Transfers",
+        "ch": "无缝跨链转移"
+      },
+      "description": {
+        "en": "Enables easy and secure asset transfers between Bitcoin and CKB using RGB++ Leap, offering trustless, bridge-free cross-chain functionality",
+        "ch": "使用 RGB++ Leap 实现比特币和 CKB 之间轻松安全的资产转移，提供无信任、无桥接的跨链功能"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "DeFi Accessibility",
+        "ch": "DeFi 可访问性"
+      },
+      "description": {
+        "en": "Simplifies DeFi participation by offering a user-friendly interface for cross-chain asset management and trading within the Nervos ecosystem",
+        "ch": "通过为 Nervos 生态系统内的跨链资产管理和交易提供用户友好界面，简化 DeFi 参与"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
+      "items": [
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": true
+        },
+        {
+          "name": "Identified Members",
+          "status": true
+        },
+        {
+          "name": "Active",
+          "status": true
+        }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
+      "items": [
+        {
+          "name": "Open Source",
+          "status": true
+        },
+        {
+          "name": "Audited",
+          "status": false
+        },
+        {
+          "name": "White Paper",
+          "status": false
+        },
+        {
+          "name": "Smart Contract",
+          "status": false
+        }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "items": [
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": {
+        "en": "Why is Mobit special?",
+        "ch": "为什么 Mobit 特别？"
+      },
+      "a": {
+        "en": "Mobit is unique as a wallet interface that connects to existing wallets, enabling seamless, trustless asset transfers between Bitcoin and CKB via RGB++ Leap without traditional bridges. Its JoyID integration offers a passwordless experience, and it enhances DeFi accessibility for BTC, ETH, and CKB assets.",
+        "ch": "Mobit 作为钱包界面的独特之处在于它连接现有钱包，通过 RGB++ Leap 实现比特币和 CKB 之间无缝、无信任的资产转移，无需传统桥接。其 JoyID 集成提供无密码体验，并增强了 BTC、ETH 和 CKB 资产的 DeFi 可访问性。"
+      }
+    },
+    {
+      "q": {
+        "en": "How does RGB++ Leap work in Mobit?",
+        "ch": "RGB++ Leap 在 Mobit 中是如何工作的？"
+      },
+      "a": {
+        "en": "RGB++ Leap enables trustless cross-chain transfers by mapping Bitcoin UTXOs to CKB Cells via isomorphic binding, allowing secure, permissionless movement of assets (e.g., coins and NFTs) without traditional bridges.",
+        "ch": "RGB++ Leap 通过同构绑定将比特币 UTXO 映射到 CKB Cell，实现无信任跨链转移，允许安全、无许可地移动资产 (如代币和 NFT)，无需传统桥接。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "name": "CKBull",
+  "description": {
+    "en": "CKBull is a mobile wallet application developed by Peersyst Technology for the Nervos Network (CKB), launched in July 2022. Designed as a non-custodial wallet, it provides a user-friendly interface for managing CKB tokens, tokens bridged via ForceBridge, NFTs, and Nervos DAO deposits. Built on CKB's secure Layer 1 and UTXO-based Cell model, CKBull enables users to create multiple wallets, stake CKB in Nervos DAO to earn rewards, and manage diverse digital assets. The wallet supports both Android and iOS platforms, offering a customizable interface and comprehensive asset management capabilities.",
+    "ch": "CKBull 是由 Peersyst Technology 为 Nervos 网络 (CKB) 开发的移动钱包应用程序，于 2022 年 7 月推出。作为非托管钱包设计，它提供用户友好的界面来管理 CKB 代币、通过 ForceBridge 桥接的代币、NFT 和 Nervos DAO 存款。基于 CKB 安全的第一层和基于 UTXO 的 Cell 模型构建，CKBull 使用户能够创建多个钱包，在 Nervos DAO 中质押 CKB 获得奖励，并管理多样化的数字资产。该钱包支持 Android 和 iOS 平台，提供可定制界面和全面的资产管理功能。"
+  },
+  "titleImage": "/dappDetails/images/ckbull/banner.jpg",
+  "logo": "/dappDetails/images/ckbull/logo.png",
+  "tags": [
+    { "name": "Wallet", "color": "bg-purple-600" },
+    { "name": "Infrastructure", "color": "bg-blue-600" }
+  ],
+  "socialLinks": {
+    "twitter": "https://twitter.com/CKBull_Wallet",
+    "telegram": "https://t.co/Bp9BEjF7N4"
+  },
+  "websiteUrl": "https://ckbull.app",
+  "highlights": [
+    {
+      "title": {
+        "en": "Multi-Wallet Management",
+        "ch": "多钱包管理"
+      },
+      "description": {
+        "en": "Allows users to generate and manage multiple non-custodial wallets for CKB, tokens, and NFTs, ensuring complete control over assets",
+        "ch": "允许用户生成和管理多个非托管钱包用于 CKB、代币和 NFT，确保对资产的完全控制"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "Nervos DAO Integration",
+        "ch": "Nervos DAO 集成"
+      },
+      "description": {
+        "en": "Simplifies the process of staking CKB in Nervos DAO, enabling users to easily earn rewards and track deposits",
+        "ch": "简化在 Nervos DAO 中质押 CKB 的过程，使用户能够轻松赚取奖励并跟踪存款"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": {
+        "en": "ForceBridge Compatibility",
+        "ch": "ForceBridge 兼容性"
+      },
+      "description": {
+        "en": "Supports tokens and assets bridged via ForceBridge, enhancing interoperability within the Nervos ecosystem",
+        "ch": "支持通过 ForceBridge 桥接的代币和资产，增强 Nervos 生态系统内的互操作性"
+      },
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
+      "items": [
+        { "name": "Present", "status": true },
+        { "name": "Responsive", "status": true },
+        { "name": "Identified Members", "status": true },
+        { "name": "Active", "status": true }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
+      "items": [
+        { "name": "Open Source", "status": false },
+        { "name": "Audited", "status": false },
+        { "name": "White Paper", "status": true },
+        { "name": "Smart Contract", "status": false }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "items": [
+        { "name": "FT Token", "status": false },
+        { "name": "NFT/DOB Token", "status": false },
+        { "name": "Tradable", "status": false },
+        { "name": "Exchange Listed", "status": false }
+      ]
+    }
+  },
+  "videos": [
+    {
+      "title": "CKBull",
+      "url": "https://www.youtube.com/embed/0-ii9kDPrwo",
+      "thumbnail": "https://img.youtube.com/vi/0-ii9kDPrwo/hqdefault.jpg"
+    }
+  ],
+  "related": [],
+  "faq": [
+    {
+      "q": {
+        "en": "How to add USDC|eth, BNB|bsc, ETH|eth, USDC|bsc, and BTC|bsc tokens to CKBull wallet?",
+        "ch": "如何在 CKBull 钱包中添加 USDC|eth、BNB|bsc、ETH|eth、USDC|bsc 和 BTC|bsc 代币？"
+      },
+      "a": {
+        "en": "Visit https://forcebridge.com/ and send tokens back to CKBull. Soon through our signature app, you will be able to connect CKBull to forcebridge, so you can sign from CKBull using your mobile device.",
+        "ch": "访问 https://forcebridge.com/ 并将代币发送回 CKBull。很快通过我们的签名应用程序，您将能够将 CKBull 连接到 forcebridge，这样您就可以使用移动设备从 CKBull 进行签名。"
+      }
+    },
+    {
+      "q": {
+        "en": "Why can't I withdraw my CKB? Oops! Something went wrong.",
+        "ch": "为什么我无法提取我的 CKB？哦哦！出了点问题。"
+      },
+      "a": {
+        "en": "To withdraw from the app, you must leave at least 61 $CKB for cells so you can receive to the same address again. We don't support two input cells to 1 output yet.",
+        "ch": "要从应用程序中提取，您必须至少留下 61 个 $CKB 用于 cell，以便您可以再次接收到同一地址。我们还不支持两个输入 cell 对 1 个输出。"
+      }
+    },
+    {
+      "q": {
+        "en": "Can I buy $CKB from CKBull wallet?",
+        "ch": "我可以从 CKBull 钱包购买 $CKB 吗？"
+      },
+      "a": {
+        "en": "Not yet. We are working on it. Soon fiat on/off ramp services will be available through transak.com!",
+        "ch": "还不能。我们正在努力。很快将通过 transak.com 提供出入金服务！"
+      }
+    }
+  ]
+} 

@@ -21,10 +21,10 @@ class DappListCache {
     }
 
     loadData = async () => {
-        const response = await fetch('../dappList/dapps_list.json');
+        const response = await fetch('/dappList/dapps_list.json');
         const data = await response.json();
         const fetchPromises = data?.dappList?.map(appItem =>
-            fetch(`../dappList/${appItem.path_name}/config.json`).then(res => res.json())
+            fetch(`/dappList/${appItem.path_name}/config.json`).then(res => res.json())
         );
 
         const dappList = await Promise.all(fetchPromises);
@@ -32,7 +32,7 @@ class DappListCache {
         this.dappLogos = this.dappList.map(item => ({
             url: item.links.official,
             name: item.project_name,
-            icon: `../dappList/${item.path_name}/${item.logo_file}`,
+            icon: `/dappList/${item.path_name}/${item.logo_file}`,
         }));
 
     };
@@ -75,3 +75,24 @@ const dappListCache = new DappListCache();
 
 export let CKBdappWatchListCache = dappListCache.watchListCache;
 export default dappListCache;
+
+export const fetchDappList = async () => {
+  try {
+    const response = await fetch('/dappList/dapps_list.json');
+    const data = await response.json();
+    return data.dappList;
+  } catch (error) {
+    console.error('Error fetching dapp list:', error);
+    return [];
+  }
+};
+
+export const fetchDappConfig = async (appItem) => {
+  try {
+    const response = await fetch(`/dappList/${appItem.path_name}/config.json`);
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching dapp config:', error);
+    return null;
+  }
+};

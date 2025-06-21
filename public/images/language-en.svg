@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="16px" viewBox="0 0 24 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icons8-great_britain@1x</title>
+    <g id="seekdid" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="seekdid_数据监测_dark" transform="translate(-1554.000000, -22.000000)" fill-rule="nonzero">
+            <g id="head" transform="translate(300.000000, 0.000000)">
+                <g id="icons8-great_britain" transform="translate(1254.000000, 22.000000)">
+                    <rect id="矩形" fill="#3F51B5" x="0" y="0" width="24" height="16"></rect>
+                    <g id="编组" fill="#FFFFFF">
+                        <polygon id="路径" points="0 2.40914286 11.3509091 9.67714286 13.0576364 6.75142857 2.51345455 0 0 0"></polygon>
+                        <polygon id="路径" points="24 0 22.0314545 0 11.4878182 6.75085714 13.194 9.67714286 24 2.75771429"></polygon>
+                        <polygon id="路径" points="13.194 5.86914286 11.4878182 8.79485714 22.7405455 16 24 16 24 12.788"></polygon>
+                        <polygon id="路径" points="0 13.1377143 0 16 1.80545455 16 13.0576364 8.79542857 11.3514545 5.86914286"></polygon>
+                        <rect id="矩形" x="0" y="5.71428571" width="24" height="4.57142857"></rect>
+                        <rect id="矩形" x="9.81818182" y="0" width="4.36363636" height="16"></rect>
+                    </g>
+                    <g id="编组" fill="#E53935">
+                        <polygon id="路径" points="8.30072727 5.71428571 0 0.399428571 0 1.73885714 6.20836364 5.71428571"></polygon>
+                        <polygon id="路径" points="23.0776364 0 14.1529091 5.71428571 16.2447273 5.71428571 24 0.749142857 24 0"></polygon>
+                        <polygon id="路径" points="16.9538182 10.2857143 24 14.7971429 24 13.4577143 19.0456364 10.2857143"></polygon>
+                        <polygon id="路径" points="7.59163636 10.2857143 0 15.1462857 0 16 0.759272727 16 9.68345455 10.2857143"></polygon>
+                        <rect id="矩形" x="0" y="6.85714286" width="24" height="2.28571429"></rect>
+                        <rect id="矩形" x="10.9090909" y="0" width="2.18181818" height="16"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,207 @@
+{
+  "banners": [
+    {
+      "image": "/dappDetails/images/omiga/banner.jpg",
+      "title": "Omiga",
+      "project": {
+        "name": "Omiga",
+        "desc": {
+          "en": "A decentralized inscription protocol on CKB, empowering fair minting and management of digital assets like MEMES, fueling cross-chain innovation and boosting Nervos Network's ecosystem.",
+          "ch": "基于 CKB 的去中心化铭文协议，支持 MEMES 等数字资产的公平铸造和管理，推动跨链创新并促进 Nervos 网络生态系统发展。"
+        }
+      },
+      "dappId": "omiga"
+    },
+    {
+      "image": "/dappDetails/images/ickb/highlight.jpg",
+      "title": "iCKB Protocol",
+      "project": {
+        "name": "iCKB",
+        "desc": {
+          "en": "A protocol that tokenizes NervosDAO deposits into liquid iCKB tokens. It addresses the ~30-day lockup of CKB in NervosDAO by allowing users to withdraw mature deposits from a shared pool, maintaining inflation protection while enabling flexible use in DeFi.",
+          "ch": "将 NervosDAO 存款代币化为流动性 iCKB 代币的协议。通过允许用户从共享池中提取成熟存款，解决了 CKB 在 NervosDAO 中约 30 天锁定期的问题，在保持通胀保护的同时实现 DeFi 中的灵活使用。"
+        }
+      },
+      "dappId": "ickb"
+    },
+    {
+      "image": "/dappDetails/images/utxoglobal/highlight.jpg",
+      "title": "UTXO Global",
+      "project": {
+        "name": "UTXO Global Wallet",
+        "desc": {
+          "en": "A wallet for managing UTXO-based blockchain assets, built on Nervos CKB. It supports DeFi applications, integrates with the RGB++ protocol for asset management and trading, and is the first wallet available as both a Telegram integration and a Chrome extension.",
+          "ch": "基于 Nervos CKB 构建的 UTXO 区块链资产管理钱包。支持 DeFi 应用，集成 RGB++ 协议进行资产管理和交易，是首个同时提供 Telegram 集成和 Chrome 扩展的钱包。"
+        }
+      },
+      "dappId": "utxoglobal"
+    },
+    {
+      "image": "/dappDetails/images/catfusion/highlight.jpg",
+      "title": "CAT Fusion",
+      "project": {
+        "name": "CAT Fusion",
+        "desc": {
+          "en": "The first Telegram-based hyper-casual game on the CKB, players battle bosses, upgrade their cat-themed digital assets, and compete on leaderboards to earn rewards, likely in the form of CKB tokens or NFTs.",
+          "ch": "CKB 上首个基于 Telegram 的超休闲游戏，玩家可以与 boss 战斗，升级猫主题数字资产，在排行榜上竞争获得奖励，可能是 CKB 代币或 NFT 形式。"
+        }
+      },
+      "dappId": "catfusion"
+    }
+  ],
+  "sparkGranted": [
+    {
+      "name": "Quantum Purse",
+      "desc": {
+        "en": "A pioneering anti-quantum wallet developed on the CKB blockchain",
+        "ch": "基于 CKB 区块链开发的开创性抗量子钱包"
+      },
+      "amount": "700 USDT",
+      "image": "/dappDetails/images/quantumpurse/banner.jpg",
+      "link": "/quantumpurse",
+      "tags": [
+        {"name": "Wallet", "color": "#22c55e"}
+      ]
+    },
+    {
+      "name": "Wait Your Project",
+      "desc": "",
+      "image": "",
+      "link": "",
+      "placeholder": true
+    },
+    {
+      "name": "Wait Your Project",
+      "desc": "",
+      "image": "",
+      "link": "",
+      "placeholder": true
+    }
+  ],
+  "highlighted": [
+    {
+      "name": "NervDao",
+      "desc": {
+        "en": "NervDao is a dApp on Nervos CKB, streamlining Nervos DAO interaction. It supports wallets like MetaMask and JoyID for easy CKB deposits/withdrawals, offering rewards and dilution protection. Features include auto-compounded rewards, a one-month lockup, and plans for UI upgrades and NFT credentials.",
+        "ch": "NervDao 是 Nervos CKB 上的 dApp，简化 Nervos DAO 交互。支持 MetaMask 和 JoyID 等钱包，便于 CKB 存取款，提供奖励和稀释保护。功能包括自动复投奖励、一个月锁定期，以及 UI 升级和 NFT 凭证计划。"
+      },
+      "image": "/dappDetails/images/nervdao/highlight.jpg",
+      "tinyImage": "/dappDetails/images/nervdao/logo.jpg",
+      "link": "/nervdao"
+    },
+    {
+      "name": "CKBull",
+      "desc": {
+        "en": "A non-custodial mobile wallet for Nervos Network (CKB), launched in July 2022 by Peersyst Technology. It supports managing CKB, bridged tokens via ForceBridge, NFTs, and Nervos DAO staking. Built on CKB's secure Layer 1 and UTXO-based Cell model, it offers a customizable interface on Android and iOS, though some users report withdrawal issues",
+        "ch": "由 Peersyst Technology 于 2022 年 7 月推出的 Nervos 网络 (CKB) 非托管移动钱包。支持管理 CKB、通过 ForceBridge 桥接的代币、NFT 和 Nervos DAO 质押。基于 CKB 安全的第一层和基于 UTXO 的 Cell 模型构建，在 Android 和 iOS 上提供可定制界面，尽管一些用户报告提款问题。"
+      },
+      "image": "/dappDetails/images/ckbull/highlight.jpg",
+      "tinyImage": "/dappDetails/images/ckbull/logo.png",
+      "link": "/ckbull"
+    },
+    {
+      "name": "Mobit",
+      "desc": {
+        "en": "An enigmatic protocol on CKB, transmutes the blockchain into a crucible of boundless transformation, where its alchemical essence empowers users to conjure unique digital artifacts.",
+        "ch": "CKB 上的神秘协议，将区块链转化为无限变革的熔炉，其炼金术本质赋予用户创造独特数字艺术品的能力。"
+      },
+      "image": "/dappDetails/images/mobit/highlight.jpg",
+      "tinyImage": "/dappDetails/images/mobit/logo.jpg",
+      "link": "/mobit"
+    }
+  ],
+  "premium": [
+    {
+      "name": "JoyID",
+      "desc": {
+        "en": "A luminous thread in the CKB tapestry, weaves a decentralized identity realm where users wield sovereign control over their digital essence across blockchain's boundless stage. Its elegant fusion of passkey authentication and cross-chain sensory perception empowers users.",
+        "ch": "CKB 织锦中的光明线索，编织去中心化身份领域，用户在区块链无界舞台上拥有对数字本质的主权控制。其通行密钥认证和跨链感知的优雅融合赋予用户力量。"
+      },
+      "image": "/dappDetails/images/joyid/highlight.jpg",
+      "link": "/joyid"
+    },
+    {
+      "name": "Nervape",
+      "desc": {
+        "en": "A vibrant digital realm on the CKB blockchain, offers an extraordinary haven where creators conjure and trade digital treasures across chains, igniting a seamless alchemy of cross-chain artistry amidst CKB's ecosystem, creating a constellation of developers and artists in a harmonious digital tapestry.",
+        "ch": "CKB 区块链上的充满活力的数字领域，为创作者提供非凡避风港，在此跨链创造和交易数字宝藏，在 CKB 生态系统中点燃跨链艺术的无缝炼金术，在和谐的数字织锦中创造开发者和艺术家的星座。"
+      },
+      "image": "/dappDetails/images/nervape/highlight.jpg",
+      "link": "/nervape"
+    },
+    {
+      "name": "DotBit",
+      "desc": {
+        "en": "A decentralized identity protocol on CKB, weaves a cross-chain tapestry of domain, user-friendly addresses, and secure management of digital identity and asset management across blockchains.",
+        "ch": "CKB 上的去中心化身份协议，编织跨链域名、用户友好地址的织锦，以及跨区块链数字身份和资产管理的安全管理。"
+      },
+      "image": "/dappDetails/images/dotbit/highlight.jpeg",
+      "link": "/dotbit"
+    },
+    {
+      "name": "Stable++",
+      "desc": {
+        "en": "A decentralized stablecoin protocol on CKB, crafts BUSD through over-collateralized BTC assets, enhancing stability and liquidity across the Bitcoin and RGB++ ecosystems.",
+        "ch": "CKB 上的去中心化稳定币协议，通过超额抵押 BTC 资产制造 BUSD，增强比特币和 RGB++ 生态系统的稳定性和流动性。"
+      },
+      "image": "/dappDetails/images/stablepp/highlight.jpg",
+      "link": "/stablepp"
+    },
+    {
+      "name": "VeriX",
+      "desc": {
+        "en": "A bot on CKB, empowers seamless trading and fair issuance, enriching Nervos Network's vibrant ecosystem.",
+        "ch": "CKB 上的机器人，支持无缝交易和公平发行，丰富 Nervos 网络的活力生态系统。"
+      },
+      "image": "/dappDetails/images/verix/logo.jpg",
+      "link": "/verix"
+    }
+  ],
+  "community": [
+    {
+      "name": "UTXO Swap",
+      "desc": {
+        "en": "UTXO Swap is a decentralized exchange built on Nervos CKB Layer 2, designed for seamless, intent-driven trading.",
+        "ch": "UTXO Swap 是基于 Nervos CKB 第二层构建的去中心化交易所，专为无缝、意图驱动的交易而设计。"
+      },
+      "image": "/dappDetails/images/utxoswap/logo.png",
+      "link": "/utxoswap"
+    },
+    {
+      "name": "imagiNation",
+      "desc": {
+        "en": "A marketplace on Nervos CKB, enabling fully on-chain asset creation, trading, and value capture, with plans to support RGB++.",
+        "ch": "Nervos CKB 上的市场，支持完全链上资产创建、交易和价值捕获，计划支持 RGB++。"
+      },
+      "image": "/dappDetails/images/imagination/logo.jpg",
+      "link": "/imagination"
+    },
+    {
+      "name": "Philosopher's Stone",
+      "desc": {
+        "en": "An enigmatic protocol on CKB, transmutes the blockchain into a crucible of boundless transformation.",
+        "ch": "CKB 上的神秘协议，将区块链转化为无限变革的熔炉。"
+      },
+      "image": "/dappDetails/images/philosopherstone/logo.jpg",
+      "link": "/philosopherstone"
+    },
+    {
+      "name": "JoyGift",
+      "desc": {
+        "en": "A heartfelt melody on the CKB, orchestrates a digital red envelope tradition, where users share personalized tales.",
+        "ch": "CKB 上的温馨旋律，编排数字红包传统，用户分享个性化故事。"
+      },
+      "image": "/dappDetails/images/joygift/logo.jpeg",
+      "link": "/joygift"
+    },
+    {
+      "name": "HueHub",
+      "desc": {
+        "en": "A decentralized exchange on CKB, empowers seamless trading and fair issuance, enriching Nervos Network's vibrant ecosystem.",
+        "ch": "CKB 上的去中心化交易所，支持无缝交易和公平发行，丰富 Nervos 网络的活力生态系统。"
+      },
+      "image": "/dappDetails/images/huehub/logo.jpeg",
+      "link": "/huehub"
+    }
+  ]
+} 

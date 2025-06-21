@@ -1,0 +1,155 @@
+{
+  "name": "imagiNation",
+  "description": {
+    "en": "imagiNation is a decentralized NFT collection platform on the Nervos CKB blockchain, designed to leverage CKB’s Proof-of-Work (PoW) and extended UTXO (Cell) model to facilitate innovative blockchain applications. Operating within the CKB ecosystem, imagiNation aims to enhance interoperability with Bitcoin Layer 1 assets, potentially focusing on inscriptions, DeFi, or tokenized assets. Compatible with mainstream Bitcoin wallets like Unisat, OKX, and JoyID, it emphasizes decentralization, security, and user accessibility. imagiNation seeks to contribute to the Nervos ecosystem by offering scalable, low-cost solutions for asset management and trading, aligning with CKB’s vision of a modular, Bitcoin-integrated blockchain.",
+    "ch": "imagiNation is a 去中心化 NFT collection platform on the Nervos CKB 区块链, designed to leverage CKB’s Proof-of-Work (PoW) and extended UTXO (Cell) model to facilitate innovative 区块链 applications. Operating within the CKB 生态系统, imagiNation aims to enhance 互操作性 with 比特币 第一层 assets, potentially focusing on inscriptions, DeFi, or 代币ized assets. Compatible with mainstream 比特币 钱包s like Unisat, OKX, and JoyID, it emphasizes decentralization, 安全性, and user accessibility. imagiNation seeks to contribute to the Nervos 生态系统 by offering scalable, low-cost solutions for asset management and 交易, aligning with CKB’s vision of a modular, 比特币-integrated 区块链."
+  },
+  "titleImage": "/dappDetails/images/imagination/banner.jpeg",
+  "logo": "/dappDetails/images/imagination/logo.jpg",
+  "tags": [
+    {
+      "name": "DOBs",
+      "color": "bg-purple-600"
+    },
+    {
+      "name": "DEX",
+      "color": "bg-yellow-600"
+    }
+  ],
+  "socialLinks": {
+    "discord": "https://discord.gg/2DBVH3qgMf"
+  },
+  "websiteUrl": "https://imagination.to/",
+  "highlights": [
+    {
+      "title": {
+        "en": "Support for Diverse Asset Types",
+        "ch": "支持 for Diverse Asset Types"
+      },
+      "description": {
+        "en": "Enables the creation and trading of various digital assets, including meme tokens and unique collectibles, catering to diverse use cases",
+        "ch": "Enables the creation and 交易 of various digital assets, including meme 代币s and unique collectibles, catering to diverse use cases"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "Cross-Chain Compatibility",
+        "ch": "跨链 兼容性"
+      },
+      "description": {
+        "en": "Supports seamless asset transfers across UTXO-based blockchains, bridging assets like Bitcoin Ordinals and Atomicals to CKB",
+        "ch": "支持s seamless asset transfers across UTXO-based 区块链s, bridging assets like 比特币 Ordinals and Atomicals to CKB"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "Team (需要专业翻译)"
+      },
+      "foundedDate": "Jan 01, 2019",
+      "items": [
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": false
+        },
+        {
+          "name": "Identified Members",
+          "status": false
+        },
+        {
+          "name": "Active",
+          "status": false
+        }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "Project (需要专业翻译)"
+      },
+      "launchedDate": "Jan 01, 2019",
+      "items": [
+        {
+          "name": "Open Source",
+          "status": false
+        },
+        {
+          "name": "Audited",
+          "status": false
+        },
+        {
+          "name": "White Paper",
+          "status": false
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "issuedDate": "Jan 01, 2019",
+      "items": [
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": {
+        "en": "How does imagiNation ensure fairness?",
+        "ch": "How does imagiNation ensure fairness? (需要专业翻译)"
+      },
+      "a": {
+        "en": "Following CKB ecosystem standards, imagiNation likely adopts a fair launch mechanism to ensure equitable access and participation for all users.",
+        "ch": "Following CKB 生态系统 standards, imagiNation likely adopts a fair launch mechanism to ensure equitable access and participation for all users."
+      }
+    },
+    {
+      "q": {
+        "en": "What are the use cases for imagiNation?",
+        "ch": "What are the use cases for imagiNation? (需要专业翻译)"
+      },
+      "a": {
+        "en": "imagiNation may support applications like tokenized assets, decentralized exchanges, or community-driven projects, leveraging CKB’s Turing-complete contracts and xUDT standards.",
+        "ch": "imagiNation may 支持 applications like 代币ized assets, 去中心化 交易所s, or 社区-driven projects, leveraging CKB’s Turing-complete contracts and xUDT standards."
+      }
+    }
+  ]
+}

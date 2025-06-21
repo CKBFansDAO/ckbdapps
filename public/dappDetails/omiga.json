@@ -1,0 +1,193 @@
+{
+  "name": "Omiga",
+  "description": {
+    "en": "Omiga is an innovative inscription protocol built on the CKB (Common Knowledge Base) blockchain, designed to provide a fairer and more efficient experience for minting and managing inscriptions. Developed by the Nervos ecosystem team, Omiga leverages CKB's unique Cell model and Proof-of-Work consensus to create a native inscription mechanism that eliminates the need for centralized indexers, unlike traditional Bitcoin inscriptions. It supports mainstream Bitcoin wallets like Unisat and OKX Web3, enabling seamless cross-chain interactions and providing a more secure, decentralized approach to digital asset creation and management.",
+    "ch": "Omiga 是建立在 CKB (Common Knowledge Base) 区块链上的创新铭文协议，旨在为铸造和管理铭文提供更公平、更高效的体验。由 Nervos 生态系统团队开发，Omiga 利用 CKB 独特的 Cell 模型和工作量证明共识创建原生铭文机制，与传统的比特币铭文不同，它消除了对中心化索引器的需求。它支持 Unisat 和 OKX Web3 等主流比特币钱包，实现无缝跨链交互，为数字资产创建和管理提供更安全、去中心化的方法。"
+  },
+  "titleImage": "/dappDetails/images/omiga/banner.jpg",
+  "logo": "/dappDetails/images/omiga/logo.webp",
+  "tags": [
+    {
+      "name": "RGB++",
+      "color": "bg-purple-600"
+    },
+    {
+      "name": "DApp",
+      "color": "bg-blue-600"
+    }
+  ],
+  "socialLinks": {
+    "twitter": "https://x.com/omigahq",
+    "telegram": "https://t.me/omigackb"
+  },
+  "websiteUrl": "https://omiga.io/",
+  "highlights": [
+    {
+      "title": {
+        "en": "First Inscription Protocol on CKB",
+        "ch": "CKB 上首个铭文协议"
+      },
+      "description": {
+        "en": "Pioneering inscription protocol built on Nervos CKB",
+        "ch": "建立在 Nervos CKB 上的开创性铭文协议"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "Fair Minting Mechanism",
+        "ch": "公平铸造机制"
+      },
+      "description": {
+        "en": "Equitable distribution with a fair minting process",
+        "ch": "通过公平铸造过程实现公平分配"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": {
+        "en": "Bitcoin Wallet Support",
+        "ch": "比特币钱包支持"
+      },
+      "description": {
+        "en": "Supports mainstream Bitcoin wallets like Unisat and OKX Web3",
+        "ch": "支持 Unisat 和 OKX Web3 等主流比特币钱包"
+      },
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    },
+    {
+      "title": {
+        "en": "Full On-Chain Verification",
+        "ch": "完全链上验证"
+      },
+      "description": {
+        "en": "Removing the need for centralized indexing, unlike inscription on Bitcoin",
+        "ch": "与比特币铭文不同，消除对中心化索引的需求"
+      },
+      "gradient": "from-purple-50 to-pink-50",
+      "borderColor": "border-purple-200",
+      "hoverBorderColor": "hover:border-purple-300",
+      "textColor": "text-purple-700",
+      "buttonColor": "text-purple-600 hover:text-purple-700 hover:bg-purple-100"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
+      "items": [
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": true
+        },
+        {
+          "name": "Identified Members",
+          "status": true
+        },
+        {
+          "name": "Active",
+          "status": true
+        }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
+      "items": [
+        {
+          "name": "Open Source",
+          "status": true
+        },
+        {
+          "name": "Audited",
+          "status": false
+        },
+        {
+          "name": "White Paper",
+          "status": true
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "items": [
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": true
+        },
+        {
+          "name": "Tradable",
+          "status": true
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
+      ]
+    }
+  },
+  "related": [],
+  "faq": [
+    {
+      "q": {
+        "en": "What makes Omiga's inscription mechanism unique?",
+        "ch": "什么使 Omiga 的铭文机制独特？"
+      },
+      "a": {
+        "en": "Omiga uses a native inscription mechanism with PoW and extended UTXO (Cell model), enabling on-chain pricing, fusion, and melting capabilities. It eliminates the need for centralized indexers, ensuring true decentralization and security.",
+        "ch": "Omiga 使用具有 PoW 和扩展 UTXO (Cell 模型) 的原生铭文机制，实现链上定价、融合和销毁功能。它消除了对中心化索引器的需求，确保真正的去中心化和安全性。"
+      }
+    },
+    {
+      "q": {
+        "en": "Does Omiga require cross-chain bridges?",
+        "ch": "Omiga 需要跨链桥接吗？"
+      },
+      "a": {
+        "en": "Currently, Omiga operates without cross-chain bridges for its core inscription minting on CKB. However, future plans include opening cross-chain bridges and trading markets to facilitate trading of Bitcoin and CKB inscription assets, enhancing ecosystem interoperability.",
+        "ch": "目前，Omiga 在 CKB 上的核心铭文铸造无需跨链桥接。然而，未来计划包括开放跨链桥接和交易市场，以促进比特币和 CKB 铭文资产的交易，增强生态系统互操作性。"
+      }
+    },
+    {
+      "q": {
+        "en": "What is the purpose of Omiga's inscriptions?",
+        "ch": "Omiga 铭文的目的是什么？"
+      },
+      "a": {
+        "en": "Beyond meme tokens, Omiga's inscriptions support Turing-complete contracts and xUDT (Extensible User Defined Token) compatibility, enabling utility in DeFi, DEX, and token-gated communities. They are designed for real-world applications and ecosystem integration.",
+        "ch": "除了迷因代币，Omiga 的铭文支持图灵完备合约和 xUDT (可扩展用户定义代币) 兼容性，实现 DeFi、DEX 和代币门控社区的实用性。它们专为现实世界应用和生态系统集成而设计。"
+      }
+    }
+  ]
+}

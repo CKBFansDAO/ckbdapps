@@ -1,0 +1,193 @@
+{
+  "name": "UTXO Global",
+  "description": {
+    "en": "UTXO Global is a DeFi-focused wallet on the Nervos Network (CKB), designed for managing assets on UTXO-based blockchains. It integrates with the RGB++ protocol to enable seamless management and trading of digital assets, such as meme tokens. As the first wallet integrated into Telegram and available as a Chrome extension, it offers batch transfers, cross-platform synchronization, and CKB.Fi integration for minting and trading RGB++ tokens from social content, driving DeFi innovation in the UTXO ecosystem.",
+    "ch": "UTXO Global 是 Nervos 网络 (CKB) 上专注于 DeFi 的钱包，专为管理基于 UTXO 的区块链资产而设计。它集成了 RGB++ 协议，实现数字资产的无缝管理和交易，包括 meme 代币。作为首个集成到 Telegram 并可作为 Chrome 扩展使用的钱包，它提供批量转账、跨平台同步以及 CKB.Fi 集成功能，用于从社交内容中铸造和交易 RGB++ 代币，推动 UTXO 生态系统中的 DeFi 创新。"
+  },
+  "titleImage": "/dappDetails/images/utxoglobal/banner.jpg",
+  "logo": "/dappDetails/images/utxoglobal/logo.jpg",
+  "tags": [
+    {
+      "name": "Wallet",
+      "color": "bg-purple-600"
+    }
+  ],
+  "socialLinks": {
+    "twitter": "https://x.com/UTXOGlobal",
+    "telegram": "https://t.me/utxoglobal",
+    "github": "https://github.com/UTXO-Global",
+    "youtube": "https://www.youtube.com/@UTXOGlobal"
+  },
+  "websiteUrl": "https://utxo.global",
+  "highlights": [
+    {
+      "title": {
+        "en": "First Telegram-Integrated Wallet",
+        "ch": "首个 Telegram 集成钱包"
+      },
+      "description": {
+        "en": "Pioneers DeFi by being the first wallet integrated into Telegram, enabling seamless asset management within a popular messaging platform",
+        "ch": "作为首个集成到 Telegram 的钱包，开创 DeFi 先河，在热门通讯平台内实现无缝资产管理"
+      },
+      "gradient": "from-amber-50 to-orange-50",
+      "borderColor": "border-amber-200",
+      "hoverBorderColor": "hover:border-amber-300",
+      "textColor": "text-amber-700",
+      "buttonColor": "text-amber-600 hover:text-amber-700 hover:bg-amber-100"
+    },
+    {
+      "title": {
+        "en": "Multi-Asset Support",
+        "ch": "多资产支持"
+      },
+      "description": {
+        "en": "Manages UTXO-compatible assets using Nervos CKB's Cell model and RGB++ protocol for secure, flexible handling",
+        "ch": "使用 Nervos CKB 的 Cell 模型和 RGB++ 协议管理 UTXO 兼容资产，实现安全、灵活的处理"
+      },
+      "gradient": "from-blue-50 to-purple-50",
+      "borderColor": "border-blue-200",
+      "hoverBorderColor": "hover:border-blue-300",
+      "textColor": "text-blue-700",
+      "buttonColor": "text-blue-600 hover:text-blue-700 hover:bg-blue-100"
+    },
+    {
+      "title": {
+        "en": "Chrome Extension Wallet",
+        "ch": "Chrome 扩展钱包"
+      },
+      "description": {
+        "en": "Available as a Chrome extension, providing a convenient and accessible interface for managing UTXO-based assets directly in the browser",
+        "ch": "可作为 Chrome 扩展使用，提供便捷易用的界面，直接在浏览器中管理基于 UTXO 的资产"
+      },
+      "gradient": "from-green-50 to-emerald-50",
+      "borderColor": "border-green-200",
+      "hoverBorderColor": "hover:border-green-300",
+      "textColor": "text-green-700",
+      "buttonColor": "text-green-600 hover:text-green-700 hover:bg-green-100"
+    }
+  ],
+  "videos": [
+    {
+      "title": {
+        "en": "UTXO Global Multi-Sig Wallet",
+        "ch": "UTXO Global 多签钱包"
+      },
+      "url": "https://www.youtube.com/embed/LcLPZpT2m78",
+      "thumbnail": "https://img.youtube.com/vi/LcLPZpT2m78/hqdefault.jpg"
+    },
+    {
+      "title": {
+        "en": "UTXO Global Multi-Sig Wallet supporting xUDT",
+        "ch": "UTXO Global 多签钱包支持 xUDT"
+      },
+      "url": "https://www.youtube.com/embed/grT6W99kHLE",
+      "thumbnail": "https://img.youtube.com/vi/grT6W99kHLE/hqdefault.jpg"
+    }
+  ],
+  "transparency": {
+    "team": {
+      "title": {
+        "en": "Team",
+        "ch": "团队"
+      },
+      "items": [
+        {
+          "name": "Present",
+          "status": true
+        },
+        {
+          "name": "Responsive",
+          "status": true
+        },
+        {
+          "name": "Identified Members",
+          "status": true
+        },
+        {
+          "name": "Active",
+          "status": true
+        }
+      ]
+    },
+    "project": {
+      "title": {
+        "en": "Project",
+        "ch": "项目"
+      },
+      "items": [
+        {
+          "name": "Open Source",
+          "status": true
+        },
+        {
+          "name": "Audited"
+        },
+        {
+          "name": "White Paper",
+          "status": true
+        },
+        {
+          "name": "Smart Contract",
+          "status": true
+        }
+      ]
+    },
+    "token": {
+      "title": {
+        "en": "Token",
+        "ch": "代币"
+      },
+      "items": [
+        {
+          "name": "FT Token",
+          "status": false
+        },
+        {
+          "name": "NFT/DOB Token",
+          "status": false
+        },
+        {
+          "name": "Tradable",
+          "status": false
+        },
+        {
+          "name": "Exchange Listed",
+          "status": false
+        }
+      ]
+    }
+  },
+  "related": [
+    {
+      "title": "JoyID",
+      "desc": {
+        "en": "A pioneering universal account protocol crafted to accelerate Web3 mass adoption.",
+        "ch": "专为加速 Web3 大规模采用而设计的开创性通用账户协议。"
+      },
+      "icon": "/dappDetails/images/joyid/logo.jpg",
+      "dappId": "joyid"
+    }
+  ],
+  "faq": [
+    {
+      "q": {
+        "en": "Why is UTXO Global special?",
+        "ch": "UTXO Global 有什么特别之处？"
+      },
+      "a": {
+        "en": "UTXO Global stands out as the first wallet integrated into Telegram, offering seamless DeFi access within a popular messaging platform. It also operates as a Chrome extension, supports batch transfers, synchronizes across platforms, and integrates with CKB.Fi for minting/trading RGB++ meme tokens, enhancing liquidity and user engagement in the Nervos ecosystem.",
+        "ch": "UTXO Global 作为首个集成到 Telegram 的钱包脱颖而出，在热门通讯平台内提供无缝的 DeFi 访问体验。它还作为 Chrome 扩展运行，支持批量转账，实现跨平台同步，并与 CKB.Fi 集成以铸造/交易 RGB++ meme 代币，增强 Nervos 生态系统中的流动性和用户参与度。"
+      }
+    },
+    {
+      "q": {
+        "en": "What are its main features?",
+        "ch": "它的主要功能有哪些？"
+      },
+      "a": {
+        "en": "Enabling seamless asset management across platforms with cross-platform synchronization. It supports multiple UTXO-compatible assets using CKB's Cell model and RGB++ protocol, facilitates efficient batch transfers through a multisig wallet, integrates with CKB.Fi for minting and trading RGB++ meme tokens from social content, and enhances cross-chain liquidity for Nervos CKB and Fiber networks.",
+        "ch": "通过跨平台同步实现无缝的跨平台资产管理。它使用 CKB 的 Cell 模型和 RGB++ 协议支持多种 UTXO 兼容资产，通过多签钱包促进高效的批量转账，与 CKB.Fi 集成以从社交内容中铸造和交易 RGB++ meme 代币，并增强 Nervos CKB 和 Fiber 网络的跨链流动性。"
+      }
+    }
+  ]
+}

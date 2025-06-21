@@ -105,10 +105,10 @@ const EventCard = ({ eventConfig }) => {
                 {renderEventStatus()}
             </div>
 
-            <div className='flex flex-col rounded-b-xl bg-white p-5 gap-3'>
+            <div className='flex flex-col rounded-b-xl bg-white p-5 gap-3 text-black'>
                 <div className='flex items-center w-full gap-2'>
                     <img className='w-8 h-8 rounded-full' src={getProjectLogo()}></img>
-                    <span className="text-base font-bold text-[16px]" >{eventConfig.project_name}</span>
+                    <span className="text-[16px] font-bold">{eventConfig.project_name}</span>
                     <VerifiedIcon></VerifiedIcon>
                 </div>
                 <a className='' href={eventConfig.url} rel="noopener noreferrer" target="_blank">

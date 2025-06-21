@@ -44,4 +44,20 @@ export const currentLanguage = () => {
     return language;
 }
 
+// 新增函数：根据当前语言获取多语言文本
+export const getLocalizedText = (textObj, language = null) => {
+    if (!textObj) return '';
+    
+    // 如果是字符串，直接返回（向后兼容）
+    if (typeof textObj === 'string') return textObj;
+    
+    // 如果是对象，根据当前语言返回相应文本
+    const lang = language || currentLanguage();
+    if (lang === 'zh_CN') {
+        return textObj.ch || textObj.en || '';
+    } else {
+        return textObj.en || textObj.ch || '';
+    }
+}
+
 export default i18n
