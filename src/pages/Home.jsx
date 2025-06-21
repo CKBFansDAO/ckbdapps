@@ -6,6 +6,7 @@ import Button from "../components/ui/button"
 import { useEffect, useState, useCallback, useRef } from "react"
 import { useSelector } from 'react-redux'
 import { getLocalizedText } from "../utils/i18n"
+import { useTranslation } from 'react-i18next'
 
 // Hero Banner Carousel Section
 const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
@@ -249,6 +250,7 @@ const ProjectIntroduction = ({ banners, current, language }) => {
 
 // Spark Granted Projects Section
 const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSize, maxPage, onDappSelect, language }) => {
+  const [t] = useTranslation();
   const [currentWindowSize, setCurrentWindowSize] = useState(() => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth < 640) return windowSize.mobile;
@@ -275,7 +277,7 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
         <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-10">
           <div className="flex items-center gap-3">
             <Sparkles className="h-6 w-6 text-cosmic-accent" />
-            <h2 className="text-2xl font-bold text-cosmic-dark">Spark Granted Projects</h2>
+            <h2 className="text-2xl font-bold text-cosmic-dark">{t('home.sections.spark-granted')}</h2>
           </div>
           <div className="flex items-center gap-4">
             <Button
@@ -304,7 +306,7 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
               <svg className="w-6 h-6 mr-2 animate-pulse group-hover:animate-spin" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" />
               </svg>
-              Discord
+              {t('home.buttons.discord')}
             </a>
           </div>
         </div>
@@ -373,12 +375,13 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
 
 // Highlighted Projects Section
 const HighlightedProjects = ({ highlightedProjects, onDappSelect, language }) => {
+  const [t] = useTranslation();
   return (
     <section className="bg-cosmic-light py-12 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-3 mb-10">
           <div className="h-px w-12 bg-cosmic-purple/50"></div>
-          <h2 className="text-2xl font-bold text-cosmic-dark">Highlighted Projects</h2>
+          <h2 className="text-2xl font-bold text-cosmic-dark">{t('home.sections.highlighted')}</h2>
           <div className="h-px w-24 bg-[#B7AFFF] opacity-60"></div>
         </div>
         <div className="space-y-16">
@@ -422,7 +425,7 @@ const HighlightedProjects = ({ highlightedProjects, onDappSelect, language }) =>
                   </p>
                   <div className="mt-6 flex justify-end">
                     <div className="inline-flex items-center gap-2 text-cosmic-accent text-sm group-hover:translate-x-1 transition-transform">
-                      <span>Explore</span>
+                      <span>{t('home.buttons.explore')}</span>
                       <ExternalLink className="h-4 w-4" />
                     </div>
                   </div>
@@ -438,12 +441,13 @@ const HighlightedProjects = ({ highlightedProjects, onDappSelect, language }) =>
 
 // Premium Projects Section
 const PremiumProjects = ({ premiumProjects, onDappSelect, language }) => {
+  const [t] = useTranslation();
   return (
     <section className="bg-cosmic-light py-12 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-3 mb-10">
           <div className="h-px w-12 bg-cosmic-purple/50"></div>
-          <h2 className="text-2xl font-bold text-cosmic-dark">Premium Projects</h2>
+          <h2 className="text-2xl font-bold text-cosmic-dark">{t('home.sections.premium')}</h2>
           <div className="h-px w-24 bg-[#B7AFFF] opacity-60"></div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -484,6 +488,7 @@ const PremiumProjects = ({ premiumProjects, onDappSelect, language }) => {
 
 // Community-driven Projects Section
 const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunityPage, windowSize, maxPage, onDappSelect, language }) => {
+  const [t] = useTranslation();
   const [currentWindowSize, setCurrentWindowSize] = useState(() => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth < 640) return windowSize.mobile;
@@ -510,7 +515,7 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
         <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-10">
           <div className="flex items-center gap-3">
             <div className="h-px w-12 bg-[#B7AFFF] opacity-60"></div>
-            <h2 className="text-2xl font-bold text-cosmic-dark">Community-driven Projects</h2>
+            <h2 className="text-2xl font-bold text-cosmic-dark">{t('home.sections.community')}</h2>
             <div className="h-px w-12 bg-[#B7AFFF] opacity-60"></div>
           </div>
           <div className="flex items-center gap-4">
@@ -597,7 +602,7 @@ const CommunityDrivenProjects = ({ communityProjects, communityPage, setCommunit
 };
 
 // Community Fund DAO Section
-const CommunityFundDAO = () => {
+const CommunityFundDAO = ({ language }) => {
   return (
     <section className="bg-cosmic-light pt-2 pb-28 px-6">
       <div className="max-w-6xl mx-auto">
@@ -760,7 +765,7 @@ export default function Home({ onDappSelect }) {
       <div className="w-full">
         <HeroBannerCarousel banners={banners} current={current} next={next} fadeStage={fadeStage} triggerFade={triggerFade} onDappSelect={onDappSelect} setIsHovered={setIsHovered} isHovered={isHovered} />
         <ProjectIntroduction banners={banners} current={displayIdx} language={language} />
-                  <SparkGrantedProjects 
+          <SparkGrantedProjects 
             sparkProjects={sparkProjects} 
             sparkPage={sparkPage} 
             setSparkPage={setSparkPage} 
@@ -769,9 +774,9 @@ export default function Home({ onDappSelect }) {
             onDappSelect={onDappSelect}
             language={language}
           />
-                  <HighlightedProjects highlightedProjects={highlightedProjects} onDappSelect={onDappSelect} language={language} />
-                  <PremiumProjects premiumProjects={premiumProjects} onDappSelect={onDappSelect} language={language} />
-                  <CommunityDrivenProjects 
+          <HighlightedProjects highlightedProjects={highlightedProjects} onDappSelect={onDappSelect} language={language} />
+          <PremiumProjects premiumProjects={premiumProjects} onDappSelect={onDappSelect} language={language} />
+          <CommunityDrivenProjects 
             communityProjects={communityProjects} 
             communityPage={communityPage} 
             setCommunityPage={setCommunityPage} 
@@ -780,7 +785,7 @@ export default function Home({ onDappSelect }) {
             onDappSelect={onDappSelect}
             language={language}
           />
-        <CommunityFundDAO />
+        <CommunityFundDAO language={language} />
       </div>
     </div>
   );

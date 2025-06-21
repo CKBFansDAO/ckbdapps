@@ -4,6 +4,7 @@ import Button from "../components/ui/button";
 import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { getLocalizedText } from "../utils/i18n";
+import { useTranslation } from 'react-i18next';
 
 // highlight color configuration, up to 6
 const highlightsColors = [
@@ -73,6 +74,7 @@ const marketingIconMap = {
 };
 
 const ProjectHeader = ({ data, onClose, language }) => {
+  const [t] = useTranslation();
   return (
     <section className="bg-white py-6 px-4 md:py-8 border-b border-gray-200">
       <div className="max-w-7xl mx-auto">
@@ -136,7 +138,7 @@ const ProjectHeader = ({ data, onClose, language }) => {
                 className={`w-full md:w-auto px-8 py-3 text-lg font-bold rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg transition-transform duration-200 ${data.websiteUrl ? 'hover:scale-105 hover:shadow-lg' : 'opacity-50 cursor-not-allowed'}`}
                 disabled={!data.websiteUrl}
               >
-                Visit Website
+                {t('detail.buttons.visit-website')}
               </Button>
             </a>
           </div>
@@ -150,6 +152,7 @@ const ProjectHeader = ({ data, onClose, language }) => {
 }
 
 const AwesomeHighlights = ({ highlights, language }) => {
+  const [t] = useTranslation();
   if (!highlights) return null;
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
@@ -157,7 +160,7 @@ const AwesomeHighlights = ({ highlights, language }) => {
         <div className="text-center mb-8">
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-3">
             <Zap className="h-8 w-8 text-amber-500" />
-            Awesome Highlights
+            {t('detail.sections.awesome-highlights')}
           </h3>
         </div>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -242,12 +245,13 @@ const VideoSection = ({ videos, videoIndex, setVideoIndex }) => {
 }
 
 const ProjectTransparency = ({ transparency, language }) => {
+  const [t] = useTranslation();
   if (!transparency) return null;
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
       <div className="flex items-center justify-between mb-12">
         <div className="flex items-center gap-2">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">Project Transparency</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{t('detail.sections.project-transparency')}</h3>
           {/* Info icon with tooltip */}
           <div className="relative group pt-2 hidden md:block">
             <Info className="w-5 h-5 text-gray-400 cursor-pointer" />
@@ -267,7 +271,7 @@ const ProjectTransparency = ({ transparency, language }) => {
           <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
           </svg>
-          Submit Correction
+          {t('detail.buttons.submit-correction')}
         </a>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -285,7 +289,7 @@ const ProjectTransparency = ({ transparency, language }) => {
               </svg>
             </div>
             <div>
-              <h4 className="text-xl font-bold text-gray-900">{getLocalizedText(transparency.team.title, language)}</h4>
+              <h4 className="text-xl font-bold text-gray-900">{t('detail.transparency.team')}</h4>
             </div>
           </div>
           <div className="space-y-4">
@@ -325,7 +329,7 @@ const ProjectTransparency = ({ transparency, language }) => {
               </svg>
             </div>
             <div>
-              <h4 className="text-xl font-bold text-gray-900">{getLocalizedText(transparency.project.title, language)}</h4>
+              <h4 className="text-xl font-bold text-gray-900">{t('detail.transparency.project')}</h4>
             </div>
           </div>
           <div className="space-y-4">
@@ -365,7 +369,7 @@ const ProjectTransparency = ({ transparency, language }) => {
               </svg>
             </div>
             <div>
-              <h4 className="text-xl font-bold text-gray-900">{getLocalizedText(transparency.token.title, language)}</h4>
+              <h4 className="text-xl font-bold text-gray-900">{t('detail.transparency.token')}</h4>
             </div>
           </div>
           <div className="space-y-4">
@@ -397,12 +401,13 @@ const ProjectTransparency = ({ transparency, language }) => {
 }
 
 const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedClick, language }) => {
+  const [t] = useTranslation();
   return (
     <section className="max-w-7xl mx-auto py-8 px-4 md:py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* FAQ Area */}
         <div>
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">FAQ</h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">{t('detail.sections.faq')}</h3>
           <div className="space-y-4">
             {faq && faq.map((item, idx) => (
               <div
@@ -433,7 +438,7 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedCli
         </div>
         {/* Related Area */}
         <div>
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">Related</h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">{t('detail.sections.related')}</h3>
           <div className="flex flex-col gap-4">
             {related && related.map((item, idx) => (
               <div
@@ -457,6 +462,7 @@ const FAQAndRelated = ({ faq, related, expandedFaq, setExpandedFaq, onRelatedCli
 
 export default function DappDetail({ dappId, onClose, onRelatedClick }) {
   const language = useSelector(state => state.langReducer.language);
+  const [t] = useTranslation();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -504,7 +510,7 @@ export default function DappDetail({ dappId, onClose, onRelatedClick }) {
         <div className="max-w-7xl mx-auto flex items-center">
           <button onClick={onClose} className="flex items-center text-gray-900 hover:text-gray-600">
             <ArrowLeft className="h-5 w-5 mr-2" />
-            <h3 className="text-ml">Back to Projects</h3>
+            <h3 className="text-ml">{t('home.buttons.back-to-projects')}</h3>
           </button>
         </div>
       </header>

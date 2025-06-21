@@ -53,6 +53,18 @@
       "about-us": "About US"
     },
     "home": {
+      "sections": {
+        "spark-granted": "Spark Granted Projects",
+        "highlighted": "Highlighted Projects",
+        "premium": "Premium Projects",
+        "community": "Community-driven Projects",
+        "community-fund": "Community Fund DAO"
+      },
+      "buttons": {
+        "discord": "Discord",
+        "explore": "Explore",
+        "back-to-projects": "Back to Projects"
+      },
       "market-data": {
         "token-summary": "CKB Token Summary",
         "total-supply": "Total Supply",
@@ -73,6 +85,23 @@
         "hash-rate":"Hash Rate",
         "price":"Price",
         "miner-released":"miner released"
+      }
+    },
+    "detail": {
+      "sections": {
+        "awesome-highlights": "Awesome Highlights",
+        "project-transparency": "Project Transparency",
+        "faq": "FAQ",
+        "related": "Related"
+      },
+      "buttons": {
+        "visit-website": "Visit Website",
+        "submit-correction": "Submit Correction"
+      },
+      "transparency": {
+        "team": "Team",
+        "project": "Project",
+        "token": "Token"
       }
     },
     "halving": {
@@ -107,37 +136,39 @@
       "clear-search":"Enter a new keyword",
       "search-placehold":"Search by project",
       "add-watchlist":"Add to WatchList",
-      "remove-watchlist":"Remove from WatchList"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-     
-      
-      
-
+      "remove-watchlist":"Remove from WatchList",
+      "tags":{
+        "L1":"L1",
+        "L2":"L2",
+        "Wallet":"Wallet",
+        "Liquidity":"Liquidity",
+        "Bridges":"Bridges",
+        "Lending":"Lending",
+        "Explorer":"Explorer",
+        "Hardware Wallet":"Hardware Wallet",
+        "Partners":"Partners",
+        "Mining Pools":"Mining Pools",
+        "Tools & Infrastructure":"Tools & Infrastructure",
+        "Markets":"Markets",
+        "Security & Audit":"Security & Audit",
+        "Investors":"Investors",
+        "Community":"Community",
+        "Global":"Global",
+        "Chinese":"Chinese",
+        "English":"English",
+        "Developer":"Developer",
+        "Inscription":"Inscription",
+        "Tools":"Tools",
+        "Stablecoin":"Stablecoin",
+        "Protocol":"Protocol",
+        "Marketplace":"Marketplace",
+        "Intent-centric":"Intent-centric",
+        "DOBs":"DOBs",
+        "Extension":"Extension",
+        "Multi-Sig":"Multi-Sig",
+        "Assets Manager":"Assets Manager",
+        "Lightning Network":"Lightning Network"
+      }
     },
     "events":{
       "upcoming":"Upcoming",

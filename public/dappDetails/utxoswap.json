@@ -5,7 +5,7 @@
     "ch": "UTXO Swap 是基于 Nervos CKB 第二层构建的去中心化交易所，专为无缝、意图驱动的交易而设计。它利用 UTXO Stack 框架在比特币上提供高效、安全的 RGB++ 资产交易，使用户能够在没有传统订单簿或中心化中介的情况下交易数字资产。基于 CKB 安全的第一层和基于 UTXO 的 Cell 模型构建，UTXO Swap 提供具有增强隐私性和可扩展性的无信任交易体验。"
   },
   "titleImage": "/dappDetails/images/utxoswap/banner.jpg",
-  "logo": "/dappDetails/images/utxoswap/logo.jpg",
+  "logo": "/dappDetails/images/utxoswap/logo.png",
   "tags": [
     {
       "name": "DEX",
