@@ -210,7 +210,7 @@ const ProjectIntroduction = ({ banners, current, language }) => {
           ></div>
         ))}
       </div>
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
           <span
             className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(80,200,255,0.5)]"

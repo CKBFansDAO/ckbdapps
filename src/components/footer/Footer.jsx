@@ -37,7 +37,6 @@ const Footer = (props) => {
 
     return (
         <div className='w-full bg-[#232325] py-8'>
-        <span className='border-[0.1px] seperator'></span>
             <div className='text-lg px-3 flex items-center justify-center'>
                 <a className='text-lg px-3 py-5' href={community_link.community[currentLanguage()].feedback.link} rel="noopener noreferrer" target="_blank">
                 {community_link.community[currentLanguage()].feedback.name}
