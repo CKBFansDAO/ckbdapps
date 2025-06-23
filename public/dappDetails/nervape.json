@@ -2,7 +2,7 @@
   "name": "Nervape",
   "description": {
     "en": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem, focusing on narrative-driven, customizable 3D NFTs that operate on both Bitcoin and CKB chains, allowing users to create, modify, and transfer assets across chains. Its significance lies in enhancing the Nervos ecosystem by fostering community-driven storytelling, metaverse integration, and interoperability, while expanding practical NFT use cases through trading, gaming, and DeFi collaborations, thus driving user engagement and ecosystem growth.",
-    "ch": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB 生态系统, focusing on narrative-driven, customizable 3D NFTs that operate on both 比特币 and CKB chains, allowing users to create, modify, and transfer assets across chains. Its significance lies in enhancing the Nervos 生态系统 by fostering 社区-driven storytelling, metaverse 集成, and 互操作性, while expanding practical NFT use cases through 交易, 游戏, and DeFi collaborations, thus driving user engagement and 生态系统 growth."
+    "ch": "Nervape 是 Nervos CKB 生态系统中的多链可组合数字对象（DOB）平台，专注于叙事驱动的可定制 3D NFT，在比特币和 CKB 链上运行，允许用户创建、修改和跨链转移资产。其重要意义在于通过促进社区驱动的故事叙述、元宇宙集成和互操作性来增强 Nervos 生态系统，同时通过交易、游戏和 DeFi 协作扩展实用的 NFT 使用场景，从而推动用户参与和生态系统增长。"
   },
   "titleImage": "/dappDetails/images/nervape/banner.jpeg",
   "logo": "/dappDetails/images/nervape/logo.jpeg",
@@ -29,11 +29,11 @@
     {
       "title": {
         "en": "First RGB++ DOB on Bitcoin",
-        "ch": "First RGB++ DOB on 比特币"
+        "ch": "比特币上首个 RGB++ DOB"
       },
       "description": {
         "en": "Pioneering cross-chain digital objects",
-        "ch": "Pioneering 跨链 digital objects"
+        "ch": "开创跨链数字对象"
       },
       "gradient": "from-amber-50 to-orange-50",
       "borderColor": "border-amber-200",
@@ -44,11 +44,11 @@
     {
       "title": {
         "en": "Composable Equipment System",
-        "ch": "Composable Equipment System (需要专业翻译)"
+        "ch": "可组合装备系统"
       },
       "description": {
         "en": "Each piece stored in separate Cells",
-        "ch": "Each piece stored in separate Cells (需要专业翻译)"
+        "ch": "每个部件存储在独立的 Cell 中"
       },
       "gradient": "from-blue-50 to-purple-50",
       "borderColor": "border-blue-200",
@@ -59,11 +59,11 @@
     {
       "title": {
         "en": "Customizable Dressing Effects",
-        "ch": "Customizable Dressing Effects (需要专业翻译)"
+        "ch": "可定制装扮效果"
       },
       "description": {
         "en": "Dynamic binding relationships",
-        "ch": "Dynamic binding relationships (需要专业翻译)"
+        "ch": "动态绑定关系"
       },
       "gradient": "from-green-50 to-emerald-50",
       "borderColor": "border-green-200",
@@ -74,11 +74,11 @@
     {
       "title": {
         "en": "Seamless Cross-Chain Leaps",
-        "ch": "Seamless 跨链 Leaps"
+        "ch": "无缝跨链跳跃"
       },
       "description": {
         "en": "Bitcoin ↔ CKB without bridges",
-        "ch": "比特币 ↔ CKB without 桥接s"
+        "ch": "比特币 ↔ CKB 无需桥接"
       },
       "gradient": "from-purple-50 to-pink-50",
       "borderColor": "border-purple-200",
@@ -91,7 +91,7 @@
     {
       "title": {
         "en": "Into the Third Continent",
-        "ch": "Into the Third Continent (需要专业翻译)"
+        "ch": "进入第三大陆"
       },
       "url": "https://www.youtube.com/embed/QWntf2sOuRY",
       "thumbnail": "https://img.youtube.com/vi/QWntf2sOuRY/hqdefault.jpg"
@@ -99,7 +99,7 @@
     {
       "title": {
         "en": "Design a Spooky Ape and Post to Win",
-        "ch": "Design a Spooky Ape and Post to Win (需要专业翻译)"
+        "ch": "设计一个幽灵猿并发布获胜"
       },
       "url": "https://www.youtube.com/embed/IOE5JxUqURY",
       "thumbnail": "https://img.youtube.com/vi/IOE5JxUqURY/hqdefault.jpg"
@@ -107,7 +107,7 @@
     {
       "title": {
         "en": "The Nervape Bridge",
-        "ch": "The Nervape 桥接"
+        "ch": "Nervape 桥接"
       },
       "url": "https://www.youtube.com/embed/hPktZ9njEuo",
       "thumbnail": "https://img.youtube.com/vi/hPktZ9njEuo/hqdefault.jpg"
@@ -117,7 +117,7 @@
     "team": {
       "title": {
         "en": "Team",
-        "ch": "Team (需要专业翻译)"
+        "ch": "团队"
       },
       "foundedDate": "Jan 01, 2019",
       "items": [
@@ -142,7 +142,7 @@
     "project": {
       "title": {
         "en": "Project",
-        "ch": "Project (需要专业翻译)"
+        "ch": "项目"
       },
       "launchedDate": "Jan 01, 2019",
       "items": [
@@ -195,31 +195,31 @@
     {
       "q": {
         "en": "What is Nervape?",
-        "ch": "What is Nervape? (需要专业翻译)"
+        "ch": "什么是 Nervape？"
       },
       "a": {
         "en": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem.",
-        "ch": "Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB 生态系统."
+        "ch": "Nervape 是 Nervos CKB 生态系统中的多链可组合数字对象（DOB）平台。"
       }
     },
     {
       "q": {
         "en": "How to get a Nervape DOB?",
-        "ch": "How to get a Nervape DOB? (需要专业翻译)"
+        "ch": "如何获得 Nervape DOB？"
       },
       "a": {
         "en": "You can mint or trade DOBs on the Nervape platform.",
-        "ch": "You can mint or trade DOBs on the Nervape platform. (需要专业翻译)"
+        "ch": "您可以在 Nervape 平台上铸造或交易 DOB。"
       }
     },
     {
       "q": {
         "en": "What chains does Nervape support?",
-        "ch": "What chains does Nervape 支持?"
+        "ch": "Nervape 支持哪些链？"
       },
       "a": {
         "en": "Currently supports Bitcoin and CKB.",
-        "ch": "Currently 支持s 比特币 and CKB."
+        "ch": "目前支持比特币和 CKB。"
       }
     }
   ]
