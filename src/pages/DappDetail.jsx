@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { getLocalizedText } from "../utils/i18n";
 import { useTranslation } from 'react-i18next';
+import imagePreloader from "../utils/imagePreloader";
 
 // highlight color configuration, up to 6
 const highlightsColors = [
@@ -480,6 +481,28 @@ export default function DappDetail({ dappId, onClose, onRelatedClick }) {
       .then((json) => {
         setData(json);
         setLoading(false);
+        
+        // 预加载相关项目的图片
+        if (json.related && json.related.length > 0) {
+          if (window.requestIdleCallback) {
+            window.requestIdleCallback(() => {
+              // 预加载相关项目的详情图片
+              json.related.forEach(related => {
+                if (related.dappId) {
+                  imagePreloader.preloadProjectDetailImages(related.dappId);
+                }
+              });
+            });
+          } else {
+            setTimeout(() => {
+              json.related.forEach(related => {
+                if (related.dappId) {
+                  imagePreloader.preloadProjectDetailImages(related.dappId);
+                }
+              });
+            }, 1000);
+          }
+        }
       })
       .catch((err) => {
         setError(err.message);

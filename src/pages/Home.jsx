@@ -7,31 +7,52 @@ import { useEffect, useState, useCallback, useRef } from "react"
 import { useSelector } from 'react-redux'
 import { getLocalizedText } from "../utils/i18n"
 import { useTranslation } from 'react-i18next'
+import imagePreloader from "../utils/imagePreloader"
+import PreloadIndicator from "../components/ui/PreloadIndicator"
 
 // Hero Banner Carousel Section
 const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [frozenHoverState, setFrozenHoverState] = useState(false);
 
-  // Track transition state
+  // Track transition state and manage hover state freezing
   useEffect(() => {
-    setIsTransitioning(fadeStage === 'prepare' || fadeStage === 'fading');
-  }, [fadeStage]);
+    const transitioning = fadeStage === 'prepare' || fadeStage === 'fading';
+    
+    if (transitioning && !isTransitioning) {
+      // Transition starting - freeze current hover state
+      setFrozenHoverState(isHovered);
+      setIsTransitioning(true);
+    } else if (!transitioning && isTransitioning) {
+      // Transition ending - wait for animation to complete then restore hover state
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false);
+        // Force update frozen state to current hover state
+        setFrozenHoverState(isHovered);
+      }, 50); // Short delay to ensure transition is complete
+      return () => clearTimeout(timeout);
+    }
+  }, [fadeStage, isHovered, isTransitioning]);
 
-  // Simple hover transform logic
-  const getTransform = (isHovering) => {
-    return isHovering && !isTransitioning ? 'scale(1.05)' : 'scale(1)';
-  };
+  // Use frozen hover state during transitions, current state when not transitioning
+  const effectiveHoverState = isTransitioning ? frozenHoverState : isHovered;
 
-  // Improved mouse event handling
+  // Improved mouse event handling - allow updates but use effective state
   const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+    // If not transitioning, immediately update frozen state as well
     if (!isTransitioning) {
-      setIsHovered(true);
+      setFrozenHoverState(true);
     }
   }, [isTransitioning, setIsHovered]);
 
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
-  }, [setIsHovered]);
+    // If not transitioning, immediately update frozen state as well
+    if (!isTransitioning) {
+      setFrozenHoverState(false);
+    }
+  }, [isTransitioning, setIsHovered]);
 
   return (
     <section
@@ -56,10 +77,10 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
           style={{
             zIndex: fadeStage === 'fading' ? 1 : 2,
             opacity: 1,
-            transform: getTransform(isHovered),
+            transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)',
             pointerEvents: fadeStage === 'fading' ? 'none' : 'auto',
-            willChange: 'transform',
-            transition: 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
+            willChange: isTransitioning ? 'none' : 'transform',
+            transition: isTransitioning ? 'none' : 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
           }}
           onClick={() => {
             if (banners[current]?.dappId && onDappSelect) {
@@ -78,10 +99,10 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
             style={{
               zIndex: 2,
               opacity: fadeStage === 'fading' ? 1 : 0,
-              transform: getTransform(isHovered),
+              transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)',
               pointerEvents: fadeStage === 'fading' ? 'auto' : 'none',
-              willChange: 'opacity, transform',
-              transition: 'opacity 700ms ease-in-out, transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
+              willChange: 'opacity',
+              transition: 'opacity 700ms ease-in-out',
             }}
             onClick={() => {
               if (banners[next]?.dappId && onDappSelect) {
@@ -684,6 +705,18 @@ export default function Home({ onDappSelect }) {
     community: [],
     banners: []
   });
+
+  // 智能预加载：当用户点击项目时预加载详情页图片
+  const handleDappSelect = useCallback((dappId) => {
+    // 立即跳转到项目详情
+    onDappSelect(dappId);
+    
+    // 紧急预加载该项目的缩略图（如果还在队列中）
+    imagePreloader.urgentPreloadProjectThumbnail(dappId, sections);
+    
+    // 紧急预加载该项目的详情图片 - 用户立即需要
+    imagePreloader.preloadProjectDetailImages(dappId, true);
+  }, [onDappSelect, sections]);
   const [loading, setLoading] = useState(true);
   const [currentWindowSize, setCurrentWindowSize] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -711,6 +744,25 @@ export default function Home({ onDappSelect }) {
       .then(res => res.json())
       .then(data => {
         setSections(data);
+        setLoading(false);
+        
+        // 启动图片预加载
+        if (data) {
+          // 使用 requestIdleCallback 在浏览器空闲时预加载
+          if (window.requestIdleCallback) {
+            window.requestIdleCallback(() => {
+              imagePreloader.preloadProjectImages(data);
+            });
+          } else {
+            // 如果不支持 requestIdleCallback，使用 setTimeout 延迟执行
+            setTimeout(() => {
+              imagePreloader.preloadProjectImages(data);
+            }, 2000);
+          }
+        }
+      })
+      .catch(error => {
+        console.error("Failed to load home sections:", error);
         setLoading(false);
       });
     return () => {
@@ -820,7 +872,7 @@ export default function Home({ onDappSelect }) {
     <div className="cosmic-inscription min-h-screen bg-cosmic-light text-cosmic-dark overflow-hidden">
       {/* Main Content */}
       <div className="w-full">
-        <HeroBannerCarousel banners={banners} current={current} next={next} fadeStage={fadeStage} triggerFade={triggerFade} onDappSelect={onDappSelect} setIsHovered={setIsHovered} isHovered={isHovered} />
+        <HeroBannerCarousel banners={banners} current={current} next={next} fadeStage={fadeStage} triggerFade={triggerFade} onDappSelect={handleDappSelect} setIsHovered={setIsHovered} isHovered={isHovered} />
         <ProjectIntroduction banners={banners} current={displayIdx} language={language} />
           <SparkGrantedProjects 
             sparkProjects={sparkProjects} 
@@ -828,22 +880,25 @@ export default function Home({ onDappSelect }) {
             setSparkPage={setSparkPage} 
             windowSize={sparkWindowSize}
             maxPage={sparkMaxPage}
-            onDappSelect={onDappSelect}
+            onDappSelect={handleDappSelect}
             language={language}
           />
-          <HighlightedProjects highlightedProjects={highlightedProjects} onDappSelect={onDappSelect} language={language} />
-          <PremiumProjects premiumProjects={premiumProjects} onDappSelect={onDappSelect} language={language} />
+          <HighlightedProjects highlightedProjects={highlightedProjects} onDappSelect={handleDappSelect} language={language} />
+          <PremiumProjects premiumProjects={premiumProjects} onDappSelect={handleDappSelect} language={language} />
           <CommunityDrivenProjects 
             communityProjects={communityProjects} 
             communityPage={communityPage} 
             setCommunityPage={setCommunityPage} 
             windowSize={windowSize}
             maxPage={maxPage}
-            onDappSelect={onDappSelect}
+            onDappSelect={handleDappSelect}
             language={language}
           />
         <CommunityFundDAO language={language} />
       </div>
+      
+      {/* 预加载指示器 */}
+      <PreloadIndicator show={!loading} minimal={true} />
     </div>
   );
 }
