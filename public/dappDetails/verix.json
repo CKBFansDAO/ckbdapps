@@ -1,8 +1,8 @@
 {
   "name": "VeriX",
   "description": {
-    "en": "VeriX is the first Telegram bot designed for the Nervos Network (CKB), a Bitcoin Layer 2 blockchain, aimed at enhancing community management for CKB-based projects. As a pioneering bot, VeriX enables group administrators to restrict member additions based on configurable criteria, such as holdings of CKB, xUDT tokens (CKB’s standard for fungible tokens), and NFT tokens. Leveraging CKB’s secure Layer 1 and UTXO-based Cell model, VeriX ensures trustless verification of asset ownership, fostering secure and exclusive communities within the Nervos ecosystem. By facilitating token-gated access, VeriX supports the growth of CKB projects, including DeFi and NFT initiatives, by ensuring only qualified participants join project-related Telegram groups.",
-    "ch": "VeriX is the first Telegram bot designed for the Nervos 网络 (CKB), a 比特币 第二层 区块链, aimed at enhancing 社区 management for CKB-based projects. As a pioneering bot, VeriX enables group administrators to restrict member additions based on configurable criteria, such as holdings of CKB, xUDT 代币s (CKB’s standard for fungible 代币s), and NFT 代币s. Leveraging CKB’s secure 第一层 and UTXO-based Cell模型, VeriX ensures trustless verification of asset ownership, fostering secure and exclusive communities within the Nervos 生态系统. By facilitating 代币-gated access, VeriX 支持s the growth of CKB projects, including DeFi and NFT initiatives, by ensuring only qualified participants join project-related Telegram groups."
+    "en": "VeriX is the first Telegram bot designed for the Nervos Network (CKB), a Bitcoin Layer 2 blockchain, aimed at enhancing community management for CKB-based projects. As a pioneering bot, VeriX enables group administrators to restrict member additions based on configurable criteria, such as holdings of CKB, xUDT tokens (CKB's standard for fungible tokens), and NFT tokens. Leveraging CKB's secure Layer 1 and UTXO-based Cell model, VeriX ensures trustless verification of asset ownership, fostering secure and exclusive communities within the Nervos ecosystem. By facilitating token-gated access, VeriX supports the growth of CKB projects, including DeFi and NFT initiatives, by ensuring only qualified participants join project-related Telegram groups.",
+    "ch": "VeriX 是专为 Nervos 网络（CKB）设计的首个 Telegram 机器人，CKB 是比特币第二层区块链，旨在增强基于 CKB 项目的社区管理。作为开创性机器人，VeriX 使群组管理员能够基于可配置标准限制成员添加，如持有 CKB、xUDT 代币（CKB 的可替代代币标准）和 NFT 代币。利用 CKB 安全的第一层和基于 UTXO 的 Cell 模型，VeriX 确保资产所有权的无信任验证，在 Nervos 生态系统内培育安全和专属社区。通过促进代币门控访问，VeriX 支持 CKB 项目的增长，包括 DeFi 和 NFT 计划，确保只有合格的参与者才能加入项目相关的 Telegram 群组。"
   },
   "titleImage": "/dappDetails/images/verix/highlight.jpg",
   "logo": "/dappDetails/images/verix/logo.jpg",
@@ -18,11 +18,11 @@
     {
       "title": {
         "en": "First CKB-Related Telegram Bot",
-        "ch": "First CKB-Related Telegram Bot (需要专业翻译)"
+        "ch": "首个 CKB 相关 Telegram 机器人"
       },
       "description": {
         "en": "Pioneers Telegram-based community management for CKB projects by restricting group access based on CKB, xUDT, and NFT token holdings",
-        "ch": "Pioneers Telegram-based 社区 management for CKB projects by restricting group access based on CKB, xUDT, and NFT 代币 holdings"
+        "ch": "通过基于 CKB、xUDT 和 NFT 代币持有量限制群组访问，开创 CKB 项目的 Telegram 社区管理"
       },
       "gradient": "from-amber-50 to-orange-50",
       "borderColor": "border-amber-200",
@@ -33,11 +33,11 @@
     {
       "title": {
         "en": "Token-Gated Community Access",
-        "ch": "代币-Gated 社区 Access"
+        "ch": "代币门控社区访问"
       },
       "description": {
-        "en": "Allows group admins to set entry requirements using CKB, xUDT tokens, or NFTs, verified trustlessly via CKB’s Cell model for secure community management",
-        "ch": "Allows group admins to set entry requirements using CKB, xUDT 代币s, or NFTs, verified trustlessly via CKB’s Cell模型 for secure 社区 management"
+        "en": "Allows group admins to set entry requirements using CKB, xUDT tokens, or NFTs, verified trustlessly via CKB's Cell model for secure community management",
+        "ch": "允许群组管理员使用 CKB、xUDT 代币或 NFT 设置准入要求，通过 CKB 的 Cell 模型进行无信任验证，实现安全的社区管理"
       },
       "gradient": "from-blue-50 to-purple-50",
       "borderColor": "border-blue-200",
@@ -52,7 +52,7 @@
       },
       "description": {
         "en": "Likely integrates with the RGB++ protocol to verify NFT and token ownership, enabling seamless asset management and potential cross-chain interactions with Bitcoin",
-        "ch": "Likely integrates with the RGB++ 协议 to verify NFT and 代币 ownership, enabling seamless asset management and potential 跨链 interactions with 比特币"
+        "ch": "可能集成 RGB++ 协议来验证 NFT 和代币所有权，实现无缝资产管理以及与比特币的潜在跨链交互"
       },
       "gradient": "from-green-50 to-emerald-50",
       "borderColor": "border-green-200",
@@ -65,7 +65,7 @@
     "team": {
       "title": {
         "en": "Team",
-        "ch": "Team (需要专业翻译)"
+        "ch": "团队"
       },
       "foundedDate": "Jan 01, 2019",
       "items": [
@@ -90,7 +90,7 @@
     "project": {
       "title": {
         "en": "Project",
-        "ch": "Project (需要专业翻译)"
+        "ch": "项目"
       },
       "launchedDate": "Jan 01, 2019",
       "items": [
@@ -143,31 +143,31 @@
     {
       "q": {
         "en": "I entered the wrong date of birth or chose the wrong wallet. What now?",
-        "ch": "I entered the wrong date of birth or chose the wrong 钱包. What now?"
+        "ch": "我输入了错误的出生日期或选择了错误的钱包。现在怎么办？"
       },
       "a": {
-        "en": "Leave the group, wait 15 minutes, and re‑join. You’ll receive a new verification link where you can submit the correct DOB or connect the right wallet. VeriX always checks your latest submission—previous data is discarded.",
-        "ch": "Leave the group, wait 15 minutes, and re‑join. You’ll receive a new verification link where you can submit the correct DOB or connect the right 钱包. VeriX always checks your latest submission—previous data is discarded."
+        "en": "Leave the group, wait 15 minutes, and re‑join. You'll receive a new verification link where you can submit the correct DOB or connect the right wallet. VeriX always checks your latest submission—previous data is discarded.",
+        "ch": "退出群组，等待 15 分钟，然后重新加入。您将收到一个新的验证链接，可以在其中提交正确的出生日期或连接正确的钱包。VeriX 始终检查您的最新提交——之前的数据会被丢弃。"
       }
     },
     {
       "q": {
         "en": "Do rule changes kick existing members?",
-        "ch": "Do rule changes kick existing members? (需要专业翻译)"
+        "ch": "规则变更会踢出现有成员吗？"
       },
       "a": {
         "en": "No. When admins update /setage, /settoken, or /setamount, only future joins must meet the new requirements. Existing verified members stay unless they leave and come back later.",
-        "ch": "No. When admins 更新 /setage, /set代币, or /setamount, only future joins must meet the new requirements. Existing verified members stay unless they leave and come back later."
+        "ch": "不会。当管理员更新 /setage、/settoken 或 /setamount 时，只有未来加入的成员必须满足新要求。现有已验证成员会保留，除非他们离开并稍后重新加入。"
       }
     },
     {
       "q": {
         "en": "I missed the 5‑minute window and got kicked. What now?",
-        "ch": "I missed the 5‑minute window and got kicked. What now? (需要专业翻译)"
+        "ch": "我错过了 5 分钟窗口被踢出了。现在怎么办？"
       },
       "a": {
         "en": "Wait the full 15‑minute cooldown, then re‑join the group and finish the verification steps in one attempt. The timer restarts each time you successfully re‑enter the group.",
-        "ch": "Wait the full 15‑minute cooldown, then re‑join the group and finish the verification steps in one attempt. The timer restarts each time you successfully re‑enter the group. (需要专业翻译)"
+        "ch": "等待完整的 15 分钟冷却时间，然后重新加入群组并在一次尝试中完成验证步骤。每次成功重新进入群组时，计时器都会重新开始。"
       }
     }
   ]

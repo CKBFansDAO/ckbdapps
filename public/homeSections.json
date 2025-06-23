@@ -150,8 +150,8 @@
     {
       "name": "VeriX",
       "desc": {
-        "en": "A bot on CKB, empowers seamless trading and fair issuance, enriching Nervos Network's vibrant ecosystem.",
-        "ch": "CKB 上的机器人，支持无缝交易和公平发行，丰富 Nervos 网络的活力生态系统。"
+        "en": "A Telegram bot for CKB community management, enabling group admins to set entry requirements based on CKB, xUDT, and DOB asset holdings, ensuring secure and exclusive communities within the Nervos ecosystem.",
+        "ch": "CKB 社区管理的 Telegram 机器人，使群组管理员能够基于 CKB、xUDT 和 DOB 资产持有量设置准入要求，确保 Nervos 生态系统内安全和专属的社区。"
       },
       "image": "/dappDetails/images/verix/logo.jpg",
       "link": "/verix"

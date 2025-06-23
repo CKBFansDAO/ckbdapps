@@ -355,9 +355,14 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
                           >
                             {project.name}
                           </h3>
-                          <div className="flex justify-between items-center mt-3">
-                            <p className="text-sm text-cosmic-gray text-sm">{getLocalizedText(project.desc, language)}</p>
-                            <p className="text-cosmic-accent font-future">{project.amount}</p>
+                          <div className="flex justify-between items-start mt-3 gap-2">
+                            <p className="text-sm text-cosmic-gray flex-grow">{getLocalizedText(project.desc, language)}</p>
+                            {project.amount && (
+                              <div className="flex-shrink-0 text-left font-future text-cosmic-accent">
+                                <span className="block">{project.amount.split(' ')[0]}</span>
+                                <span className="block">{project.amount.split(' ')[1]}</span>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
