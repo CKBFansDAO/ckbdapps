@@ -10,10 +10,49 @@ import { useTranslation } from 'react-i18next'
 
 // Hero Banner Carousel Section
 const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
+  // Add image preloading state management
+  const [imageLoaded, setImageLoaded] = useState({});
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Preload images when component mounts
+  useEffect(() => {
+    const preloadImages = () => {
+      banners.forEach((banner, index) => {
+        const img = new Image();
+        img.onload = () => {
+          setImageLoaded(prev => ({ ...prev, [index]: true }));
+        };
+        img.src = banner.image;
+      });
+    };
+    
+    if (banners.length > 0) {
+      preloadImages();
+    }
+  }, [banners]);
+
+  // Track transition state to prevent hover effects during transitions
+  useEffect(() => {
+    if (fadeStage === 'prepare' || fadeStage === 'fading') {
+      setIsTransitioning(true);
+    } else {
+      // Delay clearing transition state to ensure smooth completion
+      const timeout = setTimeout(() => {
+        setIsTransitioning(false);
+      }, 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [fadeStage]);
+
+  // Only apply hover transform when not transitioning and image is loaded
+  const shouldApplyHoverTransform = (index) => {
+    return isHovered && !isTransitioning && imageLoaded[index];
+  };
+
   return (
     <section
       className="relative aspect-[16/7] max-h-[900px] min-h-[180px] bg-cosmic-gradient overflow-hidden flex flex-col justify-end"
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => !isTransitioning && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Background grid */}
@@ -28,12 +67,15 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
           className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer"
           style={{
             zIndex: 1,
-            opacity: 1,
-            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            opacity: imageLoaded[current] ? 1 : 0,
+            transform: shouldApplyHoverTransform(current) ? 'scale(1.05)' : 'scale(1)',
             pointerEvents: fadeStage === 'fading' ? 'none' : 'auto',
             willChange: 'transform',
-            transition: 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transition: isTransitioning 
+              ? 'opacity 100ms ease-out' 
+              : 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease-out',
           }}
+          onLoad={() => setImageLoaded(prev => ({ ...prev, [current]: true }))}
           onClick={() => {
             if (banners[current]?.dappId && onDappSelect) {
               onDappSelect(banners[current].dappId);
@@ -49,12 +91,13 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
             className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer"
             style={{
               zIndex: 2,
-              opacity: fadeStage === 'fading' ? 1 : 0,
-              transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+              opacity: fadeStage === 'fading' && imageLoaded[next] ? 1 : 0,
+              transform: shouldApplyHoverTransform(next) ? 'scale(1.05)' : 'scale(1)',
               pointerEvents: fadeStage === 'fading' ? 'auto' : 'none',
               willChange: 'opacity, transform',
               transition: 'opacity 700ms ease-in-out, transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
             }}
+            onLoad={() => setImageLoaded(prev => ({ ...prev, [next]: true }))}
             onClick={() => {
               if (banners[next]?.dappId && onDappSelect) {
                 onDappSelect(banners[next].dappId);
