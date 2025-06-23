@@ -10,15 +10,15 @@ import { useTranslation } from 'react-i18next'
 import imagePreloader from "../utils/imagePreloader"
 import PreloadIndicator from "../components/ui/PreloadIndicator"
 
-// Hero Banner Carousel Section - 使用memo优化性能
+// Hero Banner Carousel Section - using memo for performance optimization
 const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [frozenHoverState, setFrozenHoverState] = useState(false);
   const sectionRef = useRef(null);
-  const pendingHoverState = useRef(null); // 记录在fading期间被忽略的hover变化
-  const timeoutRef = useRef(null); // 统一管理timeout
+  const pendingHoverState = useRef(null); // Record hover changes ignored during fading
+  const timeoutRef = useRef(null); // Unified timeout management
 
-  // Track transition state and manage hover state freezing - 优化依赖数组
+  // Track transition state and manage hover state freezing - optimize dependency array
   useEffect(() => {
     const transitioning = fadeStage === 'prepare' || fadeStage === 'fading';
     
@@ -26,19 +26,19 @@ const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFad
       // Transition starting - freeze current hover state
       setFrozenHoverState(isHovered);
       setIsTransitioning(true);
-      pendingHoverState.current = null; // 清除之前的pending状态
+      pendingHoverState.current = null; // Clear previous pending state
     } else if (!transitioning && isTransitioning) {
       // Transition ending - wait for animation to complete then restore hover state
       timeoutRef.current = setTimeout(() => {
         setIsTransitioning(false);
         
-        // 如果有pending的hover状态变化，应用它
+        // If there are pending hover state changes, apply them
         if (pendingHoverState.current !== null) {
           setIsHovered(pendingHoverState.current);
           setFrozenHoverState(pendingHoverState.current);
           pendingHoverState.current = null;
         } else {
-          // 否则只更新frozen state
+          // Otherwise only update frozen state
           setFrozenHoverState(isHovered);
         }
       }, 50); // Short delay to ensure transition is complete
@@ -50,31 +50,31 @@ const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFad
         }
       };
     }
-  }, [fadeStage, isTransitioning, isHovered, setIsHovered]); // 移除current和next依赖
+  }, [fadeStage, isTransitioning, isHovered, setIsHovered]); // Remove current and next dependencies
 
-  // 组件卸载时清理资源
+  // Clean up resources on component unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
-      // 清理pending状态
+      // Clear pending state
       pendingHoverState.current = null;
     };
   }, []);
 
-  // 在fading期间完全冻结hover状态，就像鼠标静止一样
+  // Completely freeze hover state during fading, as if mouse is stationary
   const effectiveHoverState = (fadeStage === 'fading') ? frozenHoverState : (isTransitioning ? frozenHoverState : isHovered);
 
-  // 完全冻结鼠标事件处理 - 减少依赖数组
+  // Completely freeze mouse event handling - reduce dependency array
   const handleMouseEnter = useCallback(() => {
-    // 在fading期间记录pending状态，但不立即应用
+    // Record pending state during fading but don't apply immediately
     if (fadeStage === 'fading') {
       pendingHoverState.current = true;
       return;
     }
     
-    // 避免不必要的状态更新
+    // Avoid unnecessary state updates
     if (isHovered) return;
     
     setIsHovered(true);
@@ -85,13 +85,13 @@ const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFad
   }, [fadeStage, isHovered, isTransitioning, setIsHovered]);
 
   const handleMouseLeave = useCallback(() => {
-    // 在fading期间记录pending状态，但不立即应用
+    // Record pending state during fading but don't apply immediately
     if (fadeStage === 'fading') {
       pendingHoverState.current = false;
       return;
     }
     
-    // 避免不必要的状态更新
+    // Avoid unnecessary state updates
     if (!isHovered) return;
     
     setIsHovered(false);
@@ -117,7 +117,7 @@ const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFad
         style={{ 
           backgroundColor: '#000', 
           isolation: 'isolate',
-          // 确保容器完全覆盖，防止任何间隙
+          // Ensure container fully covers, prevent any gaps
           minWidth: '100%',
           minHeight: '100%'
         }}
@@ -137,22 +137,22 @@ const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFad
             pointerEvents: fadeStage === 'fading' ? 'none' : 'auto',
             willChange: (isTransitioning || fadeStage === 'fading') ? 'none' : 'transform',
             transition: (isTransitioning || fadeStage === 'fading') ? 'none' : 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
-            // GPU优化
+            // GPU optimization
             backfaceVisibility: 'hidden',
-            // 内存优化
+            // Memory optimization
             imageRendering: 'auto',
           }}
           onLoad={() => {
-            // 图片加载完成后释放不必要的资源
+            // Release unnecessary resources after image loads
             if (fadeStage === 'idle') {
-              // 强制垃圾回收建议（仅在开发环境）
+              // Force garbage collection suggestion (development only)
               if (process.env.NODE_ENV === 'development' && window.gc) {
                 setTimeout(() => window.gc(), 1000);
               }
             }
           }}
           onClick={() => {
-            // 在fading期间忽略点击事件
+            // Ignore click events during fading
             if (fadeStage === 'fading') return;
             if (banners[current]?.dappId && onDappSelect) {
               onDappSelect(banners[current].dappId);
@@ -170,27 +170,27 @@ const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFad
             loading="eager"
             decoding="async"
             style={{
-              zIndex: 3, // 提高zIndex，确保在最上层
+              zIndex: 3, // Increase zIndex to ensure it's on top
               opacity: fadeStage === 'fading' ? 1 : 0,
-              transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)', // 使用冻结的hover状态
+              transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)', // Use frozen hover state
               pointerEvents: fadeStage === 'fading' ? 'auto' : 'none',
-              willChange: fadeStage === 'fading' ? 'opacity' : 'none', // 动态控制willChange
-              transition: 'opacity 700ms ease-in-out', // 只transition opacity
-              // GPU优化
+              willChange: fadeStage === 'fading' ? 'opacity' : 'none', // Dynamically control willChange
+              transition: 'opacity 700ms ease-in-out', // Only transition opacity
+              // GPU optimization
               backfaceVisibility: 'hidden',
-              // 内存优化
+              // Memory optimization
               imageRendering: 'auto',
-              // 性能优化：在不可见时禁用某些渲染
+              // Performance optimization: disable certain rendering when invisible
               visibility: fadeStage === 'prepare' || fadeStage === 'fading' ? 'visible' : 'hidden',
             }}
             onLoad={() => {
-              // 图片加载完成后清理内存（如果需要）
+              // Clean up memory after image loads (if needed)
               if (process.env.NODE_ENV === 'development' && window.gc && fadeStage === 'idle') {
                 setTimeout(() => window.gc(), 1000);
               }
             }}
             onClick={() => {
-              // 在fading期间的点击才有效（因为pointerEvents控制）
+              // Clicks are only effective during fading (controlled by pointerEvents)
               if (banners[next]?.dappId && onDappSelect) {
                 onDappSelect(banners[next].dappId);
               }
@@ -302,7 +302,7 @@ const ProjectIntroduction = ({ banners, current, language }) => {
               dx = -dx;
               newLeft = Math.max(0, Math.min(100, newLeft));
             }
-            // Bounce on vertical edges，留出上下 margin
+            // Bounce on vertical edges, leave top and bottom margins
             if (newBottom < DOT_VERTICAL_MARGIN || newBottom > containerHeight - DOT_VERTICAL_MARGIN) {
               dy = -dy;
               newBottom = Math.max(DOT_VERTICAL_MARGIN, Math.min(containerHeight - DOT_VERTICAL_MARGIN, newBottom));
@@ -792,15 +792,15 @@ export default function Home({ onDappSelect }) {
     banners: []
   });
 
-  // 智能预加载：当用户点击项目时预加载详情页图片
+  // Smart preloading: preload detail page images when user clicks on projects
   const handleDappSelect = useCallback((dappId) => {
-    // 立即跳转到项目详情
+    // Immediately navigate to project details
     onDappSelect(dappId);
     
-    // 紧急预加载该项目的缩略图（如果还在队列中）
+    // Urgently preload this project's thumbnail (if still in queue)
     imagePreloader.urgentPreloadProjectThumbnail(dappId, sections);
     
-    // 紧急预加载该项目的详情图片 - 用户立即需要
+    // Urgently preload this project's detail images - user needs them immediately
     imagePreloader.preloadProjectDetailImages(dappId, true);
   }, [onDappSelect, sections]);
   const [loading, setLoading] = useState(true);
@@ -832,15 +832,15 @@ export default function Home({ onDappSelect }) {
         setSections(data);
         setLoading(false);
         
-        // 启动图片预加载
+        // Start image preloading
         if (data) {
-          // 使用 requestIdleCallback 在浏览器空闲时预加载
+          // Use requestIdleCallback to preload during browser idle time
           if (window.requestIdleCallback) {
             window.requestIdleCallback(() => {
               imagePreloader.preloadProjectImages(data);
             });
           } else {
-            // 如果不支持 requestIdleCallback，使用 setTimeout 延迟执行
+            // If requestIdleCallback is not supported, use setTimeout for delayed execution
             setTimeout(() => {
               imagePreloader.preloadProjectImages(data);
             }, 2000);
@@ -863,20 +863,20 @@ export default function Home({ onDappSelect }) {
   const [fadeStage, setFadeStage] = useState('idle'); // 'idle' | 'prepare' | 'fading'
   const [isHovered, setIsHovered] = useState(false);
 
-  // 节流控制 - 防止频繁切换导致性能问题
+  // Throttle control - prevent frequent switching causing performance issues
   const lastTriggerTime = useRef(0);
-  const THROTTLE_DELAY = 100; // 100ms节流延迟
+  const THROTTLE_DELAY = 100; // 100ms throttle delay
 
   // Cross-fade trigger for both auto and manual with throttling
   const triggerFade = useCallback((iOrDir) => {
     const now = Date.now();
     
-    // 节流检查：防止过于频繁的切换
+    // Throttle check: prevent overly frequent switching
     if (now - lastTriggerTime.current < THROTTLE_DELAY) {
       return;
     }
     
-    // 防止频繁切换：如果正在切换或准备切换，直接返回
+    // Prevent frequent switching: return directly if switching or preparing to switch
     if (fadeStage === 'fading' || fadeStage === 'prepare') return;
     
     let target = 0;
@@ -888,7 +888,7 @@ export default function Home({ onDappSelect }) {
       target = iOrDir;
     }
     
-    // 如果目标和当前相同，不执行切换
+    // Don't execute switch if target is same as current
     if (target === current) return;
     
     lastTriggerTime.current = now;
@@ -896,22 +896,27 @@ export default function Home({ onDappSelect }) {
     setFadeStage('prepare');
   }, [current, banners.length, fadeStage]);
 
-  // Use refs to manage timeouts to prevent memory leaks - 统一管理所有定时器
+  // Use refs to manage timeouts to prevent memory leaks - unified management of all timers
   const fadeTimeoutRef = useRef(null);
+  const earlyCleanupTimeoutRef = useRef(null); // New: early cleanup timer
   const cleanupTimeoutRef = useRef(null);
   const autoPlayIntervalRef = useRef(null);
 
-  // 清理所有定时器的函数
+  // Function to clear all timers
   const clearAllTimers = useCallback(() => {
     if (fadeTimeoutRef.current) {
       if (typeof fadeTimeoutRef.current === 'number' && fadeTimeoutRef.current > 1000) {
-        // 这是setTimeout的ID
+        // This is a setTimeout ID
         clearTimeout(fadeTimeoutRef.current);
       } else {
-        // 这是requestAnimationFrame的ID
+        // This is a requestAnimationFrame ID
         cancelAnimationFrame(fadeTimeoutRef.current);
       }
       fadeTimeoutRef.current = null;
+    }
+    if (earlyCleanupTimeoutRef.current) {
+      clearTimeout(earlyCleanupTimeoutRef.current);
+      earlyCleanupTimeoutRef.current = null;
     }
     if (cleanupTimeoutRef.current) {
       clearTimeout(cleanupTimeoutRef.current);
@@ -926,22 +931,26 @@ export default function Home({ onDappSelect }) {
   // Fade stage effect: prepare -> fading -> idle
   useEffect(() => {
     if (fadeStage === 'prepare') {
-      // 减少RAF嵌套，使用单次RAF
+      // Reduce RAF nesting, use single RAF
       fadeTimeoutRef.current = requestAnimationFrame(() => {
         setFadeStage('fading');
       });
     } else if (fadeStage === 'fading') {
-      // 简化cleanup逻辑，减少嵌套RAF
+      // Clean up current image early at 4/5 duration (690ms) to avoid flickering
+      earlyCleanupTimeoutRef.current = setTimeout(() => {
+        setCurrent(next); // Update current early, so current image will be removed
+      }, 690);
+      
+      // Complete all cleanup work at full duration (700ms)
       fadeTimeoutRef.current = setTimeout(() => {
-        setCurrent(next);
         setFadeStage('idle');
         setNext(null);
         
-        // 强制释放内存（仅开发环境）
+        // Force memory release (development only)
         if (process.env.NODE_ENV === 'development' && window.gc) {
           setTimeout(() => window.gc(), 500);
         }
-      }, 700); // 精确匹配transition duration
+      }, 700); // Precisely match transition duration
     }
 
     // Cleanup function
@@ -950,9 +959,9 @@ export default function Home({ onDappSelect }) {
     };
   }, [fadeStage, next, clearAllTimers]);
 
-  // Auto-play timer for carousel, pause on hover - 优化内存管理
+  // Auto-play timer for carousel, pause on hover - optimize memory management
   useEffect(() => {
-    // 先清理之前的定时器
+    // Clear previous timer first
     if (autoPlayIntervalRef.current) {
       clearInterval(autoPlayIntervalRef.current);
       autoPlayIntervalRef.current = null;
@@ -972,7 +981,7 @@ export default function Home({ onDappSelect }) {
     };
   }, [triggerFade, isHovered]);
 
-  // 组件卸载时清理所有资源
+  // Clean up all resources on component unmount
   useEffect(() => {
     return () => {
       clearAllTimers();
@@ -1040,7 +1049,7 @@ export default function Home({ onDappSelect }) {
         <CommunityFundDAO language={language} />
       </div>
       
-      {/* 预加载指示器 */}
+      {/* Preload indicator */}
       <PreloadIndicator show={!loading} minimal={true} />
     </div>
   );
