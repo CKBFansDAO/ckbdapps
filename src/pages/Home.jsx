@@ -18,40 +18,45 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
     >
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern bg-[length:30px_30px]"></div>
-      {/* Banner images with true cross-fade transition */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        {/* Always render both images, but control their visibility with opacity */}
+      {/* Banner images with stable layering */}
+      <div className="absolute inset-0 w-full h-full z-0" style={{ backgroundColor: '#000', isolation: 'isolate' }}>
+        {/* Base layer - always shows current image */}
         <img
-          key={`current-${current}`}
-          src={banners[current].image}
-          alt={banners[current].title}
-          className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer transition-all duration-700 ease-in-out"
+          key={`base-${current}`}
+          src={banners[current]?.image}
+          alt={banners[current]?.title}
+          className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer"
           style={{
-            zIndex: fadeStage === 'fading' ? 1 : 2,
-            opacity: fadeStage === 'fading' ? 0 : 1,
+            zIndex: 1,
+            opacity: 1,
             transform: isHovered ? 'scale(1.05)' : 'scale(1)',
             pointerEvents: fadeStage === 'fading' ? 'none' : 'auto',
+            willChange: 'transform',
+            transition: 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
           }}
           onClick={() => {
-            if (banners[current].dappId && onDappSelect) {
+            if (banners[current]?.dappId && onDappSelect) {
               onDappSelect(banners[current].dappId);
             }
           }}
         />
+        {/* Overlay layer - shows next image during transition */}
         {next !== null && (
           <img
-            key={`next-${next}`}
-            src={banners[next].image}
-            alt={banners[next].title}
-            className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer transition-all duration-700 ease-in-out"
+            key={`overlay-${next}`}
+            src={banners[next]?.image}
+            alt={banners[next]?.title}
+            className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer"
             style={{
-              zIndex: fadeStage === 'fading' ? 2 : 1,
+              zIndex: 2,
               opacity: fadeStage === 'fading' ? 1 : 0,
               transform: isHovered ? 'scale(1.05)' : 'scale(1)',
               pointerEvents: fadeStage === 'fading' ? 'auto' : 'none',
+              willChange: 'opacity, transform',
+              transition: 'opacity 700ms ease-in-out, transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
             }}
             onClick={() => {
-              if (banners[next].dappId && onDappSelect) {
+              if (banners[next]?.dappId && onDappSelect) {
                 onDappSelect(banners[next].dappId);
               }
             }}
@@ -707,20 +712,38 @@ export default function Home({ onDappSelect }) {
     setFadeStage('prepare');
   }, [current, banners.length, fadeStage]);
 
+  // Use refs to manage timeouts to prevent memory leaks
+  const fadeTimeoutRef = useRef(null);
+  const cleanupTimeoutRef = useRef(null);
+
   // Fade stage effect: prepare -> fading -> idle
   useEffect(() => {
     if (fadeStage === 'prepare') {
-      const id = setTimeout(() => setFadeStage('fading'), 50); // Slightly longer delay
-      return () => clearTimeout(id);
-    }
-    if (fadeStage === 'fading') {
-      const id = setTimeout(() => {
+      // Give DOM time to render the next image before starting fade
+      fadeTimeoutRef.current = setTimeout(() => {
+        requestAnimationFrame(() => {
+          setFadeStage('fading');
+        });
+      }, 16); // One frame delay to ensure next image is rendered
+    } else if (fadeStage === 'fading') {
+      fadeTimeoutRef.current = setTimeout(() => {
+        // Update current index first
         setCurrent(next);
-        setNext(null);
-        setFadeStage('idle');
+        // Wait for one more frame before cleaning up
+        cleanupTimeoutRef.current = setTimeout(() => {
+          requestAnimationFrame(() => {
+            setFadeStage('idle');
+            setNext(null);
+          });
+        }, 16); // One frame delay to prevent flash
       }, 700); // Match the transition duration
-      return () => clearTimeout(id);
     }
+
+    // Cleanup function to clear timeouts when the component unmounts or dependencies change
+    return () => {
+      clearTimeout(fadeTimeoutRef.current);
+      clearTimeout(cleanupTimeoutRef.current);
+    };
   }, [fadeStage, next]);
 
   // Auto-play timer for carousel, pause on hover
