@@ -34,31 +34,38 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
     }
   }, [fadeStage, isHovered, isTransitioning]);
 
-  // Use frozen hover state during transitions, current state when not transitioning
-  const effectiveHoverState = isTransitioning ? frozenHoverState : isHovered;
+  // 在fading期间完全冻结hover状态，就像鼠标静止一样
+  const effectiveHoverState = (fadeStage === 'fading') ? frozenHoverState : (isTransitioning ? frozenHoverState : isHovered);
 
-  // Improved mouse event handling - allow updates but use effective state
+  // 完全冻结鼠标事件处理 - 在fading期间不响应任何鼠标事件
   const handleMouseEnter = useCallback(() => {
+    // 在fading期间完全忽略鼠标事件
+    if (fadeStage === 'fading') return;
+    
     setIsHovered(true);
     // If not transitioning, immediately update frozen state as well
     if (!isTransitioning) {
       setFrozenHoverState(true);
     }
-  }, [isTransitioning, setIsHovered]);
+  }, [isTransitioning, setIsHovered, fadeStage]);
 
   const handleMouseLeave = useCallback(() => {
+    // 在fading期间完全忽略鼠标事件
+    if (fadeStage === 'fading') return;
+    
     setIsHovered(false);
     // If not transitioning, immediately update frozen state as well
     if (!isTransitioning) {
       setFrozenHoverState(false);
     }
-  }, [isTransitioning, setIsHovered]);
+  }, [isTransitioning, setIsHovered, fadeStage]);
 
   return (
     <section
       className="relative aspect-[16/7] max-h-[900px] min-h-[180px] bg-cosmic-gradient overflow-hidden flex flex-col justify-end"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+
     >
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern bg-[length:30px_30px]"></div>
@@ -79,10 +86,12 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
             opacity: 1,
             transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)',
             pointerEvents: fadeStage === 'fading' ? 'none' : 'auto',
-            willChange: isTransitioning ? 'none' : 'transform',
-            transition: isTransitioning ? 'none' : 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
+            willChange: (isTransitioning || fadeStage === 'fading') ? 'none' : 'transform',
+            transition: (isTransitioning || fadeStage === 'fading') ? 'none' : 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
           }}
           onClick={() => {
+            // 在fading期间忽略点击事件
+            if (fadeStage === 'fading') return;
             if (banners[current]?.dappId && onDappSelect) {
               onDappSelect(banners[current].dappId);
             }
@@ -99,12 +108,13 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
             style={{
               zIndex: 2,
               opacity: fadeStage === 'fading' ? 1 : 0,
-              transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)',
+              transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)', // 使用冻结的hover状态
               pointerEvents: fadeStage === 'fading' ? 'auto' : 'none',
-              willChange: 'opacity',
-              transition: 'opacity 700ms ease-in-out',
+              willChange: 'opacity', // 只允许opacity变化
+              transition: 'opacity 700ms ease-in-out', // 只transition opacity
             }}
             onClick={() => {
+              // 在fading期间的点击才有效（因为pointerEvents控制）
               if (banners[next]?.dappId && onDappSelect) {
                 onDappSelect(banners[next].dappId);
               }
