@@ -3,19 +3,22 @@
 import { ChevronLeft, ChevronRight, Sparkles, Zap, ExternalLink, Globe } from "lucide-react"
 // import { Button } from "@/components/ui/button"
 import Button from "../components/ui/button"
-import { useEffect, useState, useCallback, useRef } from "react"
+import { useEffect, useState, useCallback, useRef, memo } from "react"
 import { useSelector } from 'react-redux'
 import { getLocalizedText } from "../utils/i18n"
 import { useTranslation } from 'react-i18next'
 import imagePreloader from "../utils/imagePreloader"
 import PreloadIndicator from "../components/ui/PreloadIndicator"
 
-// Hero Banner Carousel Section
-const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
+// Hero Banner Carousel Section - 使用memo优化性能
+const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [frozenHoverState, setFrozenHoverState] = useState(false);
+  const sectionRef = useRef(null);
+  const pendingHoverState = useRef(null); // 记录在fading期间被忽略的hover变化
+  const timeoutRef = useRef(null); // 统一管理timeout
 
-  // Track transition state and manage hover state freezing
+  // Track transition state and manage hover state freezing - 优化依赖数组
   useEffect(() => {
     const transitioning = fadeStage === 'prepare' || fadeStage === 'fading';
     
@@ -23,49 +26,87 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
       // Transition starting - freeze current hover state
       setFrozenHoverState(isHovered);
       setIsTransitioning(true);
+      pendingHoverState.current = null; // 清除之前的pending状态
     } else if (!transitioning && isTransitioning) {
       // Transition ending - wait for animation to complete then restore hover state
-      const timeout = setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         setIsTransitioning(false);
-        // Force update frozen state to current hover state
-        setFrozenHoverState(isHovered);
+        
+        // 如果有pending的hover状态变化，应用它
+        if (pendingHoverState.current !== null) {
+          setIsHovered(pendingHoverState.current);
+          setFrozenHoverState(pendingHoverState.current);
+          pendingHoverState.current = null;
+        } else {
+          // 否则只更新frozen state
+          setFrozenHoverState(isHovered);
+        }
       }, 50); // Short delay to ensure transition is complete
-      return () => clearTimeout(timeout);
+      
+      return () => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
+      };
     }
-  }, [fadeStage, isHovered, isTransitioning]);
+  }, [fadeStage, isTransitioning, isHovered, setIsHovered]); // 移除current和next依赖
+
+  // 组件卸载时清理资源
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      // 清理pending状态
+      pendingHoverState.current = null;
+    };
+  }, []);
 
   // 在fading期间完全冻结hover状态，就像鼠标静止一样
   const effectiveHoverState = (fadeStage === 'fading') ? frozenHoverState : (isTransitioning ? frozenHoverState : isHovered);
 
-  // 完全冻结鼠标事件处理 - 在fading期间不响应任何鼠标事件
+  // 完全冻结鼠标事件处理 - 减少依赖数组
   const handleMouseEnter = useCallback(() => {
-    // 在fading期间完全忽略鼠标事件
-    if (fadeStage === 'fading') return;
+    // 在fading期间记录pending状态，但不立即应用
+    if (fadeStage === 'fading') {
+      pendingHoverState.current = true;
+      return;
+    }
+    
+    // 避免不必要的状态更新
+    if (isHovered) return;
     
     setIsHovered(true);
     // If not transitioning, immediately update frozen state as well
     if (!isTransitioning) {
       setFrozenHoverState(true);
     }
-  }, [isTransitioning, setIsHovered, fadeStage]);
+  }, [fadeStage, isHovered, isTransitioning, setIsHovered]);
 
   const handleMouseLeave = useCallback(() => {
-    // 在fading期间完全忽略鼠标事件
-    if (fadeStage === 'fading') return;
+    // 在fading期间记录pending状态，但不立即应用
+    if (fadeStage === 'fading') {
+      pendingHoverState.current = false;
+      return;
+    }
+    
+    // 避免不必要的状态更新
+    if (!isHovered) return;
     
     setIsHovered(false);
     // If not transitioning, immediately update frozen state as well
     if (!isTransitioning) {
       setFrozenHoverState(false);
     }
-  }, [isTransitioning, setIsHovered, fadeStage]);
+  }, [fadeStage, isHovered, isTransitioning, setIsHovered]);
 
   return (
     <section
+      ref={sectionRef}
       className="relative aspect-[16/7] max-h-[900px] min-h-[180px] bg-cosmic-gradient overflow-hidden flex flex-col justify-end"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-
     >
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern bg-[length:30px_30px]"></div>
@@ -73,14 +114,22 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
       {/* Banner images container */}
       <div 
         className="absolute inset-0 w-full h-full z-0" 
-        style={{ backgroundColor: '#000', isolation: 'isolate' }}
+        style={{ 
+          backgroundColor: '#000', 
+          isolation: 'isolate',
+          // 确保容器完全覆盖，防止任何间隙
+          minWidth: '100%',
+          minHeight: '100%'
+        }}
       >
         {/* Current image - always visible */}
         <img
-          key={`current-${current}`}
+          key="banner-current"
           src={banners[current]?.image}
           alt={banners[current]?.title}
           className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer"
+          loading="eager"
+          decoding="async"
           style={{
             zIndex: fadeStage === 'fading' ? 1 : 2,
             opacity: 1,
@@ -88,6 +137,19 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
             pointerEvents: fadeStage === 'fading' ? 'none' : 'auto',
             willChange: (isTransitioning || fadeStage === 'fading') ? 'none' : 'transform',
             transition: (isTransitioning || fadeStage === 'fading') ? 'none' : 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
+            // GPU优化
+            backfaceVisibility: 'hidden',
+            // 内存优化
+            imageRendering: 'auto',
+          }}
+          onLoad={() => {
+            // 图片加载完成后释放不必要的资源
+            if (fadeStage === 'idle') {
+              // 强制垃圾回收建议（仅在开发环境）
+              if (process.env.NODE_ENV === 'development' && window.gc) {
+                setTimeout(() => window.gc(), 1000);
+              }
+            }
           }}
           onClick={() => {
             // 在fading期间忽略点击事件
@@ -101,17 +163,31 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
         {/* Next image - only visible during transition */}
         {next !== null && (
           <img
-            key={`next-${next}`}
+            key="banner-next"
             src={banners[next]?.image}
             alt={banners[next]?.title}
             className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer"
+            loading="eager"
+            decoding="async"
             style={{
-              zIndex: 2,
+              zIndex: 3, // 提高zIndex，确保在最上层
               opacity: fadeStage === 'fading' ? 1 : 0,
               transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)', // 使用冻结的hover状态
               pointerEvents: fadeStage === 'fading' ? 'auto' : 'none',
-              willChange: 'opacity', // 只允许opacity变化
+              willChange: fadeStage === 'fading' ? 'opacity' : 'none', // 动态控制willChange
               transition: 'opacity 700ms ease-in-out', // 只transition opacity
+              // GPU优化
+              backfaceVisibility: 'hidden',
+              // 内存优化
+              imageRendering: 'auto',
+              // 性能优化：在不可见时禁用某些渲染
+              visibility: fadeStage === 'prepare' || fadeStage === 'fading' ? 'visible' : 'hidden',
+            }}
+            onLoad={() => {
+              // 图片加载完成后清理内存（如果需要）
+              if (process.env.NODE_ENV === 'development' && window.gc && fadeStage === 'idle') {
+                setTimeout(() => window.gc(), 1000);
+              }
             }}
             onClick={() => {
               // 在fading期间的点击才有效（因为pointerEvents控制）
@@ -171,7 +247,7 @@ const HeroBannerCarousel = ({ banners, current, next, fadeStage, triggerFade, on
       </div>
     </section>
   );
-};
+});
 
 const DOT_COUNT = 50;
 const DOT_VERTICAL_MARGIN = 50; // px
@@ -787,9 +863,22 @@ export default function Home({ onDappSelect }) {
   const [fadeStage, setFadeStage] = useState('idle'); // 'idle' | 'prepare' | 'fading'
   const [isHovered, setIsHovered] = useState(false);
 
-  // Cross-fade trigger for both auto and manual
+  // 节流控制 - 防止频繁切换导致性能问题
+  const lastTriggerTime = useRef(0);
+  const THROTTLE_DELAY = 100; // 100ms节流延迟
+
+  // Cross-fade trigger for both auto and manual with throttling
   const triggerFade = useCallback((iOrDir) => {
+    const now = Date.now();
+    
+    // 节流检查：防止过于频繁的切换
+    if (now - lastTriggerTime.current < THROTTLE_DELAY) {
+      return;
+    }
+    
+    // 防止频繁切换：如果正在切换或准备切换，直接返回
     if (fadeStage === 'fading' || fadeStage === 'prepare') return;
+    
     let target = 0;
     if (iOrDir === 'prev') {
       target = (current - 1 + banners.length) % banners.length;
@@ -798,53 +887,97 @@ export default function Home({ onDappSelect }) {
     } else {
       target = iOrDir;
     }
+    
+    // 如果目标和当前相同，不执行切换
     if (target === current) return;
+    
+    lastTriggerTime.current = now;
     setNext(target);
     setFadeStage('prepare');
   }, [current, banners.length, fadeStage]);
 
-  // Use refs to manage timeouts to prevent memory leaks
+  // Use refs to manage timeouts to prevent memory leaks - 统一管理所有定时器
   const fadeTimeoutRef = useRef(null);
   const cleanupTimeoutRef = useRef(null);
+  const autoPlayIntervalRef = useRef(null);
+
+  // 清理所有定时器的函数
+  const clearAllTimers = useCallback(() => {
+    if (fadeTimeoutRef.current) {
+      if (typeof fadeTimeoutRef.current === 'number' && fadeTimeoutRef.current > 1000) {
+        // 这是setTimeout的ID
+        clearTimeout(fadeTimeoutRef.current);
+      } else {
+        // 这是requestAnimationFrame的ID
+        cancelAnimationFrame(fadeTimeoutRef.current);
+      }
+      fadeTimeoutRef.current = null;
+    }
+    if (cleanupTimeoutRef.current) {
+      clearTimeout(cleanupTimeoutRef.current);
+      cleanupTimeoutRef.current = null;
+    }
+    if (autoPlayIntervalRef.current) {
+      clearInterval(autoPlayIntervalRef.current);
+      autoPlayIntervalRef.current = null;
+    }
+  }, []);
 
   // Fade stage effect: prepare -> fading -> idle
   useEffect(() => {
     if (fadeStage === 'prepare') {
-      // Give DOM time to render the next image before starting fade
-      fadeTimeoutRef.current = setTimeout(() => {
-        requestAnimationFrame(() => {
-          setFadeStage('fading');
-        });
-      }, 16); // One frame delay to ensure next image is rendered
+      // 减少RAF嵌套，使用单次RAF
+      fadeTimeoutRef.current = requestAnimationFrame(() => {
+        setFadeStage('fading');
+      });
     } else if (fadeStage === 'fading') {
+      // 简化cleanup逻辑，减少嵌套RAF
       fadeTimeoutRef.current = setTimeout(() => {
-        // Update current index first
         setCurrent(next);
-        // Wait for one more frame before cleaning up
-        cleanupTimeoutRef.current = setTimeout(() => {
-          requestAnimationFrame(() => {
-            setFadeStage('idle');
-            setNext(null);
-          });
-        }, 16); // One frame delay to prevent flash
-      }, 700); // Match the transition duration
+        setFadeStage('idle');
+        setNext(null);
+        
+        // 强制释放内存（仅开发环境）
+        if (process.env.NODE_ENV === 'development' && window.gc) {
+          setTimeout(() => window.gc(), 500);
+        }
+      }, 700); // 精确匹配transition duration
     }
 
-    // Cleanup function to clear timeouts when the component unmounts or dependencies change
+    // Cleanup function
     return () => {
-      clearTimeout(fadeTimeoutRef.current);
-      clearTimeout(cleanupTimeoutRef.current);
+      clearAllTimers();
     };
-  }, [fadeStage, next]);
+  }, [fadeStage, next, clearAllTimers]);
 
-  // Auto-play timer for carousel, pause on hover
+  // Auto-play timer for carousel, pause on hover - 优化内存管理
   useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      triggerFade('next');
-    }, 15000);
-    return () => clearInterval(interval);
+    // 先清理之前的定时器
+    if (autoPlayIntervalRef.current) {
+      clearInterval(autoPlayIntervalRef.current);
+      autoPlayIntervalRef.current = null;
+    }
+    
+    if (!isHovered) {
+      autoPlayIntervalRef.current = setInterval(() => {
+        triggerFade('next');
+      }, 15000);
+    }
+    
+    return () => {
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current);
+        autoPlayIntervalRef.current = null;
+      }
+    };
   }, [triggerFade, isHovered]);
+
+  // 组件卸载时清理所有资源
+  useEffect(() => {
+    return () => {
+      clearAllTimers();
+    };
+  }, [clearAllTimers]);
 
   // For title/desc: always show the one matching the visible banner (immediate switch)
   const displayIdx = (fadeStage === 'fading' || fadeStage === 'prepare') && next !== null ? next : current;
