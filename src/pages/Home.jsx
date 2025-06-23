@@ -11,95 +11,56 @@ import imagePreloader from "../utils/imagePreloader"
 import PreloadIndicator from "../components/ui/PreloadIndicator"
 
 // Hero Banner Carousel Section - using memo for performance optimization
-const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [frozenHoverState, setFrozenHoverState] = useState(false);
+const HeroBannerCarousel = memo(({ banners, current, isTransitioning, triggerFade, onDappSelect, setIsHovered, isHovered }) => {
   const sectionRef = useRef(null);
-  const pendingHoverState = useRef(null); // Record hover changes ignored during fading
-  const timeoutRef = useRef(null); // Unified timeout management
+  const [imageA, setImageA] = useState({ index: current, opacity: 1, zIndex: 2 });
+  const [imageB, setImageB] = useState({ index: current, opacity: 0, zIndex: 1 });
+  const [activeImage, setActiveImage] = useState('A'); // Track which image is currently active
 
-  // Track transition state and manage hover state freezing - optimize dependency array
+  // Handle banner switching with dual image system
   useEffect(() => {
-    const transitioning = fadeStage === 'prepare' || fadeStage === 'fading';
-    
-    if (transitioning && !isTransitioning) {
-      // Transition starting - freeze current hover state
-      setFrozenHoverState(isHovered);
-      setIsTransitioning(true);
-      pendingHoverState.current = null; // Clear previous pending state
-    } else if (!transitioning && isTransitioning) {
-      // Transition ending - wait for animation to complete then restore hover state
-      timeoutRef.current = setTimeout(() => {
-        setIsTransitioning(false);
+    if (isTransitioning) {
+      if (activeImage === 'A') {
+        // Image A is currently visible, prepare Image B for transition
+        setImageB(prev => ({ ...prev, index: current, opacity: 0, zIndex: 3 }));
         
-        // If there are pending hover state changes, apply them
-        if (pendingHoverState.current !== null) {
-          setIsHovered(pendingHoverState.current);
-          setFrozenHoverState(pendingHoverState.current);
-          pendingHoverState.current = null;
-        } else {
-          // Otherwise only update frozen state
-          setFrozenHoverState(isHovered);
-        }
-      }, 50); // Short delay to ensure transition is complete
-      
-      return () => {
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-          timeoutRef.current = null;
-        }
-      };
-    }
-  }, [fadeStage, isTransitioning, isHovered, setIsHovered]); // Remove current and next dependencies
-
-  // Clean up resources on component unmount
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
+        // Start transition
+        requestAnimationFrame(() => {
+          setImageB(prev => ({ ...prev, opacity: 1 }));
+        });
+        
+        // Complete transition after animation
+        setTimeout(() => {
+          setImageA(prev => ({ ...prev, opacity: 0, zIndex: 1 }));
+          setImageB(prev => ({ ...prev, zIndex: 2 }));
+          setActiveImage('B');
+        }, 700);
+      } else {
+        // Image B is currently visible, prepare Image A for transition
+        setImageA(prev => ({ ...prev, index: current, opacity: 0, zIndex: 3 }));
+        
+        // Start transition
+        requestAnimationFrame(() => {
+          setImageA(prev => ({ ...prev, opacity: 1 }));
+        });
+        
+        // Complete transition after animation
+        setTimeout(() => {
+          setImageB(prev => ({ ...prev, opacity: 0, zIndex: 1 }));
+          setImageA(prev => ({ ...prev, zIndex: 2 }));
+          setActiveImage('A');
+        }, 700);
       }
-      // Clear pending state
-      pendingHoverState.current = null;
-    };
-  }, []);
+    }
+  }, [current, isTransitioning, activeImage]);
 
-  // Completely freeze hover state during fading, as if mouse is stationary
-  const effectiveHoverState = (fadeStage === 'fading') ? frozenHoverState : (isTransitioning ? frozenHoverState : isHovered);
-
-  // Completely freeze mouse event handling - reduce dependency array
   const handleMouseEnter = useCallback(() => {
-    // Record pending state during fading but don't apply immediately
-    if (fadeStage === 'fading') {
-      pendingHoverState.current = true;
-      return;
-    }
-    
-    // Avoid unnecessary state updates
-    if (isHovered) return;
-    
     setIsHovered(true);
-    // If not transitioning, immediately update frozen state as well
-    if (!isTransitioning) {
-      setFrozenHoverState(true);
-    }
-  }, [fadeStage, isHovered, isTransitioning, setIsHovered]);
+  }, [setIsHovered]);
 
   const handleMouseLeave = useCallback(() => {
-    // Record pending state during fading but don't apply immediately
-    if (fadeStage === 'fading') {
-      pendingHoverState.current = false;
-      return;
-    }
-    
-    // Avoid unnecessary state updates
-    if (!isHovered) return;
-    
     setIsHovered(false);
-    // If not transitioning, immediately update frozen state as well
-    if (!isTransitioning) {
-      setFrozenHoverState(false);
-    }
-  }, [fadeStage, isHovered, isTransitioning, setIsHovered]);
+  }, [setIsHovered]);
 
   return (
     <section
@@ -122,81 +83,59 @@ const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFad
           minHeight: '100%'
         }}
       >
-        {/* Current image - always visible */}
+        {/* Image A - permanent component */}
         <img
-          key="banner-current"
-          src={banners[current]?.image}
-          alt={banners[current]?.title}
+          key="banner-image-a"
+          src={banners[imageA.index]?.image}
+          alt={banners[imageA.index]?.title}
           className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer"
           loading="eager"
           decoding="async"
           style={{
-            zIndex: fadeStage === 'fading' ? 1 : 2,
-            opacity: 1,
-            transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)',
-            pointerEvents: fadeStage === 'fading' ? 'none' : 'auto',
-            willChange: (isTransitioning || fadeStage === 'fading') ? 'none' : 'transform',
-            transition: (isTransitioning || fadeStage === 'fading') ? 'none' : 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
+            zIndex: imageA.zIndex,
+            opacity: imageA.opacity,
+            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            pointerEvents: imageA.zIndex >= 2 ? 'auto' : 'none',
+            willChange: 'opacity, transform',
+            transition: 'opacity 700ms ease-in-out, transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
             // GPU optimization
             backfaceVisibility: 'hidden',
             // Memory optimization
             imageRendering: 'auto',
           }}
-          onLoad={() => {
-            // Release unnecessary resources after image loads
-            if (fadeStage === 'idle') {
-              // Force garbage collection suggestion (development only)
-              if (process.env.NODE_ENV === 'development' && window.gc) {
-                setTimeout(() => window.gc(), 1000);
-              }
-            }
-          }}
           onClick={() => {
-            // Ignore click events during fading
-            if (fadeStage === 'fading') return;
-            if (banners[current]?.dappId && onDappSelect) {
-              onDappSelect(banners[current].dappId);
+            if (banners[imageA.index]?.dappId && onDappSelect && imageA.zIndex >= 2) {
+              onDappSelect(banners[imageA.index].dappId);
             }
           }}
         />
         
-        {/* Next image - only visible during transition */}
-        {next !== null && (
-          <img
-            key="banner-next"
-            src={banners[next]?.image}
-            alt={banners[next]?.title}
-            className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer"
-            loading="eager"
-            decoding="async"
-            style={{
-              zIndex: 3, // Increase zIndex to ensure it's on top
-              opacity: fadeStage === 'fading' ? 1 : 0,
-              transform: effectiveHoverState ? 'scale(1.05)' : 'scale(1)', // Use frozen hover state
-              pointerEvents: fadeStage === 'fading' ? 'auto' : 'none',
-              willChange: fadeStage === 'fading' ? 'opacity' : 'none', // Dynamically control willChange
-              transition: 'opacity 700ms ease-in-out', // Only transition opacity
-              // GPU optimization
-              backfaceVisibility: 'hidden',
-              // Memory optimization
-              imageRendering: 'auto',
-              // Performance optimization: disable certain rendering when invisible
-              visibility: fadeStage === 'prepare' || fadeStage === 'fading' ? 'visible' : 'hidden',
-            }}
-            onLoad={() => {
-              // Clean up memory after image loads (if needed)
-              if (process.env.NODE_ENV === 'development' && window.gc && fadeStage === 'idle') {
-                setTimeout(() => window.gc(), 1000);
-              }
-            }}
-            onClick={() => {
-              // Clicks are only effective during fading (controlled by pointerEvents)
-              if (banners[next]?.dappId && onDappSelect) {
-                onDappSelect(banners[next].dappId);
-              }
-            }}
-          />
-        )}
+        {/* Image B - permanent component */}
+        <img
+          key="banner-image-b"
+          src={banners[imageB.index]?.image}
+          alt={banners[imageB.index]?.title}
+          className="absolute inset-0 w-full h-full object-cover select-none cursor-pointer"
+          loading="eager"
+          decoding="async"
+          style={{
+            zIndex: imageB.zIndex,
+            opacity: imageB.opacity,
+            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            pointerEvents: imageB.zIndex >= 2 ? 'auto' : 'none',
+            willChange: 'opacity, transform',
+            transition: 'opacity 700ms ease-in-out, transform 500ms cubic-bezier(0.4, 0, 0.2, 1)',
+            // GPU optimization
+            backfaceVisibility: 'hidden',
+            // Memory optimization
+            imageRendering: 'auto',
+          }}
+          onClick={() => {
+            if (banners[imageB.index]?.dappId && onDappSelect && imageB.zIndex >= 2) {
+              onDappSelect(banners[imageB.index].dappId);
+            }
+          }}
+        />
       </div>
       
       {/* Pagination and progress dots always on top (z-10) */}
@@ -216,14 +155,7 @@ const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFad
       </button>
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
         {banners.map((_, i) => {
-          // Determine dot state for animation
-          let isLoaded = false;
-          if ((fadeStage === 'fading' || fadeStage === 'prepare') && next !== null) {
-            if (i === current && fadeStage === 'prepare') isLoaded = true;
-            else if (i === next && fadeStage === 'fading') isLoaded = true;
-          } else if (i === current) {
-            isLoaded = true;
-          }
+          const isActive = i === current;
           return (
             <div
               key={i}
@@ -234,12 +166,12 @@ const HeroBannerCarousel = memo(({ banners, current, next, fadeStage, triggerFad
               style={{
                 boxSizing: 'border-box',
                 transition: 'all 0.5s cubic-bezier(.4,2,.6,1)',
-                background: isLoaded
+                background: isActive
                   ? 'linear-gradient(to bottom right, #4ade80, #22d3ee)'
                   : '#fff',
-                border: isLoaded ? '2px solid #fff' : '1px solid #d1d5db',
-                boxShadow: isLoaded ? '0 2px 8px 0 rgba(34,211,238,0.3)' : 'none',
-                transform: isLoaded ? 'scale(1.25)' : 'scale(1)',
+                border: isActive ? '2px solid #fff' : '1px solid #d1d5db',
+                boxShadow: isActive ? '0 2px 8px 0 rgba(34,211,238,0.3)' : 'none',
+                transform: isActive ? 'scale(1.25)' : 'scale(1)',
               }}
             ></div>
           );
@@ -859,15 +791,14 @@ export default function Home({ onDappSelect }) {
   // Carousel data
   const banners = sections.banners;
   const [current, setCurrent] = useState(0);
-  const [next, setNext] = useState(null);
-  const [fadeStage, setFadeStage] = useState('idle'); // 'idle' | 'prepare' | 'fading'
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   // Throttle control - prevent frequent switching causing performance issues
   const lastTriggerTime = useRef(0);
   const THROTTLE_DELAY = 100; // 100ms throttle delay
 
-  // Cross-fade trigger for both auto and manual with throttling
+  // Simplified banner switching - overlay next banner and fade in
   const triggerFade = useCallback((iOrDir) => {
     const now = Date.now();
     
@@ -876,8 +807,8 @@ export default function Home({ onDappSelect }) {
       return;
     }
     
-    // Prevent frequent switching: return directly if switching or preparing to switch
-    if (fadeStage === 'fading' || fadeStage === 'prepare') return;
+    // Prevent switching during transition
+    if (isTransitioning) return;
     
     let target = 0;
     if (iOrDir === 'prev') {
@@ -892,74 +823,21 @@ export default function Home({ onDappSelect }) {
     if (target === current) return;
     
     lastTriggerTime.current = now;
-    setNext(target);
-    setFadeStage('prepare');
-  }, [current, banners.length, fadeStage]);
+    setIsTransitioning(true);
+    
+    // Update current immediately - the overlay will handle the visual transition
+    setCurrent(target);
+    
+    // Reset transition state after animation completes
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 700); // Match CSS transition duration
+    
+  }, [current, banners.length, isTransitioning]);
 
-  // Use refs to manage timeouts to prevent memory leaks - unified management of all timers
-  const fadeTimeoutRef = useRef(null);
-  const earlyCleanupTimeoutRef = useRef(null); // New: early cleanup timer
-  const cleanupTimeoutRef = useRef(null);
+  // Auto-play timer for carousel, pause on hover
   const autoPlayIntervalRef = useRef(null);
-
-  // Function to clear all timers
-  const clearAllTimers = useCallback(() => {
-    if (fadeTimeoutRef.current) {
-      if (typeof fadeTimeoutRef.current === 'number' && fadeTimeoutRef.current > 1000) {
-        // This is a setTimeout ID
-        clearTimeout(fadeTimeoutRef.current);
-      } else {
-        // This is a requestAnimationFrame ID
-        cancelAnimationFrame(fadeTimeoutRef.current);
-      }
-      fadeTimeoutRef.current = null;
-    }
-    if (earlyCleanupTimeoutRef.current) {
-      clearTimeout(earlyCleanupTimeoutRef.current);
-      earlyCleanupTimeoutRef.current = null;
-    }
-    if (cleanupTimeoutRef.current) {
-      clearTimeout(cleanupTimeoutRef.current);
-      cleanupTimeoutRef.current = null;
-    }
-    if (autoPlayIntervalRef.current) {
-      clearInterval(autoPlayIntervalRef.current);
-      autoPlayIntervalRef.current = null;
-    }
-  }, []);
-
-  // Fade stage effect: prepare -> fading -> idle
-  useEffect(() => {
-    if (fadeStage === 'prepare') {
-      // Reduce RAF nesting, use single RAF
-      fadeTimeoutRef.current = requestAnimationFrame(() => {
-        setFadeStage('fading');
-      });
-    } else if (fadeStage === 'fading') {
-      // Clean up current image early at 4/5 duration (690ms) to avoid flickering
-      earlyCleanupTimeoutRef.current = setTimeout(() => {
-        setCurrent(next); // Update current early, so current image will be removed
-      }, 690);
-      
-      // Complete all cleanup work at full duration (700ms)
-      fadeTimeoutRef.current = setTimeout(() => {
-        setFadeStage('idle');
-        setNext(null);
-        
-        // Force memory release (development only)
-        if (process.env.NODE_ENV === 'development' && window.gc) {
-          setTimeout(() => window.gc(), 500);
-        }
-      }, 700); // Precisely match transition duration
-    }
-
-    // Cleanup function
-    return () => {
-      clearAllTimers();
-    };
-  }, [fadeStage, next, clearAllTimers]);
-
-  // Auto-play timer for carousel, pause on hover - optimize memory management
+  
   useEffect(() => {
     // Clear previous timer first
     if (autoPlayIntervalRef.current) {
@@ -981,15 +859,18 @@ export default function Home({ onDappSelect }) {
     };
   }, [triggerFade, isHovered]);
 
-  // Clean up all resources on component unmount
+  // Clean up on component unmount
   useEffect(() => {
     return () => {
-      clearAllTimers();
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current);
+        autoPlayIntervalRef.current = null;
+      }
     };
-  }, [clearAllTimers]);
+  }, []);
 
-  // For title/desc: always show the one matching the visible banner (immediate switch)
-  const displayIdx = (fadeStage === 'fading' || fadeStage === 'prepare') && next !== null ? next : current;
+  // For title/desc: show current banner content
+  const displayIdx = current;
 
   // Spark Granted Projects sliding window pagination
   const [sparkPage, setSparkPage] = useState(0);
@@ -1024,7 +905,7 @@ export default function Home({ onDappSelect }) {
     <div className="cosmic-inscription min-h-screen bg-cosmic-light text-cosmic-dark overflow-hidden">
       {/* Main Content */}
       <div className="w-full">
-        <HeroBannerCarousel banners={banners} current={current} next={next} fadeStage={fadeStage} triggerFade={triggerFade} onDappSelect={handleDappSelect} setIsHovered={setIsHovered} isHovered={isHovered} />
+        <HeroBannerCarousel banners={banners} current={current} isTransitioning={isTransitioning} triggerFade={triggerFade} onDappSelect={handleDappSelect} setIsHovered={setIsHovered} isHovered={isHovered} />
         <ProjectIntroduction banners={banners} current={displayIdx} language={language} />
           <SparkGrantedProjects 
             sparkProjects={sparkProjects} 
