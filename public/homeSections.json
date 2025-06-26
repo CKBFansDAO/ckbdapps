@@ -188,8 +188,8 @@
     {
       "name": "JoyGift",
       "desc": {
-        "en": "A decentralized NFT gifting platform on Nervos CKB, using RGB++ for secure Bitcoin interactions. Users can create, trade, and gift NFTs, enhancing engagement on CKB's Layer 1.",
-        "ch": "Nervos CKB 上的去中心化 NFT 赠送平台，使用 RGB++ 协议实现与比特币生态的安全交互。用户可创建、交易和赠送 NFT，在 CKB 的 Layer 1 上提升参与度。"
+        "en": "A decentralized gifting platform on Nervos CKB, using RGB++ for secure Bitcoin interactions. Users can create, trade, and gift CKB tokens, enhancing engagement on CKB's Layer 1.",
+        "ch": "Nervos CKB 上的去中心化赠送平台，使用 RGB++ 协议实现与比特币生态的安全交互。用户可创建、交易和赠送 CKB 代币，在 CKB 的 Layer 1 上提升参与度。"
       },
       "image": "/dappDetails/images/joygift/logo.jpeg",
       "link": "/joygift"

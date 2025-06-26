@@ -1,8 +1,8 @@
 {
   "name": "JoyGift",
   "description": {
-    "en": "JoyGift is a decentralized NFT gifting platform built on the Nervos CKB blockchain, leveraging the RGB++ protocol to enable secure and scalable digital asset interactions within the Bitcoin ecosystem. Designed to enhance user engagement and social interactions, JoyGift allows users to create, trade, and gift unique NFTs, fostering community building and digital collectible culture. Built on CKB's secure Layer 1 and UTXO-based Cell model, JoyGift provides a seamless and trustless platform for digital gift-giving and asset management.",
-    "ch": "JoyGift 是建立在 Nervos CKB 区块链上的去中心化 NFT 礼品平台，利用 RGB++ 协议在比特币生态系统内实现安全、可扩展的数字资产交互。旨在增强用户参与度和社交互动，JoyGift 允许用户创建、交易和赠送独特的 NFT，促进社区建设和数字收藏品文化。基于 CKB 安全的第一层和基于 UTXO 的 Cell 模型构建，JoyGift 为数字礼品赠送和资产管理提供无缝、无信任的平台。"
+    "en": "JoyGift is a decentralized gifting platform on the Nervos CKB blockchain, utilizing the RGB++ protocol to enable secure and scalable gifting of CKB tokens within the Bitcoin ecosystem. It allows users to send CKB tokens as gifts to friends, communities, or other users, fostering social engagement and crypto adoption. Built on CKB’s secure Layer 1 and UTXO-based Cell model, JoyGift provides a seamless, trustless, and user-friendly experience for sharing crypto assets in Web3.",
+    "ch": "JoyGift 是 Nervos CKB 区块链上的去中心化赠送平台，利用 RGB++ 协议实现比特币生态内安全、可扩展的 CKB 代币赠送。用户可将 CKB 代币作为礼物发送给朋友、社区或其他用户，促进社交互动和加密货币普及。基于 CKB 安全的 Layer 1 和 UTXO 模型，JoyGift 提供无缝、可信赖且用户友好的 Web3 加密资产分享体验。"
   },
   "titleImage": "/dappDetails/images/joygift/banner.jpg",
   "logo": "/dappDetails/images/joygift/logo.jpeg",
