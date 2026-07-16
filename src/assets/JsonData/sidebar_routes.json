@@ -15,11 +15,6 @@
         "icon": "fa-solid fa-cubes fa-sm sidebar_mr_10px"
     },
     {
-        "display_name": "nav.events",
-        "route": "/events",
-        "icon": "fa-solid fa-calendar-days fa-sm sidebar_mr_10px"
-    },
-    {
         "display_name": "nav.statistics",
         "route": "/statistics",
         "icon": "fa-solid fa-chart-column fa-sm sidebar_mr_10px"
