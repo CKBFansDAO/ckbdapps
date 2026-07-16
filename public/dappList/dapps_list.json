@@ -27,11 +27,6 @@
             ]
         },
         {
-            "project_name": "Huehub",
-            "path_name":"huehub",
-            "categories": ["RGB++", "DEX", "Launchpad"]
-        },
-        {
             "project_name": "Nervape",
             "path_name": "nervape",
             "categories": [
@@ -98,11 +93,6 @@
             "categories": ["Tools"]
         },
         {
-            "project_name": "Philosopher's Stone",
-            "path_name":"philosopherstone",
-            "categories": ["Tools", "DOBs"]
-        },
-        {
             "project_name": "imagiNation",
             "path_name": "imagination",
             "categories": [
@@ -110,11 +100,6 @@
                 "NFT",
                 "DOBs"
             ]
-        },
-        {
-            "project_name": "Dobby",
-            "path_name":"dobby",
-            "categories": ["RGB++", "Marketplace", "DEX"]
         },
         {
             "project_name": "CKB Explorer",
@@ -145,13 +130,6 @@
             "project_name": "REI Wallet",
             "path_name":"reiwallet",
             "categories": ["Wallet", "Extension", "RGB++"]
-        },
-        {
-            "project_name": "ForceBridge",
-            "path_name": "forcebridge",
-            "categories": [
-                "Bridges"
-            ]
         },
         {
             "project_name": "Bool Leap",
@@ -251,11 +229,6 @@
             "project_name": "Haste",
             "path_name":"haste",
             "categories": ["Assets Manager", "RGB++"]
-        },
-        {
-            "project_name": "UTXO Stack",
-            "path_name":"utxostack",
-            "categories": ["RGB++", "Infra"]
         },
         {
             "project_name": "UTXO Alliance",
@@ -438,13 +411,6 @@
             ]
         },
         {
-            "project_name": "Axon",
-            "path_name": "axon",
-            "categories": [
-                "Tools & Infrastructure"
-            ]
-        },
-        {
             "project_name": "BandProtocol",
             "path_name": "bandprotocol",
             "categories": [
@@ -468,13 +434,6 @@
         {
             "project_name": "GetBlock",
             "path_name": "getblock",
-            "categories": [
-                "Tools & Infrastructure"
-            ]
-        },
-        {
-            "project_name": "Godwoken",
-            "path_name": "godwoken",
             "categories": [
                 "Tools & Infrastructure"
             ]
@@ -943,13 +902,6 @@
         {
             "project_name": "NervosNation",
             "path_name": "nervosnation",
-            "categories": [
-                "Community"
-            ]
-        },
-        {
-            "project_name": "HaCKBee",
-            "path_name": "hackbee",
             "categories": [
                 "Community"
             ]

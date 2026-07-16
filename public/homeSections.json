@@ -177,15 +177,6 @@
       "link": "/imagination"
     },
     {
-      "name": "Philosopher's Stone",
-      "desc": {
-        "en": "A decentralized NFT blind box project on Nervos CKB, using RGB++ protocol. It offers random-rarity NFT mystery boxes for minting, trading, and gamified fun, built on CKB's secure Layer 1.",
-        "ch": "Nervos CKB 上的去中心化 NFT 盲盒项目，使用 RGB++ 协议。提供随机稀有度的 NFT 盲盒，支持铸造、交易和游戏化乐趣，基于 CKB 安全的 Layer 1 构建。"
-      },
-      "image": "/dappDetails/images/philosopherstone/logo.jpg",
-      "link": "/philosopherstone"
-    },
-    {
       "name": "JoyGift",
       "desc": {
         "en": "A decentralized gifting platform on Nervos CKB, using RGB++ for secure Bitcoin interactions. Users can create, trade, and gift CKB tokens, enhancing engagement on CKB's Layer 1.",
