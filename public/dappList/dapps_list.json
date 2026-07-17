@@ -905,6 +905,11 @@
             "project_name": "SeeDAO",
             "path_name":"seedao",
             "categories": ["Community"]
-        }
+        },
+ 	{
+	    "project_name": "VeriCell",
+            "path_name": "vericell",
+            "categories": ["Tools","Security & Audit"]
+    	}
     ]
 }
