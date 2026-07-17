@@ -1,0 +1,24 @@
+{
+    "project_name": "VeriCell.net",
+    "path_name": "vericell",
+    "categories": [
+        "Tools",
+        "Security & Audit"
+    ],
+    "logo_file": "vericell-logo.png",
+    "hero_image": "vericell-hero.png",
+    "links": {
+        "official": "https://vericell.net",
+        "twitter": "",
+        "discord": "",
+        "telegram": "https://t.me/VeriCellnet",
+        "github": "https://github.com/psawyerberlin/vericellnet",
+        "medium": "",
+        "youtube": ""
+    },
+    "en_US": {
+        "project_summary": "A proof-of-authorship and integrity service that anchors SHA-256 file manifests in live, versioned cells on the Nervos CKB blockchain.",
+        "full_description_file": "TECHNICAL.md",
+        "tutorial_link": ""
+    }
+}
