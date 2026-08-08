@@ -116,7 +116,7 @@ const CKBHashRateChart = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://api.das.la/api/v1/nervos_explorers/daily_avg_hash_rate');
+                const response = await axios.get('https://api.ckbdapps.com/api/v1/nervos_explorers/daily_avg_hash_rate');
                 //setData(response.data);
                 const newData = response.data.map((item) => ({
                     ...item,

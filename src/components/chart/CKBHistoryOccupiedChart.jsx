@@ -116,7 +116,7 @@ const CKBHistoryOccupiedChart = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://api.das.la/api/v1/nervos_explorers/daily_occupied_ckb');
+                const response = await axios.get('https://api.ckbdapps.com/api/v1/nervos_explorers/daily_occupied_ckb');
                 setData(response.data);
                 setIsLoading(false);
             } catch (error) {

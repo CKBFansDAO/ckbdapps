@@ -152,7 +152,7 @@ const CKBTradeView = () => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://api.das.la/api/v1/nervos_explorers/daily_price');
+                const response = await axios.get('https://api.ckbdapps.com/api/v1/nervos_explorers/daily_price');
                 setData(response.data);
                 setIsLoading(false);
             } catch (error) {

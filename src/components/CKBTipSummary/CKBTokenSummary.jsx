@@ -14,7 +14,7 @@ const CKBTokenSummary = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const rsp = await axios.get('https://api.das.la/api/v1/nervos_explorers/market_data');
+        const rsp = await axios.get('https://api.ckbdapps.com/api/v1/nervos_explorers/market_data');
         setData(rsp.data);
         setIsLoading(false);
       } catch (error) {
