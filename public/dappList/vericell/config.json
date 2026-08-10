@@ -20,5 +20,10 @@
         "project_summary": "A proof-of-authorship and integrity service that anchors SHA-256 file manifests in live, versioned cells on the Nervos CKB blockchain.",
         "full_description_file": "TECHNICAL.md",
         "tutorial_link": ""
+    },
+    "zh_CN": {
+        "project_summary": "一款锚定 SHA-256 文件清单、证明作品创作时间与完整性的服务，基于 Nervos CKB 上的实时（live）版本化 Cell 实现。",
+        "full_description_file": "TECHNICAL.md",
+        "tutorial_link": ""
     }
 }
