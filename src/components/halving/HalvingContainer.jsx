@@ -95,7 +95,7 @@ const HalvingContainer = (props) => {
 
         let encodedShareText = encodeURIComponent(shareText);
         let url =
-            `https://twitter.com/intent/tweet?text=${encodedShareText}`
+            `https://x.com/intent/tweet?text=${encodedShareText}`
 
         return <BitTooltip content={t(`halving.share-twitter`)} direction="top">
             <a className='w-6 h-6 flex justify-center items-center rounded-full bg-white icon-shadow hover:shadow-lg hover:bg-[#ddd] active:bg-emerald-500 focus:outline-none'
@@ -108,7 +108,7 @@ const HalvingContainer = (props) => {
     const renderClipboardShareLink = () => {
         return
         let url =
-            `https://twitter.com/intent/tweet?url=ckbdapps.com&text=`
+            `https://x.com/intent/tweet?url=ckbdapps.com&text=`
 
         /*`📢Nervos CKB*/
 

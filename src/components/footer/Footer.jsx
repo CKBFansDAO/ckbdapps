@@ -17,7 +17,7 @@ const Footer = (props) => {
         {
             display_name: "footer.followus",
             class_name:'',
-            link: "https://twitter.com/@CKB_CN"
+            link: "https://x.com/@CKB_CN"
         },
         {
             display_name: "footer.submit-dapp",

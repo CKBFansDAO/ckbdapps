@@ -202,7 +202,7 @@
             "event_desc": "Kevin、香橙、Baiyu 和大家聊一聊 UTXO 如何焕发新生：老炮 CKB 的耕耘与探索。"
         },
         "img": "nervos-space0217.png",
-        "url":"https://twitter.com/CKB_CN/status/1758421279361945602?s=20",
+        "url":"https://x.com/CKB_CN/status/1758421279361945602?s=20",
         "position": "banner"
     },
     {
@@ -284,7 +284,7 @@
             "event_desc": "和 Nervos 社区聊一聊 CKB 最新动态"
         },
         "img": "nervos-nervosnation.jpg",
-        "url":"https://twitter.com/i/spaces/1mnxepwQqQnJX?s=20",
+        "url":"https://x.com/i/spaces/1mnxepwQqQnJX?s=20",
         "position": "banner"
     },
 
@@ -346,7 +346,7 @@
             "event_desc": "Nervos 首席架构师 Jan、联合创始人 Terry 和 Cipher，和大家聊聊 Nervos 生态基金启动的 “BTCKB” 计划，以及如何打通 BTC 与 CKB，助力 CKB 成为首个与 BTC 完全同构的比特币 Layer 2。"
         },
         "img": "nervos-btckb.jpg",
-        "url":"https://twitter.com/i/spaces/1BdGYrkQPWgJX",
+        "url":"https://x.com/i/spaces/1BdGYrkQPWgJX",
         "position": "banner"
     },
    
@@ -427,7 +427,7 @@
             "event_desc": "谈论 filmmaking, UnrealEngine, and motioncapture，并赠送 5 个白名单(Nervape NACP BoneList)。"
         },
         "img": "nervape-ama-20230928.jpeg",
-        "url":"https://twitter.com/Nervapes/status/1706307574998646806",
+        "url":"https://x.com/Nervapes/status/1706307574998646806",
         "position": "banner"
     },
     {
@@ -447,7 +447,7 @@
             "event_desc": "为期9天的时间，通过学习Spore这个NFT协议，完成任务后收集动态卡牌，每三天解锁小蘑菇角色，九天内完成完整的拼图。"
         },
         "img": "hackbee-spore-20230922.jpeg",
-        "url":"https://twitter.com/web5hive/status/1705008809155195074",
+        "url":"https://x.com/web5hive/status/1705008809155195074",
         "position": "banner"
     },
     {
@@ -467,7 +467,7 @@
             "event_desc": "打印你的DID名片，并分享，瓜分5个4位数.bit，以及10个5 位数.bit账号。"
         },
         "img": "dotbit-20230913.jpeg",
-        "url":"https://twitter.com/dotbitHQ/status/1701428702393860346",
+        "url":"https://x.com/dotbitHQ/status/1701428702393860346",
         "position": "normal"
     },
     {
@@ -547,7 +547,7 @@
             "event_desc": "围绕 .bit 即将到来的品牌升级，深入探讨身份协议的尽头在哪里。"
         },
         "img": "dotbit-foresight-ama-20230908.jpg",
-        "url":"https://twitter.com/i/spaces/1yoJMZPmlNRxQ?s=20",
+        "url":"https://x.com/i/spaces/1yoJMZPmlNRxQ?s=20",
         "position": "banner"
     },
     {
@@ -567,7 +567,7 @@
             "event_desc": "参与本次黑客送的开发者将瓜分 150 万 CKB 奖金。"
         },
         "img": "ckbull-hackthon-20230822.jpeg",
-        "url":"https://twitter.com/CKBull_Wallet/status/1693669358977851832",
+        "url":"https://x.com/CKBull_Wallet/status/1693669358977851832",
         "position": "normal"
     },
     {
@@ -607,7 +607,7 @@
             "event_desc": "谈论 NFT Nation 项目及其以社区为先的理念，并赠送 5 个 Nervape NACP BoneList（白名单）。"
         },
         "img": "nervape&nation-twitter-ama-20230827.jpeg",
-        "url":"https://twitter.com/i/spaces/1nAJErgozpexL",
+        "url":"https://x.com/i/spaces/1nAJErgozpexL",
         "position": "normal"
     },
     {

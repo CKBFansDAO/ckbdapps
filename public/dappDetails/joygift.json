@@ -17,7 +17,7 @@
     }
   ],
   "socialLinks": {
-    "twitter": "https://twitter.com/yixiu_yx"
+    "twitter": "https://x.com/yixiu_yx"
   },
   "websiteUrl": "https://joygift.cc/",
   "highlights": [
@@ -127,21 +127,13 @@
     }
   },
   "related": [
-    {
-      "title": "Philosopher's Stone",
-      "desc": {
-        "en": "The first DOB-based NFT collection on Nervos.",
-        "ch": "Nervos 上首个基于 DOB 的 NFT 收藏。"
-      },
-      "icon": "/dappDetails/images/philosopherstone/logo.jpg",
-      "dappId": "philosopherstone"
-    }
+    
   ],
   "faq": [
     {
       "q": {
-        "en": "What are the use cases for JoyGift's NFTs?",
-        "ch": "JoyGift 的 NFT 有哪些用例？"
+        "en": "What are the use cases for JoyGift?",
+        "ch": "JoyGift 的用例有哪些？"
       },
       "a": {
         "en": "JoyGift's NFTs can be used for social gifting, community engagement, collectibles, or tokenized rewards, supporting diverse applications within the CKB ecosystem.",

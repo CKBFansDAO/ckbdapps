@@ -1,7 +1,7 @@
 {
     "dappList": [
         {
-            "project_name": "RGB++ Layer",
+            "project_name": "RGB++",
             "path_name":"rgbpp",
             "categories": ["RGB++", "Protocol"]
         },
@@ -68,11 +68,6 @@
             ]
         },
         {
-            "project_name": "Mobit",
-            "path_name":"mobit",
-            "categories": ["Assets Manager", "RGB++"]
-        },
-        {
             "project_name": "Stable++",
             "path_name":"stablepp",
             "categories": ["RGB++", "DeFi", "Stablecoin"]
@@ -130,6 +125,11 @@
             "project_name": "REI Wallet",
             "path_name":"reiwallet",
             "categories": ["Wallet", "Extension", "RGB++"]
+        },
+        {
+            "project_name": "VeriCell.net",
+            "path_name": "vericell",
+            "categories": ["Tools","Security & Audit"]
         },
         {
             "project_name": "Bool Leap",
@@ -296,13 +296,6 @@
             ]
         },
         {
-            "project_name": "Linear Finance",
-            "path_name": "linearfinance",
-            "categories": [
-                "Partners"
-            ]
-        },
-        {
             "project_name": "MixPay",
             "path_name": "mixpay",
             "categories": [
@@ -333,13 +326,6 @@
         {
             "project_name": "Cumberland",
             "path_name": "cumberland",
-            "categories": [
-                "Partners"
-            ]
-        },
-        {
-            "project_name": "Ripple Africa",
-            "path_name": "rippleafrica",
             "categories": [
                 "Partners"
             ]
@@ -482,14 +468,6 @@
             ]
         },
         {
-            "project_name": "Bittrex",
-            "path_name": "bittrex",
-            "categories": [
-                "Markets"
-            ]
-        },
-        
-        {
             "project_name": "Huobi",
             "path_name": "huobi",
             "categories": [
@@ -506,13 +484,6 @@
         {
             "project_name": "Coinone",
             "path_name": "coinone",
-            "categories": [
-                "Markets"
-            ]
-        },
-        {
-            "project_name": "BKEX",
-            "path_name": "bkex",
             "categories": [
                 "Markets"
             ]
@@ -546,20 +517,6 @@
             ]
         },
         {
-            "project_name": "AscendEX",
-            "path_name": "ascendex",
-            "categories": [
-                "Markets"
-            ]
-        },
-        {
-            "project_name": "CoinDCX",
-            "path_name": "coindcx",
-            "categories": [
-                "Markets"
-            ]
-        },
-        {
             "project_name": "BingX",
             "path_name": "bingx",
             "categories": [
@@ -574,13 +531,6 @@
             ]
         },
         {
-            "project_name": "BitGlobal",
-            "path_name": "bitglobal",
-            "categories": [
-                "Markets"
-            ]
-        },
-        {
             "project_name": "Bitrue",
             "path_name": "bitrue",
             "categories": [
@@ -590,13 +540,6 @@
         {
             "project_name": "Bybit",
             "path_name": "bybit",
-            "categories": [
-                "Markets"
-            ]
-        },
-        {
-            "project_name": "CoinTiger",
-            "path_name": "cointiger",
             "categories": [
                 "Markets"
             ]
@@ -637,13 +580,6 @@
             ]
         },
         {
-            "project_name": "OceanEx",
-            "path_name": "oceanex",
-            "categories": [
-                "Markets"
-            ]
-        },
-        {
             "project_name": "SuperEx",
             "path_name": "superex",
             "categories": [
@@ -651,22 +587,8 @@
             ]
         },
         {
-            "project_name": "Vauld",
-            "path_name": "vauld",
-            "categories": [
-                "Markets"
-            ]
-        },
-        {
             "project_name": "XT.COM",
             "path_name": "xt.com",
-            "categories": [
-                "Markets"
-            ]
-        },
-        {
-            "project_name": "ZT",
-            "path_name": "zt",
             "categories": [
                 "Markets"
             ]
@@ -905,11 +827,6 @@
             "project_name": "SeeDAO",
             "path_name":"seedao",
             "categories": ["Community"]
-        },
- 	{
-	    "project_name": "VeriCell.net",
-            "path_name": "vericell",
-            "categories": ["Tools","Security & Audit"]
-    	}
+        }
     ]
 }

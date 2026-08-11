@@ -3,7 +3,7 @@
         "zh_CN":{
             "twitter": {
                 "name":"CKB中文社区推特",
-                "link":"https://twitter.com/CKB_CN"
+                "link":"https://x.com/CKB_CN"
             },
             "discord": {
                 "name":"CKBFans中文社区",
@@ -25,7 +25,7 @@
         "en_US":{
             "twitter": {
                 "name":"Nervos Twitter",
-                "link":"https://twitter.com/NervosNetwork"
+                "link":"https://x.com/NervosNetwork"
             },
             "discord": {
                 "name":"Nervos Discord",
