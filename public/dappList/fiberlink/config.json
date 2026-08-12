@@ -1,0 +1,25 @@
+{
+    "project_name": "Fiber Link",
+    "path_name": "fiberlink",
+    "categories": ["Payment", "Fiber"],
+    "logo_file": "fiberlink-logo.png",
+    "hero_image": "fiberlink-hero.jpg",
+    "links": {
+        "official": "https://fiberlink.me",
+        "twitter": "",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/Keith-CY/fiber-link",
+        "medium": ""
+    },
+    "en_US": {
+        "project_summary": "Open, instant tipping for online communities, without running payment infrastructure.",
+        "full_description_file": "full_description_en.md",
+        "tutorial_link": "https://github.com/Keith-CY/fiber-link/blob/main/docs/getting-started.md"
+    },
+    "zh_CN": {
+        "project_summary": "面向线上社区的开放式即时打赏工具，无需自建支付基础设施。",
+        "full_description_file": "full_description_zh.md",
+        "tutorial_link": "https://github.com/Keith-CY/fiber-link/blob/main/docs/getting-started.md"
+    }
+}
