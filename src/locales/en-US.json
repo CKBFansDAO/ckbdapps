@@ -63,7 +63,8 @@
       "buttons": {
         "discord": "Discord",
         "explore": "Explore",
-        "back-to-projects": "Back to Projects"
+        "back-to-projects": "Back to Projects",
+        "talk": "Talk"
       },
       "market-data": {
         "token-summary": "CKB Token Summary",

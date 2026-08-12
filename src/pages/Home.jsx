@@ -370,7 +370,7 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
               <ChevronRight className="h-5 w-5 text-cosmic-purple" />
             </Button>
             <a
-              href="https://discord.com/channels/657799690070523914/1364236242190995558/threads/1365948819728105503"
+              href="https://talk.nervos.org/c/daos-funding/spark-program"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center px-4 h-12 rounded-full bg-gradient-to-br from-[#4ade80] via-[#22d3ee] to-[#a78bfa] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none text-white font-semibold text-base"
@@ -379,7 +379,7 @@ const SparkGrantedProjects = ({ sparkProjects, sparkPage, setSparkPage, windowSi
               <svg className="w-6 h-6 mr-2 animate-pulse group-hover:animate-spin" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" />
               </svg>
-              {t('home.buttons.discord')}
+              {t('home.buttons.talk')}
             </a>
           </div>
         </div>

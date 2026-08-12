@@ -63,7 +63,8 @@
       "buttons": {
         "discord": "Discord",
         "explore": "探索",
-        "back-to-projects": "返回项目"
+        "back-to-projects": "返回项目", 
+        "talk": "论坛"
       },
       "market-data": {
         "token-summary":"CKB 发行量信息一览",

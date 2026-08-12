@@ -98,16 +98,6 @@
       "image": "/dappDetails/images/ckbull/highlight.jpg",
       "tinyImage": "/dappDetails/images/ckbull/logo.png",
       "link": "/ckbull"
-    },
-    {
-      "name": "Mobit",
-      "desc": {
-        "en": "Mobit is a decentralized wallet interface on Nervos Network (CKB) for secure Bitcoin-CKB asset transfers via RGB++ Leap. Built on CKB’s Layer 1, it uses JoyID for passwordless BTC, ETH, and CKB management. Launched in July 2024, it simplifies cross-chain DeFi.",
-        "ch": "Mobit 是 Nervos 网络（CKB）上的去中心化钱包接口，通过 RGB++ Leap 协议实现比特币与 CKB 的安全资产转移。基于 CKB 的第一层构建，采用 JoyID 实现无密码管理 BTC、ETH 和 CKB。2024 年 7 月推出，简化跨链 DeFi。"
-      },
-      "image": "/dappDetails/images/mobit/highlight.jpg",
-      "tinyImage": "/dappDetails/images/mobit/logo.jpg",
-      "link": "/mobit"
     }
   ],
   "premium": [
