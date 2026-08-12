@@ -137,6 +137,11 @@
             "categories": ["Payment", "Fiber"]
         },
         {
+            "project_name": "ckb-viz",
+            "path_name": "ckbviz",
+            "categories": ["Tools", "Explorer"]
+        },
+        {
             "project_name": "Bool Leap",
             "path_name":"boolleap",
             "categories": ["Bridges", "RGB++"]

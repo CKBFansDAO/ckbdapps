@@ -1,0 +1,25 @@
+{
+    "project_name": "ckb-viz",
+    "path_name": "ckbviz",
+    "categories": ["Tools", "Explorer"],
+    "logo_file": "ckbviz-logo.svg",
+    "hero_image": "ckbviz-hero.png",
+    "links": {
+        "official": "https://ckb-viz.truthixify.dev",
+        "twitter": "",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/truthixify/ckb-viz",
+        "medium": ""
+    },
+    "en_US": {
+        "project_summary": "A read-only CKB transaction visualizer that turns any transaction into a clear flow of cells, with decoded scripts, capacity/fee, and cell lineage.",
+        "full_description_file": "full_description_en.md",
+        "tutorial_link": "https://ckb-viz.truthixify.dev/learn"
+    },
+    "zh_CN": {
+        "project_summary": "只读的 CKB 交易可视化工具，把任意一笔交易转换成清晰的 cell 流转图，附带脚本解码、容量/手续费和 cell 溯源。",
+        "full_description_file": "full_description_zh.md",
+        "tutorial_link": "https://ckb-viz.truthixify.dev/learn"
+    }
+}
