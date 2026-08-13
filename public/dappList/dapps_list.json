@@ -3,7 +3,10 @@
         {
             "project_name": "RGB++",
             "path_name":"rgbpp",
-            "categories": ["RGB++", "Protocol"]
+            "categories": [
+                "RGB++",
+                "Protocol"
+            ]
         },
         {
             "project_name": "Spore",
@@ -16,7 +19,10 @@
         {
             "project_name": "Fiber Network",
             "path_name":"fiber",
-            "categories": ["Lightning Network", "Protocol"]
+            "categories": [
+                "Fiber",
+                "Protocol"
+            ]
         },
         {
             "project_name": "JoyID",
@@ -48,7 +54,8 @@
             "categories": [
                 "DEX",
                 "Marketplace",
-                "RGB++"
+                "RGB++",
+                "Community-Driven"
             ]
         },
         {
@@ -57,7 +64,8 @@
             "categories": [
                 "DEX",
                 "DeFi",
-                "RGB++"
+                "RGB++",
+                "Community-Driven"
             ]
         },
         {
@@ -70,30 +78,47 @@
         {
             "project_name": "Stable++",
             "path_name":"stablepp",
-            "categories": ["RGB++", "DeFi", "Stablecoin"]
+            "categories": [
+                "RGB++",
+                "DeFi",
+                "Stablecoin",
+                "Community-Driven"
+            ]
         },
         {
             "project_name": "World3",
             "path_name":"world3",
-            "categories": ["RGB++", "DOBs", "AW"]
+            "categories": [
+                "RGB++",
+                "DOBs",
+                "AW"
+            ]
         },
         {
             "project_name": "Seek DID",
             "path_name":"seekdid",
-            "categories": ["DID", "Tools"]
+            "categories": [
+                "DID", 
+                "Tools", 
+                "Community-Driven"
+            ]
         },
         {
             "project_name": "JoyGift",
             "path_name":"joygift",
-            "categories": ["Tools"]
+            "categories": [
+                "Tools", 
+                "Community-Driven"
+            ]
         },
         {
             "project_name": "imagiNation",
             "path_name": "imagination",
             "categories": [
-                "Marketplace",
-                "NFT",
-                "DOBs"
+                "Marketplace", 
+                "NFT", 
+                "DOBs", 
+                "Community-Driven"
             ]
         },
         {
@@ -106,50 +131,97 @@
         {
             "project_name": "RGB++ Explorer",
             "path_name":"rgbppexplorer",
-            "categories": ["Explorer", "RGB++"]
+            "categories": [
+                "Explorer", 
+                "RGB++"
+            ]
         },
         {
             "project_name": "Neuron",
             "path_name": "neuron",
             "categories": [
-                "Wallet",
+                "Wallet", 
                 "Nervos DAO"
             ]
         },
         {
             "project_name": "UTXO Global",
             "path_name":"utxoglobal",
-            "categories": ["Wallet", "Extension", "Multi-Sig"]
+            "categories": [
+                "Wallet", 
+                "Extension", 
+                "Multi-Sig",
+                "Community-Driven"
+            ]
         },
         {
             "project_name": "REI Wallet",
             "path_name":"reiwallet",
-            "categories": ["Wallet", "Extension", "RGB++"]
+            "categories": [
+                "Wallet", 
+                "Extension", 
+                "RGB++",
+                "Community-Driven"
+            ]
         },
         {
             "project_name": "VeriCell.net",
             "path_name": "vericell",
-            "categories": ["Tools","Security & Audit"]
+            "categories": [
+                "Tools",
+                "Security & Audit", 
+                "Community-Driven"
+            ]
         },
         {
             "project_name": "Fiber Link",
             "path_name": "fiberlink",
-            "categories": ["Payment", "Fiber"]
+            "categories": [
+                "Payment", 
+                "Fiber", 
+                "Community-Driven"
+            ]
+        },
+        {
+            "project_name": "Pocket Node",
+            "path_name": "pocketnode",
+            "categories": [
+                "Wallet", 
+                "Community-Driven"
+            ]
         },
         {
             "project_name": "ckb-viz",
             "path_name": "ckbviz",
-            "categories": ["Tools", "Explorer"]
+            "categories": [
+                "Tools", 
+                "Explorer", 
+                "Community-Driven"
+            ]
+        },
+        {
+            "project_name": "cklibrary",
+            "path_name": "cklibrary",
+            "categories": [
+                "Tools", 
+                "Community-Driven"
+            ]
         },
         {
             "project_name": "Bool Leap",
             "path_name":"boolleap",
-            "categories": ["Bridges", "RGB++"]
+            "categories": [
+                "Bridges", 
+                "RGB++"
+            ]
         },
         {
             "project_name": "Meson Finance",
             "path_name":"meson",
-            "categories": ["Bridges", "RGB++"]
+            "categories": [
+                "Bridges", 
+                "RGB++"
+            ]
         },
         {
             "project_name": "Khalani",
@@ -178,13 +250,17 @@
             "path_name": "safepal",
             "categories": [
                 "Hardware Wallet",
-                "Wallet"
+                "Wallet",
+                "Community-Driven"
             ]
         },
         {
             "project_name": "OneKey",
             "path_name":"onekey",
-            "categories": ["Hardware Wallet", "Wallet"]
+            "categories": [
+                "Hardware Wallet", 
+                "Wallet"
+            ]
         },
         {
             "project_name": "Cobo Wallet",

@@ -1,0 +1,25 @@
+{
+    "project_name": "cklibrary",
+    "path_name": "cklibrary",
+    "categories": ["Tools", "Community-Driven"],
+    "logo_file": "cklibrary-logo.png",
+    "hero_image": "cklibrary-hero.png",
+    "links": {
+        "official": "https://cklibrary.xyz",
+        "twitter": "",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/toastmanAu",
+        "medium": ""
+    },
+    "en_US": {
+        "project_summary": "A navigable library of canonical Nervos RFCs minted on CKB — every book is a CKBFS cell.",
+        "full_description_file": "full_description_en.md",
+        "tutorial_link": ""
+    },
+    "zh_CN": {
+        "project_summary": "一个可浏览的 Nervos RFC 链上图书馆，每一本书都是铸造在 CKB 上的 CKBFS cell。",
+        "full_description_file": "full_description_zh.md",
+        "tutorial_link": ""
+    }
+}

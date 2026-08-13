@@ -1,0 +1,25 @@
+{
+    "project_name": "Pocket Node",
+    "path_name": "pocketnode",
+    "categories": ["Wallet", "Community-Driven"],
+    "logo_file": "pocket-node-logo.png",
+    "hero_image": "pocket-node-hero.jpeg",
+    "links": {
+        "official": "https://www.pocket-node.com",
+        "twitter": "https://x.com/PocketNodeCKB",
+        "discord": "",
+        "telegram": "https://t.me/pocket_node",
+        "github": "https://github.com/RaheemJnr/pocket-node",
+        "medium": ""
+    },
+    "en_US": {
+        "project_summary": "The first Android wallet that runs a full CKB light client on-device — self-custodial, with no remote indexer or middleman.",
+        "full_description_file": "full_description_en.md",
+        "tutorial_link": "https://www.pocket-node.com/guide"
+    },
+    "zh_CN": {
+        "project_summary": "首款在 Android 设备上运行完整 CKB 轻客户端的钱包，完全自托管，无需远程索引器或中间人。",
+        "full_description_file": "full_description_zh.md",
+        "tutorial_link": "https://www.pocket-node.com/guide"
+    }
+}
