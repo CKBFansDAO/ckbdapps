@@ -168,7 +168,9 @@
         "Extension":"浏览器插件",
         "Multi-Sig":"多签",
         "Assets Manager":"资产管理器",
-        "Lightning Network":"闪电网络"
+        "Lightning Network":"闪电网络",
+        "Payment":"支付",
+        "Community-Driven":"社区驱动"
       }
     },
     "events":{

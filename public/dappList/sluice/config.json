@@ -1,0 +1,25 @@
+{
+    "project_name": "Sluice",
+    "path_name": "sluice",
+    "categories": ["Tools", "Community-Driven"],
+    "logo_file": "sluice-logo.svg",
+    "hero_image": "sluice-hero.png",
+    "links": {
+        "official": "https://sluice.drreamer.digital",
+        "twitter": "",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/Maxima24/sluice",
+        "medium": ""
+    },
+    "en_US": {
+        "project_summary": "A liquidity operations workspace for CKB Fiber node operators — monitor channel liquidity, probe payment routes before sending, and safely rebalance channels from one interface.",
+        "full_description_file": "full_description_en.md",
+        "tutorial_link": "https://talk.nervos.org/t/introducing-sluice-a-liquidity-operations-workspace-for-ckb-fiber/10532"
+    },
+    "zh_CN": {
+        "project_summary": "面向 CKB Fiber 节点运营者的流动性运维工作台，可监控通道流动性、在发起支付前探测路由，并在同一界面中安全地进行通道再平衡。",
+        "full_description_file": "full_description_zh.md",
+        "tutorial_link": "https://talk.nervos.org/t/introducing-sluice-a-liquidity-operations-workspace-for-ckb-fiber/10532"
+    }
+}

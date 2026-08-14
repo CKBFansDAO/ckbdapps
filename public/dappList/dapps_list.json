@@ -137,6 +137,14 @@
             ]
         },
         {
+            "project_name": "CKBadger",
+            "path_name": "ckbadger",
+            "categories": [
+                "Explorer", 
+                "Community-Driven"
+            ]
+        },
+        {
             "project_name": "Neuron",
             "path_name": "neuron",
             "categories": [
@@ -202,6 +210,14 @@
         {
             "project_name": "cklibrary",
             "path_name": "cklibrary",
+            "categories": [
+                "Tools", 
+                "Community-Driven"
+            ]
+        },
+        {
+            "project_name": "Sluice",
+            "path_name": "sluice",
             "categories": [
                 "Tools", 
                 "Community-Driven"
