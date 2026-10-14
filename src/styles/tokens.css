@@ -1,0 +1,50 @@
+/* Design tokens. Values copied from design/ckbdapps-v3.html :root. Components use the scoped
+   --bg --fg --mut --line --accent --surface from .on-dark / .on-paper, never raw hex. */
+:root {
+  --page: #121218;
+  --ink: #1c1c23;
+  --purple: #733dff;
+  --purple-hi: #9068ff;
+  --purple-deep: #5a26e8;
+  --paper: #f3f2f7;
+  --paper-ink: #15151c;
+  --white: #ffffff;
+  --mut-d: #a3a2b3;
+  --mut-p: #5d5c6b;
+  --line-d: rgba(255, 255, 255, .14);
+  --line-p: rgba(21, 21, 28, .16);
+  /* --font-* are set on <html> by next/font */
+  --display: var(--font-archivo), 'PingFang SC', system-ui, sans-serif;
+  --body: var(--font-archivo), 'PingFang SC', system-ui, sans-serif;
+  --mono: var(--font-jetbrains), ui-monospace, Menlo, Consolas, monospace;
+  --hh: 64px;
+  color-scheme: dark;
+}
+
+/* Noto Sans SC only in Chinese pages, so English pages never download any of its slices. */
+:root:lang(zh) {
+  --display: var(--font-archivo), var(--font-noto-sc), 'PingFang SC', system-ui, sans-serif;
+  --body: var(--font-archivo), var(--font-noto-sc), 'PingFang SC', system-ui, sans-serif;
+}
+
+.on-dark {
+  --bg: var(--page);
+  --fg: var(--white);
+  --mut: var(--mut-d);
+  --line: var(--line-d);
+  --accent: var(--purple-hi);
+  --surface: var(--ink);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.on-paper {
+  --bg: var(--paper);
+  --fg: var(--paper-ink);
+  --mut: var(--mut-p);
+  --line: var(--line-p);
+  --accent: var(--purple-deep);
+  --surface: var(--white);
+  background: var(--bg);
+  color: var(--fg);
+}

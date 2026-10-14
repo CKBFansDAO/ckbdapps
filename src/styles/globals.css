@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@source not "../../legacy";
+@source not "../../design";
+@import "./tokens.css" layer(base);
+@import "./slot.css" layer(components);
+
+/* Only the brand palette and the scoped tokens exist as Tailwind colours. */
+@theme inline {
+  --color-*: initial;
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+  --color-purple: var(--purple);
+  --color-purple-hi: var(--purple-hi);
+  --color-purple-deep: var(--purple-deep);
+  --color-paper: var(--paper);
+  --color-paper-ink: var(--paper-ink);
+  --color-white: var(--white);
+  --color-mut-d: var(--mut-d);
+  --color-line-d: var(--line-d);
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-mut: var(--mut);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --font-sans: var(--body);
+  --font-display: var(--display);
+  --font-mono: var(--mono);
+}
+
+@layer base {
+  body { background: var(--page); color: var(--white); font: 400 16px/1.55 var(--body); font-variation-settings: "wdth" 100; }
+  a { color: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 3px solid var(--purple-hi); outline-offset: 3px; }
+  .on-paper :focus-visible { outline-color: var(--purple-deep); }
+}
+
+@layer components {
+  .in { max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+  /* Display type: Archivo wdth 125 / 800. Sub-heads: wdth 112. */
+  .wide { font-family: var(--display); font-weight: 800; font-stretch: 125%; font-variation-settings: "wdth" 125; letter-spacing: -.03em; }
+  .semi { font-family: var(--display); font-weight: 800; font-variation-settings: "wdth" 112; letter-spacing: -.02em; }
+  /* Text link with a purple underline */
+  .linkbtn { padding: 0; background: none; border: 0; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .linkbtn:hover { text-decoration-color: currentColor; }
+  /* Motion: one entrance on the Home and Halving heroes, and the category marquee */
+  .rise { animation: rise .7s cubic-bezier(.2, .8, .2, 1) backwards; }
+  .marquee { animation: marq 70s linear infinite; }
+  .fill-in { animation: fillup 1.4s .3s cubic-bezier(.2, .8, .2, 1) backwards; }
+  @media (prefers-reduced-motion: reduce) { .rise, .marquee, .fill-in { animation: none; } }
+  /* Chinese: no negative tracking, heavier display weight */
+  :lang(zh) .wide, :lang(zh) .semi { letter-spacing: 0; font-weight: 900; }
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } }
+@keyframes marq { to { transform: translateX(-50%); } }
+@keyframes fillup { from { width: 0; } }

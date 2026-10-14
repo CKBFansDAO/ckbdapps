@@ -1,0 +1,54 @@
+# Controlled vocabulary for project files. A project's `categories` must use these ids.
+# The id is also the English label unless `en` is given.
+
+# Display order (Explore tabs, ecosystem map rows).
+groups:
+  - { id: apps, en: Apps, zh: 应用 }
+  - { id: wallets, en: Wallets, zh: 钱包 }
+  - { id: assets, en: Assets and identity, zh: 资产与身份 }
+  - { id: infra, en: Infrastructure, zh: 基础设施 }
+  - { id: eco, en: Ecosystem, zh: 生态伙伴 }
+
+# A project belongs to the first group here that one of its categories maps to.
+# A project with no match falls into the last one.
+group_priority: [wallets, apps, assets, infra, eco]
+
+categories:
+  # wallets
+  - { id: Wallet, zh: 钱包, group: wallets }
+  - { id: Hardware Wallet, zh: 硬件钱包, group: wallets }
+  - { id: Extension, zh: 浏览器插件, group: wallets }
+  - { id: Multi-Sig, zh: 多签, group: wallets }
+  # apps
+  - { id: DEX, zh: DEX, group: apps }
+  - { id: DeFi, zh: DeFi, group: apps }
+  - { id: Marketplace, zh: 交易市场, group: apps }
+  - { id: Stablecoin, zh: 稳定币, group: apps }
+  - { id: Payment, zh: 支付, group: apps }
+  - { id: Bridges, zh: 跨链桥, group: apps }
+  - { id: Intent-centric, zh: 意图驱动, group: apps }
+  - { id: Nervos DAO, zh: Nervos DAO, group: apps }
+  # assets
+  - { id: DOBs, zh: DOBs, group: assets }
+  - { id: NFT, zh: NFT, group: assets }
+  - { id: DID, zh: DID, group: assets }
+  # infra
+  - { id: Protocol, zh: 协议, group: infra }
+  - { id: Explorer, zh: 区块浏览器, group: infra }
+  - { id: Tools, zh: 工具, group: infra }
+  - { id: Infrastructure, zh: 基础设施, group: infra }
+  - { id: Security & Audit, zh: 安全与审计, group: infra }
+  - { id: RGB++, zh: RGB++, group: infra }
+  - { id: Fiber, zh: Fiber, group: infra }
+  - { id: AW, zh: AW, group: infra } # meaning to be confirmed by the site owner
+  # eco
+  - { id: Partners, zh: 合作伙伴, group: eco }
+  - { id: Mining Pools, zh: 矿池, group: eco }
+  - { id: Markets, zh: 交易所, group: eco }
+  - { id: Investors, zh: 投资机构, group: eco }
+  - { id: Community, zh: 社区, group: eco }
+
+# Legacy names -> current ids. Used by the legacy migration only; project files must use ids.
+aliases:
+  Protocols: Protocol
+  Tools & Infrastructure: Infrastructure

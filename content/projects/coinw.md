@@ -1,0 +1,12 @@
+---
+name: CoinW
+url: https://www.coinw.com/
+tagline:
+  en: CoinW is a world-class cryptocurrency exchange. Founded in 2017 by crypto, cybersecurity & finance veterans, CoinW provides spot, future and other services to over 8 million users worldwide and has established 16  localized trading service centers in 13 countries around the world. CoinW localized in a multitude of languages to provide comprehensive and regulated digital asset trading and investment vehicles.
+  zh: 币赢CoinW是一家世界级的绿色交易平台。以合规为前提、以严格风控为根本、以诚信为理念，面向全球用户提供BTC、ETH等加密资产的现货及衍生品交易服务.币赢CoinW数字货币交易所平台提供比特币、以太坊、USDT等主流加密币种交易，币赢CoinW官网向全球用户提供现货交易、合约交易、ETF、杠杆、OTC、资产管理等一站式数字资产管理。
+categories: [Markets]
+links:
+  x: CoinWOfficial
+  telegram: CoinwExchangeEnglish
+verified: 2026-08-12
+---

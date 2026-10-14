@@ -1,0 +1,63 @@
+/* The slot motif: the logo's open-right bracket with a purple plug. Ported from design/ckbdapps-v3.html.
+   The plug grows on hover or focus; that is the interaction language. Do not add new shapes here. */
+
+.ic { display: block; }
+
+/* Slot: inline frame around a word */
+.inslot { --s: .1em; position: relative; display: inline-block; padding: .03em .26em 0 .2em; margin-right: .36em; border: var(--s) solid currentColor; border-right: 0; line-height: .95; }
+.inslot::after { content: ""; position: absolute; right: -.3em; top: 0; bottom: 0; width: .3em; background: var(--purple); }
+
+/* SlotButton */
+.btn { position: relative; display: inline-flex; align-items: center; gap: 10px; margin-right: 14px; padding: 9px 18px 9px 16px; border: 2px solid currentColor; border-right: 0; background: transparent; text-decoration: none; font-weight: 700; font-size: .9rem; white-space: nowrap; transition: margin-right .18s; }
+.btn::after { content: ""; position: absolute; right: -14px; top: 0; bottom: 0; width: 14px; background: var(--purple); transition: width .18s, right .18s; }
+.btn:hover::after, .btn:focus-visible::after { width: 24px; right: -24px; }
+.btn:hover, .btn:focus-visible { margin-right: 24px; }
+.btn.big { padding: 14px 24px 14px 22px; font-size: 1rem; }
+
+/* SlotSearch: the plug is the submit button */
+.slot-search { position: relative; max-width: 880px; }
+.slot-bar { --s: 10px; display: flex; align-items: stretch; height: clamp(64px, 9vw, 92px); }
+.slot-bar input { flex: 1; min-width: 0; padding-inline: clamp(16px, 3vw, 28px); background: rgba(18, 18, 24, .72); border: var(--s) solid var(--fg); border-right: 0; border-radius: 0; font-weight: 700; font-size: clamp(1.05rem, 2.5vw, 1.7rem); color: var(--fg); outline-offset: 6px; }
+.slot-bar input::placeholder { color: var(--mut); opacity: 1; }
+.slot-bar input::-webkit-search-cancel-button { display: none; }
+.slot-bar .plug { flex: none; width: clamp(60px, 8vw, 92px); margin-block: var(--s); border: 0; background: var(--purple); color: var(--white); font-weight: 800; font-size: 1.05rem; transition: width .18s, background .18s; }
+.slot-bar .plug:hover, .slot-bar .plug:focus-visible, .slot-bar input:focus + .plug { background: var(--purple-hi); width: clamp(72px, 10vw, 120px); }
+.suggest { position: absolute; z-index: 5; left: 0; right: 0; top: 100%; margin: 8px 0 0; padding: 6px; list-style: none; background: var(--ink); color: var(--white); border: 1px solid var(--line-d); box-shadow: 0 24px 60px rgba(0, 0, 0, .5); }
+.suggest [role="option"] { display: flex; align-items: center; gap: 14px; min-height: 44px; padding: 10px 12px; cursor: pointer; }
+.suggest [role="option"]:hover, .suggest [aria-selected="true"] { background: var(--purple); }
+.suggest .ic { width: 28px; flex: none; color: var(--purple-hi); }
+.suggest [role="option"]:hover .ic, .suggest [aria-selected="true"] .ic { color: var(--white); }
+.suggest b { font-weight: 700; }
+.suggest .c { margin-left: auto; color: var(--mut-d); font-size: .82rem; }
+.suggest [role="option"]:hover .c, .suggest [aria-selected="true"] .c { color: var(--white); }
+
+/* FramedAvatar */
+.framed { --plug: clamp(26px, 4vw, 44px); position: relative; width: clamp(104px, 17vw, 190px); aspect-ratio: 1; margin-right: var(--plug); padding: clamp(10px, 1.8vw, 20px); border: clamp(9px, 1.6vw, 16px) solid var(--fg); border-right: 0; }
+.framed::after { content: ""; position: absolute; right: calc(-1 * var(--plug)); top: 0; bottom: 0; width: var(--plug); background: var(--purple); }
+.framed .ic { width: 100%; height: auto; color: var(--purple-hi); }
+
+/* EmptySlot: dashed plug, the slot is open */
+.empty-slot { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; min-height: 190px; margin-right: 36px; padding: 22px 20px 22px 24px; border: 8px solid var(--fg); border-right: 0; text-decoration: none; }
+.empty-slot::after { content: ""; position: absolute; right: -36px; top: 0; bottom: 0; width: 36px; border: 2px dashed var(--accent); transition: background .18s; }
+.empty-slot:hover::after, .empty-slot:focus-visible::after { background: var(--purple); border-style: solid; }
+.empty-slot strong { font-size: 1.3rem; line-height: 1.1; }
+.empty-slot span { color: var(--mut); font-size: .9rem; }
+
+/* Tile */
+.tile { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-width: 0; aspect-ratio: 4 / 4.6; padding: 20px; background: var(--ink); color: var(--white); text-align: left; text-decoration: none; border: 0; transition: background .18s; }
+.tile .ic { width: 46%; color: var(--purple-hi); transition: color .18s; }
+.tile h3 { margin: 0; font-size: clamp(1.35rem, 2.3vw, 1.9rem); line-height: 1; overflow-wrap: anywhere; }
+.tile p { margin: 8px 0 0; color: var(--mut-d); font-size: .85rem; }
+.tile:hover { background: var(--purple); }
+.tile:hover .ic, .tile:hover p { color: var(--white); }
+.tile.alt { background: transparent; color: var(--fg); border: 2px solid var(--fg); }
+.tile.alt .ic { color: var(--accent); }
+.tile.alt p { color: var(--mut); }
+.tile.alt:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
+.tile.alt:hover .ic, .tile.alt:hover p { color: var(--white); }
+.tile.sm { aspect-ratio: 1 / 1.15; padding: 14px; gap: 16px; }
+.tile.sm h3 { font-size: 1.15rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn::after, .slot-bar .plug, .empty-slot::after, .tile, .tile .ic { transition: none; }
+}

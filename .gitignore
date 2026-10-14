@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# legacy ckbdapps
+/legacy
+
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/.lighthouseci/
+
+# screenshot
+/design/screenshots
