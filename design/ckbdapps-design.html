@@ -1,0 +1,1140 @@
+<title>CKBdapps Slot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;900&display=swap">
+<style>
+/* Layout concept: the logo is a bracket with a purple plug. That one shape is the system.
+   It frames the headline word, becomes the search bar, the buttons, project avatars and every empty slot.
+   Dark ink hero, one purple band, paper sections for reading. Left aligned, heavy and wide display type. */
+:root {
+  --page: #121218;
+  --ink: #1c1c23;
+  --purple: #733dff;
+  --purple-hi: #9068ff;
+  --purple-deep: #5a26e8;
+  --paper: #f3f2f7;
+  --paper-ink: #15151c;
+  --white: #ffffff;
+  --mut-d: #a3a2b3;
+  --mut-p: #5d5c6b;
+  --line-d: rgba(255, 255, 255, .14);
+  --line-p: rgba(21, 21, 28, .16);
+  --display: 'Archivo', 'Noto Sans SC', 'PingFang SC', system-ui, sans-serif;
+  --body: 'Archivo', 'Noto Sans SC', 'PingFang SC', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  --hh: 64px;
+  color-scheme: dark;
+}
+.on-dark { --bg: var(--page); --fg: var(--white); --mut: var(--mut-d); --line: var(--line-d); --accent: var(--purple-hi); --surface: var(--ink); background: var(--bg); color: var(--fg); }
+.on-paper { --bg: var(--paper); --fg: var(--paper-ink); --mut: var(--mut-p); --line: var(--line-p); --accent: var(--purple-deep); --surface: var(--white); background: var(--bg); color: var(--fg); }
+
+* { box-sizing: border-box; }
+body { background: var(--page); color: var(--white); font: 400 16px/1.55 var(--body); font-variation-settings: "wdth" 100; }
+a { color: inherit; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--purple-hi); outline-offset: 3px; }
+.on-paper :focus-visible { outline-color: var(--purple-deep); }
+.in { max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wide { font-family: var(--display); font-weight: 800; font-stretch: 125%; font-variation-settings: "wdth" 125; letter-spacing: -.03em; }
+.semi { font-family: var(--display); font-weight: 800; font-variation-settings: "wdth" 112; letter-spacing: -.02em; }
+html[lang="zh-CN"] .wide, html[lang="zh-CN"] .semi { letter-spacing: 0; font-weight: 900; }
+
+/* The plug: bracket frame with a purple block. Used inline, on buttons, on empty slots. */
+.inslot { --s: .1em; position: relative; display: inline-block; padding: .03em .26em .0em .2em; margin-right: .36em; border: var(--s) solid currentColor; border-right: 0; line-height: .95; }
+.inslot::after { content: ""; position: absolute; right: -.3em; top: 0; bottom: 0; width: .3em; background: var(--purple); }
+.btn { position: relative; display: inline-flex; align-items: center; gap: 10px; margin-right: 14px; padding: 9px 18px 9px 16px; border: 2px solid currentColor; border-right: 0; background: transparent; text-decoration: none; font-weight: 700; font-size: .9rem; white-space: nowrap; }
+.btn::after { content: ""; position: absolute; right: -14px; top: 0; bottom: 0; width: 14px; background: var(--purple); transition: width .18s, right .18s; }
+.btn:hover::after { width: 24px; right: -24px; }
+.btn:hover { margin-right: 24px; }
+.btn.big { padding: 14px 24px 14px 22px; font-size: 1rem; }
+
+/* Header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; height: var(--hh); background: rgba(18, 18, 24, .86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line-d); }
+.top .in { height: 100%; display: flex; align-items: center; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; border: 0; background: none; padding: 0; font-size: 1.15rem; text-decoration: none; }
+.brand img { display: block; width: 34px; height: 34px; border-radius: 8px; }
+.top nav { display: flex; gap: 24px; margin-left: auto; }
+.top nav button { background: none; border: 0; padding: 6px 0; color: var(--mut-d); font-weight: 600; font-size: .92rem; border-bottom: 2px solid transparent; }
+.top nav button:hover, .top nav button[aria-current="page"] { color: var(--white); border-color: var(--purple-hi); }
+.lang { display: inline-flex; border: 1px solid var(--line-d); }
+.lang button { background: transparent; border: 0; padding: 6px 10px; font: 600 .78rem var(--mono); color: var(--mut-d); }
+.lang button[aria-pressed="true"] { background: var(--white); color: var(--ink); }
+@media (max-width: 760px) { .top nav { display: none; } .top .lang { margin-left: auto; } }
+@media (max-width: 480px) { .top .btn { display: none; } }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; padding-block: clamp(56px, 10vw, 128px) clamp(44px, 7vw, 88px); }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero .in { position: relative; }
+.kicker { margin: 0; color: var(--mut-d); font-weight: 600; font-size: 1rem; }
+h1.mega { margin: 18px 0 0; max-width: 13ch; font-size: clamp(2.6rem, 8.4vw, 7.2rem); line-height: .94; text-wrap: balance; animation: rise .7s cubic-bezier(.2, .8, .2, 1) backwards; }
+html[lang="zh-CN"] h1.mega { line-height: 1.08; max-width: 12em; }
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } }
+
+.slot-search { position: relative; margin-top: clamp(28px, 5vw, 56px); max-width: 880px; animation: rise .7s .12s cubic-bezier(.2, .8, .2, 1) backwards; }
+.slot-bar { --s: 10px; display: flex; align-items: stretch; height: clamp(64px, 9vw, 92px); }
+.slot-bar input { flex: 1; min-width: 0; padding-inline: clamp(16px, 3vw, 28px); background: rgba(18, 18, 24, .72); border: var(--s) solid var(--white); border-right: 0; border-radius: 0; font-weight: 700; font-size: clamp(1.05rem, 2.5vw, 1.7rem); color: var(--white); outline-offset: 6px; }
+.slot-bar input::placeholder { color: var(--mut-d); opacity: 1; }
+.slot-bar .plug { flex: none; width: clamp(60px, 8vw, 92px); margin-block: var(--s); border: 0; background: var(--purple); color: var(--white); font-weight: 800; font-size: 1.05rem; transition: width .18s, background .18s; }
+.slot-bar .plug:hover, .slot-bar input:focus + .plug { background: var(--purple-hi); width: clamp(72px, 10vw, 120px); }
+.suggest { position: absolute; z-index: 5; left: 0; right: 0; top: 100%; margin: 8px 0 0; padding: 6px; list-style: none; background: var(--ink); border: 1px solid var(--line-d); box-shadow: 0 24px 60px rgba(0, 0, 0, .5); }
+.suggest button { display: flex; align-items: center; gap: 14px; width: 100%; padding: 10px 12px; background: none; border: 0; text-align: left; }
+.suggest button:hover, .suggest button[aria-selected="true"] { background: var(--purple); }
+.suggest .ic { width: 28px; flex: none; color: var(--purple-hi); }
+.suggest button:hover .ic, .suggest button[aria-selected="true"] .ic { color: var(--white); }
+.suggest b { font-weight: 700; }
+.suggest span.c { margin-left: auto; color: var(--mut-d); font-size: .82rem; }
+.suggest button:hover span.c, .suggest button[aria-selected="true"] span.c { color: var(--white); }
+.quick { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 18px; color: var(--mut-d); font-size: .92rem; }
+.quick button { padding: 5px 12px; background: transparent; border: 1px solid var(--line-d); font-weight: 600; font-size: .88rem; }
+.quick button:hover { background: var(--white); color: var(--ink); border-color: var(--white); }
+.stats { display: flex; flex-wrap: wrap; gap: 20px clamp(28px, 6vw, 72px); margin: clamp(36px, 6vw, 72px) 0 0; padding: 0; }
+.stats div { display: flex; flex-direction: column-reverse; }
+.stats dt { color: var(--mut-d); font-size: .95rem; font-weight: 600; }
+.stats dd { margin: 0; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1; }
+
+/* Marquee */
+.band { overflow: hidden; background: var(--purple); color: var(--white); }
+.track { display: flex; width: max-content; animation: marq 70s linear infinite; }
+.band:hover .track { animation-play-state: paused; }
+.run { display: flex; align-items: center; flex: none; }
+.run button { display: inline-flex; align-items: baseline; gap: 8px; background: none; border: 0; padding: .28em 0; font-size: clamp(2.1rem, 5.4vw, 4.4rem); line-height: 1; text-transform: uppercase; color: var(--white); }
+.run button sup { font: 600 .26em var(--mono); letter-spacing: 0; opacity: .8; }
+.run button:hover { color: var(--ink); }
+.run i { flex: none; width: .5em; height: .5em; margin-inline: clamp(18px, 3vw, 40px); background: var(--ink); font-size: clamp(2.1rem, 5.4vw, 4.4rem); }
+@keyframes marq { to { transform: translateX(-50%); } }
+
+/* Paper sections */
+.sec { padding-block: clamp(48px, 8vw, 104px); }
+.sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 14px 32px; margin-bottom: clamp(24px, 4vw, 44px); }
+h2.h { margin: 0; font-size: clamp(2rem, 5.2vw, 4rem); line-height: 1; }
+.sec-head p { margin: 0; max-width: 42ch; color: var(--mut); }
+h3.sub { margin: clamp(32px, 5vw, 56px) 0 16px; font-size: 1.15rem; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 14px; }
+.tile { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-width: 0; aspect-ratio: 4 / 4.6; padding: 20px; background: var(--ink); color: var(--white); text-align: left; text-decoration: none; border: 0; transition: background .18s; }
+.tile .ic { width: 46%; color: var(--purple-hi); transition: color .18s; }
+.tile h4 { margin: 0; font-size: clamp(1.35rem, 2.3vw, 1.9rem); line-height: 1; overflow-wrap: anywhere; }
+.tile p { margin: 8px 0 0; color: var(--mut-d); font-size: .85rem; }
+.tile:hover { background: var(--purple); }
+.tile:hover .ic { color: var(--white); }
+.tile:hover p { color: var(--white); }
+.tile.alt { background: transparent; color: var(--fg); border: 2px solid var(--fg); }
+.tile.alt .ic { color: var(--purple-deep); }
+.tile.alt p { color: var(--mut-p); }
+.tile.alt:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
+.tile.alt:hover .ic, .tile.alt:hover p { color: var(--white); }
+
+.grants { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: clamp(32px, 5vw, 56px); }
+@media (max-width: 820px) { .grants { grid-template-columns: 1fr; } }
+.gcard { padding: 24px; background: var(--ink); color: var(--white); display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 190px; }
+.gcard h3 { margin: 0; font-size: 1.15rem; color: var(--mut-d); font-weight: 700; }
+.gcard .big { font-size: clamp(2rem, 4vw, 3rem); line-height: 1; }
+.gcard small { display: block; margin-top: 8px; color: var(--mut-d); font-size: .9rem; }
+.empty-slot { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; min-height: 190px; margin-right: 36px; padding: 22px 20px 22px 24px; border: 8px solid var(--fg); border-right: 0; text-decoration: none; }
+.empty-slot::after { content: ""; position: absolute; right: -36px; top: 0; bottom: 0; width: 36px; border: 2px dashed var(--purple-deep); transition: background .18s; }
+.empty-slot:hover::after { background: var(--purple); border-style: solid; }
+.empty-slot strong { font-size: 1.3rem; line-height: 1.1; }
+.empty-slot span { color: var(--mut-p); font-size: .9rem; }
+
+/* Map */
+.map-row { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 16px 32px; padding-block: 26px; border-top: 1px solid var(--line-d); }
+.map-row:last-child { border-bottom: 1px solid var(--line-d); }
+@media (max-width: 760px) { .map-row { grid-template-columns: 1fr; } }
+.map-row h3 { margin: 0; font-size: 1.5rem; line-height: 1.1; }
+.map-row .n { margin: 6px 0 12px; color: var(--mut-d); font-size: .9rem; }
+.linkbtn { background: none; border: 0; padding: 0; font-weight: 700; text-decoration: underline; text-decoration-color: var(--purple-hi); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.linkbtn:hover { text-decoration-color: currentColor; }
+.cells { display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; }
+.mc { width: 40px; height: 40px; padding: 0; display: grid; place-items: center; background: transparent; border: 1px solid rgba(255, 255, 255, .26); font: 600 .74rem var(--mono); transition: background .12s, color .12s; }
+.mc.cm { border-color: var(--purple-hi); border-width: 2px; color: var(--purple-hi); }
+.mc:hover { background: var(--purple); border-color: var(--purple); color: var(--white); }
+@media (max-width: 520px) { .mc { width: 34px; height: 34px; font-size: .66rem; } }
+.readout { min-height: 1.7em; margin-top: 18px; color: var(--mut-d); font-size: .95rem; }
+.readout strong { color: var(--white); }
+
+/* Events */
+.events { margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--fg); }
+.events a { display: grid; grid-template-columns: 8rem 8rem minmax(0, 1fr) 14px; align-items: center; gap: 8px 20px; padding: 18px 14px 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; position: relative; }
+.events a::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 0; background: var(--purple); transition: width .15s; }
+.events a:hover::after { width: 10px; }
+.events time { font: 500 .9rem var(--mono); color: var(--mut); }
+.events .ty { font-weight: 700; }
+.events .t { font-size: 1.1rem; font-weight: 600; min-width: 0; }
+@media (max-width: 640px) { .events a { grid-template-columns: 1fr; } .events .t { grid-row: auto; } }
+
+/* Footer */
+.foot { overflow: hidden; padding-top: clamp(40px, 6vw, 72px); }
+.foot .links { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; align-items: center; padding-bottom: 28px; color: var(--mut-d); }
+.foot .links a { color: var(--white); }
+.giant { display: block; margin: 0; padding-bottom: 8px; font-size: clamp(3rem, 14.7vw, 13rem); line-height: .86; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, .34); user-select: none; }
+
+/* Explore */
+.ex-top { padding-block: clamp(40px, 7vw, 88px) 12px; }
+.ex-top h1 { margin: 0; font-size: clamp(2.6rem, 9vw, 7rem); line-height: .92; }
+.ex-top .cnt { margin: 14px 0 0; color: var(--mut-p); font-weight: 600; }
+.toolbar { position: sticky; top: calc(var(--hh) + env(safe-area-inset-top, 0px)); z-index: 30; background: var(--paper); border-block: 2px solid var(--paper-ink); }
+.toolbar .in { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; padding-block: 12px; }
+.f-search { --s: 4px; display: flex; align-items: stretch; flex: 1 1 260px; min-width: 0; height: 46px; }
+.f-search input { flex: 1; min-width: 0; padding-inline: 14px; border: var(--s) solid var(--paper-ink); border-right: 0; border-radius: 0; background: var(--white); color: var(--paper-ink); font-weight: 600; }
+.f-search input::placeholder { color: var(--mut-p); opacity: 1; }
+.f-search .pl { flex: none; width: 18px; margin-block: var(--s); background: var(--purple); }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+.tabs button { padding: 8px 12px; background: none; border: 0; border-bottom: 3px solid transparent; font-weight: 700; font-size: .92rem; color: var(--mut-p); }
+.tabs button b { margin-left: 5px; font: 500 .72rem var(--mono); }
+.tabs button:hover { color: var(--paper-ink); }
+.tabs button[aria-pressed="true"] { color: var(--paper-ink); border-bottom-color: var(--purple); }
+.tg { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: .9rem; }
+.tg input { width: 17px; height: 17px; margin: 0; accent-color: var(--purple-deep); }
+.seg { display: inline-flex; border: 2px solid var(--paper-ink); margin-left: auto; }
+.seg button { padding: 6px 12px; background: transparent; border: 0; font-weight: 700; font-size: .85rem; }
+.seg button[aria-pressed="true"] { background: var(--paper-ink); color: var(--paper); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 18px 6px; }
+.chip { padding: 5px 12px; background: transparent; border: 1.5px solid var(--line-p); font-weight: 600; font-size: .85rem; }
+.chip:hover { border-color: var(--paper-ink); }
+.chip[aria-pressed="true"] { background: var(--purple); border-color: var(--purple); color: var(--white); }
+
+.list { margin: 12px 0 0; padding: 0; list-style: none; }
+.row { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1.1fr) minmax(0, 1.9fr) 7.5rem; align-items: center; gap: 16px; padding: 14px 18px 14px 0; border-bottom: 1px solid var(--line-p); text-decoration: none; }
+.row::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 0; background: var(--purple); transition: width .14s; }
+.row:hover { background: var(--white); }
+.row:hover::after { width: 12px; }
+.row .ic { width: 38px; color: var(--paper-ink); }
+.row:hover .ic { color: var(--purple-deep); }
+.row .nm { display: flex; flex-direction: column; min-width: 0; }
+.row .nm strong { font-size: 1.1rem; line-height: 1.2; overflow-wrap: anywhere; }
+.row .nm span { color: var(--mut-p); font-size: .85rem; }
+.row .cts { display: flex; flex-wrap: wrap; gap: 6px; }
+.tagp { padding: 1px 8px; border: 1px solid var(--line-p); font-size: .8rem; font-weight: 600; color: var(--mut-p); }
+.row .fl { justify-self: end; font-weight: 700; font-size: .82rem; color: var(--purple-deep); }
+@media (max-width: 760px) { .row { grid-template-columns: 44px minmax(0, 1fr); } .row .cts, .row .fl { grid-column: 2; justify-self: start; } .row .fl { margin-top: -6px; } }
+.list.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 14px; }
+.list.grid .row { grid-template-columns: 1fr; align-content: start; gap: 18px; padding: 18px; background: var(--white); border: 0; min-height: 220px; }
+.list.grid .row .ic { width: 64px; }
+.list.grid .row .fl { justify-self: start; }
+.list.grid .row:hover { background: var(--ink); color: var(--white); }
+.list.grid .row:hover .nm span { color: var(--mut-d); }
+.list.grid .row:hover .ic { color: var(--purple-hi); }
+.list.grid .row:hover .tagp { color: var(--mut-d); border-color: var(--line-d); }
+.list.grid .row:hover .fl { color: var(--purple-hi); }
+.none { padding: 48px 0; color: var(--mut-p); font-size: 1.1rem; }
+.more { display: block; margin: 28px 0 0; }
+
+/* Detail */
+.d-hero { padding-block: clamp(24px, 4vw, 40px) clamp(40px, 7vw, 88px); }
+.back { display: inline-flex; align-items: center; gap: 10px; background: none; border: 0; padding: 6px 0; color: var(--mut-d); font-weight: 600; }
+.back::before { content: ""; width: 10px; height: 18px; background: var(--purple); }
+.back:hover { color: var(--white); }
+.d-grid { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px clamp(28px, 5vw, 64px); margin-top: clamp(20px, 4vw, 44px); align-items: start; }
+@media (max-width: 720px) { .d-grid { grid-template-columns: 1fr; } }
+.framed { position: relative; width: clamp(104px, 17vw, 190px); aspect-ratio: 1; margin-right: clamp(26px, 4vw, 44px); padding: clamp(10px, 1.8vw, 20px); border: clamp(9px, 1.6vw, 16px) solid var(--white); border-right: 0; }
+.framed::after { content: ""; position: absolute; right: calc(-1 * clamp(26px, 4vw, 44px)); top: 0; bottom: 0; width: clamp(26px, 4vw, 44px); background: var(--purple); }
+.framed .ic { width: 100%; color: var(--purple-hi); }
+.d-hero h1 { margin: 0; font-size: clamp(2.4rem, 7.4vw, 6rem); line-height: .94; overflow-wrap: anywhere; }
+.d-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.d-meta span { padding: 3px 11px; border: 1.5px solid var(--line-d); font-weight: 600; font-size: .88rem; }
+.d-sum { margin: 22px 0 0; max-width: 60ch; font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.5; color: #e4e3ee; }
+.d-act { display: flex; flex-wrap: wrap; gap: 14px 22px; margin-top: 28px; }
+.d-body { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 40px clamp(28px, 5vw, 64px); align-items: start; }
+@media (max-width: 960px) { .d-body { grid-template-columns: 1fr; } }
+.hls { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 14px; }
+.hl { padding: 22px; background: var(--ink); color: var(--white); }
+.hl .ic { width: 38px; color: var(--purple-hi); }
+.hl h4 { margin: 22px 0 8px; font-size: 1.25rem; line-height: 1.1; }
+.hl p { margin: 0; color: var(--mut-d); font-size: .92rem; }
+.faq details { border-bottom: 1px solid var(--line-p); padding-block: 16px; }
+.faq details:first-of-type { border-top: 2px solid var(--paper-ink); }
+.faq summary { display: flex; justify-content: space-between; gap: 16px; cursor: pointer; list-style: none; font-weight: 700; font-size: 1.1rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; flex: none; width: 14px; height: 14px; margin-top: 5px; background: var(--paper-ink); transition: transform .2s, background .2s; }
+.faq details[open] summary::after { background: var(--purple); transform: rotate(45deg); }
+.faq p { margin: 12px 0 0; max-width: 62ch; color: var(--mut-p); }
+.panel { padding: 22px; background: var(--ink); color: var(--white); margin-bottom: 14px; }
+.panel h3 { margin: 0 0 14px; font-size: 1.1rem; }
+.score { display: flex; align-items: baseline; gap: 10px; margin-bottom: 18px; }
+.score strong { font-size: 3rem; line-height: 1; }
+.score span { color: var(--mut-d); font-size: .92rem; }
+.sig { margin-top: 16px; }
+.sig h4 { margin: 0 0 8px; font-size: .95rem; }
+.sig ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.sig li { display: flex; align-items: center; gap: 10px; color: var(--mut-d); font-size: .9rem; }
+.sig li i { flex: none; width: 14px; height: 14px; border: 1.5px solid var(--mut-d); }
+.sig li.on { color: var(--white); }
+.sig li.on i { background: var(--purple); border-color: var(--purple); }
+.facts { display: grid; gap: 0; margin: 0; }
+.facts div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 12px; padding-block: 10px; border-top: 1px solid var(--line-d); }
+.facts dt { color: var(--mut-d); font-size: .9rem; }
+.facts dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.sim { list-style: none; margin: 0; padding: 0; }
+.sim button { display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 0; background: none; border: 0; border-top: 1px solid var(--line-d); text-align: left; font-weight: 700; }
+.sim button:hover { color: var(--purple-hi); }
+.sim .ic { width: 30px; flex: none; color: var(--purple-hi); }
+.nodetail { position: relative; margin-right: 44px; padding: 26px 24px 26px 28px; border: 10px solid var(--paper-ink); border-right: 0; }
+.nodetail::after { content: ""; position: absolute; right: -44px; top: 0; bottom: 0; width: 44px; border: 2px dashed var(--purple-deep); }
+.nodetail h3 { margin: 0 0 8px; font-size: 1.6rem; line-height: 1.1; }
+.nodetail p { margin: 0 0 18px; color: var(--mut-p); max-width: 52ch; }
+.nodetail code { font: 500 .85rem var(--mono); color: var(--paper-ink); background: rgba(21, 21, 28, .08); padding: 1px 6px; }
+
+/* Halving */
+.hv-hero { padding-block: clamp(48px, 8vw, 104px) clamp(44px, 6vw, 80px); background-image: linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px); background-size: 64px 64px; background-position: -1px -1px; }
+.hv-hero h1 { margin: 0; font-size: clamp(2.6rem, 8.4vw, 7.2rem); line-height: .94; animation: rise .7s cubic-bezier(.2, .8, .2, 1) backwards; }
+html[lang="zh-CN"] .hv-hero h1 { line-height: 1.08; }
+.hv-hero .kicker { margin-top: 18px; }
+.cd { display: flex; flex-wrap: wrap; gap: 18px clamp(22px, 4.5vw, 64px); margin-top: clamp(28px, 5vw, 56px); }
+.cd > div { display: flex; flex-direction: column; }
+.cd b { font-size: clamp(3rem, 9.6vw, 8rem); line-height: .95; font-weight: 800; font-feature-settings: "tnum"; }
+.cd small { margin-top: 12px; color: var(--mut-d); font: 600 1rem var(--body); letter-spacing: 0; }
+.hv-hero .d-act { margin-top: clamp(32px, 5vw, 56px); }
+.hv-tip { background: var(--ink); }
+.tipg { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tipg > div { padding: 28px 20px; border-left: 1px solid var(--line-d); min-width: 0; }
+.tipg > div:first-child { border-left: 0; padding-left: 0; }
+.tipg b { display: block; font-size: clamp(1.4rem, 2.8vw, 2.3rem); line-height: 1.05; overflow-wrap: anywhere; }
+.tipg b small { margin-left: 8px; color: var(--mut-d); font: 500 .8rem var(--mono); }
+.tipg span { display: block; margin-top: 8px; color: var(--mut-d); font-size: .92rem; font-weight: 600; }
+@media (max-width: 760px) { .tipg { grid-template-columns: 1fr 1fr; } .tipg > div:nth-child(3) { border-left: 0; padding-left: 0; } .tipg > div:nth-child(n+3) { border-top: 1px solid var(--line-d); } }
+.era { padding-block: 12px clamp(40px, 6vw, 72px); }
+.era-bar { --s: 12px; position: relative; height: 84px; margin-right: 30px; border: var(--s) solid var(--white); border-right: 0; }
+.era-bar::after { content: ""; position: absolute; right: -30px; top: calc(-1 * var(--s)); bottom: calc(-1 * var(--s)); width: 30px; border: 2px dashed var(--purple-hi); }
+.era-bar .fill { position: absolute; inset: 0 auto 0 0; width: var(--p); display: flex; align-items: center; justify-content: flex-end; padding-right: 16px; background: var(--purple); font-size: 1.4rem; animation: fillup 1.4s .3s cubic-bezier(.2, .8, .2, 1) backwards; }
+@keyframes fillup { from { width: 0; } }
+.era-ends { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; margin: 14px 30px 0 0; color: var(--mut-d); font: 500 .85rem var(--mono); }
+
+.hv-t { margin: 0; padding: 0; list-style: none; }
+.hv-h, .hv-r { display: grid; grid-template-columns: minmax(0, 1.2fr) 84px minmax(0, 2.4fr) 90px 170px; gap: 8px 20px; align-items: center; }
+.hv-h { padding-block: 10px; border-bottom: 2px solid var(--fg); color: var(--mut); font-weight: 700; font-size: .85rem; }
+.hv-h span:nth-child(n+4), .hv-r .bk, .hv-r .is { text-align: right; }
+.hv-r { position: relative; padding: 20px 18px 20px 0; border-bottom: 1px solid var(--line); }
+.hv-r .ev { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; min-width: 0; }
+.hv-r .ev strong { font-size: 1.15rem; line-height: 1.15; }
+.hv-r .dt, .hv-r .ep, .hv-r .bk, .hv-r .is, .hv-r .pe { font: 500 .88rem var(--mono); color: var(--mut); }
+.hv-r .dv { font-size: .95rem; margin-bottom: 8px; }
+.hv-r .dv b { font-weight: 800; font-size: 1.15rem; }
+.hv-r .bar { height: 26px; }
+.hv-r .bar i { display: block; height: 100%; min-width: 6px; background: var(--paper-ink); }
+.hv-r .pe { margin-top: 6px; }
+.hv-r.past { color: var(--mut); }
+.hv-r.past .bar i { opacity: .28; }
+.hv-r.future .bar i { background: var(--purple-deep); opacity: .55; }
+.hv-r.now { background: var(--white); }
+.hv-r.now::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 12px; background: var(--purple); }
+.hv-r.now .bar i { background: var(--purple); }
+.hv-r.now .ep, .hv-r.now .bk, .hv-r.now .is { color: var(--paper-ink); }
+.nowtag { color: var(--purple-deep); border-color: var(--purple-deep); }
+@media (max-width: 860px) {
+  .hv-h { display: none; }
+  .hv-r { grid-template-columns: 1fr 1fr; padding-right: 14px; }
+  .hv-r .ev, .hv-r .rw { grid-column: 1 / -1; }
+  .hv-r .ep, .hv-r .bk, .hv-r .is { text-align: left; }
+  .hv-r [data-l]::before { content: attr(data-l); display: block; margin-bottom: 2px; font-size: .74rem; color: var(--mut); }
+  .hv-r .is { grid-column: 1 / -1; }
+}
+.hv-ex { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 860px) { .hv-ex { grid-template-columns: 1fr; } }
+.hv-ex > div { padding: 24px; background: var(--ink); }
+.hv-ex h3 { margin: 0 0 12px; font-size: 1.3rem; line-height: 1.1; }
+.hv-ex p { margin: 0; color: var(--mut-d); }
+.formula { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line-d); font: 500 .95rem var(--mono); color: var(--white); }
+.infl { display: grid; gap: 14px; margin-top: 14px; padding: 24px; background: var(--ink); }
+.infl h3 { margin: 0; font-size: 1.3rem; }
+.infl .ir { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr) 5.5rem; align-items: center; gap: 16px; color: var(--mut-d); }
+.infl .ir i { display: block; height: 22px; background: var(--purple); }
+.infl .ir b { color: var(--white); font-size: 1.5rem; text-align: right; }
+@media (max-width: 640px) { .infl .ir { grid-template-columns: 1fr 5rem; } .infl .ir i { grid-column: 1 / -1; grid-row: 2; } }
+.rewp { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 12px; }
+.rewp span { padding: 5px 12px; border: 1px solid var(--line-d); font-weight: 600; }
+
+/* Home halving strip */
+.hv-strip { border-bottom: 1px solid var(--line-d); }
+.hv-strip .in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px 40px; padding-block: clamp(30px, 4.5vw, 52px); }
+.hs-t { margin: 0; font-size: clamp(1.7rem, 4.2vw, 3.4rem); line-height: 1.1; }
+html[lang="zh-CN"] .hs-t { line-height: 1.3; }
+
+/* Detail, v3: one small file */
+.dpv { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: clamp(28px, 4vw, 44px); padding: 10px 14px; border: 2px dashed var(--purple-deep); font-size: .9rem; font-weight: 600; }
+.dpv .seg { margin-left: 0; }
+.fresh { margin: 24px 0 0; color: var(--mut-d); font: 500 .85rem var(--mono); }
+.stale-note { max-width: 62ch; margin-top: 24px; padding: 14px 16px; border: 2px dashed var(--purple-hi); }
+.stale-note p { margin: 0 0 10px; }
+.about p { margin: 0 0 14px; max-width: 62ch; font-size: 1.08rem; }
+.ctr { border-top: 2px solid var(--paper-ink); }
+.ctr-r { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr) 5rem; gap: 8px 16px; padding-block: 12px; border-bottom: 1px solid var(--line-p); font-size: .95rem; }
+.ctr-r.h { color: var(--mut-p); font-weight: 700; font-size: .85rem; }
+.ctr-r code { font: 500 .85rem var(--mono); overflow-wrap: anywhere; }
+@media (max-width: 560px) { .ctr-r { grid-template-columns: 1fr 4.5rem; } .ctr-r code { grid-column: 1 / -1; grid-row: 2; } .ctr-r.h span:nth-child(2) { display: none; } }
+.auds { margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--paper-ink); }
+.auds li { display: flex; justify-content: space-between; gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--line-p); }
+.auds a { font-weight: 700; }
+.auds time { color: var(--mut-p); font: 500 .88rem var(--mono); }
+.sgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sg { padding: 16px; background: rgba(255, 255, 255, .06); min-width: 0; }
+.sg .v { font-size: clamp(1.3rem, 2.2vw, 1.7rem); line-height: 1.05; overflow-wrap: anywhere; }
+.sg .l { margin-top: 10px; font-weight: 600; font-size: .9rem; }
+.sg .s { margin-top: 2px; color: var(--mut-d); font: 500 .74rem var(--mono); }
+.tiles.sm { grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); }
+.tiles.sm .tile { aspect-ratio: 1 / 1.15; padding: 14px; gap: 16px; }
+.tiles.sm .tile h4 { font-size: 1.15rem; }
+.sg.off { grid-column: 1 / -1; background: transparent; border: 2px dashed var(--purple-hi); color: var(--mut-d); font-size: .9rem; }
+.mockb { margin-left: 8px; padding: 1px 7px; border: 1px solid var(--purple-hi); color: var(--purple-hi); font: 600 .7rem var(--mono); vertical-align: middle; }
+.panel .note { margin: -6px 0 14px; color: var(--mut-d); font-size: .9rem; }
+.panel .pth { margin: 0 0 6px; color: var(--mut-d); font: 500 .78rem var(--mono); }
+pre.src { margin: 0 0 16px; padding: 14px; background: var(--page); border: 1px solid var(--line-d); color: #e4e3ee; font: 500 .78rem/1.65 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+pre.src .k { color: var(--purple-hi); }
+pre.src .c { color: var(--mut-d); }
+
+.ic { display: block; }
+@media (prefers-reduced-motion: reduce) { .track { animation: none; } h1.mega, .slot-search { animation: none; } .btn::after, .btn { transition: none; } }
+</style>
+
+<div class="top on-dark">
+  <div class="in">
+    <button type="button" class="brand wide" id="brand" aria-label="CKBdapps"><img src="data:image/png;base64,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" alt=""><span>CKBdapps</span></button>
+    <nav aria-label="Primary">
+      <button type="button" data-nav="home" id="n-home"></button>
+      <button type="button" data-nav="explore" id="n-explore"></button>
+      <button type="button" data-nav="map" id="n-map"></button>
+      <button type="button" data-nav="halving" id="n-halving"></button>
+      <button type="button" data-nav="events" id="n-events"></button>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-zh" aria-pressed="false">中文</button>
+    </div>
+    <a class="btn" id="add" href="https://github.com/CKBFansDAO/ckbdapps" target="_blank" rel="noopener"></a>
+  </div>
+</div>
+
+<main>
+  <!-- HOME -->
+  <div id="v-home">
+    <section class="hero on-dark" id="hero">
+      <canvas id="grid" aria-hidden="true"></canvas>
+      <div class="in">
+        <p class="kicker" id="kicker"></p>
+        <h1 class="mega wide" id="h1"></h1>
+        <form class="slot-search" id="sform" role="search" autocomplete="off">
+          <div class="slot-bar">
+            <input id="sq" type="search" aria-label="Search projects" aria-autocomplete="list" aria-controls="sug" autocomplete="off">
+            <button class="plug" type="submit" id="sgo"></button>
+          </div>
+          <ul class="suggest" id="sug" role="listbox" hidden></ul>
+        </form>
+        <div class="quick" id="quick"></div>
+        <dl class="stats wide" id="stats"></dl>
+      </div>
+    </section>
+
+    <div class="band wide" aria-label="Categories"><div class="track" id="track"></div></div>
+
+    <section class="hv-strip on-dark"><div class="in"><p class="hs-t wide" id="hs-t"></p><button type="button" class="btn big" id="hs-cta" data-halving></button></div></section>
+
+    <section class="sec on-paper" id="spotlight">
+      <div class="in">
+        <div class="sec-head">
+          <h2 class="h wide" id="spot-h"></h2>
+          <p id="spot-p"></p>
+        </div>
+        <h3 class="sub semi" id="feat-h"></h3>
+        <div class="tiles" id="feat"></div>
+        <h3 class="sub semi" id="cb-h"></h3>
+        <div class="tiles" id="cb"></div>
+        <div class="grants" id="grants"></div>
+      </div>
+    </section>
+
+    <section class="sec on-dark" id="map">
+      <div class="in">
+        <div class="sec-head">
+          <h2 class="h wide" id="map-h"></h2>
+          <p id="map-p"></p>
+        </div>
+        <div id="maprows"></div>
+        <div class="readout" id="readout" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="sec on-paper" id="events">
+      <div class="in">
+        <div class="sec-head">
+          <h2 class="h wide" id="ev-h"></h2>
+          <p id="ev-p"></p>
+        </div>
+        <ul class="events" id="evlist"></ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- EXPLORE -->
+  <div id="v-explore" hidden>
+    <div class="on-paper">
+      <div class="in ex-top">
+        <h1 class="wide" id="ex-h"></h1>
+        <p class="cnt" id="ex-cnt"></p>
+      </div>
+      <div class="toolbar">
+        <div class="in">
+          <div class="f-search"><input id="fq" type="search" aria-label="Filter" autocomplete="off"><span class="pl"></span></div>
+          <div class="tabs" id="tabs" role="group" aria-label="Groups"></div>
+          <label class="tg"><input type="checkbox" id="fcomm"><span id="fcomm-l"></span></label>
+          <div class="seg" role="group" aria-label="View">
+            <button type="button" id="m-list" aria-pressed="true"></button>
+            <button type="button" id="m-grid" aria-pressed="false"></button>
+          </div>
+        </div>
+      </div>
+      <div class="in" style="padding-bottom: clamp(48px, 8vw, 104px)">
+        <div class="chips" id="chips" role="group" aria-label="Categories"></div>
+        <div class="list" id="list"></div>
+        <p class="none" id="none" hidden></p>
+        <button type="button" class="btn more" id="more" hidden></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HALVING -->
+  <div id="v-halving" hidden></div>
+
+  <!-- DETAIL -->
+  <div id="v-detail" hidden>
+    <section class="d-hero on-dark"><div class="in" id="d-top"></div></section>
+    <section class="sec on-paper"><div class="in"><div id="dpv"></div><div class="d-body" id="d-body"></div></div></section>
+  </div>
+</main>
+
+<footer class="foot on-dark">
+  <div class="in">
+    <div class="links"><span id="foot-note"></span><a href="https://github.com/CKBFansDAO/ckbdapps" target="_blank" rel="noopener">github.com/CKBFansDAO/ckbdapps</a></div>
+  </div>
+  <span class="giant wide" aria-hidden="true">CKBdapps</span>
+</footer>
+
+<script>
+(function () {
+  var RAW = [
+    'RGB++|rgbpp|RGB++,Protocol','Spore|spore|DOBs,Protocols','Fiber Network|fiber|Fiber,Protocol','JoyID|joyid|RGB++,Wallet','Nervape|nervape|DOBs,RGB++',
+    '.bit|dotbit|DID,RGB++','Omiga|omiga|DEX,Marketplace,RGB++,Community-Driven','UTXOSwap|utxoswap|DEX,DeFi,RGB++,Community-Driven','NervDAO|nervdao|Nervos DAO',
+    'Stable++|stablepp|RGB++,DeFi,Stablecoin,Community-Driven','World3|world3|RGB++,DOBs,AW','Seek DID|seekdid|DID,Tools,Community-Driven','JoyGift|joygift|Tools,Community-Driven',
+    'imagiNation|imagination|Marketplace,NFT,DOBs,Community-Driven','CKB Explorer|ckbexplorer|Explorer','RGB++ Explorer|rgbppexplorer|Explorer,RGB++','CKBadger|ckbadger|Explorer,Community-Driven',
+    'Neuron|neuron|Wallet,Nervos DAO','UTXO Global|utxoglobal|Wallet,Extension,Multi-Sig,Community-Driven','REI Wallet|reiwallet|Wallet,Extension,RGB++,Community-Driven',
+    'VeriCell.net|vericell|Tools,Security & Audit,Community-Driven','Fiber Link|fiberlink|Payment,Fiber,Community-Driven','Pocket Node|pocketnode|Wallet,Community-Driven',
+    'ckb-viz|ckbviz|Tools,Explorer,Community-Driven','cklibrary|cklibrary|Tools,Community-Driven','Sluice|sluice|Tools,Community-Driven','Bool Leap|boolleap|Bridges,RGB++',
+    'Meson Finance|meson|Bridges,RGB++','Khalani|khalani|Intent-centric','imToken|imtoken|Wallet','CKBull|ckbull|Wallet,Nervos DAO','SafePal|safepal|Hardware Wallet,Wallet,Community-Driven',
+    'OneKey|onekey|Hardware Wallet,Wallet','Cobo Wallet|cobowallet|Wallet','Via Wallet|viawallet|Wallet','BitKeep|bitkeep|Wallet','imKey|imkey|Hardware Wallet','Ledger|ledger|Hardware Wallet',
+    'Opera Wallet|operawallet|Wallet','OpenBlock|openblock|Wallet','UTXO Alliance|utxoalliance|Partners','Cryptape|cryptape|Partners','Messari|messari|Partners','Arweave|arweave|Partners',
+    'Gitcoin|gitcoin|Partners','Grin|grin|Partners','IOHK|iohk|Partners','ChainLink|chainlink|Partners','Kava Labs|kavalabs|Partners','Lumos Labs|lumoslabs|Partners','MixPay|mixpay|Partners',
+    'StartFi|startfi|Partners','ChainSafe|chainsafe|Partners','ImmuneFi|immunefi|Partners','Cumberland|cumberland|Partners','Binance Pool|binancepool|Mining Pools','F2Pool|f2pool|Mining Pools',
+    'Antpool|antpool|Mining Pools','2miners|2miners|Mining Pools','ViaBTC|viabtc|Mining Pools','DxPool|dxpool|Mining Pools','Hash Pools|hashpool|Mining Pools','Ankr|ankr|Tools & Infrastructure',
+    'BandProtocol|bandprotocol|Tools & Infrastructure','Covalent|covalent|Tools & Infrastructure','DIA|dia|Tools & Infrastructure','GetBlock|getblock|Tools & Infrastructure',
+    'Unifra|unifra|Tools & Infrastructure','Binance|binance|Markets','Upbit Korea|upbit|Markets','Gate.io|gateio|Markets','MEXC Global|mexcglobal|Partners,Markets','KuCoin|kucoin|Markets',
+    'Bithumb|bithumb|Markets','Huobi|huobi|Markets','Crypto.com Exchange|cryptocom|Markets','Coinone|coinone|Markets','Indodax|indodax|Markets','CoinEx|coinex|Markets','WazirX|wazirx|Markets',
+    'Tokocrypto|tokocrypto|Markets','BingX|bingx|Markets','Bitcoiva|bitcoiva|Markets','Bitrue|bitrue|Markets','Bybit|bybit|Markets','BigOne|bigone|Markets','CoinW|coinw|Markets',
+    'FMFW.io|fmfwio|Markets','HitBTC|hitbtc|Markets','Nominex|nominex|Markets','SuperEx|superex|Markets','XT.COM|xt.com|Markets','CertiK|certik|Security & Audit','ScaleBit|scalebit|Security & Audit',
+    'PeckShield|peckshield|Security & Audit','Trail Of Bits|trailofbits|Security & Audit','Least Authority|leastauthority|Security & Audit','CMC International|cmcinternational|Investors',
+    'Polychain Capital|PolychainCapital|Investors','Sequoia|sequoia|Investors','HashKey Group|HashKeyGroup|Investors','万向区块链|wanxiang|Investors','Multicoin Capital|MulticoinCapital|Investors',
+    'FBG Capital|FBGCapital|Investors','1confirmation|1confirmation|Investors','Dragonfly|dragonfly|Investors','Blockchain Capital|BlockchainCapital|Investors','imToken Ventures|imtokenventures|Investors',
+    '1kx|1kx|Investors','MatrixPartners|matrixpartners|Investors','500 Global|500global|Investors','Huobi Capital|huobicapital|Investors','SNZ|snz|Investors','FreeS Fund|freesfund|Investors',
+    'Access Ventures|accessventures|Investors','Distributed Global|distributedglobal|Investors','Kindred Ventures|kindredventures|Investors','Ceyuan Ventures|ceyuanventures|Investors',
+    'Unity Ventures|unityventures|Investors','zk Capital|zkcapital|Investors','Bixin Ventures|bixinvc|Investors','Queschain Capital|queschaincapital|Investors','Nervos Community|nervos|Community',
+    'CKBFans|ckbfans|Community','NervosNation|nervosnation|Community','SeeDAO|seedao|Community'
+  ];
+  var GROUPS = [
+    { id: 'apps', en: 'Apps', zh: '应用' }, { id: 'wallets', en: 'Wallets', zh: '钱包' }, { id: 'assets', en: 'Assets and identity', zh: '资产与身份' },
+    { id: 'infra', en: 'Infrastructure', zh: '基础设施' }, { id: 'eco', en: 'Ecosystem', zh: '生态伙伴' }
+  ];
+  var SETS = {
+    wallets: ['Wallet', 'Hardware Wallet', 'Extension', 'Multi-Sig'],
+    apps: ['DEX', 'DeFi', 'Marketplace', 'Stablecoin', 'Payment', 'Bridges', 'Intent-centric', 'Nervos DAO'],
+    assets: ['DOBs', 'NFT', 'DID'],
+    infra: ['Protocol', 'Protocols', 'Explorer', 'Tools', 'Tools & Infrastructure', 'Security & Audit', 'RGB++', 'Fiber', 'AW']
+  };
+  function groupOf(cats) {
+    var o = ['wallets', 'apps', 'assets', 'infra'];
+    for (var k = 0; k < o.length; k++) if (cats.some(function (c) { return SETS[o[k]].indexOf(c) > -1; })) return o[k];
+    return 'eco';
+  }
+  function sym(name) {
+    var n = name.replace(/[^\p{L}\p{N}]/gu, '');
+    if (!n) return '?';
+    if (/[一-鿿]/.test(n.charAt(0))) return n.charAt(0);
+    return n.charAt(0).toUpperCase() + (n.charAt(1) || '').toLowerCase();
+  }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function hash(str) {
+    var h = 2166136261;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+    h ^= h >>> 13; h = Math.imul(h, 1274126177); h ^= h >>> 16;
+    return h >>> 0;
+  }
+  // Placeholder avatar: a mirrored 5x5 cell pattern seeded from the slug. Real logos replace it later.
+  function icon(slug) {
+    var h = hash(slug), salt = 0;
+    function pop(x) { var n = 0; for (var i = 0; i < 15; i++) n += (x >> i) & 1; return n; }
+    while (pop(h & 32767) < 7 || pop(h & 32767) > 11) { salt++; h = hash(slug + salt); }
+    var r = '';
+    for (var y = 0; y < 5; y++) for (var x = 0; x < 3; x++) {
+      if ((h >> (y * 3 + x)) & 1) {
+        r += '<rect x="' + (x + .06) + '" y="' + (y + .06) + '" width=".88" height=".88"/>';
+        if (x < 2) r += '<rect x="' + (4 - x + .06) + '" y="' + (y + .06) + '" width=".88" height=".88"/>';
+      }
+    }
+    return '<svg class="ic" viewBox="0 0 5 5" fill="currentColor" aria-hidden="true">' + r + '</svg>';
+  }
+
+  var items = RAW.map(function (l) {
+    var p = l.split('|'), cats = p[2].split(',').map(function (s) { return s.trim(); });
+    return { name: p[0].trim(), slug: p[1], cats: cats, community: cats.indexOf('Community-Driven') > -1,
+      tags: cats.filter(function (c) { return c !== 'Community-Driven'; }), group: groupOf(cats) };
+  });
+  var gIndex = {}; GROUPS.forEach(function (g, i) { gIndex[g.id] = i; });
+  items.sort(function (a, b) { return gIndex[a.group] - gIndex[b.group] || a.name.localeCompare(b.name); });
+  var bySlug = {};
+  items.forEach(function (it, i) { it.i = i; it.sym = sym(it.name); it.hay = (it.name + ' ' + it.cats.join(' ')).toLowerCase(); bySlug[it.slug] = it; });
+  var COMMUNITY_N = items.filter(function (i) { return i.community; }).length;
+
+  var I18N = {
+    en: {
+      n_home: 'Home', n_explore: 'Explore', n_map: 'Map', n_events: 'Events', add: 'Add a project',
+      kicker: 'The directory for the Nervos CKB ecosystem', h1a: "Find what's built on", h1b: '',
+      sgo: 'Go', try_: 'Try', ph: 'Search ', st_p: 'Projects', st_g: 'Groups', st_c: 'Community-built',
+      spot_h: 'Spotlight', spot_p: 'Featured and community-built projects to start with.', feat_h: 'Featured', cb_h: 'Community-built',
+      gr_h: 'Spark Granted', gr_amt: 'granted', gr_open: 'Your project here', gr_cta: 'Apply on GitHub',
+      map_h: 'Ecosystem map', map_p: 'Every listed project is one cell. A purple outline marks a community-driven project.', map_idle: 'Hover a cell to see the project. Click to open it.', map_all: 'Explore this group',
+      ev_h: 'Events', ev_p: 'Sample from event_list.json. The newest entry in the current data is from April 2024.',
+      ex_h: 'Explore', ex_cnt: '{n} of {t} projects', all: 'All', comm: 'Community-driven only', list: 'List', grid: 'Grid', fph: 'Filter by name or category', more: 'Show more',
+      none: 'No project matches. Clear a filter or try another word.',
+      back: 'Explore', visit: 'Visit website', group: 'Group', cats: 'Categories', community: 'Community-driven', yes: 'Yes', no: 'No', file: 'Data file',
+      transp: 'Transparency', sigs: '{a} of {b} signals', hls: 'Highlights', faq: 'FAQ', sim: 'Similar projects',
+      nd_h: 'No write-up yet', nd_p: 'This project is listed but has no detail file. Add one at {f} and this page fills itself in.', nd_cta: 'Add details',
+      foot: 'Data lives in the open on GitHub. Send a pull request to add or fix a project.', site: 'Website',
+      n_halving: 'Halving', hs_a: 'CKB halves in', hs_b: ' days', hs_cta: 'Halving schedule',
+      hv_h1: 'CKB halving', hv_k: 'Epoch {e}, estimated {d}', u_d: 'days', u_h: 'hours', u_m: 'minutes', u_s: 'seconds', hv_share: 'Share on X',
+      hv_share_txt: 'The next CKB halving is expected on {date}, {n} days from now. https://ckbdapps.com/halving',
+      hv_cur: 'Current epoch', hv_togo: 'Epochs to go', hv_next_e: 'Halving epoch', hv_est: 'Estimated date', hv_prog: 'Progress to the next halving', hv_epoch_q: 'What is an epoch?',
+      hv_mock: 'Demo estimate from a fixed target date. The live page reads the chain tip over RPC, including the latest block.',
+      hv_sched: 'Halving schedule', hv_sched_p: 'The reward halves at every halving. Each bar is the daily base reward, drawn to scale.',
+      hv_c_when: 'Event', hv_c_epoch: 'Epoch', hv_c_daily: 'Daily reward', hv_c_block: 'Block reward', hv_c_issued: 'New CKB in this era', hv_per_day: 'CKB per day', hv_per_epoch: 'CKB per epoch', hv_now: 'Now',
+      hv_blk_note: 'Block reward is calculated at 1,800 blocks per epoch.',
+      hv_ev: ['Mainnet launch', 'First halving', 'Second halving', 'Third halving', 'Fourth halving', 'Fifth halving', 'Sixth halving', 'Seventh halving', 'Eighth halving', 'Ninth halving', 'Tenth halving'],
+      hv_how_h: 'How halving works', hv_what_h: 'What is a halving?', hv_what_p: 'A halving cuts the rate at which new CKB is issued to miners. The block reward drops by half on a fixed schedule.',
+      hv_why_h: 'Why does it matter?', hv_why_p: 'It makes issuance predictable. New supply follows a decaying curve instead of an open-ended one, which is one of the main differences from fiat money.',
+      hv_how2_h: 'How does it work?', hv_how2_p: 'Base issuance rewards miners and halves about every 4 years, until all 33.6 billion base-issuance CKB is mined. Time is counted in epochs of about 4 hours, so every halving lands on a fixed epoch number.', hv_formula: 'Nth halving = epoch 8,760 x N',
+      hv_infl_h: 'Inflation rate', hv_infl_a: 'Before the first halving', hv_infl_b: 'After the first halving', hv_infl_n: 'It keeps falling toward 0% with every halving.',
+      hv_rew_h: 'A block reward has four parts', hv_rew: ['Base issuance', 'Secondary issuance', 'Commit reward', 'Proposal reward'], hv_rew_p: 'The schedule above covers the base issuance.',
+      dp_label: 'Design preview: the project file is', dp_full: 'Full', dp_min: 'Minimal', dp_stale: 'Out of date', verified: 'Verified {d}', stale_n: 'This page was last verified {m} months ago.', stale_cta: 'Send an update',
+      about_h: 'About', ctr_h: 'On CKB', ctr_name: 'Contract', ctr_hash: 'Code hash', ctr_type: 'Hash type', aud_h: 'Audits',
+      sig_h: 'Signals', sig_p: 'Filled in automatically. Nothing to maintain.', sg_license: 'License', sg_commit: 'Last commit', sg_stars: 'GitHub stars', sg_site: 'Website', sg_online: 'Online', sg_chk: 'link check, {n}d ago',
+      sg_off: 'Add a github line to the file to show license and activity.', src_h: 'The whole page is one file', src_p: '{n} lines, written by the team. Everything else on this page is generated.', edit: 'Edit on GitHub', mock: 'Mock data', ago_d: 'd', ago_mo: 'mo'
+    },
+    zh: {
+      n_home: '首页', n_explore: '探索', n_map: '生态图', n_events: '活动', add: '提交项目',
+      kicker: 'Nervos CKB 生态项目目录', h1a: '发现', h1b: '上的一切',
+      sgo: '搜索', try_: '试试', ph: '搜索 ', st_p: '个项目', st_g: '个分组', st_c: '个社区项目',
+      spot_h: '聚光灯', spot_p: '从这些精选项目和社区项目开始了解。', feat_h: '精选项目', cb_h: '社区项目',
+      gr_h: 'Spark 资助', gr_amt: '已资助', gr_open: '你的项目可以在这里', gr_cta: '去 GitHub 申请',
+      map_h: '生态图', map_p: '每个收录的项目占一格,紫色描边表示社区项目。', map_idle: '把鼠标移到格子上查看项目,点击打开详情。', map_all: '查看这个分组',
+      ev_h: '活动', ev_p: '示例数据来自 event_list.json,当前数据中最新的一条是 2024 年 4 月。',
+      ex_h: '探索', ex_cnt: '共 {t} 个项目,当前显示 {n} 个', all: '全部', comm: '只看社区项目', list: '列表', grid: '网格', fph: '按名称或分类筛选', more: '显示更多',
+      none: '没有匹配的项目,请清除筛选或换个关键词。',
+      back: '探索', visit: '访问官网', group: '分组', cats: '分类', community: '社区项目', yes: '是', no: '否', file: '数据文件',
+      transp: '透明度', sigs: '{b} 项中满足 {a} 项', hls: '亮点', faq: '常见问题', sim: '相似项目',
+      nd_h: '还没有介绍', nd_p: '这个项目已收录,但没有详情文件。在 {f} 添加后,这个页面会自动补全。', nd_cta: '添加详情',
+      foot: '数据公开在 GitHub 上,欢迎提交 Pull Request 新增或修正项目。', site: '官网',
+      n_halving: '减半', hs_a: 'CKB 将在', hs_b: ' 天后减半', hs_cta: '减半时间表',
+      hv_h1: 'CKB 减半', hv_k: '第 {e} 个 epoch,预计 {d}', u_d: '天', u_h: '小时', u_m: '分', u_s: '秒', hv_share: '分享到 X',
+      hv_share_txt: '下一次 CKB 减半预计发生在 {date},距今 {n} 天。https://ckbdapps.com/halving',
+      hv_cur: '当前 epoch', hv_togo: '距减半还有 epoch', hv_next_e: '减半 epoch', hv_est: '预计日期', hv_prog: '距离下次减半的进度', hv_epoch_q: '什么是 epoch?',
+      hv_mock: '演示用估算,基于固定的目标日期。线上页面会通过 RPC 读取链上最新状态,包括最新区块。',
+      hv_sched: '减半时间表', hv_sched_p: '每次减半,奖励减少一半。每根条表示每日基础奖励,按比例绘制。',
+      hv_c_when: '事件', hv_c_epoch: 'Epoch', hv_c_daily: '每日奖励', hv_c_block: '区块奖励', hv_c_issued: '本阶段新增 CKB', hv_per_day: 'CKB / 天', hv_per_epoch: 'CKB / epoch', hv_now: '当前',
+      hv_blk_note: '区块奖励按每个 epoch 1,800 个区块计算。',
+      hv_ev: ['主网上线', '第一次减半', '第二次减半', '第三次减半', '第四次减半', '第五次减半', '第六次减半', '第七次减半', '第八次减半', '第九次减半', '第十次减半'],
+      hv_how_h: '减半是怎么回事', hv_what_h: '什么是减半?', hv_what_p: '减半会降低新 CKB 发放给矿工的速度。区块奖励按固定的时间表减少一半。',
+      hv_why_h: '为什么重要?', hv_why_p: '它让发行可预测。新增供应沿着递减曲线走,而不是无限增发,这是加密货币和法币的主要区别之一。',
+      hv_how2_h: '如何运作?', hv_how2_p: '基础发行用于奖励矿工,大约每 4 年减半一次,直到 336 亿枚基础发行的 CKB 全部挖出。时间以约 4 小时的 epoch 计算,所以每次减半都落在固定的 epoch 编号上。', hv_formula: '第 N 次减半 = epoch 8,760 x N',
+      hv_infl_h: '通胀率', hv_infl_a: '第一次减半前', hv_infl_b: '第一次减半后', hv_infl_n: '每次减半后,通胀率都会继续向 0% 靠近。',
+      hv_rew_h: '区块奖励由四部分组成', hv_rew: ['基础发行', '二级发行', '提交奖励', '提案奖励'], hv_rew_p: '上面的时间表只包含基础发行。',
+      dp_label: '设计预览:项目文件是', dp_full: '完整', dp_min: '最少', dp_stale: '已过期', verified: '核对于 {d}', stale_n: '这个页面上次核对是 {m} 个月前。', stale_cta: '提交更新',
+      about_h: '简介', ctr_h: '链上合约', ctr_name: '合约', ctr_hash: 'Code hash', ctr_type: 'Hash type', aud_h: '审计',
+      sig_h: '自动信号', sig_p: '自动生成,无需维护。', sg_license: '开源协议', sg_commit: '最近提交', sg_stars: 'GitHub 星标', sg_site: '官网', sg_online: '可访问', sg_chk: '链接检查,{n} 天前',
+      sg_off: '在文件中加一行 github,就会显示协议和活跃度。', src_h: '整个页面只来自一个文件', src_p: '团队只写 {n} 行,页面其余内容都是自动生成的。', edit: '在 GitHub 编辑', mock: '示意数据', ago_d: '天', ago_mo: '个月'
+    }
+  };
+  var DETAIL = {
+    utxoswap: {
+      summary: {
+        en: 'UTXOSwap is the first decentralized exchange (DEX) based on the RGB++ Layer, designed to unlock asset liquidity across all UTXO chains through intent-based trading, bridgeless leap, and smart contract.',
+        zh: 'UTXOSwap 是首个基于 RGB++ Layer 的去中心化交易平台(DEX),旨在通过意图交易、无桥跨链和智能合约技术,为所有 UTXO 链提供资产流动性解决方案。'
+      },
+      links: [['site', 'https://utxoswap.xyz/'], ['X', 'https://x.com/UTXOSwap'], ['Telegram', 'https://t.me/UTXOSwap']],
+      highlights: [
+        { en: ['Intent-Driven Trading', 'Enables seamless trading through intent-based orders, eliminating traditional order books and centralized intermediaries.'], zh: ['意图驱动交易', '通过基于意图的订单实现无缝交易,消除传统订单簿和中心化中介。'] },
+        { en: ['RGB++ Asset Support', "Supports trading of RGB++ assets on Bitcoin, leveraging CKB's Cell model for enhanced security and efficiency."], zh: ['RGB++ 资产支持', '支持比特币上 RGB++ 资产的交易,利用 CKB 的 Cell 模型增强安全性和效率。'] },
+        { en: ['UTXO Stack Integration', 'Built on the UTXO Stack framework, providing trading infrastructure for Bitcoin-based assets directly in the browser.'], zh: ['UTXO Stack 集成', '基于 UTXO Stack 框架构建,为浏览器中的比特币资产提供高效、安全的交易基础设施。'] }
+      ],
+      transparency: [
+        { t: { en: 'Team', zh: '团队' }, rows: [['Present', 1], ['Responsive', 0], ['Identified Members', 0], ['Active', 0]] },
+        { t: { en: 'Project', zh: '项目' }, rows: [['Open Source', 1], ['Audited', 1], ['White Paper', 1], ['Smart Contract', 1]] },
+        { t: { en: 'Token', zh: '代币' }, rows: [['FT Token', 0], ['NFT/DOB Token', 0], ['Tradable', 0], ['Exchange Listed', 0]] }
+      ],
+      faq: [{ q: { en: 'How does intent-driven trading work?', zh: '意图驱动交易是如何工作的?' },
+        a: { en: 'Users express what they want to trade instead of placing traditional orders. That removes the need for order books and centralized intermediaries.', zh: '用户表达自己的交易意图,而不是下传统订单。这种方式不再需要订单簿和中心化中介。' } }]
+    }
+  };
+  var EVENTS = [
+    { d: '2024-04-09', type: 'Conference', url: 'https://lu.ma/hkweb3festival2024', en: 'HK Web3 Festival 2024 Bitcoin Forum', zh: 'CKB 与万向区块链联合举办比特币论坛' },
+    { d: '2024-03-09', type: 'Conference', url: 'https://lu.ma/vobk70pd', en: 'Bitcoin Singapore 2024', zh: 'Bitcoin Singapore 2024' },
+    { d: '2023-11-19', type: 'Halving', url: 'https://ckbdapps.com/halving', en: 'CKB First Halving Event', zh: 'CKB 第一次减半事件' },
+    { d: '2023-08-22', type: 'Hackathon', url: 'https://x.com/CKBull_Wallet/status/1693669358977851832', en: 'CKBull Signer API Hackathon', zh: 'CKBull 签名接口黑客松' }
+  ];
+  var FEATURED = ['joyid', 'nervape', 'dotbit', 'stablepp', 'omiga', 'utxoglobal'];
+  var COMMUNITY_PICK = ['utxoswap', 'imagination', 'joygift'];
+
+  var $ = function (id) { return document.getElementById(id); };
+  var S = { lang: 'en', view: 'home', slug: null, dstate: 'full', f: { q: '', group: null, cat: null, comm: false, mode: 'list', shown: 30 } };
+  var PAGE = 30;
+  function t(k, v) { var s = I18N[S.lang][k]; if (v) for (var x in v) s = s.split('{' + x + '}').join(v[x]); return s; }
+  function gname(id) { return GROUPS[gIndex[id]][S.lang]; }
+  function tagsOf(it) { return it.tags.length ? it.tags : [gname(it.group)]; }
+
+  /* ---------- Home ---------- */
+  function catCounts() {
+    var cnt = {};
+    items.forEach(function (it) { it.tags.forEach(function (c) { cnt[c] = (cnt[c] || 0) + 1; }); });
+    return Object.keys(cnt).map(function (c) { return [c, cnt[c]]; }).sort(function (a, b) { return b[1] - a[1] || a[0].localeCompare(b[0]); });
+  }
+  function renderHome() {
+    $('kicker').textContent = t('kicker');
+    $('h1').innerHTML = esc(t('h1a')) + ' <span class="inslot">CKB</span>' + esc(t('h1b'));
+    $('sgo').textContent = t('sgo');
+    $('sq').placeholder = t('ph') + PH[phI % PH.length];
+    $('quick').innerHTML = '<span>' + esc(t('try_')) + '</span>' + ['Wallet', 'DEX', 'DOBs', 'RGB++', 'Fiber'].map(function (c) {
+      return '<button type="button" data-cat="' + esc(c) + '">' + esc(c) + '</button>';
+    }).join('');
+    $('stats').innerHTML = '<div><dt>' + esc(t('st_p')) + '</dt><dd>' + items.length + '</dd></div><div><dt>' + esc(t('st_g')) + '</dt><dd>' + GROUPS.length + '</dd></div><div><dt>' + esc(t('st_c')) + '</dt><dd>' + COMMUNITY_N + '</dd></div>';
+
+    var run = catCounts().slice(0, 16).map(function (c, i) {
+      return '<button type="button" data-cat="' + esc(c[0]) + '">' + esc(c[0]) + '<sup>' + c[1] + '</sup></button><i></i>';
+    }).join('');
+    $('track').innerHTML = '<div class="run">' + run + '</div><div class="run" aria-hidden="true">' + run.replace(/<button /g, '<button tabindex="-1" ') + '</div>';
+
+    $('hs-t').innerHTML = esc(t('hs_a')) + ' <span class="inslot" id="hs-n">' + Math.ceil(tip().left / 86400000) + '</span>' + esc(t('hs_b'));
+    $('hs-cta').textContent = t('hs_cta');
+    $('spot-h').textContent = t('spot_h'); $('spot-p').textContent = t('spot_p');
+    $('feat-h').textContent = t('feat_h'); $('cb-h').textContent = t('cb_h');
+    $('feat').innerHTML = FEATURED.map(function (s) { return tile(bySlug[s], ''); }).join('');
+    $('cb').innerHTML = COMMUNITY_PICK.map(function (s) { return tile(bySlug[s], ' alt'); }).join('');
+    $('grants').innerHTML =
+      '<div class="gcard"><h3>' + esc(t('gr_h')) + '</h3><div><div class="big wide">700 USDT</div><small>Quantum Purse, ' + esc(t('gr_amt')) + '</small></div></div>' +
+      [0, 1].map(function () {
+        return '<a class="empty-slot" href="https://github.com/CKBFansDAO/ckbdapps" target="_blank" rel="noopener"><strong class="semi">' + esc(t('gr_open')) + '</strong><span>' + esc(t('gr_cta')) + '</span></a>';
+      }).join('');
+
+    $('map-h').textContent = t('map_h'); $('map-p').textContent = t('map_p'); $('readout').textContent = t('map_idle');
+    $('maprows').innerHTML = GROUPS.map(function (g) {
+      var list = items.filter(function (it) { return it.group === g.id; });
+      return '<div class="map-row"><div><h3 class="semi">' + esc(g[S.lang]) + '</h3><p class="n">' + list.length + '</p><button type="button" class="linkbtn" data-group="' + g.id + '">' + esc(t('map_all')) + '</button></div>' +
+        '<div class="cells">' + list.map(function (it) {
+          return '<button type="button" class="mc' + (it.community ? ' cm' : '') + '" data-slug="' + esc(it.slug) + '" aria-label="' + esc(it.name) + '">' + esc(it.sym) + '</button>';
+        }).join('') + '</div></div>';
+    }).join('');
+
+    $('ev-h').textContent = t('ev_h'); $('ev-p').textContent = t('ev_p');
+    $('evlist').innerHTML = EVENTS.map(function (ev) {
+      return '<li><a href="' + esc(ev.url) + '" target="_blank" rel="noopener"><time datetime="' + ev.d + '">' + ev.d + '</time><span class="ty">' + esc(ev.type) + '</span><span class="t">' + esc(ev[S.lang]) + '</span></a></li>';
+    }).join('');
+  }
+  function tile(it, cls) {
+    return '<a class="tile' + cls + '" href="#p-' + esc(it.slug) + '" data-slug="' + esc(it.slug) + '"><span style="display:block;width:100%">' + icon(it.slug) + '</span><span><h4 class="semi">' + esc(it.name) + '</h4><p>' + esc(tagsOf(it).slice(0, 3).join(', ')) + '</p></span></a>';
+  }
+
+  /* ---------- Explore ---------- */
+  function visible(it) {
+    var f = S.f;
+    return (!f.group || it.group === f.group) && (!f.cat || it.cats.indexOf(f.cat) > -1) && (!f.q || it.hay.indexOf(f.q) > -1) && (!f.comm || it.community);
+  }
+  function renderExplore() {
+    var f = S.f;
+    $('ex-h').textContent = t('ex_h');
+    $('fq').placeholder = t('fph'); if ($('fq').value !== f.q) $('fq').value = f.q;
+    $('fcomm-l').textContent = t('comm'); $('fcomm').checked = f.comm;
+    $('m-list').textContent = t('list'); $('m-grid').textContent = t('grid');
+    $('m-list').setAttribute('aria-pressed', f.mode === 'list'); $('m-grid').setAttribute('aria-pressed', f.mode === 'grid');
+    var gc = {}; items.forEach(function (it) { gc[it.group] = (gc[it.group] || 0) + 1; });
+    $('tabs').innerHTML = '<button type="button" data-g="" aria-pressed="' + (!f.group) + '">' + esc(t('all')) + '<b>' + items.length + '</b></button>' +
+      GROUPS.map(function (g) { return '<button type="button" data-g="' + g.id + '" aria-pressed="' + (f.group === g.id) + '">' + esc(g[S.lang]) + '<b>' + gc[g.id] + '</b></button>'; }).join('');
+    var cc = {};
+    items.forEach(function (it) { if (!f.group || it.group === f.group) it.tags.forEach(function (c) { cc[c] = (cc[c] || 0) + 1; }); });
+    var keys = Object.keys(cc).sort(function (a, b) { return cc[b] - cc[a] || a.localeCompare(b); }).slice(0, 16);
+    if (f.cat && keys.indexOf(f.cat) < 0) keys.unshift(f.cat);
+    $('chips').innerHTML = keys.map(function (c) { return '<button type="button" class="chip" data-c="' + esc(c) + '" aria-pressed="' + (f.cat === c) + '">' + esc(c) + '</button>'; }).join('');
+    var list = items.filter(visible);
+    $('ex-cnt').textContent = t('ex_cnt', { n: list.length, t: items.length });
+    var box = $('list'); box.className = 'list' + (f.mode === 'grid' ? ' grid' : '');
+    box.innerHTML = list.slice(0, f.shown).map(function (it) {
+      return '<a class="row" href="#p-' + esc(it.slug) + '" data-slug="' + esc(it.slug) + '"><span>' + icon(it.slug) + '</span>' +
+        '<span class="nm"><strong>' + esc(it.name) + '</strong><span>' + esc(gname(it.group)) + '</span></span>' +
+        '<span class="cts">' + tagsOf(it).map(function (c) { return '<span class="tagp">' + esc(c) + '</span>'; }).join('') + '</span>' +
+        '<span class="fl">' + (it.community ? esc(t('community')) : '') + '</span></a>';
+    }).join('');
+    $('none').hidden = list.length > 0; $('none').textContent = t('none');
+    $('more').hidden = list.length <= f.shown; $('more').textContent = t('more');
+  }
+
+  /* ---------- Detail (v3: one small file per project, the rest is generated) ---------- */
+  function daysAgo(n) { return new Date(Date.now() - n * 86400000); }
+  function iso(d) { return d.toISOString().slice(0, 10); }
+  function agoShort(days) { return days < 60 ? days + t('ago_d') : Math.round(days / 30) + t('ago_mo'); }
+  function mockHash(s) { var r = '0x'; for (var i = 0; i < 8; i++) r += ('00000000' + hash(s + i).toString(16)).slice(-8); return r; }
+  // Mock project files. Only the fields a team would actually write.
+  function fileFor(it, st) {
+    var d = DETAIL[it.slug];
+    var f = { name: it.name, url: d ? d.links[0][1] : 'https://example.com/' + it.slug, categories: it.tags.slice(), community: it.community,
+      verified: iso(daysAgo(st === 'min' ? 62 : st === 'stale' ? 500 : 23)) };
+    var tg = d ? d.summary : { en: 'One sentence from the project team goes here.', zh: '这里是项目团队写的一句话介绍。' };
+    if (st === 'min') { f.tagline = tg.en; return f; }
+    f.tagline = tg;
+    f.links = d ? { x: 'UTXOSwap', telegram: 'UTXOSwap' } : { x: it.slug };
+    f.github = it.slug + '/' + it.slug;
+    f.contracts = [{ name: 'Main lock', code_hash: mockHash(it.slug + 'a'), hash_type: 'type' }, { name: 'Pool type', code_hash: mockHash(it.slug + 'b'), hash_type: 'data1' }];
+    f.audits = [{ label: 'Audit report', date: '2025-06', url: 'https://example.com/audit.pdf' }];
+    f.about = d ? {
+      en: ['Trade RGB++ assets with intent-based orders instead of an order book. Users say what they want to trade and the protocol settles it.', 'Built on the UTXO Stack, so Bitcoin-based assets can be traded directly in the browser.'],
+      zh: ['用意图订单代替订单簿来交易 RGB++ 资产。用户表达想交易什么,协议负责完成结算。', '基于 UTXO Stack 构建,可以在浏览器中直接交易比特币上的资产。']
+    } : { en: ['Two or three short paragraphs from the project team go here. Plain Markdown, one language is enough.'], zh: ['这里是项目团队写的两三段简介,纯 Markdown,写一种语言就够了。'] };
+    return f;
+  }
+  function yamlOf(f) {
+    var L = ['name: ' + f.name, 'url: ' + f.url];
+    if (typeof f.tagline === 'string') L.push('tagline: ' + f.tagline);
+    else { L.push('tagline:'); L.push('  en: ' + f.tagline.en); L.push('  zh: ' + f.tagline.zh); }
+    L.push('categories: [' + f.categories.join(', ') + ']');
+    if (f.community) L.push('community: true');
+    if (f.links) { L.push('links:'); for (var k in f.links) L.push('  ' + k + ': ' + f.links[k]); }
+    if (f.github) L.push('github: ' + f.github);
+    if (f.contracts) { L.push('contracts:'); f.contracts.forEach(function (c) { L.push('  - name: ' + c.name); L.push('    code_hash: ' + c.code_hash); L.push('    hash_type: ' + c.hash_type); }); }
+    if (f.audits) { L.push('audits:'); f.audits.forEach(function (a) { L.push('  - label: ' + a.label); L.push('    date: ' + a.date); L.push('    url: ' + a.url); }); }
+    L.push('verified: ' + f.verified);
+    return L;
+  }
+  function srcHtml(f) {
+    var L = ['---'].concat(yamlOf(f), ['---']);
+    if (f.about) f.about.en.forEach(function (p) { L.push(''); L.push(p); });
+    var html = L.map(function (l) {
+      var e = esc(l);
+      return e.replace(/^(\s*(?:- )?)([a-z_]+)(:)/, '$1<span class="k">$2</span>$3').replace(/^(---)$/, '<span class="c">$1</span>');
+    }).join('\n');
+    return { html: html, n: L.length };
+  }
+  function sg(l, v, s) { return '<div class="sg"><div class="v wide">' + esc(v) + '</div><div class="l">' + esc(l) + '</div><div class="s">' + esc(s) + '</div></div>'; }
+  function h2s(text, first) { return '<h2 class="h semi" style="font-size:1.8rem;margin:' + (first ? '0' : '48px') + ' 0 18px">' + esc(text) + '</h2>'; }
+
+  function renderDetail() {
+    var it = bySlug[S.slug], L = S.lang, st = S.dstate;
+    if (!it) { go('explore'); return; }
+    var f = fileFor(it, st), h = hash(it.slug);
+    var age = Math.round((Date.now() - new Date(f.verified).getTime()) / 86400000), stale = age > 365;
+    var tg = typeof f.tagline === 'string' ? f.tagline : (f.tagline[L] || f.tagline.en);
+    var host = f.url; try { host = new URL(f.url).host; } catch (e) {}
+    var more = [];
+    if (f.links && f.links.x) more.push(['X', 'https://x.com/' + f.links.x]);
+    if (f.links && f.links.telegram) more.push(['Telegram', 'https://t.me/' + f.links.telegram]);
+    if (f.github) more.push(['GitHub', 'https://github.com/' + f.github]);
+
+    var top = '<button type="button" class="back" id="back">' + esc(t('back')) + '</button>' +
+      '<div class="d-grid"><div class="framed">' + icon(it.slug) + '</div><div>' +
+      '<h1 class="wide">' + esc(it.name) + '</h1>' +
+      '<div class="d-meta"><span>' + esc(gname(it.group)) + '</span>' + it.tags.map(function (c) { return '<span>' + esc(c) + '</span>'; }).join('') + (it.community ? '<span>' + esc(t('community')) + '</span>' : '') + '</div>' +
+      '<p class="d-sum">' + esc(tg) + '</p><div class="d-act"><a class="btn big" href="' + esc(f.url) + '" target="_blank" rel="noopener">' + esc(t('visit')) + '</a>' +
+      more.map(function (m) { return '<a class="linkbtn" href="' + esc(m[1]) + '" target="_blank" rel="noopener">' + esc(m[0]) + '</a>'; }).join('') + '</div>' +
+      (stale
+        ? '<div class="stale-note"><p>' + esc(t('stale_n', { m: Math.round(age / 30) })) + '</p><a class="linkbtn" href="https://github.com/CKBFansDAO/ckbdapps" target="_blank" rel="noopener">' + esc(t('stale_cta')) + '</a></div>'
+        : '<p class="fresh">' + esc(host) + '  ·  ' + esc(t('verified', { d: f.verified })) + '</p>') +
+      '</div></div>';
+    $('d-top').innerHTML = top;
+
+    $('dpv').innerHTML = '<div class="dpv"><span>' + esc(t('dp_label')) + '</span><div class="seg" role="group" aria-label="' + esc(t('dp_label')) + '">' +
+      [['full', 'dp_full'], ['min', 'dp_min'], ['stale', 'dp_stale']].map(function (o) { return '<button type="button" data-dstate="' + o[0] + '" aria-pressed="' + (st === o[0]) + '">' + esc(t(o[1])) + '</button>'; }).join('') + '</div></div>';
+
+    var main = '', first = true;
+    if (f.about) {
+      main += h2s(t('about_h'), first) + '<div class="about">' + (f.about[L] || f.about.en).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>'; first = false;
+    }
+    if (f.contracts) {
+      main += h2s(t('ctr_h'), first) + '<div class="ctr"><div class="ctr-r h"><span>' + esc(t('ctr_name')) + '</span><span>' + esc(t('ctr_hash')) + '</span><span>' + esc(t('ctr_type')) + '</span></div>' +
+        f.contracts.map(function (c) { return '<div class="ctr-r"><span>' + esc(c.name) + '</span><code>' + esc(c.code_hash) + '</code><span>' + esc(c.hash_type) + '</span></div>'; }).join('') + '</div>'; first = false;
+    }
+    if (f.audits) {
+      main += h2s(t('aud_h'), first) + '<ul class="auds">' + f.audits.map(function (a) { return '<li><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.label) + '</a><time>' + esc(a.date) + '</time></li>'; }).join('') + '</ul>'; first = false;
+    }
+    var sims = items.filter(function (o) { return o !== it; }).map(function (o) {
+      var sc = o.tags.filter(function (c) { return it.tags.indexOf(c) > -1; }).length + (o.group === it.group ? .5 : 0);
+      return [o, sc];
+    }).filter(function (p) { return p[1] > 0; }).sort(function (a, b) { return b[1] - a[1] || a[0].name.localeCompare(b[0].name); }).slice(0, 3);
+    if (sims.length) main += h2s(t('sim'), first) + '<div class="tiles sm">' + sims.map(function (p) { return tile(p[0], ''); }).join('') + '</div>';
+
+    var tiles = '';
+    if (f.github) {
+      tiles += sg(t('sg_license'), ['MIT', 'ISC'][h % 2], 'GitHub') + sg(t('sg_commit'), agoShort(st === 'stale' ? 450 : 1 + (h >>> 3) % 20), 'GitHub') + sg(t('sg_stars'), String(60 + h % 1400), 'GitHub');
+    }
+    tiles += sg(t('sg_site'), t('sg_online'), t('sg_chk', { n: 1 + h % 6 }));
+    if (!f.github) tiles += '<div class="sg off">' + esc(t('sg_off')) + '</div>';
+    var src = srcHtml(f);
+    var side = '<div class="panel"><h3 class="semi">' + esc(t('sig_h')) + '<span class="mockb">' + esc(t('mock')) + '</span></h3><p class="note">' + esc(t('sig_p')) + '</p><div class="sgrid">' + tiles + '</div></div>' +
+      '<div class="panel"><h3 class="semi">' + esc(t('src_h')) + '</h3><p class="note">' + esc(t('src_p', { n: src.n })) + '</p><p class="pth">projects/' + esc(it.slug) + '.md</p><pre class="src">' + src.html + '</pre>' +
+      '<a class="btn" href="https://github.com/CKBFansDAO/ckbdapps" target="_blank" rel="noopener">' + esc(t('edit')) + '</a></div>';
+    $('d-body').innerHTML = '<div>' + main + '</div><aside>' + side + '</aside>';
+  }
+
+  /* ---------- Halving ---------- */
+  var EPOCH_MS = 4 * 3600 * 1000, E_PREV = 8760, E_NEXT = 17520, HALV_T = Date.UTC(2027, 10, 17, 8, 0, 0), PREV_T = Date.UTC(2023, 10, 19);
+  // [event, date, epoch, epoch reward, block reward, daily reward, new CKB in this era]
+  var HV = [
+    ['0', '2019-11-16', 0, 1917808, 1065, 11506849, 16800000000], ['1', '2023-11-19', 8760, 958904, 533, 5753424, 8400000000],
+    ['2', '2027-11', 17520, 479452, 266, 2876712, 4200000000], ['3', '2031-11', 26280, 239726, 133, 1438356, 2100000000],
+    ['4', '2035-11', 35040, 119863, 67, 719178, 1050000000], ['5', '2039-11', 43800, 59932, 33.5, 359589, 525000000],
+    ['6', '2043-11', 52560, 29966, 16.75, 179794.5, 262500000], ['7', '2047-11', 61320, 14983, 8.375, 89897.25, 131250000],
+    ['8', '2051-11', 70080, 7491, 4.1875, 44948.625, 65625000], ['9', '2055-11', 78840, 3746, 2.09375, 22474.3125, 32812500],
+    ['10', '2059-11', 87600, 1873, 1.046875, 11237.15625, 16406250]
+  ];
+  // Mock tip: estimated from a fixed target date. The real page reads the chain tip over RPC.
+  function tip() {
+    var left = Math.max(0, HALV_T - Date.now()), ep = E_NEXT - left / EPOCH_MS, n = Math.floor(ep);
+    return { left: left, epoch: n, index: Math.floor((ep - n) * 1800), pct: Math.min(1, Math.max(0, (ep - E_PREV) / (E_NEXT - E_PREV))) };
+  }
+  function num(n) { return n.toLocaleString('en-US', { maximumFractionDigits: 6 }); }
+  function dstr(ts) { return new Date(ts).toLocaleDateString(S.lang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' }); }
+  function two(n) { return n < 10 ? '0' + n : '' + n; }
+  function cdParts(ms) { var s = Math.floor(ms / 1000); return { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 }; }
+
+  function renderHalving() {
+    var tp = tip(), p = cdParts(tp.left), era = 0, pct = Math.round(tp.pct * 100);
+    HV.forEach(function (r, i) { if (r[2] <= tp.epoch) era = i; });
+    var share = 'https://x.com/intent/tweet?text=' + encodeURIComponent(t('hv_share_txt', { date: dstr(HALV_T), n: p.d }));
+    var cd = ['d', 'h', 'm', 's'].map(function (u) {
+      var v = u === 'd' ? String(p.d) : two(p[u]);
+      return '<div><b><span data-u="' + u + '"' + (u === 'd' ? ' class="inslot"' : '') + '>' + v + '</span></b><small>' + esc(t('u_' + u)) + '</small></div>';
+    }).join('');
+    var cell = function (v, l, sub) { return '<div><b class="wide">' + esc(v) + (sub ? '<small>' + esc(sub) + '</small>' : '') + '</b><span>' + esc(l) + '</span></div>'; };
+
+    var h = '<section class="hv-hero on-dark"><div class="in"><h1 class="wide">' + esc(t('hv_h1')) + '</h1>' +
+      '<p class="kicker">' + esc(t('hv_k', { e: num(E_NEXT), d: dstr(HALV_T) })) + '</p>' +
+      '<div class="cd wide" id="cd" role="timer">' + cd + '</div>' +
+      '<div class="d-act"><a class="btn big" href="' + share + '" target="_blank" rel="noopener">' + esc(t('hv_share')) + '</a></div></div></section>';
+
+    h += '<section class="hv-tip on-dark"><div class="in"><div class="tipg">' +
+      cell(num(tp.epoch), t('hv_cur'), tp.index + '/1800') + cell(num(E_NEXT - tp.epoch), t('hv_togo')) + cell(num(E_NEXT), t('hv_next_e')) + cell(dstr(HALV_T), t('hv_est')) +
+      '</div><div class="era"><div class="sec-head" style="margin-bottom:22px"><h2 class="semi" style="margin:0;font-size:1.6rem">' + esc(t('hv_prog')) + '</h2>' +
+      '<a class="linkbtn" href="https://docs.nervos.org/docs/basics/glossary#epoch" target="_blank" rel="noopener">' + esc(t('hv_epoch_q')) + '</a></div>' +
+      '<div class="era-bar" style="--p:' + (tp.pct * 100).toFixed(2) + '%" role="img" aria-label="' + esc(t('hv_prog') + ' ' + pct + '%') + '"><div class="fill"><span class="wide">' + pct + '%</span></div></div>' +
+      '<div class="era-ends"><span>#' + num(E_PREV) + '  ·  ' + esc(dstr(PREV_T)) + '</span><span>#' + num(E_NEXT) + '  ·  ' + esc(dstr(HALV_T)) + '</span></div>' +
+      '<p class="mockn" style="margin:18px 0 0;color:var(--mut-d);font-size:.9rem"><span class="mockb" style="margin:0 8px 0 0">' + esc(t('mock')) + '</span>' + esc(t('hv_mock')) + '</p></div></div></section>';
+
+    var rows = HV.map(function (r, i) {
+      var cls = i < era ? 'past' : i === era ? 'now' : 'future', y = r[1].slice(0, 4);
+      var dt = r[1].length === 10 ? r[1] : (S.lang === 'zh' ? y + '年11月(预计)' : 'Nov ' + y + ' (est.)');
+      var w = Math.max(.4, r[5] / HV[0][5] * 100).toFixed(2);
+      return '<li class="hv-r ' + cls + '"><div class="ev"><strong class="semi">' + esc(I18N[S.lang].hv_ev[i]) + '</strong>' + (cls === 'now' ? '<span class="tagp nowtag">' + esc(t('hv_now')) + '</span>' : '') + '<span class="dt">' + esc(dt) + '</span></div>' +
+        '<div class="ep" data-l="' + esc(t('hv_c_epoch')) + '">' + num(r[2]) + '</div>' +
+        '<div class="rw"><div class="dv"><b>' + num(r[5]) + '</b> ' + esc(t('hv_per_day')) + '</div><div class="bar"><i style="width:' + w + '%"></i></div><div class="pe">' + num(r[3]) + ' ' + esc(t('hv_per_epoch')) + '</div></div>' +
+        '<div class="bk" data-l="' + esc(t('hv_c_block')) + '">' + num(r[4]) + '</div><div class="is" data-l="' + esc(t('hv_c_issued')) + '">' + num(r[6]) + '</div></li>';
+    }).join('');
+    h += '<section class="sec on-paper"><div class="in"><div class="sec-head"><h2 class="h wide">' + esc(t('hv_sched')) + '</h2><p>' + esc(t('hv_sched_p')) + '</p></div>' +
+      '<ol class="hv-t"><li class="hv-h" aria-hidden="true"><span>' + esc(t('hv_c_when')) + '</span><span>' + esc(t('hv_c_epoch')) + '</span><span>' + esc(t('hv_c_daily')) + '</span><span>' + esc(t('hv_c_block')) + '</span><span>' + esc(t('hv_c_issued')) + '</span></li>' + rows + '</ol>' +
+      '<p style="margin:18px 0 0;color:var(--mut-p);font-size:.9rem">' + esc(t('hv_blk_note')) + '</p></div></section>';
+
+    h += '<section class="sec on-dark"><div class="in"><div class="sec-head"><h2 class="h wide">' + esc(t('hv_how_h')) + '</h2></div><div class="hv-ex">' +
+      '<div><h3 class="semi">' + esc(t('hv_what_h')) + '</h3><p>' + esc(t('hv_what_p')) + '</p></div>' +
+      '<div><h3 class="semi">' + esc(t('hv_why_h')) + '</h3><p>' + esc(t('hv_why_p')) + '</p></div>' +
+      '<div><h3 class="semi">' + esc(t('hv_how2_h')) + '</h3><p>' + esc(t('hv_how2_p')) + '</p><div class="formula">' + esc(t('hv_formula')) + '</div></div></div>' +
+      '<div class="infl"><h3 class="semi">' + esc(t('hv_infl_h')) + '</h3>' +
+      '<div class="ir"><span>' + esc(t('hv_infl_a')) + '</span><i style="width:100%"></i><b class="wide">7.92%</b></div>' +
+      '<div class="ir"><span>' + esc(t('hv_infl_b')) + '</span><i style="width:' + (3.77 / 7.92 * 100).toFixed(1) + '%"></i><b class="wide">3.77%</b></div>' +
+      '<p style="margin:0;color:var(--mut-d)">' + esc(t('hv_infl_n')) + '</p></div>' +
+      '<h3 class="sub semi">' + esc(t('hv_rew_h')) + '</h3><div class="rewp">' + I18N[S.lang].hv_rew.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') + '</div>' +
+      '<p style="margin:0;color:var(--mut-d)">' + esc(t('hv_rew_p')) + '</p></div></section>';
+    $('v-halving').innerHTML = h;
+  }
+  function tickCd() {
+    var p = cdParts(tip().left);
+    if (S.view === 'halving') ['d', 'h', 'm', 's'].forEach(function (u) { var el = document.querySelector('#cd [data-u="' + u + '"]'); if (el) el.textContent = u === 'd' ? String(p.d) : two(p[u]); });
+    var hn = $('hs-n'); if (hn && S.view === 'home') hn.textContent = p.d;
+  }
+  setInterval(function () { if (!document.hidden) tickCd(); }, 1000);
+
+  /* ---------- Router ---------- */
+  var applying = false;
+  function hashFor() { return S.view === 'explore' ? '#explore' : S.view === 'halving' ? '#halving' : S.view === 'detail' ? '#p-' + S.slug : ''; }
+  function setHash() {
+    var h = hashFor();
+    try { if (location.hash !== h && !(h === '' && location.hash === '')) { applying = true; location.hash = h; setTimeout(function () { applying = false; }, 0); } } catch (e) {}
+  }
+  function show() {
+    ['home', 'explore', 'detail', 'halving'].forEach(function (v) { $('v-' + v).hidden = S.view !== v; });
+    ['home', 'explore', 'halving'].forEach(function (v) { var b = $('n-' + v); if (S.view === v) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
+    if (S.view === 'home') renderHome(); else if (S.view === 'explore') renderExplore(); else if (S.view === 'halving') renderHalving(); else renderDetail();
+    chrome();
+    gridActive(S.view === 'home');
+  }
+  function chrome() {
+    $('n-home').textContent = t('n_home'); $('n-explore').textContent = t('n_explore'); $('n-map').textContent = t('n_map'); $('n-halving').textContent = t('n_halving'); $('n-events').textContent = t('n_events');
+    $('add').textContent = t('add'); $('foot-note').textContent = t('foot');
+    document.documentElement.lang = S.lang === 'zh' ? 'zh-CN' : 'en';
+    $('lang-en').setAttribute('aria-pressed', S.lang === 'en'); $('lang-zh').setAttribute('aria-pressed', S.lang === 'zh');
+  }
+  function go(view, arg, keepScroll) {
+    S.view = view;
+    if (view === 'detail') S.slug = arg;
+    if (view === 'explore') {
+      S.f = { q: '', group: null, cat: null, comm: false, mode: S.f.mode, shown: PAGE };
+      if (arg) for (var k in arg) S.f[k] = arg[k];
+    }
+    show(); setHash();
+    if (!keepScroll) window.scrollTo(0, 0);
+  }
+  function fromHash() {
+    var h = ''; try { h = location.hash; } catch (e) {}
+    var m = /^#p-([\w.~-]+)$/.exec(h);
+    if (m && bySlug[m[1]]) { S.view = 'detail'; S.slug = m[1]; }
+    else if (h === '#explore') { S.view = 'explore'; }
+    else if (h === '#halving') { S.view = 'halving'; }
+    else S.view = 'home';
+  }
+  window.addEventListener('hashchange', function () {
+    if (applying) return;
+    var prev = S.view + S.slug; fromHash();
+    show(); window.scrollTo(0, 0);
+  });
+
+  /* ---------- Events (delegated) ---------- */
+  document.addEventListener('click', function (e) {
+    var el;
+    if ((el = e.target.closest('[data-slug]')) && !e.target.closest('a[target]')) { e.preventDefault(); go('detail', el.getAttribute('data-slug')); return; }
+    if ((el = e.target.closest('[data-cat]'))) { go('explore', { cat: el.getAttribute('data-cat') }); return; }
+    if ((el = e.target.closest('[data-group]'))) { go('explore', { group: el.getAttribute('data-group') }); return; }
+    if (e.target.closest('#back')) { go('explore'); return; }
+    if (e.target.closest('[data-halving]') || e.target.closest('#n-halving')) { go('halving'); return; }
+    if ((el = e.target.closest('[data-dstate]'))) { S.dstate = el.getAttribute('data-dstate'); renderDetail(); return; }
+    if (e.target.closest('#brand') || e.target.closest('#n-home')) { go('home'); return; }
+    if (e.target.closest('#n-explore')) { go('explore'); return; }
+    if (e.target.closest('#n-map') || e.target.closest('#n-events')) {
+      var id = e.target.closest('#n-map') ? 'map' : 'events';
+      if (S.view !== 'home') go('home', null, true);
+      var sec = $(id); if (sec) window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY - 64, behavior: 'auto' });
+      return;
+    }
+    if ((el = e.target.closest('#tabs button'))) { S.f.group = el.getAttribute('data-g') || null; S.f.cat = null; S.f.shown = PAGE; renderExplore(); return; }
+    if ((el = e.target.closest('#chips .chip'))) { var c = el.getAttribute('data-c'); S.f.cat = S.f.cat === c ? null : c; S.f.shown = PAGE; renderExplore(); return; }
+    if (e.target.closest('#m-list')) { S.f.mode = 'list'; renderExplore(); return; }
+    if (e.target.closest('#m-grid')) { S.f.mode = 'grid'; renderExplore(); return; }
+    if (e.target.closest('#more')) { S.f.shown += PAGE; renderExplore(); return; }
+    if (e.target.closest('#lang-en')) { S.lang = 'en'; show(); return; }
+    if (e.target.closest('#lang-zh')) { S.lang = 'zh'; show(); return; }
+  });
+  $('fq').addEventListener('input', function (e) { S.f.q = e.target.value.trim().toLowerCase(); S.f.shown = PAGE; renderExplore(); });
+  $('fcomm').addEventListener('change', function (e) { S.f.comm = e.target.checked; S.f.shown = PAGE; renderExplore(); });
+  $('maprows').addEventListener('mouseover', function (e) {
+    var b = e.target.closest('.mc'); if (!b) return;
+    var it = bySlug[b.getAttribute('data-slug')];
+    $('readout').innerHTML = '<strong>' + esc(it.name) + '</strong> ' + esc(tagsOf(it).join(', '));
+  });
+  $('maprows').addEventListener('mouseleave', function () { $('readout').textContent = t('map_idle'); });
+
+  /* ---------- Hero search ---------- */
+  var PH = ['UTXOSwap', 'JoyID', 'Nervape', 'Omiga', 'Fiber Network', 'Neuron'], phI = 0, sel = -1, matches = [];
+  setInterval(function () {
+    var q = $('sq'); if (S.view !== 'home' || q.value || document.activeElement === q) return;
+    phI++; q.placeholder = t('ph') + PH[phI % PH.length];
+  }, 2600);
+  function renderSuggest() {
+    var v = $('sq').value.trim().toLowerCase(), box = $('sug');
+    if (!v) { box.hidden = true; matches = []; sel = -1; return; }
+    matches = items.filter(function (it) { return it.hay.indexOf(v) > -1; }).sort(function (a, b) {
+      return (b.name.toLowerCase().indexOf(v) === 0) - (a.name.toLowerCase().indexOf(v) === 0) || a.name.localeCompare(b.name);
+    }).slice(0, 6);
+    sel = -1;
+    box.innerHTML = matches.map(function (it, i) {
+      return '<li role="option"><button type="button" data-i="' + i + '" aria-selected="false">' + icon(it.slug) + '<b>' + esc(it.name) + '</b><span class="c">' + esc(tagsOf(it)[0]) + '</span></button></li>';
+    }).join('');
+    box.hidden = matches.length === 0;
+  }
+  $('sq').addEventListener('input', renderSuggest);
+  $('sq').addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { $('sug').hidden = true; return; }
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      if (!matches.length) return; e.preventDefault();
+      sel = (sel + (e.key === 'ArrowDown' ? 1 : -1) + matches.length) % matches.length;
+      Array.prototype.forEach.call($('sug').querySelectorAll('button'), function (b, i) { b.setAttribute('aria-selected', i === sel); });
+    }
+  });
+  $('sug').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    $('sug').hidden = true; go('detail', matches[+b.getAttribute('data-i')].slug);
+  });
+  $('sform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sel > -1 && matches[sel]) { $('sug').hidden = true; go('detail', matches[sel].slug); return; }
+    var q = $('sq').value.trim().toLowerCase(); $('sug').hidden = true;
+    go('explore', { q: q });
+  });
+  document.addEventListener('pointerdown', function (e) { if (!e.target.closest('#sform')) $('sug').hidden = true; });
+
+  /* ---------- Hero cell grid ---------- */
+  var gridOn = false, raf = 0, G = {};
+  function gridInit() {
+    var cv = $('grid'), hero = $('hero'), ctx = cv.getContext('2d');
+    var CS = 64, W = 0, H = 0, cols = 0, rows = 0, lit = new Float32Array(1), mx = -9999, my = -9999, rip = [], next = 0;
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function size() {
+      var r = hero.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = r.width; H = r.height; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(W / CS) + 1; rows = Math.ceil(H / CS) + 1; lit = new Float32Array(cols * rows);
+      for (var k = 0; k < cols * rows * .05; k++) lit[(Math.random() * lit.length) | 0] = .5 + Math.random() * .4;
+      draw(performance.now());
+    }
+    function rr(x, y, s) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, s, s, 8); else ctx.rect(x, y, s, s); }
+    function draw(now) {
+      ctx.clearRect(0, 0, W, H);
+      var R = 240;
+      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+        var i = r * cols + c, x = c * CS + 3, y = r * CS + 3, s = CS - 6, cx = x + s / 2, cy = y + s / 2;
+        var d = Math.hypot(cx - mx, cy - my), p = d < R ? 1 - d / R : 0, l = lit[i];
+        for (var k = 0; k < rip.length; k++) {
+          var rd = (now - rip[k].t) * .6, dd = Math.abs(Math.hypot(cx - rip[k].x, cy - rip[k].y) - rd);
+          if (dd < CS && rd < 900) l = Math.max(l, .95 * (1 - dd / CS) * (1 - rd / 900));
+        }
+        rr(x, y, s); ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1; ctx.stroke();
+        var a = Math.max(p, l);
+        if (a > .02) {
+          rr(x, y, s); ctx.fillStyle = 'rgba(115,61,255,' + (.34 * Math.max(p * p, l)).toFixed(3) + ')'; ctx.fill();
+          ctx.strokeStyle = 'rgba(144,104,255,' + (.2 + .7 * a).toFixed(3) + ')'; ctx.lineWidth = 1.5; ctx.stroke();
+        }
+      }
+    }
+    function tick(ts) {
+      if (!gridOn) { raf = 0; return; }
+      if (ts > next) { lit[(Math.random() * lit.length) | 0] = 1; next = ts + 150; }
+      for (var i = 0; i < lit.length; i++) lit[i] *= .975;
+      rip = rip.filter(function (q) { return ts - q.t < 1500; });
+      draw(ts); raf = requestAnimationFrame(tick);
+    }
+    hero.addEventListener('pointermove', function (e) { var b = hero.getBoundingClientRect(); mx = e.clientX - b.left; my = e.clientY - b.top; if (reduce) draw(performance.now()); });
+    hero.addEventListener('pointerleave', function () { mx = my = -9999; if (reduce) draw(performance.now()); });
+    hero.addEventListener('pointerdown', function (e) { if (reduce || e.target.closest('input,button,a,li')) return; var b = hero.getBoundingClientRect(); rip.push({ x: e.clientX - b.left, y: e.clientY - b.top, t: performance.now() }); });
+    window.addEventListener('resize', function () { if (S.view === 'home') size(); });
+    G.size = size; G.tick = tick; G.reduce = reduce;
+    size();
+  }
+  function gridActive(on) {
+    gridOn = on && !document.hidden;
+    if (on && G.size) G.size();
+    if (gridOn && !G.reduce && !raf && G.tick) raf = requestAnimationFrame(G.tick);
+  }
+  document.addEventListener('visibilitychange', function () { gridActive(S.view === 'home'); });
+
+  gridInit();
+  fromHash();
+  show();
+})();
+</script>
