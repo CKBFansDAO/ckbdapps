@@ -59,7 +59,7 @@ html[lang="zh-CN"] .wide, html[lang="zh-CN"] .semi { letter-spacing: 0; font-wei
 .top nav button { background: none; border: 0; padding: 6px 0; color: var(--mut-d); font-weight: 600; font-size: .92rem; border-bottom: 2px solid transparent; }
 .top nav button:hover, .top nav button[aria-current="page"] { color: var(--white); border-color: var(--purple-hi); }
 .lang { display: inline-flex; border: 1px solid var(--line-d); }
-.lang button { background: transparent; border: 0; padding: 6px 10px; font: 600 .78rem var(--mono); color: var(--mut-d); }
+.lang button { background: transparent; border: 0; padding: 10px 12px; min-height: 40px; font: 600 .78rem var(--mono); color: var(--mut-d); }
 .lang button[aria-pressed="true"] { background: var(--white); color: var(--ink); }
 @media (max-width: 760px) { .top nav { display: none; } .top .lang { margin-left: auto; } }
 @media (max-width: 480px) { .top .btn { display: none; } }
@@ -155,21 +155,12 @@ h3.sub { margin: clamp(32px, 5vw, 56px) 0 16px; font-size: 1.15rem; }
 .readout { min-height: 1.7em; margin-top: 18px; color: var(--mut-d); font-size: .95rem; }
 .readout strong { color: var(--white); }
 
-/* Events */
-.events { margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--fg); }
-.events a { display: grid; grid-template-columns: 8rem 8rem minmax(0, 1fr) 14px; align-items: center; gap: 8px 20px; padding: 18px 14px 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; position: relative; }
-.events a::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 0; background: var(--purple); transition: width .15s; }
-.events a:hover::after { width: 10px; }
-.events time { font: 500 .9rem var(--mono); color: var(--mut); }
-.events .ty { font-weight: 700; }
-.events .t { font-size: 1.1rem; font-weight: 600; min-width: 0; }
-@media (max-width: 640px) { .events a { grid-template-columns: 1fr; } .events .t { grid-row: auto; } }
 
 /* Footer */
 .foot { overflow: hidden; padding-top: clamp(40px, 6vw, 72px); }
 .foot .links { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; align-items: center; padding-bottom: 28px; color: var(--mut-d); }
 .foot .links a { color: var(--white); }
-.giant { display: block; margin: 0; padding-bottom: 8px; font-size: clamp(3rem, 14.7vw, 13rem); line-height: .86; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, .34); user-select: none; }
+.giant { display: block; margin: 0; padding-bottom: 8px; font-size: clamp(3rem, 15.4vw, 13rem); line-height: .86; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, .34); user-select: none; }
 
 /* Explore */
 .ex-top { padding-block: clamp(40px, 7vw, 88px) 12px; }
@@ -384,6 +375,81 @@ pre.src { margin: 0 0 16px; padding: 14px; background: var(--page); border: 1px 
 pre.src .k { color: var(--purple-hi); }
 pre.src .c { color: var(--mut-d); }
 
+/* Stats */
+.st-hero { padding-block: clamp(48px, 8vw, 104px) clamp(40px, 6vw, 72px); background-image: linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px); background-size: 64px 64px; background-position: -1px -1px; }
+.st-hero h1 { margin: 0; font-size: clamp(2.6rem, 8.4vw, 7.2rem); line-height: .94; animation: rise .7s cubic-bezier(.2, .8, .2, 1) backwards; }
+html[lang="zh-CN"] .st-hero h1 { line-height: 1.08; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: clamp(32px, 5vw, 64px) 0 0; }
+.kpis > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 10px; padding: 24px 16px 24px 0; border-top: 1px solid var(--line-d); min-width: 0; }
+.kpis dt { color: var(--mut-d); font-weight: 600; }
+.kpis dd { margin: 0; font-size: clamp(1.9rem, 4.4vw, 3.6rem); line-height: 1; overflow-wrap: anywhere; }
+@media (max-width: 760px) { .kpis { grid-template-columns: 1fr 1fr; } }
+.split-h { margin: clamp(28px, 4vw, 48px) 0 14px; font-size: 1.3rem; }
+.split { display: flex; gap: 2px; height: 60px; }
+.split > div { display: flex; align-items: center; padding-inline: 14px; min-width: 6px; overflow: hidden; font: 600 1rem var(--mono); white-space: nowrap; }
+.split .s1 { background: var(--purple); color: var(--white); }
+.split .s2 { background: #b7a0ff; color: var(--ink); }
+.split .s3 { background: #6b6a7b; }
+.split-key { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 14px 0 0; padding: 0; list-style: none; color: var(--mut-d); }
+.split-key li { display: flex; align-items: center; gap: 8px; }
+.split-key i { width: 14px; height: 14px; flex: none; }
+.split-key b { color: var(--white); font-weight: 600; }
+.st-note { margin: 28px 0 0; color: var(--mut-d); font-size: .9rem; }
+
+.st-bar { position: sticky; top: calc(var(--hh) + env(safe-area-inset-top, 0px)); z-index: 30; background: var(--paper); border-block: 2px solid var(--paper-ink); }
+.st-bar .in { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding-block: 14px; }
+.st-bar .seg { margin-left: 0; }
+.brush { position: relative; flex: 1 1 320px; min-width: 200px; height: 44px; margin-right: 19px; border: 5px solid var(--paper-ink); border-right: 0; background: var(--white); touch-action: none; cursor: pointer; }
+.risk { display: flex; gap: 14px; align-items: flex-start; margin: 0 0 20px; padding: 14px 18px 14px 0; background: var(--purple-tint, #efe9ff); border: 2px solid var(--ink); }
+.risk .rk { flex: none; align-self: stretch; width: 12px; margin: -14px 0 -14px -2px; background: var(--purple); border-right: 2px solid var(--ink); }
+.risk p { margin: 0; font-size: .95rem; line-height: 1.5; color: var(--ink); max-width: 80ch; }
+.risk b { font-weight: 700; }
+.brush::after { content: ""; position: absolute; right: -19px; top: -5px; bottom: -5px; width: 14px; border: 2px dashed var(--purple-deep); pointer-events: none; }
+.brush svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.brush path { fill: none; stroke: var(--paper-ink); stroke-opacity: .45; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.bwin { position: absolute; top: 0; bottom: 0; min-width: 22px; background: rgba(115, 61, 255, .28); border-block: 2px solid var(--purple); cursor: grab; }
+.bwin:active { cursor: grabbing; }
+.bh { position: absolute; top: -2px; bottom: -2px; width: 12px; background: var(--purple); cursor: ew-resize; }
+.bh.l { left: 0; }
+.bh.r { right: 0; }
+.st-win { font: 500 .85rem var(--mono); color: var(--mut-p); }
+
+.chart { margin-top: clamp(40px, 6vw, 64px); }
+.chart:first-of-type { margin-top: clamp(32px, 5vw, 48px); }
+.chart-h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 24px; padding-bottom: 12px; border-bottom: 2px solid var(--paper-ink); }
+.chart-h h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.1; }
+.chart-h .val { font: 600 1rem var(--mono); }
+.chart-h .val span { margin-left: 10px; color: var(--mut-p); font-weight: 500; }
+.plot { position: relative; height: 300px; margin-top: 8px; user-select: none; -webkit-user-select: none; touch-action: pan-y; }
+@media (max-width: 560px) { .plot { height: 240px; } }
+.plot svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.plot text { fill: var(--mut-p); font: 500 11px var(--mono); }
+.plot .gl { stroke: var(--line-p); stroke-dasharray: 2 6; }
+.plot .ax { stroke: var(--paper-ink); stroke-opacity: .5; }
+.plot .ln { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.plot .xh { stroke: var(--paper-ink); stroke-opacity: .45; }
+.plot svg:focus-visible { outline: 3px solid var(--purple-deep); outline-offset: 4px; }
+.mk { fill: var(--paper-ink); stroke: var(--paper); stroke-width: 2; cursor: pointer; }
+.mk:focus-visible { outline: 3px solid var(--purple-deep); outline-offset: 2px; }
+.tt { position: absolute; z-index: 5; min-width: 150px; max-width: 240px; padding: 9px 12px; background: var(--ink); color: var(--white); pointer-events: none; box-shadow: 0 12px 32px rgba(0, 0, 0, .35); font-size: .85rem; }
+.tt .td { margin-bottom: 6px; color: var(--mut-d); font: 500 .78rem var(--mono); }
+.tt .tr { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.tt .tr i { width: 14px; height: 3px; flex: none; }
+.tt .tr b { font-size: 1rem; font-weight: 700; }
+.tt .tr span { margin-left: auto; color: var(--mut-d); }
+.lg { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; margin-top: 12px; font-size: .9rem; color: var(--mut-p); }
+.lg button { display: inline-flex; align-items: center; gap: 8px; padding: 4px 10px 4px 8px; background: transparent; border: 1.5px solid var(--line-p); font-weight: 600; font-size: .88rem; color: var(--paper-ink); }
+.lg button[aria-pressed="false"] { color: var(--mut-p); }
+.lg button[aria-pressed="false"] i { opacity: .35; }
+.lg i { display: inline-block; width: 14px; height: 14px; }
+.lg .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--paper-ink); }
+.lg p { margin: 0; }
+.st-tbl summary { cursor: pointer; font-weight: 700; padding-block: 8px; }
+.st-tbl table { color: var(--paper-ink); width: 100%; margin-top: 10px; border-collapse: collapse; font: 500 .85rem var(--mono); }
+.st-tbl th, .st-tbl td { padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line-p); text-align: left; }
+.st-tbl th { border-bottom: 2px solid var(--paper-ink); font-family: var(--body); font-weight: 700; }
+.st-tbl .num { text-align: right; }
+
 .ic { display: block; }
 @media (prefers-reduced-motion: reduce) { .track { animation: none; } h1.mega, .slot-search { animation: none; } .btn::after, .btn { transition: none; } }
 </style>
@@ -396,7 +462,7 @@ pre.src .c { color: var(--mut-d); }
       <button type="button" data-nav="explore" id="n-explore"></button>
       <button type="button" data-nav="map" id="n-map"></button>
       <button type="button" data-nav="halving" id="n-halving"></button>
-      <button type="button" data-nav="events" id="n-events"></button>
+      <button type="button" data-nav="stats" id="n-stats"></button>
     </nav>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" id="lang-en" aria-pressed="true">EN</button>
@@ -455,15 +521,6 @@ pre.src .c { color: var(--mut-d); }
       </div>
     </section>
 
-    <section class="sec on-paper" id="events">
-      <div class="in">
-        <div class="sec-head">
-          <h2 class="h wide" id="ev-h"></h2>
-          <p id="ev-p"></p>
-        </div>
-        <ul class="events" id="evlist"></ul>
-      </div>
-    </section>
   </div>
 
   <!-- EXPLORE -->
@@ -473,7 +530,7 @@ pre.src .c { color: var(--mut-d); }
         <h1 class="wide" id="ex-h"></h1>
         <p class="cnt" id="ex-cnt"></p>
       </div>
-      <div class="toolbar">
+      <div class="in"><div class="risk" role="note"><span class="rk" aria-hidden="true"></span><p id="ex-risk"></p></div></div>      <div class="toolbar">
         <div class="in">
           <div class="f-search"><input id="fq" type="search" aria-label="Filter" autocomplete="off"><span class="pl"></span></div>
           <div class="tabs" id="tabs" role="group" aria-label="Groups"></div>
@@ -495,6 +552,9 @@ pre.src .c { color: var(--mut-d); }
 
   <!-- HALVING -->
   <div id="v-halving" hidden></div>
+
+  <!-- STATS -->
+  <div id="v-stats" hidden></div>
 
   <!-- DETAIL -->
   <div id="v-detail" hidden>
@@ -595,14 +655,13 @@ pre.src .c { color: var(--mut-d); }
 
   var I18N = {
     en: {
-      n_home: 'Home', n_explore: 'Explore', n_map: 'Map', n_events: 'Events', add: 'Add a project',
+      n_home: 'Home', n_explore: 'Explore', n_map: 'Map', add: 'Add a project',
       kicker: 'The directory for the Nervos CKB ecosystem', h1a: "Find what's built on", h1b: '',
       sgo: 'Go', try_: 'Try', ph: 'Search ', st_p: 'Projects', st_g: 'Groups', st_c: 'Community-built',
       spot_h: 'Spotlight', spot_p: 'Featured and community-built projects to start with.', feat_h: 'Featured', cb_h: 'Community-built',
       gr_h: 'Spark Granted', gr_amt: 'granted', gr_open: 'Your project here', gr_cta: 'Apply on GitHub',
       map_h: 'Ecosystem map', map_p: 'Every listed project is one cell. A purple outline marks a community-driven project.', map_idle: 'Hover a cell to see the project. Click to open it.', map_all: 'Explore this group',
-      ev_h: 'Events', ev_p: 'Sample from event_list.json. The newest entry in the current data is from April 2024.',
-      ex_h: 'Explore', ex_cnt: '{n} of {t} projects', all: 'All', comm: 'Community-driven only', list: 'List', grid: 'Grid', fph: 'Filter by name or category', more: 'Show more',
+      ex_h: 'Explore', ex_risk: '<b>Listing is not an endorsement.</b> Projects are submitted by the community and most are unaudited. Do your own research before connecting a wallet or sending funds.', ex_cnt: '{n} of {t} projects', all: 'All', comm: 'Community-driven only', list: 'List', grid: 'Grid', fph: 'Filter by name or category', more: 'Show more',
       none: 'No project matches. Clear a filter or try another word.',
       back: 'Explore', visit: 'Visit website', group: 'Group', cats: 'Categories', community: 'Community-driven', yes: 'Yes', no: 'No', file: 'Data file',
       transp: 'Transparency', sigs: '{a} of {b} signals', hls: 'Highlights', faq: 'FAQ', sim: 'Similar projects',
@@ -625,17 +684,20 @@ pre.src .c { color: var(--mut-d); }
       dp_label: 'Design preview: the project file is', dp_full: 'Full', dp_min: 'Minimal', dp_stale: 'Out of date', verified: 'Verified {d}', stale_n: 'This page was last verified {m} months ago.', stale_cta: 'Send an update',
       about_h: 'About', ctr_h: 'On CKB', ctr_name: 'Contract', ctr_hash: 'Code hash', ctr_type: 'Hash type', aud_h: 'Audits',
       sig_h: 'Signals', sig_p: 'Filled in automatically. Nothing to maintain.', sg_license: 'License', sg_commit: 'Last commit', sg_stars: 'GitHub stars', sg_site: 'Website', sg_online: 'Online', sg_chk: 'link check, {n}d ago',
-      sg_off: 'Add a github line to the file to show license and activity.', src_h: 'The whole page is one file', src_p: '{n} lines, written by the team. Everything else on this page is generated.', edit: 'Edit on GitHub', mock: 'Mock data', ago_d: 'd', ago_mo: 'mo'
+      sg_off: 'Add a github line to the file to show license and activity.', src_h: 'The whole page is one file', src_p: '{n} lines, written by the team. Everything else on this page is generated.', edit: 'Edit on GitHub', mock: 'Mock data', ago_d: 'd', ago_mo: 'mo',
+      n_stats: 'Stats', st_h1: 'CKB by the numbers', st_snap: 'Snapshot values for this demo. The live page reads them from the market data API.', st_total: 'Total issued', st_circ: 'Circulating', st_dao: 'Locked in Nervos DAO', st_trade: 'Tradable',
+      st_split: 'Where the supply sits', st_notc: 'Not yet circulating', st_range: 'Date range', st_c_price: 'Price history', st_c_hash: 'Network hash rate', st_c_occ: 'On-chain occupancy',
+      st_price: 'Price', st_hash: 'Hash rate', st_occ_a: 'Actually used', st_occ_g: 'Satoshi gift cell', st_occ_n: 'The Satoshi gift cell holds 5.04B CKB and would flatten everything else, so it starts hidden.',
+      st_mk: 'Miner release', st_in: 'in range', st_table: 'View as table', st_date: 'Date', st_kbd: 'Use the left and right arrow keys to read values.'
     },
     zh: {
-      n_home: '首页', n_explore: '探索', n_map: '生态图', n_events: '活动', add: '提交项目',
+      n_home: '首页', n_explore: '探索', n_map: '生态图', add: '提交项目',
       kicker: 'Nervos CKB 生态项目目录', h1a: '发现', h1b: '上的一切',
       sgo: '搜索', try_: '试试', ph: '搜索 ', st_p: '个项目', st_g: '个分组', st_c: '个社区项目',
       spot_h: '聚光灯', spot_p: '从这些精选项目和社区项目开始了解。', feat_h: '精选项目', cb_h: '社区项目',
       gr_h: 'Spark 资助', gr_amt: '已资助', gr_open: '你的项目可以在这里', gr_cta: '去 GitHub 申请',
       map_h: '生态图', map_p: '每个收录的项目占一格,紫色描边表示社区项目。', map_idle: '把鼠标移到格子上查看项目,点击打开详情。', map_all: '查看这个分组',
-      ev_h: '活动', ev_p: '示例数据来自 event_list.json,当前数据中最新的一条是 2024 年 4 月。',
-      ex_h: '探索', ex_cnt: '共 {t} 个项目,当前显示 {n} 个', all: '全部', comm: '只看社区项目', list: '列表', grid: '网格', fph: '按名称或分类筛选', more: '显示更多',
+      ex_h: '探索', ex_risk: '<b>收录不代表推荐。</b>项目由社区提交,大多未经审计。连接钱包或转入资金前,请自行研究并评估风险。', ex_cnt: '共 {t} 个项目,当前显示 {n} 个', all: '全部', comm: '只看社区项目', list: '列表', grid: '网格', fph: '按名称或分类筛选', more: '显示更多',
       none: '没有匹配的项目,请清除筛选或换个关键词。',
       back: '探索', visit: '访问官网', group: '分组', cats: '分类', community: '社区项目', yes: '是', no: '否', file: '数据文件',
       transp: '透明度', sigs: '{b} 项中满足 {a} 项', hls: '亮点', faq: '常见问题', sim: '相似项目',
@@ -658,7 +720,11 @@ pre.src .c { color: var(--mut-d); }
       dp_label: '设计预览:项目文件是', dp_full: '完整', dp_min: '最少', dp_stale: '已过期', verified: '核对于 {d}', stale_n: '这个页面上次核对是 {m} 个月前。', stale_cta: '提交更新',
       about_h: '简介', ctr_h: '链上合约', ctr_name: '合约', ctr_hash: 'Code hash', ctr_type: 'Hash type', aud_h: '审计',
       sig_h: '自动信号', sig_p: '自动生成,无需维护。', sg_license: '开源协议', sg_commit: '最近提交', sg_stars: 'GitHub 星标', sg_site: '官网', sg_online: '可访问', sg_chk: '链接检查,{n} 天前',
-      sg_off: '在文件中加一行 github,就会显示协议和活跃度。', src_h: '整个页面只来自一个文件', src_p: '团队只写 {n} 行,页面其余内容都是自动生成的。', edit: '在 GitHub 编辑', mock: '示意数据', ago_d: '天', ago_mo: '个月'
+      sg_off: '在文件中加一行 github,就会显示协议和活跃度。', src_h: '整个页面只来自一个文件', src_p: '团队只写 {n} 行,页面其余内容都是自动生成的。', edit: '在 GitHub 编辑', mock: '示意数据', ago_d: '天', ago_mo: '个月',
+      n_stats: '数据', st_h1: 'CKB 数据', st_snap: '本演示使用快照数据。线上页面从行情数据接口读取。', st_total: '发行数量', st_circ: '流通量', st_dao: 'NervosDAO 锁仓', st_trade: '可交易',
+      st_split: '供应量分布', st_notc: '未流通', st_range: '时间范围', st_c_price: '历史价格', st_c_hash: '全网算力走势', st_c_occ: '链上占用走势图',
+      st_price: '价格', st_hash: '算力', st_occ_a: '应用实际占用量', st_occ_g: '致敬中本聪占用量', st_occ_n: '中本聪礼物 cell 占用 50.4 亿 CKB,开启后会压扁其余部分,所以默认隐藏。',
+      st_mk: '矿机发布', st_in: '区间内', st_table: '以表格查看', st_date: '日期', st_kbd: '用左右方向键读取数值。'
     }
   };
   var DETAIL = {
@@ -682,12 +748,6 @@ pre.src .c { color: var(--mut-d); }
         a: { en: 'Users express what they want to trade instead of placing traditional orders. That removes the need for order books and centralized intermediaries.', zh: '用户表达自己的交易意图,而不是下传统订单。这种方式不再需要订单簿和中心化中介。' } }]
     }
   };
-  var EVENTS = [
-    { d: '2024-04-09', type: 'Conference', url: 'https://lu.ma/hkweb3festival2024', en: 'HK Web3 Festival 2024 Bitcoin Forum', zh: 'CKB 与万向区块链联合举办比特币论坛' },
-    { d: '2024-03-09', type: 'Conference', url: 'https://lu.ma/vobk70pd', en: 'Bitcoin Singapore 2024', zh: 'Bitcoin Singapore 2024' },
-    { d: '2023-11-19', type: 'Halving', url: 'https://ckbdapps.com/halving', en: 'CKB First Halving Event', zh: 'CKB 第一次减半事件' },
-    { d: '2023-08-22', type: 'Hackathon', url: 'https://x.com/CKBull_Wallet/status/1693669358977851832', en: 'CKBull Signer API Hackathon', zh: 'CKBull 签名接口黑客松' }
-  ];
   var FEATURED = ['joyid', 'nervape', 'dotbit', 'stablepp', 'omiga', 'utxoglobal'];
   var COMMUNITY_PICK = ['utxoswap', 'imagination', 'joygift'];
 
@@ -740,10 +800,6 @@ pre.src .c { color: var(--mut-d); }
         }).join('') + '</div></div>';
     }).join('');
 
-    $('ev-h').textContent = t('ev_h'); $('ev-p').textContent = t('ev_p');
-    $('evlist').innerHTML = EVENTS.map(function (ev) {
-      return '<li><a href="' + esc(ev.url) + '" target="_blank" rel="noopener"><time datetime="' + ev.d + '">' + ev.d + '</time><span class="ty">' + esc(ev.type) + '</span><span class="t">' + esc(ev[S.lang]) + '</span></a></li>';
-    }).join('');
   }
   function tile(it, cls) {
     return '<a class="tile' + cls + '" href="#p-' + esc(it.slug) + '" data-slug="' + esc(it.slug) + '"><span style="display:block;width:100%">' + icon(it.slug) + '</span><span><h4 class="semi">' + esc(it.name) + '</h4><p>' + esc(tagsOf(it).slice(0, 3).join(', ')) + '</p></span></a>';
@@ -756,7 +812,7 @@ pre.src .c { color: var(--mut-d); }
   }
   function renderExplore() {
     var f = S.f;
-    $('ex-h').textContent = t('ex_h');
+    $('ex-h').textContent = t('ex_h'); $('ex-risk').innerHTML = t('ex_risk');
     $('fq').placeholder = t('fph'); if ($('fq').value !== f.q) $('fq').value = f.q;
     $('fcomm-l').textContent = t('comm'); $('fcomm').checked = f.comm;
     $('m-list').textContent = t('list'); $('m-grid').textContent = t('grid');
@@ -963,22 +1019,196 @@ pre.src .c { color: var(--mut-d); }
   }
   setInterval(function () { if (!document.hidden) tickCd(); }, 1000);
 
+  /* ---------- Stats (mock series; the live page reads the market-data API) ---------- */
+  var ST0 = Date.UTC(2019, 10, 16), DAY = 86400000, STN = Math.floor((Date.now() - ST0) / DAY) + 1, GIFT = 5.04e9;
+  function mul(seed) { var a = seed; return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function gen(keys, log, noise, seed) {
+    var r = mul(seed), K = keys.map(function (k) { return [Math.floor((Date.parse(k[0]) - ST0) / DAY), k[1]]; }), out = new Float64Array(STN), j = 0, dev = 0;
+    for (var i = 0; i < STN; i++) {
+      while (j < K.length - 2 && i > K[j + 1][0]) j++;
+      var a = K[j], b = K[Math.min(j + 1, K.length - 1)], t = b[0] === a[0] ? 1 : Math.min(1, Math.max(0, (i - a[0]) / (b[0] - a[0])));
+      var v = log ? Math.exp(Math.log(a[1]) + (Math.log(b[1]) - Math.log(a[1])) * t) : a[1] + (b[1] - a[1]) * t;
+      dev = dev * .85 + (r() - .5) * noise;
+      out[i] = log ? v * Math.exp(dev) : v * (1 + dev);
+    }
+    return out;
+  }
+  var PRICE = gen([['2019-11-16', .0075], ['2020-03-15', .003], ['2020-12-20', .0032], ['2021-02-10', .0042], ['2021-04-05', .0418], ['2021-06-20', .0075], ['2021-11-10', .027], ['2022-02-15', .011], ['2022-06-20', .0034], ['2022-12-01', .0026], ['2023-02-10', .0036], ['2023-04-10', .0016], ['2023-12-01', .0016], ['2024-03-18', .032], ['2024-06-01', .0135], ['2024-08-05', .007], ['2024-10-10', .015], ['2024-12-15', .0148], ['2025-02-20', .01], ['2025-04-20', .004], ['2025-12-01', .0015], ['2026-06-01', .0009], ['2026-10-01', .001]], true, .08, 7);
+  var HASH = gen([['2019-11-16', 7.17e13], ['2020-03-06', 3.1e14], ['2020-03-31', 2.5e15], ['2020-10-19', 1.11e16], ['2021-01-08', 1.81e16], ['2021-08-07', 5.4e16], ['2021-12-02', 9.4e16], ['2022-03-02', 1.4e17], ['2022-05-20', 1.15e17], ['2022-12-01', 9.5e16], ['2023-01-05', 1e17], ['2023-04-10', 1.8e17], ['2023-11-01', 1.45e17], ['2023-12-20', 1.75e17], ['2024-04-01', 3.9e17], ['2024-09-01', 4.2e17], ['2024-12-20', 4.65e17], ['2025-03-01', 3e17], ['2025-06-01', 2.5e17], ['2025-12-01', 1.5e17], ['2026-03-01', 1.1e17], ['2026-10-01', 1.15e17]], true, .05, 11);
+  var OCC = gen([['2019-11-16', 1.2e6], ['2020-11-01', 1.4e7], ['2021-04-01', 1.7e7], ['2021-12-01', 5.5e7], ['2022-08-01', 1e8], ['2023-04-01', 1.4e8], ['2023-12-01', 1.5e8], ['2024-06-01', 1.6e8], ['2025-06-01', 1.62e8], ['2026-10-01', 1.5e8]], false, .006, 5);
+  var MK = ['2020-03-06', '2020-03-31', '2020-10-19', '2021-01-08', '2021-08-07', '2021-12-02', '2022-03-02', '2023-01-05'].map(function (d) { return Math.floor((Date.parse(d) - ST0) / DAY); });
+  var SNAP = { total: 50546000000, circ: 49692000000, dao: 8109000000, trade: 41583000000 };
+  var PRE = { '7D': 7, '1M': 30, '6M': 180, '1Y': 365, 'ALL': 0 };
+  var ST = { i0: 0, i1: STN - 1, gift: false }, stRO = null, stRaf = 0;
+
+  function ymd(i) { var d = new Date(ST0 + i * DAY); return d.getUTCFullYear() + '/' + (d.getUTCMonth() + 1) + '/' + d.getUTCDate(); }
+  function trimz(s) { return s.indexOf('.') > -1 ? s.replace(/0+$/, '').replace(/\.$/, '') : s; }
+  function big(n, d) {
+    d = d == null ? 2 : d;
+    if (S.lang === 'zh') { if (n >= 1e8) return trimz((n / 1e8).toFixed(d)) + '亿'; if (n >= 1e4) return trimz((n / 1e4).toFixed(0)) + '万'; return String(Math.round(n)); }
+    if (n >= 1e9) return trimz((n / 1e9).toFixed(d)) + 'B'; if (n >= 1e6) return trimz((n / 1e6).toFixed(d)) + 'M'; if (n >= 1e3) return trimz((n / 1e3).toFixed(d)) + 'K'; return String(Math.round(n));
+  }
+  function hr(n, d) { d = d == null ? 1 : d; return n >= 1e15 ? trimz((n / 1e15).toFixed(d)) + 'P' : n >= 1e12 ? trimz((n / 1e12).toFixed(d)) + 'T' : trimz((n / 1e9).toFixed(d)) + 'G'; }
+  function pr(p, axis) { return '$' + (axis ? p.toFixed(4) : p < .01 ? p.toPrecision(3) : p.toFixed(4)); }
+  function chg(a, b) { var c = (b / a - 1) * 100; if (!isFinite(c) || Math.abs(c) >= 1000) return '';  return (c >= 0 ? '+' : '−') + Math.abs(c).toFixed(1) + '%'; }
+  function niceTicks(lo, hi, n) {
+    var raw = (hi - lo) / n, mag = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / mag, step = (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * mag, t = [];
+    for (var v = Math.ceil(lo / step) * step; v <= hi + step * 1e-6; v += step) t.push(v);
+    return t;
+  }
+  function mk(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+
+  // One generic chart: cfg = { host, label, fmtAxis, zero, layers: [{ name, color, kind, top(i), base(i), fmt(i) }], markers }
+  function drawChart(cfg) {
+    var host = cfg.host, W = host.clientWidth, H = host.clientHeight;
+    if (W < 40) return;
+    var i0 = ST.i0, i1 = ST.i1, m = i1 - i0, ml = 58, mr = 14, mt = 12, mb = 26, pw = W - ml - mr, ph = H - mt - mb;
+    var lo = Infinity, hi = -Infinity, i, L = cfg.layers.filter(function (l) { return l.on !== false; });
+    for (i = i0; i <= i1; i++) L.forEach(function (l) { var v = l.top(i); if (v > hi) hi = v; if (v < lo) lo = v; });
+    if (cfg.zero) { lo = 0; hi *= 1.06; } else { var pad = (hi - lo) * .08 || hi * .05; lo -= pad; hi += pad; }
+    function X(k) { return ml + (k - i0) / m * pw; }
+    function Y(v) { return mt + (1 - (v - lo) / (hi - lo)) * ph; }
+    var stride = Math.max(1, Math.floor(m / (pw * 1.2))), s = '<svg viewBox="0 0 ' + W + ' ' + H + '" tabindex="0" role="img" aria-label="' + esc(cfg.label + '. ' + t('st_kbd')) + '">';
+    niceTicks(lo, hi, 4).forEach(function (v) { var y = Y(v).toFixed(1); s += '<line class="gl" x1="' + ml + '" x2="' + (W - mr) + '" y1="' + y + '" y2="' + y + '"/><text x="' + (ml - 8) + '" y="' + y + '" text-anchor="end" dy=".32em">' + esc(cfg.fmtAxis(v)) + '</text>'; });
+    s += '<line class="ax" x1="' + ml + '" x2="' + (W - mr) + '" y1="' + (mt + ph) + '" y2="' + (mt + ph) + '"/>';
+    var NT = W < 560 ? 2 : 4; for (var k = 0; k <= NT; k++) { var xi = i0 + Math.round(m * k / NT); s += '<text x="' + X(xi).toFixed(1) + '" y="' + (H - 6) + '" text-anchor="' + (k === 0 ? 'start' : k === NT ? 'end' : 'middle') + '">' + ymd(xi) + '</text>'; }
+    L.forEach(function (l) {
+      var top = '', bot = '';
+      for (i = i0; ; i += stride) { if (i > i1) i = i1; top += (top ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(l.top(i)).toFixed(1); if (l.kind === 'area') bot = 'L' + X(i).toFixed(1) + ' ' + Y(l.base(i)).toFixed(1) + bot; if (i === i1) break; }
+      if (l.kind === 'area') s += '<path d="' + top + bot + 'Z" fill="' + l.color + '" fill-opacity=".3"/>';
+      s += '<path class="ln" d="' + top + '" stroke="' + l.color + '"/>';
+    });
+    s += '<g class="hv" style="display:none"><line class="xh" y1="' + mt + '" y2="' + (mt + ph) + '"/>' + L.map(function () { return '<circle r="5" stroke-width="2" style="stroke:var(--paper)"/>'; }).join('') + '</g>';
+    s += '<rect class="ov" x="' + ml + '" y="' + mt + '" width="' + pw + '" height="' + ph + '" fill="transparent"/>';
+    (cfg.markers || []).forEach(function (mi) {
+      if (mi >= i0 && mi <= i1) s += '<circle class="mk" r="5" cx="' + X(mi).toFixed(1) + '" cy="' + Y(L[0].top(mi)).toFixed(1) + '" data-i="' + mi + '" tabindex="0" role="img" aria-label="' + esc(t('st_mk') + ' ' + ymd(mi)) + '"/>';
+    });
+    host.innerHTML = s + '</svg>';
+    var svg = host.firstChild, tt = mk('div', 'tt'), g = svg.querySelector('.hv'), cur = null;
+    tt.style.display = 'none'; host.appendChild(tt);
+    function place(px, py) { tt.style.display = 'block'; var w = tt.offsetWidth; tt.style.left = (px + 14 + w > W ? px - 14 - w : px + 14) + 'px'; tt.style.top = Math.max(0, Math.min(py, H - tt.offsetHeight)) + 'px'; }
+    function at(idx) {
+      cur = Math.max(i0, Math.min(i1, idx));
+      var x = X(cur); g.style.display = ''; var ln = g.querySelector('line'); ln.setAttribute('x1', x); ln.setAttribute('x2', x);
+      var cs = g.querySelectorAll('circle'); tt.textContent = ''; tt.appendChild(mk('div', 'td', ymd(cur)));
+      L.forEach(function (l, n) {
+        cs[n].setAttribute('cx', x); cs[n].setAttribute('cy', Y(l.top(cur))); cs[n].style.fill = l.color;
+        var r = mk('div', 'tr'), key = mk('i'); key.style.background = l.color; r.appendChild(key); r.appendChild(mk('b', '', l.fmt(cur))); r.appendChild(mk('span', '', l.name)); tt.appendChild(r);
+      });
+      place(x, mt);
+    }
+    function off() { g.style.display = 'none'; tt.style.display = 'none'; cur = null; }
+    svg.querySelector('.ov').addEventListener('pointermove', function (e) { var b = svg.getBoundingClientRect(); at(i0 + Math.round((e.clientX - b.left - ml) / pw * m)); });
+    svg.querySelector('.ov').addEventListener('pointerleave', off);
+    svg.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); at((cur == null ? (e.key === 'ArrowLeft' ? i1 : i0) : cur + (e.key === 'ArrowLeft' ? -1 : 1) * Math.max(1, Math.round(m / 60)))); }
+      else if (e.key === 'Escape') off();
+    });
+    svg.addEventListener('blur', off);
+    Array.prototype.forEach.call(svg.querySelectorAll('.mk'), function (c) {
+      function on() { var mi = +c.getAttribute('data-i'); g.style.display = 'none'; tt.textContent = ''; tt.appendChild(mk('div', 'td', ymd(mi))); var r = mk('div', 'tr'); r.appendChild(mk('b', '', t('st_mk'))); r.appendChild(mk('span', '', cfg.layers[0].fmt(mi))); tt.appendChild(r); place(+c.getAttribute('cx'), +c.getAttribute('cy') - 20); }
+      c.addEventListener('pointerenter', on); c.addEventListener('focus', on); c.addEventListener('pointerleave', off); c.addEventListener('blur', off);
+    });
+  }
+
+  var PC = 'var(--purple-deep)';
+  function chartCfgs() {
+    return [
+      { id: 'pl-price', label: t('st_c_price'), fmtAxis: function (v) { return pr(v, true); }, layers: [{ name: t('st_price'), color: PC, kind: 'line', top: function (i) { return PRICE[i]; }, fmt: function (i) { return pr(PRICE[i]); } }] },
+      { id: 'pl-hash', label: t('st_c_hash'), fmtAxis: function (v) { return hr(v, v >= 1e16 ? 0 : 1); }, markers: MK, layers: [{ name: t('st_hash'), color: PC, kind: 'line', top: function (i) { return HASH[i]; }, fmt: function (i) { return hr(HASH[i]); } }] },
+      { id: 'pl-occ', label: t('st_c_occ'), zero: true, fmtAxis: function (v) { return big(v, 1); }, layers: [
+        { name: t('st_occ_g'), color: '#8a8999', kind: 'area', on: ST.gift, top: function () { return GIFT; }, base: function () { return 0; }, fmt: function () { return big(GIFT); } },
+        { name: t('st_occ_a'), color: PC, kind: 'area', top: function (i) { return (ST.gift ? GIFT : 0) + OCC[i]; }, base: function () { return ST.gift ? GIFT : 0; }, fmt: function (i) { return big(OCC[i]); } }
+      ] }
+    ];
+  }
+  function drawAll() {
+    stRaf = 0;
+    if (S.view !== 'stats') return;
+    chartCfgs().forEach(function (c) { c.host = $(c.id); if (c.host) drawChart(c); });
+    var a = ST.i0, b = ST.i1;
+    $('sv-price').firstChild.textContent = pr(PRICE[b]); $('sv-price').lastChild.textContent = (chg(PRICE[a], PRICE[b]) ? chg(PRICE[a], PRICE[b]) + ' ' + t('st_in') : '');
+    $('sv-hash').firstChild.textContent = hr(HASH[b]); $('sv-hash').lastChild.textContent = (chg(HASH[a], HASH[b]) ? chg(HASH[a], HASH[b]) + ' ' + t('st_in') : '');
+    $('sv-occ').firstChild.textContent = big(OCC[b]); $('sv-occ').lastChild.textContent = (chg(OCC[a], OCC[b]) ? chg(OCC[a], OCC[b]) + ' ' + t('st_in') : '');
+    $('st-win').textContent = ymd(a) + ' – ' + ymd(b);
+    var win = $('bwin'); win.style.left = (a / (STN - 1) * 100) + '%'; win.style.width = ((b - a) / (STN - 1) * 100) + '%'; win.setAttribute('aria-valuetext', ymd(a) + ' – ' + ymd(b));
+    Array.prototype.forEach.call(document.querySelectorAll('#presets button'), function (bt) { var n = PRE[bt.getAttribute('data-r')]; bt.setAttribute('aria-pressed', String(b === STN - 1 && (n === 0 ? a === 0 : a === STN - n))); });
+    var rows = '', n = 8;
+    for (var k = 0; k < n; k++) { var i = a + Math.round((b - a) * k / (n - 1)); rows += '<tr><td>' + ymd(i) + '</td><td class="num">' + pr(PRICE[i]) + '</td><td class="num">' + hr(HASH[i]) + '</td><td class="num">' + big(OCC[i]) + '</td></tr>'; }
+    $('st-tb').innerHTML = rows;
+  }
+  function stDraw() { if (!stRaf) stRaf = requestAnimationFrame(drawAll); }
+  function stWin(a, b) { ST.i0 = Math.max(0, a); ST.i1 = Math.min(STN - 1, b); stDraw(); }
+
+  function renderStats() {
+    var tot = SNAP.total, parts = [[SNAP.trade, 's1', t('st_trade')], [SNAP.dao, 's2', t('st_dao')], [tot - SNAP.circ, 's3', t('st_notc')]];
+    var h = '<section class="st-hero on-dark"><div class="in"><h1 class="wide">' + esc(t('st_h1')) + '</h1>' +
+      '<dl class="kpis wide">' + [[tot, 'st_total'], [SNAP.circ, 'st_circ'], [SNAP.dao, 'st_dao'], [SNAP.trade, 'st_trade']].map(function (k) { return '<div><dt>' + esc(t(k[1])) + '</dt><dd>' + big(k[0]) + '</dd></div>'; }).join('') + '</dl>' +
+      '<h2 class="split-h semi">' + esc(t('st_split')) + '</h2><div class="split" role="img" aria-label="' + esc(parts.map(function (p) { return p[2] + ' ' + big(p[0]); }).join(', ')) + '">' +
+      parts.map(function (p, i) { return '<div class="' + p[1] + '" style="flex:' + p[0] + ' 1 0">' + (i < 2 ? big(p[0]) : '') + '</div>'; }).join('') + '</div>' +
+      '<ul class="split-key">' + parts.map(function (p) { return '<li><i class="' + p[1] + '" style="background:' + (p[1] === 's1' ? 'var(--purple)' : p[1] === 's2' ? '#b7a0ff' : '#6b6a7b') + '"></i>' + esc(p[2]) + ' <b>' + big(p[0]) + '</b> ' + (p[0] / tot * 100).toFixed(1) + '%</li>'; }).join('') + '</ul>' +
+      '<p class="st-note"><span class="mockb" style="margin:0 8px 0 0">' + esc(t('mock')) + '</span>' + esc(t('st_snap')) + '</p></div></section>';
+    h += '<div class="on-paper"><div class="st-bar"><div class="in"><div class="seg" id="presets" role="group" aria-label="' + esc(t('st_range')) + '">' +
+      Object.keys(PRE).map(function (r) { return '<button type="button" data-r="' + r + '" aria-pressed="false">' + r + '</button>'; }).join('') + '</div>' +
+      '<div class="brush" id="brush"><svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path id="bsp" d=""/></svg><div class="bwin" id="bwin" tabindex="0" role="slider" aria-label="' + esc(t('st_range')) + '"><span class="bh l"></span><span class="bh r"></span></div></div>' +
+      '<span class="st-win" id="st-win"></span></div></div><div class="in" style="padding-bottom:clamp(48px,8vw,104px)">';
+    [['sv-price', 'pl-price', 'st_c_price'], ['sv-hash', 'pl-hash', 'st_c_hash'], ['sv-occ', 'pl-occ', 'st_c_occ']].forEach(function (c, n) {
+      h += '<section class="chart"><div class="chart-h"><h2 class="semi">' + esc(t(c[2])) + '</h2><div class="val" id="' + c[0] + '">&#8203;<span></span></div></div><div class="plot" id="' + c[1] + '"></div>';
+      if (n === 1) h += '<div class="lg"><span style="display:inline-flex;align-items:center;gap:8px"><i class="dot"></i>' + esc(t('st_mk')) + '</span></div>';
+      if (n === 2) h += '<div class="lg"><button type="button" id="lg-a" aria-pressed="true"><i style="background:var(--purple-deep)"></i>' + esc(t('st_occ_a')) + '</button><button type="button" id="lg-g" aria-pressed="' + ST.gift + '"><i style="background:#8a8999"></i>' + esc(t('st_occ_g')) + '</button><p>' + esc(t('st_occ_n')) + '</p></div>';
+      h += '</section>';
+    });
+    h += '<details class="st-tbl" style="margin-top:40px"><summary>' + esc(t('st_table')) + '</summary><table><thead><tr><th>' + esc(t('st_date')) + '</th><th class="num">' + esc(t('st_price')) + '</th><th class="num">' + esc(t('st_hash')) + '</th><th class="num">' + esc(t('st_occ_a')) + '</th></tr></thead><tbody id="st-tb"></tbody></table></details></div></div>';
+    $('v-stats').innerHTML = h;
+
+    var sp = '', pmin = Infinity, pmax = -Infinity, q; for (q = 0; q < 300; q++) { var v = Math.log(PRICE[Math.round(q / 299 * (STN - 1))]); if (v < pmin) pmin = v; if (v > pmax) pmax = v; }
+    for (q = 0; q < 300; q++) { var vv = Math.log(PRICE[Math.round(q / 299 * (STN - 1))]); sp += (q ? 'L' : 'M') + q + ' ' + (36 - (vv - pmin) / (pmax - pmin) * 32).toFixed(1); }
+    $('bsp').setAttribute('d', sp);
+
+    Array.prototype.forEach.call(document.querySelectorAll('#presets button'), function (bt) { bt.addEventListener('click', function () { var n = PRE[bt.getAttribute('data-r')]; stWin(n ? STN - n : 0, STN - 1); }); });
+    $('lg-g').addEventListener('click', function () { ST.gift = !ST.gift; $('lg-g').setAttribute('aria-pressed', String(ST.gift)); stDraw(); });
+    $('lg-a').addEventListener('click', function () { /* the used-CKB series is the point of the chart and always stays on */ });
+    var br = $('brush'), win = $('bwin'), drag = null, MIN = 6;
+    function span() { return br.clientWidth || 1; }
+    br.addEventListener('pointerdown', function (e) {
+      var tg = e.target; e.preventDefault();
+      if (!win.contains(tg)) { var c = Math.round((e.clientX - br.getBoundingClientRect().left - 5) / span() * (STN - 1)), len = ST.i1 - ST.i0, a = Math.max(0, Math.min(STN - 1 - len, c - Math.round(len / 2))); stWin(a, a + len); return; }
+      drag = { mode: tg.classList.contains('l') ? 'l' : tg.classList.contains('r') ? 'r' : 'm', x: e.clientX, a: ST.i0, b: ST.i1 };
+      br.setPointerCapture(e.pointerId);
+    });
+    br.addEventListener('pointermove', function (e) {
+      if (!drag) return; var d = Math.round((e.clientX - drag.x) / span() * (STN - 1));
+      if (drag.mode === 'm') { var len = drag.b - drag.a, a = Math.max(0, Math.min(STN - 1 - len, drag.a + d)); stWin(a, a + len); }
+      else if (drag.mode === 'l') stWin(Math.min(drag.b - MIN, drag.a + d), drag.b);
+      else stWin(drag.a, Math.max(drag.a + MIN, drag.b + d));
+    });
+    function end() { drag = null; } br.addEventListener('pointerup', end); br.addEventListener('pointercancel', end);
+    win.addEventListener('keydown', function (e) {
+      var len = ST.i1 - ST.i0, step = e.shiftKey ? 90 : 14, a;
+      if (e.key === 'ArrowLeft') { e.preventDefault(); a = Math.max(0, ST.i0 - step); stWin(a, a + len); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); a = Math.min(STN - 1 - len, ST.i0 + step); stWin(a, a + len); }
+    });
+    if (stRO) stRO.disconnect();
+    if (window.ResizeObserver) { stRO = new ResizeObserver(stDraw); ['pl-price', 'pl-hash', 'pl-occ'].forEach(function (id) { stRO.observe($(id)); }); }
+    drawAll();
+  }
+
   /* ---------- Router ---------- */
   var applying = false;
-  function hashFor() { return S.view === 'explore' ? '#explore' : S.view === 'halving' ? '#halving' : S.view === 'detail' ? '#p-' + S.slug : ''; }
+  function hashFor() { return S.view === 'explore' ? '#explore' : S.view === 'halving' ? '#halving' : S.view === 'stats' ? '#stats' : S.view === 'detail' ? '#p-' + S.slug : ''; }
   function setHash() {
     var h = hashFor();
     try { if (location.hash !== h && !(h === '' && location.hash === '')) { applying = true; location.hash = h; setTimeout(function () { applying = false; }, 0); } } catch (e) {}
   }
   function show() {
-    ['home', 'explore', 'detail', 'halving'].forEach(function (v) { $('v-' + v).hidden = S.view !== v; });
-    ['home', 'explore', 'halving'].forEach(function (v) { var b = $('n-' + v); if (S.view === v) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
-    if (S.view === 'home') renderHome(); else if (S.view === 'explore') renderExplore(); else if (S.view === 'halving') renderHalving(); else renderDetail();
+    ['home', 'explore', 'detail', 'halving', 'stats'].forEach(function (v) { $('v-' + v).hidden = S.view !== v; });
+    ['home', 'explore', 'halving', 'stats'].forEach(function (v) { var b = $('n-' + v); if (S.view === v) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
+    if (S.view === 'home') renderHome(); else if (S.view === 'explore') renderExplore(); else if (S.view === 'halving') renderHalving(); else if (S.view === 'stats') renderStats(); else renderDetail();
     chrome();
     gridActive(S.view === 'home');
   }
   function chrome() {
-    $('n-home').textContent = t('n_home'); $('n-explore').textContent = t('n_explore'); $('n-map').textContent = t('n_map'); $('n-halving').textContent = t('n_halving'); $('n-events').textContent = t('n_events');
+    $('n-home').textContent = t('n_home'); $('n-explore').textContent = t('n_explore'); $('n-map').textContent = t('n_map'); $('n-halving').textContent = t('n_halving'); $('n-stats').textContent = t('n_stats');
     $('add').textContent = t('add'); $('foot-note').textContent = t('foot');
     document.documentElement.lang = S.lang === 'zh' ? 'zh-CN' : 'en';
     $('lang-en').setAttribute('aria-pressed', S.lang === 'en'); $('lang-zh').setAttribute('aria-pressed', S.lang === 'zh');
@@ -999,6 +1229,7 @@ pre.src .c { color: var(--mut-d); }
     if (m && bySlug[m[1]]) { S.view = 'detail'; S.slug = m[1]; }
     else if (h === '#explore') { S.view = 'explore'; }
     else if (h === '#halving') { S.view = 'halving'; }
+    else if (h === '#stats') { S.view = 'stats'; }
     else S.view = 'home';
   }
   window.addEventListener('hashchange', function () {
@@ -1015,11 +1246,12 @@ pre.src .c { color: var(--mut-d); }
     if ((el = e.target.closest('[data-group]'))) { go('explore', { group: el.getAttribute('data-group') }); return; }
     if (e.target.closest('#back')) { go('explore'); return; }
     if (e.target.closest('[data-halving]') || e.target.closest('#n-halving')) { go('halving'); return; }
+    if (e.target.closest('#n-stats')) { go('stats'); return; }
     if ((el = e.target.closest('[data-dstate]'))) { S.dstate = el.getAttribute('data-dstate'); renderDetail(); return; }
     if (e.target.closest('#brand') || e.target.closest('#n-home')) { go('home'); return; }
     if (e.target.closest('#n-explore')) { go('explore'); return; }
-    if (e.target.closest('#n-map') || e.target.closest('#n-events')) {
-      var id = e.target.closest('#n-map') ? 'map' : 'events';
+    if (e.target.closest('#n-map') || false) {
+      var id = 'map';
       if (S.view !== 'home') go('home', null, true);
       var sec = $(id); if (sec) window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY - 64, behavior: 'auto' });
       return;

@@ -12,7 +12,7 @@ function legacyRedirects() {
   const renamed: Record<string, string> = JSON.parse(readFileSync("content/redirects.json", "utf8"));
   return [
     { source: "/ecosystem", destination: "/explore", permanent: true },
-    { source: "/events", destination: "/#events", permanent: true },
+    { source: "/events", destination: "/", permanent: true },
     { source: "/statistics", destination: "/", permanent: true },
     ...slugs.map((s) => ({ source: `/${s}`, destination: `/projects/${s}`, permanent: true })),
     ...Object.entries(renamed).map(([from, to]) => ({ source: `/${from}`, destination: `/projects/${to}`, permanent: true })),

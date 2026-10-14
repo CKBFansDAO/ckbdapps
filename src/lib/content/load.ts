@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import YAML from "yaml";
 import type { z } from "zod";
 import { groupOf } from "./derive";
-import { CONTENT_DIR, Events, Home, Project, SLUG, taxonomy, type GroupId, type ProjectData } from "./schema";
+import { CONTENT_DIR, Home, Project, SLUG, taxonomy, type GroupId, type ProjectData } from "./schema";
 
 export const PROJECTS_DIR = path.join(CONTENT_DIR, "projects");
 export const LOGOS_DIR = path.join(process.cwd(), "public", "logos");
@@ -72,4 +72,3 @@ export function getProject(slug: string): ProjectEntry | undefined {
 
 export const readYaml = (name: string): unknown => YAML.parse(readFileSync(path.join(CONTENT_DIR, name), "utf8"));
 export const loadHome = (): Home => Home.parse(readYaml("home.yaml"));
-export const loadEvents = (): Events => Events.parse(readYaml("events.yaml"));

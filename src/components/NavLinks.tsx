@@ -8,7 +8,6 @@ const ITEMS = [
   { key: "n_explore", href: "/explore", match: (p: string) => p.startsWith("/explore") },
   { key: "n_map", href: "/#map" },
   { key: "n_halving", href: "/halving", match: (p: string) => p.startsWith("/halving") },
-  { key: "n_events", href: "/#events" },
 ] as const;
 
 export function NavLinks() {

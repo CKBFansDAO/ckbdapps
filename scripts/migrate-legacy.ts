@@ -1,5 +1,5 @@
 /**
- * One-off: legacy ckbdapps JSON -> content/projects/*.md, home.yaml, events.yaml, redirects.json, public/logos/*.webp
+ * One-off: legacy ckbdapps JSON -> content/projects/*.md, home.yaml, redirects.json, public/logos/*.webp
  *
  *   pnpm migrate:legacy [--legacy legacy] [--git <clone of CKBFansDAO/ckbdapps>] [--date YYYY-MM-DD]
  *
@@ -47,14 +47,6 @@ type Detail = {
   websiteUrl?: string;
 };
 type HomeItem = { name: string; link?: string; dappId?: string; amount?: string; placeholder?: boolean; desc?: Lang | string };
-type LegacyEvent = {
-  start_at: string;
-  categories: string[];
-  url?: string;
-  en_US?: { event_title?: string };
-  zh_CN?: { event_title?: string };
-};
-
 const readJson = <T>(p: string): T | undefined => (existsSync(p) ? (JSON.parse(readFileSync(p, "utf8")) as T) : undefined);
 const s = (v: unknown) => (typeof v === "string" ? v.trim() : "");
 
@@ -76,8 +68,6 @@ const report = {
   verifiedFlagged: [] as string[],
   detailsNotInList: [] as string[],
   homeDropped: [] as string[],
-  events: 0,
-  eventsSkipped: [] as string[],
 };
 
 /* ---------- helpers ---------- */
@@ -325,24 +315,6 @@ function migrateHome(slugMap: Map<string, string>) {
   );
 }
 
-/* ---------- events.yaml ---------- */
-function migrateEvents() {
-  const events = readJson<LegacyEvent[]>(path.join(PUB, "dappList/event_list.json")) ?? [];
-  const out = events.flatMap((e) => {
-    const m = /^(\d{4})\/(\d{1,2})\/(\d{1,2})/.exec(s(e.start_at));
-    const url = s(e.url);
-    const title = l10n(s(e.en_US?.event_title), s(e.zh_CN?.event_title));
-    if (!m || !parseUrl(url) || !title) {
-      report.eventsSkipped.push(`${e.start_at}: ${s(e.en_US?.event_title) || "(no title)"}`);
-      return [];
-    }
-    return [{ date: `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`, type: s(e.categories[0]) || "Event", url, title }];
-  });
-  out.sort((a, b) => b.date.localeCompare(a.date));
-  report.events = out.length;
-  writeFileSync(path.join(CONTENT_DIR, "events.yaml"), "# Newest first.\n" + YAML.stringify(out, { lineWidth: 0 }));
-}
-
 /* ---------- run ---------- */
 async function main() {
   if (!existsSync(PUB)) throw new Error(`legacy public/ not found at ${PUB}`);
@@ -359,7 +331,6 @@ async function main() {
   }
   for (const src of all) await migrateProject(src, slugMap);
   migrateHome(slugMap);
-  migrateEvents();
   writeFileSync(path.join(CONTENT_DIR, "redirects.json"), JSON.stringify(report.slugChanges, null, 2) + "\n");
 
   const r = report;
@@ -368,7 +339,7 @@ async function main() {
   const secInline = (title: string, items: string[]) => console.log(`\n## ${title} (${items.length})\n- ${items.join(", ") || "none"}`);
   console.log(`# Legacy migration report (${TODAY})`);
   console.log(`\nSource: ${PUB}${args.git ? `\nCommit dates from: ${args.git}` : ""}`);
-  console.log(`Projects in list: ${all.length - EXTRA_FROM_DETAILS.length}, extra from detail files: ${EXTRA_FROM_DETAILS.length}, written: ${r.written.length} (${r.written.length - EXTRA_FROM_DETAILS.length} from the list), logos missing: ${r.missingLogo.length}, events: ${r.events}`);
+  console.log(`Projects in list: ${all.length - EXTRA_FROM_DETAILS.length}, extra from detail files: ${EXTRA_FROM_DETAILS.length}, written: ${r.written.length} (${r.written.length - EXTRA_FROM_DETAILS.length} from the list), logos missing: ${r.missingLogo.length}`);
   sec("Normalised categories", Object.entries(r.normalised).map(([k, v]) => `${k}: ${v.join(", ")}`));
   secInline("Community-Driven -> community: true", r.community);
   sec("Slug changes (also in content/redirects.json)", Object.entries(r.slugChanges).map(([a, b]) => `${a} -> ${b}`));
@@ -384,7 +355,6 @@ async function main() {
   sec("verified = last commit of legacy config.json", r.verifiedGit);
   sec("FLAGGED: verified = migration date, no commit date found", r.verifiedFlagged);
   sec("home.yaml: dropped slugs (no project file)", [...new Set(r.homeDropped)]);
-  sec("events.yaml: skipped events", r.eventsSkipped);
 }
 
 main().catch((e) => {

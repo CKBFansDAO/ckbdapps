@@ -92,8 +92,3 @@ export const Home = z
   })
   .strict();
 export type Home = z.infer<typeof Home>;
-
-export const Events = z.array(
-  z.object({ date: z.iso.date(), type: z.string().min(1), url: httpUrl, title: L10n }).strict(),
-);
-export type Events = z.infer<typeof Events>;

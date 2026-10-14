@@ -4,7 +4,7 @@
  */
 import { existsSync, readdirSync } from "node:fs";
 import { formatIssues, LOGOS_DIR, readProjectFiles, readYaml } from "@/lib/content/load";
-import { Events, Home, Project, SLUG } from "@/lib/content/schema";
+import { Home, Project, SLUG } from "@/lib/content/schema";
 
 // Top-level paths that a project slug must not shadow (next.config.ts redirects /<slug> to the project page).
 const RESERVED = new Set(["en", "zh", "explore", "halving", "projects", "ecosystem", "events", "statistics", "api"]);
@@ -56,13 +56,10 @@ else {
   for (const [where, slug] of refs) if (!slugs.has(slug)) fail("content/home.yaml", [`${where}: no project "${slug}"`]);
 }
 
-const events = Events.safeParse(readYaml("events.yaml"));
-if (!events.success) fail("content/events.yaml", formatIssues(events.error));
-
 if (errors.length) {
   console.error(`Content validation failed with ${errors.length} error(s):\n${errors.map((e) => `  ${e}`).join("\n")}`);
   process.exit(1);
 }
 console.log(
-  `Content OK: ${files.length} projects, ${home.data!.featured.length} featured, ${events.data!.length} events.`,
+  `Content OK: ${files.length} projects, ${home.data!.featured.length} featured.`,
 );

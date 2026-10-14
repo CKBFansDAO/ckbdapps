@@ -38,8 +38,7 @@ pnpm test:e2e            # Playwright smoke tests
 ├─ content/
 │  ├─ projects/<slug>.md          # one file per project (see Content model)
 │  ├─ taxonomy.yaml               # categories, groups, aliases
-│  ├─ home.yaml                   # featured slugs, community picks, grants
-│  └─ events.yaml
+│  └─ home.yaml                   # featured slugs, community picks, grants
 ├─ public/
 │  ├─ logos/<slug>.webp           # square, <=256px; missing logo falls back to the identicon
 │  └─ brand/                      # logo + favicon (the logo must not change)
@@ -58,7 +57,7 @@ pnpm test:e2e            # Playwright smoke tests
 │  │  └─ robots.ts
 │  ├─ components/
 │  │  ├─ ui/        # Slot, SlotButton, SlotSearch, FramedAvatar, EmptySlot, Identicon, Tile
-│  │  ├─ home/      # Hero (cell-grid canvas), CategoryMarquee, HalvingStrip, Spotlight, EcoMap, Events
+│  │  ├─ home/      # Hero (cell-grid canvas), CategoryMarquee, HalvingStrip, Spotlight, EcoMap
 │  │  ├─ explore/   # Toolbar, FilterChips, ProjectList (list + grid)
 │  │  ├─ project/   # ProjectHero, About, Contracts, Audits, Signals, SourceFile, Similar
 │  │  └─ halving/   # Countdown, TipSummary, EraProgress, Schedule, Explainer
@@ -118,9 +117,9 @@ Legacy cleanup to apply in the migration (confirm the two marked ones with the s
 - `Community-Driven` -> `community: true`, removed from categories
 - `AW` -> keep as-is until the owner says what it stands for (confirm)
 
-### home.yaml and events.yaml
+### home.yaml
 
-`home.yaml`: `featured: [slug]`, `community_picks: [slug]`, `grants: [{ title, amount, project, status }]`. `events.yaml`: `[{ date, type, url, title: L10n }]`. Slugs in `home.yaml` must exist; validation fails otherwise. The prototype's Spark Granted card hardcodes "700 USDT / Quantum Purse" from legacy data: move it into `grants`.
+`home.yaml`: `featured: [slug]`, `community_picks: [slug]`, `grants: [{ title, amount, project, status }]`. Slugs in `home.yaml` must exist; validation fails otherwise. The prototype's Spark Granted card hardcodes "700 USDT / Quantum Purse" from legacy data: move it into `grants`.
 
 ## Routes and rendering
 
@@ -159,10 +158,10 @@ Tokens (`src/styles/tokens.css`, copy values from the prototype's `:root`):
 
 ## Pages (what the prototype shows)
 
-**Home**: hero (headline with `CKB` in a Slot, search with suggestions, quick category chips, three stats) -> category marquee (purple band) -> halving strip ("CKB halves in N days") -> Spotlight (featured tiles, community tiles, Spark Granted + two EmptySlots) -> Ecosystem map -> Events.
+**Home**: hero (headline with `CKB` in a Slot, search with suggestions, quick category chips, three stats) -> category marquee (purple band) -> halving strip ("CKB halves in N days") -> Spotlight (featured tiles, community tiles, Spark Granted + two EmptySlots) -> Ecosystem map.
 - Positioning: **Map = overview and entry point** (every project is one cell, grouped; clicking a group goes to Explore with that filter). **Explore = the searchable directory.** **Home = curated layer.** Do not make the map a second list.
 
-**Explore**: sticky toolbar (filter input, group tabs with counts, community-only toggle, list/grid), category chips, paged list (30 per page + "Show more"), empty state with a clear action.
+**Explore**: sticky toolbar (filter input, group tabs with counts, community-only toggle, list/grid), category chips, paged list (30 per page + "Show more"), empty state with a clear action. A persistent **risk notice bar** sits under the page title (not dismissible; `role="note"`; `ex_risk` in the message files; replace the placeholder wording with the legacy `/ecosystem` risk text, confirm with owner). This page replaces legacy `/ecosystem`; no watch-list/favorites feature.
 
 **Project detail**: dark hero (framed avatar, name, group and category pills, tagline, Visit button, secondary links, verified date or stale notice) -> paper body: About (if present), On CKB contracts table (if present), Audits (if present), Similar projects (3, derived) -> side column: Signals tiles (derived) and the "source file" panel with an Edit on GitHub button. **Sections render only if their data exists; a 5-line file must still give a complete page.** The "Design preview: Full / Minimal / Out of date" bar in the prototype is demo-only; do not build it.
 
@@ -180,7 +179,7 @@ Source: `src/components/halving/*`, `src/hooks/useCKBHalving.jsx`, `src/utils/he
 
 ## i18n
 
-UI strings in `src/messages/{en,zh}.json`; keys mirror the prototype's `I18N` object. Project and event content is never in the message files. Dates and numbers via `Intl` with the current locale. The Halving page keeps the original's EN and ZH explanatory text (translate the legacy `halving_en_US.md` / zh equivalent into the explainer cards; do not invent claims).
+UI strings in `src/messages/{en,zh}.json`; keys mirror the prototype's `I18N` object. Project content is never in the message files. Dates and numbers via `Intl` with the current locale. The Halving page keeps the original's EN and ZH explanatory text (translate the legacy `halving_en_US.md` / zh equivalent into the explainer cards; do not invent claims).
 
 ## Quality bar
 
@@ -197,7 +196,7 @@ UI strings in `src/messages/{en,zh}.json`; keys mirror the prototype's `I18N` ob
 1. **Skeleton**: Next.js, Tailwind v4, i18n routing, tokens, fonts, `ui/` slot components with a page that shows each. Accept: matches the prototype's buttons, search bar, framed avatar and empty slot side by side.
 2. **Content pipeline**: schema, taxonomy, loader, `validate:content`, `migrate:legacy` run against the legacy repo. Accept: all ~126 projects migrate; report lists every normalised category, slug case change, and project missing a detail file.
 3. **Explore and Detail**: filters in URL, list and grid, project pages with all three states of data. Accept: a 5-line file and a full file both render complete pages; stale notice works.
-4. **Home**: hero grid, marquee, strip, spotlight, map, events. Accept: matches prototype at 1280 and 390 widths.
+4. **Home**: hero grid, marquee, strip, spotlight, map. Accept: matches prototype at 1280 and 390 widths.
 5. **Halving**: RPC logic, live countdown, all states, tests. Accept: numbers match the legacy site for the current epoch (compare before switching DNS).
 6. **Hardening**: OG images, sitemap, `llms.txt`, redirects from legacy URLs, CI (validate, build, e2e), scheduled rebuild via Netlify build hook for GitHub signals, Lighthouse checks.
 
@@ -205,7 +204,7 @@ At the end of each step, run the build, take screenshots at 1280 and 390 into `d
 
 ## Migration script (`scripts/migrate-legacy.ts`)
 
-Inputs (from CKBFansDAO/ckbdapps `master`): `public/dappList/dapps_list.json`, `public/dappList/<slug>/config.json`, `public/dappDetails/<slug>.json`, `public/dappList/event_list.json`, `public/homeSections.json`.
+Inputs (from CKBFansDAO/ckbdapps `master`): `public/dappList/dapps_list.json`, `public/dappList/<slug>/config.json`, `public/dappDetails/<slug>.json`, `public/homeSections.json`.
 - Output `content/projects/<slug>.md` with only the schema fields above. Take `tagline` from the short description (`en`/`ch` or `en_US`/`zh_CN` keys; the legacy data uses both spellings), `links` from `socialLinks`/`links`, `url` from the website link.
 - Drop: highlights, FAQ, transparency checklists, tag colour classes, related.
 - Lowercase slugs; keep a `redirects.json` of old to new slugs.
@@ -221,3 +220,63 @@ Inputs (from CKBFansDAO/ckbdapps `master`): `public/dappList/dapps_list.json`, `
 - Keep components small; the slot motif components are the shared vocabulary.
 - Never commit secrets. The GitHub signals token is a read-only env var (`GITHUB_TOKEN`) set in Netlify and CI.
 - Every user-visible string goes through `next-intl`. Every external link has `rel="noopener"`.
+
+---
+
+## Addendum v4 — Stats page and legacy parity
+
+### Project page source panel
+Show **front matter only** (never the Markdown body); some projects have no About section.
+Signals panel: render only signals that really exist (link-check generated file, optional git first-commit date); hide the panel when empty.
+Open decision (owner): which field represents a private-repo project instead of a `github` line.
+
+### Stats page (`/{locale}/stats`; legacy `/statistics` redirects here)
+Design reference: `design/ckbdapps-v4.html`, `#stats`. Mock data in the prototype; real data from the API.
+- API base `https://api.ckbdapps.com/api/v1/nervos_explorers/` — endpoints `market_data`, `daily_price`, `daily_avg_hash_rate`, `daily_occupied_ckb`. Fetch server-side at build/ISR (revalidate hourly); fall back to a cached snapshot on failure and say so in the UI.
+- KPIs: total_supply, circulating_supply, Nervos DAO = `nervos_dao.total_deposit * 1e-8`, tradable = circulating − DAO. Supply bar: tradable / DAO / not-yet-circulating.
+- Hash rate values are multiplied by 1000 (legacy behaviour).
+- Occupied CKB chart subtracts the Satoshi gift cell constant 5,040,000,000; the gift series is a legend toggle, hidden by default.
+- One shared range for all charts: presets 7D/1M/6M/1Y/ALL (last N points) plus a brush. No per-chart filters.
+- Hash chart has 8 "Miner release" markers (2020-03-06, 2020-03-31, 2020-10-19, 2021-01-08, 2021-08-07, 2021-12-02, 2022-03-02, 2023-01-05). Legacy name/description fields look offset by one row — **confirm with owner before shipping labels**.
+- Header value shows latest value; hide the "change in range" when the base is ~0 (absurd %).
+- A11y: crosshair snaps to X with one tooltip for all series, arrow-key navigation, "View as table", legend for ≥2 series. zh uses 亿/万 units.
+
+### Legacy parity decisions (settled)
+- `/ecosystem` is now Explore. Drop the watch-list/favorites toggle; keep the risk notice bar (see Explore).
+- `/events` and everything event-related is **removed** (maintenance cost): no page, nav item, home section, data file, or validation. Redirect legacy `/events` to `/`.
+- Legacy `/halving` and `/statistics` redirect to the new routes; `/ecosystem` redirects to `/{locale}/explore`. Legacy project detail was a modal; the new one is a route.
+
+---
+
+## UI quality gate (applies to every page before it is called done)
+
+The owner judges taste. Your job is to hand over pages with no objective defects, and to never change a deliberate design decision on your own. Locked: logo, primary `#733dff`, ink `#1c1c23`, the slot-and-plug motif, hard edges. Do **not** "soften" the design (no extra rounded corners, soft shadows, gray-tinted palettes, or generic card styling).
+
+### Procedure per page
+1. Compare against `design/ckbdapps-v5.html` at **1280, 768 and 390** px, in **EN and ZH**. Take screenshots (Playwright) and look at them; do not review from code alone.
+2. Run the objective checks below. Fix every failure.
+3. Anything that is a taste question (spacing feel, emphasis, copy tone) is **not fixed silently**: list it in the page's report as an option with a recommendation.
+4. Put the screenshots and a short report in the PR: what was fixed, what is left for the owner, what could not be verified (real data, real devices, screen readers).
+
+### Objective checks (pass/fail)
+- No console errors or hydration warnings. No failed network requests except known external ones.
+- No horizontal scroll at 390 px. No clipped, overlapping or wrapped-badly text (axis labels, numbers, countdown, nav).
+- Text contrast >= 4.5:1 (>= 3:1 for large text and UI components). **Check every theme scope** (`.on-dark`, `.on-paper`) and every nested widget: a component dropped into a light section inherits the wrong text color easily. (Lesson: the stats "View as table" was white text on a light background.)
+- Every interactive element is reachable by keyboard, has a **visible focus ring**, and has an accessible name. Charts: arrow-key navigation and a table alternative.
+- Touch targets >= 40 px for primary controls (language switch, nav, filters, buttons); never below 24 px.
+- Exactly one visible `<h1>` per page; heading levels do not skip; landmarks `nav`, `main`, `footer` present; `<html lang>` follows the locale; decorative elements are `aria-hidden`.
+- `prefers-reduced-motion` is honored. Any motion that is not a response to a user action is limited to one orchestrated moment per page.
+- No placeholder or filler copy, no "TBD", no untranslated strings in ZH. Action names are consistent ("Add a project" is always called that).
+- Empty, loading and error states exist and say what to do next. Data failures show a cached snapshot and say so.
+- Charts follow the dataviz rules already in this file: one shared range, legend for >= 2 series, tooltip snapped to X, no absurd derived values (hide "+157832%"), and no reserved status colors used as decoration.
+- Performance: no layout shift from fonts (`next/font`), images sized, no unused client JS on static pages.
+
+### Automate it
+Add (ask the owner before installing, per the dependency rule) `@axe-core/playwright`. Create `e2e/quality.spec.ts` that, for every route in both locales at 1280 and 390 px: fails on console errors, fails on horizontal scroll, runs axe (fail on `serious` and `critical`), tabs through the first 40 focus stops and fails if one has no visible focus style, and asserts one `h1`. Run it in CI. A page is not done until this passes.
+
+### Review passes
+After finishing a page, run these in order and keep the output in the PR:
+1. `design-critique` (hierarchy, consistency, usability findings, rated by severity).
+2. `accessibility-review` (WCAG 2.1 AA table, contrast and keyboard sections).
+3. A fresh review with no knowledge of your reasoning: give a second agent only the screenshots, the page code and the locked constraints above, and ask for P0/P1/P2 findings. Fix P0 and clear P1; report the rest.
+Skip any "elevation" or "make it look more polished" skill that imposes a generic palette or token set (Tailwind grays, uniform radii, soft shadows): it conflicts with the locked brand.

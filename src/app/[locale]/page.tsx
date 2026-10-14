@@ -1,16 +1,14 @@
 import { useLocale } from "next-intl";
 import { CategoryMarquee } from "@/components/home/CategoryMarquee";
 import { EcoMap } from "@/components/home/EcoMap";
-import { Events } from "@/components/home/Events";
 import { HalvingStrip } from "@/components/home/HalvingStrip";
 import { Hero } from "@/components/home/Hero";
 import { Spotlight } from "@/components/home/Spotlight";
-import { categoryLabel, groupLabel, pick, sym } from "@/lib/content/derive";
-import { getProject, loadEvents, loadHome, loadProjects, type ProjectEntry } from "@/lib/content/load";
+import { categoryLabel, groupLabel, sym } from "@/lib/content/derive";
+import { getProject, loadHome, loadProjects, type ProjectEntry } from "@/lib/content/load";
 import { taxonomy } from "@/lib/content/schema";
 
 const QUICK = ["Wallet", "DEX", "DOBs", "RGB++", "Fiber"];
-const EVENTS_SHOWN = 8;
 
 export default function HomePage() {
   const locale = useLocale();
@@ -62,11 +60,6 @@ export default function HomePage() {
               tags: (labels(p).length ? labels(p) : [groupLabel(p.group, locale)]).join(", "),
             })),
         }))}
-      />
-      <Events
-        events={loadEvents()
-          .slice(0, EVENTS_SHOWN)
-          .map((e) => ({ date: e.date, type: e.type, url: e.url, title: pick(e.title, locale) }))}
       />
     </main>
   );
