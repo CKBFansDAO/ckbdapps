@@ -17,6 +17,7 @@ const PAGE = "#121218";
 const PURPLE = "#733dff";
 const PURPLE_HI = "#9068ff";
 const MUT = "#a3a2b3";
+const BODY = "#e4e3ee"; // tagline: a touch brighter than --mut-d for small-type legibility
 
 /**
  * Shared image for a project page: the slot motif (white bracket, purple plug) around the project's identicon.
@@ -51,7 +52,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           <div style={{ display: "flex", flexDirection: "column", flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: name.length > 16 ? 72 : 96, lineHeight: 1, letterSpacing: -2 }}>{name}</div>
             {tagline && (
-              <div style={{ marginTop: 28, fontSize: 30, lineHeight: 1.35, color: "#e4e3ee", maxHeight: 122, overflow: "hidden" }}>
+              <div style={{ marginTop: 28, fontSize: 30, lineHeight: 1.35, color: BODY, maxHeight: 122, overflow: "hidden" }}>
                 {tagline}
               </div>
             )}

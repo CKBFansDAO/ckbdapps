@@ -17,6 +17,7 @@ export function GET() {
     "",
     `- [All projects as JSON](${SITE_URL}/projects.json): fields, group, links and page URLs`,
     `- [CKB halving](${SITE_URL}/en/halving): live countdown and the base issuance schedule`,
+    `- [CKB stats](${SITE_URL}/en/stats): price history, hash rate, on-chain occupancy and the supply split`,
     `- [Sitemap](${SITE_URL}/sitemap.xml)`,
   ];
   for (const g of taxonomy.groups) {

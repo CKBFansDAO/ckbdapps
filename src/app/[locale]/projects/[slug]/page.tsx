@@ -56,7 +56,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
       />
       <ProjectHero p={p} staleMonths={staleMonths} />
       <section className="on-paper py-[clamp(48px,8vw,104px)]">
-        <div className="in grid grid-cols-[minmax(0,1fr)_340px] items-start gap-x-[clamp(28px,5vw,64px)] gap-y-10 max-[960px]:grid-cols-1">
+        <div className="in grid grid-cols-1 items-start gap-x-[clamp(28px,5vw,64px)] gap-y-10 min-[961px]:grid-cols-[minmax(0,1fr)_340px]">
           <div>
             <About body={p.body} />
             <Contracts contracts={p.contracts} />

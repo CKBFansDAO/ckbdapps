@@ -25,7 +25,7 @@ export function CategoryMarquee({ categories }: Props) {
   );
   return (
     <nav aria-label={t("cats")} className="wide group overflow-hidden bg-purple text-white">
-      <div className="marquee flex w-max group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]">
+      <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused] motion-reduce:animate-none">
         {run(false)}
         {run(true)}
       </div>

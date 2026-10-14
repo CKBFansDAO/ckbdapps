@@ -30,7 +30,7 @@ export function Spotlight({ featured, community, grants }: Props) {
             <Tile key={p.slug} alt {...p} />
           ))}
         </div>
-        <div className="mt-[clamp(32px,5vw,56px)] grid grid-cols-[minmax(0,1.2fr)_repeat(2,minmax(0,1fr))] gap-3.5 max-[820px]:grid-cols-1">
+        <div className="mt-[clamp(32px,5vw,56px)] grid grid-cols-1 gap-3.5 min-[821px]:grid-cols-[minmax(0,1.2fr)_repeat(2,minmax(0,1fr))]">
           {grants.map((g) => (
             <div key={g.slug} className="flex min-h-[190px] flex-col justify-between gap-7 bg-ink p-6 text-white">
               <h3 className="m-0 text-[1.15rem] font-bold text-mut-d">{t("gr_h")}</h3>

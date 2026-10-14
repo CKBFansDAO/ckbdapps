@@ -16,10 +16,10 @@ export function SiteHeader() {
           <span>CKBdapps</span>
         </Link>
         <NavLinks />
-        <div className="max-[760px]:ml-auto">
+        <div className="ml-auto min-[761px]:ml-0">
           <LangSwitch />
         </div>
-        <SlotButton href={REPO_URL} className="max-[480px]:hidden">
+        <SlotButton href={REPO_URL} className="hidden min-[481px]:inline-flex">
           {t("add")}
         </SlotButton>
       </div>

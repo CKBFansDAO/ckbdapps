@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { INFLATION } from "@/lib/halving";
 
@@ -18,7 +19,7 @@ export function Explainer() {
     <section className="on-dark py-[clamp(48px,8vw,104px)]">
       <div className="in">
         <h2 className="wide mt-0 mb-[clamp(24px,4vw,44px)] text-[clamp(2rem,5.2vw,4rem)] leading-none">{t("hv_how_h")}</h2>
-        <div className="grid grid-cols-3 gap-3.5 max-[860px]:grid-cols-1">
+        <div className="grid grid-cols-1 gap-3.5 min-[861px]:grid-cols-3">
           {cards.map(([h, p], i) => (
             <div key={h} className="bg-ink p-6">
               <h3 className="semi mt-0 mb-3 text-[1.3rem] leading-[1.1]">{t(h)}</h3>
@@ -32,11 +33,11 @@ export function Explainer() {
         <div className="mt-3.5 grid gap-3.5 bg-ink p-6">
           <h3 className="semi m-0 text-[1.3rem]">{t("hv_infl_h")}</h3>
           {bars.map(([label, v]) => (
-            <div key={label} className="grid grid-cols-[minmax(0,12rem)_minmax(0,1fr)_5.5rem] items-center gap-4 text-mut max-[640px]:grid-cols-[1fr_5rem]">
+            <div key={label} className="grid grid-cols-[1fr_5rem] items-center gap-4 text-mut min-[641px]:grid-cols-[minmax(0,12rem)_minmax(0,1fr)_5.5rem]">
               <span>{t(label)}</span>
               <i
-                className="block h-[22px] bg-purple max-[640px]:col-span-full max-[640px]:row-start-2"
-                style={{ width: `${((v / INFLATION.beforeFirst) * 100).toFixed(1)}%` }}
+                className="col-span-full row-start-2 block h-[22px] w-(--w) bg-purple min-[641px]:col-span-auto min-[641px]:row-start-auto"
+                style={{ "--w": `${((v / INFLATION.beforeFirst) * 100).toFixed(1)}%` } as CSSProperties}
               />
               <b className="wide text-right text-2xl text-fg">{v}%</b>
             </div>

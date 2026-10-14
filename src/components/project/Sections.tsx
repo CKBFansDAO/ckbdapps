@@ -29,7 +29,8 @@ export function About({ body }: { body: string }) {
   );
 }
 
-const ROW = "grid grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)_5rem] gap-x-4 gap-y-2 border-b border-line py-3 max-[560px]:grid-cols-[1fr_4.5rem]";
+const ROW =
+  "grid grid-cols-[1fr_4.5rem] gap-x-4 gap-y-2 border-b border-line py-3 min-[561px]:grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)_5rem]";
 
 export function Contracts({ contracts }: { contracts: ProjectEntry["contracts"] }) {
   const t = useTranslations();
@@ -39,7 +40,7 @@ export function Contracts({ contracts }: { contracts: ProjectEntry["contracts"] 
       <div className="border-t-2 border-fg text-[.95rem]" role="table">
         <div className={`${ROW} text-[.85rem] font-bold text-mut`} role="row">
           <span role="columnheader">{t("ctr_name")}</span>
-          <span role="columnheader" className="max-[560px]:hidden">
+          <span role="columnheader" className="hidden min-[561px]:inline">
             {t("ctr_hash")}
           </span>
           <span role="columnheader">{t("ctr_type")}</span>
@@ -47,7 +48,7 @@ export function Contracts({ contracts }: { contracts: ProjectEntry["contracts"] 
         {contracts.map((c) => (
           <div key={c.code_hash + c.hash_type} className={ROW} role="row">
             <span role="cell">{c.name}</span>
-            <code role="cell" className="font-mono text-[.85rem] font-medium [overflow-wrap:anywhere] max-[560px]:col-span-full max-[560px]:row-start-2">
+            <code role="cell" className="col-span-full row-start-2 font-mono text-[.85rem] font-medium [overflow-wrap:anywhere] min-[561px]:col-span-auto min-[561px]:row-start-auto">
               {c.code_hash}
             </code>
             <span role="cell">{c.hash_type}</span>

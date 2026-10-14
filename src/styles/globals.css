@@ -4,6 +4,9 @@
 @import "./tokens.css" layer(base);
 @import "./slot.css" layer(components);
 
+/* zh pages: tracked-in latin display doesn't fit CJK; use zh:... in TSX. */
+@custom-variant zh (&:where(:lang(zh), :lang(zh) *));
+
 /* Only the brand palette and the scoped tokens exist as Tailwind colours. */
 @theme inline {
   --color-*: initial;
@@ -13,11 +16,16 @@
   --color-purple-hi: var(--purple-hi);
   --color-purple-deep: var(--purple-deep);
   --color-purple-tint: var(--purple-tint);
+  --color-split-dao: var(--split-dao);
+  --color-split-notc: var(--split-notc);
+  --color-gift: var(--gift);
   --color-paper: var(--paper);
   --color-paper-ink: var(--paper-ink);
   --color-white: var(--white);
   --color-mut-d: var(--mut-d);
+  --color-mut-p: var(--mut-p);
   --color-line-d: var(--line-d);
+  --color-line-p: var(--line-p);
   --color-bg: var(--bg);
   --color-fg: var(--fg);
   --color-mut: var(--mut);
@@ -27,6 +35,11 @@
   --font-sans: var(--body);
   --font-display: var(--display);
   --font-mono: var(--mono);
+  --background-image-grid-lines: var(--grid-image);
+  --shadow-tooltip: var(--tt-shadow);
+  --animate-rise: rise .7s cubic-bezier(.2, .8, .2, 1) backwards;
+  --animate-marquee: marq 70s linear infinite;
+  --animate-fillup: fillup 1.4s .3s cubic-bezier(.2, .8, .2, 1) backwards;
 }
 
 @layer base {
@@ -37,23 +50,38 @@
   .on-paper :focus-visible { outline-color: var(--purple-deep); }
 }
 
-@layer components {
-  .in { max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
-  /* Display type: Archivo wdth 125 / 800. Sub-heads: wdth 112. */
-  .wide { font-family: var(--display); font-weight: 800; font-stretch: 125%; font-variation-settings: "wdth" 125; letter-spacing: -.03em; }
-  .semi { font-family: var(--display); font-weight: 800; font-variation-settings: "wdth" 112; letter-spacing: -.02em; }
-  /* Text link with a purple underline */
-  .linkbtn { padding: 0; background: none; border: 0; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
-  .linkbtn:hover { text-decoration-color: currentColor; }
-  /* Motion: one entrance on the Home and Halving heroes, and the category marquee */
-  .rise { animation: rise .7s cubic-bezier(.2, .8, .2, 1) backwards; }
-  .marquee { animation: marq 70s linear infinite; }
-  .fill-in { animation: fillup 1.4s .3s cubic-bezier(.2, .8, .2, 1) backwards; }
-  @media (prefers-reduced-motion: reduce) { .rise, .marquee, .fill-in { animation: none; } }
-  /* Chinese: no negative tracking, heavier display weight */
-  :lang(zh) .wide, :lang(zh) .semi { letter-spacing: 0; font-weight: 900; }
+/* The two colour scopes: they set the --bg --fg --mut --line --accent --surface tokens that
+   bg-*, text-*, border-* etc. consume, which no single utility can express. */
+@utility on-dark {
+  --bg: var(--page); --fg: var(--white); --mut: var(--mut-d); --line: var(--line-d);
+  --accent: var(--purple-hi); --surface: var(--ink);
+  background: var(--bg); color: var(--fg);
+}
+@utility on-paper {
+  --bg: var(--paper); --fg: var(--paper-ink); --mut: var(--mut-p); --line: var(--line-p);
+  --accent: var(--purple-deep); --surface: var(--white);
+  background: var(--bg); color: var(--fg);
+}
+/* Content column. */
+@utility in { max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+/* Display type: Archivo wdth 125 / 800; CJK gets weight 900 and no negative tracking. */
+@utility wide {
+  font-family: var(--display); font-weight: 800; font-stretch: 125%; font-variation-settings: "wdth" 125; letter-spacing: -.03em;
+  @variant zh { letter-spacing: 0; font-weight: 900; }
+}
+/* Sub-heads: wdth 112. */
+@utility semi {
+  font-family: var(--display); font-weight: 800; font-variation-settings: "wdth" 112; letter-spacing: -.02em;
+  @variant zh { letter-spacing: 0; font-weight: 900; }
+}
+/* Text link with a purple underline. */
+@utility linkbtn {
+  padding: 0; background: none; border: 0; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px;
+  &:hover { text-decoration-color: currentColor; }
 }
 
+/* Keyframes for the --animate-* tokens above; reduced motion is handled by
+   motion-reduce:animate-none at each call site. */
 @keyframes rise { from { opacity: 0; transform: translateY(26px); } }
 @keyframes marq { to { transform: translateX(-50%); } }
 @keyframes fillup { from { width: 0; } }

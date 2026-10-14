@@ -8,6 +8,7 @@ const ITEMS = [
   { key: "n_explore", href: "/explore", match: (p: string) => p.startsWith("/explore") },
   { key: "n_map", href: "/#map" },
   { key: "n_halving", href: "/halving", match: (p: string) => p.startsWith("/halving") },
+  { key: "n_stats", href: "/stats", match: (p: string) => p.startsWith("/stats") },
 ] as const;
 
 export function NavLinks() {
@@ -15,7 +16,7 @@ export function NavLinks() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label={t("nav")} className="ml-auto flex gap-6 max-[760px]:hidden">
+    <nav aria-label={t("nav")} className="ml-auto hidden gap-6 min-[761px]:flex">
       {ITEMS.map((it) => {
         const current = "match" in it && it.match(pathname);
         return (

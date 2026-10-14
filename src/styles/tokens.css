@@ -7,6 +7,15 @@
   --purple-hi: #9068ff;
   --purple-deep: #5a26e8;
   --purple-tint: #efe9ff;
+  /* Stats page: supply split and the hidden gift series */
+  --split-dao: #b7a0ff;
+  --split-notc: #6b6a7b;
+  --gift: #8a8999;
+  /* 64px hero grid and the chart tooltip shadow (utilities consume these via @theme). */
+  --grid-line: rgb(255 255 255 / 5%);
+  --grid-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  --tt-shadow: 0 12px 32px rgb(0 0 0 / 35%);
   --paper: #f3f2f7;
   --paper-ink: #15151c;
   --white: #ffffff;
@@ -26,26 +35,4 @@
 :root:lang(zh) {
   --display: var(--font-archivo), var(--font-noto-sc), 'PingFang SC', system-ui, sans-serif;
   --body: var(--font-archivo), var(--font-noto-sc), 'PingFang SC', system-ui, sans-serif;
-}
-
-.on-dark {
-  --bg: var(--page);
-  --fg: var(--white);
-  --mut: var(--mut-d);
-  --line: var(--line-d);
-  --accent: var(--purple-hi);
-  --surface: var(--ink);
-  background: var(--bg);
-  color: var(--fg);
-}
-
-.on-paper {
-  --bg: var(--paper);
-  --fg: var(--paper-ink);
-  --mut: var(--mut-p);
-  --line: var(--line-p);
-  --accent: var(--purple-deep);
-  --surface: var(--white);
-  background: var(--bg);
-  color: var(--fg);
 }

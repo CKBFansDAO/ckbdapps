@@ -10,7 +10,7 @@ export function HalvingStrip() {
   return (
     <section className="on-dark border-b border-line">
       <div className="in flex flex-wrap items-center justify-between gap-x-10 gap-y-[22px] py-[clamp(30px,4.5vw,52px)]">
-        <p className="wide m-0 text-[clamp(1.7rem,4.2vw,3.4rem)] leading-[1.1] [&:lang(zh)]:leading-[1.3]">
+        <p className="wide m-0 text-[clamp(1.7rem,4.2vw,3.4rem)] leading-[1.1] zh:leading-[1.3]">
           {t.rich("hs", {
             slot: () => (
               <Slot>

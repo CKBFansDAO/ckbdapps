@@ -17,12 +17,12 @@
 /* SlotSearch: the plug is the submit button */
 .slot-search { position: relative; max-width: 880px; }
 .slot-bar { --s: 10px; display: flex; align-items: stretch; height: clamp(64px, 9vw, 92px); }
-.slot-bar input { flex: 1; min-width: 0; padding-inline: clamp(16px, 3vw, 28px); background: rgba(18, 18, 24, .72); border: var(--s) solid var(--fg); border-right: 0; border-radius: 0; font-weight: 700; font-size: clamp(1.05rem, 2.5vw, 1.7rem); color: var(--fg); outline-offset: 6px; }
+.slot-bar input { flex: 1; min-width: 0; padding-inline: clamp(16px, 3vw, 28px); background: color-mix(in srgb, var(--page) 72%, transparent); border: var(--s) solid var(--fg); border-right: 0; border-radius: 0; font-weight: 700; font-size: clamp(1.05rem, 2.5vw, 1.7rem); color: var(--fg); outline-offset: 6px; }
 .slot-bar input::placeholder { color: var(--mut); opacity: 1; }
 .slot-bar input::-webkit-search-cancel-button { display: none; }
 .slot-bar .plug { flex: none; width: clamp(60px, 8vw, 92px); margin-block: var(--s); border: 0; background: var(--purple); color: var(--white); font-weight: 800; font-size: 1.05rem; transition: width .18s, background .18s; }
 .slot-bar .plug:hover, .slot-bar .plug:focus-visible, .slot-bar input:focus + .plug { background: var(--purple-hi); width: clamp(72px, 10vw, 120px); }
-.suggest { position: absolute; z-index: 5; left: 0; right: 0; top: 100%; margin: 8px 0 0; padding: 6px; list-style: none; background: var(--ink); color: var(--white); border: 1px solid var(--line-d); box-shadow: 0 24px 60px rgba(0, 0, 0, .5); }
+.suggest { position: absolute; z-index: 5; left: 0; right: 0; top: 100%; margin: 8px 0 0; padding: 6px; list-style: none; background: var(--ink); color: var(--white); border: 1px solid var(--line-d); box-shadow: 0 24px 60px color-mix(in srgb, black 50%, transparent); }
 .suggest [role="option"] { display: flex; align-items: center; gap: 14px; min-height: 44px; padding: 10px 12px; cursor: pointer; }
 .suggest [role="option"]:hover, .suggest [aria-selected="true"] { background: var(--purple); }
 .suggest .ic { width: 28px; flex: none; color: var(--purple-hi); }

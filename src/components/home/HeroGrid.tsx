@@ -8,8 +8,13 @@ import { useEffect, useRef, type ReactNode } from "react";
 // With prefers-reduced-motion the grid is static: no ambient animation and no ripples.
 
 const CS = 64;
-const PURPLE = "115,61,255"; // --purple
-const PURPLE_HI = "144,104,255"; // --purple-hi
+
+/** "r,g,b" triple of a hex token, so canvas rgba() fills stay in sync with tokens.css. */
+const rgbOf = (name: string) => {
+  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const n = parseInt(v.replace("#", ""), 16);
+  return `${n >> 16},${(n >> 8) & 255},${n & 255}`;
+};
 
 export function HeroGrid({ children }: { children: ReactNode }) {
   const heroRef = useRef<HTMLElement>(null);
@@ -21,6 +26,9 @@ export function HeroGrid({ children }: { children: ReactNode }) {
     const ctx = cv.getContext("2d");
     if (!ctx) return;
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const PURPLE = rgbOf("--purple"),
+      PURPLE_HI = rgbOf("--purple-hi"),
+      WHITE = rgbOf("--white");
     let W = 0, H = 0, cols = 0, rows = 0, mx = -9999, my = -9999, next = 0, raf = 0;
     let lit = new Float32Array(1);
     let rip: { x: number; y: number; t: number }[] = [];
@@ -44,7 +52,7 @@ export function HeroGrid({ children }: { children: ReactNode }) {
             if (dd < CS && rd < 900) l = Math.max(l, 0.95 * (1 - dd / CS) * (1 - rd / 900));
           }
           rr(x, y, s);
-          ctx.strokeStyle = "rgba(255,255,255,.07)";
+          ctx.strokeStyle = `rgba(${WHITE},.07)`;
           ctx.lineWidth = 1;
           ctx.stroke();
           const a = Math.max(p, l);

@@ -85,9 +85,9 @@ export function Countdown() {
   }
 
   return (
-    <section className="on-dark bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-size-[64px_64px] bg-position-[-1px_-1px] pt-[clamp(48px,8vw,104px)] pb-[clamp(44px,6vw,80px)]">
+    <section className="on-dark bg-grid-lines bg-size-[64px_64px] bg-position-[-1px_-1px] pt-[clamp(48px,8vw,104px)] pb-[clamp(44px,6vw,80px)]">
       <div className="in">
-        <h1 className="wide rise m-0 text-[clamp(2.6rem,8.4vw,7.2rem)] leading-[.94] [&:lang(zh)]:leading-[1.08]">{t("hv_title")}</h1>
+        <h1 className="wide m-0 animate-rise text-[clamp(2.6rem,8.4vw,7.2rem)] leading-[.94] zh:leading-[1.08] motion-reduce:animate-none">{t("hv_title")}</h1>
         {body}
       </div>
     </section>

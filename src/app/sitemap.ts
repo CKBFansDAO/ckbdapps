@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(""),
     entry("/explore"),
     entry("/halving"),
+    entry("/stats"),
     ...loadProjects().map((p) => entry(`/projects/${p.slug}`, p.verified)),
   ];
 }

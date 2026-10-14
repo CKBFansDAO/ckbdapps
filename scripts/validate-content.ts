@@ -7,7 +7,7 @@ import { formatIssues, LOGOS_DIR, readProjectFiles, readYaml } from "@/lib/conte
 import { Home, Project, SLUG } from "@/lib/content/schema";
 
 // Top-level paths that a project slug must not shadow (next.config.ts redirects /<slug> to the project page).
-const RESERVED = new Set(["en", "zh", "explore", "halving", "projects", "ecosystem", "events", "statistics", "api"]);
+const RESERVED = new Set(["en", "zh", "explore", "halving", "stats", "projects", "ecosystem", "events", "statistics", "api"]);
 
 const errors: string[] = [];
 const fail = (where: string, msgs: string[]) => msgs.forEach((m) => errors.push(`${where}: ${m}`));

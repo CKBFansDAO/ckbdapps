@@ -16,10 +16,10 @@ export function Hero({ items, placeholders, quick, stats }: Props) {
   return (
     <HeroGrid>
       <p className="m-0 text-base font-semibold text-mut">{t("kicker")}</p>
-      <h1 className="wide rise mt-[18px] mb-0 max-w-[13ch] text-[clamp(2.6rem,8.4vw,7.2rem)] leading-[.94] text-balance [&:lang(zh)]:max-w-[12em] [&:lang(zh)]:leading-[1.08]">
+      <h1 className="wide mt-[18px] mb-0 max-w-[13ch] animate-rise text-[clamp(2.6rem,8.4vw,7.2rem)] leading-[.94] text-balance zh:max-w-[12em] zh:leading-[1.08] motion-reduce:animate-none">
         {t.rich("h1", { slot: (chunks) => <Slot>{chunks}</Slot> })}
       </h1>
-      <div className="rise mt-[clamp(28px,5vw,56px)] [animation-delay:.12s]">
+      <div className="mt-[clamp(28px,5vw,56px)] animate-rise [animation-delay:.12s] motion-reduce:animate-none">
         <SlotSearch items={items} placeholders={placeholders} />
       </div>
       <div className="mt-[18px] flex flex-wrap items-center gap-x-2.5 gap-y-2 text-[.92rem] text-mut">

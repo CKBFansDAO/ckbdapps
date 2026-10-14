@@ -24,7 +24,7 @@ export function ProjectHero({ p, staleMonths }: Props) {
         >
           {t("back")}
         </Link>
-        <div className="mt-[clamp(20px,4vw,44px)] grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-[clamp(28px,5vw,64px)] gap-y-7 max-[720px]:grid-cols-1">
+        <div className="mt-[clamp(20px,4vw,44px)] grid grid-cols-1 items-start gap-x-[clamp(28px,5vw,64px)] gap-y-7 min-[721px]:grid-cols-[auto_minmax(0,1fr)]">
           <FramedAvatar slug={p.slug} logo={p.logo} />
           <div>
             <h1 className="wide m-0 text-[clamp(2.4rem,7.4vw,6rem)] leading-[.94] [overflow-wrap:anywhere]">{p.name}</h1>

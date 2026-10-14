@@ -16,7 +16,7 @@ type Props = {
 // In grid view a hovered card turns dark: re-point the scoped tokens so every child follows.
 const ROW = {
   list:
-    "grid-cols-[44px_minmax(0,1.1fr)_minmax(0,1.9fr)_7.5rem] items-center gap-4 border-b border-line py-3.5 pr-[18px] hover:bg-surface max-[760px]:grid-cols-[44px_minmax(0,1fr)]",
+    "grid-cols-[44px_minmax(0,1fr)] items-center gap-4 border-b border-line py-3.5 pr-[18px] hover:bg-surface min-[761px]:grid-cols-[44px_minmax(0,1.1fr)_minmax(0,1.9fr)_7.5rem]",
   grid:
     "min-h-[220px] grid-cols-1 content-start gap-[18px] bg-surface p-[18px] hover:bg-ink hover:[--accent:var(--purple-hi)] hover:[--fg:var(--white)] hover:[--line:var(--line-d)] hover:[--mut:var(--mut-d)]",
 };
@@ -24,7 +24,8 @@ const ROW = {
 export function ProjectList({ items, view, catLabels, groupLabels, communityLabel }: Props) {
   const grid = view === "grid";
   const icon = grid ? "size-16" : "size-[38px]";
-  const narrow = grid ? "" : "max-[760px]:col-start-2 max-[760px]:justify-self-start";
+  // List rows collapse to two columns on mobile: the tags and the community mark move to column 2.
+  const narrow = grid ? "" : "col-start-2 min-[761px]:col-start-auto";
 
   return (
     <ul
@@ -45,7 +46,7 @@ export function ProjectList({ items, view, catLabels, groupLabels, communityLabe
               <strong className="text-[1.1rem] leading-[1.2] [overflow-wrap:anywhere]">{it.name}</strong>
               <span className="text-[.85rem] text-mut">{groupLabels[it.group]}</span>
             </span>
-            <span className={`flex flex-wrap gap-1.5 ${narrow}`}>
+            <span className={`flex flex-wrap gap-1.5 justify-self-start min-[761px]:justify-self-auto ${narrow}`}>
               {(it.cats.length ? it.cats.map((c) => catLabels[c]) : [groupLabels[it.group]]).map((label) => (
                 <span key={label} className="border border-line px-2 py-px text-[.8rem] font-semibold text-mut">
                   {label}
@@ -53,7 +54,7 @@ export function ProjectList({ items, view, catLabels, groupLabels, communityLabe
               ))}
             </span>
             <span
-              className={`text-[.82rem] font-bold text-accent ${grid ? "justify-self-start" : `justify-self-end ${narrow} max-[760px]:-mt-1.5`}`}
+              className={`text-[.82rem] font-bold text-accent ${grid ? "justify-self-start" : `-mt-1.5 justify-self-start min-[761px]:mt-0 min-[761px]:justify-self-end ${narrow}`}`}
             >
               {it.community ? communityLabel : ""}
             </span>

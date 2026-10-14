@@ -26,7 +26,7 @@ export function EcoMap({ groups }: Props) {
           {groups.map((g) => (
             <div
               key={g.id}
-              className="grid grid-cols-[240px_minmax(0,1fr)] gap-x-8 gap-y-4 border-t border-line py-[26px] last:border-b max-[760px]:grid-cols-1"
+              className="grid grid-cols-1 gap-x-8 gap-y-4 border-t border-line py-[26px] last:border-b min-[761px]:grid-cols-[240px_minmax(0,1fr)]"
             >
               <div>
                 <h3 className="semi m-0 text-2xl leading-[1.1]">{g.label}</h3>
@@ -43,7 +43,7 @@ export function EcoMap({ groups }: Props) {
                       aria-label={c.name}
                       onMouseEnter={() => setActive(c)}
                       onFocus={() => setActive(c)}
-                      className={`grid size-10 place-items-center font-mono text-[.74rem] font-semibold no-underline transition-colors duration-100 hover:border-purple hover:bg-purple hover:text-white max-[520px]:size-[34px] max-[520px]:text-[.66rem] ${c.community ? "border-2 border-purple-hi text-purple-hi" : "border border-white/26"}`}
+                      className={`grid size-[34px] place-items-center font-mono text-[.66rem] font-semibold no-underline transition-colors duration-100 hover:border-purple hover:bg-purple hover:text-white min-[521px]:size-10 min-[521px]:text-[.74rem] ${c.community ? "border-2 border-purple-hi text-purple-hi" : "border border-white/26"}`}
                     >
                       {c.sym}
                     </Link>

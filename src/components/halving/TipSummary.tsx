@@ -1,17 +1,25 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { eraProgress, prevHalvingEpoch, SCHEDULE } from "@/lib/halving";
 import { fmtDate, fmtNum } from "./format";
 import { useHalving } from "./useHalving";
 
-const CELL =
-  "min-w-0 border-l border-line px-5 py-7 first:border-l-0 first:pl-0 max-[760px]:[&:nth-child(3)]:border-l-0 max-[760px]:[&:nth-child(3)]:pl-0 max-[760px]:[&:nth-child(n+3)]:border-t";
+const CELL = "min-w-0 border-line px-5 py-7";
+// Edges per cell index in the 2-col (mobile) -> 4-col (>=761px) grid: mobile opens the left
+// column and separates row 2; the desktop row only keeps internal left borders.
+const EDGE = [
+  "pl-0",
+  "border-l",
+  "border-t pl-0 min-[761px]:border-t-0 min-[761px]:border-l min-[761px]:pl-5",
+  "border-t border-l min-[761px]:border-t-0",
+] as const;
 
 /** While loading, `value` is a same-shaped placeholder drawn as a skeleton, so the row keeps its height. */
-function Cell({ value, sub, label, loading }: { value: string; sub?: string; label: string; loading?: boolean }) {
+function Cell({ i, value, sub, label, loading }: { i: number; value: string; sub?: string; label: string; loading?: boolean }) {
   return (
-    <div className={CELL}>
+    <div className={`${CELL} ${EDGE[i]}`}>
       <b
         className={`wide block text-[clamp(1.4rem,2.8vw,2.3rem)] leading-[1.05] [overflow-wrap:anywhere] ${loading ? "w-fit bg-fg/8 text-transparent motion-safe:animate-pulse" : ""}`}
       >
@@ -41,16 +49,17 @@ export function TipSummary() {
   return (
     <section className="on-dark bg-ink" aria-busy={!data}>
       <div className="in">
-        <div className="grid grid-cols-4 max-[760px]:grid-cols-2">
-          <Cell loading={!data} value={data ? n(data.tip.number) : ph.epoch} sub={data && `${data.tip.index}/${data.tip.length}`} label={t("hv_cur")} />
-          <Cell loading={!data} value={data ? n(data.blockNumber) : ph.block} label={t("hv_block")} />
+        <div className="grid grid-cols-2 min-[761px]:grid-cols-4">
+          <Cell i={0} loading={!data} value={data ? n(data.tip.number) : ph.epoch} sub={data && `${data.tip.index}/${data.tip.length}`} label={t("hv_cur")} />
+          <Cell i={1} loading={!data} value={data ? n(data.blockNumber) : ph.block} label={t("hv_block")} />
           <Cell
+            i={2}
             loading={!data}
             value={data ? n(data.target) : ph.epoch}
             sub={data && t("hv_togo", { n: n(data.target - data.tip.number) })}
             label={t("hv_next_e")}
           />
-          <Cell loading={!data} value={data ? fmtDate(data.estimate, locale) : ph.date} label={t("hv_est")} />
+          <Cell i={3} loading={!data} value={data ? fmtDate(data.estimate, locale) : ph.date} label={t("hv_est")} />
         </div>
         <div className="pt-3 pb-[clamp(40px,6vw,72px)]">
           <div className="mb-[22px] flex flex-wrap items-end justify-between gap-x-8 gap-y-3.5">
@@ -66,8 +75,8 @@ export function TipSummary() {
           >
             {data && (
               <div
-                className="fill-in absolute inset-y-0 left-0 flex items-center justify-end bg-purple pr-4 text-[1.4rem]"
-                style={{ width: `${pct.toFixed(2)}%` }}
+                className="absolute inset-y-0 left-0 flex w-(--w) animate-fillup items-center justify-end bg-purple pr-4 text-[1.4rem] motion-reduce:animate-none"
+                style={{ "--w": `${pct.toFixed(2)}%` } as CSSProperties}
               >
                 <span className="wide">{Math.round(pct)}%</span>
               </div>

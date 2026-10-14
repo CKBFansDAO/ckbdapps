@@ -280,3 +280,22 @@ After finishing a page, run these in order and keep the output in the PR:
 2. `accessibility-review` (WCAG 2.1 AA table, contrast and keyboard sections).
 3. A fresh review with no knowledge of your reasoning: give a second agent only the screenshots, the page code and the locked constraints above, and ask for P0/P1/P2 findings. Fix P0 and clear P1; report the rest.
 Skip any "elevation" or "make it look more polished" skill that imposes a generic palette or token set (Tailwind grays, uniform radii, soft shadows): it conflicts with the locked brand.
+
+---
+
+## Styling rules (Tailwind-first, no copied prototype CSS)
+
+The prototype HTML is a **visual reference only, never a code source**. Do not copy its CSS, its class names (`.st-hero`, `.kpis`, `.chart`, `.lg`, `.tt`, `.risk`, ...), or its structure. Re-express every component with Tailwind utilities and tokens. "Class names mirror the prototype so they are easy to compare" is not an acceptable reason to keep a global class.
+
+1. **Utilities in the component.** Style components with Tailwind classes in the TSX, co-located with the markup. No page-level or component-level global stylesheets (no `stats.css`, `risk.css`, ...).
+2. **Only these CSS files exist:** `tokens.css` (`@theme` tokens, `@custom-variant`s, keyframes registered in `@theme`), `slot.css` (the shared slot-and-plug motif only, because it relies on pseudo-elements), `globals.css` (reset, base, `@font-face`). A new rule in these needs a one-line comment saying why utilities cannot express it. Anything else needs the owner's approval.
+3. **Tokens generate utilities.** Declare colors, fonts, spacing steps and animations in `@theme` so they become `bg-purple`, `text-mut-p`, `stroke-purple-deep`, `animate-rise`. No hex or `rgba()` literals in TSX or CSS outside `tokens.css`; use opacity modifiers (`bg-purple/30`). No JS color constants like `const PC = "var(--purple-deep)"`: pass class names, or use `currentColor` with a `text-*` class.
+4. **`style={{}}` only for dynamic numbers** (positions, percentages). Set them as CSS variables inline and let the class consume them (`style={{ "--x": pct }}` + `left-[calc(var(--x)*1%)]`).
+5. **Mobile-first responsive.** `grid-cols-2 md:grid-cols-4`, never `max-width` media queries. Locale tweaks use a `zh` custom variant (`@custom-variant zh (&:where(:lang(zh-CN), :lang(zh-CN) *))`) and `zh:leading-[1.08]`, not `html[lang=...]` selectors.
+6. **Repetition becomes a component, not `@apply`.** If the same JSX block appears twice or more (for example the three chart sections), extract a component with typed props. Variants go through a small typed map. `@apply` is banned outside base styles. Ask before adding `clsx`, `tailwind-merge`, `cva` or `prettier-plugin-tailwindcss`.
+7. **SVG:** put classes on the SVG elements themselves (`<text className="fill-mut-p font-mono text-[11px]">`), not descendant selectors from a parent class. Use arbitrary properties where needed (`[vector-effect:non-scaling-stroke]`).
+8. **Arbitrary values** (`[...]`, `clamp()`, `calc()`) are fine for one-offs. If the same one appears 3+ times, promote it to a token.
+9. **Structure:** one concern per file, roughly 150 lines as a guideline. Data and state logic (hooks, `lib/`) stay out of presentation components. Chart math (scales, ticks, sparkline path, window clamping) lives in `lib/` with unit tests. No god components.
+10. **Refactors must not change the look.** Before and after screenshots at 1280 and 390, EN and ZH, must match; the UI quality gate must still pass.
+
+Acceptance for any page: no class name that exists only in a CSS file, no hex or rgba literal outside `tokens.css`, and no duplicated JSX blocks.

@@ -13,7 +13,7 @@ export function SiteFooter() {
       </div>
       <span
         aria-hidden="true"
-        className="wide block pb-2 text-[clamp(3rem,14.7vw,13rem)] leading-[.86] whitespace-nowrap text-transparent select-none [-webkit-text-stroke:1.5px_rgba(255,255,255,.34)]"
+        className="wide block pb-2 text-[clamp(3rem,14.7vw,13rem)] leading-[.86] whitespace-nowrap text-transparent select-none [-webkit-text-stroke:1.5px_color-mix(in_srgb,var(--color-white)_34%,transparent)]"
       >
         CKBdapps
       </span>
