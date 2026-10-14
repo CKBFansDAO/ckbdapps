@@ -91,6 +91,12 @@ export function ExploreView({ items, groups, catLabels }: Props) {
           {t("ex_cnt", { n: visible.length, t: items.length })}
         </p>
       </div>
+      <div className="in">
+        <div role="note" className="mb-5 flex items-start gap-3.5 border-2 border-ink bg-purple-tint py-3.5 pr-[18px]">
+          <span aria-hidden="true" className="-my-3.5 -ml-0.5 w-3 shrink-0 self-stretch border-r-2 border-ink bg-purple" />
+          <p className="m-0 text-[.95rem] leading-normal text-ink">{t.rich("ex_risk", { b: (c) => <b>{c}</b> })}</p>
+        </div>
+      </div>
       <Toolbar
         q={f.q}
         onQ={(q) => set({ q })}
