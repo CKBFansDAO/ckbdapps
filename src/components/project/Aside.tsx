@@ -26,13 +26,11 @@ function Tile({ value, label, sub }: { value: string; label: string; sub: string
   );
 }
 
-type SignalsProps = { github?: string; signals: RepoSignals | null; now: number };
-
-export function Signals({ github, signals, now }: SignalsProps) {
+export function Signals({ signals, now }: { signals: RepoSignals | null; now: number }) {
   const t = useTranslations();
   const locale = useLocale();
-  // A repo that GitHub could not answer for shows nothing rather than guessing.
-  if (github && !signals) return null;
+  // No github line or a repo GitHub could not answer for: the whole panel hides rather than guessing.
+  if (!signals) return null;
   const ago = (iso: string) => {
     const days = Math.max(0, Math.floor((now - Date.parse(iso)) / 86_400_000));
     return days < 60 ? t("ago_d", { n: days }) : t("ago_mo", { n: Math.round(days / 30) });
@@ -40,15 +38,9 @@ export function Signals({ github, signals, now }: SignalsProps) {
   return (
     <Panel title={t("sig_h")} note={t("sig_p")}>
       <div className="grid grid-cols-2 gap-2.5">
-        {signals ? (
-          <>
-            <Tile value={signals.license ?? t("sg_none")} label={t("sg_license")} sub="GitHub" />
-            {signals.lastCommit && <Tile value={ago(signals.lastCommit)} label={t("sg_commit")} sub="GitHub" />}
-            <Tile value={signals.stars.toLocaleString(locale)} label={t("sg_stars")} sub="GitHub" />
-          </>
-        ) : (
-          <p className="col-span-full m-0 border-2 border-dashed border-purple-hi p-4 text-[.9rem] text-mut">{t("sg_off")}</p>
-        )}
+        <Tile value={signals.license ?? t("sg_none")} label={t("sg_license")} sub="GitHub" />
+        {signals.lastCommit && <Tile value={ago(signals.lastCommit)} label={t("sg_commit")} sub="GitHub" />}
+        <Tile value={signals.stars.toLocaleString(locale)} label={t("sg_stars")} sub="GitHub" />
       </div>
     </Panel>
   );
@@ -56,7 +48,10 @@ export function Signals({ github, signals, now }: SignalsProps) {
 
 export function SourceFile({ slug, source }: { slug: string; source: string }) {
   const t = useTranslations();
-  const lines = source.replace(/\n+$/, "").split("\n");
+  const all = source.replace(/\n+$/, "").split("\n");
+  // Front matter only: up to and including the closing fence (falls back to the whole file if malformed).
+  const close = all.indexOf("---", 1);
+  const lines = close > 0 ? all.slice(0, close + 1) : all;
   return (
     <Panel title={t("src_h")} note={t("src_p", { n: lines.length })}>
       <p className="mt-0 mb-1.5 font-mono text-[.78rem] font-medium text-mut">{projectFilePath(slug)}</p>

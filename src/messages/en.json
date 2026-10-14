@@ -53,7 +53,6 @@
   "sg_commit": "Last commit",
   "sg_stars": "GitHub stars",
   "sg_none": "None found",
-  "sg_off": "Add a github line to the file to show license and activity.",
   "src_h": "The whole page is one file",
   "src_p": "{n} lines, written by the team. Everything else on this page is generated.",
   "ago_d": "{n}d",

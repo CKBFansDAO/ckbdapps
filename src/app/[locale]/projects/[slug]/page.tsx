@@ -64,7 +64,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
             <Similar projects={similarProjects(p, loadProjects())} />
           </div>
           <aside>
-            <Signals github={p.github} signals={signals} now={now} />
+            <Signals signals={signals} now={now} />
             <SourceFile slug={p.slug} source={p.source} />
           </aside>
         </div>
