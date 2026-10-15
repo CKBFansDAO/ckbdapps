@@ -63,8 +63,7 @@ pnpm test:e2e            # Playwright smoke tests
 │  │  └─ halving/   # Countdown, TipSummary, EraProgress, Schedule, Explainer
 │  ├─ lib/
 │  │  ├─ content/   # schema.ts, load.ts, derive.ts (groups, similar projects, staleness)
-│  │  ├─ github.ts  # reads src/data/github-signals.json (no network)
-│  │  ├─ github-source.ts  # batched GraphQL fetch + merge, used only by scripts/snapshot-github.ts
+│  │  ├─ github.ts  # repo signals from the ckbdapps backend (hourly cache)
 │  │  ├─ halving.ts # pure functions, unit tested
 │  │  └─ ckb-rpc.ts
 │  ├─ i18n/         # routing.ts, request.ts
@@ -90,7 +89,7 @@ export const Project = z.object({
   categories: z.array(z.enum(CATEGORY_IDS)).min(1), // from taxonomy.yaml only
   community: z.boolean().default(false),      // replaces the old "Community-Driven" category
   links: z.object({ x: z.string(), telegram: z.string(), discord: z.string(), docs: z.string().url() }).partial().optional(),
-  github: z.string().regex(/^[\w.-]+\/[\w.-]+$/).optional(),   // "owner/repo"; enables auto signals (read from the committed snapshot)
+  github: z.string().regex(/^[\w.-]+\/[\w.-]+$/).optional(),   // "owner/repo"; enables auto signals (signals come from the backend)
   contracts: z.array(z.object({ name: z.string(), code_hash: z.string().regex(/^0x[0-9a-f]{64}$/), hash_type: z.enum(['type', 'data', 'data1', 'data2']) })).optional(),
   audits: z.array(z.object({ label: z.string(), date: z.string(), url: z.string().url() })).optional(),
   verified: z.string().date(),                // bump when the team confirms the page is current
@@ -303,10 +302,9 @@ Acceptance for any page: no class name that exists only in a CSS file, no hex or
 
 ---
 
-## GitHub signals (snapshot, not build-time fetch)
+## GitHub signals (served by the ckbdapps backend)
 
-The site build must never call the GitHub API (rate limits grow with the number of projects, and a failed call must not blank a page).
-- `.github/workflows/github-signals.yml` runs daily and on demand: `pnpm snapshot:github` sends one batched GraphQL request per 50 repos and writes `src/data/github-signals.json` (`fetchedAt` plus license, last commit, stars per `owner/repo`). It commits only when a signal changed; that commit triggers the normal Netlify deploy.
-- A repo GitHub does not answer for (renamed, deleted, private) keeps its last good entry. An API-level failure (auth, rate limit, 5xx) exits non-zero and leaves the file untouched.
-- `src/lib/github.ts` only reads that file. No entry means the Signals panel is hidden, as before.
-- The workflow uses the built-in `GITHUB_TOKEN` (public repos need no extra secret). Run locally with a read-only token in `GITHUB_TOKEN`.
+The site never calls the GitHub API, and nothing in this repo has to be committed to keep signals fresh. The backend (the same one behind the stats page) does the GitHub work.
+- Endpoint: `GET https://api.ckbdapps.com/api/v1/nervos_explorers/github_signals` returns `{ "fetchedAt": ISO, "repos": { "owner/repo": { "license"?: SPDX, "lastCommit"?: ISO, "stars": number } } }` for every repo in `content/projects/*.md` `github:` (the backend can read the list from `/projects.json`).
+- Backend job (suggested): once a day, one GraphQL request per 50 repos (`repository(owner,name){ stargazerCount licenseInfo{spdxId} pushedAt defaultBranchRef{target{... on Commit{committedDate}}} }` as aliases), store the result, and keep the last good entry for a repo GitHub does not answer for (renamed, deleted, private). On auth, rate-limit or 5xx errors keep serving the stored data. A read-only token lives on the backend only.
+- `src/lib/github.ts` fetches that one endpoint on the server (revalidated hourly). If the backend is down the Signals panel hides; it never shows guessed numbers.

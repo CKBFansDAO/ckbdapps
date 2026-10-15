@@ -6,7 +6,7 @@ import { ProjectHero } from "@/components/project/ProjectHero";
 import { getBuildTime } from "@/lib/build-time";
 import { daysSince, isStale, pick, projectLinks, similarProjects } from "@/lib/content/derive";
 import { getProject, loadProjects } from "@/lib/content/load";
-import { getRepoSignals } from "@/lib/github";
+import { loadRepoSignals } from "@/lib/github";
 import { alternates } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -35,7 +35,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   if (!p) notFound();
 
   const now = await getBuildTime();
-  const signals = p.github ? getRepoSignals(p.github) : null;
+  const signals = p.github ? ((await loadRepoSignals())[p.github] ?? null) : null;
   const staleMonths = isStale(p.verified, now) ? Math.round(daysSince(p.verified, now) / 30) : null;
 
   const jsonLd = {
