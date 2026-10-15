@@ -35,7 +35,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   if (!p) notFound();
 
   const now = await getBuildTime();
-  const signals = p.github ? await getRepoSignals(p.github) : null;
+  const signals = p.github ? getRepoSignals(p.github) : null;
   const staleMonths = isStale(p.verified, now) ? Math.round(daysSince(p.verified, now) / 30) : null;
 
   const jsonLd = {

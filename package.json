@@ -12,7 +12,8 @@
     "test": "tsx --test \"src/**/*.test.ts\"",
     "test:e2e": "playwright test",
     "check:links": "tsx scripts/check-links.ts",
-    "snapshot:stats": "tsx scripts/snapshot-stats.ts"
+    "snapshot:stats": "tsx scripts/snapshot-stats.ts",
+    "snapshot:github": "tsx scripts/snapshot-github.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "5.104.1",
