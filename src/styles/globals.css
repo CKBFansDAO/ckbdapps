@@ -76,7 +76,7 @@
 }
 /* Text link with a purple underline. */
 @utility linkbtn {
-  padding: 0; background: none; border: 0; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px;
+  display: inline-block; padding: 3px 0; background: none; border: 0; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px;
   &:hover { text-decoration-color: currentColor; }
 }
 
