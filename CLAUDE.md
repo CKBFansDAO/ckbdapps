@@ -59,11 +59,11 @@ pnpm test:e2e            # Playwright smoke tests
 │  │  ├─ ui/        # Slot, SlotButton, SlotSearch, FramedAvatar, EmptySlot, Identicon, Tile
 │  │  ├─ home/      # Hero (cell-grid canvas), CategoryMarquee, HalvingStrip, Spotlight, EcoMap
 │  │  ├─ explore/   # Toolbar, FilterChips, ProjectList (list + grid)
-│  │  ├─ project/   # ProjectHero, About, Contracts, Audits, Signals, SourceFile, Similar
+│  │  ├─ project/   # ProjectHero, About, Activity, Contracts, Audits, SourceFile, Similar
 │  │  └─ halving/   # Countdown, TipSummary, EraProgress, Schedule, Explainer
 │  ├─ lib/
 │  │  ├─ content/   # schema.ts, load.ts, derive.ts (groups, similar projects, staleness)
-│  │  ├─ github.ts  # repo signals from the ckbdapps backend (hourly cache)
+│  │  ├─ activity.ts  # project activity from the ckbdapps backend (hourly cache)
 │  │  ├─ halving.ts # pure functions, unit tested
 │  │  └─ ckb-rpc.ts
 │  ├─ i18n/         # routing.ts, request.ts
@@ -89,7 +89,7 @@ export const Project = z.object({
   categories: z.array(z.enum(CATEGORY_IDS)).min(1), // from taxonomy.yaml only
   community: z.boolean().default(false),      // replaces the old "Community-Driven" category
   links: z.object({ x: z.string(), telegram: z.string(), discord: z.string(), docs: z.string().url() }).partial().optional(),
-  github: z.string().regex(/^[\w.-]+\/[\w.-]+$/).optional(),   // "owner/repo"; enables auto signals (signals come from the backend)
+  github: z.string().regex(/^[\w.-]+\/[\w.-]+$/).optional(),   // "owner/repo"; enables GitHub activity (collected by the backend)
   contracts: z.array(z.object({ name: z.string(), code_hash: z.string().regex(/^0x[0-9a-f]{64}$/), hash_type: z.enum(['type', 'data', 'data1', 'data2']) })).optional(),
   audits: z.array(z.object({ label: z.string(), date: z.string(), url: z.string().url() })).optional(),
   verified: z.string().date(),                // bump when the team confirms the page is current
@@ -98,7 +98,7 @@ export const Project = z.object({
 
 Rules:
 - The slug is the filename: lowercase, `[a-z0-9-]` only. Never derive anything from the original casing.
-- Everything else on a project page is **derived**, never hand-written: group, tags, similar projects, GitHub signals (license, last commit, stars), website status, "listed since", staleness. Do not reintroduce highlights, FAQ, transparency checklists, or colour classes in data.
+- Everything else on a project page is **derived**, never hand-written: group, tags, similar projects, activity (GitHub license, stars, commits, releases; X posts), website status, "listed since", staleness. Do not reintroduce highlights, FAQ, transparency checklists, or colour classes in data.
 - Stale rule: `verified` older than 365 days shows the stale notice on the page (see the "Out of date" preview in the prototype). Never hide the page.
 - A project with no logo gets the deterministic identicon from the prototype (`icon(slug)`: mirrored 5x5 grid seeded by an FNV hash of the slug). Port it to `Identicon.tsx` exactly.
 
@@ -163,7 +163,7 @@ Tokens (`src/styles/tokens.css`, copy values from the prototype's `:root`):
 
 **Explore**: sticky toolbar (filter input, group tabs with counts, community-only toggle, list/grid), category chips, paged list (30 per page + "Show more"), empty state with a clear action. A persistent **risk notice bar** sits under the page title (not dismissible; `role="note"`; `ex_risk` in the message files; replace the placeholder wording with the legacy `/ecosystem` risk text, confirm with owner). This page replaces legacy `/ecosystem`; no watch-list/favorites feature.
 
-**Project detail**: dark hero (framed avatar, name, group and category pills, tagline, Visit button, secondary links, verified date or stale notice) -> paper body: About (if present), On CKB contracts table (if present), Audits (if present), Similar projects (3, derived) -> side column: Signals tiles (derived) and the "source file" panel with an Edit on GitHub button. **Sections render only if their data exists; a 5-line file must still give a complete page.** The "Design preview: Full / Minimal / Out of date" bar in the prototype is demo-only; do not build it.
+**Project detail**: dark hero (framed avatar, name, group and category pills, tagline, Visit button, secondary links, verified date or stale notice) -> paper body: About (if present), Activity (if any), On CKB contracts table (if present), Audits (if present), Similar projects (3, derived) -> side column: the "source file" panel with an Edit on GitHub button. **Sections render only if their data exists; a 5-line file must still give a complete page.** The "Design preview: Full / Minimal / Out of date" bar in the prototype is demo-only; do not build it.
 
 **Halving**: hero (title, epoch and date line, d/h/m/s countdown with days in a Slot, Share on X) -> tip summary (current epoch + index, epochs to go, halving epoch, estimated date) + era progress bar (bracket with plug fill, dashed open slot at the right end) -> schedule list (11 rows, bar width proportional to daily reward, past / now / future states) -> explainer cards (what, why, how), inflation bars, block-reward parts.
 
@@ -218,7 +218,7 @@ Inputs (from CKBFansDAO/ckbdapps `master`): `public/dappList/dapps_list.json`, `
 - Ask before adding a dependency, a field to the schema, a new colour or a new decorative shape.
 - Prefer deleting code to adding configuration. No feature flags, no abstractions for a single use.
 - Keep components small; the slot motif components are the shared vocabulary.
-- Never commit secrets. The GitHub signals token is a read-only env var (`GITHUB_TOKEN`) set in Netlify and CI.
+- Never commit secrets. The site holds no GitHub or X tokens; they live on the backend only.
 - Every user-visible string goes through `next-intl`. Every external link has `rel="noopener"`.
 
 ---
@@ -227,7 +227,7 @@ Inputs (from CKBFansDAO/ckbdapps `master`): `public/dappList/dapps_list.json`, `
 
 ### Project page source panel
 Show **front matter only** (never the Markdown body); some projects have no About section.
-Signals panel: render only signals that really exist (link-check generated file, optional git first-commit date); hide the panel when empty.
+Activity section: render only what really exists; hide the whole section when there is nothing (see "Project activity").
 Open decision (owner): which field represents a private-repo project instead of a `github` line.
 
 ### Stats page (`/{locale}/stats`; legacy `/statistics` redirects here)
@@ -302,9 +302,39 @@ Acceptance for any page: no class name that exists only in a CSS file, no hex or
 
 ---
 
-## GitHub signals (served by the ckbdapps backend)
+## Project activity (collected and served by the ckbdapps backend)
 
-The site never calls the GitHub API, and nothing in this repo has to be committed to keep signals fresh. The backend (the same one behind the stats page) does the GitHub work.
-- Endpoint: `GET https://api.ckbdapps.com/api/v1/nervos_explorers/github_signals` returns `{ "fetchedAt": ISO, "repos": { "owner/repo": { "license"?: SPDX, "lastCommit"?: ISO, "stars": number } } }` for every repo in `content/projects/*.md` `github:` (the backend can read the list from `/projects.json`).
-- Backend job (suggested): once a day, one GraphQL request per 50 repos (`repository(owner,name){ stargazerCount licenseInfo{spdxId} pushedAt defaultBranchRef{target{... on Commit{committedDate}}} }` as aliases), store the result, and keep the last good entry for a repo GitHub does not answer for (renamed, deleted, private). On auth, rate-limit or 5xx errors keep serving the stored data. A read-only token lives on the backend only.
-- `src/lib/github.ts` fetches that one endpoint on the server (revalidated hourly). If the backend is down the Signals panel hides; it never shows guessed numbers.
+Purpose: let the community see at a glance whether a project is still alive. The site never calls GitHub or X, holds no tokens, and nothing has to be committed to keep activity fresh. Inputs are the existing `github: owner/repo` and `links.x` fields; no new schema fields.
+
+### 1. Project list sync (backend, automatic)
+- The source of truth is the site's own `/projects.json` (already validated by `pnpm validate:content`, already contains `slug`, `github`, `links.x`). The backend polls it hourly with `If-None-Match`; base URL is an env var (`PROJECTS_URL`) so it can point at the preview site before DNS switches.
+- Upsert `project(slug, github, x_handle)`. A slug that disappears is marked `removed_at` and its data is dropped after 30 days. Changing `github` or `x` in a PR simply changes the row; old events for that source are replaced on the next collect.
+- Adding a project = merge a PR. Deploy publishes `/projects.json`, the backend sees it within an hour. Optional: a Netlify "deploy succeeded" webhook calls the backend's sync endpoint for instant pickup. No manual step.
+
+### 2. Collectors (backend)
+- GitHub, every 6 h: one GraphQL request per 50 repos, as aliases: `stargazerCount`, `licenseInfo.spdxId`, `isArchived`, `pushedAt`, default-branch `history(since: 90d days, first: 100)` commit dates, latest 3 `releases`. Weekly commit counts are computed by the backend. A repo GitHub does not answer for keeps its last good data and is flagged `error` in the backend log. Auth, rate-limit or 5xx errors keep serving stored data. Read-only token on the backend only.
+- X, every 12 h: resolve handles to ids once (batch of 100, cached), then per account `GET /2/users/:id/tweets?since_id=<last>&max_results=5&exclude=retweets,replies`. With `since_id` only new posts are fetched and billed. Keep the latest 5 posts per project and 180 days of events. X is optional per deployment: if no X credentials are configured, the `x` block is simply absent and GitHub still works.
+- Status is computed in one place, the backend, from the newest of: last commit, release, X post.
+  `active` <= 30 days, `quiet` 31-90 days, `dormant` > 90 days, `archived` if the repo is archived, `unknown` if there is no source or it was never collected. `dormant` means "no public activity", not "dead": projects that build in private repos will read as quiet.
+
+### 3. API (one bulk call, a few hundred KB)
+`GET https://api.ckbdapps.com/api/v1/nervos_explorers/project_activity`
+```
+{ "updatedAt": ISO,
+  "projects": { "<slug>": {
+    "status": "active" | "quiet" | "dormant" | "archived" | "unknown",
+    "lastActivityAt": ISO | null,
+    "github"?: { "fetchedAt": ISO, "stars": n, "license"?: SPDX, "lastCommitAt"?: ISO,
+                 "commits30d": n, "commits90d": n, "weekly": [13 numbers, oldest first],
+                 "releases": [{ "tag", "name"?, "at": ISO, "url" }] },
+    "x"?:      { "fetchedAt": ISO, "handle": "...", "lastPostAt"?: ISO,
+                 "posts": [{ "id", "text", "at": ISO, "url" }] } } } }
+```
+A project with no `github` and no `x` has no entry. A source with no data has no block.
+
+### 4. Site (`src/lib/activity.ts`, `components/project/Activity.tsx`)
+- The backend only serves JSON and never writes or deploys any HTML. The Next.js site on Netlify fetches that JSON itself on the server (same mechanism as the stats page), revalidated hourly, one request shared by all 126 pages, and renders the section into the page. Failures are never cached for long: the section falls back to a one-line "Activity is unavailable right now" with direct links to the project's GitHub and X (only when the project has one), never to guessed numbers.
+- Section order on the project page: hero, About, Activity, Contracts, Audits, Similar. The old Signals panel is removed; license, stars and last commit move into Activity.
+- Content: header row with status (plug fill: full = active, half = quiet, empty dashed slot = dormant/unknown, always with a text label), "last activity N days ago" and "updated N hours ago from GitHub and X". Two columns on desktop, stacked on mobile, each hidden when its source is absent: GitHub (13 weekly commit bars with a table alternative, last commit, latest release, stars, license) and X (latest 3 posts as plain text with date, linking out to x.com). The whole section hides when there is no data and no github/x link.
+- No reserved status colours; status uses the existing purple tokens and the slot motif only.
+- Posts are rendered as plain text, escaped, truncated, with the post URL as the link (check X display terms before shipping).
