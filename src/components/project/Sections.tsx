@@ -7,7 +7,7 @@ import { Tile } from "../ui/Tile";
 
 // Main column of the project page. Each section renders only when its data exists.
 
-function Section({ title, children }: { title: string; children: ReactNode }) {
+export function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="mt-12 first:mt-0">
       <h2 className="semi mt-0 mb-[18px] text-[1.8rem] leading-none">{title}</h2>

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Activity } from "@/components/project/Activity";
+import { SourceFile } from "@/components/project/Aside";
 import { About, Audits, Contracts, Similar } from "@/components/project/Sections";
-import { Signals, SourceFile } from "@/components/project/Aside";
 import { ProjectHero } from "@/components/project/ProjectHero";
+import { loadActivity } from "@/lib/activity";
 import { getBuildTime } from "@/lib/build-time";
 import { daysSince, isStale, pick, projectLinks, similarProjects } from "@/lib/content/derive";
 import { getProject, loadProjects } from "@/lib/content/load";
-import { loadRepoSignals } from "@/lib/github";
 import { alternates } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -35,7 +36,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   if (!p) notFound();
 
   const now = await getBuildTime();
-  const signals = p.github ? ((await loadRepoSignals())[p.github] ?? null) : null;
+  const activity = await loadActivity();
   const staleMonths = isStale(p.verified, now) ? Math.round(daysSince(p.verified, now) / 30) : null;
 
   const jsonLd = {
@@ -59,12 +60,12 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
         <div className="in grid grid-cols-1 items-start gap-x-[clamp(28px,5vw,64px)] gap-y-10 min-[961px]:grid-cols-[minmax(0,1fr)_340px]">
           <div>
             <About body={p.body} />
+            <Activity entry={activity?.[p.slug]} repo={p.github} unavailable={activity === null} />
             <Contracts contracts={p.contracts} />
             <Audits audits={p.audits} />
             <Similar projects={similarProjects(p, loadProjects())} />
           </div>
           <aside>
-            <Signals signals={signals} now={now} />
             <SourceFile slug={p.slug} source={p.source} />
           </aside>
         </div>
