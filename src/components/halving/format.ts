@@ -7,5 +7,3 @@ export const fmtDate = (t: number | string, locale: string) =>
   new Intl.DateTimeFormat(tag(locale), { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(
     typeof t === "string" ? Date.parse(`${t}T00:00:00Z`) : t,
   );
-
-export const DAY = 86_400_000;

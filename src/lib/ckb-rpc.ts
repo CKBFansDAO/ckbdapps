@@ -11,6 +11,8 @@ async function call<T>(method: string, params: unknown[]): Promise<T> {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ id: ++id, jsonrpc: "2.0", method, params }),
+    // A node that never answers must end in the error state (with retry), not an endless skeleton.
+    signal: AbortSignal.timeout(15_000),
   });
   if (!res.ok) throw new Error(`CKB RPC ${method}: HTTP ${res.status}`);
   const body = (await res.json()) as { result?: T; error?: { message: string } };

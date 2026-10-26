@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { type ActivityEntry, day, type Status } from "@/lib/activity-source";
 import { CommitBars } from "./CommitBars";
@@ -25,7 +25,7 @@ function StatusMark({ status }: { status: Status }) {
   );
 }
 
-function Fact({ label, children }: { label: string; children: React.ReactNode }) {
+function Fact({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="flex justify-between gap-4 border-b border-line py-2.5">
       <dt className="text-mut">{label}</dt>
@@ -40,7 +40,6 @@ type Props = { entry?: ActivityEntry; repo?: string; unavailable: boolean };
 export function Activity({ entry, repo, unavailable }: Props) {
   const t = useTranslations();
   const locale = useLocale();
-  const link = "underline decoration-accent decoration-2 underline-offset-4";
 
   if (!entry?.github) {
     // The backend is down: say so and point at the repo instead of guessing. No github line, nothing to show.
@@ -49,7 +48,7 @@ export function Activity({ entry, repo, unavailable }: Props) {
       <Section title={t("act_h")}>
         <p className="m-0">
           {t("act_down")}{" "}
-          <a className={`font-bold ${link}`} href={`https://github.com/${repo}`} target="_blank" rel="noopener">
+          <a className="linkbtn" href={`https://github.com/${repo}`} target="_blank" rel="noopener">
             {t("act_open_gh")}
           </a>
         </p>
@@ -80,7 +79,7 @@ export function Activity({ entry, repo, unavailable }: Props) {
           <Fact label={t("act_c90")}>{g.commits90d.toLocaleString(locale)}</Fact>
           {release && (
             <Fact label={t("act_release")}>
-              <a className={link} href={release.url} target="_blank" rel="noopener">
+              <a className="linkbtn" href={release.url} target="_blank" rel="noopener">
                 {release.name || release.tag}
               </a>{" "}
               <span className="font-mono text-[.85rem] font-medium text-mut">{day(release.at)}</span>
@@ -93,7 +92,7 @@ export function Activity({ entry, repo, unavailable }: Props) {
       <p className="mt-5 mb-0 max-w-[62ch] font-mono text-[.8rem] font-medium text-mut">
         {repo && (
           <>
-            <a className={link} href={`https://github.com/${repo}`} target="_blank" rel="noopener">
+            <a className="linkbtn" href={`https://github.com/${repo}`} target="_blank" rel="noopener">
               github.com/{repo}
             </a>
             {" · "}

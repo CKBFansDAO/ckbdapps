@@ -27,7 +27,7 @@ export function Toolbar({ q, onQ, groups, total, group, onGroup, community, onCo
   );
 
   return (
-    <div className="sticky top-[calc(var(--hh)+env(safe-area-inset-top,0px))] z-30 border-y-2 border-fg bg-bg">
+    <div className="static border-y-2 border-fg bg-bg sm:sticky sm:top-[calc(var(--hh)+env(safe-area-inset-top,0px))] sm:z-30">
       <div className="in flex flex-wrap items-center gap-x-5 gap-y-2.5 py-3">
         {/* A small slot: the filter field is the bracket, the plug grows while it has focus */}
         <div className="flex h-[46px] min-w-0 flex-[1_1_260px]">

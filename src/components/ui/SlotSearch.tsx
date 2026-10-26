@@ -67,7 +67,8 @@ export function SlotSearch({ items, placeholders }: { items: SearchItem[]; place
     e.preventDefault();
     if (expanded && sel > -1) return openProject(matches[sel].slug);
     setOpen(false);
-    router.push(v ? { pathname: "/explore", query: { q: v } } : "/explore");
+    // Keep what was typed (Explore matches case-insensitively); `v` is only the lowercased needle.
+    router.push(v ? { pathname: "/explore", query: { q: q.trim() } } : "/explore");
   };
 
   return (

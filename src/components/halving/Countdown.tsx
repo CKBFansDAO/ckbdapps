@@ -5,7 +5,7 @@ import { countdown, EPOCHS_PER_HALVING } from "@/lib/halving";
 import { SITE_URL } from "@/lib/site";
 import { Slot } from "../ui/Slot";
 import { SlotButton } from "../ui/SlotButton";
-import { DAY, fmtDate, fmtNum } from "./format";
+import { fmtDate, fmtNum } from "./format";
 import { useHalving, useNow } from "./useHalving";
 
 const UNIT_RESET = "font-sans text-base font-semibold tracking-normal text-mut [font-stretch:100%] [font-variation-settings:normal]";
@@ -94,9 +94,9 @@ export function Countdown() {
   );
 }
 
-/** Day count for the home page strip; an ellipsis until the chain answers. */
+/** Day count for the home page strip, the same number as the countdown's days; an ellipsis until the chain answers. */
 export function HalvingDays() {
   const { data } = useHalving();
   const now = useNow();
-  return data && now ? Math.max(0, Math.ceil((data.estimate - now) / DAY)) : "…";
+  return data && now ? countdown(data.estimate - now).days : "…";
 }

@@ -66,7 +66,7 @@ export const Project = z
       .strict()
       .partial()
       .optional(),
-    github: z.string().regex(/^[\w.-]+\/[\w.-]+$/, 'must be "owner/repo"').optional(), // enables auto signals
+    github: z.string().regex(/^[\w.-]+\/[\w.-]+$/, 'must be "owner/repo"').optional(), // enables the Activity section (collected by the backend)
     contracts: z
       .array(
         z
