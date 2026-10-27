@@ -31,9 +31,9 @@
 .suggest .c { margin-left: auto; color: var(--mut-d); font-size: .82rem; }
 .suggest [role="option"]:hover .c, .suggest [aria-selected="true"] .c { color: var(--white); }
 
-/* FramedAvatar */
+/* FramedAvatar. --avatar-plug lets a purple hover surface flip the plug to white. */
 .framed { --plug: clamp(26px, 4vw, 44px); position: relative; width: clamp(104px, 17vw, 190px); aspect-ratio: 1; margin-right: var(--plug); padding: clamp(10px, 1.8vw, 20px); border: clamp(9px, 1.6vw, 16px) solid var(--fg); border-right: 0; }
-.framed::after { content: ""; position: absolute; right: calc(-1 * var(--plug)); top: 0; bottom: 0; width: var(--plug); background: var(--purple); }
+.framed::after { content: ""; position: absolute; right: calc(-1 * var(--plug)); top: 0; bottom: 0; width: var(--plug); background: var(--avatar-plug, var(--purple)); }
 .framed .ic { width: 100%; height: auto; color: var(--purple-hi); }
 
 /* EmptySlot: dashed plug, the slot is open */
@@ -43,21 +43,6 @@
 .empty-slot strong { font-size: 1.3rem; line-height: 1.1; }
 .empty-slot span { color: var(--mut); font-size: .9rem; }
 
-/* Tile */
-.tile { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-width: 0; aspect-ratio: 4 / 4.6; padding: 20px; background: var(--ink); color: var(--white); text-align: left; text-decoration: none; border: 0; transition: background .18s; }
-.tile .ic { width: 46%; color: var(--purple-hi); transition: color .18s; }
-.tile h3 { margin: 0; font-size: clamp(1.35rem, 2.3vw, 1.9rem); line-height: 1; overflow-wrap: anywhere; }
-.tile p { margin: 8px 0 0; color: var(--mut-d); font-size: .85rem; }
-.tile:hover { background: var(--purple); }
-.tile:hover .ic, .tile:hover p { color: var(--white); }
-.tile.alt { background: transparent; color: var(--fg); border: 2px solid var(--fg); }
-.tile.alt .ic { color: var(--accent); }
-.tile.alt p { color: var(--mut); }
-.tile.alt:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
-.tile.alt:hover .ic, .tile.alt:hover p { color: var(--white); }
-.tile.sm { aspect-ratio: 1 / 1.15; padding: 14px; gap: 16px; }
-.tile.sm h3 { font-size: 1.15rem; }
-
 @media (prefers-reduced-motion: reduce) {
-  .btn, .btn::after, .slot-bar .plug, .empty-slot::after, .tile, .tile .ic { transition: none; }
+  .btn, .btn::after, .slot-bar .plug, .empty-slot::after { transition: none; }
 }

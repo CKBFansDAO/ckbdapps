@@ -7,7 +7,8 @@ import { Tile } from "../ui/Tile";
 type TileData = { slug: string; name: string; meta: string; logo?: string };
 type Props = { featured: TileData[]; community: TileData[]; grants: { slug: string; name: string; amount: string }[] };
 
-const TILES = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,250px),1fr))] gap-3.5";
+// From 640px, three columns hold the six featured and three community picks without an orphan row.
+const TILES = "grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-3.5";
 
 export function Spotlight({ featured, community, grants }: Props) {
   const t = useTranslations();
@@ -30,12 +31,12 @@ export function Spotlight({ featured, community, grants }: Props) {
             <Tile key={p.slug} alt {...p} />
           ))}
         </div>
-        <div className="mt-[clamp(32px,5vw,56px)] grid grid-cols-1 gap-3.5 min-[821px]:grid-cols-[minmax(0,1.2fr)_repeat(2,minmax(0,1fr))]">
+        <div className="mt-[clamp(32px,5vw,56px)] grid grid-cols-1 gap-3.5 sm:grid-cols-[minmax(0,1.2fr)_repeat(2,minmax(0,1fr))]">
           {grants.map((g) => (
-            <div key={g.slug} className="flex min-h-[190px] flex-col justify-between gap-7 bg-ink p-6 text-white">
+            <div key={g.slug} className="flex min-h-[150px] flex-col justify-between gap-7 bg-ink sm:min-h-[190px] p-5 sm:p-6 text-white">
               <h3 className="m-0 text-[1.15rem] font-bold text-mut-d">{t("gr_h")}</h3>
               <div>
-                <div className="wide text-[clamp(2rem,4vw,3rem)] leading-none">{g.amount}</div>
+                <div className="wide text-[clamp(1.75rem,3.6vw,3rem)] leading-none">{g.amount}</div>
                 <small className="mt-2 block text-[.9rem] text-mut-d">
                   <Link href={`/projects/${g.slug}`} className="text-white">
                     {g.name}
@@ -46,7 +47,8 @@ export function Spotlight({ featured, community, grants }: Props) {
             </div>
           ))}
           <EmptySlot href={REPO_URL} title={t("gr_open")} cta={t("gr_cta")} />
-          <EmptySlot href={REPO_URL} title={t("gr_open")} cta={t("gr_cta")} />
+          {/* On phones one open slot makes the point; a second identical card is just scroll. */}
+          <EmptySlot href={REPO_URL} title={t("gr_open")} cta={t("gr_cta")} className="max-sm:hidden" />
         </div>
       </div>
     </section>

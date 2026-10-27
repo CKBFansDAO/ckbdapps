@@ -20,7 +20,10 @@ function legacyRedirects() {
 }
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // `next dev` refuses its HMR socket to any host but localhost, and without it the page never hydrates:
+  // opened from a phone at the laptop's LAN address, every button and client-side link is dead.
+  // Allow private networks and mDNS names so the dev server can be tested on real devices.
+  allowedDevOrigins: ["192.168.*.*", "10.*.*.*", "172.*.*.*", "*.local"],
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
