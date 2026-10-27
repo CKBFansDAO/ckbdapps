@@ -87,17 +87,19 @@ test("just halved for about 30 days after a halving", () => {
   assert.ok(!justHalved({ number: 100, index: 0, length: 1800 }));
 });
 
-test("countdown units: days above 30 days, hours below", () => {
+test("countdown units: days from one day up, hours/minutes/seconds below", () => {
   const D = 86_400_000;
-  assert.deepEqual(
-    countdown(40 * D + 3_723_000).parts.map((p) => p.unit),
-    ["d", "h", "m", "s"],
-  );
-  const c = countdown(29 * D + 3_723_000);
-  assert.deepEqual(c.parts, [
-    { unit: "h", value: 29 * 24 + 1 },
+  assert.deepEqual(countdown(29 * D + 3_723_000).parts, [
+    { unit: "d", value: 29 },
+    { unit: "h", value: 1 },
     { unit: "m", value: 2 },
     { unit: "s", value: 3 },
+  ]);
+  assert.deepEqual(countdown(D).parts.map((p) => p.unit), ["d", "h", "m", "s"]);
+  assert.deepEqual(countdown(D - 1000).parts, [
+    { unit: "h", value: 23 },
+    { unit: "m", value: 59 },
+    { unit: "s", value: 59 },
   ]);
   assert.deepEqual(countdown(-5).parts.map((p) => p.value), [0, 0, 0]);
 });

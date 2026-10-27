@@ -10,8 +10,6 @@ export const AVG_WINDOW_EPOCHS = 1000;
 /** About 30 days of epochs: after a halving, show it as completed for this long. */
 export const JUST_HALVED_EPOCHS = 30 * 6;
 
-const DAY = 86_400_000;
-
 export type Epoch = { number: number; index: number; length: number };
 
 /** Packed header epoch: length = bits 40..55, index = bits 24..39, number = bits 0..23. */
@@ -84,8 +82,8 @@ export type CountdownUnit = "d" | "h" | "m" | "s";
 export type Countdown = { parts: { unit: CountdownUnit; value: number }[]; days: number };
 
 /**
- * >= 30 days: days, hours, minutes, seconds.
- * < 30 days: hours become the primary unit (total hours), then minutes and seconds.
+ * >= 1 day: days, hours, minutes, seconds (the page drops seconds on phones so the row fits).
+ * < 1 day: hours, minutes, seconds.
  */
 export function countdown(msLeft: number): Countdown {
   const s = Math.max(0, Math.floor(msLeft / 1000));
@@ -94,7 +92,7 @@ export function countdown(msLeft: number): Countdown {
   const m = Math.floor((s % 3600) / 60);
   const sec = s % 60;
   const parts: Countdown["parts"] =
-    msLeft >= 30 * DAY
+    days >= 1
       ? [
           { unit: "d", value: days },
           { unit: "h", value: h },
@@ -102,7 +100,7 @@ export function countdown(msLeft: number): Countdown {
           { unit: "s", value: sec },
         ]
       : [
-          { unit: "h", value: Math.floor(s / 3600) },
+          { unit: "h", value: h },
           { unit: "m", value: m },
           { unit: "s", value: sec },
         ];

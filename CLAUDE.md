@@ -175,7 +175,7 @@ Source: `src/components/halving/*`, `src/hooks/useCKBHalving.jsx`, `src/utils/he
 - The prototype uses a **fixed target date (2027-11-17) and a mock tip**. Replace with the real RPC logic. Show the "latest block" cell again (the prototype swapped it for "epochs to go").
 - Schedule table rows and numbers: take them from the legacy markdown table, store as typed data in `src/lib/halving.ts`, and unit-test the arithmetic (reward halves per era, era issuance halves).
 - Add states the prototype lacks: loading skeleton, RPC failure with retry, "just halved" (within about 30 days after a halving, show the completed halving instead of a countdown).
-- `<30 days` -> show hours as the primary unit; `<1 day` -> hours, minutes, seconds.
+- `>=1 day` -> days, hours, minutes (seconds too from 640px up, so the row never wraps on phones); `<1 day` -> hours, minutes, seconds on every screen.
 
 ## i18n
 
