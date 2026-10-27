@@ -9,6 +9,8 @@ import { getProject, loadHome, loadProjects, type ProjectEntry } from "@/lib/con
 import { taxonomy } from "@/lib/content/schema";
 
 const QUICK = ["Wallet", "DEX", "DOBs", "RGB++", "Fiber"];
+// Dropped on phones so the chips stay on one line.
+const QUICK_WIDE_ONLY = new Set(["DEX"]);
 
 export default function HomePage() {
   const locale = useLocale();
@@ -32,7 +34,7 @@ export default function HomePage() {
       <Hero
         items={projects.map((p) => ({ slug: p.slug, name: p.name, tags: labels(p) }))}
         placeholders={[...home.featured, ...home.community_picks].map((s) => getProject(s)!.name)}
-        quick={QUICK.map((id) => ({ id, label: categoryLabel(id, locale) }))}
+        quick={QUICK.map((id) => ({ id, label: categoryLabel(id, locale), wideOnly: QUICK_WIDE_ONLY.has(id) }))}
         stats={{
           projects: projects.length,
           groups: taxonomy.groups.length,

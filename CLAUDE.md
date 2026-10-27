@@ -158,7 +158,7 @@ Tokens (`src/styles/tokens.css`, copy values from the prototype's `:root`):
 
 ## Pages (what the prototype shows)
 
-**Home**: hero (headline with `CKB` in a Slot, search with suggestions, quick category chips, three stats) -> category marquee (purple band) -> halving strip ("CKB halves in N days") -> Spotlight (featured tiles, community tiles, Spark Granted + two EmptySlots) -> Ecosystem map.
+**Home**: hero (headline with `CKB` in a Slot, search with suggestions, quick category chips, three stats) -> category marquee (purple band) -> halving strip ("CKB halves in N days", from 640px; phones skip it) -> Spotlight (featured tiles, community tiles, Spark Granted + two EmptySlots) -> Ecosystem map.
 - Positioning: **Map = overview and entry point** (every project is one cell, grouped; clicking a group goes to Explore with that filter). **Explore = the searchable directory.** **Home = curated layer.** Do not make the map a second list.
 
 **Explore**: sticky toolbar (filter input, group tabs with counts, community-only toggle, list/grid), category chips, paged list (30 per page + "Show more"), empty state with a clear action. A persistent **risk notice bar** sits under the page title (not dismissible; `role="note"`; `ex_risk` in the message files; replace the placeholder wording with the legacy `/ecosystem` risk text, confirm with owner). This page replaces legacy `/ecosystem`; no watch-list/favorites feature.

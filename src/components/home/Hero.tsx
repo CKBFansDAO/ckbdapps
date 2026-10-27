@@ -7,7 +7,7 @@ import { HeroGrid } from "./HeroGrid";
 type Props = {
   items: SearchItem[];
   placeholders: string[];
-  quick: { id: string; label: string }[];
+  quick: { id: string; label: string; wideOnly?: boolean }[];
   stats: { projects: number; groups: number; community: number };
 };
 
@@ -28,13 +28,14 @@ export function Hero({ items, placeholders, quick, stats }: Props) {
           <Link
             key={c.id}
             href={{ pathname: "/explore", query: { cat: c.id } }}
-            className="relative border border-line px-3 py-[5px] text-[.88rem] font-semibold text-fg no-underline before:absolute before:inset-x-0 before:-inset-y-1 hover:border-white hover:bg-white hover:text-ink"
+            className={`${c.wideOnly ? "hidden sm:inline" : ""} relative border border-line px-3 py-[5px] text-[.88rem] font-semibold text-fg no-underline before:absolute before:inset-x-0 before:-inset-y-1 hover:border-white hover:bg-white hover:text-ink`}
           >
             {c.label}
           </Link>
         ))}
       </div>
-      <dl className="mt-[clamp(36px,6vw,72px)] mb-0 flex flex-wrap gap-x-[clamp(28px,6vw,72px)] gap-y-5 p-0">
+      {/* Phones: three equal columns, centred under the full-width search. Wider: a left-aligned row. */}
+      <dl className="mt-[clamp(36px,6vw,72px)] mb-0 grid grid-cols-3 gap-x-2 p-0 text-center sm:flex sm:flex-wrap sm:gap-x-[clamp(28px,6vw,72px)] sm:gap-y-5 sm:text-left">
         {(
           [
             ["st_p", stats.projects],
@@ -42,8 +43,8 @@ export function Hero({ items, placeholders, quick, stats }: Props) {
             ["st_c", stats.community],
           ] as const
         ).map(([k, n]) => (
-          <div key={k} className="flex flex-col-reverse">
-            <dt className="text-[.95rem] font-semibold text-mut">
+          <div key={k} className="flex flex-col-reverse justify-end">
+            <dt className="text-[.85rem] font-semibold text-mut sm:text-[.95rem]">
               {t(k)}
             </dt>
             <dd className="wide m-0 text-[clamp(2.2rem,5vw,3.8rem)] leading-none">{n}</dd>

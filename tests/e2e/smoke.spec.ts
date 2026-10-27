@@ -50,10 +50,12 @@ test("header: the phone menu opens, and Escape closes it and returns focus", asy
   await expect(menu).toBeFocused();
 });
 
-test("home: halving strip shows the live day count", async ({ page }) => {
+test("home: halving strip shows the live day count (not on phones)", async ({ page, isMobile }) => {
   await mockRpc(page);
   await page.goto("/en");
-  await expect(page.getByText(/CKB halves in/)).toContainText(/\d+/);
+  const strip = page.getByText(/CKB halves in/);
+  if (isMobile) await expect(strip).toBeHidden();
+  else await expect(strip).toContainText(/\d+/);
   await noSideScroll(page);
 });
 
