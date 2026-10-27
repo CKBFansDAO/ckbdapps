@@ -16,7 +16,7 @@ const ITEMS = [
 const ROW =
   "flex min-h-12 items-center gap-3.5 border-b border-line text-[1.05rem] font-bold text-mut no-underline hover:text-fg aria-[current=page]:text-fg before:size-[9px] before:flex-none before:border before:border-fg/45 before:content-[''] aria-[current=page]:before:border-purple-hi aria-[current=page]:before:bg-purple";
 
-/** Desktop nav row; below 761px a disclosure menu replaces it (the prototype hides nav there,
+/** Desktop nav row; below 1024px a disclosure menu replaces it (the prototype hides nav on phones,
     which leaves Stats and Map unreachable on phones). The trigger uses order-last so it lands
     after the language switch at the far edge. */
 export function NavLinks() {
@@ -39,7 +39,7 @@ export function NavLinks() {
 
   return (
     <>
-      <nav aria-label={t("nav")} className="ml-auto hidden gap-6 min-[761px]:flex">
+      <nav aria-label={t("nav")} className="ml-auto hidden gap-6 lg:flex">
         {ITEMS.map((it) => {
           const current = "match" in it && it.match(pathname);
           return (
@@ -61,7 +61,7 @@ export function NavLinks() {
         aria-expanded={open}
         aria-controls="mobile-nav"
         onClick={() => setOpen((v) => !v)}
-        className="order-last inline-flex size-10 flex-none touch-manipulation items-center justify-center border-2 border-fg text-fg hover:bg-fg hover:text-ink active:bg-fg active:text-ink min-[761px]:hidden"
+        className="order-last inline-flex size-10 flex-none touch-manipulation items-center justify-center border-2 border-fg text-fg hover:bg-fg hover:text-ink active:bg-fg active:text-ink lg:hidden"
       >
         {open ? (
           <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" className="block">
@@ -83,13 +83,13 @@ export function NavLinks() {
             <div
               aria-hidden="true"
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-40 bg-page/70 min-[761px]:hidden"
+              className="fixed inset-0 z-40 bg-page/70 lg:hidden"
             />,
             document.body,
           )}
           <div
             id="mobile-nav"
-            className="absolute inset-x-0 top-full border-b-2 border-fg bg-ink min-[761px]:hidden"
+            className="absolute inset-x-0 top-full border-b-2 border-fg bg-ink lg:hidden"
           >
             <nav aria-label={t("nav")} className="in flex flex-col py-2">
               {ITEMS.map((it) => {

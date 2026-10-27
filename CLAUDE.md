@@ -40,7 +40,7 @@ pnpm test:e2e            # Playwright smoke tests
 │  └─ taxonomy.yaml               # categories, groups, aliases
 ├─ public/
 │  ├─ logos/<slug>.webp           # square, <=256px; missing logo falls back to the identicon
-│  └─ brand/                      # logo + favicon (the logo must not change)
+│  └─ brand/                      # logo.png (square: favicon, OG, Apple icon), logo-wordmark.png (header); the logo must not change
 ├─ src/
 │  ├─ app/
 │  │  ├─ [locale]/
