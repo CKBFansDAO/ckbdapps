@@ -1,5 +1,5 @@
 /**
- * One-off: legacy ckbdapps JSON -> content/projects/*.md, home.yaml, redirects.json, public/logos/*.webp
+ * One-off: legacy ckbdapps JSON -> content/projects/*.md, redirects.json, public/logos/*.webp
  *
  *   pnpm migrate:legacy [--legacy legacy] [--git <clone of CKBFansDAO/ckbdapps>] [--date YYYY-MM-DD]
  *
@@ -67,7 +67,6 @@ const report = {
   verifiedGit: [] as string[],
   verifiedFlagged: [] as string[],
   detailsNotInList: [] as string[],
-  homeDropped: [] as string[],
 };
 
 /* ---------- helpers ---------- */
@@ -289,32 +288,6 @@ async function migrateProject(src: Source, slugMap: Map<string, string>) {
   await writeLogo(slug, [logoFromConfig, logoFromDetail]);
 }
 
-/* ---------- home.yaml ---------- */
-function migrateHome(slugMap: Map<string, string>) {
-  const home = readJson<Record<string, HomeItem[]>>(path.join(PUB, "homeSections.json"))!;
-  const slugsOf = (items: HomeItem[] = []) =>
-    items
-      .filter((i) => !i.placeholder)
-      .map((i) => (i.dappId ?? i.link ?? "").replace(/^\//, ""))
-      .filter((old) => {
-        const ok = slugMap.has(old) && report.written.includes(slugMap.get(old)!);
-        if (!ok && old) report.homeDropped.push(old);
-        return ok;
-      })
-      .map((old) => slugMap.get(old)!);
-  const data = {
-    featured: slugsOf([...(home.premium ?? []), ...(home.highlighted ?? [])]),
-    community_picks: slugsOf(home.community),
-    grants: (home.sparkGranted ?? [])
-      .filter((g) => !g.placeholder && g.amount)
-      .flatMap((g) => slugsOf([g]).map((project) => ({ title: "Spark", amount: s(g.amount), project, status: "granted" }))),
-  };
-  writeFileSync(
-    path.join(CONTENT_DIR, "home.yaml"),
-    "# Curated layer of the home page. Every slug must exist in content/projects.\n" + YAML.stringify(data),
-  );
-}
-
 /* ---------- run ---------- */
 async function main() {
   if (!existsSync(PUB)) throw new Error(`legacy public/ not found at ${PUB}`);
@@ -330,7 +303,6 @@ async function main() {
     seen.set(slug, src.oldSlug);
   }
   for (const src of all) await migrateProject(src, slugMap);
-  migrateHome(slugMap);
   writeFileSync(path.join(CONTENT_DIR, "redirects.json"), JSON.stringify(report.slugChanges, null, 2) + "\n");
 
   const r = report;
@@ -354,7 +326,6 @@ async function main() {
   secInline("verified = migration date (legacy detail file existed)", r.verifiedDetail);
   sec("verified = last commit of legacy config.json", r.verifiedGit);
   sec("FLAGGED: verified = migration date, no commit date found", r.verifiedFlagged);
-  sec("home.yaml: dropped slugs (no project file)", [...new Set(r.homeDropped)]);
 }
 
 main().catch((e) => {

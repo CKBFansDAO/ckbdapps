@@ -26,6 +26,19 @@ test("home: search suggestions are keyboard operable", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("JoyID");
 });
 
+test("home: 'You might like' follows the projects viewed in this browser, with no repeats", async ({ page }) => {
+  await mockRpc(page);
+  await page.goto("/en");
+  await expect(page.getByText(/^Picked at random from apps/)).toBeVisible();
+  await page.goto("/en/projects/joyid");
+  await page.goto("/en");
+  await expect(page.getByText(/^Based on the projects you opened/)).toBeVisible();
+  const tiles = page.locator("section.on-paper").first().locator('a[href*="/projects/"] h3');
+  const names = await tiles.allTextContents();
+  expect(names.slice(0, 6)).not.toContain("JoyID");
+  expect(new Set(names).size).toBe(names.length);
+});
+
 test("home: the search query reaches Explore after a client navigation", async ({ page }) => {
   await mockRpc(page);
   await page.goto("/en");

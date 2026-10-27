@@ -37,8 +37,7 @@ pnpm test:e2e            # Playwright smoke tests
 │  └─ screenshots/                # add per-phase screenshots here for review
 ├─ content/
 │  ├─ projects/<slug>.md          # one file per project (see Content model)
-│  ├─ taxonomy.yaml               # categories, groups, aliases
-│  └─ home.yaml                   # featured slugs, community picks, grants
+│  └─ taxonomy.yaml               # categories, groups, aliases
 ├─ public/
 │  ├─ logos/<slug>.webp           # square, <=256px; missing logo falls back to the identicon
 │  └─ brand/                      # logo + favicon (the logo must not change)
@@ -93,12 +92,13 @@ export const Project = z.object({
   contracts: z.array(z.object({ name: z.string(), code_hash: z.string().regex(/^0x[0-9a-f]{64}$/), hash_type: z.enum(['type', 'data', 'data1', 'data2']) })).optional(),
   audits: z.array(z.object({ label: z.string(), date: z.string(), url: z.string().url() })).optional(),
   verified: z.string().date(),                // bump when the team confirms the page is current
+  listed: z.string().date().optional(),       // date the project joined; set on new files, drives "Newly listed" on Home
 });
 ```
 
 Rules:
 - The slug is the filename: lowercase, `[a-z0-9-]` only. Never derive anything from the original casing.
-- Everything else on a project page is **derived**, never hand-written: group, tags, similar projects, activity (GitHub license, stars, commits, releases; X posts), website status, "listed since", staleness. Do not reintroduce highlights, FAQ, transparency checklists, or colour classes in data.
+- Everything else on a project page is **derived**, never hand-written: group, tags, similar projects, activity (GitHub license, stars, commits, releases; X posts), website status, staleness. Do not reintroduce highlights, FAQ, transparency checklists, or colour classes in data.
 - Stale rule: `verified` older than 365 days shows the stale notice on the page (see the "Out of date" preview in the prototype). Never hide the page.
 - A project with no logo gets the deterministic identicon from the prototype (`icon(slug)`: mirrored 5x5 grid seeded by an FNV hash of the slug). Port it to `Identicon.tsx` exactly.
 
@@ -117,9 +117,9 @@ Legacy cleanup to apply in the migration (confirm the two marked ones with the s
 - `Community-Driven` -> `community: true`, removed from categories
 - `AW` -> keep as-is until the owner says what it stands for (confirm)
 
-### home.yaml
+### Home picks (no home.yaml)
 
-`home.yaml`: `featured: [slug]`, `community_picks: [slug]`, `grants: [{ title, amount, project, status }]`. Slugs in `home.yaml` must exist; validation fails otherwise. The prototype's Spark Granted card hardcodes "700 USDT / Quantum Purse" from legacy data: move it into `grants`.
+Projects on Home are never picked by hand (a hand-picked list needs a standard nobody can defend), so there is no curated data file. "You might like" recommends from the projects a visitor opened on this device (history in `localStorage` only; a first visit draws at random from apps, wallets, assets), "Newly listed" shows the 3 newest by `listed` (projects without it never appear), and "Community-built" shows 5 random `community: true` projects plus a card linking to all of them and to `/submit`. No project shows in two blocks. Logic in `src/lib/picks.ts`. The Spark grant card and the empty "your project here" cards were removed.
 
 ## Routes and rendering
 
@@ -129,6 +129,7 @@ Legacy cleanup to apply in the migration (confirm the two marked ones with the s
 | `/{locale}/explore` | static shell + client filtering | Filters live in the URL query: `?q=&group=&cat=&community=1&view=grid`. Shareable and crawlable defaults |
 | `/{locale}/projects/{slug}` | static, `generateStaticParams` | One real URL per project. Title, description, OG image, JSON-LD (`SoftwareApplication` or `Organization`) |
 | `/{locale}/halving` | static shell + client live data | Countdown and tip data fetched in the browser |
+| `/{locale}/submit` | static | "Add a project": the starter file, a prefilled GitHub new-file link, field help, category ids. Every "Add a project" link points here |
 | `/llms.txt`, `/projects.json`, `/sitemap.xml` | static | AI and crawler discoverability (suggested addition, keep it small) |
 
 Old URLs: `/halving` redirects to `/en/halving`; legacy `/dapp/<slug>`-style paths must be checked against the old router and redirected (see the old repo's `src/App.js`).
@@ -158,7 +159,7 @@ Tokens (`src/styles/tokens.css`, copy values from the prototype's `:root`):
 
 ## Pages (what the prototype shows)
 
-**Home**: hero (headline with `CKB` in a Slot, search with suggestions, quick category chips, three stats) -> category marquee (purple band) -> halving strip ("CKB halves in N days", from 640px; phones skip it) -> Spotlight (featured tiles, community tiles, Spark Granted + two EmptySlots) -> Ecosystem map.
+**Home**: hero (headline with `CKB` in a Slot, search with suggestions, quick category chips, three stats) -> category marquee (purple band) -> halving strip ("CKB halves in N days", from 640px; phones skip it) -> Start here (You might like, Newly listed, Community-built + see all / add yours; see Home picks above) -> Ecosystem map.
 - Positioning: **Map = overview and entry point** (every project is one cell, grouped; clicking a group goes to Explore with that filter). **Explore = the searchable directory.** **Home = curated layer.** Do not make the map a second list.
 
 **Explore**: sticky toolbar (filter input, group tabs with counts, community-only toggle, list/grid), category chips, paged list (30 per page + "Show more"), empty state with a clear action. A persistent **risk notice bar** sits under the page title (not dismissible; `role="note"`; `ex_risk` in the message files; replace the placeholder wording with the legacy `/ecosystem` risk text, confirm with owner). This page replaces legacy `/ecosystem`; no watch-list/favorites feature.

@@ -3,7 +3,7 @@ import { SITE_URL } from "@/lib/site";
 
 /** Every listed project as JSON: the project file fields plus derived ones. Prerendered at build time. */
 export function GET() {
-  const projects = loadProjects().map(({ slug, name, url, tagline, categories, community, links, github, contracts, audits, verified, group, logo }) => ({
+  const projects = loadProjects().map(({ slug, name, url, tagline, categories, community, links, github, contracts, audits, verified, listed, group, logo }) => ({
     slug,
     name,
     url,
@@ -16,6 +16,7 @@ export function GET() {
     contracts,
     audits,
     verified,
+    listed,
     logo: logo && `${SITE_URL}${logo}`,
     page: { en: `${SITE_URL}/en/projects/${slug}`, zh: `${SITE_URL}/zh/projects/${slug}` },
   }));

@@ -4,6 +4,7 @@ import { Activity } from "@/components/project/Activity";
 import { SourceFile } from "@/components/project/Aside";
 import { About, Audits, Contracts, Similar } from "@/components/project/Sections";
 import { ProjectHero } from "@/components/project/ProjectHero";
+import { TrackView } from "@/components/project/TrackView";
 import { loadActivity } from "@/lib/activity";
 import { getBuildTime } from "@/lib/build-time";
 import { daysSince, isStale, pick, projectLinks, similarProjects } from "@/lib/content/derive";
@@ -55,6 +56,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
+      <TrackView slug={p.slug} />
       <ProjectHero p={p} staleMonths={staleMonths} />
       <section className="on-paper py-[clamp(48px,8vw,104px)]">
         <div className="in grid grid-cols-1 items-start gap-x-[clamp(28px,5vw,64px)] gap-y-10 min-[961px]:grid-cols-[minmax(0,1fr)_340px]">

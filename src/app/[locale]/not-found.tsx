@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import { EmptySlot } from "@/components/ui/EmptySlot";
 import { SlotButton } from "@/components/ui/SlotButton";
-import { REPO_URL } from "@/lib/site";
 
 export default function NotFound() {
   const t = useTranslations();
@@ -16,7 +15,7 @@ export default function NotFound() {
           </SlotButton>
         </div>
         <div className="mt-[clamp(32px,5vw,56px)] max-w-[520px]">
-          <EmptySlot href={REPO_URL} title={t("gr_open")} cta={t("add")} />
+          <EmptySlot href="/submit" title={t("gr_open")} cta={t("add")} />
         </div>
       </div>
     </main>

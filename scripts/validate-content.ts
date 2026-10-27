@@ -3,12 +3,13 @@
  *   pnpm validate:content
  */
 import { existsSync, readdirSync } from "node:fs";
-import { formatIssues, LOGOS_DIR, readProjectFiles, readYaml } from "@/lib/content/load";
-import { Home, Project, SLUG } from "@/lib/content/schema";
+import { formatIssues, LOGOS_DIR, readProjectFiles } from "@/lib/content/load";
+import { Project, SLUG } from "@/lib/content/schema";
 
 // Top-level paths that a project slug must not shadow (next.config.ts redirects /<slug> to the project page).
 const RESERVED = new Set(["en", "zh", "explore", "halving", "stats", "projects", "ecosystem", "events", "statistics", "api"]);
 
+const TODAY = new Date().toISOString().slice(0, 10);
 const errors: string[] = [];
 const fail = (where: string, msgs: string[]) => msgs.forEach((m) => errors.push(`${where}: ${m}`));
 
@@ -34,6 +35,7 @@ for (const { slug, file, data, error } of files) {
   if (names.has(key)) fail(file, [`same name as ${names.get(key)}`]);
   names.set(key, file);
   if (new Set(r.data.categories).size !== r.data.categories.length) fail(file, ["categories: duplicate entry"]);
+  if (r.data.listed && r.data.listed > TODAY) fail(file, [`listed: ${r.data.listed} is in the future`]);
 }
 
 if (existsSync(LOGOS_DIR)) {
@@ -44,22 +46,8 @@ if (existsSync(LOGOS_DIR)) {
   }
 }
 
-const home = Home.safeParse(readYaml("home.yaml"));
-if (!home.success) fail("content/home.yaml", formatIssues(home.error));
-else {
-  const { featured, community_picks, grants } = home.data;
-  const refs: [string, string][] = [
-    ...featured.map((s, i): [string, string] => [`featured.${i}`, s]),
-    ...community_picks.map((s, i): [string, string] => [`community_picks.${i}`, s]),
-    ...grants.map((g, i): [string, string] => [`grants.${i}.project`, g.project]),
-  ];
-  for (const [where, slug] of refs) if (!slugs.has(slug)) fail("content/home.yaml", [`${where}: no project "${slug}"`]);
-}
-
 if (errors.length) {
   console.error(`Content validation failed with ${errors.length} error(s):\n${errors.map((e) => `  ${e}`).join("\n")}`);
   process.exit(1);
 }
-console.log(
-  `Content OK: ${files.length} projects, ${home.data!.featured.length} featured.`,
-);
+console.log(`Content OK: ${files.length} projects.`);

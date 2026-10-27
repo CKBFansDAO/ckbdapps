@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { REPO_URL } from "@/lib/site";
 import { LangSwitch } from "./LangSwitch";
 import { NavLinks } from "./NavLinks";
 import { SlotButton } from "./ui/SlotButton";
@@ -21,7 +20,7 @@ export function SiteHeader() {
         <div className="ml-auto min-[761px]:ml-0">
           <LangSwitch />
         </div>
-        <SlotButton href={REPO_URL} className="hidden min-[481px]:inline-flex">
+        <SlotButton href="/submit" className="hidden min-[481px]:inline-flex">
           {t("add")}
         </SlotButton>
       </div>

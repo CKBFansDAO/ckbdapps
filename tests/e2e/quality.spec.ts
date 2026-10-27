@@ -11,6 +11,7 @@ const ROUTES = [
   "/explore",
   "/halving",
   "/stats",
+  "/submit",
   "/projects/quantumpurse", // full file: About, contracts, audits
   "/projects/reiwallet", // stale notice
 ];

@@ -1,9 +1,13 @@
 import { Link } from "@/i18n/navigation";
 import { FramedAvatar } from "./FramedAvatar";
 
-type Props = { slug: string; name: string; meta: string; logo?: string; alt?: boolean; small?: boolean };
+export type TileData = { slug: string; name: string; meta: string; logo?: string };
+type Props = TileData & { alt?: boolean; small?: boolean };
 
-// Filled (featured) or outlined (community picks); both turn purple on hover, where the avatar's
+/** Grid for a row of tiles: one column of compact rows on phones, three columns from 640px. */
+export const TILE_GRID = "grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-3.5";
+
+// Filled (picks, newest) or outlined (community picks); both turn purple on hover, where the avatar's
 // bracket follows the text colour and its plug flips to white.
 const SKIN = {
   solid: "bg-ink text-white [--tile-mut:var(--mut-d)] [--avatar-ic:var(--purple-hi)]",
