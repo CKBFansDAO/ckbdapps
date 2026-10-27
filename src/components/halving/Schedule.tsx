@@ -48,7 +48,7 @@ export function Schedule() {
                 aria-current={state === "now" ? "step" : undefined}
                 className={`${COLS} relative grid border-b border-line py-5 pr-3.5 min-[861px]:pr-[18px] ${state === "past" ? "text-mut" : ""} ${state === "now" ? "bg-surface after:absolute after:inset-y-0 after:right-0 after:w-3 after:bg-purple after:content-['']" : ""}`}
               >
-                <div className="col-span-full flex min-w-0 flex-col items-start gap-0.5 min-[861px]:col-span-auto">
+                <div className="col-span-full flex min-w-0 flex-col items-start gap-0.5 min-[861px]:col-auto">
                   <strong className="semi text-[1.15rem] leading-[1.15]">{labels[i]}</strong>
                   {state === "now" && (
                     <span className="border border-accent px-2 py-px text-[.8rem] font-semibold text-accent">{t("hv_now")}</span>
@@ -59,7 +59,7 @@ export function Schedule() {
                   {mobileLabel(t("hv_c_epoch"))}
                   {n(r.epoch)}
                 </div>
-                <div className="col-span-full min-[861px]:col-span-auto">
+                <div className="col-span-full min-[861px]:col-auto">
                   <div className="mb-2 text-[.95rem]">
                     <b className="text-[1.15rem] font-extrabold">{n(r.dailyReward)}</b> {t("hv_per_day")}
                   </div>
@@ -77,7 +77,7 @@ export function Schedule() {
                   {mobileLabel(t("hv_c_block"))}
                   {n(r.blockReward)}
                 </div>
-                <div className={`col-span-full text-left min-[861px]:col-span-auto min-[861px]:text-right ${mono}`}>
+                <div className={`col-span-full text-left min-[861px]:col-auto min-[861px]:text-right ${mono}`}>
                   {mobileLabel(t("hv_c_issued"))}
                   {n(r.eraIssuance)}
                 </div>

@@ -48,7 +48,7 @@ export function Contracts({ contracts }: { contracts: ProjectEntry["contracts"] 
         {contracts.map((c) => (
           <div key={c.code_hash + c.hash_type} className={ROW} role="row">
             <span role="cell">{c.name}</span>
-            <code role="cell" className="col-span-full row-start-2 font-mono text-[.85rem] font-medium [overflow-wrap:anywhere] min-[561px]:col-span-auto min-[561px]:row-start-auto">
+            <code role="cell" className="col-span-full row-start-2 font-mono text-[.85rem] font-medium [overflow-wrap:anywhere] min-[561px]:col-auto min-[561px]:row-start-auto">
               {c.code_hash}
             </code>
             <span role="cell">{c.hash_type}</span>
