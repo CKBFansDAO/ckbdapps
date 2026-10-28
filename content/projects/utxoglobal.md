@@ -9,6 +9,7 @@ community: true
 links:
   x: UTXOGlobal
   telegram: utxoglobal
+github: UTXO-Global/utxo-wallet-extension
 verified: 2026-10-11
 ---
 

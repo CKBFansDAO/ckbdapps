@@ -39,7 +39,7 @@ To update a listed project, open its page on the site and use **Edit on GitHub**
 | Projects | The files in `content/projects/`, added and updated by pull request |
 | Halving countdown, epochs, blocks | A public CKB node over JSON-RPC (`mainnet.ckb.dev`), read in the browser |
 | Stats (supply, price, hash rate, occupied CKB) | The CKBdapps backend API, refreshed hourly; a committed snapshot is shown if it is down |
-| Project activity (commits, releases, stars) | The CKBdapps backend, which collects public GitHub data for projects with a `github` line |
+| Project activity (latest GitHub events, stars) | [CKB Pulse](https://pulse-lab.lusocryptolabs.com/), for projects with a `github` line that Pulse follows |
 | "More projects in the making" | [CKB Pulse](https://pulse-lab.lusocryptolabs.com/) by [LusoCryptoLabs](https://github.com/LusoCryptoLabs/ckb-pulse) (MIT): live GitHub activity of everyone building on CKB |
 
 Thanks to LusoCryptoLabs for building CKB Pulse and making it open source.
@@ -71,7 +71,7 @@ Environment variables (all optional):
 | Variable | Use |
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata, the sitemap and share images (default `https://ckbdapps.com`) |
-| `ACTIVITY_API_URL` | Base URL of the backend that serves project activity, to point a preview at a staging backend |
+| `PULSE_URL` | Base URL of the CKB Pulse instance that serves project activity (default `https://pulse-lab.lusocryptolabs.com`) |
 
 Stack: Next.js (App Router, static generation) with TypeScript, Tailwind CSS v4, `next-intl` for `/en` and `/zh`, and content as Markdown validated with zod. Design and engineering rules for contributors are in [`CLAUDE.md`](CLAUDE.md).
 

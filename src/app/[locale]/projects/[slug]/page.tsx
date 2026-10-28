@@ -37,7 +37,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   if (!p) notFound();
 
   const now = await getBuildTime();
-  const activity = await loadActivity();
+  const activity = p.github ? await loadActivity(p.github) : undefined;
   const staleMonths = isStale(p.verified, now) ? Math.round(daysSince(p.verified, now) / 30) : null;
 
   const jsonLd = {
@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
         <div className="in grid grid-cols-1 items-start gap-x-[clamp(28px,5vw,64px)] gap-y-10 min-[961px]:grid-cols-[minmax(0,1fr)_340px]">
           <div>
             <About body={p.body} />
-            <Activity entry={activity?.[p.slug]} repo={p.github} unavailable={activity === null} />
+            <Activity data={activity} repo={p.github} />
             <Contracts contracts={p.contracts} />
             <Audits audits={p.audits} />
             <Similar projects={similarProjects(p, loadProjects())} />

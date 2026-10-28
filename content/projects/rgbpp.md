@@ -7,5 +7,6 @@ tagline:
 categories: [RGB++, Protocol]
 links:
   x: rgbppfans
+github: RGBPlusPlus/rgbpp
 verified: 2026-08-12
 ---
