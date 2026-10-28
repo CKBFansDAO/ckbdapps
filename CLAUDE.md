@@ -1,6 +1,6 @@
 # CKBdapps (rewrite)
 
-The directory site for the Nervos CKB ecosystem, replacing the CRA app at https://github.com/CKBFansDAO/ckbdapps (ckbdapps.com).
+The directory site for the Nervos CKB ecosystem, replacing the CRA app at https://github.com/CKBFansDAO/ckbdapps-legacy (archived; this repository took over the name CKBFansDAO/ckbdapps).
 
 **Visual and behavioural reference: `design/ckbdapps-v3.html`.** Open it in a browser. It is a single-file prototype with four views (Home, Explore, Project detail, Halving) and an EN/中文 toggle. Reproduce its look and behaviour. Where this file and the prototype disagree on a *design* detail, the prototype wins. Where they disagree on *architecture or data*, this file wins (the prototype is hash-routed, single-file, and uses mock data).
 
@@ -177,7 +177,7 @@ Tokens (`src/styles/tokens.css`, copy values from the prototype's `:root`):
 
 ## Halving logic (port from the legacy repo)
 
-Source: `src/components/halving/*`, `src/hooks/useCKBHalving.jsx`, `src/utils/helper.js`, `public/markdown/halving_en_US.md` in CKBFansDAO/ckbdapps.
+Source: `src/components/halving/*`, `src/hooks/useCKBHalving.jsx`, `src/utils/helper.js`, `public/markdown/halving_en_US.md` in CKBFansDAO/ckbdapps-legacy.
 - `EPOCHS_PER_HALVING = 8760`; Nth halving at epoch `8760 * N`. Epoch is about 4 hours; 1800 blocks per epoch is used for block-reward display only.
 - Real data: tip header over RPC (`https://mainnet.ckb.dev`), parse epoch from the header's packed `epoch` (length = bits 40..55, index = bits 24..39, number = bits 0..23). Estimate the halving time from the average epoch duration since a recent base epoch, as the legacy hook does. Keep that estimate logic; do not replace it with a fixed date.
 - The prototype uses a **fixed target date (2027-11-17) and a mock tip**. Replace with the real RPC logic. Show the "latest block" cell again (the prototype swapped it for "epochs to go").
@@ -212,7 +212,7 @@ At the end of each step, run the build, take screenshots at 1280 and 390 into `d
 
 ## Migration script (`scripts/migrate-legacy.ts`)
 
-Inputs (from CKBFansDAO/ckbdapps `master`): `public/dappList/dapps_list.json`, `public/dappList/<slug>/config.json`, `public/dappDetails/<slug>.json`, `public/homeSections.json`.
+Inputs (from CKBFansDAO/ckbdapps-legacy `master`): `public/dappList/dapps_list.json`, `public/dappList/<slug>/config.json`, `public/dappDetails/<slug>.json`, `public/homeSections.json`.
 - Output `content/projects/<slug>.md` with only the schema fields above. Take `tagline` from the short description (`en`/`ch` or `en_US`/`zh_CN` keys; the legacy data uses both spellings), `links` from `socialLinks`/`links`, `url` from the website link.
 - Drop: highlights, FAQ, transparency checklists, tag colour classes, related.
 - Lowercase slugs; keep a `redirects.json` of old to new slugs.

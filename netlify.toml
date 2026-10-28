@@ -1,0 +1,8 @@
+# Netlify did not detect Next.js for this project and deployed .next as plain files (every path 404).
+# Declaring the build and the Next.js runtime here makes the deploy independent of the settings in the UI.
+[build]
+  command = "pnpm build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
