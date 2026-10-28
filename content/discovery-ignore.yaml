@@ -6,7 +6,6 @@
 - { match: https://reiwallet.io, reason: stopped operating (removed 2026-10-28) }
 - { match: https://fiber-quest.vercel.app, reason: an explainer about Fiber, not a product }
 - { match: riyqnn/ckbuilder, reason: weekly course assignments }
-- { match: nervosnetwork/CkbGuardian, reason: internal node health monitor; CKB Node Probe is listed }
 - { match: Nervos-Community-Catalyst/CKBuilder-projects, reason: grant programme, not a project }
 - { match: https://www.ckbrewards.org, reason: grant programme page (Notion), not a project }
 - { match: https://ckbuilders.dev, reason: grant programme site, not a project }
