@@ -9,3 +9,5 @@ github: ckb-devrel/offckb
 verified: 2026-10-28
 listed: 2026-10-28
 ---
+
+OffCKB starts a local CKB development chain with one command. It comes with prefunded test accounts, the common system scripts already deployed, and templates for new projects, so you can write, deploy and test a script or dApp without touching testnet. It is maintained by CKB DevRel and is open source.

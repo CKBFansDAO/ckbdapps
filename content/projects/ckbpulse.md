@@ -10,3 +10,7 @@ github: LusoCryptoLabs/ckb-pulse
 verified: 2026-10-28
 listed: 2026-10-28
 ---
+
+CKB Pulse shows public development on CKB as it happens on GitHub. Every project is a block in a 3D scene: when someone pushes code, opens or reviews a pull request, reports an issue or publishes a release, a light flies from their avatar to the project and the block grows. You can watch it live or replay the last 24 hours or 7 days in about a minute.
+
+It covers the core Nervos organizations and the independent builders working on CKB, and highlights new repositories. CKB Pulse is built by LusoCryptoLabs and is open source under the MIT license.

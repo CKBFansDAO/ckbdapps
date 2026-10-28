@@ -10,3 +10,7 @@ github: chukwuma619/fiber-studio
 verified: 2026-10-28
 listed: 2026-10-28
 ---
+
+Fiber Studio (formerly Fiber Desktop) is a desktop app for running your own Fiber node. It installs and manages the official Fiber Network Node (FNN) on your computer and lets you open channels, create invoices and send payments from one window. It connects through the public relay nodes, so you do not have to run your machine as a public node.
+
+Signed releases are available for macOS, Windows and Linux. Development was funded by the CKB Community Fund DAO, and all three milestones are complete. Version 1.1.1 bundles the stable FNN v0.9.0.

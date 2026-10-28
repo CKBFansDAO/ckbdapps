@@ -9,3 +9,5 @@ github: janx/cknerv
 verified: 2026-10-28
 listed: 2026-10-28
 ---
+
+cknerv is a local-first visualization of CKB by Jan Xie. It runs beside your own CKB node and CKBadger and draws what your node sees, blocks, transactions, cells and peers, as one living, moving picture. A live version is online, and the code is open source on GitHub.
