@@ -4,7 +4,7 @@ url: https://www.ankr.com/
 tagline:
   en: The fastest, most reliable Web3 infrastructure.
   zh: 最快、最可靠的Web3基础设施。
-categories: [Infrastructure]
+categories: [Data & RPC]
 links:
   x: ankr
   telegram: ankrnetwork

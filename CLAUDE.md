@@ -111,7 +111,8 @@ Controlled list of category ids, each with `en` and `zh` labels, plus the group 
 - wallets: Wallet, Hardware Wallet, Extension, Multi-Sig
 - apps: DEX, DeFi, Marketplace, Stablecoin, Payment, Bridges, Intent-centric, Nervos DAO
 - assets: DOBs, NFT, DID
-- infra: Protocol, Explorer, Tools, Dev Tools, Infrastructure, Security & Audit, RGB++, Fiber, AW
+- infra: Protocol, Explorer, Tools, Dev Tools, Infrastructure, RGB++, Fiber, AW
+- eco: Partners, Mining Pools, Markets, Investors, Community, Security & Audit, Oracles, Data & RPC
 
 Legacy cleanup to apply in the migration (confirm the two marked ones with the site owner before finalising):
 - `Protocols` -> `Protocol`

@@ -38,7 +38,6 @@ categories:
   - { id: Tools, zh: 工具, group: infra }
   - { id: Dev Tools, zh: 开发者工具, group: infra }
   - { id: Infrastructure, zh: 基础设施, group: infra }
-  - { id: Security & Audit, zh: 安全与审计, group: infra }
   - { id: RGB++, zh: RGB++, group: infra }
   - { id: Fiber, zh: Fiber, group: infra }
   - { id: AW, zh: AW, group: infra } # meaning to be confirmed by the site owner
@@ -48,6 +47,9 @@ categories:
   - { id: Markets, zh: 交易所, group: eco }
   - { id: Investors, zh: 投资机构, group: eco }
   - { id: Community, zh: 社区, group: eco }
+  - { id: Security & Audit, zh: 安全与审计, group: eco }
+  - { id: Oracles, zh: 预言机, group: eco }
+  - { id: Data & RPC, zh: 数据与节点服务, group: eco }
 
 # Legacy names -> current ids. Used by the legacy migration only; project files must use ids.
 aliases:
