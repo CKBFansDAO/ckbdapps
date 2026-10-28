@@ -20,7 +20,7 @@ export function LangSwitch() {
           locale={l}
           lang={htmlLang(l)}
           aria-current={l === locale ? "true" : undefined}
-          className="grid min-h-10 min-w-10 place-items-center px-2.5 font-mono text-[.78rem] font-semibold text-mut no-underline aria-[current]:bg-white aria-[current]:text-ink"
+          className="grid min-h-10 min-w-10 place-items-center px-2.5 font-mono whitespace-nowrap text-[.78rem] font-semibold text-mut no-underline aria-[current]:bg-white aria-[current]:text-ink"
         >
           {LABEL[l]}
         </Link>

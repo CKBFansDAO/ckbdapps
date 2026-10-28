@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { REPO_URL } from "@/lib/site";
 import { LangSwitch } from "./LangSwitch";
 import { NavLinks } from "./NavLinks";
 import { SlotButton } from "./ui/SlotButton";
@@ -9,17 +8,27 @@ import { SlotButton } from "./ui/SlotButton";
 export function SiteHeader() {
   const t = useTranslations();
   return (
-    <header className="on-dark sticky top-[env(safe-area-inset-top,0px)] z-50 h-(--hh) border-b border-line bg-page/86 backdrop-blur-md">
-      <div className="in flex h-full items-center gap-5">
-        <Link href="/" className="wide flex items-center gap-2.5 text-[1.15rem] no-underline" aria-label={t("title")}>
-          <Image src="/brand/logo.png" alt="" width={34} height={34} className="rounded-lg" priority />
-          <span>CKBdapps</span>
+    // transform-gpu + touch-manipulation: without its own compositing layer, a sticky
+    // backdrop-filter header swallows taps on iOS/WebView browsers (click never fires).
+    <header className="on-dark sticky top-[env(safe-area-inset-top,0px)] z-50 h-(--hh) touch-manipulation transform-gpu border-b border-line bg-page/86 backdrop-blur-md">
+      <div className="in flex h-full items-center gap-4 lg:gap-5">
+        {/* The wordmark spells CKBdapps itself (840x128): 22px tall below 1024px, where the nav row is tight, 26px above. */}
+        <Link href="/" className="flex min-h-10 shrink-0 items-center" aria-label={t("title")}>
+          <Image
+            src="/brand/logo-wordmark.png"
+            alt=""
+            width={840}
+            height={128}
+            sizes="171px"
+            className="h-[22px] w-auto lg:h-[26px]"
+            priority
+          />
         </Link>
         <NavLinks />
-        <div className="ml-auto min-[761px]:ml-0">
+        <div className="ml-auto lg:ml-0">
           <LangSwitch />
         </div>
-        <SlotButton href={REPO_URL} className="hidden min-[481px]:inline-flex">
+        <SlotButton href="/submit" className="hidden min-[481px]:inline-flex">
           {t("add")}
         </SlotButton>
       </div>

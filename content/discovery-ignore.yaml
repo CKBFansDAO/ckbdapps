@@ -1,0 +1,6 @@
+# Sites and repositories the weekly discovery (scripts/discover-projects.ts) must not propose again.
+# `match` is a GitHub repo (owner/name) or a site URL. Add an entry when a proposed project is turned down.
+- { match: johirxofficial/fiber-map, reason: optical fibre network tool, not related to CKB }
+- { match: https://world3.ai, reason: no longer builds on CKB (removed 2026-10-28) }
+- { match: https://utxoswap.xyz, reason: shut down on 2026-10-11 }
+- { match: https://reiwallet.io, reason: stopped operating (removed 2026-10-28) }

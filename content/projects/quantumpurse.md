@@ -1,12 +1,12 @@
 ---
 name: Quantum Purse
-url: https://quantum-purse.vercel.app/wallet
+url: https://www.quantumpurse.org/
 tagline:
-  en: A pioneering anti-quantum wallet developed on the CKB blockchain
-  zh: 基于 CKB 区块链开发的开创性抗量子钱包
+  en: A quantum-resistant CKB wallet that runs in your browser with a built-in CKB light client.
+  zh: 运行在浏览器中的 CKB 抗量子钱包，内置 CKB 轻客户端。
 categories: [Wallet]
-github: tea2x/quantum-purse-web-static
+github: quantumpurse/quantum-purse
 verified: 2026-10-11
 ---
 
-Quantum Purse is an innovative anti-quantum wallet built on the Nervos CKB (Common Knowledge Base) blockchain, designed to provide cutting-edge security for digital assets in a post-quantum computing world. By integrating a CKB light node, Quantum Purse enables users to interact with the blockchain directly from their web browsers, eliminating the need for heavy software installations while maintaining efficiency and accessibility. This seamless browser-based functionality is a standout technical feature, making the wallet user-friendly and highly adaptable to various devices and environments.
+Quantum Purse is a CKB wallet whose funds are locked with a quantum-resistant signature scheme (SPHINCS+). It runs a CKB light client in the browser, so it talks to the chain directly without a heavy install. The wallet completed a security audit in January 2026 and went live on mainnet in February 2026.

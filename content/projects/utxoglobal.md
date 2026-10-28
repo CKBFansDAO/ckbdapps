@@ -12,4 +12,4 @@ links:
 verified: 2026-10-11
 ---
 
-UTXO Global is a DeFi-focused wallet on the Nervos Network (CKB), designed for managing assets on UTXO-based blockchains. It integrates with the RGB++ protocol to enable seamless management and trading of digital assets, such as meme tokens. As the first wallet integrated into Telegram and available as a Chrome extension, it offers batch transfers, cross-platform synchronization, and CKB.Fi integration for minting and trading RGB++ tokens from social content, driving DeFi innovation in the UTXO ecosystem.
+UTXO Global is a wallet for CKB and other UTXO chains, available as a Chrome extension and in Telegram. It shows your assets in one dashboard, sends and receives CKB and tokens, supports multi-signature accounts, and links to a curated list of dApps. The wallet has been audited by Verichains. The team also runs an indexer API for coin and NFT data.

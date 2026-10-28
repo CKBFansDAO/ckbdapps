@@ -74,9 +74,11 @@
   font-family: var(--display); font-weight: 800; font-variation-settings: "wdth" 112; letter-spacing: -.02em;
   @variant zh { letter-spacing: 0; font-weight: 900; }
 }
-/* Text link with a purple underline. */
+/* Text link with a purple underline. The transparent ::after pads the hit area so
+   short labels (e.g. "X") still reach a 24px target without shifting the layout. */
 @utility linkbtn {
-  padding: 0; background: none; border: 0; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px;
+  display: inline-block; position: relative; padding: 3px 0; background: none; border: 0; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px;
+  &::after { content: ""; position: absolute; inset: 0 -7px; }
   &:hover { text-decoration-color: currentColor; }
 }
 

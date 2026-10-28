@@ -3,17 +3,17 @@
 import type { CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { eraProgress, prevHalvingEpoch, SCHEDULE } from "@/lib/halving";
-import { fmtDate, fmtNum } from "./format";
+import { fmtDate, fmtDateNum, fmtNum } from "./format";
 import { useHalving } from "./useHalving";
 
-const CELL = "min-w-0 border-line px-5 py-7";
-// Edges per cell index in the 2-col (mobile) -> 4-col (>=761px) grid: mobile opens the left
-// column and separates row 2; the desktop row only keeps internal left borders.
+const CELL = "flex min-w-0 flex-col border-line px-3 py-6 sm:px-5 sm:py-7";
+// Edges per cell index in the 2-col -> 4-col (>=1024px; narrower, four big values do not fit side by side) grid:
+// 2-col opens the left column and separates row 2; the 4-col row only keeps internal left borders.
 const EDGE = [
   "pl-0",
   "border-l",
-  "border-t pl-0 min-[761px]:border-t-0 min-[761px]:border-l min-[761px]:pl-5",
-  "border-t border-l min-[761px]:border-t-0",
+  "border-t pl-0 lg:border-t-0 lg:border-l lg:pl-5",
+  "border-t border-l lg:border-t-0",
 ] as const;
 
 /** While loading, `value` is a same-shaped placeholder drawn as a skeleton, so the row keeps its height. */
@@ -21,13 +21,32 @@ function Cell({ i, value, sub, label, loading }: { i: number; value: string; sub
   return (
     <div className={`${CELL} ${EDGE[i]}`}>
       <b
-        className={`wide block text-[clamp(1.4rem,2.8vw,2.3rem)] leading-[1.05] [overflow-wrap:anywhere] ${loading ? "w-fit bg-fg/8 text-transparent motion-safe:animate-pulse" : ""}`}
+        className={`wide block text-[1.2rem] leading-[1.05] whitespace-nowrap sm:text-[clamp(1.4rem,2.6vw,2.3rem)] ${loading ? "w-fit bg-fg/8 text-transparent motion-safe:animate-pulse" : ""}`}
       >
         {value}
-        {sub && <small className="ml-2 font-mono text-[.8rem] font-medium tracking-normal text-mut">{sub}</small>}
+        {/* The note gets its own line, so neither it nor the number is cut in the middle. */}
+        {sub && (
+          <small className="mt-1 block font-mono text-[.8rem] font-medium tracking-normal whitespace-nowrap text-mut">
+            {sub}
+          </small>
+        )}
       </b>
-      <span className="mt-2 block text-[.92rem] font-semibold text-mut">{label}</span>
+      {/* mt-auto: labels line up along the bottom of the row whether or not a cell has a note. */}
+      <span className="mt-auto block pt-2 text-[.92rem] font-semibold text-mut">{label}</span>
     </div>
+  );
+}
+
+/** One end of the era bar: the date, with the epoch number from 640px (on a phone both ends then fit one line). */
+function BarEnd({ epoch, date }: { epoch: string; date: string }) {
+  return (
+    <span>
+      <span className={date ? "hidden sm:inline" : undefined}>
+        #{epoch}
+        {date && "  ·  "}
+      </span>
+      {date}
+    </span>
   );
 }
 
@@ -38,8 +57,8 @@ export function TipSummary() {
   const { data } = useHalving();
   const n = (v: number) => fmtNum(v, locale);
   const dash = "—";
-  // Placeholders shaped like real values (a halving date wraps like the real estimate does).
-  const ph = { epoch: n(17520), block: n(20_000_000), date: fmtDate(Date.UTC(2027, 10, 21), locale) };
+  // Placeholders shaped like real values, so the skeleton has the same width as the loaded row.
+  const ph = { epoch: n(17520), block: n(20_000_000), date: fmtDateNum(Date.UTC(2027, 10, 21), locale) };
 
   const prev = data ? prevHalvingEpoch(data.tip.number) : undefined;
   const prevRow = SCHEDULE.find((r) => r.epoch === prev);
@@ -49,7 +68,7 @@ export function TipSummary() {
   return (
     <section className="on-dark bg-ink" aria-busy={!data}>
       <div className="in">
-        <div className="grid grid-cols-2 min-[761px]:grid-cols-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4">
           <Cell i={0} loading={!data} value={data ? n(data.tip.number) : ph.epoch} sub={data && `${data.tip.index}/${data.tip.length}`} label={t("hv_cur")} />
           <Cell i={1} loading={!data} value={data ? n(data.blockNumber) : ph.block} label={t("hv_block")} />
           <Cell
@@ -59,14 +78,17 @@ export function TipSummary() {
             sub={data && t("hv_togo", { n: n(data.target - data.tip.number) })}
             label={t("hv_next_e")}
           />
-          <Cell i={3} loading={!data} value={data ? fmtDate(data.estimate, locale) : ph.date} label={t("hv_est")} />
+          <Cell i={3} loading={!data} value={data ? fmtDateNum(data.estimate, locale) : ph.date} label={t("hv_est")} />
         </div>
         <div className="pt-3 pb-[clamp(40px,6vw,72px)]">
           <div className="mb-[22px] flex flex-wrap items-end justify-between gap-x-8 gap-y-3.5">
             <h2 className="semi m-0 text-[1.6rem]">{t("hv_prog")}</h2>
-            <a className="linkbtn" href="https://docs.nervos.org/docs/basics/glossary#epoch" target="_blank" rel="noopener">
-              {t("hv_epoch_q")}
-            </a>
+            {/* Phones keep the bar and its two dates together; the glossary link is for wider screens. */}
+            <span className="hidden sm:inline">
+              <a className="linkbtn" href="https://docs.nervos.org/docs/basics/glossary#epoch" target="_blank" rel="noopener">
+                {t("hv_epoch_q")}
+              </a>
+            </span>
           </div>
           <div
             className="relative mr-[30px] h-[84px] border-[12px] border-r-0 border-fg after:absolute after:-inset-y-[12px] after:-right-[30px] after:w-[30px] after:border-2 after:border-dashed after:border-purple-hi after:content-['']"
@@ -83,10 +105,10 @@ export function TipSummary() {
             )}
           </div>
           <div className="mt-3.5 mr-[30px] flex flex-wrap justify-between gap-x-5 gap-y-1.5 font-mono text-[.85rem] font-medium text-mut">
-            <span>{prev !== undefined ? `#${n(prev)}${prevDate ? `  ·  ${prevDate}` : ""}` : dash}</span>
-            <span>{data ? `#${n(data.target)}  ·  ${fmtDate(data.estimate, locale)}` : dash}</span>
+            {prev !== undefined ? <BarEnd epoch={n(prev)} date={prevDate} /> : <span>{dash}</span>}
+            {data ? <BarEnd epoch={n(data.target)} date={fmtDate(data.estimate, locale)} /> : <span>{dash}</span>}
           </div>
-          <p className="mt-[18px] mb-0 max-w-[70ch] text-[.9rem] text-mut">{t("hv_note")}</p>
+          <p className="mt-[18px] mb-0 text-[.9rem] text-mut">{t("hv_note")}</p>
         </div>
       </div>
     </section>

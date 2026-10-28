@@ -5,7 +5,7 @@ import { countdown, EPOCHS_PER_HALVING } from "@/lib/halving";
 import { SITE_URL } from "@/lib/site";
 import { Slot } from "../ui/Slot";
 import { SlotButton } from "../ui/SlotButton";
-import { DAY, fmtDate, fmtNum } from "./format";
+import { fmtDate, fmtNum } from "./format";
 import { useHalving, useNow } from "./useHalving";
 
 const UNIT_RESET = "font-sans text-base font-semibold tracking-normal text-mut [font-stretch:100%] [font-variation-settings:normal]";
@@ -17,6 +17,7 @@ export function Countdown() {
   const { data, isError, refetch, isFetching } = useHalving();
   const now = useNow();
 
+  // With days showing, seconds only appear from 640px: on a phone four big units wrap onto a second line.
   const timer = (parts: { unit: string; value: string }[], skeleton = false) => (
     <div
       className="wide mt-[clamp(28px,5vw,56px)] flex flex-wrap gap-x-[clamp(22px,4.5vw,64px)] gap-y-[18px]"
@@ -24,7 +25,7 @@ export function Countdown() {
       aria-hidden={skeleton || undefined}
     >
       {parts.map((p, i) => (
-        <div key={p.unit} className="flex flex-col">
+        <div key={p.unit} className={`flex-col ${p.unit === "s" && parts[0].unit === "d" ? "hidden sm:flex" : "flex"}`}>
           <b
             className={`text-[clamp(3rem,8.4vw,7rem)] leading-[.95] font-extrabold tabular-nums ${skeleton ? "bg-fg/8 text-transparent motion-safe:animate-pulse" : ""}`}
           >
@@ -56,8 +57,9 @@ export function Countdown() {
       <>
         <p className="mt-[18px] mb-0 font-semibold text-mut">{t("hv_k", { e: fmtNum(data.target, locale), d: date })}</p>
         {timer(c.parts.map((p, i) => ({ unit: p.unit, value: i === 0 ? String(p.value) : String(p.value).padStart(2, "0") })))}
-        <div className="mt-[clamp(32px,5vw,56px)]">
-          <SlotButton big href={`https://x.com/intent/tweet?text=${encodeURIComponent(share)}`}>
+        {/* Phones: a full-width bar under the timer instead of a stray button on the left. */}
+        <div className="mt-[clamp(32px,5vw,56px)] flex sm:block">
+          <SlotButton big className="flex-1 justify-center" href={`https://x.com/intent/tweet?text=${encodeURIComponent(share)}`}>
             {t("hv_share")}
           </SlotButton>
         </div>
@@ -77,8 +79,10 @@ export function Countdown() {
       <div aria-busy="true">
         <p className="mt-[18px] mb-0 font-semibold text-mut">{t("hv_loading")}</p>
         {timer(["d", "h", "m", "s"].map((unit, i) => ({ unit, value: i === 0 ? "000" : "00" })), true)}
-        <div className="invisible mt-[clamp(32px,5vw,56px)]" aria-hidden="true">
-          <SlotButton big>{t("hv_share")}</SlotButton>
+        <div className="invisible mt-[clamp(32px,5vw,56px)] flex sm:block" aria-hidden="true">
+          <SlotButton big className="flex-1 justify-center">
+            {t("hv_share")}
+          </SlotButton>
         </div>
       </div>
     );
@@ -94,9 +98,9 @@ export function Countdown() {
   );
 }
 
-/** Day count for the home page strip; an ellipsis until the chain answers. */
+/** Day count for the home page strip, the same number as the countdown's days; an ellipsis until the chain answers. */
 export function HalvingDays() {
   const { data } = useHalving();
   const now = useNow();
-  return data && now ? Math.max(0, Math.ceil((data.estimate - now) / DAY)) : "…";
+  return data && now ? countdown(data.estimate - now).days : "…";
 }

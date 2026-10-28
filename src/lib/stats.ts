@@ -7,13 +7,18 @@ export type StatsResult = StatsData & {
   cached: boolean;
 };
 
-/** Hourly revalidation; the page says so and falls back to the snapshot when the API is down. */
+/**
+ * Hourly revalidation; the page says so and falls back to the snapshot when the API is down.
+ * The fallback is only cached for minutes, so live data returns soon after the API recovers.
+ */
 export async function loadStats(): Promise<StatsResult> {
   "use cache";
-  cacheLife("hours");
   try {
-    return { ...(await fetchStats()), cached: false };
+    const live = await fetchStats();
+    cacheLife("hours");
+    return { ...live, cached: false };
   } catch {
+    cacheLife("minutes");
     return { ...(snapshot as StatsData), cached: true };
   }
 }

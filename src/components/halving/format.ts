@@ -8,4 +8,11 @@ export const fmtDate = (t: number | string, locale: string) =>
     typeof t === "string" ? Date.parse(`${t}T00:00:00Z`) : t,
   );
 
-export const DAY = 86_400_000;
+/**
+ * The same UTC date as digits, for tight spots: 2027/11/21 in Chinese, ISO 2027-11-21 in English
+ * (year first, so it never reads as day/month or month/day).
+ */
+export const fmtDateNum = (t: number, locale: string) => {
+  const iso = new Date(t).toISOString().slice(0, 10);
+  return locale === "zh" ? iso.replaceAll("-", "/") : iso;
+};

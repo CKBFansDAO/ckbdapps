@@ -11,4 +11,4 @@ links:
 verified: 2026-10-11
 ---
 
-DotBit is a decentralized, cross-chain account and digital identity (DID) protocol built on the Nervos CKB blockchain. It provides a globally unique naming system with .bit suffix (e.g., imac.bit), enabling users to register and manage accounts that operate across multiple blockchains for use cases like cryptocurrency transfers, domain resolution, and identity verification. Unlike traditional domain systems like DNS or Ethereum's ENS, .bit is highly interoperable, allowing users to use any public chain address (like Ethereum, Bitcoin, or TRON) or even email addresses to own/manage accounts. It provides resolution services and registrar interfaces (similar to GoDaddy for domains), facilitating account registration, management, and trading, enhancing Web3 accessibility.
+.bit (did.id) is a decentralized account and identity protocol built on Nervos CKB. You register a name ending in .bit and use it across chains: it can resolve to addresses on Bitcoin, Ethereum, TRON and other chains, and it can be owned by any of those chains' addresses or by an email address.

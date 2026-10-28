@@ -11,4 +11,4 @@ github: ckb-devrel/nervdao
 verified: 2026-10-11
 ---
 
-NervDao is a decentralized application on Nervos Network's CKB, enhancing user interaction with the Nervos DAO. Using wallet abstraction via the Common Chain Connector, it supports wallets like MetaMask, Unisat, OKX Wallet, and JoyID, enabling easy CKB deposits and withdrawals. Users earn rewards while protecting assets from dilution. NervDao offers automatic reward compounding, a one-month minimum lockup, and plans to improve UI, add NFT credentials, and expand wallet support for greater accessibility.
+NervDAO is a web portal for the Nervos DAO. Connect a wallet you already use, such as JoyID, MetaMask, OKX or UniSat (wallet connection is handled by CCC), then deposit CKB, track your deposits and withdraw them. NervDAO is built and maintained by CKB DevRel and is open source.

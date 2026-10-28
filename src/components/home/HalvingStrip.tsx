@@ -4,11 +4,14 @@ import { LiveData } from "../halving/LiveData";
 import { Slot } from "../ui/Slot";
 import { SlotButton } from "../ui/SlotButton";
 
-/** "CKB halves in N days", with N estimated live from the chain (same data as the Halving page). */
+/**
+ * "CKB halves in N days", with N estimated live from the chain (same data as the Halving page).
+ * Not shown on phones, where the sentence wraps; the Halving page is one tap away in the menu.
+ */
 export function HalvingStrip() {
   const t = useTranslations();
   return (
-    <section className="on-dark border-b border-line">
+    <section className="on-dark hidden border-b border-line sm:block">
       <div className="in flex flex-wrap items-center justify-between gap-x-10 gap-y-[22px] py-[clamp(30px,4.5vw,52px)]">
         <p className="wide m-0 text-[clamp(1.7rem,4.2vw,3.4rem)] leading-[1.1] zh:leading-[1.3]">
           {t.rich("hs", {

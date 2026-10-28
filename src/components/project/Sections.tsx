@@ -7,7 +7,7 @@ import { Tile } from "../ui/Tile";
 
 // Main column of the project page. Each section renders only when its data exists.
 
-function Section({ title, children }: { title: string; children: ReactNode }) {
+export function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="mt-12 first:mt-0">
       <h2 className="semi mt-0 mb-[18px] text-[1.8rem] leading-none">{title}</h2>
@@ -48,7 +48,7 @@ export function Contracts({ contracts }: { contracts: ProjectEntry["contracts"] 
         {contracts.map((c) => (
           <div key={c.code_hash + c.hash_type} className={ROW} role="row">
             <span role="cell">{c.name}</span>
-            <code role="cell" className="col-span-full row-start-2 font-mono text-[.85rem] font-medium [overflow-wrap:anywhere] min-[561px]:col-span-auto min-[561px]:row-start-auto">
+            <code role="cell" className="col-span-full row-start-2 font-mono text-[.85rem] font-medium [overflow-wrap:anywhere] min-[561px]:col-auto min-[561px]:row-start-auto">
               {c.code_hash}
             </code>
             <span role="cell">{c.hash_type}</span>

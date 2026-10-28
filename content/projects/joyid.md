@@ -12,4 +12,4 @@ links:
 verified: 2026-10-11
 ---
 
-JoyID is a pioneering universal account protocol that redefines crypto wallet experience through simplicity, security, and usability, designed to accelerate Web3 mass adoption. Built on the robust FIDO WebAuthn standard and integrated with the Nervos CKB blockchain, JoyID eliminates traditional barriers of password and mnemonic management, providing a seamless, passwordless, seedless wallet solution. It supports a wide range of major blockchains including Bitcoin, Ethereum, Solana, and more, enabling users to manage diverse digital assets in a single intuitive interface.
+JoyID is a non-custodial wallet that uses passkeys instead of passwords and seed phrases: you create an account in seconds with Face ID or Touch ID, and the key stays in your device's secure hardware. One account works across BTC, Ethereum, BNB Chain and CKB. JoyID supports RGB++ assets, including leaping them between Bitcoin and CKB, and can serve as a Nostr identity. Developers can integrate it for free with open-source SDKs.

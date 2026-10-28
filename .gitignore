@@ -51,3 +51,12 @@ next-env.d.ts
 
 # screenshot
 /design/screenshots
+
+# skills
+/.agents/
+/agent/
+/.claude/
+
+
+# Local Netlify folder
+.netlify

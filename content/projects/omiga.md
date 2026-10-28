@@ -2,8 +2,8 @@
 name: Omiga
 url: https://omiga.io/
 tagline:
-  en: The first  inscription protocol established on Nervos $CKB, also a DEX.
-  zh: Nervos $CKB 上的第一个铭文协议，目前是 CKB 上资产品类支持得最多的 DEX。
+  en: An order-book marketplace on CKB for buying, selling and managing UTXO assets such as xUDT tokens, RGB++ DOBs and mNFTs.
+  zh: CKB 上的 UTXO 订单簿交易市场，可买卖和管理 xUDT 代币、RGB++ DOB、mNFT 等资产。
 categories: [DEX, Marketplace, RGB++]
 community: true
 links:
@@ -12,4 +12,6 @@ links:
 verified: 2026-10-11
 ---
 
-Omiga is an innovative inscription protocol built on the CKB (Common Knowledge Base) blockchain, designed to provide a fairer and more efficient experience for minting and managing inscriptions. Developed by the Nervos ecosystem team, Omiga leverages CKB's unique Cell model and Proof-of-Work consensus to create a native inscription mechanism that eliminates the need for centralized indexers, unlike traditional Bitcoin inscriptions. It supports mainstream Bitcoin wallets like Unisat and OKX Web3, enabling seamless cross-chain interactions and providing a more secure, decentralized approach to digital asset creation and management.
+Omiga began as an inscription protocol on Nervos CKB and is now an order-book marketplace for UTXO assets. You can list, buy and sell xUDT tokens and RGB++ assets, including RGB++ DOBs that trade on Bitcoin, and collections such as Nervape's early 3D mNFTs.
+
+Version 1.2.0 (September 2026) added a wallet panel that shows every CKB asset you hold (xUDT, DOB, mNFT and sUDT, listed or not), CKB transfers, and a link to NervDAO for Nervos DAO deposits and withdrawals. Wallets connect through the CCC connector, including JoyID, MetaMask, OKX, UniSat, UTXO Global and Xverse.

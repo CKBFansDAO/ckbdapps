@@ -19,8 +19,17 @@ function legacyRedirects() {
   ];
 }
 
+// Applied in two places from this one list: `redirects()` below, and src/proxy.ts via LEGACY_REDIRECTS.
+// On Netlify the proxy runs first and would prefix the locale (/ecosystem -> /en/ecosystem, a 404)
+// before these redirects are reached, so the proxy checks the list itself.
+const LEGACY = legacyRedirects();
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  // `next dev` refuses its HMR socket to any host but localhost, and without it the page never hydrates:
+  // opened from a phone at the laptop's LAN address, every button and client-side link is dead.
+  // Allow private networks and mDNS names so the dev server can be tested on real devices.
+  allowedDevOrigins: ["192.168.*.*", "10.*.*.*", "172.*.*.*", "*.local"],
+  env: { LEGACY_REDIRECTS: JSON.stringify(Object.fromEntries(LEGACY.map((r) => [r.source, r.destination]))) },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
@@ -32,7 +41,7 @@ const nextConfig: NextConfig = {
     },
   },
   async redirects() {
-    return legacyRedirects();
+    return LEGACY;
   },
 };
 

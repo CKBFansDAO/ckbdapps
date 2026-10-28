@@ -7,7 +7,6 @@ export const CONTENT_DIR = path.join(process.cwd(), "content");
 
 /** Slug = filename: lowercase, [a-z0-9-] only. */
 export const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const slug = z.string().regex(SLUG, "must be lowercase a-z, 0-9 and single dashes");
 const httpUrl = z.url({ protocol: /^https?$/ });
 // Bare handles/paths for links rendered as https://x.com/<x> and https://t.me/<telegram>
 const handle = z.string().regex(/^[^\s/:@][^\s:]*$/, "a handle, not a URL");
@@ -60,13 +59,13 @@ export const Project = z
     url: httpUrl,
     tagline: L10n, // one sentence
     categories: z.array(z.enum(CATEGORY_IDS)).min(1), // from taxonomy.yaml only
-    community: z.boolean().default(false), // replaces the old "Community-Driven" category
+    community: z.boolean().default(false), // shown as "Independent builders"; replaces the old "Community-Driven" category
     links: z
       .object({ x: handle, telegram: handle, discord: z.string().min(1), docs: httpUrl })
       .strict()
       .partial()
       .optional(),
-    github: z.string().regex(/^[\w.-]+\/[\w.-]+$/, 'must be "owner/repo"').optional(), // enables auto signals
+    github: z.string().regex(/^[\w.-]+\/[\w.-]+$/, 'must be "owner/repo"').optional(), // enables the Activity section (collected by the backend)
     contracts: z
       .array(
         z
@@ -80,15 +79,7 @@ export const Project = z
       .optional(),
     audits: z.array(z.object({ label: z.string().min(1), date: z.string().min(1), url: httpUrl }).strict()).optional(),
     verified: z.iso.date(), // bump when the team confirms the page is current
+    listed: z.iso.date().optional(), // when the project joined the directory; drives "Newly listed" on Home
   })
   .strict();
 export type ProjectData = z.infer<typeof Project>;
-
-export const Home = z
-  .object({
-    featured: z.array(slug),
-    community_picks: z.array(slug),
-    grants: z.array(z.object({ title: z.string().min(1), amount: z.string().min(1), project: slug, status: z.string().min(1) }).strict()),
-  })
-  .strict();
-export type Home = z.infer<typeof Home>;

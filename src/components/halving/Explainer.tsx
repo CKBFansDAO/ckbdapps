@@ -36,7 +36,7 @@ export function Explainer() {
             <div key={label} className="grid grid-cols-[1fr_5rem] items-center gap-4 text-mut min-[641px]:grid-cols-[minmax(0,12rem)_minmax(0,1fr)_5.5rem]">
               <span>{t(label)}</span>
               <i
-                className="col-span-full row-start-2 block h-[22px] w-(--w) bg-purple min-[641px]:col-span-auto min-[641px]:row-start-auto"
+                className="col-span-full row-start-2 block h-[22px] w-(--w) bg-purple min-[641px]:col-auto min-[641px]:row-start-auto"
                 style={{ "--w": `${((v / INFLATION.beforeFirst) * 100).toFixed(1)}%` } as CSSProperties}
               />
               <b className="wide text-right text-2xl text-fg">{v}%</b>

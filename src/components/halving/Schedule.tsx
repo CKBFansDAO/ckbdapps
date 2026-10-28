@@ -6,8 +6,10 @@ import { eraOf, SCHEDULE } from "@/lib/halving";
 import { fmtDate, fmtNum } from "./format";
 import { useHalving } from "./useHalving";
 
+// Phones: event and date on one line, the daily reward and its bar, then three small figures side by side.
+// From 861px: one table row with five columns.
 const COLS =
-  "grid-cols-2 min-[861px]:grid-cols-[minmax(0,1.2fr)_84px_minmax(0,2.4fr)_90px_170px] items-center gap-x-5 gap-y-2";
+  "grid-cols-[4.5rem_5.5rem_minmax(0,1fr)] items-center gap-x-3 gap-y-2.5 min-[861px]:grid-cols-[minmax(0,1.2fr)_84px_minmax(0,2.4fr)_90px_170px] min-[861px]:gap-x-5 min-[861px]:gap-y-2";
 // Until the chain answers, "now" is the last event that has a date.
 const ERA_FROM_DATES = SCHEDULE.filter((r) => r.date).length - 1;
 
@@ -46,20 +48,22 @@ export function Schedule() {
               <li
                 key={r.n}
                 aria-current={state === "now" ? "step" : undefined}
-                className={`${COLS} relative grid border-b border-line py-5 pr-3.5 min-[861px]:pr-[18px] ${state === "past" ? "text-mut" : ""} ${state === "now" ? "bg-surface after:absolute after:inset-y-0 after:right-0 after:w-3 after:bg-purple after:content-['']" : ""}`}
+                className={`${COLS} relative grid border-b border-line py-4 pr-6 min-[861px]:py-5 min-[861px]:pr-[18px] ${state === "past" ? "text-mut" : ""} ${state === "now" ? "bg-surface after:absolute after:inset-y-0 after:right-0 after:w-3 after:bg-purple after:content-['']" : ""}`}
               >
-                <div className="col-span-full flex min-w-0 flex-col items-start gap-0.5 min-[861px]:col-span-auto">
-                  <strong className="semi text-[1.15rem] leading-[1.15]">{labels[i]}</strong>
-                  {state === "now" && (
-                    <span className="border border-accent px-2 py-px text-[.8rem] font-semibold text-accent">{t("hv_now")}</span>
-                  )}
+                <div className="col-span-full -order-2 flex min-w-0 flex-wrap items-center justify-between gap-x-3 gap-y-0.5 min-[861px]:order-none min-[861px]:col-auto min-[861px]:flex-col min-[861px]:items-start">
+                  <span className="flex items-center gap-2 min-[861px]:flex-col min-[861px]:items-start min-[861px]:gap-0.5">
+                    <strong className="semi text-[1.15rem] leading-[1.15]">{labels[i]}</strong>
+                    {state === "now" && (
+                      <span className="border border-accent px-2 py-px text-[.8rem] font-semibold text-accent">{t("hv_now")}</span>
+                    )}
+                  </span>
                   <span className={mono}>{r.date ? fmtDate(r.date, locale) : t("hv_est_month", { y: r.year })}</span>
                 </div>
                 <div className={mono}>
                   {mobileLabel(t("hv_c_epoch"))}
                   {n(r.epoch)}
                 </div>
-                <div className="col-span-full min-[861px]:col-span-auto">
+                <div className="col-span-full -order-1 min-[861px]:order-none min-[861px]:col-auto">
                   <div className="mb-2 text-[.95rem]">
                     <b className="text-[1.15rem] font-extrabold">{n(r.dailyReward)}</b> {t("hv_per_day")}
                   </div>
@@ -69,7 +73,7 @@ export function Schedule() {
                       style={{ "--w": `${width.toFixed(2)}%` } as CSSProperties}
                     />
                   </div>
-                  <div className={`mt-1.5 ${mono}`}>
+                  <div className={`mt-1.5 hidden min-[861px]:block ${mono}`}>
                     {n(r.epochReward)} {t("hv_per_epoch")}
                   </div>
                 </div>
@@ -77,7 +81,7 @@ export function Schedule() {
                   {mobileLabel(t("hv_c_block"))}
                   {n(r.blockReward)}
                 </div>
-                <div className={`col-span-full text-left min-[861px]:col-span-auto min-[861px]:text-right ${mono}`}>
+                <div className={`text-left min-[861px]:text-right ${mono}`}>
                   {mobileLabel(t("hv_c_issued"))}
                   {n(r.eraIssuance)}
                 </div>

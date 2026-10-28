@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Read-only reference copy of the old site
     "legacy/**",
+    // Output of a local `netlify build` / `netlify deploy`
+    ".netlify/**",
   ]),
 ]);
 
