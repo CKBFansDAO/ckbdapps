@@ -24,6 +24,7 @@
   "nav": "主导航",
   "menu": "菜单",
   "foot": "数据公开在 GitHub 上，欢迎提交 Pull Request 新增或修正项目。",
+  "foot_pulse": "想看 CKB 上谁正在开发？去看 LusoCryptoLabs 的 <a>CKB Pulse</a>。",
   "ex_h": "探索",
   "ex_risk": "<b>请注意：</b>我们尚未正式审核或联系这些项目以验证其真实性。在使用该开放网络中的任何服务之前，请进行自己的调查研究。",
   "ex_cnt": "共 {t} 个项目，当前显示 {n} 个",

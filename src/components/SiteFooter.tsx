@@ -1,12 +1,23 @@
 import { useTranslations } from "next-intl";
-import { REPO_URL } from "@/lib/site";
+import { PULSE_URL, REPO_URL } from "@/lib/site";
 
 export function SiteFooter() {
   const t = useTranslations();
   return (
     <footer className="on-dark overflow-hidden pt-[clamp(40px,6vw,72px)]">
       <div className="in flex flex-wrap items-center justify-between gap-x-7 gap-y-3 pb-7 text-mut">
-        <span>{t("foot")}</span>
+        <div className="grid gap-1">
+          <span>{t("foot")}</span>
+          <span>
+            {t.rich("foot_pulse", {
+              a: (c) => (
+                <a href={PULSE_URL} target="_blank" rel="noopener" className="text-fg underline decoration-accent decoration-2 underline-offset-4">
+                  {c}
+                </a>
+              ),
+            })}
+          </span>
+        </div>
         <a href={REPO_URL} target="_blank" rel="noopener" className="text-fg">
           {REPO_URL.replace("https://", "")}
         </a>
