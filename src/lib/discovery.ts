@@ -11,6 +11,8 @@ export type Candidate = {
   source: string;
   /** Text the network check reads: the forum post or the homepage */
   context: string;
+  /** The repository README, read by the network check only (READMEs say "demo" too often for the prototype check) */
+  readme?: string;
 };
 
 // Sites that host articles, chat or code rather than a product: a link there is never a project's home.
@@ -132,12 +134,16 @@ export function isKnown(c: Pick<Candidate, "name" | "url" | "github">, known: Kn
 
 export type Network = "mainnet" | "testnet" | "unknown";
 
-/** Testnet when the text says it is testnet-only, or names testnet (or Pudge) and never mainnet. */
+/**
+ * Mainnet only when the text says it is live there, or names mainnet and never testnet. A README that
+ * lists "testnet or mainnet" as a config option, or plans mainnet later, is a testnet project.
+ */
 export function networkOf(text: string): Network {
   if (/\b(testnet[- ]only|only (on|available on|runs on|works on) (the )?testnet|not (yet )?(on|deployed (on|to)) mainnet)\b|(仅|只)(在|支持|能在)?\s*(testnet|测试网)/i.test(text)) return "testnet";
+  const live = /\b(live|launched|deployed|running|available) (on|to) (the )?(ckb |fiber )?(test-?net (and|&) )?main-?net\b|\bmain-?net (is live|launch(ed)?)\b|(上线|部署)(到|在)?主网|主网(已|正式)?上线/i.test(text);
   const main = /\bmain-?net\b|主网/i.test(text);
-  const test = /\btest-?net\b|\bpudge\b|测试网/i.test(text);
-  return main ? "mainnet" : test ? "testnet" : "unknown";
+  const test = /\btest-?net\b|\bpudge\b|\baggron\d*\b|测试网/i.test(text);
+  return live ? "mainnet" : test ? "testnet" : main ? "mainnet" : "unknown";
 }
 
 /** Words that mark a demo, prototype or unfinished product; such candidates are reported, not filed. */

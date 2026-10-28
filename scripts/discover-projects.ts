@@ -85,7 +85,7 @@ const text = (html: string) => html.replace(/<script[\s\S]*?<\/script>|<style[\s
 // ---- sources -------------------------------------------------------------------------------------
 
 type PulseState = { repos: { name: string; desc?: string }[] };
-type GhRepo = { full_name: string; homepage?: string | null; description?: string | null; archived: boolean; fork: boolean };
+type GhRepo = { full_name: string; default_branch: string; homepage?: string | null; description?: string | null; archived: boolean; fork: boolean };
 
 async function fromPulse(skipRepos: Set<string>, notes: string[]): Promise<Candidate[]> {
   const state = await json<PulseState>(PULSE);
@@ -101,7 +101,10 @@ async function fromPulse(skipRepos: Set<string>, notes: string[]): Promise<Candi
     const home = gh?.homepage?.trim();
     if (!gh || gh.archived || gh.fork || !home || !isHomepageCandidate(home)) return undefined;
     const url = /^https?:\/\//.test(home) ? home : `https://${home}`;
-    return { name: r.name.split("/")[1], url, description: gh.description ?? r.desc ?? "", github: gh.full_name, source: `CKB Pulse: ${gh.full_name}`, context: gh.description ?? "" };
+    // The one-line description rarely names the network; the README does. Raw files do not count against the API limit.
+    const readme = await get(`https://raw.githubusercontent.com/${gh.full_name}/${gh.default_branch}/README.md`);
+    // No name yet: check() takes it from the site's title, which reads better than a repo slug.
+    return { name: "", url, description: gh.description ?? r.desc ?? "", github: gh.full_name, source: `CKB Pulse: ${gh.full_name}`, context: gh.description ?? "", readme: readme?.ok ? readme.body : undefined };
   });
   if (limited) notes.push("CKB Pulse: GitHub API rate limit reached, some repositories were not checked (set GITHUB_TOKEN)");
   notes.push(`CKB Pulse: ${state.repos.length} repositories, ${repos.length} not listed yet`);
@@ -158,10 +161,12 @@ async function check(c: Candidate): Promise<Checked> {
   const res = await get(c.url);
   const html = res?.ok ? res.body : "";
   const meta = html ? pageMeta(html, res!.url) : {};
-  const name = c.name.length > 2 && !/\//.test(c.name) ? c.name : nameFromTitle(meta.title ?? c.name);
+  // A title like "UTXOPlay — Good games" names the site; a sentence-long title does not.
+  const titled = nameFromTitle(meta.title ?? "");
+  const name = c.name.length > 2 && !/\//.test(c.name) ? c.name : (titled && titled.split(/\s+/).length <= 3 ? titled : c.github?.split("/")[1] ?? (titled || c.name));
   const description = meta.description && meta.description.length > 30 ? meta.description : c.description || meta.title || "";
   const context = `${c.context} ${text(html).slice(0, 20_000)}`;
-  const network = networkOf(c.context || context);
+  const network = networkOf([c.context, c.readme].filter(Boolean).join(" ") || context);
   const reason = !res ? "site did not answer" : res.ok && !mentionsCkb(`${context} ${meta.title ?? ""} ${meta.description ?? ""}`) ? "site does not mention CKB" : !res.ok ? `site returned HTTP ${res.status}` : network === "testnet" ? "testnet only" : PROTOTYPE.test(c.context) ? "described as a demo or prototype" : !description ? "no description found" : undefined;
   return { ...c, name, description, ok: !reason, status: res ? String(res.status) : "no answer", icon: meta.icon, reason, categories: guessCategories(`${name} ${description}`), slug: slugify(name) };
 }
