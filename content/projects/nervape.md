@@ -12,4 +12,4 @@ links:
 verified: 2026-10-11
 ---
 
-Nervape is a multi-chain composable digital object (DOB) platform in the Nervos CKB ecosystem, focusing on narrative-driven, customizable 3D NFTs that operate on both Bitcoin and CKB chains, allowing users to create, modify, and transfer assets across chains. Its significance lies in enhancing the Nervos ecosystem by fostering community-driven storytelling, metaverse integration, and interoperability, while expanding practical NFT use cases through trading, gaming, and DeFi collaborations, thus driving user engagement and ecosystem growth.
+Nervape is an art and storytelling project built around composable digital objects (DOBs) on CKB and Bitcoin via RGB++. Collectors hold and trade Nervape DOBs, and since 2026 can sign in with email to reach their DOBs without a wallet. The project also runs artist collaborations, exhibitions and a shop.
