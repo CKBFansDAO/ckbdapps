@@ -8,5 +8,6 @@ categories: [DOBs, Protocol]
 links:
   x: sporeprotocol
   discord: https://discord.gg/X7D7xG7YeX
+github: sporeprotocol/spore-sdk
 verified: 2026-08-12
 ---

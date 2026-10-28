@@ -8,6 +8,7 @@ categories: [DID, RGB++]
 links:
   x: dotbitHQ
   discord: https://discord.gg/did
+github: dotbitHQ/did-contracts
 verified: 2026-10-11
 ---
 

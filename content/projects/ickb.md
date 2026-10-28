@@ -6,6 +6,7 @@ tagline:
   zh: 把 CKB 换成 iCKB：一种持续获得 Nervos DAO 补贴、又能随时转移的代币，无需等待存款周期。
 categories: [DeFi, Nervos DAO]
 community: true
+github: ickb/stack
 verified: 2026-10-28
 listed: 2026-10-28
 ---

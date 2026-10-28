@@ -8,5 +8,6 @@ categories: [Hardware Wallet, Wallet]
 links:
   x: OneKeyHQ
   discord: https://discord.gg/onekey
+github: OneKeyHQ/app-monorepo
 verified: 2024-10-12
 ---
