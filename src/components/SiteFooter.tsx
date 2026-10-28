@@ -11,9 +11,10 @@ export function SiteFooter() {
           {REPO_URL.replace("https://", "")}
         </a>
       </div>
+      {/* Centred: the size stops growing at 13rem (~1415px wide), so wider screens leave room on both sides, not one. */}
       <span
         aria-hidden="true"
-        className="wide block pb-2 text-[clamp(3rem,14.7vw,13rem)] leading-[.86] whitespace-nowrap text-transparent select-none [-webkit-text-stroke:1.5px_color-mix(in_srgb,var(--color-white)_34%,transparent)]"
+        className="wide block pb-2 text-center text-[clamp(3rem,14.7vw,13rem)] leading-[.86] whitespace-nowrap text-transparent select-none [-webkit-text-stroke:1.5px_color-mix(in_srgb,var(--color-white)_34%,transparent)]"
       >
         CKBdapps
       </span>
