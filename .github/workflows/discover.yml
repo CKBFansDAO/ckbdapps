@@ -1,0 +1,69 @@
+name: Discover projects
+
+# Weekly: look for CKB projects that are not listed yet (CKB Pulse + the biweekly update on Nervos
+# Talk) and open a draft pull request with starter files for a maintainer to review. Nothing is
+# listed without that review. See scripts/discover-projects.ts.
+on:
+  schedule:
+    - cron: "0 4 * * 2" # Tuesday, the day after the biweekly update usually lands
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: discover-projects
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      BRANCH: discovery/weekly
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # One review at a time: while last week's pull request is open, its candidates are still in it.
+      - name: Skip while a discovery pull request is open
+        id: open
+        run: |
+          n=$(gh pr list --head "$BRANCH" --state open --json number --jq length)
+          echo "count=$n" >> "$GITHUB_OUTPUT"
+          if [ "$n" != "0" ]; then echo "A discovery pull request is still open; skipping." >> "$GITHUB_STEP_SUMMARY"; fi
+
+      - name: Find candidates
+        if: steps.open.outputs.count == '0'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          pnpm discover:projects --write --report "$RUNNER_TEMP/report.md"
+          cat "$RUNNER_TEMP/report.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Validate the starter files
+        if: steps.open.outputs.count == '0'
+        run: pnpm validate:content
+
+      - name: Open a draft pull request
+        if: steps.open.outputs.count == '0'
+        run: |
+          if [ -z "$(git status --porcelain content public/logos)" ]; then
+            echo "No new candidates this week." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH"
+          git add content/projects public/logos
+          git commit -m "content: candidate projects found on $(date -u +%F)"
+          git push --force origin "$BRANCH"
+          gh pr create --draft --base "${{ github.event.repository.default_branch }}" --head "$BRANCH" \
+            --title "Candidate projects, week of $(date -u +%F)" --body-file "$RUNNER_TEMP/report.md"

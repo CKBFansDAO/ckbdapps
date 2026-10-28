@@ -28,6 +28,8 @@ listed: 2026-10-28
 
 **Independent builders** (`community: true`): built and run by an individual or a small independent team, not by a foundation or one of its affiliates, and not by a company with outside investment. Declare it in your pull request; maintainers check it in review.
 
+New projects are also found automatically: every week a workflow ([`discover.yml`](.github/workflows/discover.yml)) checks [CKB Pulse](https://pulse-lab.lusocryptolabs.com/) and the recent [CKB Ecosystem Biweekly Update](https://talk.nervos.org/t/9821) posts for projects that are not listed, skips testnet-only projects, demos and sites that do not answer, and opens a draft pull request with a starter file (and logo, when the site has one) for each remaining candidate. A maintainer checks each one, writes the About text and merges or deletes it; a turned-down candidate goes into [`content/discovery-ignore.yaml`](content/discovery-ignore.yaml) so it is not proposed again.
+
 To update a listed project, open its page on the site and use **Edit on GitHub**. Every pull request is checked automatically (`pnpm validate:content`) and reviewed by a maintainer.
 
 ## Data sources and credits
@@ -62,6 +64,7 @@ pnpm dev                  # http://localhost:3000
 | `pnpm test:e2e` | Playwright smoke and quality tests against a production build (run `pnpm build` first) |
 | `pnpm check:links` | Request every external URL in the content; runs weekly in CI |
 | `pnpm snapshot:stats` | Refresh the committed stats snapshot shown when the API is down |
+| `pnpm discover:projects` | List CKB projects not yet in the directory (from CKB Pulse and the biweekly update); `--write` adds starter files. Runs weekly in CI and opens a draft pull request |
 
 Environment variables (all optional):
 

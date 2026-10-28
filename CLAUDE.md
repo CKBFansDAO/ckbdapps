@@ -23,6 +23,7 @@ pnpm dev                 # local dev
 pnpm build               # validate content, then next build
 pnpm validate:content    # zod + taxonomy checks, fails on any error
 pnpm check:links         # HEAD every external URL in content (CI weekly, not on every PR)
+pnpm discover:projects   # unlisted CKB projects from CKB Pulse + biweekly update; --write adds starter files (CI weekly, draft PR)
 pnpm migrate:legacy      # one-off: legacy JSON -> content/projects/*.md
 pnpm test:e2e            # Playwright smoke tests
 ```
@@ -117,6 +118,10 @@ Legacy cleanup to apply in the migration (confirm the two marked ones with the s
 - `Tools & Infrastructure` -> `Infrastructure` (confirm)
 - `Community-Driven` -> `community: true`, removed from categories
 - `AW` -> keep as-is until the owner says what it stands for (confirm)
+
+### Project discovery (weekly, draft PR)
+
+`scripts/discover-projects.ts` (rules in `src/lib/discovery.ts`, unit tested) finds projects that are not listed: CKB Pulse repos with a homepage, and product sites linked from the recent biweekly updates on Nervos Talk. It drops anything already listed (same site, same domain, same repo or name) or in `content/discovery-ignore.yaml`, holds back testnet-only projects, demos and sites that do not answer or never mention CKB, and writes starter files (no About text) plus a logo from the site's own icon. `.github/workflows/discover.yml` runs it weekly and opens one draft PR at a time. Inclusion bar for merging: live on CKB or Fiber mainnet and usable today; the reviewer writes the About text from the project's own site or announcement and fixes the guessed categories. Never merge a candidate unreviewed.
 
 ### Home picks (no home.yaml)
 
