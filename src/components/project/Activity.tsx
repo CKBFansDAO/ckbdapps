@@ -1,7 +1,9 @@
 import type { CSSProperties, ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { type ActivityEntry, day, type Status } from "@/lib/activity-source";
-import { CommitBars } from "./CommitBars";
+import { pulseRepoUrl } from "@/lib/activity";
+import { day, type RepoActivity, type Status } from "@/lib/activity-source";
+import { ActivityEvents } from "./ActivityEvents";
+import { DailyBars } from "./DailyBars";
 import { Section } from "./Sections";
 
 // Plug fill by status: full = active, half = quiet, an open dashed slot = no recent activity.
@@ -9,8 +11,6 @@ const MARK: Record<Status, { fill: number; plug: "solid" | "open" }> = {
   active: { fill: 100, plug: "solid" },
   quiet: { fill: 50, plug: "solid" },
   dormant: { fill: 0, plug: "open" },
-  archived: { fill: 0, plug: "open" },
-  unknown: { fill: 0, plug: "open" },
 };
 
 function StatusMark({ status }: { status: Status }) {
@@ -34,16 +34,19 @@ function Fact({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-type Props = { entry?: ActivityEntry; repo?: string; unavailable: boolean };
+const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
 
-/** Is this project still alive? Public GitHub activity, collected by the backend. Renders nothing without data. */
-export function Activity({ entry, repo, unavailable }: Props) {
+/**
+ * Is this project still alive? Public GitHub activity from CKB Pulse.
+ * Renders nothing when the project has no github line or Pulse does not follow it (data undefined).
+ */
+export function Activity({ data, repo }: { data: RepoActivity | null | undefined; repo?: string }) {
   const t = useTranslations();
   const locale = useLocale();
+  if (data === undefined || !repo) return null;
 
-  if (!entry?.github) {
-    // The backend is down: say so and point at the repo instead of guessing. No github line, nothing to show.
-    if (!unavailable || !repo) return null;
+  if (data === null) {
+    // Pulse is down: say so and point at the repo instead of guessing.
     return (
       <Section title={t("act_h")}>
         <p className="m-0">
@@ -56,49 +59,43 @@ export function Activity({ entry, repo, unavailable }: Props) {
     );
   }
 
-  const g = entry.github;
-  const release = g.releases[0];
   return (
     <Section title={t("act_h")}>
       <div className="flex items-center gap-4">
-        <StatusMark status={entry.status} />
+        <StatusMark status={data.status} />
         <p className="m-0 font-extrabold">
-          {t(`act_s_${entry.status}`)}
-          {entry.lastActivityAt && (
-            <span className="ml-3 font-mono text-[.9rem] font-medium text-mut">{t("act_last", { d: day(entry.lastActivityAt) })}</span>
+          {t(`act_s_${data.status}`)}
+          {data.lastActivityAt && (
+            <span className="ml-3 font-mono text-[.9rem] font-medium text-mut">{t("act_last", { d: day(data.lastActivityAt) })}</span>
           )}
         </p>
       </div>
-      <p className="mt-2 mb-0 max-w-[62ch] text-[.95rem] text-mut">{t(`act_d_${entry.status}`)}</p>
+      <p className="mt-2 mb-0 max-w-[62ch] text-[.95rem] text-mut">{t(`act_d_${data.status}`)}</p>
 
       <div className="mt-7 grid grid-cols-1 items-start gap-x-[clamp(28px,5vw,64px)] gap-y-8 min-[561px]:grid-cols-2">
-        <CommitBars weekly={g.weekly} />
+        <DailyBars daily={data.daily} />
         <dl className="m-0 border-t-2 border-fg text-[.95rem]">
-          {g.lastCommitAt && <Fact label={t("sg_commit")}>{day(g.lastCommitAt)}</Fact>}
-          <Fact label={t("act_c30")}>{g.commits30d.toLocaleString(locale)}</Fact>
-          <Fact label={t("act_c90")}>{g.commits90d.toLocaleString(locale)}</Fact>
-          {release && (
-            <Fact label={t("act_release")}>
-              <a className="linkbtn" href={release.url} target="_blank" rel="noopener">
-                {release.name || release.tag}
-              </a>{" "}
-              <span className="font-mono text-[.85rem] font-medium text-mut">{day(release.at)}</span>
-            </Fact>
-          )}
-          <Fact label={t("sg_stars")}>{g.stars.toLocaleString(locale)}</Fact>
-          <Fact label={t("sg_license")}>{g.license ?? t("sg_none")}</Fact>
+          <Fact label={t("act_e30")}>{sum(data.daily).toLocaleString(locale)}</Fact>
+          <Fact label={t("act_people")}>{data.contributors.toLocaleString(locale)}</Fact>
+          <Fact label={t("sg_stars")}>{data.stars.toLocaleString(locale)}</Fact>
         </dl>
       </div>
+
+      <ActivityEvents events={data.events} />
+
       <p className="mt-5 mb-0 max-w-[62ch] font-mono text-[.8rem] font-medium text-mut">
-        {repo && (
-          <>
-            <a className="linkbtn" href={`https://github.com/${repo}`} target="_blank" rel="noopener">
-              github.com/{repo}
+        <a className="linkbtn" href={`https://github.com/${data.name}`} target="_blank" rel="noopener">
+          github.com/{data.name}
+        </a>
+        {" · "}
+        {t.rich("act_src", {
+          d: day(data.fetchedAt),
+          pulse: (c) => (
+            <a className="linkbtn" href={pulseRepoUrl(data.name)} target="_blank" rel="noopener">
+              {c}
             </a>
-            {" · "}
-          </>
-        )}
-        {t("act_src", { d: day(g.fetchedAt) })}
+          ),
+        })}
       </p>
       <p className="mt-1.5 mb-0 max-w-[62ch] text-[.85rem] text-mut">{t("act_note")}</p>
     </Section>

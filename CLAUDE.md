@@ -63,7 +63,7 @@ pnpm test:e2e            # Playwright smoke tests
 │  │  └─ halving/   # Countdown, TipSummary, EraProgress, Schedule, Explainer
 │  ├─ lib/
 │  │  ├─ content/   # schema.ts, load.ts, derive.ts (groups, similar projects, staleness)
-│  │  ├─ activity.ts  # project activity from the ckbdapps backend (hourly cache)
+│  │  ├─ activity.ts  # project activity from CKB Pulse (hourly cache)
 │  │  ├─ halving.ts # pure functions, unit tested
 │  │  └─ ckb-rpc.ts
 │  ├─ i18n/         # routing.ts, request.ts
@@ -89,7 +89,7 @@ export const Project = z.object({
   categories: z.array(z.enum(CATEGORY_IDS)).min(1), // from taxonomy.yaml only
   community: z.boolean().default(false),      // "Independent builder" (see rule below); replaces the old "Community-Driven" category
   links: z.object({ x: z.string(), telegram: z.string(), discord: z.string(), docs: z.string().url() }).partial().optional(),
-  github: z.string().regex(/^[\w.-]+\/[\w.-]+$/).optional(),   // "owner/repo"; enables GitHub activity (collected by the backend)
+  github: z.string().regex(/^[\w.-]+\/[\w.-]+$/).optional(),   // "owner/repo"; enables GitHub activity (from CKB Pulse)
   contracts: z.array(z.object({ name: z.string(), code_hash: z.string().regex(/^0x[0-9a-f]{64}$/), hash_type: z.enum(['type', 'data', 'data1', 'data2']) })).optional(),
   audits: z.array(z.object({ label: z.string(), date: z.string(), url: z.string().url() })).optional(),
   verified: z.string().date(),                // bump when the team confirms the page is current
@@ -99,7 +99,7 @@ export const Project = z.object({
 
 Rules:
 - The slug is the filename: lowercase, `[a-z0-9-]` only. Never derive anything from the original casing.
-- Everything else on a project page is **derived**, never hand-written: group, tags, similar projects, activity (GitHub license, stars, commits, releases; X posts), website status, staleness. Do not reintroduce highlights, FAQ, transparency checklists, or colour classes in data.
+- Everything else on a project page is **derived**, never hand-written: group, tags, similar projects, activity (GitHub events and stars, from CKB Pulse), website status, staleness. Do not reintroduce highlights, FAQ, transparency checklists, or colour classes in data.
 - `community: true` is shown as **Independent builders / 独立建设者**: built and run by an individual or a small independent team, not by a foundation or one of its affiliates, and not by a company with outside investment. The submitter declares it; maintainers check it in review against this one sentence (the same text is on `/submit`). The field name stays `community` so no file has to change.
 - Stale rule: `verified` older than 365 days shows the stale notice on the page (see the "Out of date" preview in the prototype). Never hide the page.
 - A project with no logo gets the deterministic identicon from the prototype (`icon(slug)`: mirrored 5x5 grid seeded by an FNV hash of the slug). Port it to `Identicon.tsx` exactly.
@@ -309,41 +309,19 @@ Acceptance for any page: no class name that exists only in a CSS file, no hex or
 
 ---
 
-## Project activity (collected and served by the ckbdapps backend)
+## Project activity (from CKB Pulse)
 
-Purpose: let the community see at a glance whether a project is still alive. The site never calls GitHub or X, holds no tokens, and nothing has to be committed to keep activity fresh. Inputs are the existing `github: owner/repo` and `links.x` fields; no new schema fields.
+Purpose: let the community see at a glance whether a project is still alive. The site never calls GitHub or X, holds no tokens, and nothing has to be committed to keep activity fresh. Input is the existing `github: owner/repo` field; no new schema fields.
 
-**Phase 1 (current): GitHub only.** The backend collects GitHub; X collection is phase 2 (it needs paid X API access, decide separately). The site parses and shows only the `github` block and ignores any `x` block, so enabling X later needs a backend change plus a new X column on the site. Until then `status` is computed from GitHub alone.
+**Source: [CKB Pulse](https://pulse-lab.lusocryptolabs.com)** by LusoCryptoLabs ([repo](https://github.com/LusoCryptoLabs/ckb-pulse), MIT), which follows the GitHub activity of the CKB ecosystem. It replaces the planned ckbdapps backend collector. `PULSE_URL` points at another instance; Pulse can be self-hosted if the public one goes away.
+- `GET /api/state` (hourly, ~300 KB): only to map a `github` line to Pulse's exact spelling (`/api/repo` is case-sensitive) and to know which repos Pulse follows.
+- `GET /api/repo?name=owner/repo` (hourly, per project): the last 30 days: events (kind, actor, title, url, time), `daily.people`, contributors, stars, `pushedAt`.
+- A project whose repo Pulse does not follow has no Activity section. To cover more projects, add `github` lines and ask Pulse to follow the owner (`POST /api/propose`).
+- X posts (phase 2) are not in Pulse; decide separately (needs paid X API access).
 
-### 1. Project list sync (backend, automatic)
-- The source of truth is the site's own `/projects.json` (already validated by `pnpm validate:content`, already contains `slug`, `github`, `links.x`). The backend polls it hourly with `If-None-Match`; base URL is an env var (`PROJECTS_URL`) so it can point at the preview site before DNS switches.
-- Upsert `project(slug, github, x_handle)`. A slug that disappears is marked `removed_at` and its data is dropped after 30 days. Changing `github` or `x` in a PR simply changes the row; old events for that source are replaced on the next collect.
-- Adding a project = merge a PR. Deploy publishes `/projects.json`, the backend sees it within an hour. Optional: a Netlify "deploy succeeded" webhook calls the backend's sync endpoint for instant pickup. No manual step.
-
-### 2. Collectors (backend)
-- GitHub, every 6 h: one GraphQL request per 50 repos, as aliases: `stargazerCount`, `licenseInfo.spdxId`, `isArchived`, `pushedAt`, default-branch `history(since: 90d days, first: 100)` commit dates, latest 3 `releases`. Weekly commit counts are computed by the backend. A repo GitHub does not answer for keeps its last good data and is flagged `error` in the backend log. Auth, rate-limit or 5xx errors keep serving stored data. Read-only token on the backend only.
-- X, every 12 h: resolve handles to ids once (batch of 100, cached), then per account `GET /2/users/:id/tweets?since_id=<last>&max_results=5&exclude=retweets,replies`. With `since_id` only new posts are fetched and billed. Keep the latest 5 posts per project and 180 days of events. X is optional per deployment: if no X credentials are configured, the `x` block is simply absent and GitHub still works.
-- Status is computed in one place, the backend, from the newest of: last commit, release, X post.
-  `active` <= 30 days, `quiet` 31-90 days, `dormant` > 90 days, `archived` if the repo is archived, `unknown` if there is no source or it was never collected. `dormant` means "no public activity", not "dead": projects that build in private repos will read as quiet.
-
-### 3. API (one bulk call, a few hundred KB)
-`GET https://api.ckbdapps.com/api/v1/nervos_explorers/project_activity`
-```
-{ "updatedAt": ISO,
-  "projects": { "<slug>": {
-    "status": "active" | "quiet" | "dormant" | "archived" | "unknown",
-    "lastActivityAt": ISO | null,
-    "github"?: { "fetchedAt": ISO, "stars": n, "license"?: SPDX, "lastCommitAt"?: ISO,
-                 "commits30d": n, "commits90d": n, "weekly": [13 numbers, oldest first],
-                 "releases": [{ "tag", "name"?, "at": ISO, "url" }] },
-    "x"?:      { "fetchedAt": ISO, "handle": "...", "lastPostAt"?: ISO,
-                 "posts": [{ "id", "text", "at": ISO, "url" }] } } } }
-```
-A project with no `github` and no `x` has no entry. A source with no data has no block.
-
-### 4. Site (`src/lib/activity.ts`, `components/project/Activity.tsx`)
-- The backend only serves JSON and never writes or deploys any HTML. The Next.js site on Netlify fetches that JSON itself on the server (same mechanism as the stats page; `ACTIVITY_API_URL` points a preview at a staging backend), revalidated hourly, one request shared by all 126 pages, and renders the section into the page. Failures are never cached for long: the section falls back to a one-line "Activity is unavailable right now" with direct links to the project's GitHub and X (only when the project has one), never to guessed numbers.
-- Section order on the project page: hero, About, Activity, Contracts, Audits, Similar. The old Signals panel is removed; license, stars and last commit move into Activity.
-- Content: header row with status (plug fill: full = active, half = quiet, empty dashed slot = dormant/unknown, always with a text label), "last activity N days ago" and "updated N hours ago from GitHub and X". Two columns on desktop, stacked on mobile: 13 weekly commit bars with a "View as table" alternative, and the facts (last commit, commits in 30 and 90 days, latest release, stars, license). Phase 2 adds an X column (latest 3 posts as plain text with date, linking out to x.com), hidden when absent. Dates are shown as YYYY-MM-DD, never as relative times, because the page is prerendered. The whole section hides when the project has no entry; it shows the one-line fallback only when the backend failed and the project has a `github` line.
-- No reserved status colours; status uses the existing purple tokens and the slot motif only.
-- Posts are rendered as plain text, escaped, truncated, with the post URL as the link (check X display terms before shipping).
+### Site (`src/lib/activity.ts` loads, `src/lib/activity-source.ts` parses and is unit tested, `components/project/Activity.tsx`)
+- Fetched on the server, revalidated hourly, rendered into the prerendered page. A failure is cached for minutes only and shows a one-line "Activity is unavailable right now" with a link to the repo, never guessed numbers.
+- Status, computed from the newest event by a person (else `pushedAt`): `active` <= 30 days, `quiet` 31-90, `dormant` beyond. Shown as plug fill (full, half, empty dashed slot) with a text label. `dormant` means "no public activity", not "dead".
+- Content: status row with last activity date; 30 daily bars (events by people) with a "View as table" alternative; facts (events and people in 30 days, stars); the latest 5 events, newest first, each linking to GitHub. Bots (`[bot]`), stars, forks and new branches are left out, and repeats of the same action on the same item by the same person fold into one line with a count. Source line links the repo and its Pulse card.
+- Dates are YYYY-MM-DD, never relative, because the page is prerendered. Section order: hero, About, Activity, Contracts, Audits, Similar.
+- No reserved status colours; status uses the purple tokens and the slot motif only.
