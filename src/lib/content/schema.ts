@@ -59,7 +59,7 @@ export const Project = z
     url: httpUrl,
     tagline: L10n, // one sentence
     categories: z.array(z.enum(CATEGORY_IDS)).min(1), // from taxonomy.yaml only
-    community: z.boolean().default(false), // replaces the old "Community-Driven" category
+    community: z.boolean().default(false), // shown as "Independent builders"; replaces the old "Community-Driven" category
     links: z
       .object({ x: handle, telegram: handle, discord: z.string().min(1), docs: httpUrl })
       .strict()

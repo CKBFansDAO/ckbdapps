@@ -86,7 +86,7 @@ export const Project = z.object({
   url: z.string().url(),
   tagline: L10n,                              // one sentence
   categories: z.array(z.enum(CATEGORY_IDS)).min(1), // from taxonomy.yaml only
-  community: z.boolean().default(false),      // replaces the old "Community-Driven" category
+  community: z.boolean().default(false),      // "Independent builder" (see rule below); replaces the old "Community-Driven" category
   links: z.object({ x: z.string(), telegram: z.string(), discord: z.string(), docs: z.string().url() }).partial().optional(),
   github: z.string().regex(/^[\w.-]+\/[\w.-]+$/).optional(),   // "owner/repo"; enables GitHub activity (collected by the backend)
   contracts: z.array(z.object({ name: z.string(), code_hash: z.string().regex(/^0x[0-9a-f]{64}$/), hash_type: z.enum(['type', 'data', 'data1', 'data2']) })).optional(),
@@ -99,6 +99,7 @@ export const Project = z.object({
 Rules:
 - The slug is the filename: lowercase, `[a-z0-9-]` only. Never derive anything from the original casing.
 - Everything else on a project page is **derived**, never hand-written: group, tags, similar projects, activity (GitHub license, stars, commits, releases; X posts), website status, staleness. Do not reintroduce highlights, FAQ, transparency checklists, or colour classes in data.
+- `community: true` is shown as **Independent builders / 独立建设者**: built and run by an individual or a small independent team, not by a foundation or one of its affiliates, and not by a company with outside investment. The submitter declares it; maintainers check it in review against this one sentence (the same text is on `/submit`). The field name stays `community` so no file has to change.
 - Stale rule: `verified` older than 365 days shows the stale notice on the page (see the "Out of date" preview in the prototype). Never hide the page.
 - A project with no logo gets the deterministic identicon from the prototype (`icon(slug)`: mirrored 5x5 grid seeded by an FNV hash of the slug). Port it to `Identicon.tsx` exactly.
 
@@ -119,7 +120,7 @@ Legacy cleanup to apply in the migration (confirm the two marked ones with the s
 
 ### Home picks (no home.yaml)
 
-Projects on Home are never picked by hand (a hand-picked list needs a standard nobody can defend), so there is no curated data file. "You might like" recommends from the projects a visitor opened on this device (history in `localStorage` only; a first visit draws at random from apps, wallets, assets), "Newly listed" shows the 3 newest by `listed` (projects without it never appear), and "Community-built" shows 5 random `community: true` projects plus a card linking to all of them and to `/submit`. No project shows in two blocks. Logic in `src/lib/picks.ts`. The Spark grant card and the empty "your project here" cards were removed.
+Projects on Home are never picked by hand (a hand-picked list needs a standard nobody can defend), so there is no curated data file. "You might like" recommends from the projects a visitor opened on this device (history in `localStorage` only; a first visit draws at random from apps, wallets, assets), "Newly listed" shows the 3 newest by `listed` (projects without it never appear), and "Independent builders" shows 5 random `community: true` projects plus a card linking to all of them and to `/submit`. No project shows in two blocks. Logic in `src/lib/picks.ts`. The Spark grant card and the empty "your project here" cards were removed.
 
 ## Routes and rendering
 
@@ -159,7 +160,7 @@ Tokens (`src/styles/tokens.css`, copy values from the prototype's `:root`):
 
 ## Pages (what the prototype shows)
 
-**Home**: hero (headline with `CKB` in a Slot, search with suggestions, quick category chips, three stats) -> category marquee (purple band) -> halving strip ("CKB halves in N days", from 640px; phones skip it) -> Start here (You might like, Newly listed, Community-built + see all / add yours; see Home picks above) -> Ecosystem map.
+**Home**: hero (headline with `CKB` in a Slot, search with suggestions, quick category chips, three stats) -> category marquee (purple band) -> halving strip ("CKB halves in N days", from 640px; phones skip it) -> Start here (You might like, Newly listed, Independent builders + see all / add yours; see Home picks above) -> Ecosystem map.
 - Positioning: **Map = overview and entry point** (every project is one cell, grouped; clicking a group goes to Explore with that filter). **Explore = the searchable directory.** **Home = curated layer.** Do not make the map a second list.
 
 **Explore**: sticky toolbar (filter input, group tabs with counts, community-only toggle, list/grid), category chips, paged list (30 per page + "Show more"), empty state with a clear action. A persistent **risk notice bar** sits under the page title (not dismissible; `role="note"`; `ex_risk` in the message files; replace the placeholder wording with the legacy `/ecosystem` risk text, confirm with owner). This page replaces legacy `/ecosystem`; no watch-list/favorites feature.
