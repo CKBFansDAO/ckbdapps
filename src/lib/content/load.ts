@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import YAML from "yaml";
 import type { z } from "zod";
 import { groupOf } from "./derive";
-import { CONTENT_DIR, Project, SLUG, taxonomy, type GroupId, type ProjectData } from "./schema";
+import { CONTENT_DIR, Project, SLUG, TAXONOMY_FILE, TAXONOMY_SOURCE, taxonomy, type GroupId, type ProjectData } from "./schema";
 
 export const PROJECTS_DIR = path.join(CONTENT_DIR, "projects");
 export const LOGOS_DIR = path.join(process.cwd(), "public", "logos");
@@ -54,6 +54,11 @@ let cache: ProjectEntry[] | undefined;
 export function loadProjects(): ProjectEntry[] {
   // Cache for the build; in dev re-read so content edits show up on reload.
   if (cache && process.env.NODE_ENV === "production") return cache;
+  // Project files are re-read in dev, but the taxonomy (category ids, labels) is fixed at module load,
+  // so a new category reads as "invalid option" until the dev server restarts. Say that instead.
+  if (process.env.NODE_ENV !== "production" && readFileSync(TAXONOMY_FILE, "utf8") !== TAXONOMY_SOURCE) {
+    throw new Error("content/taxonomy.yaml changed after `pnpm dev` started: restart the dev server to load it.");
+  }
   const out = readProjectFiles().map(({ slug, file, source, data, body, error }) => {
     if (error) throw new Error(`${file}: ${error}`);
     if (!SLUG.test(slug)) throw new Error(`${file}: invalid slug`);

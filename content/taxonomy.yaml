@@ -36,6 +36,7 @@ categories:
   - { id: Protocol, zh: 协议, group: infra }
   - { id: Explorer, zh: 区块浏览器, group: infra }
   - { id: Tools, zh: 工具, group: infra }
+  - { id: Dev Tools, zh: 开发者工具, group: infra }
   - { id: Infrastructure, zh: 基础设施, group: infra }
   - { id: Security & Audit, zh: 安全与审计, group: infra }
   - { id: RGB++, zh: RGB++, group: infra }
