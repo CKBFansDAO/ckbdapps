@@ -1,7 +1,7 @@
 /**
  * One-off: legacy ckbdapps JSON -> content/projects/*.md, redirects.json, public/logos/*.webp
  *
- *   pnpm migrate:legacy [--legacy legacy] [--git <clone of CKBFansDAO/ckbdapps>] [--date YYYY-MM-DD]
+ *   pnpm migrate:legacy [--legacy legacy] [--git <clone of CKBFansDAO/ckbdapps-legacy>] [--date YYYY-MM-DD]
  *
  * --legacy  checkout of the old repo (read only)
  * --git     a git clone of the old repo, used only for the last commit date of each config.json
