@@ -49,7 +49,10 @@ export const Taxonomy = z
   });
 export type Taxonomy = z.infer<typeof Taxonomy>;
 
-export const taxonomy: Taxonomy = Taxonomy.parse(YAML.parse(readFileSync(path.join(CONTENT_DIR, "taxonomy.yaml"), "utf8")));
+export const TAXONOMY_FILE = path.join(CONTENT_DIR, "taxonomy.yaml");
+/** The taxonomy as read when this module loaded; `pnpm dev` keeps it until restarted (see loadProjects). */
+export const TAXONOMY_SOURCE = readFileSync(TAXONOMY_FILE, "utf8");
+export const taxonomy: Taxonomy = Taxonomy.parse(YAML.parse(TAXONOMY_SOURCE));
 export const CATEGORY_IDS = taxonomy.categories.map((c) => c.id) as [string, ...string[]];
 export type GroupId = string;
 
