@@ -74,8 +74,11 @@ test("home: halving strip shows the live day count (not on phones)", async ({ pa
 
 test("explore: filters live in the URL", async ({ page }) => {
   await page.goto("/en/explore?group=wallets");
-  await expect(page.getByRole("button", { name: /^Wallets/ })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByText(/^\d+ of \d+ projects$/)).toHaveText(/^17 of/);
+  const wallets = page.getByRole("button", { name: /^Wallets/ });
+  await expect(wallets).toHaveAttribute("aria-pressed", "true");
+  // The list shows exactly as many projects as the tab counts.
+  const n = (await wallets.textContent())!.match(/\d+/)![0];
+  await expect(page.getByText(/^\d+ of \d+ projects$/)).toHaveText(new RegExp(`^${n} of`));
   await page.getByRole("searchbox", { name: "Filter by name or category" }).fill("ledger");
   await expect(page).toHaveURL(/q=ledger/);
   await expect(page.getByRole("link", { name: /Ledger/ })).toBeVisible();
@@ -98,9 +101,9 @@ test("project page: static content, JSON-LD and OG image", async ({ page }) => {
 });
 
 test("project page: stale notice when not verified for a year", async ({ page }) => {
-  await page.goto("/en/projects/reiwallet");
+  await page.goto("/en/projects/boolleap");
   await expect(page.getByText(/last verified \d+ months ago/)).toBeVisible();
-  await expect(page.getByRole("link", { name: "Send an update" })).toHaveAttribute("href", /\/edit\/main\/content\/projects\/reiwallet\.md$/);
+  await expect(page.getByRole("link", { name: "Send an update" })).toHaveAttribute("href", /\/edit\/main\/content\/projects\/boolleap\.md$/);
 });
 
 test("halving: live countdown from the chain", async ({ page }) => {

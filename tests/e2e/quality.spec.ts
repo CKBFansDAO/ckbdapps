@@ -13,7 +13,7 @@ const ROUTES = [
   "/stats",
   "/submit",
   "/projects/quantumpurse", // full file: About, contracts, audits
-  "/projects/reiwallet", // stale notice
+  "/projects/boolleap", // stale notice
 ];
 const WIDTHS = [1280, 390];
 const FOCUS_STOPS = 40;
