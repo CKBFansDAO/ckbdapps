@@ -7,6 +7,7 @@
     "build": "pnpm validate:content && next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
     "validate:content": "tsx scripts/validate-content.ts",
     "migrate:legacy": "tsx scripts/migrate-legacy.ts",
     "test": "tsx --test \"src/**/*.test.ts\"",

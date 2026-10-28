@@ -31,8 +31,9 @@ jobs:
         run: pnpm validate:content
       - name: Lint
         run: pnpm lint
+      # PageProps/LayoutProps and next-env.d.ts come from `next typegen`; a fresh checkout has neither.
       - name: Typecheck
-        run: pnpm exec tsc --noEmit
+        run: pnpm typecheck
       - name: Unit tests
         run: pnpm test
 
