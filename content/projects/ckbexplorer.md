@@ -9,5 +9,6 @@ links:
   x: NervosNetwork
   telegram: nervosnetwork
   discord: https://discord.com/invite/pxZJpJPJBH
+github: nervosnetwork/ckb-explorer-frontend
 verified: 2026-08-12
 ---

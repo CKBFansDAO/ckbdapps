@@ -5,7 +5,7 @@ tagline:
   en: A quantum-resistant CKB wallet that runs in your browser with a built-in CKB light client.
   zh: 运行在浏览器中的 CKB 抗量子钱包，内置 CKB 轻客户端。
 categories: [Wallet]
-github: quantumpurse/quantum-purse
+github: quantumpurse/quantum-purse-v2
 verified: 2026-10-11
 ---
 
