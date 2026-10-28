@@ -9,6 +9,7 @@ links:
   x: Nervapes
   telegram: Nervape_CN
   discord: https://discord.com/invite/7br6nvuNHP
+github: nervape/nervape-btc-mint
 verified: 2026-10-11
 ---
 
