@@ -52,3 +52,9 @@ export const ymd = (t: number) => {
   const d = new Date(t);
   return `${d.getUTCFullYear()}/${d.getUTCMonth() + 1}/${d.getUTCDate()}`;
 };
+
+/** "506.47亿" -> ["506.47", "亿"], "1.2B" -> ["1.2", "B"]: lets the hero set the unit smaller. */
+export function splitUnit(s: string): [string, string] {
+  const m = /^([\d.,]+)(.*)$/.exec(s);
+  return m ? [m[1], m[2]] : [s, ""];
+}

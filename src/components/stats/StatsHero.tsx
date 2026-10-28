@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 import type { StatsResult } from "@/lib/stats";
-import { big, ymd } from "@/lib/stats-format";
+import { big, splitUnit, ymd } from "@/lib/stats-format";
 
 export async function StatsHero({ data }: { data: StatsResult }) {
   const t = await getTranslations();
@@ -29,12 +29,19 @@ export async function StatsHero({ data }: { data: StatsResult }) {
               ["st_dao", market.dao],
               ["st_trade", market.trade],
             ] as const
-          ).map(([k, v]) => (
-            <div key={k} className="flex min-w-0 flex-col-reverse justify-end gap-2.5 border-t border-line-d pt-6 pr-4 pb-6">
-              <dt className="font-semibold text-mut-d">{t(k)}</dt>
-              <dd className="m-0 text-[clamp(1.9rem,4.4vw,3.6rem)] leading-none wrap-anywhere">{big(v, locale)}</dd>
-            </div>
-          ))}
+          ).map(([k, v]) => {
+            const [num, unit] = splitUnit(big(v, locale));
+            return (
+              <div key={k} className="flex min-w-0 flex-col-reverse justify-end gap-2.5 border-t border-line-d pt-6 pr-4 pb-6">
+                <dt className="font-semibold text-mut-d">{t(k)}</dt>
+                {/* One line: the unit (亿, B) is set at half size, and the size is capped so four fit side by side. */}
+                <dd className="m-0 text-[clamp(1.75rem,3.6vw,3.2rem)] leading-none whitespace-nowrap">
+                  {num}
+                  <span className="ml-[.12em] text-[.5em]">{unit}</span>
+                </dd>
+              </div>
+            );
+          })}
         </dl>
         <h2 className="semi mt-[clamp(28px,4vw,48px)] mb-3.5 text-[1.3rem]">{t("st_split")}</h2>
         <div
@@ -48,7 +55,8 @@ export async function StatsHero({ data }: { data: StatsResult }) {
               className={`flex min-w-1.5 basis-0 items-center overflow-hidden px-3.5 font-mono text-base font-semibold whitespace-nowrap shrink grow-(--g) ${p.cls}`}
               style={{ "--g": p.v } as CSSProperties}
             >
-              {p.show ? big(p.v, locale) : null}
+              {/* A thin segment cannot hold its number on a phone; the legend below always lists it. */}
+              {p.show && <span className={p.v / market.total < 0.25 ? "hidden sm:inline" : undefined}>{big(p.v, locale)}</span>}
             </div>
           ))}
         </div>
