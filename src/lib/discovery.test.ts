@@ -62,10 +62,14 @@ test("known projects match by site, own subdomain, repo, name and the ignore lis
   assert.ok(!c("New", "https://github.com/someone/else"), "github.com itself is never a known site");
 });
 
-test("networkOf: testnet only when nothing says mainnet, or when it says testnet-only", () => {
+test("networkOf: mainnet only when it says it is live there, or never names testnet", () => {
   assert.equal(networkOf("Live on mainnet since 21 September"), "mainnet");
+  assert.equal(networkOf("did:ckb identity | Live on CKB Testnet and Mainnet"), "mainnet");
+  assert.equal(networkOf("Browser game store; CKB purchases on mainnet"), "mainnet");
   assert.equal(networkOf("Try it on Pudge testnet"), "testnet");
-  assert.equal(networkOf("Runs on testnet; mainnet support is planned"), "mainnet");
+  assert.equal(networkOf("Runs on testnet; mainnet support is planned"), "testnet");
+  assert.equal(networkOf("CKB_NETWORK | `testnet` or `mainnet` | default `testnet`"), "testnet");
+  assert.equal(networkOf("Nervos CKB (Aggron4 Testnet)"), "testnet");
   assert.equal(networkOf("目前只在 testnet 可用，主网还没部署"), "testnet");
   assert.equal(networkOf("A publishing platform"), "unknown");
 });
