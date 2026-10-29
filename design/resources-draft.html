@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resources draft · CKBdapps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;900&display=swap">
+<!-- Design draft for /{locale}/resources. A visual reference only, like ckbdapps-design.html: not shipped, CSS not to be copied.
+     Data: the 64 entries of cookbook.ckbdapps.com/awesome (2025-06), freshness from CKB Pulse and GitHub on 2026-10-29.
+     The "In docs pages" hits are invented to show phase 2. -->
+<style>
+:root {
+  --page: #121218; --ink: #1c1c23; --purple: #733dff; --purple-hi: #9068ff; --purple-deep: #5a26e8;
+  --paper: #f3f2f7; --paper-ink: #15151c; --white: #fff; --mut-d: #a3a2b3; --mut-p: #5d5c6b;
+  --line-d: rgba(255,255,255,.14); --line-p: rgba(21,21,28,.16);
+  --display: 'Archivo', 'Noto Sans SC', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+.on-dark { --bg: var(--page); --fg: var(--white); --mut: var(--mut-d); --line: var(--line-d); --accent: var(--purple-hi); --surface: var(--ink); background: var(--bg); color: var(--fg); }
+.on-paper { --bg: var(--paper); --fg: var(--paper-ink); --mut: var(--mut-p); --line: var(--line-p); --accent: var(--purple-deep); --surface: var(--white); background: var(--bg); color: var(--fg); }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--white); font: 400 16px/1.55 var(--display); font-variation-settings: "wdth" 100; }
+a { color: inherit; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--purple-hi); outline-offset: 3px; }
+.on-paper :focus-visible { outline-color: var(--purple-deep); }
+.in { max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+.wide { font-weight: 800; font-variation-settings: "wdth" 125; letter-spacing: -.03em; }
+.semi { font-weight: 800; font-variation-settings: "wdth" 112; letter-spacing: -.02em; }
+.inslot { position: relative; display: inline-block; padding: .03em .26em 0 .2em; margin-right: .36em; border: .1em solid currentColor; border-right: 0; line-height: .95; }
+.inslot::after { content: ""; position: absolute; right: -.3em; top: 0; bottom: 0; width: .3em; background: var(--purple); }
+.btn { position: relative; display: inline-flex; align-items: center; margin-right: 14px; padding: 9px 18px 9px 16px; border: 2px solid currentColor; border-right: 0; background: none; text-decoration: none; font-weight: 700; font-size: .9rem; white-space: nowrap; }
+.btn::after { content: ""; position: absolute; right: -14px; top: -2px; bottom: -2px; width: 14px; background: var(--purple); transition: width .18s, right .18s; }
+.btn:hover::after, .btn:focus-visible::after { width: 24px; right: -24px; }
+
+.draft { background: var(--purple); color: var(--white); font: 600 .8rem var(--mono); padding: 6px 0; }
+.top { position: sticky; top: 0; z-index: 20; height: 64px; background: rgba(18,18,24,.92); border-bottom: 1px solid var(--line-d); }
+.top .in { height: 100%; display: flex; align-items: center; gap: 24px; }
+.brand { font-weight: 800; font-variation-settings: "wdth" 125; letter-spacing: .02em; text-decoration: none; }
+.brand b { color: var(--purple-hi); }
+.top nav { display: flex; gap: 22px; margin-left: auto; font-size: .92rem; font-weight: 600; }
+.top nav a { color: var(--mut-d); text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; }
+.top nav a[aria-current] { color: var(--white); border-color: var(--purple-hi); }
+@media (max-width: 860px) { .top nav { display: none; } }
+
+.hero { padding: clamp(40px, 7vw, 96px) 0 clamp(36px, 5vw, 64px); }
+.hero h1 { margin: 0; font-size: clamp(2.6rem, 8vw, 6.4rem); line-height: .94; }
+.hero p.lead { max-width: 60ch; margin: 18px 0 0; color: var(--mut); font-size: 1.1rem; }
+.bar { display: flex; height: clamp(60px, 8vw, 84px); margin-top: clamp(24px, 4vw, 44px); max-width: 880px; }
+.bar input { flex: 1; min-width: 0; padding-inline: clamp(14px, 3vw, 26px); background: rgba(18,18,24,.72); border: 10px solid var(--white); border-right: 0; font-weight: 700; font-size: clamp(1.05rem, 2.4vw, 1.55rem); outline-offset: 6px; }
+.bar input::placeholder { color: var(--mut-d); }
+.bar .plug { flex: none; width: clamp(56px, 8vw, 88px); margin-block: 10px; border: 0; background: var(--purple); font-weight: 800; transition: width .18s; }
+.bar input:focus + .plug, .bar .plug:hover { width: clamp(68px, 10vw, 112px); background: var(--purple-hi); }
+.quick { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin-top: 16px; color: var(--mut); font-size: .92rem; }
+.quick button { border: 1px solid var(--line); background: none; padding: 5px 12px; min-height: 32px; font-weight: 600; font-size: .88rem; }
+.quick button:hover { background: var(--white); color: var(--ink); }
+.stats { display: flex; flex-wrap: wrap; gap: 20px clamp(28px, 6vw, 72px); margin: clamp(32px, 5vw, 60px) 0 0; }
+.stats div { display: flex; flex-direction: column-reverse; }
+.stats dt { color: var(--mut); font-weight: 600; font-size: .92rem; }
+.stats dd { margin: 0; font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1; }
+
+.tools { position: sticky; top: 64px; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+.tools .in { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding-block: 12px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 0; border: 2px solid var(--fg); }
+.tabs button { border: 0; background: none; padding: 8px 12px; min-height: 40px; font-weight: 700; font-size: .88rem; }
+.tabs button span { font: 500 .78rem var(--mono); color: var(--mut); margin-left: 6px; }
+.tabs button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.tabs button[aria-pressed="true"] span { color: inherit; }
+@media (max-width: 760px) { .tools { position: static; } .tabs { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; } .tabs button { white-space: nowrap; } }
+.tools label { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; font-weight: 600; font-size: .9rem; }
+.tools select { min-height: 40px; border: 2px solid var(--fg); background: var(--surface); padding: 0 10px; font-weight: 600; }
+.tools input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--purple-deep); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 0 0; }
+.chips button { border: 1px solid var(--line); background: none; padding: 4px 10px; min-height: 32px; font-weight: 600; font-size: .85rem; color: var(--mut); }
+.chips button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: var(--white); }
+
+main .in.body { padding-block: 22px clamp(56px, 8vw, 104px); }
+.count { font: 500 .85rem var(--mono); color: var(--mut); margin: 0 0 6px; }
+.deep { margin: 4px 0 30px; border: 2px solid var(--fg); border-right: 0; position: relative; padding: 18px 22px; background: var(--surface); }
+.deep::after { content: ""; position: absolute; right: -14px; top: -2px; bottom: -2px; width: 14px; background: var(--purple); }
+.deep h2 { margin: 0 0 4px; font-size: 1.1rem; }
+.deep p.note { margin: 0 0 10px; color: var(--mut); font-size: .88rem; }
+.deep ol { list-style: none; margin: 0; padding: 0; }
+.deep li { padding: 10px 0; border-top: 1px solid var(--line); }
+.deep li a { font-weight: 700; text-decoration: none; }
+.deep li a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.deep li small { display: block; color: var(--mut); font-size: .85rem; }
+.deep li small code { font-family: var(--mono); font-size: .8rem; }
+
+ul.list { list-style: none; margin: 0; padding: 0; }
+.row { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 6px 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 900px) { .row { grid-template-columns: 28px minmax(0,1.05fr) minmax(0,1.6fr) 13.5rem; align-items: start; } }
+.mark { width: 22px; height: 22px; margin-top: 3px; position: relative; border: 3px solid var(--fg); border-right: 0; }
+.mark::after { content: ""; position: absolute; right: -6px; top: -3px; bottom: -3px; width: 6px; background: var(--purple); }
+.mark i { position: absolute; inset: 2px; background: var(--accent); }
+.mark.quiet i { inset: 2px 2px 2px 50%; }
+.mark.dormant i { display: none; }
+.mark.dormant { border-style: dashed; }
+.mark.dormant::after { background: none; border: 2px dashed var(--purple); width: 4px; }
+.mark.none { border-color: var(--line); }
+.mark.none::after { background: var(--line); }
+.name { min-width: 0; }
+.name a { font-weight: 800; font-size: 1.08rem; text-decoration: none; overflow-wrap: anywhere; }
+.name a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.name .kind { display: block; color: var(--mut); font-size: .85rem; }
+.desc { grid-column: 2; min-width: 0; color: var(--mut); font-size: .95rem; }
+.desc .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.desc .tags span { border: 1px solid var(--line); padding: 0 7px; font-size: .78rem; font-weight: 600; color: var(--mut); }
+.desc .tags span.lang { font-family: var(--mono); font-weight: 500; }
+.desc .sup { display: block; margin-top: 6px; color: var(--accent); font-weight: 700; font-size: .88rem; }
+.meta { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: .85rem; }
+@media (min-width: 900px) { .desc, .meta { grid-column: auto; } .meta { justify-content: flex-end; text-align: right; } }
+.meta time, .meta .when { font-family: var(--mono); font-size: .8rem; color: var(--mut); width: 100%; }
+.meta a { display: inline-flex; align-items: center; min-height: 30px; border: 1px solid var(--line); padding: 0 9px; font-weight: 600; text-decoration: none; }
+.meta a:hover { border-color: var(--fg); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 8px 0 18px; color: var(--mut); font-size: .85rem; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend .mark { margin: 0; transform: scale(.75); }
+.empty { padding: 40px 0; }
+.empty h2 { margin: 0 0 8px; }
+.end { margin-top: 48px; padding-top: 28px; border-top: 2px solid var(--fg); display: grid; gap: 14px; max-width: 760px; }
+.end h2 { margin: 0; font-size: 1.5rem; }
+.end p { margin: 0; color: var(--mut); }
+@media (prefers-reduced-motion: reduce) { .btn::after, .bar .plug { transition: none; } }
+</style>
+</head>
+<body>
+<p class="draft"><span class="in" style="display:block">Design draft · /resources · data from the CKB Cookbook list, freshness as of 2026-10-29 · the “In docs pages” results are a phase-2 mock</span></p>
+<header class="top on-dark"><div class="in">
+  <a class="brand" href="#">CKB<b>DAPPS</b></a>
+  <nav aria-label="Primary"><a href="#">Home</a><a href="#">Explore</a><a href="#" aria-current="page">Build</a><a href="#">Halving</a><a href="#">Stats</a></nav>
+</div></header>
+
+<main>
+<section class="hero on-dark"><div class="in">
+  <h1 class="wide">Build on <span class="inslot">CKB</span></h1>
+  <p class="lead">Docs, SDKs, tools and courses for CKB developers in one searchable list. Every entry shows when its code last changed, so you can tell what is maintained.</p>
+  <form class="bar" role="search" onsubmit="event.preventDefault()">
+    <label for="q" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search docs and tools</label>
+    <input id="q" type="search" placeholder="Try “xUDT”, “Fiber”, “molecule”" autocomplete="off">
+    <button class="plug" type="submit" aria-label="Search">→</button>
+  </form>
+  <div class="quick"><span>Try</span><button data-q="CCC">CCC</button><button data-q="script">Scripts</button><button data-q="xudt">xUDT</button><button data-q="spore">Spore / DOB</button><button data-q="fiber">Fiber</button></div>
+  <dl class="stats"><div><dt>resources</dt><dd class="wide" id="s-all"></dd></div><div><dt>changed in 90 days</dt><dd class="wide" id="s-fresh"></dd></div><div><dt>doc sites searched page by page</dt><dd class="wide">8</dd></div></dl>
+</div></section>
+
+<div class="on-paper">
+  <div class="tools"><div class="in">
+    <div class="tabs" role="group" aria-label="Kind" id="tabs"></div>
+    <label>Language <select id="lang"><option value="">Any</option></select></label>
+    <label><input type="checkbox" id="old"> Show replaced and gone</label>
+  </div></div>
+  <div class="in body">
+    <div class="chips" role="group" aria-label="Topic" id="chips"></div>
+    <div class="legend" aria-label="Legend">
+      <span><span class="mark"><i></i></span>Code changed in the last 90 days</span>
+      <span><span class="mark quiet"><i></i></span>3–12 months</span>
+      <span><span class="mark dormant"><i></i></span>Over a year, stable or unmaintained</span>
+      <span><span class="mark none"></span>Website only, no repository</span>
+    </div>
+    <section class="deep" id="deep" hidden aria-labelledby="deep-h">
+      <h2 class="semi" id="deep-h">In docs pages</h2>
+      <p class="note">Matches inside docs.nervos.org, docs.ckbccc.com, the Spore and Fiber docs and 4 more sites, rebuilt weekly.</p>
+      <ol id="deep-list"></ol>
+    </section>
+    <p class="count" id="count" aria-live="polite"></p>
+    <ul class="list" id="list"></ul>
+    <div class="empty" id="empty" hidden><h2 class="semi">Nothing matches</h2><p>Clear the filters, or add the resource you were looking for.</p><button class="btn" id="clear">Clear filters</button></div>
+    <section class="end">
+      <h2 class="semi">Missing something?</h2>
+      <p>Resources live in one file, <code>content/resources.yaml</code>. Add a few lines and open a pull request. Freshness, links and the “replaced” state are checked automatically every week.</p>
+      <p><a class="btn" href="#">Add a resource</a></p>
+    </section>
+  </div>
+</div>
+</main>
+
+<script>
+const DATA = [{"n":"Nervos CKB Documentation","u":"https://docs.nervos.org/","r":"nervosnetwork/docs.nervos.org","k":"docs","t":["wallets","dob","udt","infra","scripts","dapps"],"l":["TS","Rust"],"zh":false,"d":"Nervos CKB Documentation. Most comprehensive documentation for CKB.","llms":true,"up":"2026-10-28","days":1,"gone":false,"old":false},{"n":"OffCKB","u":"https://github.com/ckb-devrel/offckb","r":"ckb-devrel/offckb","k":"tools","t":[],"l":["TS","Rust"],"zh":false,"d":"OffCKB is a local development network and toolkit for Nervos CKB. It provides full-stack dApp scaffolding, contract deployment, local devnet, REPL, and powerful CLI tools","llms":true,"up":"2026-10-29","days":0,"gone":false,"old":false},{"n":"Nervos CKB Core","u":"https://github.com/nervosnetwork/ckb","r":"nervosnetwork/ckb","k":"tools","t":["infra"],"l":["Rust"],"zh":false,"d":"Nervos CKB Core","llms":true,"up":"2026-10-29","days":0,"gone":false,"old":false},{"n":"Nervos RFCs","u":"https://github.com/nervosnetwork/rfcs","r":"nervosnetwork/rfcs","k":"spec","t":["infra"],"l":[],"zh":false,"d":"Nervos Network RFCs: proposals, standards, and documentation for the Nervos ecosystem.","llms":true,"up":"2026-10-27","days":2,"gone":false,"old":false},{"n":"CCC Documentation","u":"https://docs.ckbccc.com/docs/CCC","r":"ckb-devrel/ccc","k":"docs","t":["dapps","wallets","dob"],"l":["TS"],"zh":false,"d":"Official documentation for CCC - CKBers' Codebase. Learn how to use CCC for CKB JS/TS development, explore code examples, API reference, and try the CCC Playground for ha","llms":true,"up":"2026-10-29","days":0,"gone":false,"old":false},{"n":"CCC Playground","u":"https://live.ckbccc.com/","r":null,"k":"tools","t":["dapps","wallets"],"l":["TS"],"zh":false,"d":"CCC Playground is an interactive web IDE for experimenting with CCC and CKB development. Run code, visualize data, and share your experiments instantly—no setup required.","llms":false,"up":null,"days":null,"gone":false,"old":false},{"n":"CCC - CKBers' Codebase","u":"https://github.com/ckb-devrel/ccc","r":"ckb-devrel/ccc","k":"sdk","t":["dapps","wallets","udt","dob"],"l":["TS"],"zh":false,"d":"CCC - CKBers' Codebase is a one-stop solution for your CKB JS/TS ecosystem development.","llms":true,"up":"2026-10-29","days":0,"gone":false,"old":false},{"n":"CKB Academy","u":"https://academy.ckb.dev/","r":"flouse/ckb-academy","k":"learn","t":["dapps","scripts"],"l":[],"zh":false,"d":"CKB Academy is an interactive learning space for Nervos developers, offering courses, guides, and playgrounds to accelerate onboarding.","llms":true,"up":"2026-05-25","days":157,"gone":false,"old":false},{"n":"CKB JS VM","u":"https://github.com/nervosnetwork/ckb-js-vm","r":"nervosnetwork/ckb-js-vm","k":"tools","t":["scripts"],"l":["TS"],"zh":false,"d":"CKB JS VM enables writing and testing on-chain scripts for Nervos CKB in TypeScript/JavaScript. It supports ESM, modern tooling, and provides a full workflow for building","llms":true,"up":"2026-01-30","days":272,"gone":false,"old":false},{"n":"CKB Script Templates","u":"https://github.com/cryptape/ckb-script-templates","r":"cryptape/ckb-script-templates","k":"tools","t":["scripts"],"l":["Rust"],"zh":false,"d":"A collection of CKB script templates for native contract development, supporting Rust, C, and more. Includes ready-to-use templates and reproducible build scripts.","llms":true,"up":null,"days":null,"gone":false,"old":false},{"n":"ckb-std","u":"https://docs.rs/ckb-std/0.17.2/ckb_std/","r":"nervosnetwork/ckb-std","k":"sdk","t":["scripts"],"l":["Rust"],"zh":false,"d":"Official Rust API documentation for ckb-std, a library with modules and macros to help you write CKB contracts. Includes syscalls, high-level APIs, allocators, and utilit","llms":true,"up":"2026-10-02","days":27,"gone":false,"old":false},{"n":"ckb-ssri-std","u":"https://docs.rs/ckb-ssri-std/latest/ckb_ssri_std/","r":"ckb-devrel/ckb-ssri-std","k":"sdk","t":["ssri"],"l":["Rust"],"zh":false,"d":"Official Rust API documentation for ckb-ssri-std, a library providing utilities and traits for implementing SSRI-compliant smart contracts on Nervos CKB. Includes public ","llms":true,"up":"2025-01-10","days":657,"gone":false,"old":false},{"n":"Spore SDK","u":"https://github.com/sporeprotocol/spore-sdk","r":"sporeprotocol/spore-sdk","k":"sdk","t":["dapps","dob"],"l":["TS"],"zh":false,"d":"The Ultimate TypeScript SDK for Spore Protocol. Spore SDK is a comprehensive web development kit for seamless integration with Spore, an on-chain asset protocol built on ","llms":true,"up":"2025-07-10","days":476,"gone":false,"old":false},{"n":"ckb-sdk","u":"https://docs.rs/ckb-sdk/latest/ckb_sdk/","r":"nervosnetwork/ckb-sdk-rust","k":"sdk","t":["dapps"],"l":["Rust"],"zh":false,"d":"Official Rust API documentation for ckb-sdk, the Rust SDK for Nervos CKB. Provides modules, types, and utilities for building CKB clients, interacting with nodes, and com","llms":true,"up":"2026-03-18","days":225,"gone":false,"old":false},{"n":"ckb-sdk-java","u":"https://github.com/nervosnetwork/ckb-sdk-java","r":"nervosnetwork/ckb-sdk-java","k":"sdk","t":["dapps"],"l":["Java"],"zh":false,"d":"Official Java SDK for Nervos CKB. Provides APIs and utilities for building, signing, and sending transactions, address generation, and interacting with CKB nodes. Open so","llms":true,"up":"2025-06-06","days":510,"gone":false,"old":false},{"n":"ckb-sdk-go","u":"https://github.com/nervosnetwork/ckb-sdk-go","r":"nervosnetwork/ckb-sdk-go","k":"sdk","t":["dapps"],"l":["Go"],"zh":false,"d":"Official Go SDK for Nervos CKB. Provides APIs and utilities for building, signing, and sending transactions, address generation, and interacting with CKB nodes. Open sour","llms":true,"up":"2026-09-30","days":29,"gone":false,"old":false},{"n":"CKB入门手册","u":"https://jackylhh.notion.site/CKB-6836c451287f44cfa7c4375102f8d778","r":null,"k":"learn","t":[],"l":[],"zh":true,"d":"社区小伙伴整理的Nervos 生态入门手册","llms":false,"up":null,"days":null,"gone":false,"old":false},{"n":"CKB Docs","u":"https://docs.ckb.dev","r":"nervoscommunity/docs","k":"community","t":["infra","dapps","scripts"],"l":["TS","Lua","Ruby"],"zh":false,"d":"This docs is for Nervos Community members. It is outdated and not maintained.","llms":true,"up":null,"days":null,"gone":true,"old":true},{"n":"Lumos","u":"https://github.com/ckb-js/lumos","r":"ckb-js/lumos","k":"sdk","t":["dapps"],"l":["TS"],"zh":false,"d":"Lumos is a full featured dapp framework for Nervos CKB. It is now considered outdated; use CCC for new projects. See the repo for details.","llms":true,"up":"2024-09-10","days":779,"gone":false,"sup":"CCC","old":true},{"n":"Cryptape Jungle Blog","u":"https://blog.cryptape.com/","r":null,"k":"community","t":["infra"],"l":[],"zh":false,"d":"Cryptape Jungle: Research, engineering, and weekly updates on blockchain and CKB infrastructure.","llms":false,"up":null,"days":null,"gone":false,"old":false},{"n":"CKB Light Client","u":"https://github.com/nervosnetwork/ckb-light-client","r":"nervosnetwork/ckb-light-client","k":"api","t":["dapps","infra"],"l":[],"zh":false,"d":"Reference implementation of a CKB light client, enabling secure, efficient, and lightweight interaction, particularly within browser with WASM, with the Nervos CKB blockc","llms":true,"up":"2026-10-29","days":0,"gone":false,"old":false},{"n":"Nervos Talk 中文社区","u":"https://talk.nervos.org/c/chinese/45","r":null,"k":"community","t":[],"l":[],"zh":true,"d":"Nervos Talk 中文社区：CKB 和 Nervos 生态的主要中文论坛，涵盖技术讨论、新闻资讯、问答和社区交流。","llms":false,"up":null,"days":null,"gone":false,"old":false},{"n":"Nervos Talk","u":"https://talk.nervos.org/c/english/49","r":null,"k":"community","t":[],"l":[],"zh":false,"d":"Nervos Talk: The forum for CKB and Nervos community discussions, news, and technical Q&A.","llms":false,"up":null,"days":null,"gone":false,"old":false},{"n":"Nervos Network YouTube Channel","u":"https://www.youtube.com/@NervosNetwork","r":null,"k":"community","t":[],"l":[],"zh":false,"d":"The official Nervos Network YouTube channel, featuring technical talks, ecosystem introductions, event replays, and more.","llms":false,"up":null,"days":null,"gone":false,"old":false},{"n":"CKB Community Telegram（CKB中英双语社区电报群）","u":"https://t.me/ckb_community","r":null,"k":"community","t":[],"l":[],"zh":true,"d":"CKB Community Telegram group for ecosystem news, discussion, and support. 中英双语","llms":false,"up":null,"days":null,"gone":false,"old":false},{"n":"CKB/RGB++ Dev Community Telegram （中英双语）","u":"https://t.me/ckbdev","r":null,"k":"community","t":[],"l":[],"zh":true,"d":"CKB/RGB++ Dev Community Telegram group for technical discussion, development Q&A, and ecosystem collaboration. 中英双语","llms":false,"up":null,"days":null,"gone":false,"old":false},{"n":"Nervos Network Discord（中英双语）","u":"https://discord.com/invite/Yv7sYqx2fy","r":null,"k":"community","t":[],"l":[],"zh":false,"d":"Nervos Network official Discord server for technical discussion, ecosystem news, and community support. 中英双语","llms":false,"up":null,"days":null,"gone":false,"old":false},{"n":"CKB dApps","u":"https://ckbdapps.com/","r":"ckbfansdao/ckbdapps","k":"tools","t":["dapps"],"l":[],"zh":false,"d":"CKB Dapps: A curated directory of dApps and ecosystem projects built on Nervos CKB.","llms":true,"up":"2026-10-29","days":0,"gone":false,"old":false},{"n":"Fiber Network","u":"https://www.fiber.world/","r":"nervosnetwork/fiber","k":"tools","t":["dapps","scripts","fiber"],"l":[],"zh":false,"d":"Fiber Network: A scalable, privacy-by-default payment and swap network for CKB/RGB++, supporting multi-asset, cross-chain, and Lightning interoperability.","llms":true,"up":"2026-10-29","days":0,"gone":false,"old":false},{"n":"Nervos Network Developers Resources Hub","u":"https://talk.nervos.org/t/nervos-network-developers-resources-hub/7261","r":null,"k":"sdk","t":[],"l":[],"zh":false,"d":"A comprehensive but now outdated hub of developer resources, SDKs, guides, and technical links for Nervos CKB and the Nervos Network. Includes links to docs, SDKs, econom","llms":false,"up":null,"days":null,"gone":false,"old":true},{"n":"Molecule","u":"https://github.com/nervosnetwork/molecule","r":"nervosnetwork/molecule","k":"sdk","t":["scripts"],"l":["Rust"],"zh":false,"d":"Molecule is a minimalist, canonical serialization system used in Nervos CKB. Provides schema language, code generation, and multi-language support for deterministic data ","llms":true,"up":"2026-10-27","days":2,"gone":false,"old":false},{"n":"moleculec-es","u":"https://github.com/nervosnetwork/moleculec-es","r":"nervosnetwork/moleculec-es","k":"sdk","t":["dapps"],"l":["TS"],"zh":false,"d":"ECMAScript/TypeScript code generator for the Molecule serialization system. Enables schema-driven, canonical serialization for CKB dApps and tooling.","llms":false,"up":"2024-06-03","days":878,"gone":false,"old":false},{"n":"moleculec-go","u":"https://github.com/driftluo/moleculec-go","r":"driftluo/moleculec-go","k":"sdk","t":["scripts"],"l":["Go"],"zh":false,"d":"A plugin for the molecule serialization system to generate Go code from schema files. Enables Go projects to use canonical serialization for CKB and other blockchain appl","llms":true,"up":"2026-02-03","days":268,"gone":false,"old":false},{"n":"ckb-cli","u":"https://github.com/nervosnetwork/ckb-cli","r":"nervosnetwork/ckb-cli","k":"tools","t":[],"l":[],"zh":false,"d":"Official command line tool for Nervos CKB. Supports account management, transaction signing, wallet operations, DAO, utilities, and more.","llms":true,"up":"2026-10-01","days":28,"gone":false,"old":false},{"n":"ccc-deploy","u":"https://github.com/ckb-devrel/ccc-deploy","r":"ckb-devrel/ccc-deploy","k":"tools","t":[],"l":[],"zh":false,"d":"CLI tool for deploying and managing scripts.","llms":true,"up":"2025-01-10","days":657,"gone":false,"old":false},{"n":"pausable-udt","u":"https://github.com/Alive24/pausable-udt","r":"alive24/pausable-udt","k":"learn","t":["scripts","udt","ssri"],"l":["Rust"],"zh":false,"d":"SSRI-compliant smart contract implementing a pausable User-Defined Token (UDT) on Nervos CKB. Supports mint, transfer, burn, and pausing via public pause lists. Fully aud","llms":true,"up":"2025-02-10","days":626,"gone":false,"old":false},{"n":"Silent Berry","u":"https://github.com/ksleifjsslsls/silent-berry2/tree/re-js","r":"ksleifjsslsls/silent-berry2","k":"learn","t":["scripts","rgbpp","dob","dapps"],"l":["Rust","TS"],"zh":false,"d":"Decentralized publishing platform based on the RGB++ protocol, enabling authors to inscribe book content onto the Bitcoin blockchain and issue multi-tier NFTs for ownersh","llms":true,"up":"2025-03-06","days":602,"gone":false,"old":false},{"n":"Neuron Wallet","u":"https://github.com/nervosnetwork/neuron","r":"nervosnetwork/neuron","k":"tools","t":["wallets"],"l":[],"zh":false,"d":"Official Nervos CKB full-node desktop wallet. Supports CKB mainnet/testnet, sUDT, DAO, and advanced features. Cross-platform, open source, and actively maintained.","llms":true,"up":"2026-10-12","days":17,"gone":false,"old":false},{"n":"ckb-vm","u":"https://github.com/nervosnetwork/ckb-vm","r":"nervosnetwork/ckb-vm","k":"tools","t":["scripts","infra"],"l":["Rust"],"zh":false,"d":"Pure Rust implementation of the RISC-V virtual machine used as the scripting VM in Nervos CKB. Production-grade, open source, and supports both 32/64-bit, with ASM and in","llms":true,"up":"2026-10-20","days":9,"gone":false,"old":false},{"n":"ckb-explorer","u":"https://github.com/nervosnetwork/ckb-explorer","r":"nervosnetwork/ckb-explorer","k":"api","t":["infra"],"l":["Ruby","TS"],"zh":false,"d":"Official Nervos CKB blockchain explorer. Search and visualize blocks, transactions, addresses, and on-chain data. Built with React and Ruby on Rails, open source, and pro","llms":true,"up":"2026-10-29","days":0,"gone":false,"old":false},{"n":"CKB Explorer API Reference (v1)","u":"https://ckb-explorer.readme.io/reference/intro/my-requests","r":null,"k":"api","t":["infra"],"l":["TS"],"zh":false,"d":"Official CKB Explorer REST API v1 OpenAPI specification. Provides endpoints for querying blocks, transactions, addresses, SUDTs, NFTs, statistics, and more. Widely used f","llms":true,"up":null,"days":null,"gone":false,"old":false},{"n":"CKB Explorer API Reference (v2)","u":"https://ckb-explorer.readme.io/openapi/64c4d30d5e5cc1000a385424","r":null,"k":"api","t":["infra"],"l":["TS"],"zh":false,"d":"CKB Explorer REST API v2 OpenAPI specification. Introduces a new structure and some new endpoints, aiming for improved developer experience and future expansion. Note: Fu","llms":true,"up":null,"days":null,"gone":false,"old":false},{"n":"ckb-standalone-debugger","u":"https://github.com/nervosnetwork/ckb-standalone-debugger","r":"nervosnetwork/ckb-standalone-debugger","k":"tools","t":[],"l":["Rust"],"zh":false,"d":"Standalone debugger and toolset for CKB smart contract development. Enables off-chain debugging, profiling, and analysis of CKB scripts. Includes command-line tools for o","llms":true,"up":"2026-10-28","days":1,"gone":false,"old":false},{"n":"ckb-bitcoin-spv-contracts","u":"https://github.com/utxostack/ckb-bitcoin-spv-contracts","r":"utxostack/ckb-bitcoin-spv-contracts","k":"tools","t":["infra"],"l":[],"zh":false,"d":"Bitcoin SPV client implementation as CKB contracts. Enables Bitcoin proof verification on CKB. Includes audit report.","llms":true,"up":"2024-11-06","days":722,"gone":false,"old":false},{"n":"capsule","u":"https://github.com/nervosnetwork/capsule","r":"nervosnetwork/capsule","k":"tools","t":["scripts"],"l":["Rust"],"zh":false,"d":"Out-of-the-box development framework for creating smart contracts on Nervos CKB. Provides scaffolding, reproducible builds, and testing tools. Deprecated: use ckb-script-","llms":true,"up":"2024-11-13","days":715,"gone":false,"sup":"CKB Script Templates","old":true},{"n":"ckb-c-stdlib","u":"https://github.com/nervosnetwork/ckb-c-stdlib","r":"nervosnetwork/ckb-c-stdlib","k":"sdk","t":["scripts"],"l":["C"],"zh":false,"d":"Official C standard library and utilities for CKB script development. Provides CKB data structures, syscall utilities, and a tailored libc for CKB smart contracts. Usable","llms":true,"up":"2026-08-12","days":78,"gone":false,"old":false},{"n":"force-bridge","u":"https://github.com/nervosnetwork/force-bridge","r":"nervosnetwork/force-bridge","k":"tools","t":["infra"],"l":[],"zh":false,"d":"General cross-chain bridge for Nervos CKB, supporting asset and NFT transfers between CKB and other blockchains (e.g., Ethereum, BTC, EOS, TRON, Cardano, Polkadot). Open ","llms":true,"up":"2025-05-29","days":518,"gone":false,"old":false},{"n":"ckb-testtool","u":"https://github.com/nervosnetwork/ckb-testtool","r":"nervosnetwork/ckb-testtool","k":"sdk","t":["scripts"],"l":["Rust"],"zh":false,"d":"Helper library for writing CKB script test cases in Rust. Migrated from capsule, widely used for contract/unit testing. See docs.rs for API reference.","llms":true,"up":"2026-03-26","days":217,"gone":false,"old":false},{"n":"spore-contract","u":"https://github.com/sporeprotocol/spore-contract","r":"sporeprotocol/spore-contract","k":"learn","t":["scripts","dob"],"l":["Rust"],"zh":false,"d":"Spore Protocol smart contracts for digital asset ownership, distribution, and value capture on CKB. Written in Rust. Developers are encouraged to use the Spore SDK for dA","llms":true,"up":"2025-03-10","days":598,"gone":false,"old":false},{"n":"dob-cookbook","u":"https://github.com/sporeprotocol/dob-cookbook","r":"sporeprotocol/dob-cookbook","k":"learn","t":["dob"],"l":[],"zh":false,"d":"Comprehensive collection of Digital Object (DOB) protocol examples and best practices on Nervos CKB. Practical guide for DOB issuers, with implementation patterns, render","llms":true,"up":"2025-06-12","days":504,"gone":false,"old":false},{"n":"spore-docs","u":"https://github.com/sporeprotocol/spore-docs","r":"sporeprotocol/spore-docs","k":"docs","t":["dapps","dob"],"l":["TS"],"zh":false,"d":"Official documentation for Spore Protocol. Includes basics, tutorials, recipes, and developer resources for building with Spore and DOB on Nervos CKB.","llms":true,"up":"2025-06-09","days":507,"gone":false,"old":false},{"n":"spore-graphql","u":"https://github.com/sporeprotocol/spore-graphql","r":"sporeprotocol/spore-graphql","k":"tools","t":["dapps","dob"],"l":["TS"],"zh":false,"d":"GraphQL layer for Spore Protocol, simplifying data queries and integration for dApps. Built with TypeScript, easily embeddable, supports advanced queries, and runs on Apo","llms":true,"up":"2024-08-02","days":818,"gone":false,"old":false},{"n":"dob-decoder-standalone-server","u":"https://github.com/sporeprotocol/dob-decoder-standalone-server","r":"sporeprotocol/dob-decoder-standalone-server","k":"sdk","t":["dob","dapps","infra"],"l":["Rust"],"zh":false,"d":"Standalone server for decoding and rendering Digital Object (DOB) protocol assets on Nervos CKB. Features embedded ckb-vm executor, JSON-RPC API, decoder and render cachi","llms":true,"up":"2025-02-07","days":629,"gone":false,"old":false},{"n":"spore-demo","u":"https://github.com/sporeprotocol/spore-demo","r":"sporeprotocol/spore-demo","k":"learn","t":["dapps","dob"],"l":["TS"],"zh":false,"d":"Demo dApp for Spore Protocol built with Next.js, React, and Spore SDK. Showcases cluster creation, spore minting, transfer, and melting. Integrates MetaMask and Spore Gra","llms":true,"up":"2024-08-22","days":798,"gone":false,"old":false},{"n":"ckb-lua","u":"https://github.com/contrun/ckb-lua","r":"contrun/ckb-lua","k":"sdk","t":["scripts"],"l":["Lua"],"zh":false,"d":"Enables developers to write CKB-VM scripts in Lua. Provides dynamic library and standalone loader for Lua smart contracts on Nervos CKB. Includes examples, tests, and int","llms":true,"up":"2024-10-20","days":739,"gone":false,"old":false},{"n":"quantum-resistant-lock-script","u":"https://github.com/cryptape/quantum-resistant-lock-script","r":"cryptape/quantum-resistant-lock-script","k":"tools","t":["scripts"],"l":["C"],"zh":false,"d":"Quantum-resistant lock script for Nervos CKB using SPHINCS+. Provides tools to convert SECP256K1/blake160 locks to quantum-resistant locks, supports multiple hash types, ","llms":true,"up":null,"days":null,"gone":false,"old":false},{"n":"utxoswap-sdk-js","u":"https://github.com/UTXOSwap/utxoswap-sdk-js","r":"utxoswap/utxoswap-sdk-js","k":"sdk","t":["dapps","defi"],"l":["TS"],"zh":false,"d":"UTXO Swap SDK for Nervos CKB. Provides APIs and utilities for building swap dApps, querying pools, calculating outputs, and integrating with CKB and swap backend. Include","llms":true,"up":"2025-01-14","days":653,"gone":false,"old":false},{"n":"ckb-autotrader","u":"https://github.com/Alive24/ckb-autotrader","r":"alive24/ckb-autotrader","k":"learn","t":["defi","dapps"],"l":["TS"],"zh":false,"d":"Generic scaffold and exemplary project for building backend and bot services for CKB projects. Modular, extensible, and demonstrates best practices for CKB-related servic","llms":true,"up":"2024-10-01","days":758,"gone":false,"old":false},{"n":"quantum-purse-web-static","u":"https://github.com/tea2x/quantum-purse-web-static","r":"tea2x/quantum-purse-web-static","k":"learn","t":["wallets"],"l":["TS"],"zh":false,"d":"Quantum Purse is a quantum-safe wallet for Nervos CKB, implemented as a static web app. Supports SPHINCS+ signatures, local encryption, light client, and multiple NIST pa","llms":true,"up":null,"days":null,"gone":false,"old":false},{"n":"CKB.tools","u":"https://ckb.tools/","r":"jordanmack/ckb-tools","k":"tools","t":["dapps"],"l":["TS"],"zh":false,"d":"CKB.tools is an online collection of free development tools for Nervos CKB, including address conversion, transaction builder, script hash calculator, and more. Open sour","llms":true,"up":"2025-03-16","days":592,"gone":false,"old":false},{"n":"Nervos L1 Developer Training Course","u":"https://nervos.gitbook.io/developer-training-course","r":"jordanmack/developer-training-course-documentation","k":"learn","t":[],"l":["TS","Rust"],"zh":false,"d":"Comprehensive hands-on developer training course for Nervos CKB L1. Covers cell model, transactions, scripting, and dApp development with labs and exercises. Open source ","llms":true,"up":null,"days":null,"gone":false,"old":false},{"n":"serde_molecule","u":"https://docs.rs/serde_molecule/latest/serde_molecule/index.html","r":"xujiandong/serde_molecule","k":"sdk","t":["scripts"],"l":["Rust"],"zh":false,"d":"Implementation of the Molecule serialization format using Serde for Rust. Simplifies serialization/deserialization of CKB data structures, supports no_std, big arrays, an","llms":true,"up":"2026-10-24","days":5,"gone":false,"old":false},{"n":"iCKB","u":"https://ickb.org/","r":"ickb/contracts","k":"learn","t":["dapps","udt"],"l":["TS","Rust"],"zh":false,"d":"iCKB is a liquid staking protocol and DApp for Nervos CKB, providing a liquid token (iCKB) that represents NervosDAO deposits. Enables fast withdrawals, audited L1 script","llms":true,"up":null,"days":null,"gone":false,"old":false},{"n":"Nerv DAO","u":"https://www.nervdao.com/","r":"ckb-devrel/nervdao","k":"learn","t":["dapps","wallets","udt"],"l":[],"zh":false,"d":"Nerv DAO is a universal wallet-interfaced Nervos DAO portal. Provides a user-friendly interface for CKB holders to deposit, manage, and withdraw from Nervos DAO using var","llms":true,"up":"2026-10-26","days":3,"gone":false,"old":false}];
+const KINDS = [["", "All"], ["docs", "Docs"], ["sdk", "SDKs & libraries"], ["tools", "Dev tools"], ["learn", "Learn"], ["api", "APIs & nodes"], ["spec", "Specs"], ["community", "Community"]];
+const KIND = Object.fromEntries(KINDS);
+const TOPICS = [["scripts", "Scripts"], ["dapps", "dApps"], ["wallets", "Wallets"], ["udt", "UDT / xUDT"], ["dob", "DOB / Spore"], ["fiber", "Fiber"], ["rgbpp", "RGB++"], ["defi", "DeFi"], ["infra", "Infrastructure"], ["ssri", "SSRI"]];
+const TOPIC = Object.fromEntries(TOPICS);
+const DEEP = [
+  { t: "Issue a fungible token (xUDT)", s: "docs.ckbccc.com › Examples", u: "docs.ckbccc.com/docs/examples/xudt", k: "xudt udt token issue" },
+  { t: "xUDT: extensible user-defined token", s: "docs.nervos.org › Tech explanation", u: "docs.nervos.org/docs/tech-explanation/xudt", k: "xudt udt token" },
+  { t: "Mint a DOB with a cluster", s: "docs.spore.pro › Recipes", u: "docs.spore.pro/recipes/create-dob", k: "spore dob nft mint cluster" },
+  { t: "Open a channel and pay an invoice", s: "docs.fiber.world › Quick start", u: "docs.fiber.world/docs/quick-start", k: "fiber channel payment invoice" },
+  { t: "Write a script in TypeScript with ckb-js-vm", s: "docs.nervos.org › Script", u: "docs.nervos.org/docs/script/js/js-quick-start", k: "script typescript js vm contract" },
+  { t: "Molecule serialization", s: "docs.nervos.org › Serialization", u: "docs.nervos.org/docs/serialization/serialization-molecule-in-ckb", k: "molecule serialization encode" },
+  { t: "Connect a wallet with CCC in React", s: "docs.ckbccc.com › Connector", u: "docs.ckbccc.com/docs/connector", k: "ccc wallet connect react signer" },
+];
+const state = { q: "", kind: "", topic: "", lang: "", old: false };
+const $ = (id) => document.getElementById(id);
+const fresh = (d) => d == null ? "none" : d <= 90 ? "" : d <= 365 ? "quiet" : "dormant";
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const visible = (x) => state.old || !(x.sup !== undefined || x.gone);
+const match = (x) => {
+  const q = state.q.trim().toLowerCase();
+  const hay = [x.n, x.d, x.r, KIND[x.k], ...x.t.map((t) => TOPIC[t]), ...x.l].join(" ").toLowerCase();
+  return (!q || q.split(/\s+/).every((w) => hay.includes(w))) && (!state.topic || x.t.includes(state.topic)) && (!state.lang || x.l.includes(state.lang));
+};
+
+function render() {
+  const base = DATA.filter(visible).filter(match);
+  const rows = base.filter((x) => !state.kind || x.k === state.kind)
+    .sort((a, b) => (a.days ?? 1e6) - (b.days ?? 1e6));
+  $("tabs").innerHTML = KINDS.map(([k, label]) => `<button type="button" data-k="${k}" aria-pressed="${state.kind === k}">${label}<span>${base.filter((x) => !k || x.k === k).length}</span></button>`).join("");
+  $("count").textContent = `${rows.length} ${rows.length === 1 ? "resource" : "resources"} · most recently changed first`;
+  $("list").innerHTML = rows.map((x) => {
+    const f = fresh(x.days);
+    const tags = [...x.t.map((t) => `<span>${TOPIC[t]}</span>`), ...x.l.map((l) => `<span class="lang">${l}</span>`), x.zh ? "<span>中文</span>" : ""].join("");
+    const sup = x.gone ? `<span class="sup">Repository gone (404)</span>` : x.sup ? `<span class="sup">Replaced by ${esc(x.sup)}</span>` : x.sup === null ? `<span class="sup">Stopped</span>` : "";
+    const when = x.up ? `<time datetime="${x.up}">Code changed ${x.up}</time>` : `<span class="when">No repository</span>`;
+    return `<li class="row"><span class="mark ${f}" aria-hidden="true"><i></i></span>
+      <div class="name"><a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.n)}</a><span class="kind">${KIND[x.k]}</span></div>
+      <div class="desc">${esc(x.d)}${sup}<div class="tags">${tags}</div></div>
+      <div class="meta">${when}<a href="${esc(x.u)}" target="_blank" rel="noopener">Open</a>${x.r ? `<a href="https://github.com/${esc(x.r)}" target="_blank" rel="noopener">Code</a>` : ""}${x.llms ? `<a href="#" title="Plain text for AI tools">llms.txt</a>` : ""}</div></li>`;
+  }).join("");
+  $("empty").hidden = rows.length > 0;
+  const q = state.q.trim().toLowerCase();
+  const hits = q ? DEEP.filter((h) => q.split(/\s+/).some((w) => (h.k + " " + h.t).toLowerCase().includes(w))) : [];
+  $("deep").hidden = !hits.length;
+  $("deep-list").innerHTML = hits.map((h) => `<li><a href="#">${esc(h.t)}</a><small>${esc(h.s)} · <code>${esc(h.u)}</code></small></li>`).join("");
+}
+
+$("chips").innerHTML = TOPICS.map(([k, l]) => `<button type="button" data-t="${k}" aria-pressed="false">${l}</button>`).join("");
+const langs = [...new Set(DATA.flatMap((x) => x.l))].sort();
+$("lang").innerHTML += langs.map((l) => `<option>${l}</option>`).join("");
+$("s-all").textContent = DATA.filter((x) => !x.gone && x.sup === undefined).length;
+$("s-fresh").textContent = DATA.filter((x) => x.days != null && x.days <= 90).length;
+$("tabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { state.kind = b.dataset.k; render(); } });
+$("chips").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  state.topic = state.topic === b.dataset.t ? "" : b.dataset.t;
+  document.querySelectorAll("#chips button").forEach((c) => c.setAttribute("aria-pressed", c.dataset.t === state.topic));
+  render();
+});
+$("q").addEventListener("input", (e) => { state.q = e.target.value; render(); });
+document.querySelectorAll(".quick button").forEach((b) => b.addEventListener("click", () => { $("q").value = state.q = b.dataset.q; render(); $("list").scrollIntoView({ behavior: "smooth", block: "start" }); }));
+$("lang").addEventListener("change", (e) => { state.lang = e.target.value; render(); });
+$("old").addEventListener("change", (e) => { state.old = e.target.checked; render(); });
+$("clear").addEventListener("click", () => { Object.assign(state, { q: "", kind: "", topic: "", lang: "" }); $("q").value = ""; $("lang").value = ""; document.querySelectorAll("#chips button").forEach((c) => c.setAttribute("aria-pressed", "false")); render(); });
+render();
+</script>
+</body>
+</html>
