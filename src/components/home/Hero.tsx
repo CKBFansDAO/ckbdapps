@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { PULSE_URL } from "@/lib/site";
 import { Slot } from "../ui/Slot";
 import { SlotButton } from "../ui/SlotButton";
 import { SlotSearch, type SearchItem } from "../ui/SlotSearch";
@@ -36,7 +35,7 @@ export function Hero({ items, placeholders, quick, stats }: Props) {
           </Link>
         ))}
       </div>
-      {/* Phones: three equal columns, centred under the full-width search, the Pulse link on its own line below.
+      {/* Phones: three equal columns, centred under the full-width search, the "in the making" link on its own line below.
           Wider: one left-aligned row, the link last, sitting on the labels' line. */}
       <div className="mt-[clamp(36px,6vw,72px)] flex flex-col items-center gap-y-7 sm:flex-row sm:flex-wrap sm:items-end sm:gap-x-[clamp(28px,6vw,72px)] sm:gap-y-5">
         <dl className="m-0 grid w-full grid-cols-3 gap-x-2 p-0 text-center sm:flex sm:w-auto sm:flex-wrap sm:gap-x-[clamp(28px,6vw,72px)] sm:gap-y-5 sm:text-left">
@@ -55,7 +54,7 @@ export function Hero({ items, placeholders, quick, stats }: Props) {
             </div>
           ))}
         </dl>
-        <SlotButton href={PULSE_URL}>{t("pulse")}</SlotButton>
+        <SlotButton href="/builders">{t("pulse")}</SlotButton>
       </div>
     </HeroGrid>
   );

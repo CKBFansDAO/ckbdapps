@@ -14,6 +14,7 @@
     "test:e2e": "playwright test",
     "check:links": "tsx scripts/check-links.ts",
     "snapshot:stats": "tsx scripts/snapshot-stats.ts",
+    "snapshot:builders": "tsx scripts/snapshot-builders.ts",
     "discover:projects": "tsx scripts/discover-projects.ts"
   },
   "dependencies": {

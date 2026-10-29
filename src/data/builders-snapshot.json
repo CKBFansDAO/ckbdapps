@@ -1,0 +1,520 @@
+{
+ "builds": [
+  {
+   "id": "verdict",
+   "name": "Verdict",
+   "about": "prediction market",
+   "builder": "Methemeticz",
+   "repo": "https://github.com/JouahriAli/ckb-prediction-market",
+   "github": "JouahriAli/ckb-prediction-market",
+   "link": "https://verdict-three.vercel.app/",
+   "status": "paused"
+  },
+  {
+   "id": "eterna-registry",
+   "name": "Eterna Registry",
+   "about": "on-chain land registration",
+   "builder": "Wadie",
+   "link": "https://ckb-registry.vercel.app/",
+   "status": "inactive"
+  },
+  {
+   "id": "pocket-node",
+   "name": "Pocket Node",
+   "about": "light client android wallet",
+   "builder": "RJnr",
+   "repo": "https://github.com/RaheemJnr/pocket-node/releases",
+   "github": "RaheemJnr/pocket-node",
+   "link": "https://www.pocket-node.com",
+   "status": "grant"
+  },
+  {
+   "id": "blackbox",
+   "name": "Blackbox",
+   "about": "POS terminal",
+   "builder": "Phill",
+   "repo": "https://github.com/toastmanAu/Blackbox-Binaries",
+   "github": "toastmanAu/Blackbox-Binaries",
+   "link": "https://www.blackboxpos.com",
+   "status": "ongoing"
+  },
+  {
+   "id": "dripfund",
+   "name": "DripFund",
+   "about": "crowdfunding",
+   "builder": "Aditya",
+   "repo": "https://github.com/adisuyash/ckb-notes/tree/main/buy-me-a-coffee",
+   "github": "adisuyash/ckb-notes",
+   "link": "https://dripfund.vercel.app/",
+   "status": "poc"
+  },
+  {
+   "id": "ckb-arcade",
+   "name": "CKB Arcade",
+   "about": "minigames and lottery",
+   "builder": "Naitik",
+   "repo": "https://github.com/GxNaitik/ckb-arcade/blob/main/weekly-logs/week6.md",
+   "github": "GxNaitik/ckb-arcade",
+   "link": "https://ckb-spintowin.vercel.app/",
+   "status": "poc"
+  },
+  {
+   "id": "ckb-pop",
+   "name": "CKB-PoP",
+   "about": "proof of participation",
+   "builder": "Petelgeuse",
+   "repo": "https://github.com/RobaireTH/ckb-PoP.git",
+   "github": "RobaireTH/ckb-PoP",
+   "link": "https://ckb-pop.xyz/#/",
+   "status": "feedback"
+  },
+  {
+   "id": "inheritvault",
+   "name": "InheritVault",
+   "about": "time-locked inheritance",
+   "builder": "Oluwaseun",
+   "link": "https://inherit-vault.vercel.app/",
+   "status": "feedback"
+  },
+  {
+   "id": "dragon-rush",
+   "name": "Dragon Rush",
+   "about": "3 match game",
+   "builder": "Dragon Dev",
+   "repo": "https://github.com/mememadness",
+   "link": "https://dragon-test.mememadness.xyz/",
+   "status": "ongoing"
+  },
+  {
+   "id": "cvent",
+   "name": "Cvent",
+   "about": "Event ticketing",
+   "builder": "Smilez",
+   "repo": "https://github.com/RobaireTH/ckb-PoP.git",
+   "github": "RobaireTH/ckb-PoP",
+   "link": "https://cvent-chi.vercel.app/",
+   "status": "poc"
+  },
+  {
+   "id": "mintgate",
+   "name": "MintGate",
+   "about": "gated communities",
+   "builder": "MorseCode",
+   "link": "https://mint-gate.vercel.app/",
+   "status": "feedback"
+  },
+  {
+   "id": "crowdcell",
+   "name": "CrowdCell",
+   "builder": "Rick",
+   "repo": "https://github.com/alesfer001/decentralized-kickstarter",
+   "github": "alesfer001/decentralized-kickstarter",
+   "link": "https://crowdcell.vercel.app/",
+   "status": "feedback"
+  },
+  {
+   "id": "ckb-node-manager",
+   "name": "CKB Node Manager",
+   "builder": "Amine",
+   "repo": "https://github.com/Amine1n1/ckb-node-manager/releases/tag/v1.0.0",
+   "github": "Amine1n1/ckb-node-manager",
+   "status": "ongoing"
+  },
+  {
+   "id": "chainpress",
+   "name": "ChainPress",
+   "builder": "Chetan",
+   "repo": "https://github.com/chetanchauhan64/CKB-Academy-Progress/tree/main/frontend",
+   "github": "chetanchauhan64/CKB-Academy-Progress",
+   "link": "https://ckb-academy-progress.vercel.app/",
+   "status": "poc"
+  },
+  {
+   "id": "grid3",
+   "name": "Grid3",
+   "builder": "Truthixify",
+   "repo": "https://github.com/truthixify/grid3",
+   "github": "truthixify/grid3",
+   "link": "https://grid3-ckb.vercel.app/",
+   "status": "poc"
+  },
+  {
+   "id": "haven-protocol",
+   "name": "Haven Protocol",
+   "builder": "Truthixify",
+   "repo": "https://github.com/truthixify/haven",
+   "github": "truthixify/haven",
+   "status": "poc"
+  },
+  {
+   "id": "ohrex-protocol",
+   "name": "Ohrex Protocol",
+   "builder": "vibes",
+   "repo": "https://github.com/Radiiplus/ckbuilders/blob/main/README.md",
+   "github": "Radiiplus/ckbuilders",
+   "status": "poc"
+  },
+  {
+   "id": "pactagent",
+   "name": "PactAgent",
+   "builder": "Oluwaseun",
+   "repo": "https://github.com/Ajayfrizzy/pactagent",
+   "github": "Ajayfrizzy/pactagent",
+   "link": "https://www.pactagent.online/",
+   "status": "ongoing"
+  },
+  {
+   "id": "nerve-marketplace",
+   "name": "NERVE marketplace",
+   "builder": "Petelgeuse",
+   "repo": "https://github.com/RobaireTH/NERVE/",
+   "github": "RobaireTH/NERVE",
+   "link": "https://nerve-docs.vercel.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "lean-oracle",
+   "name": "Lean Oracle",
+   "builder": "Destiny",
+   "repo": "https://github.com/calledAdo/ckb-buillder-track/tree/main/lean_oracle",
+   "github": "calledAdo/ckb-buillder-track",
+   "status": "ongoing"
+  },
+  {
+   "id": "lenderr",
+   "name": "Lenderr",
+   "builder": "Destiny",
+   "repo": "https://github.com/calledAdo/ckb-buillder-track/tree/main/lenderr_project",
+   "github": "calledAdo/ckb-buillder-track",
+   "status": "ongoing"
+  },
+  {
+   "id": "ckb-privacy-mixer",
+   "name": "CKB Privacy Mixer",
+   "builder": "Williams",
+   "repo": "https://github.com/willy264/ckb-privacy-mixer",
+   "github": "willy264/ckb-privacy-mixer",
+   "status": "ongoing"
+  },
+  {
+   "id": "cellora",
+   "name": "Cellora",
+   "about": "a multi-tenant indexing and query service for CKB",
+   "builder": "Antismart",
+   "repo": "https://github.com/Antismart/cellora",
+   "github": "Antismart/cellora",
+   "status": "feedback"
+  },
+  {
+   "id": "spectre-protocol",
+   "name": "Spectre Protocol",
+   "about": "ZK key recovery for autonomous AI agents on CKB",
+   "builder": "Cecilia",
+   "repo": "https://github.com/CECILIA-MULANDI/spectre-protocol-ckb",
+   "github": "CECILIA-MULANDI/spectre-protocol-ckb",
+   "status": "feedback"
+  },
+  {
+   "id": "ckb-connect-wallet-refactor-ccc-component",
+   "name": "CKB connect wallet refactor (CCC component)",
+   "builder": "MorseCode",
+   "repo": "https://github.com/Victor-Okenwa/revamp-ckb-connect-wallet",
+   "github": "Victor-Okenwa/revamp-ckb-connect-wallet",
+   "status": "poc"
+  },
+  {
+   "id": "fiber-desktop",
+   "name": "Fiber Desktop",
+   "builder": "Smilez",
+   "repo": "https://github.com/chukwuma619/fiber-desktop",
+   "github": "chukwuma619/fiber-desktop",
+   "link": "https://fiber-desktop.vercel.app/",
+   "status": "grant"
+  },
+  {
+   "id": "a-groth16-zksnark-verifier-for-ckb-vm",
+   "name": "A Groth16 zkSNARK verifier for CKB-VM",
+   "builder": "Cecilia",
+   "repo": "https://github.com/CECILIA-MULANDI/groth16-ckb",
+   "github": "CECILIA-MULANDI/groth16-ckb",
+   "status": "ongoing"
+  },
+  {
+   "id": "pckt",
+   "name": "pckt",
+   "about": "A friendly way to send CKB",
+   "builder": "Petelgeuse",
+   "repo": "https://github.com/RobaireTH/pckt",
+   "github": "RobaireTH/pckt",
+   "link": "https://sendpckt.robaireth.dev/",
+   "status": "feedback"
+  },
+  {
+   "id": "vellum",
+   "name": "Vellum",
+   "about": "a reference dashboard and SDK for did:ckb",
+   "builder": "Truthixify",
+   "repo": "https://github.com/truthixify/vellum",
+   "github": "truthixify/vellum",
+   "link": "https://vellum-lyart.vercel.app/",
+   "status": "grant"
+  },
+  {
+   "id": "ckb-governance",
+   "name": "CKB Governance",
+   "builder": "AnihDev",
+   "repo": "https://github.com/anihdev/ckb-voting-dapp",
+   "github": "anihdev/ckb-voting-dapp",
+   "link": "https://ckb-voting-dapp.vercel.app/",
+   "status": "feedback"
+  },
+  {
+   "id": "fiberlatch",
+   "name": "FiberLatch",
+   "builder": "Ticoworld",
+   "repo": "https://github.com/Ticoworld/fiber-latch",
+   "github": "Ticoworld/fiber-latch",
+   "status": "grant"
+  },
+  {
+   "id": "loavix",
+   "name": "Loavix",
+   "about": "CKB and Fiber invoices",
+   "builder": "Leothatguy",
+   "link": "https://loavix-frontend.vercel.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "ckb-quest",
+   "name": "CKB Quest",
+   "builder": "David",
+   "repo": "https://github.com/David-Pjs/ckb-playground/tree/main/ckb-quest",
+   "github": "David-Pjs/ckb-playground",
+   "link": "https://ckb-quest.vercel.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "ckb-firewall",
+   "name": "CKB Firewall",
+   "builder": "digitaldreamer",
+   "repo": "https://github.com/digitaldrreamer/ckb-transaction-firewall",
+   "github": "digitaldrreamer/ckb-transaction-firewall",
+   "link": "https://ckb-firewall.drreamer.digital/",
+   "status": "ongoing"
+  },
+  {
+   "id": "aircraft-mlat-localization",
+   "name": "Aircraft MLAT Localization",
+   "builder": "Jeremic",
+   "repo": "https://github.com/Jeremicarose/AIRCRAFT-MALT",
+   "github": "Jeremicarose/AIRCRAFT-MALT",
+   "status": "feedback"
+  },
+  {
+   "id": "attest-ckb",
+   "name": "Attest CKB",
+   "builder": "Hallab",
+   "repo": "https://github.com/Hallab7/ckb-attestation-protocol",
+   "github": "Hallab7/ckb-attestation-protocol",
+   "link": "https://attestckb.vercel.app",
+   "status": "ongoing"
+  },
+  {
+   "id": "contest-ledger",
+   "name": "Contest Ledger",
+   "builder": "Cristofa",
+   "repo": "https://github.com/christofa/contestledger",
+   "github": "christofa/contestledger",
+   "link": "https://contestledger.vercel.app/auth",
+   "status": "ongoing"
+  },
+  {
+   "id": "ckb-lattice-ml-dsa",
+   "name": "CKB Lattice (ML-DSA)",
+   "builder": "Habeeblai",
+   "repo": "https://github.com/beebozy/ckb-pq-dillithium-",
+   "github": "beebozy/ckb-pq-dillithium-",
+   "status": "feedback"
+  },
+  {
+   "id": "ckb-geo-wars",
+   "name": "CKB Geo-Wars",
+   "builder": "Felix",
+   "repo": "https://github.com/Felabs1/ckb-geo-wars",
+   "github": "Felabs1/ckb-geo-wars",
+   "link": "https://ckb-geo-wars.vercel.app/",
+   "status": "feedback"
+  },
+  {
+   "id": "orbital",
+   "name": "Orbital",
+   "builder": "vibes",
+   "repo": "https://github.com/Radiiplus/Orbital",
+   "github": "Radiiplus/Orbital",
+   "link": "https://orbital10.web.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "infern",
+   "name": "Infern",
+   "builder": "Truthixify",
+   "repo": "https://github.com/truthixify/infern",
+   "github": "truthixify/infern",
+   "status": "ongoing"
+  },
+  {
+   "id": "cellscript-amm",
+   "name": "CellScript AMM",
+   "builder": "Alchemist",
+   "repo": "https://github.com/WuodOdhis/cellscript-swap-builder",
+   "github": "WuodOdhis/cellscript-swap-builder",
+   "status": "ongoing"
+  },
+  {
+   "id": "ckbuilder-developer-kit",
+   "name": "CKBuilder developer kit",
+   "builder": "Konquest",
+   "link": "https://crates.io/crates/ckbuilder",
+   "status": "poc"
+  },
+  {
+   "id": "ckb-up-down-prediction-pools",
+   "name": "CKB Up/Down prediction pools",
+   "builder": "Destiny",
+   "repo": "https://github.com/calledAdo/asset-up-down-pools/tree/main",
+   "github": "calledAdo/asset-up-down-pools",
+   "status": "ongoing"
+  },
+  {
+   "id": "freight-on-nervos",
+   "name": "Freight on Nervos",
+   "builder": "Pascal",
+   "repo": "https://github.com/Birdmannn/fon",
+   "github": "Birdmannn/fon",
+   "link": "https://freight43.vercel.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "ckb-viz",
+   "name": "CKB-viz",
+   "builder": "Truthixify",
+   "repo": "https://github.com/truthixify/ckb-viz",
+   "github": "truthixify/ckb-viz",
+   "link": "https://ckb-viz.truthixify.dev/",
+   "status": "ongoing"
+  },
+  {
+   "id": "ls-idl",
+   "name": "LS-IDL",
+   "builder": "Wilfrid Okorie",
+   "repo": "https://github.com/Nervos-Community-Catalyst/CKBuilder-projects/issues/29",
+   "github": "Nervos-Community-Catalyst/CKBuilder-projects",
+   "status": "ongoing"
+  },
+  {
+   "id": "noir-ckb",
+   "name": "noir-ckb",
+   "builder": "0xledger",
+   "repo": "https://github.com/wamimi/noir-ckb-verifier",
+   "github": "wamimi/noir-ckb-verifier",
+   "status": "ongoing"
+  },
+  {
+   "id": "streak",
+   "name": "Streak",
+   "about": "parimutuel football prediction market",
+   "builder": "Somtee",
+   "repo": "https://github.com/HeySomtee/ckbuilder",
+   "github": "HeySomtee/ckbuilder",
+   "link": "https://streak-terminal.onrender.com/",
+   "status": "ongoing"
+  },
+  {
+   "id": "credora",
+   "name": "Credora",
+   "about": "CKB Credentials registry",
+   "builder": "Hiep",
+   "repo": "https://github.com/hiepthach/Credora_CKB",
+   "github": "hiepthach/Credora_CKB",
+   "link": "https://credora-ckb.vercel.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "fiber-survivors",
+   "name": "Fiber Survivors",
+   "builder": "Hayden",
+   "repo": "https://github.com/TranNhi27/CKBuilder",
+   "github": "TranNhi27/CKBuilder",
+   "link": "https://zesty-youtiao-8586ae.netlify.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "ckb-vault",
+   "name": "CKB-Vault",
+   "builder": "Manny",
+   "repo": "https://github.com/Mannychino/CKB-Vault.git",
+   "github": "Mannychino/CKB-Vault",
+   "status": "ongoing"
+  },
+  {
+   "id": "skillpass",
+   "name": "SkillPass",
+   "builder": "Dang Ty",
+   "repo": "https://github.com/tydeptrai21042004/ckb-skill",
+   "github": "tydeptrai21042004/ckb-skill",
+   "link": "https://ckb-skill.vercel.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "klaveroq",
+   "name": "Klaveroq",
+   "about": "work marketplace backed by PactAgent",
+   "builder": "Oluwaseun",
+   "repo": "https://github.com/Ajayfrizzy/veyrivo.git",
+   "github": "Ajayfrizzy/veyrivo",
+   "link": "https://beta.klaveroq.com/",
+   "status": "ongoing"
+  },
+  {
+   "id": "kaze",
+   "name": "Kaze",
+   "builder": "Kaze team",
+   "link": "https://usekaze.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "ckscope",
+   "name": "CKScope",
+   "about": "A CCC native CKB explorer",
+   "builder": "jedi-dtechmaker",
+   "repo": "https://github.com/jedi-dtechmaker/CKScope",
+   "github": "jedi-dtechmaker/CKScope",
+   "status": "ongoing"
+  },
+  {
+   "id": "ckb-script-port",
+   "name": "CKB Script Port",
+   "builder": "Ticoworld",
+   "repo": "https://github.com/Ticoworld/ckb-script-port",
+   "github": "Ticoworld/ckb-script-port",
+   "status": "ongoing"
+  },
+  {
+   "id": "lucent-dex",
+   "name": "Lucent DEx",
+   "builder": "Lucent Team",
+   "repo": "https://github.com/LucentLabss/ckb-dex",
+   "github": "LucentLabss/ckb-dex",
+   "link": "https://lucent-dex.vercel.app/",
+   "status": "ongoing"
+  },
+  {
+   "id": "nine-cells-tower-defense-game",
+   "name": "Nine Cells tower defense game",
+   "builder": "Karas",
+   "link": "https://nine-cells.karasdev.com/",
+   "status": "ongoing"
+  }
+ ],
+ "fetchedAt": "2026-10-29T16:57:13.040Z"
+}
