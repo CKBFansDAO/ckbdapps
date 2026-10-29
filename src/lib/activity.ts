@@ -5,34 +5,26 @@ import { parseRepo, type RepoActivity } from "./activity-source";
 // GitHub itself. PULSE_URL points previews at another instance (Pulse is MIT and can be self-hosted).
 const PULSE = process.env.PULSE_URL ?? "https://pulse-lab.lusocryptolabs.com";
 
-const get = (path: string) => fetch(`${PULSE}${path}`, { signal: AbortSignal.timeout(20_000) });
-
-/** Lowercased owner/repo -> Pulse's spelling. /api/repo matches names exactly, project files may not. */
-async function followed(): Promise<Record<string, string>> {
-  "use cache";
-  cacheLife("hours");
-  const res = await get("/api/state");
-  if (!res.ok) throw new Error(`state: HTTP ${res.status}`);
-  const { repos } = (await res.json()) as { repos: { name: string }[] };
-  return Object.fromEntries(repos.map((r) => [r.name.toLowerCase(), r.name]));
-}
+// "ckbdapps" in the User-Agent lets the Pulse team tell our calls apart in their logs (LusoCryptoLabs/ckb-pulse#1).
+const get = (path: string) =>
+  fetch(`${PULSE}${path}`, { headers: { "user-agent": "ckbdapps (+https://ckbdapps.com)" }, signal: AbortSignal.timeout(20_000) });
 
 /**
- * Activity for one repository, revalidated hourly.
- * undefined: Pulse does not follow the repository, so the page shows no Activity section.
+ * Activity for one repository, revalidated hourly. /api/repo matches the name in any case and answers with
+ * Pulse's own spelling, which the Pulse card link uses.
+ * undefined: Pulse does not follow the repository (HTTP 404), so the page shows no Activity section.
  * null: Pulse could not be reached or answered nonsense; the page says so and links the repository instead of
  * showing numbers that may be wrong. A failure is only cached for minutes, so pages recover soon after Pulse does.
  */
 export async function loadActivity(github: string): Promise<RepoActivity | null | undefined> {
   "use cache";
   try {
-    const name = (await followed())[github.toLowerCase()];
-    if (!name) {
+    const res = await get(`/api/repo?name=${encodeURIComponent(github)}`);
+    if (res.status === 404) {
       cacheLife("hours");
       return undefined;
     }
-    const res = await get(`/api/repo?name=${encodeURIComponent(name)}`);
-    if (!res.ok) throw new Error(`${name}: HTTP ${res.status}`);
+    if (!res.ok) throw new Error(`${github}: HTTP ${res.status}`);
     const out = parseRepo(await res.json(), Date.now());
     cacheLife("hours");
     return out;
