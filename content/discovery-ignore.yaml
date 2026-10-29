@@ -11,3 +11,4 @@
 - { match: https://ckbuilders.dev, reason: grant programme site, not a project }
 - { match: godwokenrises/godwoken, reason: Godwoken has stopped; not listed (2026-10-28) }
 - { match: https://docs.godwoken.io, reason: Godwoken has stopped; not listed (2026-10-28) }
+- { match: https://khalani.network, reason: "removed 2026-10-29: its current connection to CKB is unclear; a PR that re-adds it with the CKB integration explained is welcome" }
