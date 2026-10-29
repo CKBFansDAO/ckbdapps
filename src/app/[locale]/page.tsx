@@ -68,6 +68,7 @@ export default async function HomePage() {
               slug: p.slug,
               name: p.name,
               sym: sym(p.name),
+              logo: p.logo,
               community: p.community,
               tags: (labels(p).length ? labels(p) : [groupLabel(p.group, locale)]).join(", "),
             })),
