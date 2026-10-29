@@ -42,7 +42,6 @@ export function EcoMap({ groups }: Props) {
                   <li key={c.slug}>
                     <Link
                       href={`/projects/${c.slug}`}
-                      aria-label={c.name}
                       onMouseEnter={() => setActive(c)}
                       onFocus={() => setActive(c)}
                       className={`grid size-[34px] place-items-center font-mono text-[.66rem] font-semibold no-underline transition-colors duration-100 hover:border-purple hover:bg-purple hover:text-white min-[521px]:size-10 min-[521px]:text-[.74rem] ${c.community ? "border-2 border-purple-hi text-purple-hi" : "border border-white/26"}`}
@@ -50,8 +49,9 @@ export function EcoMap({ groups }: Props) {
                       {c.logo ? (
                         <Image src={c.logo} alt="" width={64} height={64} sizes="32px" className="size-[70%] object-contain" />
                       ) : (
-                        c.sym
+                        <span aria-hidden>{c.sym}</span>
                       )}
+                      <span className="sr-only">{c.name}</span>
                     </Link>
                   </li>
                 ))}
