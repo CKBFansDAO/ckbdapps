@@ -56,6 +56,10 @@ next-env.d.ts
 /.agents/
 /agent/
 /.claude/
+skills-lock.json
+
+# local scratch scripts
+*.local.mjs
 
 
 # Local Netlify folder
