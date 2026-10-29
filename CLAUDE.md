@@ -315,8 +315,9 @@ Acceptance for any page: no class name that exists only in a CSS file, no hex or
 Purpose: let the community see at a glance whether a project is still alive. The site never calls GitHub or X, holds no tokens, and nothing has to be committed to keep activity fresh. Input is the existing `github: owner/repo` field; no new schema fields.
 
 **Source: [CKB Pulse](https://pulse-lab.lusocryptolabs.com)** by LusoCryptoLabs ([repo](https://github.com/LusoCryptoLabs/ckb-pulse), MIT), which follows the GitHub activity of the CKB ecosystem. It replaces the planned ckbdapps backend collector. `PULSE_URL` points at another instance; Pulse can be self-hosted if the public one goes away.
-- `GET /api/state` (hourly, ~300 KB): only to map a `github` line to Pulse's exact spelling (`/api/repo` is case-sensitive) and to know which repos Pulse follows.
-- `GET /api/repo?name=owner/repo` (hourly, per project): the last 30 days: events (kind, actor, title, url, time), `daily.people`, contributors, stars, `pushedAt`.
+- `GET /api/repo?name=owner/repo` (hourly, per project): the last 30 days: events (kind, actor, title, url, time), `daily.people`, contributors, stars, `pushedAt`. Matches the name in any case and answers with Pulse's spelling in `name`; HTTP 404 means Pulse does not follow the repo. Send a User-Agent containing "ckbdapps".
+- `GET /api/state` (weekly, ~300 KB): only for discovery, to list the repos Pulse follows.
+- Use, rate and field stability were agreed in [LusoCryptoLabs/ckb-pulse#1](https://github.com/LusoCryptoLabs/ckb-pulse/issues/1): the fields we read are not renamed or dropped without notice there, and a change of address is announced there first.
 - A project whose repo Pulse does not follow has no Activity section. To cover more projects, add `github` lines and ask Pulse to follow the owner (`POST /api/propose`).
 - X posts (phase 2) are not in Pulse; decide separately (needs paid X API access).
 
