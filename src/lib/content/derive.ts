@@ -35,9 +35,14 @@ export function daysSince(isoDate: string, now = Date.now()): number {
 
 export const isStale = (verified: string, now = Date.now()) => daysSince(verified, now) > STALE_AFTER_DAYS;
 
-/** Two-letter cell label for the ecosystem map: "JoyID" -> "Jo", "万向区块链" -> "万". */
+/**
+ * Two-letter cell label for the ecosystem map: "JoyID" -> "Jo", "万向区块链" -> "万".
+ * A leading "CKB" is skipped when enough is left, or half the map would read "Ck": "CKB Guardian" -> "Gu".
+ */
 export function sym(name: string): string {
-  const n = name.replace(/[^\p{L}\p{N}]/gu, "");
+  const all = name.replace(/[^\p{L}\p{N}]/gu, "");
+  const rest = all.replace(/^ckb/i, "");
+  const n = rest.length >= 2 ? rest : all;
   if (!n) return "?";
   if (/[\u4e00-\u9fff]/.test(n[0])) return n[0];
   return n[0].toUpperCase() + (n[1] ?? "").toLowerCase();

@@ -1,15 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
-type Cell = { slug: string; name: string; sym: string; community: boolean; tags: string };
+type Cell = { slug: string; name: string; sym: string; logo?: string; community: boolean; tags: string };
 type Props = { groups: { id: string; label: string; cells: Cell[] }[] };
 
 /**
  * Overview, not a second list: every project is one cell, grouped.
  * A group's link opens Explore with that filter; a cell opens the project.
+ * A cell shows the project's logo, or two letters of its name when it has none.
  */
 export function EcoMap({ groups }: Props) {
   const t = useTranslations();
@@ -40,12 +42,16 @@ export function EcoMap({ groups }: Props) {
                   <li key={c.slug}>
                     <Link
                       href={`/projects/${c.slug}`}
-                      aria-label={`${c.sym} ${c.name}`}
                       onMouseEnter={() => setActive(c)}
                       onFocus={() => setActive(c)}
                       className={`grid size-[34px] place-items-center font-mono text-[.66rem] font-semibold no-underline transition-colors duration-100 hover:border-purple hover:bg-purple hover:text-white min-[521px]:size-10 min-[521px]:text-[.74rem] ${c.community ? "border-2 border-purple-hi text-purple-hi" : "border border-white/26"}`}
                     >
-                      {c.sym}
+                      {c.logo ? (
+                        <Image src={c.logo} alt="" width={64} height={64} sizes="32px" className="size-[70%] object-contain" />
+                      ) : (
+                        <span aria-hidden>{c.sym}</span>
+                      )}
+                      <span className="sr-only">{c.name}</span>
                     </Link>
                   </li>
                 ))}
