@@ -1,9 +1,9 @@
-import { loadProjects } from "@/lib/content/load";
+import { loadAllProjects } from "@/lib/content/load";
 import { SITE_URL } from "@/lib/site";
 
-/** Every listed project as JSON: the project file fields plus derived ones. Prerendered at build time. */
+/** Every listed project as JSON, testnet proofs included (`testnet: true`): the project file fields plus derived ones. Prerendered at build time. */
 export function GET() {
-  const projects = loadProjects().map(({ slug, name, url, tagline, categories, community, links, github, contracts, audits, verified, listed, group, logo }) => ({
+  const projects = loadAllProjects().map(({ slug, name, url, tagline, categories, community, links, github, contracts, audits, verified, listed, testnet, group, logo }) => ({
     slug,
     name,
     url,
@@ -17,6 +17,7 @@ export function GET() {
     audits,
     verified,
     listed,
+    testnet,
     logo: logo && `${SITE_URL}${logo}`,
     page: { en: `${SITE_URL}/en/projects/${slug}`, zh: `${SITE_URL}/zh/projects/${slug}` },
   }));

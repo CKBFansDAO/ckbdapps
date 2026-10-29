@@ -10,6 +10,8 @@ export type PickItem = { slug: string; cats: readonly string[]; group: string; c
 export const LIKE_COUNT = 6;
 export const COMMUNITY_COUNT = 5;
 export const NEWEST_COUNT = 3;
+/** Testnet proofs drawn at random for the last block of "Start here". */
+export const PROOF_COUNT = 3;
 
 /** Groups a first visit (no history yet) is drawn from: apps, wallets, assets and identity. */
 export const START_GROUPS: readonly string[] = ["apps", "wallets", "assets"];

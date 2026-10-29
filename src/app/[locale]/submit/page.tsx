@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
+import { code } from "@/components/ui/Code";
 import { SlotButton } from "@/components/ui/SlotButton";
 import { getBuildTime } from "@/lib/build-time";
 import { categoryLabel, groupLabel } from "@/lib/content/derive";
@@ -14,7 +15,6 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/submit">
   return { title: t("add"), description: t("sb_desc"), alternates: alternates(locale, "/submit") };
 }
 
-const code = (c: ReactNode) => <code className="bg-fg/8 px-1 font-mono text-[.88em] font-medium">{c}</code>;
 const H2 = "semi mt-0 mb-3 text-[1.5rem] leading-[1.15]";
 const LIST = "m-0 grid list-disc gap-2 pl-5 marker:text-accent";
 
@@ -71,7 +71,7 @@ export default async function SubmitPage() {
           <section className="border-t-2 border-fg py-8">
             <h2 className={H2}>{t("sb_opt_h")}</h2>
             <ul className={LIST}>
-              {(["sb_o_links", "sb_o_github", "sb_o_community", "sb_o_about", "sb_o_logo"] as const).map((k) => (
+              {(["sb_o_links", "sb_o_github", "sb_o_community", "sb_o_testnet", "sb_o_about", "sb_o_logo"] as const).map((k) => (
                 <li key={k}>{t.rich(k, { code })}</li>
               ))}
             </ul>

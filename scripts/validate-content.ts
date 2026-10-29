@@ -7,7 +7,7 @@ import { formatIssues, LOGOS_DIR, readProjectFiles } from "@/lib/content/load";
 import { Project, SLUG } from "@/lib/content/schema";
 
 // Top-level paths that a project slug must not shadow (next.config.ts redirects /<slug> to the project page).
-const RESERVED = new Set(["en", "zh", "explore", "halving", "stats", "projects", "ecosystem", "events", "statistics", "api"]);
+const RESERVED = new Set(["en", "zh", "explore", "halving", "stats", "projects", "proofs", "ecosystem", "events", "statistics", "api"]);
 
 const TODAY = new Date().toISOString().slice(0, 10);
 const errors: string[] = [];

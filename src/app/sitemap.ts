@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
-import { loadProjects } from "@/lib/content/load";
+import { loadAllProjects } from "@/lib/content/load";
 import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/halving"),
     entry("/stats"),
     entry("/submit"),
-    ...loadProjects().map((p) => entry(`/projects/${p.slug}`, p.verified)),
+    entry("/proofs"),
+    ...loadAllProjects().map((p) => entry(`/projects/${p.slug}`, p.verified)),
   ];
 }

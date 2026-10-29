@@ -279,6 +279,7 @@ async function migrateProject(src: Source, slugMap: Map<string, string>) {
     links: Object.keys(links).length ? links : undefined,
     github,
     verified,
+    testnet: false, // the legacy site listed mainnet projects only; toMarkdown leaves the default out
   };
   writeFileSync(path.join(PROJECTS_DIR, `${slug}.md`), toMarkdown(project, body));
   report.written.push(slug);

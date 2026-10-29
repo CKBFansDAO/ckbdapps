@@ -1,5 +1,5 @@
 import { categoryLabel, groupLabel, pick } from "@/lib/content/derive";
-import { loadProjects } from "@/lib/content/load";
+import { loadProjects, loadProofs } from "@/lib/content/load";
 import { taxonomy } from "@/lib/content/schema";
 import { REPO_URL, SITE_URL } from "@/lib/site";
 
@@ -28,6 +28,11 @@ export function GET() {
       const cats = p.categories.map((c) => categoryLabel(c, "en")).join(", ");
       lines.push(`- [${p.name}](${SITE_URL}/en/projects/${p.slug}): ${pick(p.tagline, "en")} (${cats})`);
     }
+  }
+  const proofs = loadProofs();
+  if (proofs.length) {
+    lines.push("", "## Proofs on testnet", "", "Open-source projects that run on CKB testnet only, not in the directory.", "");
+    for (const p of proofs) lines.push(`- [${p.name}](${SITE_URL}/en/projects/${p.slug}): ${pick(p.tagline, "en")} (code: https://github.com/${p.github})`);
   }
   return new Response(lines.join("\n") + "\n", { headers: { "content-type": "text/plain; charset=utf-8" } });
 }

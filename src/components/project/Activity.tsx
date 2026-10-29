@@ -13,7 +13,7 @@ const MARK: Record<Status, { fill: number; plug: "solid" | "open" }> = {
   dormant: { fill: 0, plug: "open" },
 };
 
-function StatusMark({ status }: { status: Status }) {
+export function StatusMark({ status }: { status: Status }) {
   const { fill, plug } = MARK[status];
   return (
     <span aria-hidden className="flex h-5 flex-none items-stretch">
