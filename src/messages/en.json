@@ -241,6 +241,6 @@
   "pf_sim": "Other proofs",
   "pf_home_h": "Proven on testnet",
   "pf_home_p": "Open-source experiments that show what CKB can do. Not for real assets.",
-  "pf_home_all": "See all proofs",
+  "pf_home_all": "See more proofs",
   "sb_o_testnet": "<code>testnet: true</code>: the project runs on testnet only. It is listed under Proofs on testnet instead of the directory, and needs <code>github</code> and <code>listed</code>. It must be open source with a license and show something the directory does not have yet, and the builder must agree to the listing."
 }

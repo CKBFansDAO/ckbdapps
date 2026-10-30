@@ -9,17 +9,22 @@ import { SlotButton } from "../ui/SlotButton";
 
 type Props = { p: ProjectEntry; activity: RepoActivity | null | undefined; demoDown: boolean };
 
-/** One testnet proof: what it is, whether its code still moves, and the way to try it and read it. */
+/**
+ * One testnet proof: what it is, whether its code still moves, and the way to try it and read it.
+ * The name link covers the whole card, so a tap anywhere opens the project page (phones have no hover to say
+ * which part is a link); the demo and code links sit above that layer and keep their own targets. Hovering the
+ * card, or focusing its name, grows a plug on the right edge, as on Explore rows.
+ */
 export function ProofCard({ p, activity, demoDown }: Props) {
   const t = useTranslations();
   const locale = useLocale();
   return (
-    <article className="grid h-full content-start gap-4 border border-line bg-surface p-5 [--avatar-ic:var(--accent)]">
+    <article className="group relative grid h-full content-start gap-4 border border-line bg-surface p-5 [--avatar-ic:var(--accent)] after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:w-0 after:bg-purple after:transition-[width] after:duration-150 hover:after:w-3 has-[h2_a:focus-visible]:after:w-3 motion-reduce:after:transition-none">
       <header className="flex items-center gap-4">
         <FramedAvatar slug={p.slug} logo={p.logo} size="sm" />
         <div className="min-w-0">
           <h2 className="semi m-0 text-[1.25rem] leading-[1.15] [overflow-wrap:anywhere]">
-            <Link href={`/projects/${p.slug}`} className="no-underline hover:underline hover:decoration-accent hover:decoration-2">
+            <Link href={`/projects/${p.slug}`} className="no-underline before:absolute before:inset-0 before:content-[''] group-hover:underline group-hover:decoration-accent group-hover:decoration-2">
               {p.name}
             </Link>
           </h2>
@@ -40,9 +45,11 @@ export function ProofCard({ p, activity, demoDown }: Props) {
         {demoDown ? (
           <p className="m-0 border-[1.5px] border-dashed border-accent px-3 py-2 text-[.88rem] font-semibold">{t("pf_offline")}</p>
         ) : (
-          <SlotButton href={p.url}>{t("pf_try")}</SlotButton>
+          <SlotButton href={p.url} className="z-10">
+            {t("pf_try")}
+          </SlotButton>
         )}
-        <a className="linkbtn" href={`https://github.com/${p.github}`} target="_blank" rel="noopener">
+        <a className="linkbtn z-10" href={`https://github.com/${p.github}`} target="_blank" rel="noopener">
           {t("pf_code")}
         </a>
       </div>
