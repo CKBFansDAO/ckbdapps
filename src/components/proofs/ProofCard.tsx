@@ -12,13 +12,14 @@ type Props = { p: ProjectEntry; activity: RepoActivity | null | undefined; demoD
 /**
  * One testnet proof: what it is, whether its code still moves, and the way to try it and read it.
  * The name link covers the whole card, so a tap anywhere opens the project page (phones have no hover to say
- * which part is a link); the demo and code links sit above that layer and keep their own targets.
+ * which part is a link); the demo and code links sit above that layer and keep their own targets. Hovering the
+ * card, or focusing its name, grows a plug on the right edge, as on Explore rows.
  */
 export function ProofCard({ p, activity, demoDown }: Props) {
   const t = useTranslations();
   const locale = useLocale();
   return (
-    <article className="group relative grid h-full content-start gap-4 border border-line bg-surface p-5 [--avatar-ic:var(--accent)]">
+    <article className="group relative grid h-full content-start gap-4 border border-line bg-surface p-5 [--avatar-ic:var(--accent)] after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:w-0 after:bg-purple after:transition-[width] after:duration-150 hover:after:w-3 has-[h2_a:focus-visible]:after:w-3 motion-reduce:after:transition-none">
       <header className="flex items-center gap-4">
         <FramedAvatar slug={p.slug} logo={p.logo} size="sm" />
         <div className="min-w-0">
