@@ -50,8 +50,8 @@ export function formatIssues(error: z.ZodError): string[] {
 const groupOrder = new Map(taxonomy.groups.map((g, i) => [g.id, i]));
 let cache: ProjectEntry[] | undefined;
 
-/** All projects, validated, sorted by group display order then name. Throws on invalid content. */
-export function loadProjects(): ProjectEntry[] {
+/** Every project file, validated, sorted by group display order then name. Throws on invalid content. */
+export function loadAllProjects(): ProjectEntry[] {
   // Cache for the build; in dev re-read so content edits show up on reload.
   if (cache && process.env.NODE_ENV === "production") return cache;
   // Project files are re-read in dev, but the taxonomy (category ids, labels) is fixed at module load,
@@ -71,6 +71,12 @@ export function loadProjects(): ProjectEntry[] {
   return (cache = out);
 }
 
+/** The directory: projects live on mainnet. Testnet proofs are left out (see loadProofs). */
+export const loadProjects = () => loadAllProjects().filter((p) => !p.testnet);
+
+/** Projects that run on testnet only, shown on /proofs. */
+export const loadProofs = () => loadAllProjects().filter((p) => p.testnet);
+
 export function getProject(slug: string): ProjectEntry | undefined {
-  return loadProjects().find((p) => p.slug === slug);
+  return loadAllProjects().find((p) => p.slug === slug);
 }

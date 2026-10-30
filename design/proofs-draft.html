@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testnet proofs draft · CKBdapps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;900&display=swap">
+<!-- Design draft: projects proven on CKB testnet. A visual reference only, like ckbdapps-design.html: not shipped,
+     CSS not to be copied. The four projects are real (CKBuilder tracker); their texts were drafted from each README
+     for this mock, and the "tried" dates are placeholders. Activity numbers are real (CKB Pulse, 2026-10-30); Pulse does not follow
+     the firewall's repository, so its page has no Activity section, as on the live site. -->
+<style>
+:root {
+  --page: #121218; --ink: #1c1c23; --purple: #733dff; --purple-hi: #9068ff; --purple-deep: #5a26e8;
+  --paper: #f3f2f7; --paper-ink: #15151c; --white: #fff; --mut-d: #a3a2b3; --mut-p: #5d5c6b;
+  --line-d: rgba(255,255,255,.14); --line-p: rgba(21,21,28,.16);
+  --display: 'Archivo', 'Noto Sans SC', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+.on-dark { --bg: var(--page); --fg: var(--white); --mut: var(--mut-d); --line: var(--line-d); --accent: var(--purple-hi); --surface: var(--ink); background: var(--bg); color: var(--fg); }
+.on-paper { --bg: var(--paper); --fg: var(--paper-ink); --mut: var(--mut-p); --line: var(--line-p); --accent: var(--purple-deep); --surface: var(--white); background: var(--bg); color: var(--fg); }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--white); font: 400 16px/1.55 var(--display); font-variation-settings: "wdth" 100; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--purple-hi); outline-offset: 3px; }
+.on-paper :focus-visible { outline-color: var(--purple-deep); }
+.in { max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+.wide { font-weight: 800; font-variation-settings: "wdth" 125; letter-spacing: -.03em; }
+.semi { font-weight: 800; font-variation-settings: "wdth" 112; letter-spacing: -.02em; }
+html[lang="zh-CN"] .wide, html[lang="zh-CN"] .semi { letter-spacing: 0; font-weight: 900; }
+.inslot { position: relative; display: inline-block; padding: .03em .26em 0 .2em; margin-right: .36em; border: .1em solid currentColor; border-right: 0; line-height: .95; }
+.inslot::after { content: ""; position: absolute; right: -.3em; top: 0; bottom: 0; width: .3em; background: var(--purple); }
+.btn { position: relative; display: inline-flex; align-items: center; margin-right: 14px; padding: 9px 18px 9px 16px; border: 2px solid currentColor; border-right: 0; background: none; text-decoration: none; font-weight: 700; font-size: .9rem; white-space: nowrap; }
+.btn::after { content: ""; position: absolute; right: -14px; top: -2px; bottom: -2px; width: 14px; background: var(--purple); transition: width .18s, right .18s; }
+.btn:hover::after, .btn:focus-visible::after { width: 24px; right: -24px; }
+.lnk { display: inline-flex; align-items: center; min-height: 40px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Draft chrome */
+.draft { background: var(--purple); color: var(--white); font: 600 .78rem/1.5 var(--mono); padding: 6px 0; }
+.views { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 8px 0; background: var(--ink); border-bottom: 1px solid var(--line-d); font-size: .85rem; color: var(--mut-d); }
+.views a { color: var(--white); font-weight: 700; text-decoration: none; padding: 6px 2px; border-bottom: 2px solid transparent; }
+.views a[aria-current] { border-color: var(--purple-hi); }
+.views .lang { margin-left: auto; display: inline-flex; border: 1px solid var(--line-d); }
+.views .lang button { background: none; border: 0; padding: 6px 12px; min-height: 36px; font: 600 .78rem var(--mono); color: var(--mut-d); }
+.views .lang button[aria-pressed="true"] { background: var(--white); color: var(--ink); }
+
+.top { height: 64px; background: rgba(18,18,24,.92); border-bottom: 1px solid var(--line-d); }
+.top .in { height: 100%; display: flex; align-items: center; gap: 24px; }
+.brand { font-weight: 800; font-variation-settings: "wdth" 125; letter-spacing: .02em; text-decoration: none; }
+.brand b { color: var(--purple-hi); }
+.top nav { display: flex; gap: 22px; margin-left: auto; font-size: .92rem; font-weight: 600; }
+.top nav a { color: var(--mut-d); text-decoration: none; }
+@media (max-width: 860px) { .top nav { display: none; } }
+
+/* Shared */
+.framed { position: relative; flex: none; aspect-ratio: 1; border: 4px solid var(--fg); border-right: 0; padding: 3px; width: 44px; margin-right: 9px; }
+.framed::after { content: ""; position: absolute; right: -9px; top: -4px; bottom: -4px; width: 9px; background: var(--purple); }
+.framed svg { display: block; width: 100%; height: 100%; color: var(--accent); }
+.framed.lg { width: clamp(104px, 17vw, 190px); border-width: clamp(9px, 1.6vw, 16px); padding: clamp(10px, 1.8vw, 20px); margin-right: clamp(26px, 4vw, 44px); }
+.framed.lg::after { right: calc(-1 * clamp(26px, 4vw, 44px)); width: clamp(26px, 4vw, 44px); top: calc(-1 * clamp(9px, 1.6vw, 16px)); bottom: calc(-1 * clamp(9px, 1.6vw, 16px)); }
+.on-dark .framed { border-color: var(--white); }
+.pill { border: 1.5px solid var(--line); padding: 2px 10px; font-size: .84rem; font-weight: 600; }
+.pill.net { border-color: var(--accent); color: var(--accent); }
+.plug { display: inline-block; width: 16px; height: 16px; position: relative; border: 2px solid var(--fg); border-right: 0; margin-right: 5px; vertical-align: -2px; }
+.plug::after { content: ""; position: absolute; right: -5px; top: -2px; bottom: -2px; width: 5px; background: var(--purple); }
+.plug i { position: absolute; inset: 2px; background: var(--accent); }
+.plug.quiet i { left: 50%; }
+.plug.dormant { border-style: dashed; }
+.plug.dormant i { display: none; }
+.plug.dormant::after { background: none; border: 1.5px dashed var(--purple); width: 3px; }
+.mono { font-family: var(--mono); font-size: .82rem; }
+.mut { color: var(--mut); }
+
+/* Proofs page */
+.hero { padding: clamp(40px, 7vw, 96px) 0 clamp(36px, 5vw, 64px); }
+.hero h1 { margin: 0; font-size: clamp(2.5rem, 8vw, 6.4rem); line-height: .94; max-width: 14ch; }
+html[lang="zh-CN"] .hero h1 { line-height: 1.1; }
+.hero p { max-width: 60ch; margin: 20px 0 0; color: var(--mut); font-size: 1.1rem; }
+.hero .warn { display: flex; gap: 12px; align-items: flex-start; margin-top: 28px; max-width: 62ch; padding: 12px 16px; border: 2px solid var(--accent); color: var(--fg); font-weight: 600; }
+.hero .warn::before { content: ""; flex: none; width: 10px; align-self: stretch; background: var(--purple); }
+.body { padding-block: clamp(32px, 5vw, 64px) clamp(56px, 8vw, 104px); }
+.layout { display: grid; gap: 40px; }
+@media (min-width: 1000px) { .layout { grid-template-columns: minmax(0, 1fr) 300px; align-items: start; } }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.filters button { border: 1px solid var(--line); background: none; padding: 6px 12px; min-height: 40px; font-weight: 700; font-size: .88rem; }
+.filters button span { font: 500 .78rem var(--mono); color: var(--mut); margin-left: 6px; }
+.filters button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.filters button[aria-pressed="true"] span { color: inherit; }
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); list-style: none; margin: 0; padding: 0; }
+.tile { display: grid; gap: 14px; align-content: start; height: 100%; padding: 20px; background: var(--surface); border: 1px solid var(--line); }
+.tile header { display: flex; align-items: center; gap: 16px; }
+.tile h2 { margin: 0; font-size: 1.25rem; line-height: 1.15; }
+.tile h2 a { text-decoration: none; }
+.tile h2 a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.tile .cats { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.tile .cats span { font-size: .8rem; font-weight: 600; color: var(--mut); }
+.tile .cats span + span::before { content: "·"; margin-right: 6px; }
+.tile p { margin: 0; }
+.tile .proves { border-left: 3px solid var(--accent); padding-left: 12px; font-size: .95rem; }
+.tile .proves b { display: block; font-size: .8rem; color: var(--mut); }
+.tile .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; color: var(--mut); }
+.tile .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 4px; }
+.aside { border: 2px solid var(--fg); border-right: 0; position: relative; padding: 20px 22px; background: var(--surface); }
+.aside::after { content: ""; position: absolute; right: -14px; top: -2px; bottom: -2px; width: 14px; background: var(--purple); }
+.aside h2 { margin: 0 0 12px; font-size: 1.15rem; }
+.aside ol { margin: 0; padding: 0; list-style: none; counter-reset: c; display: grid; gap: 12px; }
+.aside li { counter-increment: c; display: grid; grid-template-columns: 2rem 1fr; font-size: .93rem; }
+.aside li::before { content: counter(c, decimal-leading-zero); font: 600 .85rem var(--mono); color: var(--accent); padding-top: 2px; }
+.aside p { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font-size: .9rem; color: var(--mut); }
+.cta { margin-top: 48px; padding-top: 28px; border-top: 2px solid var(--fg); display: grid; gap: 12px; max-width: 760px; }
+.cta h2 { margin: 0; font-size: 1.5rem; }
+.cta p { margin: 0; color: var(--mut); }
+.cta code { font-family: var(--mono); background: rgba(21,21,28,.08); padding: 0 4px; }
+
+/* Project page */
+.d-hero { padding: clamp(24px, 4vw, 40px) 0 clamp(40px, 7vw, 80px); }
+.back { display: inline-flex; align-items: center; gap: 10px; min-height: 40px; font-weight: 600; color: var(--mut); text-decoration: none; }
+.back::before { content: ""; width: 10px; height: 18px; background: var(--purple); }
+.d-top { margin-top: clamp(20px, 4vw, 44px); display: grid; gap: 28px clamp(28px, 5vw, 64px); }
+@media (min-width: 721px) { .d-top { grid-template-columns: auto minmax(0, 1fr); align-items: start; } }
+.d-top h1 { margin: 0; font-size: clamp(2.2rem, 6.4vw, 5.2rem); line-height: .96; overflow-wrap: anywhere; }
+.d-top .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+.d-top .tag { margin: 22px 0 0; max-width: 60ch; font-size: clamp(1.05rem, 1.6vw, 1.25rem); }
+.d-top .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 28px; }
+.d-top .acts .lnk { color: var(--fg); }
+.d-top .line { margin: 22px 0 0; color: var(--mut); font-size: .92rem; }
+.offline { margin: 28px 0 0; padding: 10px 14px; border: 1.5px dashed var(--accent); font-weight: 600; max-width: 60ch; }
+.stale { margin: 22px 0 0; padding: 14px 16px; border: 2px solid var(--white); max-width: 60ch; }
+.stale p { margin: 0 0 8px; }
+.note { border-bottom: 1px solid var(--line); }
+.note .in { display: flex; gap: 14px; align-items: flex-start; padding-block: 16px; }
+.note .in::before { content: ""; flex: none; width: 14px; height: 24px; background: var(--purple); }
+.note p { margin: 0; max-width: 80ch; font-weight: 600; }
+.note p span { font-weight: 400; color: var(--mut); }
+.d-body { display: grid; gap: 48px; padding-block: clamp(32px, 5vw, 64px) clamp(56px, 8vw, 104px); }
+@media (min-width: 1000px) { .d-body { grid-template-columns: minmax(0, 1fr) 360px; align-items: start; } }
+.sec + .sec { margin-top: 44px; }
+.sec > h2 { margin: 0 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--fg); font-size: 1.5rem; }
+.sec h3 { margin: 22px 0 6px; font-size: 1.05rem; }
+.sec h3:first-of-type { margin-top: 0; }
+.sec p { margin: 0; max-width: 68ch; }
+.status { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+.status strong { font-size: 1.1rem; }
+.facts { display: flex; flex-wrap: wrap; gap: 18px 44px; margin: 18px 0 0; }
+.facts div { display: flex; flex-direction: column-reverse; }
+.facts dt { color: var(--mut); font-size: .88rem; font-weight: 600; }
+.facts dd { margin: 0; font-size: 2rem; line-height: 1; }
+.build { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.build li { display: grid; grid-template-columns: 8rem 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+@media (max-width: 520px) { .build li { grid-template-columns: 1fr; gap: 2px; } }
+.build li b { color: var(--mut); font-weight: 600; font-size: .9rem; }
+.similar { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); list-style: none; padding: 0; margin: 0; }
+.similar a { display: flex; gap: 14px; align-items: center; padding: 14px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; font-weight: 700; }
+.src { background: var(--ink); color: var(--white); padding: 20px; }
+.src h2 { margin: 0 0 4px; font-size: 1.05rem; }
+.src p { margin: 0 0 12px; color: var(--mut-d); font-size: .85rem; }
+.src pre { margin: 0 0 16px; font: 500 .78rem/1.65 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+.src pre mark { background: var(--purple); color: var(--white); padding: 0 3px; }
+.preview { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding-block: 10px; font-size: .85rem; color: var(--mut-d); }
+.preview button { border: 1px solid var(--line-d); background: none; padding: 6px 10px; min-height: 36px; font-weight: 600; font-size: .82rem; color: var(--white); }
+.preview button[aria-pressed="true"] { background: var(--white); color: var(--ink); }
+
+/* Home block */
+.home-ctx { padding: clamp(40px, 6vw, 72px) 0; }
+.home-ctx .ghost { border: 1px dashed var(--line); padding: 18px; color: var(--mut); font: 500 .85rem var(--mono); margin-bottom: 40px; }
+.blk-h { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; margin-bottom: 16px; }
+.blk-h h3 { margin: 0; font-size: 1.15rem; }
+.blk-h p { margin: 4px 0 0; color: var(--mut); font-size: .9rem; max-width: 60ch; }
+.mini { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); list-style: none; margin: 0; padding: 0; }
+.mini a { display: grid; gap: 10px; height: 100%; padding: 18px; background: var(--surface); text-decoration: none; border: 1px solid var(--line); }
+.mini a:hover { background: var(--ink); color: var(--white); --mut: var(--mut-d); --accent: var(--purple-hi); }
+.mini .row { display: flex; align-items: center; gap: 14px; }
+.mini strong { font-size: 1.05rem; }
+.mini span.p { font-size: .9rem; color: var(--mut); }
+.mini .net { font: 600 .75rem var(--mono); color: var(--accent); }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .btn::after { transition: none; } }
+</style>
+</head>
+<body>
+<p class="draft"><span class="in" style="display:block" id="draftNote"></span></p>
+<div class="views"><div class="in" style="display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;width:100%">
+  <span id="vLabel"></span>
+  <a href="#proofs" data-v="proofs"></a><a href="#project" data-v="project"></a><a href="#home" data-v="home"></a>
+  <span class="lang" role="group" aria-label="Language"><button type="button" data-l="en">EN</button><button type="button" data-l="zh">中文</button></span>
+</div></div>
+<header class="top on-dark"><div class="in">
+  <a class="brand" href="#proofs">CKB<b>DAPPS</b></a>
+  <nav aria-label="Primary" id="nav"></nav>
+</div></header>
+<main id="app"></main>
+
+<script>
+const PROJECTS = [
+  {
+    slug: "noir-ckb", name: "noir-ckb", cats: ["Protocol", "Dev Tools"], group: "infra",
+    url: "https://github.com/wamimi/noir-ckb-verifier/blob/main/docs/try-the-counter.md", github: "wamimi/noir-ckb-verifier", license: "Apache-2.0", changed: "2026-10-27", status: "active", events: 39, people: 4, stars: 0,
+    tagline: "Write a rule in Noir, prove it off-chain, and have a CKB type script accept the proof only for the exact cell transition it was made for.",
+    proves: "Groth16 proofs from Noir circuits can be verified in CKB-VM and bound to the transaction: the consumed cell, old and new state, owner and network.",
+    uses: "A type script that rebuilds the statement from the transaction and verifies the proof with groth16-ckb, tested with 48 adversarial CKB-VM cases.",
+    missing: "The author calls it research software: pre-audit, testnet only, single-party setup.",
+  },
+  {
+    slug: "fiberlatch", name: "FiberLatch", cats: ["Fiber", "Payment"], group: "apps",
+    url: "https://www.npmjs.com/package/@fiberlatch/access", github: "Ticoworld/fiber-latch", license: "ISC", changed: "2026-10-29", status: "active", events: 8, people: 1, stars: 3,
+    tagline: "Turns a trusted Fiber payment or permission decision into a signed, scoped access receipt for a paid API, file or course.",
+    proves: "Pay-per-access on Fiber can be split from the access check: the app decides once, then serves later requests against a receipt.",
+    uses: "Fiber payments, with @fiberlatch/access on npm and an optional PostgreSQL store for receipts.",
+    missing: "The author makes no production or mainnet-readiness claim.",
+  },
+  {
+    slug: "ckb-pop", name: "CKB Presence (PoP)", cats: ["DID", "DOBs"], group: "assets",
+    url: "https://ckb-pop.xyz/", github: "RobaireTH/ckb-pop", license: "MIT", changed: "2026-05-02", status: "dormant", events: 0, people: 0, stars: 0,
+    tagline: "Mint verifiable, non-transferable badges on CKB when you attend real-world events.",
+    proves: "Attendance can be checked with a dynamic QR code and a time window, then recorded as a soulbound cell that other apps can read.",
+    uses: "Type scripts for the badge artifact, a reusable TypeScript package (ckb-presence) and a Rust backend that talks to CKB RPC.",
+    missing: "Runs against testnet. A real event series would need someone to operate the backend.",
+  },
+  {
+    slug: "ckb-transaction-firewall", name: "CKB Transaction Firewall", cats: ["Security & Audit", "Tools"], group: "eco",
+    url: "https://ckb-firewall.drreamer.digital/", github: "digitaldrreamer/ckb-transaction-firewall", license: "MIT", status: null,
+    tagline: "An outgoing-payment filter enforced in a lock script: a protected cell cannot be spent to a blacklisted address, whatever the app code does.",
+    proves: "Spending policy can live at consensus. Every node enforces the lock, so a compromised AI agent or wallet still cannot pay a blacklisted destination.",
+    uses: "A lock script that reads a registry cell through a cell dep, and a governance lock for changes to the list. TypeScript and Rust SDKs run the same check before broadcast.",
+    missing: "Deployed to testnet only. Mainnet would need an audit and someone to run the blacklist registry.",
+  },
+];
+const GROUPS = { wallets: ["Wallets", "钱包"], apps: ["Apps", "应用"], assets: ["Assets and identity", "资产与身份"], infra: ["Infrastructure", "基础设施"], eco: ["Ecosystem", "生态"] };
+const CAT_ZH = { "Security & Audit": "安全与审计", Tools: "工具", Protocol: "协议", "Dev Tools": "开发者工具", DID: "DID", DOBs: "DOBs", Fiber: "Fiber", Payment: "支付" };
+
+const T = {
+  en: {
+    draft: "Design draft · testnet proofs · four real projects from the CKBuilder tracker; texts drafted from their READMEs, “listed” dates are placeholders",
+    views: "View:", v_proofs: "Proofs page", v_project: "Project page", v_home: "Home block",
+    nav: ["Home", "Explore", "Map", "Halving", "Stats"],
+    h1: "Proven on <span class=\"inslot\">testnet</span>",
+    lead: "Open-source projects that show what CKB can do. Each one works on testnet. Read the code, try it with test CKB, and build on it.",
+    warn: "Testnet only. These are not products: use test CKB from the faucet, never real assets.",
+    all: "All", tried: "Listed {d}", proves: "What it proves", changed: "code changed {d}",
+    st: { active: "Active", quiet: "Quiet", dormant: "Dormant" },
+    try_: "Try on testnet", code: "Code", license: "License",
+    how_h: "How a project gets here", how: ["It runs on CKB testnet, checked when the pull request is reviewed.", "It is open source with a license, so you may build on it.", "It shows something the directory does not have yet.", "The builder agreed to be listed."], how_p: "Once a project is live on mainnet it moves to the directory.",
+    cta_h: "Built something that works on testnet?", cta_p: "Add it the same way as any project, with one extra line: <code>testnet: true</code>.", cta_b: "Add a project",
+    back: "Proofs on testnet", net: "Testnet",
+    note: "Runs on CKB testnet only.", note2: "Get test CKB from the faucet. Never send real assets to it.", faucet: "Faucet",
+    offline: "The demo is offline (checked 2026-10-26). The code still works locally.",
+    stale: "Maintainers last tried this 14 months ago.", stale_cta: "Send an update",
+    about: "About", h_proves: "What it proves", h_uses: "How it uses CKB", h_missing: "What is missing for mainnet",
+    activity: "Activity", last: "Last code change {d}", ev: "Events, 30 days", pp: "People active, 30 days", stars: "GitHub stars",
+    build_h: "Build on it", b_license: "License", b_repo: "Repository", b_talk: "Talk to the builder", b_talk_v: "Open an issue in the repository",
+    similar: "Other proofs", src_h: "The whole page is one file", src_p: "content/projects/{s}.md", edit: "Edit on GitHub",
+    preview: "Preview state:", p_normal: "Normal", p_off: "Demo offline", p_stale: "Not re-tried for a year",
+    home_ghost: "… Home: hero, marquee, halving strip, Start here (You might like · Newly listed · Independent builders) …",
+    home_h: "Proven on testnet", home_p: "Open-source experiments that show what CKB can do. Not for real assets.", home_all: "See all proofs",
+    rest_ghost: "… Ecosystem map …",
+  },
+  zh: {
+    draft: "设计稿 · 测试网原型 · 四个项目来自 CKBuilder 追踪表；文案根据各自 README 起草，“入选于”日期为占位",
+    views: "视图：", v_proofs: "原型作品页", v_project: "项目页", v_home: "首页板块",
+    nav: ["首页", "探索", "地图", "减半", "数据"],
+    h1: "在<span class=\"inslot\">测试网</span>上跑通的想法",
+    lead: "这些开源项目展示了 CKB 能做什么，每一个都能在测试网上运行。看代码，用测试币试一试，然后在它的基础上继续做。",
+    warn: "仅在测试网运行，不是正式产品：请使用水龙头领取的测试币，切勿使用真实资产。",
+    all: "全部", tried: "入选于 {d}", proves: "证明了什么", changed: "代码更新于 {d}",
+    st: { active: "活跃", quiet: "安静", dormant: "不活跃" },
+    try_: "在测试网试用", code: "代码", license: "许可证",
+    how_h: "怎样才会出现在这里", how: ["能在 CKB 测试网上运行，审核 PR 时确认。", "代码开源且有许可证，你可以在它的基础上开发。", "做了目录里还没有的事。", "作者同意被收录。"], how_p: "项目上了主网之后，会转入目录。",
+    cta_h: "你也有在测试网上跑通的作品？", cta_p: "和提交普通项目一样，只需多写一行：<code>testnet: true</code>。", cta_b: "提交项目",
+    back: "测试网原型", net: "测试网",
+    note: "仅在 CKB 测试网上运行。", note2: "请从水龙头领取测试币，切勿发送真实资产。", faucet: "水龙头",
+    offline: "演示站已下线（检查于 2026-10-26），代码仍可在本地运行。",
+    stale: "维护者上次体验是 14 个月前。", stale_cta: "提交更新",
+    about: "介绍", h_proves: "证明了什么", h_uses: "如何使用 CKB", h_missing: "距离主网还差什么",
+    activity: "动态", last: "最近代码更新 {d}", ev: "30 天内事件", pp: "30 天内活跃人数", stars: "GitHub 星标",
+    build_h: "在它的基础上开发", b_license: "许可证", b_repo: "仓库", b_talk: "联系作者", b_talk_v: "在仓库里开一个 issue",
+    similar: "其他原型", src_h: "整个页面只来自一个文件", src_p: "content/projects/{s}.md", edit: "在 GitHub 编辑",
+    preview: "预览状态：", p_normal: "正常", p_off: "演示已下线", p_stale: "超过一年未复核",
+    home_ghost: "… 首页：hero、分类滚动条、减半条、从这里开始（猜你喜欢 · 最新收录 · 独立建设者）…",
+    home_h: "在测试网上跑通的想法", home_p: "展示 CKB 能做什么的开源实验，不适用于真实资产。", home_all: "查看全部原型",
+    rest_ghost: "… 生态地图 …",
+  },
+};
+
+let lang = "en", filter = "", state = "normal";
+const t = (k, v = {}) => String(T[lang][k]).replace(/\{(\w+)\}/g, (_, x) => v[x]);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const cat = (c) => (lang === "zh" ? CAT_ZH[c] || c : c);
+const TRIED = "2026-10-30";
+
+function hash(str) { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } h ^= h >>> 13; h = Math.imul(h, 1274126177); h ^= h >>> 16; return h >>> 0; }
+function pop(x) { let n = 0; for (let i = 0; i < 15; i++) n += (x >> i) & 1; return n; }
+function icon(slug) {
+  let h = hash(slug), salt = 0;
+  while (pop(h & 32767) < 7 || pop(h & 32767) > 11) { salt++; h = hash(slug + salt); }
+  let r = "";
+  for (let y = 0; y < 5; y++) for (let x = 0; x < 3; x++) if ((h >> (y * 3 + x)) & 1) { r += `<rect x="${x + 0.06}" y="${y + 0.06}" width=".88" height=".88"/>`; if (x < 2) r += `<rect x="${4 - x + 0.06}" y="${y + 0.06}" width=".88" height=".88"/>`; }
+  return `<svg viewBox="0 0 5 5" fill="currentColor" aria-hidden="true">${r}</svg>`;
+}
+const framed = (p, lg) => `<div class="framed${lg ? " lg" : ""}">${icon(p.slug)}</div>`;
+const plug = (s) => `<span class="plug ${s}" aria-hidden="true"><i></i></span>`;
+const ext = (href, label, cls = "lnk") => `<a class="${cls}" href="${esc(href)}" target="_blank" rel="noopener">${label}</a>`;
+
+function proofsView() {
+  const counts = {};
+  PROJECTS.forEach((p) => (counts[p.group] = (counts[p.group] || 0) + 1));
+  const shown = PROJECTS.filter((p) => !filter || p.group === filter);
+  const btns = [["", t("all"), PROJECTS.length], ...Object.keys(GROUPS).filter((g) => counts[g]).map((g) => [g, GROUPS[g][lang === "zh" ? 1 : 0], counts[g]])]
+    .map(([g, l, n]) => `<button type="button" data-g="${g}" aria-pressed="${filter === g}">${l}<span>${n}</span></button>`).join("");
+  const tiles = shown.map((p) => `<li><article class="tile">
+      <header>${framed(p)}<div><h2 class="semi"><a href="#project" data-open="${p.slug}">${esc(p.name)}</a></h2><div class="cats">${p.cats.map((c) => `<span>${cat(c)}</span>`).join("")}</div></div></header>
+      <p>${esc(p.tagline)}</p>
+      <p class="proves"><b>${t("proves")}</b>${esc(p.proves)}</p>
+      <div class="meta">${p.status ? `${plug(p.status)}<span>${T[lang].st[p.status]} · <span class="mono">${t("changed", { d: p.changed })}</span></span>` : ""}<span class="mono">${p.license}</span></div>
+      <div class="acts">${ext(p.url, t("try_"), "btn")}${ext("https://github.com/" + p.github, t("code"))}</div>
+    </article></li>`).join("");
+  return `<section class="hero on-dark"><div class="in">
+      <h1 class="wide">${t("h1")}</h1>
+      <p>${t("lead")}</p>
+      <p class="warn" role="note">${t("warn")}</p>
+    </div></section>
+    <div class="on-paper"><div class="in body"><div class="layout">
+      <div>
+        <div class="filters" role="group" aria-label="Group">${btns}</div>
+        <ul class="grid">${tiles}</ul>
+        <section class="cta"><h2 class="semi">${t("cta_h")}</h2><p>${t("cta_p")}</p><p><a class="btn" href="#">${t("cta_b")}</a></p></section>
+      </div>
+      <aside class="aside" aria-labelledby="how-h"><h2 class="semi" id="how-h">${t("how_h")}</h2><ol>${T[lang].how.map((x) => `<li>${x}</li>`).join("")}</ol><p>${t("how_p")}</p></aside>
+    </div></div></div>`;
+}
+
+let current = PROJECTS[0]; // noir-ckb: the sample with live Pulse data
+function projectView() {
+  const p = current;
+  const fm = `---
+name: ${p.name}
+url: ${p.url}
+tagline: "${p.tagline}"
+categories: [${p.cats.join(", ")}]
+<mark>testnet: true</mark>
+community: true
+github: ${p.github}
+verified: ${TRIED}
+listed: ${TRIED}
+---`;
+  const pills = [`<li class="pill net">${t("net")}</li>`, ...p.cats.map((c) => `<li class="pill">${cat(c)}</li>`)].join("");
+  const acts = state === "offline"
+    ? `<p class="offline">${t("offline")}</p><div class="acts" style="margin-top:14px">${ext("https://github.com/" + p.github, t("code"), "btn")}</div>`
+    : `<div class="acts">${ext(p.url, t("try_"), "btn")}${ext("https://github.com/" + p.github, t("code"))}${ext("https://faucet.nervos.org/", t("faucet"))}</div>`;
+  const line = `<p class="line">${new URL(p.url).host} · ${t("tried", { d: TRIED })}</p>`;
+  const others = PROJECTS.filter((x) => x !== p).map((x) => `<li><a href="#project" data-open="${x.slug}">${framed(x)}${esc(x.name)}</a></li>`).join("");
+  return `<div class="on-dark" style="border-bottom:1px solid var(--line-d)"><div class="in preview" role="group" aria-label="Preview">
+      <span>${t("preview")}</span>${[["normal", "p_normal"], ["offline", "p_off"]].map(([s, k]) => `<button type="button" data-s="${s}" aria-pressed="${state === s}">${t(k)}</button>`).join("")}
+    </div></div>
+    <section class="d-hero on-dark"><div class="in">
+      <a class="back" href="#proofs">${t("back")}</a>
+      <div class="d-top">${framed(p, true)}<div>
+        <h1 class="wide">${esc(p.name)}</h1>
+        <ul class="pills">${pills}</ul>
+        <p class="tag">${esc(p.tagline)}</p>
+        ${acts}
+        ${line}
+      </div></div>
+    </div></section>
+    <div class="on-paper">
+      <div class="note" role="note"><div class="in"><p>${t("note")} <span>${t("note2")}</span></p></div></div>
+      <div class="in d-body">
+        <div>
+          <section class="sec" aria-labelledby="ab"><h2 class="semi" id="ab">${t("about")}</h2>
+            <h3>${t("h_proves")}</h3><p>${esc(p.proves)}</p>
+            <h3>${t("h_uses")}</h3><p>${esc(p.uses)}</p>
+            <h3>${t("h_missing")}</h3><p>${esc(p.missing)}</p>
+          </section>
+          ${p.status ? `<section class="sec" aria-labelledby="ac"><h2 class="semi" id="ac">${t("activity")}</h2>
+            <div class="status">${plug(p.status)}<strong>${T[lang].st[p.status]}</strong><span class="mono mut">${t("last", { d: p.changed })}</span></div>
+            <dl class="facts"><div><dt>${t("ev")}</dt><dd class="wide">${p.events}</dd></div><div><dt>${t("pp")}</dt><dd class="wide">${p.people}</dd></div><div><dt>${t("stars")}</dt><dd class="wide">${p.stars}</dd></div></dl>
+          </section>` : ""}
+          <section class="sec" aria-labelledby="bd"><h2 class="semi" id="bd">${t("build_h")}</h2>
+            <ul class="build">
+              <li><b>${t("b_license")}</b><span class="mono">${p.license}</span></li>
+              <li><b>${t("b_repo")}</b>${ext("https://github.com/" + p.github, "github.com/" + p.github)}</li>
+              <li><b>${t("b_talk")}</b>${ext("https://github.com/" + p.github + "/issues/new", t("b_talk_v"))}</li>
+            </ul>
+          </section>
+          <section class="sec" aria-labelledby="sm"><h2 class="semi" id="sm">${t("similar")}</h2><ul class="similar">${others}</ul></section>
+        </div>
+        <aside class="src" aria-labelledby="src-h"><h2 class="semi" id="src-h">${t("src_h")}</h2><p class="mono">${t("src_p", { s: p.slug })}</p><pre>${fm.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c])).replace("&lt;mark&gt;", "<mark>").replace("&lt;/mark&gt;", "</mark>")}</pre><a class="btn" href="#">${t("edit")}</a></aside>
+      </div>
+    </div>`;
+}
+
+function homeView() {
+  const three = PROJECTS.slice(0, 3).map((p) => `<li><a href="#project" data-open="${p.slug}">
+      <span class="row">${framed(p)}<span><strong>${esc(p.name)}</strong><br><span class="net">${t("net")}</span></span></span>
+      <span class="p">${esc(p.proves)}</span></a></li>`).join("");
+  return `<div class="on-paper home-ctx"><div class="in">
+      <p class="ghost">${t("home_ghost")}</p>
+      <div class="blk-h"><div><h3 class="semi">${t("home_h")}</h3><p>${t("home_p")}</p></div><a class="lnk" href="#proofs">${t("home_all")}</a></div>
+      <ul class="mini">${three}</ul>
+      <p class="ghost" style="margin:40px 0 0">${t("rest_ghost")}</p>
+    </div></div>`;
+}
+
+function render() {
+  const view = (location.hash || "#proofs").slice(1);
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+  document.getElementById("draftNote").textContent = t("draft");
+  document.getElementById("vLabel").textContent = t("views");
+  document.querySelectorAll(".views a").forEach((a) => { a.textContent = t("v_" + a.dataset.v); a.toggleAttribute("aria-current", a.dataset.v === view); if (a.dataset.v === view) a.setAttribute("aria-current", "page"); });
+  document.querySelectorAll(".lang button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.l === lang));
+  document.getElementById("nav").innerHTML = T[lang].nav.map((n) => `<a href="#">${n}</a>`).join("");
+  document.getElementById("app").innerHTML = view === "project" ? projectView() : view === "home" ? homeView() : proofsView();
+}
+
+document.addEventListener("click", (e) => {
+  const o = e.target.closest("[data-open]");
+  if (o) { current = PROJECTS.find((p) => p.slug === o.dataset.open); state = "normal"; if (location.hash === "#project") { e.preventDefault(); render(); scrollTo(0, 0); } return; }
+  const g = e.target.closest("[data-g]"); if (g) { filter = g.dataset.g; render(); return; }
+  const s = e.target.closest("[data-s]"); if (s) { state = s.dataset.s; render(); return; }
+  const l = e.target.closest("[data-l]"); if (l) { lang = l.dataset.l; render(); }
+});
+addEventListener("hashchange", () => { render(); scrollTo(0, 0); });
+render();
+</script>
+</body>
+</html>

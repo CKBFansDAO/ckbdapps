@@ -1,4 +1,4 @@
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { CategoryMarquee } from "@/components/home/CategoryMarquee";
 import { EcoMap } from "@/components/home/EcoMap";
 import { HalvingStrip } from "@/components/home/HalvingStrip";
@@ -6,9 +6,9 @@ import { Hero } from "@/components/home/Hero";
 import { Spotlight } from "@/components/home/Spotlight";
 import { categoryLabel, groupLabel, sym } from "@/lib/content/derive";
 import { getBuildTime } from "@/lib/build-time";
-import { loadProjects, type ProjectEntry } from "@/lib/content/load";
+import { loadProjects, loadProofs, type ProjectEntry } from "@/lib/content/load";
 import { taxonomy } from "@/lib/content/schema";
-import { COMMUNITY_COUNT, communityPicks, LIKE_COUNT, NEWEST_COUNT, newestListed, recommend, seeded } from "@/lib/picks";
+import { COMMUNITY_COUNT, communityPicks, LIKE_COUNT, NEWEST_COUNT, newestListed, PROOF_COUNT, recommend, seeded, shuffle } from "@/lib/picks";
 
 const QUICK = ["Wallet", "DEX", "DOBs", "RGB++", "Fiber"];
 // Dropped on phones so the chips stay on one line.
@@ -16,6 +16,7 @@ const QUICK_WIDE_ONLY = new Set(["DEX"]);
 
 export default async function HomePage() {
   const locale = await getLocale();
+  const t = await getTranslations();
   const projects = loadProjects();
   const labels = (p: ProjectEntry) => p.categories.map((c) => categoryLabel(c, locale));
   const tile = (p: ProjectEntry) => ({ slug: p.slug, name: p.name, logo: p.logo, meta: labels(p).slice(0, 3).join(", ") });
@@ -29,6 +30,9 @@ export default async function HomePage() {
   const likeInitial = recommend(pool, [], LIKE_COUNT, seeded(day), shown).items;
   for (const p of likeInitial) shown.add(p.slug);
   const communityInitial = communityPicks(pool.filter((p) => !shown.has(p.slug)), COMMUNITY_COUNT, seeded(day + 1));
+  const proofs = shuffle(loadProofs(), seeded(day + 3))
+    .slice(0, PROOF_COUNT)
+    .map((p) => ({ ...tile(p), meta: [t("pf_net"), ...labels(p)].slice(0, 3).join(", ") }));
 
   const counts = new Map<string, number>();
   for (const p of projects) for (const c of p.categories) counts.set(c, (counts.get(c) ?? 0) + 1);
@@ -57,6 +61,7 @@ export default async function HomePage() {
         communityInitial={communityInitial.map((p) => p.slug)}
         newest={newest.map(tile)}
         communityTotal={projects.filter((p) => p.community).length}
+        proofs={proofs}
       />
       <EcoMap
         groups={taxonomy.groups.map((g) => ({

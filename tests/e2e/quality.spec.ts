@@ -12,6 +12,7 @@ const ROUTES = [
   "/halving",
   "/stats",
   "/submit",
+  "/proofs",
   "/projects/quantumpurse", // full file: About, contracts, audits
   "/projects/boolleap", // stale notice
 ];

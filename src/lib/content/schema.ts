@@ -83,6 +83,12 @@ export const Project = z
     audits: z.array(z.object({ label: z.string().min(1), date: z.string().min(1), url: httpUrl }).strict()).optional(),
     verified: z.iso.date(), // bump when the team confirms the page is current
     listed: z.iso.date().optional(), // when the project joined the directory; drives "Newly listed" on Home
+    testnet: z.boolean().default(false), // runs on testnet only: listed on /proofs, not in the directory
   })
-  .strict();
+  .strict()
+  .superRefine((p, ctx) => {
+    // A testnet proof is there to be built on, and its page shows the date it was listed instead of "verified".
+    if (p.testnet && !p.github) ctx.addIssue({ code: "custom", path: ["github"], message: "required when testnet: true" });
+    if (p.testnet && !p.listed) ctx.addIssue({ code: "custom", path: ["listed"], message: "required when testnet: true" });
+  });
 export type ProjectData = z.infer<typeof Project>;

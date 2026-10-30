@@ -78,12 +78,12 @@ export function Audits({ audits }: { audits: ProjectEntry["audits"] }) {
   );
 }
 
-export function Similar({ projects }: { projects: ProjectEntry[] }) {
+export function Similar({ projects, title }: { projects: ProjectEntry[]; title?: string }) {
   const t = useTranslations();
   const locale = useLocale();
   if (!projects.length) return null;
   return (
-    <Section title={t("sim")}>
+    <Section title={title ?? t("sim")}>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,150px),1fr))] gap-3.5">
         {projects.map((o) => (
           <Tile

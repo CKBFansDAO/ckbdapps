@@ -2,14 +2,14 @@ import { ImageResponse } from "next/og";
 import { brandLogoDataUrl } from "@/lib/og";
 import { identiconCells } from "@/components/ui/Identicon";
 import { categoryLabel, groupLabel, pick } from "@/lib/content/derive";
-import { getProject, loadProjects } from "@/lib/content/load";
+import { getProject, loadAllProjects } from "@/lib/content/load";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "CKBdapps project";
 
 export function generateStaticParams() {
-  return loadProjects().map((p) => ({ slug: p.slug }));
+  return loadAllProjects().map((p) => ({ slug: p.slug }));
 }
 
 // Brand colours from tokens.css (Satori cannot read CSS variables).

@@ -94,6 +94,7 @@ export const Project = z.object({
   audits: z.array(z.object({ label: z.string(), date: z.string(), url: z.string().url() })).optional(),
   verified: z.string().date(),                // bump when the team confirms the page is current
   listed: z.string().date().optional(),       // date the project joined; set on new files, drives "Newly listed" on Home
+  testnet: z.boolean().default(false),        // runs on testnet only: listed on /proofs, not in the directory; needs github and listed
 });
 ```
 
@@ -101,7 +102,7 @@ Rules:
 - The slug is the filename: lowercase, `[a-z0-9-]` only. Never derive anything from the original casing.
 - Everything else on a project page is **derived**, never hand-written: group, tags, similar projects, activity (GitHub events and stars, from CKB Pulse), website status, staleness. Do not reintroduce highlights, FAQ, transparency checklists, or colour classes in data.
 - `community: true` is shown as **Independent builders / 独立建设者**: built and run by an individual or a small independent team, not by a foundation or one of its affiliates, and not by a company with outside investment. The submitter declares it; maintainers check it in review against this one sentence (the same text is on `/submit`). The field name stays `community` so no file has to change.
-- Stale rule: `verified` older than 365 days shows the stale notice on the page (see the "Out of date" preview in the prototype). Never hide the page.
+- Stale rule: `verified` older than 365 days shows the stale notice on the page (see the "Out of date" preview in the prototype). Never hide the page. Testnet proofs are exempt (see below).
 - A project with no logo gets the deterministic identicon from the prototype (`icon(slug)`: mirrored 5x5 grid seeded by an FNV hash of the slug). Port it to `Identicon.tsx` exactly.
 
 ### taxonomy.yaml
@@ -124,6 +125,15 @@ Legacy cleanup to apply in the migration (confirm the two marked ones with the s
 
 `scripts/discover-projects.ts` (rules in `src/lib/discovery.ts`, unit tested) finds projects that are not listed: CKB Pulse repos with a homepage, and product sites linked from the recent biweekly updates on Nervos Talk. It drops anything already listed (same site, same domain, same repo or name) or in `content/discovery-ignore.yaml`, holds back testnet-only projects, demos and sites that do not answer or never mention CKB, and writes starter files (no About text) plus a logo from the site's own icon. `.github/workflows/discover.yml` runs it weekly and opens one draft PR at a time. Inclusion bar for merging: live on CKB or Fiber mainnet and usable today; the reviewer writes the About text from the project's own site or announcement and fixes the guessed categories. Never merge a candidate unreviewed.
 
+### Testnet proofs (`testnet: true`)
+
+Some projects prove an idea on testnet and have no plan for mainnet (that means taking responsibility for assets and running it). They are shown so builders can see what CKB can do and pick them up, but kept out of the directory and its mainnet bar. Design reference: `design/proofs-draft.html`.
+- Same file format, one extra line. `github` and `listed` are required. Inclusion, checked in review: runs on CKB testnet; open source with a license; shows something the directory does not have yet; the builder agreed. Once live on mainnet, delete the line and the project joins the directory.
+- `loadProjects()` is the directory (Explore, Home blocks, map, counts, search, `check:links`); `loadProofs()` is the testnet set; `loadAllProjects()` feeds project pages, the sitemap and `/projects.json` (which carries `testnet`).
+- Nothing is re-verified by hand: the page shows "Listed {date}" instead of "Verified", and never the stale notice. Liveness is derived: Activity from CKB Pulse, and the demo checked hourly on the server (`lib/site-status.ts`, `lib/site-check.ts`); a demo that does not answer replaces "Try on testnet" with a note, the code link stays.
+- Project page: "Testnet" pill, "Try on testnet" and a faucet link, a non-dismissible testnet note under the hero, "Build on it" (repository, open an issue), similar projects drawn from proofs only. The About text should say what it proves, how it uses CKB, and what is missing for mainnet, each under a `#` heading (About headings render two levels down, so `#` becomes h3).
+- `/proofs` lists them as cards with an open slot that links to `/submit`; Home shows 3 at random as the last block of Start here. Not in the top nav.
+
 ### Home picks (no home.yaml)
 
 Projects on Home are never picked by hand (a hand-picked list needs a standard nobody can defend), so there is no curated data file. "You might like" recommends from the projects a visitor opened on this device (history in `localStorage` only; a first visit draws at random from apps, wallets, assets), "Newly listed" shows the 3 newest by `listed` (projects without it never appear), and "Independent builders" shows 5 random `community: true` projects plus a card linking to all of them and to `/submit`. No project shows in two blocks. Logic in `src/lib/picks.ts`. The Spark grant card and the empty "your project here" cards were removed.
@@ -136,6 +146,7 @@ Projects on Home are never picked by hand (a hand-picked list needs a standard n
 | `/{locale}/explore` | static shell + client filtering | Filters live in the URL query: `?q=&group=&cat=&community=1&view=grid`. Shareable and crawlable defaults |
 | `/{locale}/projects/{slug}` | static, `generateStaticParams` | One real URL per project. Title, description, OG image, JSON-LD (`SoftwareApplication` or `Organization`) |
 | `/{locale}/halving` | static shell + client live data | Countdown and tip data fetched in the browser |
+| `/{locale}/proofs` | static | Testnet proofs (see above): cards, inclusion rules, an open slot to `/submit` |
 | `/{locale}/submit` | static | "Add a project": the starter file, a prefilled GitHub new-file link, field help, category ids. Every "Add a project" link points here |
 | `/llms.txt`, `/projects.json`, `/sitemap.xml` | static | AI and crawler discoverability (suggested addition, keep it small) |
 
