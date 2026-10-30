@@ -241,6 +241,6 @@
   "pf_sim": "其他原型",
   "pf_home_h": "在测试网上跑通的想法",
   "pf_home_p": "展示 CKB 能做什么的开源实验，不适用于真实资产。",
-  "pf_home_all": "查看全部原型",
+  "pf_home_all": "查看更多原型",
   "sb_o_testnet": "<code>testnet: true</code>：项目只在测试网上运行。它会收录在「测试网原型」而不是目录里，并且必须填写 <code>github</code> 和 <code>listed</code>。项目需要开源且有许可证、做了目录里还没有的事，并且作者同意被收录。"
 }
