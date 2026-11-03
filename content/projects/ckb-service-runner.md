@@ -3,8 +3,8 @@ name: CKB Service Runner (CSR)
 url: https://csr-monitor.chainsolution.net/
 tagline: A Revenue Layer for CKB Nodes
 categories: [Tools]
-verified: 2026-11-04
-listed: 2026-11-04
+verified: 2026-11-03
+listed: 2026-11-03
 github: ckb-service-runner/ckb-service-runner
 community: true
 links:
