@@ -41,6 +41,7 @@ categories:
   - { id: RGB++, zh: RGB++, group: infra }
   - { id: Fiber, zh: Fiber, group: infra }
   - { id: AW, zh: AW, group: infra } # meaning to be confirmed by the site owner
+  - { id: Governance, zh: 治理, group: infra }
   # eco
   - { id: Partners, zh: 合作伙伴, group: eco }
   - { id: Mining Pools, zh: 矿池, group: eco }

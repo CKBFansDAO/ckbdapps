@@ -4,7 +4,7 @@ url: https://dao.ckb.community/
 tagline:
   en: Where the community votes on which CKB ecosystem proposals get funded, with votes weighted by Nervos DAO deposits.
   zh: 社区在这里投票决定资助哪些 CKB 生态提案，投票权重按 Nervos DAO 存款计算。
-categories: [Community]
+categories: [Governance]
 links:
   docs: https://github.com/CKB-Community-Fund-DAO/rules/blob/main/rules-en.md
 verified: 2026-11-03
