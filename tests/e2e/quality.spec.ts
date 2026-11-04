@@ -1,7 +1,4 @@
 import AxeBuilder from "@axe-core/playwright";
-import { mkdtempSync, mkdirSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
-import path from "node:path";
 import { chromium, expect, test } from "@playwright/test";
 import { mockRpc, noSideScroll } from "./helpers";
 
@@ -86,15 +83,12 @@ test("the report dialog passes axe and traps focus", async ({ page }) => {
   }
 });
 
-// A larger default font is a browser setting, not CSS: it moves rem media queries too, so it needs a real profile.
+// A larger default font is a browser setting, not CSS: it moves rem media queries too, so it has to be set at launch.
 for (const [width, fontSize] of [[768, 24], [360, 20], [1280, 16]]) {
   test(`stats: the supply numbers fit at ${width}px with a ${fontSize}px default font`, async ({ baseURL }) => {
-    const profile = mkdtempSync(path.join(tmpdir(), "ckbdapps-font-"));
-    mkdirSync(path.join(profile, "Default"));
-    writeFileSync(path.join(profile, "Default", "Preferences"), JSON.stringify({ webkit: { webprefs: { default_font_size: fontSize } } }));
-    const context = await chromium.launchPersistentContext(profile, { channel: process.env.CI ? undefined : "chrome", viewport: { width, height: 900 } });
+    const browser = await chromium.launch({ channel: process.env.CI ? undefined : "chrome", args: [`--blink-settings=defaultFontSize=${fontSize}`] });
     try {
-      const page = await context.newPage();
+      const page = await browser.newPage({ viewport: { width, height: 900 } });
       for (const locale of ["zh", "en"]) {
         await page.goto(`${baseURL}/${locale}/stats`);
         expect(await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize))).toBe(fontSize);
@@ -103,7 +97,7 @@ for (const [width, fontSize] of [[768, 24], [360, 20], [1280, 16]]) {
         expect(Math.max(...overflow), locale).toBeLessThanOrEqual(0);
       }
     } finally {
-      await context.close();
+      await browser.close();
     }
   });
 }
