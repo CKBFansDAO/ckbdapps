@@ -152,3 +152,50 @@ test("machine-readable files", async ({ request }) => {
   expect(await (await request.get("/sitemap.xml")).text()).toContain("/en/projects/joyid");
   expect(await (await request.get("/robots.txt")).text()).toContain("Sitemap:");
 });
+
+test("project: a problem can be reported without an account", async ({ page }) => {
+  let sent: Record<string, unknown> = {};
+  await page.route("**/api/report", async (route) => {
+    sent = route.request().postDataJSON();
+    await route.fulfill({ json: { url: "https://github.com/CKBFansDAO/ckbdapps/issues/99" } });
+  });
+  await page.goto("/en/projects/joyid");
+  await page.getByRole("button", { name: "Report a problem" }).click();
+  const dialog = page.getByRole("dialog", { name: "Report a problem with JoyID" });
+  await dialog.getByRole("radio", { name: "The website does not open" }).check();
+  await dialog.getByRole("textbox", { name: "Details (optional)" }).fill("It times out");
+  await dialog.getByRole("button", { name: "Send report" }).click();
+  await expect(dialog.getByRole("status")).toContainText("Your report has been sent");
+  await expect(dialog.getByRole("link", { name: "View it on GitHub" })).toHaveAttribute("href", /issues\/99$/);
+  expect(sent).toMatchObject({ slug: "joyid", category: "site-down", description: "It times out", website: "" });
+  await dialog.getByRole("button", { name: "Close" }).click();
+  await expect(dialog).toBeHidden();
+});
+
+test("project: when a report cannot be sent, the form offers GitHub and keeps the text", async ({ page }) => {
+  await page.route("**/api/report", (route) => route.fulfill({ status: 503, json: {} }));
+  const errors = page as Page & { errors: string[] };
+  await page.goto("/zh/projects/joyid");
+  await page.getByRole("button", { name: "报告问题" }).click();
+  const dialog = page.getByRole("dialog");
+  await dialog.getByRole("radio", { name: "其他" }).check();
+  await dialog.getByRole("button", { name: "提交报告" }).click();
+  await expect(dialog.getByRole("textbox")).toBeFocused(); // "Other" needs details
+  await dialog.getByRole("textbox").fill("名称写错了");
+  await dialog.getByRole("button", { name: "提交报告" }).click();
+  await expect(dialog.getByRole("link", { name: "去 GitHub 提交" })).toHaveAttribute("href", /issues\/new\?title=/);
+  await expect(dialog.getByRole("textbox")).toHaveValue("名称写错了");
+  errors.errors.length = 0; // the browser logs the mocked 503 as a console error
+});
+
+test("api/report: refuses other sites and anything that is not a report", async ({ request, baseURL }) => {
+  const report = { slug: "joyid", category: "site-down", description: "", website: "", elapsed: 9000 };
+  const headers = { origin: baseURL! };
+  expect((await request.post("/api/report", { data: report })).status()).toBe(403);
+  expect((await request.post("/api/report", { data: report, headers: { origin: "https://evil.example" } })).status()).toBe(403);
+  expect((await request.post("/api/report", { data: { ...report, slug: "no-such-project" }, headers })).status()).toBe(400);
+  expect((await request.post("/api/report", { data: { ...report, category: "spam" }, headers })).status()).toBe(400);
+  expect((await request.post("/api/report", { data: "x".repeat(5000), headers })).status()).toBe(413);
+  // A script is told it worked, and nothing is filed.
+  expect((await request.post("/api/report", { data: { ...report, website: "x" }, headers })).status()).toBe(200);
+});

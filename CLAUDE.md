@@ -138,6 +138,13 @@ Some projects prove an idea on testnet and have no plan for mainnet (that means 
 
 Projects on Home are never picked by hand (a hand-picked list needs a standard nobody can defend), so there is no curated data file. "You might like" recommends from the projects a visitor opened on this device (history in `localStorage` only; a first visit draws at random from apps, wallets, assets), "Newly listed" shows the 3 newest by `listed` (projects without it never appear), and "Independent builders" shows 5 random `community: true` projects plus a card linking to all of them and to `/submit`. No project shows in two blocks. Logic in `src/lib/picks.ts`. The Spark grant card and the empty "your project here" cards were removed.
 
+## Problem reports
+
+Anyone can report a problem from a project page without a GitHub account: `ReportProblem.tsx` posts to `/api/report`, which files an issue as a GitHub App (`lib/report.ts` holds the rules and issue text, `lib/report-github.ts` talks to GitHub; both unit tested). `GITHUB_APP_ID` and `GITHUB_APP_PRIVATE_KEY` are server-only, the App has Issues read and write on this repository and nothing else. Without them, or on any failure, the form offers a prefilled GitHub issue instead.
+- Issues are titled `[report] <name>: <problem>`. GitHub is the only store: the same open problem becomes a comment with only the visitor's text (at most 10), and at most 20 new report issues are filed in 24 hours. Both are worked out from the newest issues on each request.
+- Other guards: same-origin only, a honeypot field, a minimum time since the form opened, and the visitor's text in a code fence so it cannot mention anyone. No IP address or other visitor data is stored or sent.
+- A report is an unverified claim from an anonymous visitor: a maintainer checks it, nothing acts on it automatically.
+
 ## Routes and rendering
 
 | Route | Rendering | Notes |
@@ -148,6 +155,7 @@ Projects on Home are never picked by hand (a hand-picked list needs a standard n
 | `/{locale}/halving` | static shell + client live data | Countdown and tip data fetched in the browser |
 | `/{locale}/proofs` | static | Testnet proofs (see above): cards, inclusion rules, an open slot to `/submit` |
 | `/{locale}/submit` | static | "Add a project": the starter file, a prefilled GitHub new-file link, field help, category ids. Every "Add a project" link points here |
+| `/api/report` | dynamic, POST only | Problem reports from project pages (see "Problem reports") |
 | `/llms.txt`, `/projects.json`, `/sitemap.xml` | static | AI and crawler discoverability (suggested addition, keep it small) |
 
 Old URLs: `/halving` redirects to `/en/halving`; legacy `/dapp/<slug>`-style paths must be checked against the old router and redirected (see the old repo's `src/App.js`).
@@ -237,7 +245,7 @@ Inputs (from CKBFansDAO/ckbdapps-legacy `master`): `public/dappList/dapps_list.j
 - Ask before adding a dependency, a field to the schema, a new colour or a new decorative shape.
 - Prefer deleting code to adding configuration. No feature flags, no abstractions for a single use.
 - Keep components small; the slot motif components are the shared vocabulary.
-- Never commit secrets. The site holds no GitHub or X tokens; they live on the backend only.
+- Never commit secrets. The site holds no GitHub or X tokens, with one exception: the GitHub App behind problem reports (see "Problem reports"), whose key is a server-only environment variable and which may only touch issues on this repository.
 - Every user-visible string goes through `next-intl`. Every external link has `rel="noopener"`.
 
 ---

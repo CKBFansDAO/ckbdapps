@@ -69,3 +69,16 @@ for (const width of WIDTHS) {
     }
   });
 }
+
+test("the report dialog passes axe and traps focus", async ({ page }) => {
+  await mockRpc(page);
+  for (const locale of ["en", "zh"]) {
+    await page.goto(`/${locale}/projects/joyid`);
+    await page.getByRole("button", { name: locale === "en" ? "Report a problem" : "报告问题" }).click();
+    const axe = await new AxeBuilder({ page }).include("dialog").withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
+    expect(axe.violations.filter((v) => v.impact === "serious" || v.impact === "critical").map((v) => v.id)).toEqual([]);
+    await expect(page.locator("dialog :focus")).toHaveCount(1);
+    await page.keyboard.press("Escape");
+    await expect(page.getByRole("dialog")).toBeHidden();
+  }
+});
