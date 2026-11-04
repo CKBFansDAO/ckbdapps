@@ -60,7 +60,7 @@ pnpm dev                  # http://localhost:3000
 | `pnpm build` | Validate content, then build the site |
 | `pnpm validate:content` | Check every project file and the taxonomy; fails on any error |
 | `pnpm lint` | ESLint |
-| `pnpm test` | Unit tests: halving and chart maths, home picks, activity parsing, number formats, the submit template |
+| `pnpm test` | Unit tests: halving and chart maths, home picks, activity parsing, number formats, the submit template, problem reports |
 | `pnpm test:e2e` | Playwright smoke and quality tests against a production build (run `pnpm build` first) |
 | `pnpm check:links` | Request every external URL in the content; runs weekly in CI |
 | `pnpm snapshot:stats` | Refresh the committed stats snapshot shown when the API is down |
@@ -72,6 +72,7 @@ Environment variables (all optional):
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata, the sitemap and share images (default `https://ckbdapps.com`) |
 | `PULSE_URL` | Base URL of the CKB Pulse instance that serves project activity (default `https://pulse-lab.lusocryptolabs.com`) |
+| `GITHUB_APP_ID`, `GITHUB_APP_PRIVATE_KEY` | The GitHub App that turns problem reports into issues. Server-only; without them the report form offers a prefilled GitHub issue instead |
 
 Stack: Next.js (App Router, static generation) with TypeScript, Tailwind CSS v4, `next-intl` for `/en` and `/zh`, and content as Markdown validated with zod. Design and engineering rules for contributors are in [`CLAUDE.md`](CLAUDE.md).
 

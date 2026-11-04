@@ -5,6 +5,7 @@ import type { ProjectEntry } from "@/lib/content/load";
 import { editUrl } from "@/lib/site";
 import { FramedAvatar } from "../ui/FramedAvatar";
 import { SlotButton } from "../ui/SlotButton";
+import { ReportProblem } from "./ReportProblem";
 
 /** Faucet for test CKB, linked from testnet proofs. */
 const FAUCET = "https://faucet.nervos.org/";
@@ -78,6 +79,7 @@ export function ProjectHero({ p, staleMonths, demoDown }: Props) {
                 {host} · {p.testnet ? t("pf_listed", { d: p.listed! }) : t("verified", { d: p.verified })}
               </p>
             )}
+            <ReportProblem slug={p.slug} name={p.name} url={p.url} />
           </div>
         </div>
       </div>
