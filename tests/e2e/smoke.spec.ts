@@ -132,6 +132,27 @@ test("language switch keeps the page and sets zh", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
 });
 
+test("language switch keeps the explore filters, both ways", async ({ page }) => {
+  await page.goto("/zh/explore");
+  await page.getByRole("button", { name: /^合作伙伴/ }).first().click();
+  await expect(page).toHaveURL(/\/zh\/explore\?cat=Partners$/);
+  // :visible because Next keeps the previous route in the DOM, hidden.
+  const rows = page.locator('main a[href*="/projects/"]:visible');
+  await expect(rows.first()).toBeVisible();
+  const count = await rows.count();
+  expect(count).toBeLessThan(30);
+  await page.getByRole("link", { name: "EN", exact: true }).click();
+  await expect(page).toHaveURL(/\/en\/explore\?cat=Partners$/);
+  await expect(page.getByRole("button", { name: /^Partners/ }).first()).toHaveAttribute("aria-pressed", "true");
+  await expect(rows).toHaveCount(count);
+  await page.getByRole("link", { name: "中文" }).click();
+  await expect(page).toHaveURL(/\/zh\/explore\?cat=Partners$/);
+  await expect(rows).toHaveCount(count);
+  await page.goBack();
+  await expect(page).toHaveURL(/\/en\/explore\?cat=Partners$/);
+  await expect(rows).toHaveCount(count);
+});
+
 test("a project is found under its current and former names, and old links still open", async ({ page }) => {
   for (const [q, name] of [["Bitget Wallet", "Bitget Wallet"], ["BitKeep", "Bitget Wallet"], ["CoinEx Wallet", "CoinEx Wallet"], ["Via Wallet", "CoinEx Wallet"], ["ViaWallet", "CoinEx Wallet"]]) {
     await page.goto(`/zh/explore?q=${encodeURIComponent(q)}`);
