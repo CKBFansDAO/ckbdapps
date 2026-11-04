@@ -263,5 +263,6 @@
   "rp_done": "Thanks. Your report has been sent, and a maintainer will check it.",
   "rp_view": "View it on GitHub",
   "rp_fail": "We could not send this report. You can open it on GitHub instead, which needs a GitHub account.",
-  "rp_fail_cta": "Open on GitHub"
+  "rp_fail_cta": "Open on GitHub",
+  "sb_o_aka": "<code>aka</code>: former names, as a list. Search finds the project under them; they are not shown."
 }

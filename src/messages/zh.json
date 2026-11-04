@@ -263,5 +263,6 @@
   "rp_done": "谢谢，报告已提交，维护者会尽快核实。",
   "rp_view": "在 GitHub 查看",
   "rp_fail": "报告没有提交成功。你可以改到 GitHub 上提交，这需要 GitHub 账号。",
-  "rp_fail_cta": "去 GitHub 提交"
+  "rp_fail_cta": "去 GitHub 提交",
+  "sb_o_aka": "<code>aka</code>：曾用名列表。搜索时可以用它们找到项目，页面上不显示。"
 }

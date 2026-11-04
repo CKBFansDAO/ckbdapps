@@ -1,7 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { FramedAvatar } from "../ui/FramedAvatar";
 
-export type ExploreItem = { slug: string; name: string; group: string; cats: string[]; community: boolean; logo?: string };
+export type ExploreItem = { slug: string; name: string; aka: string[]; group: string; cats: string[]; community: boolean; logo?: string };
 export type View = "list" | "grid";
 
 type Props = {

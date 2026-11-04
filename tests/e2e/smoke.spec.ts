@@ -132,6 +132,18 @@ test("language switch keeps the page and sets zh", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
 });
 
+test("a project is found under its current and former names, and old links still open", async ({ page }) => {
+  for (const [q, name] of [["Bitget Wallet", "Bitget Wallet"], ["BitKeep", "Bitget Wallet"], ["CoinEx Wallet", "CoinEx Wallet"], ["Via Wallet", "CoinEx Wallet"], ["ViaWallet", "CoinEx Wallet"]]) {
+    await page.goto(`/zh/explore?q=${encodeURIComponent(q)}`);
+    await expect(page.locator('main a[href*="/projects/"]').filter({ hasText: name }), q).toHaveCount(1);
+  }
+  await page.goto("/en");
+  await page.getByRole("combobox", { name: "Search projects" }).fill("bitkeep");
+  await expect(page.getByRole("option").first()).toContainText("Bitget Wallet");
+  await page.goto("/en/projects/bitkeep");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Bitget Wallet");
+});
+
 test("legacy URLs redirect", async ({ request }) => {
   for (const [from, to] of [
     ["/ecosystem", "/en/explore"],

@@ -3,9 +3,10 @@ import { SITE_URL } from "@/lib/site";
 
 /** Every listed project as JSON, testnet proofs included (`testnet: true`): the project file fields plus derived ones. Prerendered at build time. */
 export function GET() {
-  const projects = loadAllProjects().map(({ slug, name, url, tagline, categories, community, links, github, contracts, audits, verified, listed, testnet, group, logo }) => ({
+  const projects = loadAllProjects().map(({ slug, name, aka, url, tagline, categories, community, links, github, contracts, audits, verified, listed, testnet, group, logo }) => ({
     slug,
     name,
+    aka,
     url,
     tagline,
     categories,

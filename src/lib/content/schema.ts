@@ -59,6 +59,7 @@ export type GroupId = string;
 export const Project = z
   .object({
     name: z.string().min(1),
+    aka: z.array(z.string().min(1)).min(1).optional(), // former names: found by search, not shown
     url: httpUrl,
     tagline: L10n, // one sentence
     categories: z.array(z.enum(CATEGORY_IDS)).min(1), // from taxonomy.yaml only

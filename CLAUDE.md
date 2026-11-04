@@ -84,6 +84,7 @@ const L10n = z.union([z.string(), z.object({ en: z.string().optional(), zh: z.st
 
 export const Project = z.object({
   name: z.string(),
+  aka: z.array(z.string()).optional(),        // former names: found by search, not shown
   url: z.string().url(),
   tagline: L10n,                              // one sentence
   categories: z.array(z.enum(CATEGORY_IDS)).min(1), // from taxonomy.yaml only

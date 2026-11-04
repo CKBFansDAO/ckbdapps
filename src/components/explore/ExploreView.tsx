@@ -66,7 +66,7 @@ export function ExploreView({ items, groups, catLabels }: Props) {
       (!f.group || it.group === f.group) &&
       (!f.cat || it.cats.includes(f.cat)) &&
       (!f.community || it.community) &&
-      (!needle || `${it.name} ${it.cats.join(" ")} ${it.cats.map((c) => catLabels[c]).join(" ")}`.toLowerCase().includes(needle)),
+      (!needle || `${it.name} ${it.aka.join(" ")} ${it.cats.join(" ")} ${it.cats.map((c) => catLabels[c]).join(" ")}`.toLowerCase().includes(needle)),
   );
 
   // "Show more" resets whenever the filters (not the view) change.

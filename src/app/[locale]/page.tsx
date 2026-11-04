@@ -44,7 +44,7 @@ export default async function HomePage() {
   return (
     <main>
       <Hero
-        items={projects.map((p) => ({ slug: p.slug, name: p.name, tags: labels(p) }))}
+        items={projects.map((p) => ({ slug: p.slug, name: p.name, aka: p.aka ?? [], tags: labels(p) }))}
         placeholders={recommend(pool, [], 8, seeded(day + 2)).items.map((p) => p.name)}
         quick={QUICK.map((id) => ({ id, label: categoryLabel(id, locale), wideOnly: QUICK_WIDE_ONLY.has(id) }))}
         stats={{
