@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { htmlLang, routing } from "@/i18n/routing";
+import { useUrlSearch } from "@/lib/use-url-search";
 
 const LABEL = { en: "EN", zh: "中文" } as const;
 
@@ -10,13 +11,15 @@ export function LangSwitch() {
   const t = useTranslations();
   const locale = useLocale();
   const pathname = usePathname();
+  // The same page in the other language, filters included.
+  const search = useUrlSearch();
 
   return (
     <nav className="inline-flex border border-line" aria-label={t("lang")}>
       {routing.locales.map((l) => (
         <Link
           key={l}
-          href={pathname}
+          href={`${pathname}${search}`}
           locale={l}
           lang={htmlLang(l)}
           aria-current={l === locale ? "true" : undefined}

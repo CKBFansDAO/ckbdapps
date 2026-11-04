@@ -71,7 +71,7 @@ export default async function SubmitPage() {
           <section className="border-t-2 border-fg py-8">
             <h2 className={H2}>{t("sb_opt_h")}</h2>
             <ul className={LIST}>
-              {(["sb_o_links", "sb_o_github", "sb_o_community", "sb_o_testnet", "sb_o_about", "sb_o_logo"] as const).map((k) => (
+              {(["sb_o_links", "sb_o_github", "sb_o_community", "sb_o_aka", "sb_o_testnet", "sb_o_about", "sb_o_logo"] as const).map((k) => (
                 <li key={k}>{t.rich(k, { code })}</li>
               ))}
             </ul>

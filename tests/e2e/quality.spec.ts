@@ -1,5 +1,5 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { chromium, expect, test } from "@playwright/test";
 import { mockRpc, noSideScroll } from "./helpers";
 
 // The UI quality gate from CLAUDE.md, for every route in both locales at 1280 and 390 px:
@@ -82,3 +82,22 @@ test("the report dialog passes axe and traps focus", async ({ page }) => {
     await expect(page.getByRole("dialog")).toBeHidden();
   }
 });
+
+// A larger default font is a browser setting, not CSS: it moves rem media queries too, so it has to be set at launch.
+for (const [width, fontSize] of [[768, 24], [360, 20], [1280, 16]]) {
+  test(`stats: the supply numbers fit at ${width}px with a ${fontSize}px default font`, async ({ baseURL }) => {
+    const browser = await chromium.launch({ channel: process.env.CI ? undefined : "chrome", args: [`--blink-settings=defaultFontSize=${fontSize}`] });
+    try {
+      const page = await browser.newPage({ viewport: { width, height: 900 } });
+      for (const locale of ["zh", "en"]) {
+        await page.goto(`${baseURL}/${locale}/stats`);
+        expect(await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize))).toBe(fontSize);
+        const overflow = await page.locator("main dl dd").evaluateAll((els) => els.map((d) => d.scrollWidth - d.clientWidth));
+        expect(overflow).toHaveLength(4);
+        expect(Math.max(...overflow), locale).toBeLessThanOrEqual(0);
+      }
+    } finally {
+      await browser.close();
+    }
+  });
+}

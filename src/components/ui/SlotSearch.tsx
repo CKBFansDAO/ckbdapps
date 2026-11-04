@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { getPathname, useRouter } from "@/i18n/navigation";
 import { Identicon } from "./Identicon";
 
-export type SearchItem = { slug: string; name: string; tags: string[] };
+export type SearchItem = { slug: string; name: string; aka: string[]; tags: string[] };
 
 /**
  * Hero search: a thick bracket whose plug is the submit button.
@@ -26,7 +26,7 @@ export function SlotSearch({ items, placeholders }: { items: SearchItem[]; place
   const v = q.trim().toLowerCase();
   const matches = v
     ? items
-        .filter((it) => `${it.name} ${it.tags.join(" ")}`.toLowerCase().includes(v))
+        .filter((it) => `${it.name} ${it.aka.join(" ")} ${it.tags.join(" ")}`.toLowerCase().includes(v))
         .sort(
           (a, b) =>
             Number(b.name.toLowerCase().startsWith(v)) - Number(a.name.toLowerCase().startsWith(v)) ||

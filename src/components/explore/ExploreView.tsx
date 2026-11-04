@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { notifyUrlSearch, useUrlSearch } from "@/lib/use-url-search";
 import { SlotButton } from "../ui/SlotButton";
 import { FilterChips } from "./FilterChips";
 import { ProjectList, type ExploreItem, type View } from "./ProjectList";
@@ -16,29 +17,14 @@ type Props = {
 type Filters = { q: string; group: string | null; cat: string | null; community: boolean; view: View };
 
 const PAGE = 30;
-const URL_CHANGE = "explore:url";
 
 // The URL query is the state: ?q=&group=&cat=&community=1&view=grid.
 // On the server (and during hydration) the query is empty, so the static HTML is the default listing.
-const subscribe = (cb: () => void) => {
-  window.addEventListener("popstate", cb);
-  window.addEventListener(URL_CHANGE, cb);
-  return () => {
-    window.removeEventListener("popstate", cb);
-    window.removeEventListener(URL_CHANGE, cb);
-  };
-};
-const useSearch = () =>
-  useSyncExternalStore(
-    subscribe,
-    () => window.location.search,
-    () => "",
-  );
 
 export function ExploreView({ items, groups, catLabels }: Props) {
   const t = useTranslations();
   const locale = useLocale();
-  const sp = new URLSearchParams(useSearch());
+  const sp = new URLSearchParams(useUrlSearch());
   const f: Filters = {
     q: sp.get("q") ?? "",
     group: groups.some((g) => g.id === sp.get("group")) ? sp.get("group") : null,
@@ -57,7 +43,7 @@ export function ExploreView({ items, groups, catLabels }: Props) {
     if (m.view === "grid") qs.set("view", "grid");
     const s = qs.toString();
     window.history.replaceState(null, "", s ? `?${s}` : window.location.pathname);
-    window.dispatchEvent(new Event(URL_CHANGE));
+    notifyUrlSearch();
   };
 
   const needle = f.q.trim().toLowerCase();
@@ -66,7 +52,7 @@ export function ExploreView({ items, groups, catLabels }: Props) {
       (!f.group || it.group === f.group) &&
       (!f.cat || it.cats.includes(f.cat)) &&
       (!f.community || it.community) &&
-      (!needle || `${it.name} ${it.cats.join(" ")} ${it.cats.map((c) => catLabels[c]).join(" ")}`.toLowerCase().includes(needle)),
+      (!needle || `${it.name} ${it.aka.join(" ")} ${it.cats.join(" ")} ${it.cats.map((c) => catLabels[c]).join(" ")}`.toLowerCase().includes(needle)),
   );
 
   // "Show more" resets whenever the filters (not the view) change.

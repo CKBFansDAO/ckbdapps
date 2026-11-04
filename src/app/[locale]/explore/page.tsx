@@ -19,6 +19,7 @@ export default function ExplorePage() {
   const items = projects.map((p) => ({
     slug: p.slug,
     name: p.name,
+    aka: p.aka ?? [],
     group: p.group,
     cats: p.categories,
     community: p.community,
