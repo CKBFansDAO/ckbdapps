@@ -21,7 +21,8 @@ export async function StatsHero({ data }: { data: StatsResult }) {
         <h1 className="wide m-0 animate-rise text-[clamp(2.6rem,8.4vw,7.2rem)] leading-[.94] zh:leading-[1.08] motion-reduce:animate-none">
           {t("st_h1")}
         </h1>
-        <dl className="wide mt-[clamp(32px,5vw,64px)] grid grid-cols-2 min-[761px]:grid-cols-4">
+        {/* Breakpoints in rem: they follow the browser's default font size, and so does the size of the numbers. */}
+        <dl className="wide mt-[clamp(32px,5vw,64px)] grid grid-cols-1 min-[22rem]:grid-cols-2 min-[47.5625rem]:grid-cols-4">
           {(
             [
               ["st_total", market.total],
