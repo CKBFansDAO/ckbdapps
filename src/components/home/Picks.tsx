@@ -2,12 +2,36 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
-import { COMMUNITY_COUNT, communityPicks, LIKE_COUNT, recommend, type PickItem } from "@/lib/picks";
+import { COMMUNITY_COUNT, communityPicks, LIKE_COUNT, PROOF_COUNT, recommend, shuffle, type PickItem } from "@/lib/picks";
 import { readViewed } from "@/lib/viewed";
 import { Tile, TILE_GRID, type TileData } from "../ui/Tile";
 import { SubHead } from "./SubHead";
 
 export type PickTile = PickItem & TileData;
+
+function PickSlot({ pending, children }: { pending: boolean; children: ReactNode }) {
+  return pending ? <div className="pick-placeholder grid">{children}</div> : children;
+}
+
+/** Sample the testnet pool in the browser before showing its cards. */
+export function ProofTiles({ pool }: { pool: TileData[] }) {
+  const [proofs, setProofs] = useState<TileData[] | null>(null);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only random selection after hydration
+    setProofs(shuffle(pool, Math.random).slice(0, PROOF_COUNT));
+  }, [pool]);
+
+  return (
+    <div className={TILE_GRID}>
+      {(proofs ?? pool.slice(0, PROOF_COUNT)).map((proof) => (
+        <PickSlot key={proof.slug} pending={!proofs}>
+          <Tile alt {...proof} />
+        </PickSlot>
+      ))}
+    </div>
+  );
+}
 
 type Props = {
   pool: PickTile[];
@@ -20,12 +44,22 @@ type Props = {
   communityEnd: ReactNode;
 };
 
-function Tiles({ bySlug, slugs, alt, end }: { bySlug: Map<string, PickTile>; slugs: string[]; alt?: boolean; end?: ReactNode }) {
+function Tiles({ bySlug, slugs, pending, alt, end }: {
+  bySlug: Map<string, PickTile>;
+  slugs: string[];
+  pending: boolean;
+  alt?: boolean;
+  end?: ReactNode;
+}) {
   return (
     <div className={TILE_GRID}>
       {slugs.map((s) => {
         const { slug, name, meta, logo } = bySlug.get(s)!;
-        return <Tile key={slug} slug={slug} name={name} meta={meta} logo={logo} alt={alt} />;
+        return (
+          <PickSlot key={slug} pending={pending}>
+            <Tile slug={slug} name={name} meta={meta} logo={logo} alt={alt} />
+          </PickSlot>
+        );
       })}
       {end}
     </div>
@@ -34,14 +68,14 @@ function Tiles({ bySlug, slugs, alt, end }: { bySlug: Map<string, PickTile>; slu
 
 /**
  * "You might like" (projects like the ones opened on this device, or a random start), then the newest
- * listings, then community projects at random; no project shows twice. The static HTML carries the
- * seeded sets; after hydration the browser swaps in this visitor's own, which depend on localStorage
- * and Math.random and so cannot be known on the server.
+ * listings, then community projects at random; no project shows twice. The seeded cards reserve
+ * space until the browser has sampled its recommendations using localStorage and Math.random.
  */
 export function SpotlightPicks({ pool, likeInitial, communityInitial, newest, communityEnd }: Props) {
   const t = useTranslations();
   const bySlug = new Map(pool.map((p) => [p.slug, p]));
-  const [picks, setPicks] = useState({ like: likeInitial, community: communityInitial, personal: false });
+  const [picks, setPicks] = useState<{ like: string[]; community: string[]; personal: boolean } | null>(null);
+  const communitySlugs = picks?.community ?? communityInitial;
 
   useEffect(() => {
     const shown = new Set(newest.slugs);
@@ -58,13 +92,13 @@ export function SpotlightPicks({ pool, likeInitial, communityInitial, newest, co
 
   return (
     <>
-      <SubHead title={t("like_h")} note={t(picks.personal ? "like_viewed" : "like_new")} />
-      <Tiles bySlug={bySlug} slugs={picks.like} />
+      <SubHead title={t("like_h")} note={t(picks?.personal ? "like_viewed" : "like_new")} />
+      <Tiles bySlug={bySlug} slugs={picks?.like ?? likeInitial} pending={!picks} />
       {newest.block}
-      {picks.community.length > 0 && (
+      {communitySlugs.length > 0 && (
         <>
           <SubHead title={t("cb_h")} />
-          <Tiles bySlug={bySlug} slugs={picks.community} alt end={communityEnd} />
+          <Tiles bySlug={bySlug} slugs={communitySlugs} pending={!picks} alt end={communityEnd} />
         </>
       )}
     </>
