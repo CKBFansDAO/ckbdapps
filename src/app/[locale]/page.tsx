@@ -8,7 +8,7 @@ import { categoryLabel, groupLabel, sym } from "@/lib/content/derive";
 import { getBuildTime } from "@/lib/build-time";
 import { loadProjects, loadProofs, type ProjectEntry } from "@/lib/content/load";
 import { taxonomy } from "@/lib/content/schema";
-import { COMMUNITY_COUNT, communityPicks, LIKE_COUNT, NEWEST_COUNT, newestListed, PROOF_COUNT, recommend, seeded, shuffle } from "@/lib/picks";
+import { COMMUNITY_COUNT, communityPicks, LIKE_COUNT, NEWEST_COUNT, newestListed, recommend, seeded, shuffle } from "@/lib/picks";
 
 const QUICK = ["Wallet", "DEX", "DOBs", "RGB++", "Fiber"];
 // Dropped on phones so the chips stay on one line.
@@ -30,8 +30,7 @@ export default async function HomePage() {
   const likeInitial = recommend(pool, [], LIKE_COUNT, seeded(day), shown).items;
   for (const p of likeInitial) shown.add(p.slug);
   const communityInitial = communityPicks(pool.filter((p) => !shown.has(p.slug)), COMMUNITY_COUNT, seeded(day + 1));
-  const proofs = shuffle(loadProofs(), seeded(day + 3))
-    .slice(0, PROOF_COUNT)
+  const proofPool = shuffle(loadProofs(), seeded(day + 3))
     .map((p) => ({ ...tile(p), meta: [t("pf_net"), ...labels(p)].slice(0, 3).join(", ") }));
 
   const counts = new Map<string, number>();
@@ -61,7 +60,7 @@ export default async function HomePage() {
         communityInitial={communityInitial.map((p) => p.slug)}
         newest={newest.map(tile)}
         communityTotal={projects.filter((p) => p.community).length}
-        proofs={proofs}
+        proofPool={proofPool}
       />
       <EcoMap
         groups={taxonomy.groups.map((g) => ({
