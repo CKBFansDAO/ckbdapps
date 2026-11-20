@@ -6,7 +6,17 @@ This repository is the rewrite that replaces the current site at [ckbdapps.com](
 
 ## Add or update a project
 
-Every project is one small Markdown file in [`content/projects/`](content/projects/). To add yours, open a pull request with a new file. The site's **Add a project** page (`/en/submit`, `/zh/submit`) walks through it and opens GitHub with the file already filled in.
+1. Fork `CKBFansDAO/ckbdapps` on GitHub, clone your fork, and open it in your AI coding assistant.
+2. Copy the prompt from the site's **Add a project** page (`/en/submit` or `/zh/submit`), fill in the project name, official website, and GitHub repository URL, and send it to your assistant.
+3. Run `pnpm install` and `pnpm dev`. Check the logo, website link, and project details at the local URL your assistant provides.
+4. After reviewing the listing, ask your assistant to commit and push to a branch in your fork. Open a pull request from that branch to `CKBFansDAO/ckbdapps:main`.
+
+### Project submission guide
+
+- Visit the official website and read the GitHub repository README. Use those sources to establish what the project does and how it uses CKB. Check `content/projects/` for an existing listing under the same name, website, or repository.
+- Create one Markdown file at `content/projects/<slug>.md`. Write a factual one-sentence tagline, choose categories from [`content/taxonomy.yaml`](content/taxonomy.yaml), and use `owner/repo` for `github`. Follow the inclusion rules in [`CLAUDE.md`](CLAUDE.md) for projects available only on testnet.
+- Use the official logo or site icon when available. Convert it to a square WebP at `public/logos/<slug>.webp` with a maximum size of 256 × 256 pixels. If an official asset is unavailable, the site displays its generated icon.
+- Run `pnpm validate:content` and share the preview URL, such as `http://localhost:3000/en/projects/<slug>`. Let the developer review the listing before pushing.
 
 The smallest valid file:
 

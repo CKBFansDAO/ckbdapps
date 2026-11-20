@@ -155,7 +155,7 @@ Anyone can report a problem from a project page without a GitHub account: `Repor
 | `/{locale}/projects/{slug}` | static, `generateStaticParams` | One real URL per project. Title, description, OG image, JSON-LD (`SoftwareApplication` or `Organization`) |
 | `/{locale}/halving` | static shell + client live data | Countdown and tip data fetched in the browser |
 | `/{locale}/proofs` | static | Testnet proofs (see above): cards, inclusion rules, an open slot to `/submit` |
-| `/{locale}/submit` | static | "Add a project": the starter file, a prefilled GitHub new-file link, field help, category ids. Every "Add a project" link points here |
+| `/{locale}/submit` | static | "Add a project": fork link, copyable AI prompt, local preview and pull request steps. The manual GitHub workflow is available in an expandable section |
 | `/api/report` | dynamic, POST only | Problem reports from project pages (see "Problem reports") |
 | `/llms.txt`, `/projects.json`, `/sitemap.xml` | static | AI and crawler discoverability (suggested addition, keep it small) |
 

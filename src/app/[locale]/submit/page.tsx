@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
+import { CopyPrompt } from "@/components/submit/CopyPrompt";
 import { code } from "@/components/ui/Code";
 import { SlotButton } from "@/components/ui/SlotButton";
 import { getBuildTime } from "@/lib/build-time";
 import { categoryLabel, groupLabel } from "@/lib/content/derive";
 import { taxonomy } from "@/lib/content/schema";
-import { alternates } from "@/lib/site";
+import { alternates, REPO_URL } from "@/lib/site";
 import { newFileUrl, projectTemplate } from "@/lib/submit";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/submit">): Promise<Metadata> {
@@ -32,7 +33,7 @@ function Step({ n, title, children }: { n: number; title: string; children: Reac
   );
 }
 
-/** How to add a project: one file, prefilled on GitHub, and a pull request. */
+/** How to add a project from a local clone of a GitHub fork. */
 export default async function SubmitPage() {
   const t = await getTranslations();
   const locale = await getLocale();
@@ -46,56 +47,94 @@ export default async function SubmitPage() {
           <p className="mt-5 mb-10 max-w-[62ch] text-[1.1rem] text-mut">{t("sb_p")}</p>
 
           <ol className="m-0 list-none p-0">
-            <Step n={1} title={t("sb_s1_h")}>
-              <p className="mt-0 mb-6 max-w-[62ch]">{t("sb_s1_p")}</p>
-              <SlotButton big href={newFileUrl(date)}>
-                {t("sb_open")}
-              </SlotButton>
+            <Step n={1} title={t("sb_ai_fork_h")}>
+              <p className="mt-0 mb-6 max-w-[62ch]">{t("sb_ai_fork_p")}</p>
+              <SlotButton big href={`${REPO_URL}/fork`}>{t("sb_ai_fork")}</SlotButton>
             </Step>
-            <Step n={2} title={t("sb_s2_h")}>
-              <p className="mt-0 mb-4 max-w-[62ch]">{t.rich("sb_s2_p", { code })}</p>
-              <pre className="on-dark mt-0 mb-5 bg-ink p-4 font-mono text-[.85rem] leading-[1.65] font-medium whitespace-pre-wrap [overflow-wrap:anywhere]">
-                {projectTemplate(date)}
+            <Step n={2} title={t("sb_ai_prompt_h")}>
+              <p className="mt-0 mb-4 max-w-[62ch]">{t("sb_ai_prompt_p")}</p>
+              <CopyPrompt
+                prompt={t("sb_ai_prompt")}
+                copyLabel={t("sb_ai_copy")}
+                copiedMessage={t("sb_ai_copied")}
+                failedMessage={t("sb_ai_copy_failed")}
+              />
+            </Step>
+            <Step n={3} title={t("sb_ai_preview_h")}>
+              <p className="mt-0 mb-3 max-w-[62ch]">{t("sb_ai_preview_p")}</p>
+              <pre className="on-dark mt-0 mb-4 bg-ink p-4 font-mono text-[.85rem]">
+                <code>{"pnpm install\npnpm dev"}</code>
               </pre>
-              <ul className={LIST}>
-                {(["sb_f_name", "sb_f_url", "sb_f_tagline", "sb_f_cats", "sb_f_dates"] as const).map((k) => (
-                  <li key={k}>{t.rich(k, { code })}</li>
-                ))}
-              </ul>
+              <p className="m-0 max-w-[62ch]">{t.rich("sb_ai_review", { code })}</p>
             </Step>
-            <Step n={3} title={t("sb_s3_h")}>
-              <p className="m-0 max-w-[62ch]">{t("sb_s3_p")}</p>
+            <Step n={4} title={t("sb_ai_pr_h")}>
+              <p className="m-0 max-w-[62ch]">{t("sb_ai_pr_p")}</p>
             </Step>
           </ol>
 
-          <section className="border-t-2 border-fg py-8">
-            <h2 className={H2}>{t("sb_opt_h")}</h2>
-            <ul className={LIST}>
-              {(["sb_o_links", "sb_o_github", "sb_o_community", "sb_o_aka", "sb_o_testnet", "sb_o_about", "sb_o_logo"] as const).map((k) => (
-                <li key={k}>{t.rich(k, { code })}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="border-t-2 border-fg py-8">
-            <h2 className={H2}>{t("sb_cats_h")}</h2>
-            {taxonomy.groups.map((g) => (
-              <div key={g.id} className="mt-5 first-of-type:mt-0">
-                <h3 className="mt-0 mb-2 text-[1rem] font-bold">{groupLabel(g.id, locale)}</h3>
-                <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
-                  {taxonomy.categories
-                    .filter((c) => c.group === g.id)
-                    .map((c) => (
-                      <li key={c.id} className="border border-line px-2 py-0.5 text-[.88rem]">
-                        <code className="font-mono font-medium">{c.id}</code>
-                        {categoryLabel(c.id, locale) !== c.id && <span className="ml-1.5 text-mut">{categoryLabel(c.id, locale)}</span>}
-                      </li>
-                    ))}
+          <details className="border-t-2 border-fg">
+            <summary className="cursor-pointer py-6 font-bold">{t("sb_manual")}</summary>
+            <ol className="m-0 list-none p-0">
+              <Step n={1} title={t("sb_s1_h")}>
+                <p className="mt-0 mb-6 max-w-[62ch]">{t("sb_s1_p")}</p>
+                <SlotButton big href={newFileUrl(date)}>
+                  {t("sb_open")}
+                </SlotButton>
+                <p className="mt-5 mb-0 max-w-[62ch] text-mut">
+                  {t.rich("sb_fork_help", {
+                    fork: (label) => (
+                      <a href={`${REPO_URL}/fork`} target="_blank" rel="noopener" className="underline">
+                        {label}
+                      </a>
+                    ),
+                    code,
+                  })}
+                </p>
+              </Step>
+              <Step n={2} title={t("sb_s2_h")}>
+                <p className="mt-0 mb-4 max-w-[62ch]">{t.rich("sb_s2_p", { code })}</p>
+                <pre className="on-dark mt-0 mb-5 bg-ink p-4 font-mono text-[.85rem] leading-[1.65] font-medium whitespace-pre-wrap [overflow-wrap:anywhere]">
+                  {projectTemplate(date)}
+                </pre>
+                <ul className={LIST}>
+                  {(["sb_f_name", "sb_f_url", "sb_f_tagline", "sb_f_cats", "sb_f_dates"] as const).map((k) => (
+                    <li key={k}>{t.rich(k, { code })}</li>
+                  ))}
                 </ul>
-              </div>
-            ))}
-          </section>
+              </Step>
+              <Step n={3} title={t("sb_s3_h")}>
+                <p className="m-0 max-w-[62ch]">{t("sb_s3_p")}</p>
+              </Step>
+            </ol>
 
+            <section className="border-t-2 border-fg py-8">
+              <h2 className={H2}>{t("sb_opt_h")}</h2>
+              <ul className={LIST}>
+                {(["sb_o_links", "sb_o_github", "sb_o_community", "sb_o_aka", "sb_o_testnet", "sb_o_about", "sb_o_logo"] as const).map((k) => (
+                  <li key={k}>{t.rich(k, { code })}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="border-t-2 border-fg py-8">
+              <h2 className={H2}>{t("sb_cats_h")}</h2>
+              {taxonomy.groups.map((g) => (
+                <div key={g.id} className="mt-5 first-of-type:mt-0">
+                  <h3 className="mt-0 mb-2 text-[1rem] font-bold">{groupLabel(g.id, locale)}</h3>
+                  <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+                    {taxonomy.categories
+                      .filter((c) => c.group === g.id)
+                      .map((c) => (
+                        <li key={c.id} className="border border-line px-2 py-0.5 text-[.88rem]">
+                          <code className="font-mono font-medium">{c.id}</code>
+                          {categoryLabel(c.id, locale) !== c.id && <span className="ml-1.5 text-mut">{categoryLabel(c.id, locale)}</span>}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              ))}
+            </section>
+          </details>
           <p className="mt-0 mb-0 border-t-2 border-fg pt-8 text-mut">{t("sb_update")}</p>
         </div>
       </div>

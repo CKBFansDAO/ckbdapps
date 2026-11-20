@@ -16,8 +16,7 @@ listed: ${date}
 `;
 
 /**
- * GitHub's "create new file" page with the name and content filled in. Someone without write access
- * gets a fork made for them and is led to a pull request.
+ * GitHub's "create new file" page with the name and content filled in.
  */
 export const newFileUrl = (date: string) =>
   `${REPO_URL}/new/${REPO_BRANCH}/content/projects?filename=${NEW_FILE_NAME}&value=${encodeURIComponent(projectTemplate(date))}`;
