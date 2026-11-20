@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { chromium, expect, test } from "@playwright/test";
+import { COMMUNITY_COUNT, LIKE_COUNT, NEWEST_COUNT, PROOF_COUNT } from "../../src/lib/picks";
 import { mockRpc, noSideScroll } from "./helpers";
 
 // The UI quality gate from CLAUDE.md, for every route in both locales at 1280 and 390 px:
@@ -21,6 +22,20 @@ const FOCUS_STOPS = 40;
 
 // The viewport is set per describe block, so the mobile device project would only repeat these runs.
 test.skip(({ isMobile }) => isMobile, "widths are set explicitly; runs in the desktop project only");
+
+test("home project cards remain visible when JavaScript requests fail", async ({ page }) => {
+  await page.route("**/*", (route) =>
+    route.request().resourceType() === "script" ? route.abort() : route.continue(),
+  );
+  await page.goto("/en");
+
+  const spotlight = page.locator("section").filter({
+    has: page.getByRole("heading", { name: "Start here", exact: true }),
+  });
+  await expect(spotlight.locator('a[href^="/en/projects/"]:visible')).toHaveCount(
+    LIKE_COUNT + NEWEST_COUNT + COMMUNITY_COUNT + PROOF_COUNT,
+  );
+});
 
 for (const width of WIDTHS) {
   test.describe(`${width}px`, () => {
