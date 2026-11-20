@@ -1,5 +1,5 @@
 /**
- * Project activity from CKB Pulse (https://pulse-lab.lusocryptolabs.com, see "Project activity" in CLAUDE.md).
+ * Project activity from CKB Pulse (https://pulse.lusocryptolabs.com, see "Project activity" in CLAUDE.md).
  * Pure parsing and helpers: no Next APIs here, so tsx tests can import it.
  */
 import { z } from "zod";

@@ -34,11 +34,12 @@ import {
   siteKey,
   slugify,
 } from "@/lib/discovery";
+import { PULSE_URL } from "@/lib/site";
 
 const args = process.argv.slice(2);
 const WRITE = args.includes("--write");
 const REPORT = args.includes("--report") ? args[args.indexOf("--report") + 1] : undefined;
-const PULSE = process.env.PULSE_STATE_URL ?? "https://pulse-lab.lusocryptolabs.com/api/state";
+const PULSE = process.env.PULSE_STATE_URL ?? new URL("api/state", PULSE_URL).href;
 const TALK = "https://talk.nervos.org";
 const TOPIC = process.env.BIWEEKLY_TOPIC ?? "9821";
 const SINCE = Date.now() - Number(process.env.DISCOVERY_DAYS ?? 42) * 86_400_000;
@@ -189,7 +190,7 @@ async function writeLogo(slug: string, icon: string) {
 function report(proposed: Checked[], held: Checked[], notes: string[], logos: Set<string>): string {
   const row = (c: Checked, extra: string) => `| ${c.name} | ${c.url} | ${c.github ?? ""} | ${extra} | ${c.source.replace(/^.*?: /, "")} |`;
   return [
-    "Weekly discovery of CKB projects that are not listed yet, from [CKB Pulse](https://pulse-lab.lusocryptolabs.com/) and the [CKB Ecosystem Biweekly Update](https://talk.nervos.org/t/9821).",
+    `Weekly discovery of CKB projects that are not listed yet, from [CKB Pulse](${PULSE_URL}) and the [CKB Ecosystem Biweekly Update](https://talk.nervos.org/t/9821).`,
     "",
     ...notes.map((n) => `- ${n}`),
     "",
