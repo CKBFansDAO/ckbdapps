@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { COMMUNITY_COUNT, communityPicks, LIKE_COUNT, PROOF_COUNT, recommend, shuffle, type PickItem } from "@/lib/picks";
 import { readViewed } from "@/lib/viewed";
@@ -9,25 +9,27 @@ import { SubHead } from "./SubHead";
 
 export type PickTile = PickItem & TileData;
 
-function PickSlot({ pending, children }: { pending: boolean; children: ReactNode }) {
-  return pending ? <div className="pick-placeholder grid">{children}</div> : children;
+/** Keep the original selection if a visitor could already have seen or focused it. */
+function canRefresh(element: HTMLDivElement | null): boolean {
+  return element !== null
+    && element.getBoundingClientRect().top >= window.innerHeight
+    && !element.contains(document.activeElement);
 }
 
-/** Sample the testnet pool in the browser before showing its cards. */
+/** Render the seeded picks immediately, then sample again if the grid is still below the viewport. */
 export function ProofTiles({ pool }: { pool: TileData[] }) {
+  const grid = useRef<HTMLDivElement>(null);
   const [proofs, setProofs] = useState<TileData[] | null>(null);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only random selection after hydration
+    if (!canRefresh(grid.current)) return;
     setProofs(shuffle(pool, Math.random).slice(0, PROOF_COUNT));
   }, [pool]);
 
   return (
-    <div className={TILE_GRID}>
+    <div ref={grid} className={TILE_GRID}>
       {(proofs ?? pool.slice(0, PROOF_COUNT)).map((proof) => (
-        <PickSlot key={proof.slug} pending={!proofs}>
-          <Tile alt {...proof} />
-        </PickSlot>
+        <Tile key={proof.slug} alt {...proof} />
       ))}
     </div>
   );
@@ -44,10 +46,9 @@ type Props = {
   communityEnd: ReactNode;
 };
 
-function Tiles({ bySlug, slugs, pending, alt, end }: {
+function Tiles({ bySlug, slugs, alt, end }: {
   bySlug: Map<string, PickTile>;
   slugs: string[];
-  pending: boolean;
   alt?: boolean;
   end?: ReactNode;
 }) {
@@ -55,11 +56,7 @@ function Tiles({ bySlug, slugs, pending, alt, end }: {
     <div className={TILE_GRID}>
       {slugs.map((s) => {
         const { slug, name, meta, logo } = bySlug.get(s)!;
-        return (
-          <PickSlot key={slug} pending={pending}>
-            <Tile slug={slug} name={name} meta={meta} logo={logo} alt={alt} />
-          </PickSlot>
-        );
+        return <Tile key={slug} slug={slug} name={name} meta={meta} logo={logo} alt={alt} />;
       })}
       {end}
     </div>
@@ -68,16 +65,18 @@ function Tiles({ bySlug, slugs, pending, alt, end }: {
 
 /**
  * "You might like" (projects like the ones opened on this device, or a random start), then the newest
- * listings, then community projects at random; no project shows twice. The seeded cards reserve
- * space until the browser has sampled its recommendations using localStorage and Math.random.
+ * listings, then community projects at random; no project shows twice. The seeded cards render
+ * immediately. Refresh both selections together only while the first block is below the viewport.
  */
 export function SpotlightPicks({ pool, likeInitial, communityInitial, newest, communityEnd }: Props) {
   const t = useTranslations();
+  const firstBlock = useRef<HTMLDivElement>(null);
   const bySlug = new Map(pool.map((p) => [p.slug, p]));
   const [picks, setPicks] = useState<{ like: string[]; community: string[]; personal: boolean } | null>(null);
   const communitySlugs = picks?.community ?? communityInitial;
 
   useEffect(() => {
+    if (!canRefresh(firstBlock.current)) return;
     const shown = new Set(newest.slugs);
     const like = recommend(pool, readViewed(), LIKE_COUNT, Math.random, shown);
     for (const p of like.items) shown.add(p.slug);
@@ -86,19 +85,20 @@ export function SpotlightPicks({ pool, likeInitial, communityInitial, newest, co
       COMMUNITY_COUNT,
       Math.random,
     );
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only inputs, see above
     setPicks({ like: like.items.map((p) => p.slug), community: community.map((p) => p.slug), personal: like.personal });
   }, [pool, newest.slugs]);
 
   return (
     <>
-      <SubHead title={t("like_h")} note={t(picks?.personal ? "like_viewed" : "like_new")} />
-      <Tiles bySlug={bySlug} slugs={picks?.like ?? likeInitial} pending={!picks} />
+      <div ref={firstBlock}>
+        <SubHead title={t("like_h")} note={t(picks?.personal ? "like_viewed" : "like_new")} />
+        <Tiles bySlug={bySlug} slugs={picks?.like ?? likeInitial} />
+      </div>
       {newest.block}
       {communitySlugs.length > 0 && (
         <>
           <SubHead title={t("cb_h")} />
-          <Tiles bySlug={bySlug} slugs={communitySlugs} pending={!picks} alt end={communityEnd} />
+          <Tiles bySlug={bySlug} slugs={communitySlugs} alt end={communityEnd} />
         </>
       )}
     </>
