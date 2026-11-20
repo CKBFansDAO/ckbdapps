@@ -5,7 +5,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ckbdapps.co
 export const REPO_URL = "https://github.com/CKBFansDAO/ckbdapps";
 export const REPO_BRANCH = "main";
 /** CKB Pulse: live GitHub activity of CKB builders, including projects not (yet) in this directory. */
-export const PULSE_URL = "https://pulse-lab.lusocryptolabs.com/";
+export const PULSE_URL = "https://pulse.lusocryptolabs.com/";
 
 export const projectFilePath = (slug: string) => `content/projects/${slug}.md`;
 export const editUrl = (slug: string) => `${REPO_URL}/edit/${REPO_BRANCH}/${projectFilePath(slug)}`;

@@ -38,7 +38,7 @@ listed: 2026-10-28
 
 **Independent builders** (`community: true`): built and run by an individual or a small independent team, not by a foundation or one of its affiliates, and not by a company with outside investment. Declare it in your pull request; maintainers check it in review.
 
-New projects are also found automatically: every week a workflow ([`discover.yml`](.github/workflows/discover.yml)) checks [CKB Pulse](https://pulse-lab.lusocryptolabs.com/) and the recent [CKB Ecosystem Biweekly Update](https://talk.nervos.org/t/9821) posts for projects that are not listed, skips testnet-only projects, demos and sites that do not answer, and opens a draft pull request with a starter file (and logo, when the site has one) for each remaining candidate. A maintainer checks each one, writes the About text and merges or deletes it; a turned-down candidate goes into [`content/discovery-ignore.yaml`](content/discovery-ignore.yaml) so it is not proposed again.
+New projects are also found automatically: every week a workflow ([`discover.yml`](.github/workflows/discover.yml)) checks [CKB Pulse](https://pulse.lusocryptolabs.com/) and the recent [CKB Ecosystem Biweekly Update](https://talk.nervos.org/t/9821) posts for projects that are not listed, skips testnet-only projects, demos and sites that do not answer, and opens a draft pull request with a starter file (and logo, when the site has one) for each remaining candidate. A maintainer checks each one, writes the About text and merges or deletes it; a turned-down candidate goes into [`content/discovery-ignore.yaml`](content/discovery-ignore.yaml) so it is not proposed again.
 
 To update a listed project, open its page on the site and use **Edit on GitHub**. Every pull request is checked automatically (`pnpm validate:content`) and reviewed by a maintainer.
 
@@ -49,8 +49,8 @@ To update a listed project, open its page on the site and use **Edit on GitHub**
 | Projects | The files in `content/projects/`, added and updated by pull request |
 | Halving countdown, epochs, blocks | A public CKB node over JSON-RPC (`mainnet.ckb.dev`), read in the browser |
 | Stats (supply, price, hash rate, occupied CKB) | The CKBdapps backend API, refreshed hourly; a committed snapshot is shown if it is down |
-| Project activity (latest GitHub events, stars) | [CKB Pulse](https://pulse-lab.lusocryptolabs.com/), for projects with a `github` line that Pulse follows |
-| "More projects in the making" | [CKB Pulse](https://pulse-lab.lusocryptolabs.com/) by [LusoCryptoLabs](https://github.com/LusoCryptoLabs/ckb-pulse) (MIT): live GitHub activity of everyone building on CKB |
+| Project activity (latest GitHub events, stars) | [CKB Pulse](https://pulse.lusocryptolabs.com/), for projects with a `github` line that Pulse follows |
+| "More projects in the making" | [CKB Pulse](https://pulse.lusocryptolabs.com/) by [LusoCryptoLabs](https://github.com/LusoCryptoLabs/ckb-pulse) (MIT): live GitHub activity of everyone building on CKB |
 
 Thanks to LusoCryptoLabs for building CKB Pulse and making it open source.
 
@@ -81,7 +81,7 @@ Environment variables (all optional):
 | Variable | Use |
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata, the sitemap and share images (default `https://ckbdapps.com`) |
-| `PULSE_URL` | Base URL of the CKB Pulse instance that serves project activity (default `https://pulse-lab.lusocryptolabs.com`) |
+| `PULSE_URL` | Base URL of the CKB Pulse instance that serves project activity (default `https://pulse.lusocryptolabs.com`) |
 | `GITHUB_APP_ID`, `GITHUB_APP_PRIVATE_KEY` | The GitHub App that turns problem reports into issues. Server-only; without them the report form offers a prefilled GitHub issue instead |
 
 Stack: Next.js (App Router, static generation) with TypeScript, Tailwind CSS v4, `next-intl` for `/en` and `/zh`, and content as Markdown validated with zod. Design and engineering rules for contributors are in [`CLAUDE.md`](CLAUDE.md).

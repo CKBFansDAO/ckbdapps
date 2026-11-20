@@ -1,9 +1,10 @@
 import { cacheLife } from "next/cache";
 import { parseRepo, type RepoActivity } from "./activity-source";
+import { PULSE_URL } from "./site";
 
 // CKB Pulse follows the GitHub activity of the CKB ecosystem and serves it as JSON, so the site never talks to
 // GitHub itself. PULSE_URL points previews at another instance (Pulse is MIT and can be self-hosted).
-const PULSE = process.env.PULSE_URL ?? "https://pulse-lab.lusocryptolabs.com";
+const PULSE = (process.env.PULSE_URL ?? PULSE_URL).replace(/\/+$/, "");
 
 // "ckbdapps" in the User-Agent lets the Pulse team tell our calls apart in their logs (LusoCryptoLabs/ckb-pulse#1).
 const get = (path: string) =>
