@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { EmptySlot } from "../ui/EmptySlot";
 import { Tile, TILE_GRID, type TileData } from "../ui/Tile";
-import { SpotlightPicks, type PickTile } from "./Picks";
+import { ProofTiles, SpotlightPicks, type PickTile } from "./Picks";
 import { SubHead } from "./SubHead";
 
 type Props = {
@@ -13,12 +13,12 @@ type Props = {
   communityTotal: number;
   /** Newest by `listed` date; the block is left out while no project has one. */
   newest: TileData[];
-  /** A few testnet proofs at random; the block is left out while there are none. */
-  proofs: TileData[];
+  /** All testnet proofs, in seeded order for the static HTML. */
+  proofPool: TileData[];
 };
 
 /** "Start here": nothing is picked by hand. Recommendations, newest listings, community at random. */
-export function Spotlight({ pool, likeInitial, communityInitial, communityTotal, newest, proofs }: Props) {
+export function Spotlight({ pool, likeInitial, communityInitial, communityTotal, newest, proofPool }: Props) {
   const t = useTranslations();
   return (
     <section className="on-paper py-[clamp(48px,8vw,104px)]">
@@ -55,7 +55,7 @@ export function Spotlight({ pool, likeInitial, communityInitial, communityTotal,
             </EmptySlot>
           }
         />
-        {proofs.length > 0 && (
+        {proofPool.length > 0 && (
           <>
             <div className="flex flex-wrap items-end justify-between gap-x-8">
               <SubHead title={t("pf_home_h")} note={t("pf_home_p")} />
@@ -63,11 +63,7 @@ export function Spotlight({ pool, likeInitial, communityInitial, communityTotal,
                 {t("pf_home_all")}
               </Link>
             </div>
-            <div className={TILE_GRID}>
-              {proofs.map((p) => (
-                <Tile key={p.slug} alt {...p} />
-              ))}
-            </div>
+            <ProofTiles pool={proofPool} />
           </>
         )}
       </div>
