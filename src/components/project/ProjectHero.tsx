@@ -2,7 +2,9 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { categoryLabel, groupLabel, pick, projectLinks } from "@/lib/content/derive";
 import type { ProjectEntry } from "@/lib/content/load";
+import type { StoryCard } from "@/lib/content/stories";
 import { editUrl } from "@/lib/site";
+import { StoryBadge } from "../stories/StoryBadge";
 import { FramedAvatar } from "../ui/FramedAvatar";
 import { SlotButton } from "../ui/SlotButton";
 import { ReportProblem } from "./ReportProblem";
@@ -11,9 +13,10 @@ import { ReportProblem } from "./ReportProblem";
 const FAUCET = "https://faucet.nervos.org/";
 
 // demoDown: a testnet proof's site does not answer (lib/site-status); the page then offers the code only.
-type Props = { p: ProjectEntry; staleMonths: number | null; demoDown?: boolean };
+// story: the newest Builder Story about this project, derived from the stories' `project` field.
+type Props = { p: ProjectEntry; staleMonths: number | null; demoDown?: boolean; story?: { card: StoryCard; more: number } };
 
-export function ProjectHero({ p, staleMonths, demoDown }: Props) {
+export function ProjectHero({ p, staleMonths, demoDown, story }: Props) {
   const t = useTranslations();
   const locale = useLocale();
   const host = new URL(p.url).host;
@@ -66,6 +69,7 @@ export function ProjectHero({ p, staleMonths, demoDown }: Props) {
                 </a>
               )}
             </div>
+            {story && <StoryBadge story={story.card} more={story.more} />}
             {/* Proofs are not re-verified by hand: they show the date they were listed and never the stale notice. */}
             {!p.testnet && staleMonths !== null ? (
               <div className="mt-6 max-w-[62ch] border-2 border-dashed border-purple-hi px-4 py-3.5">

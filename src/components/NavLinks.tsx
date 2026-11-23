@@ -8,7 +8,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 const ITEMS = [
   { key: "n_home", href: "/", match: (p: string) => p === "/" },
   { key: "n_explore", href: "/explore", match: (p: string) => p.startsWith("/explore") },
-  { key: "n_map", href: "/#map" },
+  { key: "n_stories", href: "/stories", match: (p: string) => p.startsWith("/stories") },
   { key: "n_halving", href: "/halving", match: (p: string) => p.startsWith("/halving") },
   { key: "n_stats", href: "/stats", match: (p: string) => p.startsWith("/stats") },
 ] as const;
@@ -17,7 +17,7 @@ const ROW =
   "flex min-h-12 items-center gap-3.5 border-b border-line text-[1.05rem] font-bold text-mut no-underline hover:text-fg aria-[current=page]:text-fg before:size-[9px] before:flex-none before:border before:border-fg/45 before:content-[''] aria-[current=page]:before:border-purple-hi aria-[current=page]:before:bg-purple";
 
 /** Desktop nav row; below 1024px a disclosure menu replaces it (the prototype hides nav on phones,
-    which leaves Stats and Map unreachable on phones). The trigger uses order-last so it lands
+    which leaves Stories and Stats unreachable on phones). The trigger uses order-last so it lands
     after the language switch at the far edge. */
 export function NavLinks() {
   const t = useTranslations();

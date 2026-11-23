@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { chromium, expect, test } from "@playwright/test";
+import { loadStories } from "../../src/lib/content/stories";
 import { COMMUNITY_COUNT, LIKE_COUNT, NEWEST_COUNT, PROOF_COUNT } from "../../src/lib/picks";
 import { mockRpc, noSideScroll } from "./helpers";
 
@@ -14,6 +15,9 @@ const ROUTES = [
   "/stats",
   "/submit",
   "/proofs",
+  "/stories",
+  // The newest Builder Story, once there is one.
+  ...loadStories().slice(0, 1).map((s) => `/stories/${s.slug}`),
   "/projects/quantumpurse", // full file: About, contracts, audits
   "/projects/boolleap", // stale notice
 ];

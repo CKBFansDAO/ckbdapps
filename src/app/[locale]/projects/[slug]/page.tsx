@@ -11,6 +11,7 @@ import { loadActivity } from "@/lib/activity";
 import { getBuildTime } from "@/lib/build-time";
 import { daysSince, isStale, pick, projectLinks, similarProjects } from "@/lib/content/derive";
 import { getProject, loadAllProjects, loadProjects, loadProofs } from "@/lib/content/load";
+import { storiesOf, storyCard } from "@/lib/content/stories";
 import { alternates } from "@/lib/site";
 import { loadSiteDown } from "@/lib/site-status";
 
@@ -45,6 +46,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   // Only testnet proofs: their demos come and go, while directory sites are checked weekly by check:links.
   const demoDown = p.testnet ? await loadSiteDown(p.url) : false;
   const t = await getTranslations();
+  const stories = storiesOf(p.slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -63,7 +65,12 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
       <TrackView slug={p.slug} />
-      <ProjectHero p={p} staleMonths={staleMonths} demoDown={demoDown} />
+      <ProjectHero
+        p={p}
+        staleMonths={staleMonths}
+        demoDown={demoDown}
+        story={stories.length ? { card: storyCard(stories[0], locale), more: stories.length - 1 } : undefined}
+      />
       {p.testnet && <TestnetNote />}
       <section className="on-paper py-[clamp(48px,8vw,104px)]">
         <div className="in grid grid-cols-1 items-start gap-x-[clamp(28px,5vw,64px)] gap-y-10 min-[961px]:grid-cols-[minmax(0,1fr)_340px]">

@@ -15,3 +15,9 @@ export const alternates = (locale: string, path: string) => ({
   canonical: `/${locale}${path}`,
   languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}${path}`])),
 });
+
+/** Invite builders to share their story privately with Yixiu. */
+export const STORY_TALK_URL = `https://talk.nervos.org/new-message?${new URLSearchParams({ username: "yixiu.ckbfans.bit", title: "My Builder Story" })}`;
+/** Prefilled issue for a factual error in a published story. */
+export const storyErrorUrl = (title: string) =>
+  `${REPO_URL}/issues/new?${new URLSearchParams({ title: `[story] ${title}: something's not right`, labels: "story" })}`;

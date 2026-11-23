@@ -232,3 +232,46 @@ test("api/report: refuses other sites and anything that is not a report", async 
   // A script is told it worked, and nothing is filed.
   expect((await request.post("/api/report", { data: { ...report, website: "x" }, headers })).status()).toBe(200);
 });
+
+for (const { locale, title, asideTitle, talk, submit, message, rss } of [
+  {
+    locale: "en",
+    title: "“Hi, I’m building on CKB”",
+    asideTitle: "Why Builder Stories?",
+    talk: "Talk to the editor",
+    submit: "submit your project",
+    message: "message the editor",
+    rss: "Subscribe via RSS",
+  },
+  {
+    locale: "zh",
+    title: "“你好，我在 CKB 上做东西”",
+    asideTitle: "为什么会有 Builder Story？",
+    talk: "找主理人聊聊",
+    submit: "提交项目",
+    message: "私信主理人",
+    rss: "RSS 订阅",
+  },
+]) {
+  test(`stories: ${locale} index, private submissions, and RSS feed`, async ({ page, request }) => {
+    await page.goto(`/${locale}/stories`);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
+    await expect(page.locator('a[href*="template=builder-story.yml"]')).toHaveCount(0);
+    const talkUrl = /^https:\/\/talk\.nervos\.org\/new-message\?username=yixiu\.ckbfans\.bit/;
+    const talkLinks = page.getByRole("link", { name: talk, exact: true });
+    await expect(talkLinks).toHaveCount(2);
+    for (const link of await talkLinks.all()) {
+      await expect(link).toBeVisible();
+      await expect(link).toHaveAttribute("href", talkUrl);
+    }
+
+    const about = page.getByRole("complementary", { name: asideTitle });
+    await expect(about.getByRole("link", { name: submit, exact: true })).toHaveCount(0);
+    await expect(about.getByRole("link", { name: message, exact: true })).toHaveAttribute("href", talkUrl);
+    const feedPath = `/${locale}/stories/feed.xml`;
+    await expect(about.getByRole("link", { name: rss })).toHaveAttribute("href", feedPath);
+    const feed = await request.get(feedPath);
+    expect(feed.headers()["content-type"]).toContain("application/rss+xml");
+    expect(await feed.text()).toContain("<rss version=\"2.0\"");
+  });
+}
