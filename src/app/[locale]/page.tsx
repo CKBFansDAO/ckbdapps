@@ -4,9 +4,11 @@ import { EcoMap } from "@/components/home/EcoMap";
 import { HalvingStrip } from "@/components/home/HalvingStrip";
 import { Hero } from "@/components/home/Hero";
 import { Spotlight } from "@/components/home/Spotlight";
+import { StoriesBlock } from "@/components/home/StoriesBlock";
 import { categoryLabel, groupLabel, sym } from "@/lib/content/derive";
 import { getBuildTime } from "@/lib/build-time";
 import { loadProjects, loadProofs, type ProjectEntry } from "@/lib/content/load";
+import { loadStories, storyCard } from "@/lib/content/stories";
 import { taxonomy } from "@/lib/content/schema";
 import { COMMUNITY_COUNT, communityPicks, LIKE_COUNT, NEWEST_COUNT, newestListed, recommend, seeded, shuffle } from "@/lib/picks";
 
@@ -22,6 +24,7 @@ export default async function HomePage() {
   const tile = (p: ProjectEntry) => ({ slug: p.slug, name: p.name, logo: p.logo, meta: labels(p).slice(0, 3).join(", ") });
   const pool = projects.map((p) => ({ ...tile(p), cats: p.categories, group: p.group, community: p.community }));
   const newest = newestListed(projects, NEWEST_COUNT);
+  const latestStory = loadStories()[0];
 
   // The static HTML gets picks seeded by the build day, with no project in two blocks;
   // each visitor's browser then swaps in its own (components/home/Picks.tsx).
@@ -62,6 +65,7 @@ export default async function HomePage() {
         communityTotal={projects.filter((p) => p.community).length}
         proofPool={proofPool}
       />
+      <StoriesBlock latest={latestStory && storyCard(latestStory, locale)} />
       <EcoMap
         groups={taxonomy.groups.map((g) => ({
           id: g.id,

@@ -1,0 +1,54 @@
+name: Share your Builder Story
+description: Building something on CKB? Tell us about it. We'll get back to you within a week.
+title: "[story] "
+labels: ["story"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for wanting to share your story! A handle is all we need: no real name, photo or location.
+        This issue is public, so please don't leave private contact details here. If you'd rather talk privately,
+        message Yixiu on Nervos Talk: https://talk.nervos.org/u/yixiu.ckbfans.bit/
+  - type: input
+    id: who
+    attributes:
+      label: What should we call you, and what's the project called?
+      description: A handle is fine. Not on CKBdapps yet? Add it first (https://ckbdapps.com/en/submit), it takes five lines.
+      placeholder: kiwi / Cellscope
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where can we see what you're building?
+      description: Your GitHub repository, a Nervos Talk post, a demo or the CKBdapps page.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What did you make, and why do you want to tell the story?
+      description: One or two sentences is plenty.
+    validations:
+      required: true
+  - type: textarea
+    id: moment
+    attributes:
+      label: Is there one moment you'd most like to talk about?
+      description: Optional. The bug that ate a week, the first user, the reason you picked CKB...
+  - type: input
+    id: grants
+    attributes:
+      label: Have you received a CKB Spark grant or other funding?
+      description: Write "no" if not. We mention it at the end of the story.
+    validations:
+      required: true
+  - type: checkboxes
+    id: ok
+    attributes:
+      label: Before you send it
+      options:
+        - label: I know this issue is public and I haven't put private contact details in it.
+          required: true
+        - label: I know nobody will ever ask me for keys, wallet access or payment.
+          required: true

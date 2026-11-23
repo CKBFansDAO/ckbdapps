@@ -93,3 +93,34 @@ export const Project = z
     if (p.testnet && !p.listed) ctx.addIssue({ code: "custom", path: ["listed"], message: "required when testnet: true" });
   });
 export type ProjectData = z.infer<typeof Project>;
+
+const storyHandle = z.string().regex(/^[\w.-]+$/, "a handle, not a URL");
+
+/**
+ * Builder Story, shared fields: content/stories/<slug>/en.md. A person is called by the name they chose (a handle by
+ * default); no real name or photo is expected. zh.md holds only `title` and `dek` (StoryZh) plus the Chinese body.
+ */
+export const Story = z
+  .object({
+    title: z.string().min(1), // a line about the story, not the project name
+    dek: z.string().min(1), // one sentence under the title
+    project: z.string().regex(SLUG), // content/projects/<project>.md, directory or proofs
+    person: z
+      .object({
+        name: z.string().min(1),
+        avatar: z.string().regex(/^[\w.-]+\.webp$/, "a .webp file next to en.md").optional(), // any image they chose
+        links: z.object({ github: storyHandle, x: storyHandle, telegram: storyHandle }).strict().partial().optional(),
+      })
+      .strict(),
+    voice: z.enum(["narrative", "as-told-to"]).default("narrative"),
+    author: z.string().min(1), // shown as a name only, no title
+    published: z.iso.date(),
+    help: z.array(L10n).min(1).max(3).optional(),
+    disclosure: L10n.optional(),
+    talk: httpUrl.optional(), // the Nervos Talk thread, added after publishing
+    corrections: z.array(z.object({ date: z.iso.date(), note: L10n }).strict()).min(1).optional(),
+  })
+  .strict();
+export type StoryData = z.infer<typeof Story>;
+
+export const StoryZh = z.object({ title: z.string().min(1), dek: z.string().min(1) }).strict();

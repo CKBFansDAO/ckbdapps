@@ -232,3 +232,13 @@ test("api/report: refuses other sites and anything that is not a report", async 
   // A script is told it worked, and nothing is filed.
   expect((await request.post("/api/report", { data: { ...report, website: "x" }, headers })).status()).toBe(200);
 });
+
+test("stories: index, both ways to share a story, and the RSS feed", async ({ page, request }) => {
+  await page.goto("/en/stories");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Hi, I build on");
+  await expect(page.locator('a[href$="/issues/new?template=builder-story.yml"]').first()).toBeVisible();
+  await expect(page.locator('a[href^="https://talk.nervos.org/new-message?username=yixiu.ckbfans.bit"]').first()).toBeVisible();
+  const feed = await request.get("/en/stories/feed.xml");
+  expect(feed.headers()["content-type"]).toContain("application/rss+xml");
+  expect(await feed.text()).toContain("<rss version=\"2.0\"");
+});

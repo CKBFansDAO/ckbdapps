@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Builder Stories draft · CKBdapps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;900&display=swap">
+<!-- Design draft: Builder Stories (index, story page, Home block, project-page badge, share card).
+     A visual reference only, like ckbdapps-design.html and proofs-draft.html: not shipped, CSS not to be copied.
+     Every person, project and story here is fictional. Requirements: design/ckbdapps Builder Stories 页需求说明.md -->
+<style>
+:root {
+  --page: #121218; --ink: #1c1c23; --purple: #733dff; --purple-hi: #9068ff; --purple-deep: #5a26e8;
+  --paper: #f3f2f7; --paper-ink: #15151c; --white: #fff; --mut-d: #a3a2b3; --mut-p: #5d5c6b;
+  --line-d: rgba(255,255,255,.14); --line-p: rgba(21,21,28,.16);
+  --display: 'Archivo', 'Noto Sans SC', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+.on-dark { --bg: var(--page); --fg: var(--white); --mut: var(--mut-d); --line: var(--line-d); --accent: var(--purple-hi); --surface: var(--ink); background: var(--bg); color: var(--fg); }
+.on-paper { --bg: var(--paper); --fg: var(--paper-ink); --mut: var(--mut-p); --line: var(--line-p); --accent: var(--purple-deep); --surface: var(--white); background: var(--bg); color: var(--fg); }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--white); font: 400 16px/1.55 var(--display); font-variation-settings: "wdth" 100; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--purple-hi); outline-offset: 3px; }
+.on-paper :focus-visible { outline-color: var(--purple-deep); }
+.in { max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+.wide { font-weight: 800; font-variation-settings: "wdth" 125; letter-spacing: -.03em; }
+.semi { font-weight: 800; font-variation-settings: "wdth" 112; letter-spacing: -.02em; }
+html[lang="zh-CN"] .wide, html[lang="zh-CN"] .semi { letter-spacing: 0; font-weight: 900; }
+.inslot { position: relative; display: inline-block; padding: .03em .26em 0 .2em; margin-right: .36em; border: .1em solid currentColor; border-right: 0; line-height: .95; }
+.inslot::after { content: ""; position: absolute; right: -.3em; top: 0; bottom: 0; width: .3em; background: var(--purple); }
+.btn { position: relative; display: inline-flex; align-items: center; margin-right: 14px; padding: 9px 18px 9px 16px; border: 2px solid currentColor; border-right: 0; background: none; text-decoration: none; font-weight: 700; font-size: .9rem; white-space: nowrap; }
+.btn::after { content: ""; position: absolute; right: -14px; top: -2px; bottom: -2px; width: 14px; background: var(--purple); transition: width .18s, right .18s; }
+.btn:hover::after, .btn:focus-visible::after { width: 24px; right: -24px; }
+.btn.lg { padding: 14px 24px 14px 20px; font-size: 1rem; }
+.lnk { display: inline-flex; align-items: center; min-height: 40px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.mono { font-family: var(--mono); font-size: .82rem; font-weight: 500; }
+.mut { color: var(--mut); }
+[hidden] { display: none !important; }
+
+/* Draft chrome */
+.draft { margin: 0; background: var(--purple); color: var(--white); font: 600 .78rem/1.5 var(--mono); padding: 6px 0; }
+.views { padding: 8px 0; background: var(--ink); border-bottom: 1px solid var(--line-d); font-size: .85rem; color: var(--mut-d); }
+.views .in { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
+.views a { color: var(--white); font-weight: 700; text-decoration: none; padding: 6px 2px; border-bottom: 2px solid transparent; }
+.views a[aria-current] { border-color: var(--purple-hi); }
+.views .lang { margin-left: auto; display: inline-flex; border: 1px solid var(--line-d); }
+.views .lang button { background: none; border: 0; padding: 6px 12px; min-height: 36px; font: 600 .78rem var(--mono); color: var(--mut-d); }
+.views .lang button[aria-pressed="true"] { background: var(--white); color: var(--ink); }
+.preview { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding-block: 10px; font-size: .85rem; color: var(--mut-d); }
+.preview button { border: 1px solid var(--line-d); background: none; padding: 6px 10px; min-height: 36px; font-weight: 600; font-size: .82rem; color: var(--white); }
+.preview button[aria-pressed="true"] { background: var(--white); color: var(--ink); }
+.ghost { border: 1px dashed var(--line); padding: 18px; color: var(--mut); font: 500 .85rem var(--mono); margin: 0; }
+.draftsrc { background: var(--ink); color: var(--white); border-top: 4px solid var(--purple); }
+.draftsrc summary { cursor: pointer; padding: 14px 0; font: 600 .82rem var(--mono); }
+.draftsrc .cols { display: grid; gap: 20px; padding-bottom: 28px; }
+@media (min-width: 900px) { .draftsrc .cols { grid-template-columns: 1fr 1fr; } }
+.draftsrc h3 { margin: 0 0 8px; font: 600 .8rem var(--mono); color: var(--mut-d); }
+.draftsrc pre { margin: 0; padding: 16px; background: var(--page); font: 500 .76rem/1.65 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 560px; overflow: auto; }
+
+/* Site chrome */
+.top { height: 64px; background: rgba(18,18,24,.92); border-bottom: 1px solid var(--line-d); }
+.top .in { height: 100%; display: flex; align-items: center; gap: 24px; }
+.brand { font-weight: 800; font-variation-settings: "wdth" 125; letter-spacing: .02em; text-decoration: none; }
+.brand b { color: var(--purple-hi); }
+.top nav { display: flex; gap: 22px; margin-left: auto; font-size: .92rem; font-weight: 600; }
+.top nav a { color: var(--mut-d); text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; }
+.top nav a[aria-current] { color: var(--white); border-color: var(--purple-hi); }
+@media (max-width: 1023px) { .top nav { display: none; } }
+.foot { padding: clamp(32px, 5vw, 56px) 0; border-top: 1px solid var(--line-d); }
+.foot .in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; color: var(--mut-d); }
+.foot .links { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+.foot .links a { color: var(--white); }
+
+/* Avatars: bracket + plug */
+.framed { position: relative; flex: none; aspect-ratio: 1; border: 4px solid var(--fg); border-right: 0; padding: 3px; width: 44px; margin-right: 9px; }
+.framed::after { content: ""; position: absolute; right: -9px; top: -4px; bottom: -4px; width: 9px; background: var(--purple); }
+.framed svg { display: block; width: 100%; height: 100%; color: var(--accent); }
+.framed.photo { padding: 0; }
+.framed.sm { width: 36px; border-width: 3px; margin-right: 7px; }
+.framed.sm::after { right: -7px; top: -3px; bottom: -3px; width: 7px; }
+.framed.md { width: 64px; border-width: 5px; padding: 5px; margin-right: 13px; }
+.framed.md.photo { padding: 0; }
+.framed.md::after { right: -13px; top: -5px; bottom: -5px; width: 13px; }
+.framed.lg { width: clamp(96px, 14vw, 168px); border-width: clamp(8px, 1.4vw, 14px); padding: clamp(8px, 1.4vw, 16px); margin-right: clamp(22px, 3.4vw, 38px); }
+.framed.lg.photo { padding: 0; }
+.framed.lg::after { right: calc(-1 * clamp(22px, 3.4vw, 38px)); width: clamp(22px, 3.4vw, 38px); top: calc(-1 * clamp(8px, 1.4vw, 14px)); bottom: calc(-1 * clamp(8px, 1.4vw, 14px)); }
+.on-dark .framed { border-color: var(--white); }
+.pill { display: inline-block; border: 1.5px solid var(--line); padding: 2px 10px; font-size: .84rem; font-weight: 600; }
+.pill.net { border-color: var(--accent); color: var(--accent); }
+
+/* Open slot (EmptySlot) */
+.empty-slot { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; min-height: 190px; margin-right: 36px; padding: 22px 20px 22px 24px; border: 8px solid var(--fg); border-right: 0; text-decoration: none; }
+.empty-slot::after { content: ""; position: absolute; right: -36px; top: 0; bottom: 0; width: 36px; border: 2px dashed var(--accent); transition: background .18s; }
+.empty-slot:hover::after, .empty-slot:focus-visible::after { background: var(--purple); border-style: solid; }
+.empty-slot strong { font-size: 1.3rem; line-height: 1.1; }
+.empty-slot span { color: var(--mut); font-size: .9rem; }
+
+/* Stories index */
+.s-hero { padding: clamp(40px, 7vw, 96px) 0 clamp(36px, 5vw, 64px); }
+.s-hero h1 { margin: 0; font-size: clamp(2.5rem, 7.4vw, 6rem); line-height: .96; max-width: 14ch; }
+html[lang="zh-CN"] .s-hero h1 { line-height: 1.12; }
+.s-hero p { max-width: 58ch; margin: 24px 0 0; color: var(--mut); font-size: 1.15rem; }
+.s-hero .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
+.s-body { padding-block: clamp(32px, 5vw, 64px) clamp(56px, 8vw, 104px); }
+.s-layout { display: grid; gap: 56px; }
+@media (min-width: 1000px) { .s-layout { grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: start; } .s-layout > aside { position: sticky; top: 24px; } }
+.s-layout > * { min-width: 0; }
+.date { margin: 0; color: var(--mut); }
+.nm { font-weight: 700; }
+.nm i { font-style: normal; color: var(--mut); font-weight: 600; margin: 0 .35em; }
+.nm span { color: var(--mut); font-weight: 600; }
+.latest { position: relative; display: grid; gap: 28px; padding-bottom: 48px; border-bottom: 2px solid var(--fg); }
+@media (min-width: 721px) { .latest { grid-template-columns: auto minmax(0, 1fr); align-items: center; } }
+.latest h2 { margin: 14px 0 0; font-size: clamp(2rem, 4.4vw, 3.5rem); line-height: .98; }
+html[lang="zh-CN"] .latest h2 { line-height: 1.15; }
+.latest h2 a { text-decoration: none; }
+.latest h2 a::after { content: ""; position: absolute; inset: 0; }
+.latest:hover h2 a, .latest h2 a:focus-visible { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.latest .dek { margin: 16px 0 0; max-width: 54ch; font-size: clamp(1.05rem, 1.6vw, 1.25rem); }
+.sub { margin: 52px 0 4px; font-size: 1.4rem; }
+.past { list-style: none; margin: 0; padding: 0; }
+.past a { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.past .nm { display: block; font-size: .92rem; }
+.past strong { display: block; margin-top: 4px; font-size: 1.35rem; line-height: 1.15; }
+.past .dk { display: block; margin-top: 6px; color: var(--mut); max-width: 64ch; }
+.past .date { display: block; margin-top: 8px; }
+.past a:hover strong, .past a:focus-visible strong { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.s-main .empty-slot { margin-top: 48px; max-width: 600px; }
+.empty-slot p { margin: 0; color: var(--mut); font-size: .95rem; max-width: 46ch; }
+.empty-slot .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; }
+.about { position: relative; padding: 22px 24px; margin-right: 14px; border: 2px solid var(--fg); border-right: 0; background: var(--surface); }
+.about::after { content: ""; position: absolute; right: -14px; top: -2px; bottom: -2px; width: 14px; background: var(--purple); }
+.about h2 { margin: 0 0 12px; font-size: 1.2rem; }
+.about h3 { margin: 20px 0 8px; font-size: 1rem; }
+.about p { margin: 0 0 10px; font-size: .95rem; }
+.about ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .93rem; }
+.about li { position: relative; display: grid; grid-template-columns: 18px 1fr; gap: 8px; }
+.about li::before { content: ""; width: 10px; height: 10px; margin-top: 6px; border: 2px solid var(--fg); border-right: 0; }
+.about li::after { content: ""; position: absolute; left: 10px; top: 6px; width: 3px; height: 10px; background: var(--purple); }
+.about .disc { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--line); color: var(--mut); font-size: .88rem; }
+.rss { font: 600 .8rem var(--mono); color: var(--mut); }
+
+/* Story page */
+.d-hero { padding: clamp(24px, 4vw, 40px) 0 clamp(44px, 7vw, 88px); }
+.back { display: inline-flex; align-items: center; gap: 10px; min-height: 40px; font-weight: 600; color: var(--mut); text-decoration: none; }
+.back::before { content: ""; width: 10px; height: 18px; background: var(--purple); }
+.back:hover { color: var(--fg); }
+.d-top { display: grid; gap: 32px clamp(40px, 6vw, 80px); margin-top: clamp(24px, 4vw, 48px); }
+@media (min-width: 821px) { .d-top { grid-template-columns: minmax(0, 1fr) auto; align-items: center; } }
+.d-hero h1 { margin: 0; font-size: clamp(2.4rem, 6.2vw, 5.2rem); line-height: .96; max-width: 14ch; overflow-wrap: anywhere; }
+html[lang="zh-CN"] .d-hero h1 { line-height: 1.12; }
+.d-hero .dek { margin: 24px 0 0; max-width: 50ch; font-size: clamp(1.1rem, 1.8vw, 1.4rem); color: rgba(255,255,255,.9); }
+.d-hero .nm { margin: 30px 0 0; font-size: 1.05rem; }
+.d-hero .nm a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.d-hero .date { margin-top: 8px; }
+.framed.xl { width: clamp(150px, 24vw, 300px); border-width: clamp(10px, 1.5vw, 16px); padding: 0; margin-right: clamp(26px, 3.6vw, 44px); }
+.framed.xl::after { right: calc(-1 * clamp(26px, 3.6vw, 44px)); width: clamp(26px, 3.6vw, 44px); top: calc(-1 * clamp(10px, 1.5vw, 16px)); bottom: calc(-1 * clamp(10px, 1.5vw, 16px)); }
+.framed.xl:not(.photo) { padding: clamp(18px, 3vw, 36px); }
+.note { border-bottom: 1px solid var(--line); }
+.note .in { display: flex; gap: 14px; align-items: flex-start; padding-block: 16px; }
+.note .in::before { content: ""; flex: none; width: 14px; height: 24px; background: var(--purple); }
+.note p { margin: 0; max-width: 80ch; font-weight: 600; }
+.st-body > * { min-width: 0; }
+.st-body { display: grid; gap: 56px; padding-block: clamp(36px, 5vw, 72px) clamp(56px, 8vw, 104px); }
+@media (min-width: 1000px) { .st-body { grid-template-columns: minmax(0, 1fr) 300px; gap: 72px; align-items: start; } .st-body > aside { position: sticky; top: 24px; } }
+.prose { max-width: 66ch; font-size: 1.1rem; line-height: 1.72; }
+html[lang="zh-CN"] .prose { line-height: 1.9; }
+.prose > p { margin: 0 0 1.25em; }
+.prose > p:first-child { font-size: clamp(1.22rem, 1.9vw, 1.42rem); line-height: 1.55; }
+.prose > h2 { margin: 2.2em 0 .7em; font-size: clamp(1.45rem, 2.4vw, 1.8rem); line-height: 1.12; }
+.prose > pre { margin: 0 0 1.25em; padding: 16px 18px; background: var(--ink); color: var(--white); border-left: 4px solid var(--purple); font: 500 .84rem/1.7 var(--mono); overflow-x: auto; }
+.pq { position: relative; margin: 2em 18px 2em 0; padding: 22px 26px; border: 6px solid var(--fg); border-right: 0; }
+.pq::after { content: ""; position: absolute; right: -18px; top: -6px; bottom: -6px; width: 18px; background: var(--purple); }
+.pq p { margin: 0; font-size: clamp(1.35rem, 2.4vw, 1.85rem); line-height: 1.22; }
+html[lang="zh-CN"] .pq p { line-height: 1.45; }
+.pq footer { margin-top: 14px; color: var(--mut); font-size: .92rem; font-weight: 600; }
+.fig { margin: 2em 0; }
+.fig svg { display: block; width: 100%; height: auto; }
+.fig figcaption { margin-top: 10px; color: var(--mut); font-size: .92rem; }
+.help { position: relative; margin: 3em 14px 0 0; padding: 24px 26px; border: 2px solid var(--fg); border-right: 0; background: var(--surface); }
+.help::after { content: ""; position: absolute; right: -14px; top: -2px; bottom: -2px; width: 14px; background: var(--purple); }
+.help h2 { margin: 0 0 14px; font-size: 1.45rem; }
+.help ol { margin: 0; padding: 0; list-style: none; counter-reset: c; display: grid; gap: 12px; }
+.help li { counter-increment: c; display: grid; grid-template-columns: 2.2rem 1fr; }
+.help li::before { content: counter(c, decimal-leading-zero); font: 600 .9rem var(--mono); color: var(--accent); padding-top: 3px; }
+.help .reach { display: flex; flex-wrap: wrap; gap: 0 22px; align-items: center; margin: 16px 0 0; padding-top: 10px; border-top: 1px solid var(--line); }
+.st-foot { display: grid; gap: 14px; margin-top: 3em; padding-top: 22px; border-top: 2px solid var(--fg); max-width: 66ch; }
+.st-foot p { margin: 0; }
+.byline { font-weight: 600; }
+.disc { color: var(--mut); font-size: .94rem; }
+.corr h3 { margin: 8px 0 6px; font-size: 1rem; }
+.corr ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: .94rem; }
+.corr li { display: grid; grid-template-columns: 6.6rem 1fr; gap: 10px; }
+.card { position: relative; margin-right: 14px; border: 2px solid var(--fg); border-right: 0; background: var(--surface); }
+.card::after { content: ""; position: absolute; right: -14px; top: -2px; bottom: -2px; width: 14px; background: var(--purple); }
+.card section { padding: 20px; }
+.card section + section { border-top: 1px solid var(--line); }
+.card h2 { margin: 0 0 14px; font-size: 1.1rem; }
+.card .row { display: flex; align-items: center; gap: 12px; }
+.card .row strong { font-size: 1.05rem; line-height: 1.15; }
+.card .links { display: flex; flex-wrap: wrap; gap: 0 18px; margin-top: 8px; }
+.card .links span { color: var(--mut); font-weight: 600; }
+.card .pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.card .fact { margin: 10px 0 0; font-size: .9rem; color: var(--mut); }
+.card .builds { margin: 0 0 10px; color: var(--mut); font-size: .92rem; font-weight: 600; }
+.more { border-top: 1px solid var(--line); padding-block: clamp(40px, 6vw, 72px); }
+.more .in > div { display: grid; gap: 40px; }
+@media (min-width: 900px) { .more .in > div { grid-template-columns: minmax(0, 1fr) 400px; align-items: start; } }
+.more .in > div > * { min-width: 0; }
+.more-h { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+.more h2 { margin: 0; font-size: 1.6rem; }
+
+/* Home block */
+.hb { padding: clamp(48px, 8vw, 104px) 0; border-top: 1px solid var(--line); }
+.hb-h { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; margin-bottom: 28px; }
+.hb-h h2 { margin: 0; font-size: clamp(2rem, 5.2vw, 4rem); line-height: 1; }
+.hb-h p { margin: 10px 0 0; color: var(--mut); max-width: 56ch; }
+.hb-grid { display: grid; gap: 18px; }
+@media (min-width: 860px) { .hb-grid { grid-template-columns: 2fr 1fr; align-items: stretch; } }
+.hcard { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 28px; min-height: 280px; padding: clamp(20px, 3vw, 32px); background: var(--ink); color: var(--white); text-decoration: none; --mut: var(--mut-d); --fg: var(--white); --accent: var(--purple-hi); transition: background .15s; }
+@media (max-width: 560px) { .hcard { grid-template-columns: 1fr; } }
+.hcard:hover, .hcard:focus-visible { background: var(--purple); --mut: rgba(255,255,255,.82); }
+.hcard:hover .framed::after, .hcard:focus-visible .framed::after { background: var(--white); }
+.hcard strong { display: block; margin-top: 8px; font-size: clamp(1.5rem, 2.8vw, 2.3rem); line-height: 1.02; max-width: 20ch; }
+html[lang="zh-CN"] .hcard strong { line-height: 1.2; }
+.hcard .dek { margin: 12px 0 0; color: var(--mut); max-width: 54ch; }
+.hcard .date { margin-top: 14px; }
+.hb-grid .empty-slot { min-height: 280px; }
+
+/* Project page badge */
+.p-hero { padding: clamp(24px, 4vw, 40px) 0 clamp(40px, 7vw, 80px); }
+.p-top { margin-top: clamp(20px, 4vw, 44px); display: grid; gap: 28px clamp(28px, 5vw, 64px); }
+@media (min-width: 721px) { .p-top { grid-template-columns: auto minmax(0, 1fr); align-items: start; } }
+.p-top h1 { margin: 0; font-size: clamp(2.4rem, 7.4vw, 6rem); line-height: .94; }
+.p-top .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+.p-top .tag { margin: 22px 0 0; max-width: 60ch; font-size: clamp(1.05rem, 1.6vw, 1.3rem); }
+.p-top .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 28px; }
+.p-top .line { margin: 24px 0 0; color: var(--mut); }
+.sbadge { position: relative; display: inline-grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 14px; margin: 28px 24px 0 0; padding: 12px 20px 12px 14px; max-width: 52ch; border: 2px solid var(--fg); border-right: 0; text-decoration: none; }
+.sbadge::after { content: ""; position: absolute; right: -14px; top: -2px; bottom: -2px; width: 14px; background: var(--purple); transition: width .18s, right .18s; }
+.sbadge:hover::after, .sbadge:focus-visible::after { width: 24px; right: -24px; }
+.sbadge small { display: block; color: var(--mut); font-weight: 600; font-size: .88rem; }
+.sbadge strong { display: block; margin-top: 2px; font-size: 1.1rem; line-height: 1.2; }
+.ann { margin: 10px 0 0; color: var(--mut-d); font: 500 .78rem var(--mono); }
+
+/* Share card */
+.og-view { padding: clamp(32px, 5vw, 64px) 0 clamp(56px, 8vw, 96px); }
+.og-view .in { display: grid; gap: 40px; }
+.og-view figure { margin: 0; }
+.og-view figcaption { margin-top: 10px; color: var(--mut-d); font: 500 .8rem var(--mono); }
+.og { container-type: inline-size; position: relative; width: 100%; max-width: 1200px; aspect-ratio: 1200 / 630; overflow: hidden; background: var(--page); color: var(--white); outline: 1px solid var(--line-d); }
+.og .fr { position: absolute; left: 6cqw; top: 6.4cqw; bottom: 6.4cqw; right: 10cqw; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4cqw; align-items: center; padding: 3.6cqw 4.4cqw; border: 1.3cqw solid var(--white); border-right: 0; }
+.og .fr::after { content: ""; position: absolute; right: -4.2cqw; top: -1.3cqw; bottom: -1.3cqw; width: 4.2cqw; background: var(--purple); }
+.og .txt { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+.og .brandline { font-size: 1.8cqw; font-weight: 800; font-variation-settings: "wdth" 125; letter-spacing: .02em; }
+.og .brandline b { color: var(--purple-hi); }
+.og .brandline span { color: var(--mut-d); font-variation-settings: "wdth" 100; letter-spacing: 0; font-weight: 600; margin-left: 1cqw; }
+.og h2 { margin: 0; font-size: 5cqw; line-height: 1.02; }
+.og h2:lang(zh) { line-height: 1.18; letter-spacing: 0; font-weight: 900; }
+.og .who { font-size: 2cqw; font-weight: 700; }
+.og .who i { font-style: normal; color: var(--mut-d); margin: 0 .4em; }
+.og .who span { color: var(--mut-d); font-weight: 600; }
+.og .framed { width: 22cqw; border-width: 1cqw; padding: 0; margin-right: 2.6cqw; }
+.og .framed:not(.photo) { padding: 2.6cqw; }
+.og .framed::after { right: -2.6cqw; width: 2.6cqw; top: -1cqw; bottom: -1cqw; }
+
+
+/* Generated cover: the issue number in the slot */
+.cover { container-type: inline-size; position: relative; flex: none; display: flex; align-items: center; justify-content: center; aspect-ratio: 1; width: 56px; margin-right: 10px; border: 4px solid var(--fg); border-right: 0; color: var(--fg); }
+.cover::after { content: ""; position: absolute; right: -10px; top: -4px; bottom: -4px; width: 10px; background: var(--purple); }
+.cv-no { font-size: 46cqw; line-height: 1; letter-spacing: -.04em; }
+.cover.md { width: 140px; border-width: 9px; margin-right: 24px; }
+.cover.md::after { right: -24px; width: 24px; top: -9px; bottom: -9px; }
+.cover.lg { width: clamp(120px, 16vw, 190px); border-width: clamp(10px, 1.4vw, 14px); margin-right: clamp(24px, 3.4vw, 36px); }
+.cover.lg::after { right: calc(-1 * clamp(24px, 3.4vw, 36px)); width: clamp(24px, 3.4vw, 36px); top: calc(-1 * clamp(10px, 1.4vw, 14px)); bottom: calc(-1 * clamp(10px, 1.4vw, 14px)); }
+.cover.xl { width: clamp(150px, 24vw, 300px); border-width: clamp(10px, 1.5vw, 16px); margin-right: clamp(26px, 3.6vw, 44px); }
+.cover.xl::after { right: calc(-1 * clamp(26px, 3.6vw, 44px)); width: clamp(26px, 3.6vw, 44px); top: calc(-1 * clamp(10px, 1.5vw, 16px)); bottom: calc(-1 * clamp(10px, 1.5vw, 16px)); }
+.cover.og { width: 22cqw; border-width: 1.1cqw; margin-right: 2.8cqw; color: var(--white); border-color: var(--white); }
+.cover.og::after { right: -2.8cqw; width: 2.8cqw; top: -1.1cqw; bottom: -1.1cqw; }
+@media (min-width: 821px) { .d-top .cover { order: 2; } }
+.hcard:hover .cover::after, .hcard:focus-visible .cover::after { background: var(--white); }
+.kick { margin: 0; color: var(--mut); }
+.whorow { display: flex; align-items: center; gap: 10px; margin-top: 22px; }
+.d-hero .whorow { margin-top: 30px; }
+.d-hero .whorow .nm a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.d-hero .kick + h1 { margin-top: 16px; }
+.latest .kick + h2 { margin-top: 12px; }
+.hcard .kick { color: var(--mut); }
+.past a { align-items: center; }
+
+@media (prefers-reduced-motion: reduce) { .btn::after, .sbadge::after, .empty-slot::after, .hcard { transition: none; } }
+</style>
+</head>
+<body>
+<p class="draft"><span class="in" style="display:block" id="draftNote"></span></p>
+<div class="views"><div class="in">
+  <span id="vLabel"></span>
+  <a href="#stories" data-v="stories"></a><a href="#story" data-v="story"></a><a href="#home" data-v="home"></a><a href="#project" data-v="project"></a><a href="#og" data-v="og"></a>
+  <span class="lang" role="group" aria-label="Language"><button type="button" data-l="en">EN</button><button type="button" data-l="zh">中文</button></span>
+</div></div>
+<header class="top on-dark"><div class="in">
+  <a class="brand" href="#home">CKB<b>DAPPS</b></a>
+  <nav aria-label="Primary" id="nav"></nav>
+</div></header>
+<main id="app"></main>
+<footer class="foot on-dark"><div class="in" id="foot"></div></footer>
+
+<script>
+const REPO = "https://github.com/CKBFansDAO/ckbdapps";
+const SHARE = REPO + "/issues/new?template=builder-story.yml";
+const TALK_DM = "https://talk.nervos.org/new-message?username=yixiu.ckbfans.bit&title=" + encodeURIComponent("My Builder Story");
+
+// Fictional projects. Only the fields a story page derives from are shown.
+const PROJECTS = {
+  pinecell: { name: "Pinecell", cats: [["Wallet", "钱包"]], testnet: false, audits: [{ label: "Ironleaf Security", date: "2026-06-12" }], verified: "2026-11-02",
+    tagline: ["A mobile CKB wallet that checks its own balance with a light client on the phone.", "在手机上用轻客户端自己核对余额的 CKB 钱包。"] },
+  cellscope: { name: "Cellscope", cats: [["Dev Tools", "开发者工具"]], testnet: false, audits: [] },
+  brewline: { name: "Brewline", cats: [["Fiber", "Fiber"], ["Payment", "支付"]], testnet: false, audits: [] },
+  "quorum-seal": { name: "Quorum Seal", cats: [["Protocol", "协议"]], testnet: true, audits: [] },
+};
+
+// A builder may send any image they like as an avatar (a drawing, a logo); this one is a mock.
+const AVATARS = { cup: `<svg viewBox="0 0 10 10" aria-hidden="true"><rect width="10" height="10" fill="#f3f2f7"/><path d="M2 3.5h5v3.2A1.8 1.8 0 0 1 5.2 8.5H3.8A1.8 1.8 0 0 1 2 6.7z" fill="#5a26e8"/><path d="M7 4.3h.7a1 1 0 0 1 0 2H7" fill="none" stroke="#5a26e8" stroke-width=".6"/><path d="M3.4 1.4c-.4.5.4.9 0 1.5M5 1.2c-.4.5.4.9 0 1.5" fill="none" stroke="#9068ff" stroke-width=".45"/></svg>` };
+const MONO = (l) => `font-family="JetBrains Mono, monospace" font-size="${l}"`;
+const FIG = {
+  sync: `<svg viewBox="0 0 800 420" role="img" aria-label="Mock screenshot"><rect width="800" height="420" fill="#1c1c23"/>
+    <rect x="290" y="28" width="220" height="364" fill="#121218" stroke="rgba(255,255,255,.14)"/>
+    <text x="310" y="68" fill="#fff" font-family="Archivo, sans-serif" font-weight="800" font-size="18">Pinecell</text>
+    <text x="310" y="122" fill="#a3a2b3" ${MONO(11)}>Balance</text>
+    <text x="310" y="152" fill="#fff" font-family="Archivo, sans-serif" font-weight="800" font-size="28">12,480 CKB</text>
+    <rect x="310" y="186" width="180" height="6" fill="rgba(255,255,255,.14)"/><rect x="310" y="186" width="152" height="6" fill="#733dff"/>
+    <text x="310" y="214" fill="#a3a2b3" ${MONO(10)}>headers checked 18,214,551</text>
+    <text x="310" y="232" fill="#a3a2b3" ${MONO(10)}>2 lock scripts matched</text>
+    <rect x="310" y="270" width="180" height="40" fill="none" stroke="#fff" stroke-width="2"/><text x="324" y="295" fill="#fff" font-family="Archivo, sans-serif" font-weight="700" font-size="13">Send</text>
+    <text x="560" y="210" fill="#a3a2b3" ${MONO(12)}>shot-1.webp (mock)</text></svg>`,
+};
+
+// Body blocks stand in for plain Markdown: p, h (##), q (>), code (```), img (![]()). Nothing a GitHub preview can't show.
+const CODE = 'await client.setScripts([\n  { script: lock, scriptType: "lock", blockNumber: checkpoint },\n]);\nconst cells = await client.getCells({ script: lock, scriptType: "lock" });';
+const STORIES = [
+  {
+    slug: "eleven-minutes-on-a-train", mockMin: 8, project: "pinecell", published: "2026-11-20", voice: "narrative", author: "Yixiu",
+    person: { name: "pine", links: { github: "pine-dev", x: "pine_builds" } },
+    talk: "https://talk.nervos.org/t/builder-story-pine",
+    help: [
+      { en: "Got an old Android phone? Try the beta and tell pine how long it takes to sync.", zh: "手边有旧安卓手机？装上测试版试试，告诉 pine 同步用了多久。" },
+      { en: "Know your way around multisig locks? Have a look at the open pull request.", zh: "熟悉多签锁？帮忙看看那个还开着的 PR。" },
+      { en: "Speak Spanish or Portuguese? Help translate the app.", zh: "会西班牙语或葡萄牙语？帮忙翻译一下应用。" },
+    ],
+    disclosure: { en: "Pinecell received a CKB Spark grant in 2025, and Yixiu sits on the Spark review committee.", zh: "Pinecell 在 2025 年拿过 CKB Spark 资助，Yixiu 是 Spark 评审委员会成员。" },
+    en: {
+      title: "Eleven minutes on a train",
+      dek: "pine spent a year getting a wallet to check its own balance, and found out that was what people wanted.",
+      body: [
+        ["p", "The first version of Pinecell took eleven minutes to sync. pine found that out on a long train ride, holding a three-year-old Android phone and watching the progress bar freeze every time the train went into a tunnel."],
+        ["p", "It's funny now. At the time, pine closed the laptop, finished a sandwich and looked out of the window for the rest of the trip."],
+        ["h", "A wallet that doesn't ask anyone"],
+        ["p", "Most wallets get your balance by asking a server. pine wanted Pinecell to ask the chain. So it runs a CKB light client right on the phone, checks block headers as they come in, and only fetches the cells that belong to you. If Pinecell's own server vanished tomorrow, your wallet would keep working."],
+        ["q", "I didn't want to build a prettier front end for someone else's database. If the phone can check it, let the phone check it."],
+        ["p", "That choice ate most of 2025. Phones kill background apps, networks drop, and the system clears storage when it feels like it. Some weeks pine wasn't sure it would ever be fast enough."],
+        ["h", "Why CKB"],
+        ["p", "pine had tried the same idea on two other chains and given up both times. On CKB it finally clicked: your balance is a set of cells, and a light client can be shown exactly those cells and nothing else."],
+        ["p", "The bit pine is proudest of is small. Pinecell tells the light client which lock scripts to watch, and the light client does the rest:"],
+        ["code", CODE],
+        ["p", "Your addresses never leave the phone. The checkpoint is saved on the device too, so opening the app picks up where it left off instead of starting from the first block."],
+        ["h", "The tunnel, again"],
+        ["p", "Eleven minutes became forty seconds once Pinecell started from a saved checkpoint and stopped re-downloading filters it had already checked. The fix was about a dozen lines. pine tested it on the same train."],
+        ["img", "sync", "Pinecell syncing on a phone: headers checked on the device, two lock scripts matched."],
+        ["q", "Nobody ever asked me for a light client. People asked why their balance was right on the train when their other wallet showed zero."],
+        ["h", "What's next"],
+        ["p", "Pinecell is live on mainnet, and its key storage has been audited. Next are multisig locks, and a way to share a checkpoint between two of your own devices without a server in the middle. pine would be glad of a hand with both."],
+      ],
+    },
+    zh: {
+      title: "火车上的十一分钟",
+      dek: "pine 花了一年，让一个钱包能自己核对余额。后来才发现，这正是大家想要的。",
+      body: [
+        ["p", "Pinecell 的第一个版本，同步一次要 11 分钟。pine 是在一趟长途火车上发现的：手里拿着一部用了三年的安卓手机，每进一次隧道，进度条就卡住一次。"],
+        ["p", "现在说起来挺好笑。可当时 pine 合上电脑，吃完三明治，后半程就一直望着窗外。"],
+        ["h", "一个谁也不用问的钱包"],
+        ["p", "大多数钱包查余额，是去问一台服务器。pine 想让 Pinecell 直接问链。所以它在手机上跑一个 CKB 轻客户端，边收区块头边核对，只取回属于你的那些 Cell。哪天 Pinecell 自己的服务器没了，钱包照样能用。"],
+        ["q", "我不想给别人的数据库做一个更好看的前端。手机能自己核对的，就让手机自己来。"],
+        ["p", "这个决定几乎吃掉了整个 2025 年。手机会杀后台，网络说断就断，系统还会随时清掉存储。有好几个星期，pine 都不确定它能不能快起来。"],
+        ["h", "为什么是 CKB"],
+        ["p", "同样的想法，pine 之前在另外两条链上试过，两次都放弃了。到了 CKB 才对上：你的余额就是一组 Cell，轻客户端只要拿到这几个 Cell 就够了，别的都不用管。"],
+        ["p", "pine 最得意的地方其实很小。Pinecell 告诉轻客户端要盯哪些 lock script，剩下的交给轻客户端："],
+        ["code", CODE],
+        ["p", "你的地址从不离开手机。检查点也存在手机上，所以每次打开应用都是接着上次的进度，而不是从第一个区块重新来。"],
+        ["h", "又是那条隧道"],
+        ["p", "Pinecell 改成从保存的检查点开始、不再重复下载已经核对过的过滤器之后，11 分钟变成了 40 秒。改动大概就十几行。pine 还是在那趟火车上测的。"],
+        ["img", "sync", "Pinecell 在手机上同步：区块头在手机上核对，两个 lock script 已匹配。"],
+        ["q", "从来没有人跟我要过轻客户端。大家问的是：为什么在火车上我的余额是对的，另一个钱包却显示 0。"],
+        ["h", "接下来"],
+        ["p", "Pinecell 已经在主网上线，密钥存储部分做过审计。接下来要做多签锁，还有在你自己的两台设备之间同步检查点，中间不经过服务器。这两件事，pine 都很欢迎有人来搭把手。"],
+      ],
+    },
+  },
+  {
+    slug: "build-the-tool-you-wish-you-had", mockMin: 7, project: "cellscope", published: "2026-10-16", voice: "as-told-to", author: "Yixiu",
+    person: { name: "kiwi", links: { github: "kiwi-cells", telegram: "kiwicells" } },
+    talk: "https://talk.nervos.org/t/builder-story-kiwi",
+    help: [
+      { en: "Hit a failed transaction Cellscope explains badly? Send it to kiwi.", zh: "碰到 Cellscope 解释不清的失败交易？发给 kiwi。" },
+      { en: "Good with Homebrew or Nix? Help package it.", zh: "熟悉 Homebrew 或 Nix？帮忙打个包。" },
+    ],
+    corrections: [{ date: "2026-10-21", note: { en: "We first wrote that Cellscope only works on testnet. It works on mainnet and testnet.", zh: "我们最初写成 Cellscope 只支持测试网，其实主网和测试网都支持。" } }],
+    en: {
+      title: "Build the tool you wish you'd had",
+      dek: "kiwi kept a list of every bug that ate an hour. The list turned into a debugger other teams now use every day.",
+      body: [
+        ["p", "I keep a text file of every bug that cost me more than an hour. My first month on CKB it had nineteen entries. Fourteen of them were the same thing: a script returned an error code, and I had no idea which cell made it fail."],
+        ["h", "The error code wasn't the problem"],
+        ["p", "So one Sunday I wrote a little script that replayed a failed transaction on my laptop and printed everything: every cell, every script group, how many cycles each one used. On Monday I used it four times. That was Cellscope."],
+        ["code", "cellscope replay 0x4f2c…e19a --network mainnet --trace"],
+        ["q", "If you hit the same wall three times, stop climbing and build a door."],
+        ["h", "Someone else needed it too"],
+        ["p", "I almost didn't post about it on Nervos Talk. It felt too small. A week after I did, two teams were opening issues. That's when I wrote the docs, added mainnet, and admitted it wasn't just my script any more."],
+      ],
+    },
+    zh: null,
+  },
+  {
+    slug: "a-thousand-coffees-a-week", mockMin: 6, project: "brewline", published: "2026-09-18", voice: "narrative", author: "Yixiu",
+    person: { name: "beanie", avatar: "cup", links: { x: "beanie_pays" } },
+    en: {
+      title: "A thousand coffees a week",
+      dek: "beanie wanted the café down the road to take payments with nobody in the middle. One Fiber channel got there.",
+      body: [
+        ["p", "The café down the road from beanie sells about a thousand coffees a week. beanie wanted it to take payments with nobody in the middle, and without the owner ever having to learn what a block confirmation is."],
+        ["h", "Faster than the milk"],
+        ["p", "Brewline opens one Fiber channel per shop and settles to CKB once a day. At the till, the payment clears before the milk is steamed."],
+        ["q", "If it's slower than tapping a card, nobody behind the counter will use it twice."],
+      ],
+    },
+    zh: {
+      title: "一周一千杯咖啡",
+      dek: "beanie 想让街角的咖啡馆收款时没有任何中间方。一个 Fiber 通道就做到了。",
+      body: [
+        ["p", "beanie 家附近那家咖啡馆，一周大概卖一千杯咖啡。beanie 想让店里收款时没有任何中间方，而且老板永远不用搞懂什么叫区块确认。"],
+        ["h", "比打奶泡还快"],
+        ["p", "Brewline 给每家店开一个 Fiber 通道，每天结算一次到 CKB。在收银台付款，奶泡还没打好，钱就到了。"],
+        ["q", "要是比刷卡还慢，柜台后面的人用一次就不会再用了。"],
+      ],
+    },
+  },
+  {
+    slug: "i-just-wanted-to-show-it-works", mockMin: 6, project: "quorum-seal", published: "2026-08-21", voice: "narrative", author: "Yixiu",
+    person: { name: "sev7n", links: { github: "sev7n-cells" } },
+    en: {
+      title: "I just wanted to show it works",
+      dek: "sev7n built a shared lock for seven friends on testnet. It isn't going to be a product, and that's fine.",
+      body: [
+        ["p", "sev7n wanted to know if seven friends could share one lock without any of them running a server. Three months later there was an answer, running on testnet."],
+        ["h", "What it shows"],
+        ["p", "Quorum Seal checks a threshold signature inside a lock script, so a cell can only be spent when enough of the group agrees."],
+        ["q", "I'm not going to run this with real money. I wanted to show that someone could."],
+      ],
+    },
+    zh: {
+      title: "我只是想证明它行得通",
+      dek: "sev7n 在测试网上给七个朋友做了一把共用的锁。不打算做成产品，也觉得这样挺好。",
+      body: [
+        ["p", "sev7n 想知道：七个朋友能不能共用一把锁，而且谁都不用跑服务器。三个月后有了答案，现在它就跑在测试网上。"],
+        ["h", "它说明了什么"],
+        ["p", "Quorum Seal 在 lock script 里验证门限签名，只有足够多的人同意，Cell 才能被花掉。"],
+        ["q", "我不会拿真钱去跑它。我只是想让大家看到，这件事有人能做成。"],
+      ],
+    },
+  },
+];
+
+const HEADLINES = {
+  a: { en: 'Hi, I build on <span class="inslot">CKB</span>', zh: '你好，我在<span class="inslot">CKB</span>上做东西' },
+  b: { en: 'The <span class="inslot">people</span> behind CKB', zh: 'CKB 背后的<span class="inslot">人</span>' },
+  c: { en: 'Pull up a chair, meet the <span class="inslot">builders</span>', zh: '坐下聊聊，认识这些<span class="inslot">建设者</span>' },
+};
+
+const T = {
+  en: {
+    draft: "Design draft v3 · Builder Stories · every handle, project and story here is made up; texts are shortened, reading times are for a full-length story",
+    views: "View:", v_stories: "Stories page", v_story: "Story page", v_home: "Home block", v_project: "Project page", v_og: "Share card",
+    nav: ["Home", "Explore", "Stories", "Halving", "Stats"],
+    foot: "Data lives in the open on GitHub. Send a pull request to add or fix a project.",
+    lead: "Once a month we sit down with someone building on CKB and ask how they got here, what they made, and what kept them going when it got hard. It's their story. We just help write it down.",
+    share: "Share your story", talk_dm: "or message Yixiu on Nervos Talk", reply: "We'll get back to you within a week.",
+    min: "{n} min read",
+    past: "Earlier stories",
+    slot_h: "Your story could be next", slot_p: "Building something on CKB? Tell us about it. No need to be finished or famous.",
+    slot_issue: "Open a GitHub issue", slot_talk: "Message Yixiu on Talk",
+    about_h: "How this works",
+    about: [
+      "A few people from the CKB community take turns suggesting builders, and we decide together, in the open. You can also put yourself forward.",
+      "Each story is written from the builder's own answers, and they read it before anyone else does.",
+    ],
+    bar_h: "Who we'd love to hear from",
+    bar: ["You've been building in public on GitHub or Nervos Talk over the last three months", "Your code is open and something runs: on mainnet, on testnet, or as a tool", "Your project is on CKBdapps. Not yet? Adding it takes five lines."],
+    disc: "These are people's own stories. They aren't an endorsement or investment advice.",
+    rss: "RSS",
+    preview: "Preview:", p_many: "4 stories", p_one: "1 story", p_head: "Headline:",
+    back: "All stories",
+    fallback: "This story hasn't been translated into Chinese yet, so here it is in English.",
+    help_h: "Want to help {n}?", talk: "Say hi on Nervos Talk",
+    by: "Written by {a} from {n}'s own answers. {n} read and approved it before it went out.",
+    by_told: "In {n}'s own words, as told to {a}. {n} read and approved it before it went out.",
+    published: "Published {d}",
+    corr_h: "Fixed since publishing", err: "Something not right?", err_cta: "Let us know",
+    c_about: "About {n}", c_say: "Say hi:", c_builds: "Builds", c_page: "{p} on CKBdapps",
+    mainnet: "Mainnet", testnet: "Testnet", audited: "Audited by {l}, {d}", no_audit: "No audit listed yet",
+    more_h: "More stories", all: "All stories",
+    p_story: "Story:", ps: ["pine · told by us", "kiwi · in their own words, a fix, no 中文", "beanie · own avatar", "sev7n · testnet project"],
+    src: "Draft only: the story files, plain Markdown that also reads well on GitHub",
+    home_ghost: "… Home: hero, marquee, halving strip, Start here (You might like · Newly listed · Independent builders) …",
+    home_ghost2: "… Ecosystem map …",
+    home_none: "No stories yet: the block is not shown and the ecosystem map follows Start here.",
+    hb_h: "Builder Stories", hb_p: "Meet someone building on CKB. A new story every month.",
+    p_with: "With stories", p_none: "No stories",
+    p_site: "Website", p_verified: "Verified {d}",
+    badge: "Read {n}'s story",
+    p_ghost: "… About, Activity, Contracts, Audits, Similar projects …",
+    ann: "Derived from the story's project field. With several stories: the newest, plus “and 1 more”.",
+    og_a: "English", og_b: "Chinese page", og_c: "Another issue: only the number and words change",
+    kick: "Builder Story // No. {n}",
+  },
+  zh: {
+    draft: "设计稿 v3 · 建设者故事 · 所有昵称、项目和故事都是编的；文案已缩短，阅读时长按完整篇幅显示",
+    views: "视图：", v_stories: "故事汇总页", v_story: "故事详情页", v_home: "首页区块", v_project: "项目页", v_og: "分享卡片",
+    nav: ["首页", "探索", "故事", "减半", "数据"],
+    foot: "数据公开在 GitHub 上。提交 PR 即可添加或修改项目。",
+    lead: "每个月，我们找一位在 CKB 上做东西的人聊聊：怎么走到这一步的，做了什么，难的时候靠什么撑过来。故事是他们自己的，我们只是帮忙写下来。",
+    share: "分享你的故事", talk_dm: "或者在 Nervos Talk 私信 Yixiu", reply: "我们会在一周内回复你。",
+    min: "阅读约 {n} 分钟",
+    past: "往期故事",
+    slot_h: "下一篇，也许就是你", slot_p: "在 CKB 上做东西？跟我们聊聊。不用做完，也不用有名。",
+    slot_issue: "在 GitHub 提 issue", slot_talk: "在 Talk 私信 Yixiu",
+    about_h: "这个栏目怎么来的",
+    about: [
+      "几位 CKB 社区的朋友轮流推荐建设者，大家一起公开商量决定。你也可以推荐你自己。",
+      "每篇故事都根据主人公自己的回答来写，发出去之前，他们是第一个读的人。",
+    ],
+    bar_h: "我们想听谁的故事",
+    bar: ["最近三个月在 GitHub 或 Nervos Talk 上公开地做东西", "代码开源，而且有能跑起来的东西：主网、测试网或者工具都行", "项目已经在 CKBdapps 上。还没有？加上只要五行。"],
+    disc: "这些都是他们自己的故事，不代表背书，也不构成投资建议。",
+    rss: "RSS",
+    preview: "预览：", p_many: "4 篇", p_one: "1 篇", p_head: "标题：",
+    back: "全部故事",
+    fallback: "这篇故事还没有中文版，先放英文原文。",
+    help_h: "想帮 {n} 一把？", talk: "去 Nervos Talk 打个招呼",
+    by: "{a} 根据 {n} 的回答写成，发布前 {n} 已经读过并同意。",
+    by_told: "{n} 口述，{a} 整理，发布前 {n} 已经读过并同意。",
+    published: "发布于 {d}",
+    corr_h: "发布后的更正", err: "哪里写得不对？", err_cta: "告诉我们",
+    c_about: "关于 {n}", c_say: "打个招呼：", c_builds: "在做", c_page: "{p} 在 CKBdapps 上",
+    mainnet: "主网", testnet: "测试网", audited: "已审计：{l}，{d}", no_audit: "暂未列出审计",
+    more_h: "更多故事", all: "全部故事",
+    p_story: "故事：", ps: ["pine · 我们来讲", "kiwi · 本人口述、有更正、无中文", "beanie · 自选头像", "sev7n · 测试网项目"],
+    src: "仅设计稿：故事文件，就是普通的 Markdown，在 GitHub 上也能好好读",
+    home_ghost: "… 首页：hero、分类滚动条、减半条、从这里开始（猜你喜欢 · 最新收录 · 独立建设者）…",
+    home_ghost2: "… 生态地图 …",
+    home_none: "还没有故事：不显示该区块，「从这里开始」之后直接是生态地图。",
+    hb_h: "建设者故事", hb_p: "每月认识一位在 CKB 上做东西的人。",
+    p_with: "有故事", p_none: "没有故事",
+    p_site: "官网", p_verified: "核实于 {d}",
+    badge: "读读 {n} 的故事",
+    p_ghost: "… 介绍、动态、合约、审计、相似项目 …",
+    ann: "由 story 的 project 字段推导。有多篇时：显示最新一篇，并附「还有 1 篇」。",
+    og_a: "英文", og_b: "中文页面", og_c: "另一期：只有期数和文字会变",
+    kick: "建设者故事 // 第 {n} 期",
+  },
+};
+
+let lang = "en", count = "many", homeState = "with", headline = "a", current = STORIES[0].slug;
+const t = (k, v = {}) => String(T[lang][k]).replace(/\{(\w+)\}/g, (_, x) => v[x]);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const L = (x, l = lang) => (typeof x === "string" ? x : x[l] || x.en);
+const byDate = [...STORIES].sort((a, b) => b.published.localeCompare(a.published));
+const content = (s, l = lang) => (l === "zh" && s.zh) || s.en;
+const isFallback = (s) => lang === "zh" && !s.zh;
+const minutes = (s) => s.mockMin; // the real site: 220 words/min (en), 400 characters/min (zh)
+
+function hash(str) { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } h ^= h >>> 13; h = Math.imul(h, 1274126177); h ^= h >>> 16; return h >>> 0; }
+function pop(x) { let n = 0; for (let i = 0; i < 15; i++) n += (x >> i) & 1; return n; }
+function icon(slug) {
+  let h = hash(slug), salt = 0;
+  while (pop(h & 32767) < 7 || pop(h & 32767) > 11) { salt++; h = hash(slug + salt); }
+  let r = "";
+  for (let y = 0; y < 5; y++) for (let x = 0; x < 3; x++) if ((h >> (y * 3 + x)) & 1) { r += `<rect x="${x + 0.06}" y="${y + 0.06}" width=".88" height=".88"/>`; if (x < 2) r += `<rect x="${4 - x + 0.06}" y="${y + 0.06}" width=".88" height=".88"/>`; }
+  return `<svg viewBox="0 0 5 5" fill="currentColor" aria-hidden="true">${r}</svg>`;
+}
+const person = (s, size = "") => `<div class="framed ${size}${s.person.avatar ? " photo" : ""}">${s.person.avatar ? AVATARS[s.person.avatar] : icon(s.person.name)}</div>`;
+const issueNo = (s) => [...byDate].reverse().indexOf(s) + 1;
+const pad = (n) => String(n).padStart(2, "0");
+// Generated cover: the issue number in the slot. Same for every story, no photo needed.
+const cover = (s, size = "") => `<div class="cover ${size}" aria-hidden="true"><span class="cv-no wide">${pad(issueNo(s))}</span></div>`;
+const who = (s, link) => `<div class="whorow">${person(s, "sm")}${nm(s, link)}</div>`;
+const kick = (s) => `<p class="kick mono">${t("kick", { n: pad(issueNo(s)) })}</p>`;
+const proj = (slug, size = "") => `<div class="framed ${size}">${icon(slug)}</div>`;
+const ext = (href, label, cls = "lnk") => `<a class="${cls}" href="${esc(href)}" target="_blank" rel="noopener">${label}</a>`;
+const nm = (s, link) => `<span class="nm">${esc(s.person.name)}<i>//</i>${link ? `<a href="#project">${esc(PROJECTS[s.project].name)}</a>` : `<span>${esc(PROJECTS[s.project].name)}</span>`}</span>`;
+const dateLine = (s) => `<p class="date mono">${s.published} · ${t("min", { n: minutes(s) })}</p>`;
+const LINKS = { github: ["GitHub", "https://github.com/"], x: ["X", "https://x.com/"], telegram: ["Telegram", "https://t.me/"] };
+const personLinks = (s) => Object.entries(s.person.links || {}).map(([k, v]) => ext(LINKS[k][1] + v, LINKS[k][0])).join("");
+const emptySlot = () => `<div class="empty-slot"><strong class="semi">${t("slot_h")}</strong><p>${t("slot_p")}</p>
+    <div class="acts">${ext(SHARE, t("slot_issue"))}${ext(TALK_DM, t("slot_talk"))}</div><span>${t("reply")}</span></div>`;
+const pastList = (list) => `<ul class="past">${list.map((s) => { const c = content(s); return `<li><a href="#story" data-open="${s.slug}">${cover(s, "sm")}
+    <span>${nm(s)}<strong class="semi">${esc(c.title)}</strong><span class="dk">${esc(c.dek)}</span><span class="date mono">${s.published}</span></span></a></li>`; }).join("")}</ul>`;
+const previewBar = (label, items) => `<div class="on-dark" style="border-bottom:1px solid var(--line-d)"><div class="in preview" role="group" aria-label="Preview"><span>${label}</span>${items}</div></div>`;
+const pbtn = (attr, val, on, label) => `<button type="button" data-${attr}="${val}" aria-pressed="${on}">${label}</button>`;
+
+function storiesView() {
+  const list = count === "one" ? byDate.slice(0, 1) : byDate;
+  const [top, ...rest] = list;
+  const c = content(top);
+  return previewBar(t("preview"), pbtn("count", "many", count === "many", t("p_many")) + pbtn("count", "one", count === "one", t("p_one"))
+      + `<span style="margin-left:12px">${t("p_head")}</span>` + ["a", "b", "c"].map((h) => pbtn("head", h, headline === h, h.toUpperCase())).join(""))
+    + `<section class="s-hero on-dark"><div class="in">
+      <h1 class="wide">${HEADLINES[headline][lang]}</h1>
+      <p>${t("lead")}</p>
+      <div class="acts"><a class="btn lg" href="${SHARE}" target="_blank" rel="noopener">${t("share")}</a>${ext(TALK_DM, t("talk_dm"))}</div>
+    </div></section>
+    <div class="on-paper"><div class="in s-body"><div class="s-layout">
+      <div class="s-main">
+        <article class="latest">${cover(top, "lg")}<div>
+          ${kick(top)}
+          <h2 class="wide"><a href="#story" data-open="${top.slug}">${esc(c.title)}</a></h2>
+          <p class="dek">${esc(c.dek)}</p>
+          ${who(top)}
+          <p class="date mono" style="margin-top:8px">${top.published} · ${t("min", { n: minutes(top) })}</p>
+        </div></article>
+        ${rest.length ? `<h2 class="semi sub">${t("past")}</h2>${pastList(rest)}` : ""}
+        ${emptySlot()}
+      </div>
+      <aside class="about" aria-labelledby="about-h">
+        <h2 class="semi" id="about-h">${t("about_h")}</h2>
+        ${T[lang].about.map((x) => `<p>${x}</p>`).join("")}
+        <h3 class="semi">${t("bar_h")}</h3>
+        <ul>${T[lang].bar.map((x) => `<li>${x}</li>`).join("")}</ul>
+        <p class="disc">${t("disc")}</p>
+        <p style="margin:12px 0 0"><a class="rss" href="#">${t("rss")}</a></p>
+      </aside>
+    </div></div></div>`;
+}
+
+function block([k, v, cap], s) {
+  if (k === "p") return `<p>${esc(v)}</p>`;
+  if (k === "h") return `<h2 class="semi">${esc(v)}</h2>`;
+  if (k === "q") return `<blockquote class="pq"><p class="semi">${esc(v)}</p><footer>${esc(s.person.name)}</footer></blockquote>`;
+  if (k === "code") return `<pre><code>${esc(v)}</code></pre>`;
+  if (k === "img") return `<figure class="fig">${FIG[v]}<figcaption>${esc(cap)}</figcaption></figure>`;
+  return "";
+}
+
+function storyView() {
+  const s = STORIES.find((x) => x.slug === current);
+  const p = PROJECTS[s.project];
+  const c = content(s);
+  const fb = isFallback(s);
+  const n = esc(s.person.name);
+  const audit = p.audits[0];
+  const others = byDate.filter((x) => x !== s).slice(0, 2);
+  const errUrl = REPO + "/issues/new?" + new URLSearchParams({ title: `[story] ${s.en.title}: something's not right`, labels: "story" });
+  return previewBar(t("p_story"), STORIES.map((x, i) => pbtn("pick", x.slug, x === s, T[lang].ps[i])).join(""))
+    + `<section class="d-hero on-dark"><div class="in">
+      <a class="back" href="#stories">${t("back")}</a>
+      <div class="d-top">${cover(s, "xl")}<div${fb ? ' lang="en"' : ""}>
+        ${kick(s)}
+        <h1 class="wide">${esc(c.title)}</h1>
+        <p class="dek">${esc(c.dek)}</p>
+        ${who(s, true)}
+        ${dateLine(s)}
+      </div></div>
+    </div></section>
+    <div class="on-paper">
+      ${fb ? `<div class="note" role="note"><div class="in"><p>${t("fallback")}</p></div></div>` : ""}
+      <div class="in st-body">
+        <div>
+          <article class="prose"${fb ? ' lang="en"' : ""}>${c.body.map((b) => block(b, s)).join("")}</article>
+          ${s.help ? `<section class="help" aria-labelledby="help-h"><h2 class="semi" id="help-h">${t("help_h", { n })}</h2>
+            <ol>${s.help.map((h) => `<li>${esc(L(h))}</li>`).join("")}</ol>
+            <p class="reach">${personLinks(s)}${s.talk ? ext(s.talk, t("talk")) : ""}</p></section>` : ""}
+          <footer class="st-foot">
+            <p class="byline">${t(s.voice === "as-told-to" ? "by_told" : "by", { a: s.author, n })}</p>
+            <p class="date mono">${t("published", { d: s.published })}</p>
+            <p class="disc">${t("disc")}${s.disclosure ? " " + esc(L(s.disclosure)) : ""}</p>
+            ${s.corrections ? `<div class="corr"><h3 class="semi">${t("corr_h")}</h3><ul>${s.corrections.map((x) => `<li><span class="mono">${x.date}</span><span>${esc(L(x.note))}</span></li>`).join("")}</ul></div>` : ""}
+            <p class="disc">${t("err")} ${ext(errUrl, t("err_cta"))}</p>
+          </footer>
+        </div>
+        <aside class="card" aria-labelledby="card-h">
+          <section><h2 class="semi" id="card-h">${t("c_about", { n })}</h2><div class="row">${person(s, "md")}<strong>${esc(s.person.name)}</strong></div>
+            <div class="links"><span>${t("c_say")}</span>${personLinks(s)}</div></section>
+          <section><p class="builds">${t("c_builds")}</p><div class="row">${proj(s.project, "sm")}<strong class="semi">${esc(p.name)}</strong></div>
+            <ul class="pills"><li class="pill${p.testnet ? " net" : ""}">${t(p.testnet ? "testnet" : "mainnet")}</li>${p.cats.map((x) => `<li class="pill">${x[lang === "zh" ? 1 : 0]}</li>`).join("")}</ul>
+            <p class="fact">${audit ? t("audited", { l: esc(audit.label), d: audit.date.slice(0, 7) }) : t("no_audit")}</p>
+            <a class="lnk" href="#project">${t("c_page", { p: esc(p.name) })}</a></section>
+          ${s.talk ? `<section>${ext(s.talk, t("talk"))}</section>` : ""}
+        </aside>
+      </div>
+      <section class="more" aria-labelledby="more-h"><div class="in"><div>
+        <div><div class="more-h"><h2 class="semi" id="more-h">${t("more_h")}</h2><a class="lnk" href="#stories">${t("all")}</a></div>${pastList(others)}</div>
+        ${emptySlot()}
+      </div></div></section>
+    </div>
+    ${sourcePanel(s)}`;
+}
+
+function md(body) {
+  return body.map(([k, v, cap]) => k === "h" ? "## " + v : k === "q" ? "> " + v : k === "img" ? `![${cap}](./${v === "sync" ? "shot-1" : "photo-1"}.webp)` : k === "code" ? "```\n" + v + "\n```" : v).join("\n\n");
+}
+function sourcePanel(s) {
+  const y = (x) => JSON.stringify(x);
+  const fm = ["---", `title: ${y(s.en.title)}`, `dek: ${y(s.en.dek)}`, `project: ${s.project}`, "person:", `  name: ${s.person.name}`, ...(s.person.avatar ? ["  avatar: avatar.webp"] : []),
+    ...(s.person.links ? ["  links:", ...Object.entries(s.person.links).map(([k, v]) => `    ${k}: ${v}`)] : []),
+    ...(s.voice !== "narrative" ? [`voice: ${s.voice}`] : []), `author: ${s.author}`, `published: ${s.published}`,
+    ...(s.help ? ["help:", ...s.help.map((h) => `  - ${y(h.en)}`)] : []),
+    ...(s.disclosure ? [`disclosure: ${y(s.disclosure.en)}`] : []), ...(s.talk ? [`talk: ${s.talk}`] : []),
+    ...(s.corrections ? ["corrections:", ...s.corrections.flatMap((x) => [`  - date: ${x.date}`, `    note: ${y(x.note.en)}`])] : []), "---", ""].join("\n");
+  const zh = s.zh ? ["---", `title: ${y(s.zh.title)}`, `dek: ${y(s.zh.dek)}`, "---", "", md(s.zh.body)].join("\n") : "(none: /zh shows the English text)";
+  return `<details class="draftsrc"><summary class="in">${t("src")}</summary><div class="in cols">
+      <div><h3>content/stories/${s.slug}/en.md</h3><pre>${esc(fm + md(s.en.body))}</pre></div>
+      <div><h3>content/stories/${s.slug}/zh.md</h3><pre>${esc(zh)}</pre></div>
+    </div></details>`;
+}
+
+function homeView() {
+  const s = byDate[0], c = content(s);
+  return previewBar(t("preview"), pbtn("home", "with", homeState === "with", t("p_with")) + pbtn("home", "none", homeState === "none", t("p_none")))
+    + `<div class="on-paper">
+      <div class="in" style="padding-block:40px"><p class="ghost">${t("home_ghost")}</p></div>
+      ${homeState === "none" ? `<div class="in" style="padding-bottom:40px"><p class="ghost">${t("home_none")}</p></div>` : `<section class="hb" aria-labelledby="hb-h"><div class="in">
+        <div class="hb-h"><div><h2 class="wide" id="hb-h">${t("hb_h")}</h2><p>${t("hb_p")}</p></div><a class="lnk" href="#stories">${t("all")}</a></div>
+        <div class="hb-grid">
+          <a class="hcard" href="#story" data-open="${s.slug}"${isFallback(s) ? ' lang="en"' : ""}>${cover(s, "md")}
+            <span>${kick(s)}<strong class="semi">${esc(c.title)}</strong><p class="dek">${esc(c.dek)}</p>${who(s)}</span>
+          </a>
+          ${emptySlot()}
+        </div>
+      </div></section>`}
+      <div class="in" style="padding-block:40px"><p class="ghost">${t("home_ghost2")}</p></div>
+    </div>`;
+}
+
+function projectView() {
+  const p = PROJECTS.pinecell, s = STORIES[0], c = content(s);
+  return `<section class="p-hero on-dark"><div class="in">
+      <a class="back" href="#home">${T[lang].nav[1]}</a>
+      <div class="p-top">${proj("pinecell", "lg")}<div>
+        <h1 class="wide">${p.name}</h1>
+        <ul class="pills"><li class="pill">${lang === "zh" ? "钱包" : "Wallets"}</li><li class="pill">${p.cats[0][lang === "zh" ? 1 : 0]}</li></ul>
+        <p class="tag">${p.tagline[lang === "zh" ? 1 : 0]}</p>
+        <div class="acts"><a class="btn" href="#">${t("p_site")}</a><a class="lnk" href="#">X</a><a class="lnk" href="#">GitHub</a></div>
+        <a class="sbadge" href="#story" data-open="${s.slug}">${person(s, "sm")}<span><small>${t("badge", { n: esc(s.person.name) })}</small><strong class="semi">${esc(c.title)}</strong></span></a>
+        <p class="ann">${t("ann")}</p>
+        <p class="line mono">pinecell.example · ${t("p_verified", { d: p.verified })}</p>
+      </div></div>
+    </div></section>
+    <div class="on-paper"><div class="in" style="padding-block:40px"><p class="ghost">${t("p_ghost")}</p></div></div>`;
+}
+
+function ogCard(s, l) {
+  const c = content(s, l);
+  return `<div class="og"><div class="fr">
+      <div class="txt">
+        <div class="brandline">CKB<b>DAPPS</b><span>${l === "zh" ? "建设者故事" : "Builder Stories"}</span></div>
+        <h2 class="wide" lang="${l === "zh" && s.zh ? "zh" : "en"}">${esc(c.title)}</h2>
+        <div class="who">${l === "zh" ? `第 ${pad(issueNo(s))} 期` : `No. ${pad(issueNo(s))}`}<i>//</i>${esc(s.person.name)}<i>//</i><span>${esc(PROJECTS[s.project].name)}</span></div>
+      </div>
+      ${cover(s, "og")}
+    </div></div>`;
+}
+function ogView() {
+  return `<section class="og-view on-dark"><div class="in">
+      <figure>${ogCard(STORIES[0], "en")}<figcaption>${t("og_a")} · 1200×630 · /en/stories/${STORIES[0].slug}/opengraph-image</figcaption></figure>
+      <figure>${ogCard(STORIES[0], "zh")}<figcaption>${t("og_b")} · /zh/stories/${STORIES[0].slug}/opengraph-image</figcaption></figure>
+      <figure>${ogCard(STORIES[1], "en")}<figcaption>${t("og_c")} · /en/stories/${STORIES[1].slug}/opengraph-image</figcaption></figure>
+    </div></section>`;
+}
+
+function render() {
+  const view = (location.hash || "#stories").slice(1);
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+  document.getElementById("draftNote").textContent = t("draft");
+  document.getElementById("vLabel").textContent = t("views");
+  document.querySelectorAll(".views a").forEach((a) => { a.textContent = t("v_" + a.dataset.v); a.removeAttribute("aria-current"); if (a.dataset.v === view) a.setAttribute("aria-current", "page"); });
+  document.querySelectorAll(".lang button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.l === lang));
+  const active = view === "stories" || view === "story" ? 2 : view === "home" ? 0 : view === "project" ? 1 : -1;
+  document.getElementById("nav").innerHTML = T[lang].nav.map((n, i) => `<a href="${i === 2 ? "#stories" : i === 0 ? "#home" : "#"}"${i === active ? ' aria-current="page"' : ""}>${n}</a>`).join("");
+  document.getElementById("foot").innerHTML = `<span>${t("foot")}</span><a href="${REPO}" target="_blank" rel="noopener" style="color:#fff">${REPO.replace("https://", "")}</a>`;
+  const views = { story: storyView, home: homeView, project: projectView, og: ogView };
+  document.getElementById("app").innerHTML = (views[view] || storiesView)();
+}
+
+document.addEventListener("click", (e) => {
+  const o = e.target.closest("[data-open]");
+  if (o) { current = o.dataset.open; if (location.hash === "#story") { e.preventDefault(); render(); scrollTo(0, 0); } return; }
+  const pk = e.target.closest("[data-pick]"); if (pk) { current = pk.dataset.pick; render(); return; }
+  const c = e.target.closest("[data-count]"); if (c) { count = c.dataset.count; render(); return; }
+  const hd = e.target.closest("[data-head]"); if (hd) { headline = hd.dataset.head; render(); return; }
+  const h = e.target.closest("[data-home]"); if (h) { homeState = h.dataset.home; render(); return; }
+  const l = e.target.closest("[data-l]"); if (l) { lang = l.dataset.l; render(); }
+});
+addEventListener("hashchange", () => { render(); scrollTo(0, 0); });
+render();
+</script>
+</body>
+</html>
