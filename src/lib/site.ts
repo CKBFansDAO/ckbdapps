@@ -16,8 +16,7 @@ export const alternates = (locale: string, path: string) => ({
   languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}${path}`])),
 });
 
-/** "Share your story": a GitHub issue form, or a private message to Yixiu for anyone without GitHub. */
-export const STORY_ISSUE_URL = `${REPO_URL}/issues/new?template=builder-story.yml`;
+/** Invite builders to share their story privately with Yixiu. */
 export const STORY_TALK_URL = `https://talk.nervos.org/new-message?${new URLSearchParams({ username: "yixiu.ckbfans.bit", title: "My Builder Story" })}`;
 /** Prefilled issue for a factual error in a published story. */
 export const storyErrorUrl = (title: string) =>

@@ -1,9 +1,9 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { STORY_TALK_URL } from "@/lib/site";
 
 const BAR = ["sy_bar_1", "sy_bar_2", "sy_bar_3"] as const;
 
-/** How stories are picked, who we look for, and that a story is not an endorsement: always readable, never folded away. */
 export function AboutStories({ feed }: { feed: string }) {
   const t = useTranslations();
   return (
@@ -12,7 +12,8 @@ export function AboutStories({ feed }: { feed: string }) {
         {t("sy_about_h")}
       </h2>
       <p className="mt-0 mb-2.5 text-[.95rem]">{t("sy_about_1")}</p>
-      <p className="mt-0 mb-0 text-[.95rem]">{t("sy_about_2")}</p>
+      <p className="mt-0 mb-2.5 text-[.95rem]">{t("sy_about_2")}</p>
+      <p className="m-0 text-[.95rem]">{t.rich("sy_about_3", { strong: (c) => <strong>{c}</strong> })}</p>
       <h3 className="semi mt-6 mb-2.5 text-base">{t("sy_bar_h")}</h3>
       <ol className="m-0 grid list-none gap-2.5 p-0">
         {BAR.map((k, i) => (
@@ -37,6 +38,11 @@ export function AboutStories({ feed }: { feed: string }) {
         <a href={feed} className="linkbtn font-mono text-[.82rem]">
           {t("sy_rss")}
         </a>
+      </p>
+      <p className="mt-5 mb-0 border-t border-line pt-4 text-[.95rem]">
+        {t.rich("sy_invite", {
+          dm: (c) => <a href={STORY_TALK_URL} className="linkbtn" target="_blank" rel="noopener">{c}</a>,
+        })}
       </p>
     </aside>
   );

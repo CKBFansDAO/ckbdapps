@@ -7,7 +7,7 @@ import { StorySlot } from "@/components/stories/StorySlot";
 import { Slot } from "@/components/ui/Slot";
 import { SlotButton } from "@/components/ui/SlotButton";
 import { loadStories, storyCard } from "@/lib/content/stories";
-import { alternates, SITE_URL, STORY_ISSUE_URL, STORY_TALK_URL } from "@/lib/site";
+import { alternates, SITE_URL, STORY_TALK_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "zh" }];
@@ -57,13 +57,10 @@ export default async function StoriesPage() {
             {t.rich("sy_h1", { slot: (c) => <Slot>{c}</Slot> })}
           </h1>
           <p className="mt-6 mb-0 max-w-[58ch] text-[1.15rem] text-mut">{t("sy_lead")}</p>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <SlotButton big href={STORY_ISSUE_URL}>
-              {t("sy_share")}
-            </SlotButton>
-            <a className="linkbtn" href={STORY_TALK_URL} target="_blank" rel="noopener">
+          <div className="mt-8">
+            <SlotButton big href={STORY_TALK_URL}>
               {t("sy_talk_dm")}
-            </a>
+            </SlotButton>
           </div>
           <p className="mt-4 mb-0 text-[.92rem] text-mut">{t("sy_reply")}</p>
         </div>
@@ -81,9 +78,7 @@ export default async function StoriesPage() {
             )}
             <StorySlot className="mt-12 max-w-[600px]" />
           </div>
-          <div className="lg:sticky lg:top-[calc(var(--hh)+24px)]">
-            <AboutStories feed={feedPath(locale)} />
-          </div>
+          <AboutStories feed={feedPath(locale)} />
         </div>
       </section>
     </main>
