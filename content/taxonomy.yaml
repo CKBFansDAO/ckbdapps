@@ -28,6 +28,7 @@ categories:
   - { id: Bridges, zh: 跨链桥, group: apps }
   - { id: Intent-centric, zh: 意图驱动, group: apps }
   - { id: Nervos DAO, zh: Nervos DAO, group: apps }
+  - { id: Game, zh: 游戏, group: apps }
   # assets
   - { id: DOBs, zh: DOBs, group: assets }
   - { id: NFT, zh: NFT, group: assets }
