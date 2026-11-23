@@ -24,12 +24,12 @@ Time comes from a recent block header carried by the transaction. Planting recor
 
 The contracts are `no_std` Rust built for CKB-VM, and the web client runs the same farm-core Rust compiled to WebAssembly, so the rules it shows are the ones the script enforces. It connects wallets with CCC, including JoyID, MetaMask, OKX and UniSat. A new farm locks about 332 CKB; the cell is destroyed and the CKB returned when the owner closes the farm.
 
-# Try it first on testnet
-
-There is a separate testnet build at [ckb-farm-testnet.pages.dev](https://ckb-farm-testnet.pages.dev/), where the same free rules run without committing real CKB to a new game. The testnet and mainnet are separate worlds: farms, crops, gold and dog food do not carry over, and a farm opened on one does not appear on the other. A testnet farm needs testnet CKB for its deposit and fees, which you can get from the [Nervos faucet](https://faucet.nervos.org/).
-
 # Trust model and status
 
 The code cell has a fixed type id and can be upgraded in place by the deployment key, so every farm runs the new rules from the next transaction. The lock on that code cell is an administrator key: its holder can ship rules that hurt existing farms, or burn the code cell and freeze every farm's capacity for good. The type-id validator guarantees a single code identity and no forged copy, not that an upgrade is benign. The live binary's rules cannot move farm capacity out, but an upgrade could change that. This is a game with concentrated, on-chain-visible upgrade power, not one nobody can change.
 
 Two high-severity risks remain in the project's own audit baseline. The deployment key can replace the code cell with rules that move farm capacity, or burn the cell and freeze every farm; and an ACP-locked farm can be force-closed for about 1 CKB of profit. The project says the tip-close bug is fixed, that its official client refuses ACP, AnyoneCanPay and AlwaysSuccess addresses when creating a farm, and that three medium issues are fixed in the deployed binary. The contract-level ACP path is still open to third-party clients. Four AI model audits (Gemini 4 Neon, Qwen4 Max, Claude Fable 5.2 and GLM-5.3-Flash) produced these reports, not a third-party audit firm, and the README calls the game experimental.
+
+# Try it on testnet
+
+There is a separate testnet build at [ckb-farm-testnet.pages.dev](https://ckb-farm-testnet.pages.dev/), where the same free rules run without committing real CKB to a new game. The testnet and mainnet are separate worlds: farms, crops, gold and dog food do not carry over, and a farm opened on one does not appear on the other. A testnet farm needs testnet CKB for its deposit and fees, which you can get from the [Nervos faucet](https://faucet.nervos.org/).
